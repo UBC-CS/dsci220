@@ -127,3 +127,10 @@ dmypy.json
 
 # R user settings
 .Rproj.user
+
+# Quarto project files
+/.quarto/
+
+# Jupyter Book and Quarto outputs
+/_build/
+/_site/
