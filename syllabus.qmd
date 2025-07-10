@@ -1,0 +1,40 @@
+---
+title: "Syllabus"
+---
+
+# Introduction
+
+## Land Acknowledgement
+
+UBC's Point Grey Campus is located on the traditional, ancestral, and unceded territory of the [xʷməθkʷəy̓əm (Musqueam)](https://www.musqueam.bc.ca/) people.
+The land it is situated on has always been a place of learning for the Musqueam people, who for millennia have passed on their culture, history, and traditions from one generation to the next on this site.
+
+## TL;DR
+
+## Instructor information
+
+Hi 👋,
+
+My name is Stephan Koenig, I use [He, Him pronouns](https://equity.ubc.ca/resources/gender-diversity/pronouns/), and I am a son, brother, cousin, husband, and father.
+I am an evolutionary biologist by training and a self-taught data scientist, a jack of all trades and master of none, a teacher and a student.
+I previously worked as a PostDoc Teaching and Learning Fellow in the Microbiology and Immunology Department at the University of British Columbia (UBC), coordinating the [EDUCE initiative](https://educe-ubc.github.io).
+As a [Skylight](https://skylight.science.ubc.ca) Science Education Specialist in the Computer Science Department at UBC, I think about how modern computational tools can enhance teaching and learning.
+I often fantasize about unshackling files from directories and love the colour orange, pour-over coffee & Markdown.
+
+## Course description and learning objectives
+
+## Textbook / lecture material
+
+## iClicker
+
+## Course requirements
+
+## Course content and schedule
+
+## Copyright
+
+## Grading and exam policies
+
+## Accessibility
+
+## Academic misconduct

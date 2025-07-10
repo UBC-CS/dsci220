@@ -1,0 +1,18 @@
+course:
+  code: "CPSC 203"
+  title: "Programming, problem solving, and algorithms"
+  full-title: "{{< var course.code >}}: {{< var course.title >}}"
+  term: "2025 W2"
+  website: "https://ubc-cs.github.io/cpsc203"
+  repo: "https://github.com/UBC-CS/cpsc203"
+  lms: "https://canvas.ubc.ca/courses/130127"
+  prairielearn: "https://us.prairielearn.com/pl/course_instance/172874"
+instructor:
+  name: "Dr. Ian Mitchell"
+  pronouns: "He, Him"
+icon:
+  computer-activity: "{{< iconify fa6-solid laptop-code >}}"
+  lms: "{{< iconify simple-icons:canvas >}}"
+  resource: "{{< iconify fa6-solid bookmark >}}"
+  task: "{{< iconify fa6-solid list-check >}}"
+  video-activity: "{{< iconify fa6-solid circle-play >}}"
