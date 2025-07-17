@@ -1,15 +1,15 @@
 course:
-  code: "CPSC 203"
-  title: "Programming, problem solving, and algorithms"
+  code: "DSCI 220"
+  title: "Discrete Math for Data Science"
   full-title: "{{< var course.code >}}: {{< var course.title >}}"
-  term: "2025 W2"
-  website: "https://ubc-cs.github.io/cpsc203"
-  repo: "https://github.com/UBC-CS/cpsc203"
-  lms: "https://canvas.ubc.ca/courses/130127"
+  term: "2025 W1"
+  website: "https://ubc-cs.github.io/dsci220"
+  repo: "https://github.com/UBC-CS/dsci220  "
+  lms: "https://canvas.ubc.ca/courses/XXXXXX"
   prairielearn: "https://us.prairielearn.com/pl/course_instance/172874"
 instructor:
-  name: "Dr. Ian Mitchell"
-  pronouns: "He, Him"
+  name: "Cinda Heeren"
+  pronouns: "She, Her"
 icon:
   computer-activity: "{{< iconify fa6-solid laptop-code >}}"
   lms: "{{< iconify simple-icons:canvas >}}"

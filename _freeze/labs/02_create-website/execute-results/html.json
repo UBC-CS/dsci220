@@ -1,0 +1,15 @@
+{
+  "hash": "55e98fe6a361a62cf03d6ef3e5c54171",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"{{< var icon.computer-activity >}} Lab: Create your own website!\"\n---\n\n\n::: {.cell}\n\n:::\n\n\n## Basic structure of Quarto document\n\nWe are going to create a website using a Quarto.\nQuarto documents are a mix of natural language and executed code and this pattern is called **literate programming**.\nA Quarto document usually contains:\n\n-   Text formatted in Markdown.\n-   Code is fenced as code chunk between ```` ```{r} ```` and ```` ``` ````.\n-   Metadata as YAML with the format `key: value`. You can find metadata in the header of the document fenced by `---`, or in code chunks starting with `#|`.\n\n```` markdown\n---\ntitle: \"Untitled\"\nformat: html\n---\n\n## Quarto\n\nQuarto enables you to weave together content and executable code into\na finished document. To learn more about Quarto see <https://quarto.org>.\n\n```{{r}}\n#| label: calculation\n\n1 + 1\n```\n````\n\n## {{< var icon.task >}} Steps\n\n-   [ ] Open your workspace: [skng.de/mbim/td-padlet](https://skng.de/mbim/td-padlet).\n-   [ ] Create `index.qmd`.\n-   [ ] Click the \"Render\" button on top.\n-   [ ] Download the output directory `_site`.\n-   [ ] Open Netlify Drop: [app.netlify.com/drop](https://app.netlify.com/drop).\n-   [ ] Drag and drop the downloaded `_site` onto Netlify Drop.\n-   [ ] Post the link to your website in the comments below or on our Padlet: [skng.io/mbim/td-padlet](https://skng.io/mbim/td-padlet)\n\n## {{< var icon.resource >}} Resources\n\n-   [Daring Fireball: Markdown](https://daringfireball.net/projects/markdown/)\n-   [Interactive Commonmark Markdown tutorial](https://commonmark.org/help/tutorial/)\n-   [Quarto documentation](https://quarto.org/)\n-   [Get started with Quarto Workshop](https://rstudio-conf-2022.github.io/get-started-quarto/) including the [material](https://github.com/jthomasmock/quarto-workshop) and this video:\n\n{{< video https://www.youtube.com/embed/yvi5uXQMvu4?si=kpSWaw19CudBB_uu >}}\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

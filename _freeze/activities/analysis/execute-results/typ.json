@@ -1,0 +1,15 @@
+{
+  "hash": "91e3f9db80fde1dc8cc1602898763593",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Species richness analysis\"\nformat: typst\n---\n\n# Identifying species in microbial communities\n\nTo describe the species found in a microbial community, we isolate the DNA of a sample and then amplify and sequence a suitable barcoding marker, typically the 16S rRNA gene. We then group all similar sequences into so-called **amplicon sequence variants (ASV)**. For our purposes here, we assume that *each ASV corresponds to a bacterial species*. By counting the number of each ASV in each sample, we get an ASV counts table (@tbl-asv-counts).\n\n\n::: {#tbl-asv-counts .cell tbl-cap='ASV counts of samples collected at different depths of a lake.'}\n::: {.cell-output .cell-output-stdout}\n\n```\n   name depth_10_m depth_20_m\n1 ASV_1         28         14\n2 ASV_2          5         12\n3 ASV_3          0          3\n4 ASV_4         14         41\n5 ASV_5         18         28\n```\n\n\n:::\n:::\n\n\n## Species richness\n\nA simple way of characterizing a microbial community is to count how many species/ASVs we have in a sample. This metric is called **species richness**. For example, to determine the species richness of the water sample at 10 m, we can select just that column, filter the rows for ASVs with one or more counts, and then count the number of rows.\n\n\n::: {.cell}\n\n```{.r .cell-code}\nspecies_richness_10_m <- asv_counts |>  # Use the ASV counts table.\n  select(depth_10_m) |>                 # Select the sample of interest.\n  nrow()                                # Count the number of rows.\n```\n:::\n\n\nThe water sample at 10 m has a species richness of 5.\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": null,
+    "postProcess": false
+  }
+}
