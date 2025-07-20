@@ -212,9 +212,58 @@ Discussion points:
 
 * $\equiv$ means _logically equivalent_
 
-* The answer had better be <b>YES!</b>
+* The answer had better be _________!!!
 
 * How can we justify our instinct?
+
+<!-- 1) show same truth table 2) chains of equivalence -->
+<!-- same as saying "write a proof" -->
+
+## Logical Equivalence example
+
+```{pyodide}
+#| setup: true
+#| exercise: ex_cereal
+import pandas as pd
+import numpy as np
+from sklearn.preprocessing import StandardScaler
+import kagglehub
+
+# Download latest version
+path = kagglehub.dataset_download("crawford/80-cereals")
+
+print("Path to dataset files:", path)
+# Load and prepare data
+cereals = pd.read_csv('https://www.kaggle.com/api/v1/datasets/download/crawford/80-cereals')
+# cereals = cereals.dropna()
+cereals
+```
+
+```{pyodide}
+#| exercise: ex_cereal
+filtered_df = cereal[______]
+filtered_df
+```
+```{pyodide}
+#| exercise: ex_cereal
+#| check: true
+correct_answer = cereals[(cereals['name'] == 'Gentoo') & (cereals['body_mass_g'] > 5000)]
+if len(result) == len(correct_answer) and all(result.index == correct_answer.index):
+ feedback = {
+ "correct": True,
+ "message": "Perfect! You correctly filtered for Gentoo penguins over 5000g."
+ }
+else:
+ feedback = {
+ "correct": False,
+ "message": "Not quite. Make sure you're using both conditions: species=='Gentoo' and body_mass_g>5000"
+ }
+ feedback
+ ```
+
+
+
+
 
 
 

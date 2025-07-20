@@ -23,8 +23,8 @@ website:
     University of British Columbia
   open-graph: true
   twitter-card: true
-  site-url: "https://ubc-cs.github.io/cpsc203"
-  repo-url: "https://github.com/UBC-CS/cpsc203"
+  site-url: "https://ubc-cs.github.io/dsci220"
+  repo-url: "https://github.com/UBC-CS/dsci220"
   repo-actions: [source, edit, issue]
   bread-crumbs: false
 

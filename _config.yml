@@ -37,7 +37,7 @@ html:
 #   thebe              : true
 
 repository: 
-  url          : https://github.com/UBC-CS/cpsc203
+  url          : https://github.com/UBC-CS/dsci220
   path_to_book : ""
   branch       : main
 
@@ -60,19 +60,17 @@ sphinx:
 
     myst_substitutions:
       # Instructor information
-      INSTRUCTOR: "Ian M. Mitchell (he/his/him)"
-      PRONOUNCE: "ee-en mitch-ell"
-      OFFICE: "ICCS 223"
-      PHONE: "N/A"
+      INSTRUCTOR: "Cinda Heeren (she/her)"
+      OFFICE: "ICCS 233"
 
       # Course Information
-      COURSE_CODE: "CPSC 203"
-      SECTION: "201"
+      COURSE_CODE: "DSCI 220"
+      SECTION: "101"
       CREDITS: "3"
-      TITLE: "Programming, Problem Solving, and Algorithms"
+      TITLE: "Discrete Math for Data Science"
       PREREQS: "Pre-reqs: One of CPSC 103, CPSC 110, APSC 160, EOSC 211, MATH 210, PHYS 210, COMM 337."
       COREQS: "N/A"
-      TERM: "2024 Winter Term 2"
+      TERM: "2025 Winter Term 1"
       ROOM: "SWNG 221"
       MEETING_TIMES: "Tuesday, Thursday from 12:30 -14:00"
       # FORMAT: "Lectures, Labs, Tutorials will all be running in-person."
