@@ -1,0 +1,1615 @@
+[
+  {
+    "objectID": "syllabus.html",
+    "href": "syllabus.html",
+    "title": "Syllabus",
+    "section": "",
+    "text": "UBC’s Point Grey Campus is located on the traditional, ancestral, and unceded territory of the xʷməθkʷəy̓əm (Musqueam) people. The land it is situated on has always been a place of learning for the Musqueam people, who for millennia have passed on their culture, history, and traditions from one generation to the next on this site.\n\n\n\n\n\n\nMy name is Cinda Heeren, I use She, Her pronouns insert short bio here.",
+    "crumbs": [
+      "Course information",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "syllabus.html#land-acknowledgement",
+    "href": "syllabus.html#land-acknowledgement",
+    "title": "Syllabus",
+    "section": "",
+    "text": "UBC’s Point Grey Campus is located on the traditional, ancestral, and unceded territory of the xʷməθkʷəy̓əm (Musqueam) people. The land it is situated on has always been a place of learning for the Musqueam people, who for millennia have passed on their culture, history, and traditions from one generation to the next on this site.",
+    "crumbs": [
+      "Course information",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "syllabus.html#instructor-information",
+    "href": "syllabus.html#instructor-information",
+    "title": "Syllabus",
+    "section": "",
+    "text": "My name is Cinda Heeren, I use She, Her pronouns insert short bio here.",
+    "crumbs": [
+      "Course information",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "slides/09_web-as-data.html#announcements",
+    "href": "slides/09_web-as-data.html#announcements",
+    "title": "Discrete Math for Data Science",
+    "section": "Announcements",
+    "text": "Announcements"
+  },
+  {
+    "objectID": "slides/09_web-as-data.html#information-as-data",
+    "href": "slides/09_web-as-data.html#information-as-data",
+    "title": "Discrete Math for Data Science",
+    "section": "Information as data",
+    "text": "Information as data\n\n\n\n\n\n\nhttps://vanmapp1.vancouver.ca/gmaps/covmap.htm?map=parks_areas\nhttps://www.geocaching.com/play/map?lat=49.23710338135142&lng=-123.1318473815918&zoom=13&asc=true&sort=distance&st=vancouver%2C+British+Columbia"
+  },
+  {
+    "objectID": "slides/09_web-as-data.html#cpsc-103-to-203",
+    "href": "slides/09_web-as-data.html#cpsc-103-to-203",
+    "title": "Discrete Math for Data Science",
+    "section": "CPSC 103 to 203",
+    "text": "CPSC 103 to 203"
+  },
+  {
+    "objectID": "slides/09_web-as-data.html#the-internet",
+    "href": "slides/09_web-as-data.html#the-internet",
+    "title": "Discrete Math for Data Science",
+    "section": "The internet…",
+    "text": "The internet…\n\nChange this into an activity. Have students draw a diagram of how they think the WWW works. THEN discuss. (Use doc cam, bring pencils, etc).\n\nThe end user opens a web browser and types in a URL, which is the name of the website they are wanting to see.\nThe URL request is sent through their LAN to their internet service provider.\nThe internet service provider then sends the URL requested to an external DNS server, which is either hosted by them or by who ever provides their internet access.\nThe external DNS server then matches the URL up with the external IP Address assigned to the LAN hosting that website and the request is then sent on to that network.\nThe network hosting that website accepts the request and then sends it to its own internal DNS server.\nThe internal DNS server matches the URL requested to the internal IP address of the actual web server where the files making up the website are physically stored.\nThe request is then sent to the web server and the web server packages up the files that make up the website requested.\nThe website that is all packaged up now makes the return trip in reverse all the way back to the computer that originally made the request.\nThe web browser on that computer then interprets the text files full of computer code sent to it by the web server hosting the site and displays them as a graphic website."
+  },
+  {
+    "objectID": "slides/09_web-as-data.html#billboard-hot-100",
+    "href": "slides/09_web-as-data.html#billboard-hot-100",
+    "title": "Discrete Math for Data Science",
+    "section": "Billboard Hot 100",
+    "text": "Billboard Hot 100\nNavigate to https://www.billboard.com/charts/hot-100\n\n\nWhat happens to the URL if you load a past week? ______\n\n\nWhat happens to the page if you substitute a different date into the URL?\n________________________________________________\n\n\nWrite one question you would like to ask of this data:\n________________________________________________\n\nURL gets you there, menu items give you new queries you can ask of the website!\nFill in: it changes to a new page; it chooses the closest date"
+  },
+  {
+    "objectID": "slides/09_web-as-data.html#anatomy-of-html",
+    "href": "slides/09_web-as-data.html#anatomy-of-html",
+    "title": "Discrete Math for Data Science",
+    "section": "Anatomy of HTML",
+    "text": "Anatomy of HTML\n&lt;!DOCTYPE html&gt;\n&lt;html&gt;\n&lt;head&gt;\n    &lt;title&gt;The Dormouse's story&lt;/title&gt;\n&lt;/head&gt;\n&lt;body&gt;\n    &lt;p class=\"title\"&gt;\n        &lt;b&gt;The Dormouse's story&lt;/b&gt;\n    &lt;/p&gt;\n    &lt;p class=\"story\"&gt;\n        Once upon a time there were two little sisters. Their names were \n        &lt;a href=\"http://example.com/elsie\" class=\"sister\" id=\"link1\"&gt;Elsie&lt;/a&gt;, \n        and &lt;a href=\"http://example.com/lacie\" class=\"sister\" id=\"link2\"&gt;Lacie&lt;/a&gt;, \n        and they lived at the bottom of a well.\n    &lt;/p&gt;\n&lt;/body&gt;\n&lt;/html&gt;\n\nWalkthrough of how tags are like parentheses around text elements.\nPython can be used to extract data from the HTML source."
+  },
+  {
+    "objectID": "slides/09_web-as-data.html#billboard-hot-100-page-source",
+    "href": "slides/09_web-as-data.html#billboard-hot-100-page-source",
+    "title": "Discrete Math for Data Science",
+    "section": "Billboard Hot 100 page source",
+    "text": "Billboard Hot 100 page source\n&lt;div class=\"chart-list-item piano-content-overlay__gated-item\" data-rank=\"49\" data-artist=\"Taylor Swift\" data-title=\"Lover\" data-has-content=\"true\"&gt;\n    &lt;div class=\"chart-list-item__first-row chart-list-item__cursor-pointer\"&gt;\n        &lt;div class=\"chart-list-item__position chart-list-item__position--centered\"&gt;\n            &lt;div class=\"chart-list-item__rank\"&gt;49&lt;/div&gt;\n            &lt;div class=\"chart-list-item__award\"&gt;&lt;/div&gt;\n        &lt;/div&gt;\n        &lt;div class=\"chart-list-item__image-wrapper\"&gt;\n            &lt;div class=\"chart-list-item__trend-icon\"&gt;\n                &lt;img src=\"https://assets.billboard.com/assets/1568911107/images/charts/arrow-down.svg?df89925e3b37f64521bd\"\n                     srcset=\"https://assets.billboard.com/assets/1568911107/images/charts/arrow-down-mobile.svg?df89925e3b37f64521bd 30w, https://assets.billboard.com/assets/1568911107/images/charts/arrow-down.svg?df89925e3b37f64521bd 38w\"\n                     sizes=\"(min-width: 768px) 38px, 30px\"&gt;\n            &lt;/div&gt;\n            &lt;img src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==\"\n                 data-src=\"https://charts-static.billboard.com/img/2019/08/taylor-swift-p7u-lover-tuk-53x53.jpg\"\n                 data-srcset=\"https://charts-static.billboard.com/img/2019/08/taylor-swift-p7u-lover-tuk-53x53.jpg 53w, https://charts-static.billboard.com/img/2019/08/taylor-swift-p7u-lover-tuk-106x106.jpg 106w, https://charts-static.billboard.com/img/2019/08/taylor-swift-p7u-lover-tuk-87x87.jpg 87w, https://charts-static.billboard.com/img/2019/08/taylor-swift-p7u-lover-tuk-174x174.jpg 174w\"\n                 sizes=\"(max-width: 767px) 72px, (min-width: 768px) 86px\"\n                 class=\"chart-list-item__image\"\n                 alt=\"Taylor Swift Lover Billboard Hot 100\"&gt;\n        &lt;/div&gt;\n        &lt;div class=\"chart-list-item__text-wrapper\"&gt;\n            &lt;div class=\"chart-list-item__text\"&gt;\n                &lt;div class=\"chart-list-item__title\"&gt;\n                    &lt;span class=\"chart-list-item__title-text\"&gt;\n                        Lover\n                    &lt;/span&gt;\n                &lt;/div&gt;\n                &lt;div class=\"chart-list-item__artist\"&gt;\n                    &lt;a href=\"/music/taylor-swift\"&gt;\n                        Taylor Swift\n                    &lt;/a&gt;\n                &lt;/div&gt;\n                &lt;div class=\"chart-list-item__lyrics\"&gt;\n                    &lt;a href=\"https://www.billboard.com/articles/news/lyrics/7950218/ready-for-it-taylor-swift-lyrics\"&gt;\n                        &lt;span class=\"hidden-mobile show-expanded-mobile-inline\"&gt;Song &lt;/span&gt;Lyrics\n                    &lt;/a&gt;\n                &lt;/div&gt;\n            &lt;/div&gt;\n        &lt;/div&gt;\n        &lt;div class=\"chart-list-item__chevron-wrapper\"&gt;\n            &lt;i class=\"fa fa-chevron-down\"&gt;&lt;/i&gt;\n        &lt;/div&gt;\n    &lt;/div&gt;\n    &lt;div class=\"chart-list-item__extra-info\"&gt;\n        &lt;div class=\"chart-list-item__extra-info-shadow\"&gt;&lt;/div&gt;\n        &lt;div class=\"chart-list-item__stats\"&gt;\n            &lt;div class=\"chart-list-item__stats-cell basic-user chart-list-item__stats-cell--first-cell\"&gt;\n                &lt;div class=\"chart-list-item__stats-icon fa fa-arrow-up fa-rotate-45\"&gt;&lt;/div&gt;\n                &lt;div class=\"chart-list-item__last-week\"&gt;23&lt;/div&gt;\n                LAST WEEK\n            &lt;/div&gt;\n            &lt;div class=\"chart-list-item__stats-cell basic-user\"&gt;\n                &lt;div class=\"chart-list-item__stats-icon fa fa-arrow-up fa-rotate-45\"&gt;&lt;/div&gt;\n                &lt;div class=\"chart-list-item__last-week\"&gt;10&lt;/div&gt;\n                TWO WEEKS AGO\n            &lt;/div&gt;\n            &lt;div class=\"chart-list-item__stats-cell basic-user\"&gt;\n                &lt;div class=\"chart-list-item__stats-icon fa fa-line-chart\"&gt;&lt;/div&gt;\n                &lt;div class=\"chart-list-item__weeks-at-one\"&gt;10&lt;/div&gt;\n                PEAK POSITION\n            &lt;/div&gt;\n            &lt;div class=\"chart-list-item__stats-cell basic-user chart-list-item__stats-cell--no-border-right\"&gt;\n                &lt;div class=\"chart-list-item__stats-icon fa fa-clock-o\"&gt;&lt;/div&gt;\n                &lt;div class=\"chart-list-item__weeks-on-chart\"&gt;4&lt;/div&gt;\n                WEEKS ON CHART\n            &lt;/div&gt;\n        &lt;/div&gt;\n    &lt;/div&gt;\n&lt;/div&gt;"
+  },
+  {
+    "objectID": "slides/09_web-as-data.html#beautiful-soup",
+    "href": "slides/09_web-as-data.html#beautiful-soup",
+    "title": "Discrete Math for Data Science",
+    "section": "Beautiful Soup",
+    "text": "Beautiful Soup\nReads the HTHL source into a data structure that’s easy to query!\nhttps://www.crummy.com/software/BeautifulSoup/bs4/doc/\n\n\nhtml = simple_get(\"https://www.billboard.com/charts/hot-100\" + '/' + date)\nmydivs = html.findAll(\"div\", {\"class\": \"chart-list-item\"}) // all the data is here!!\n\nfor div in mydivs:\n    s = Song(div.attrs['data-title'], div.attrs['data-artist'], int(div.attrs['data-rank']))\n\n\nStill too messy for us! Remedy? https://github.com/guoguo12/billboard-charts\n\nBeautiful is a library that allows us to create native Python structures (such as lists and dictionaries) from HTML sources. Still requires scrutiny of what we want. Instead use other library that anticipates what information we would like to extract from the Billboard charts."
+  },
+  {
+    "objectID": "slides/07_member-functions.html#announcements",
+    "href": "slides/07_member-functions.html#announcements",
+    "title": "Discrete Math for Data Science",
+    "section": "Announcements",
+    "text": "Announcements"
+  },
+  {
+    "objectID": "slides/07_member-functions.html#adding-functionality",
+    "href": "slides/07_member-functions.html#adding-functionality",
+    "title": "Discrete Math for Data Science",
+    "section": "Adding Functionality",
+    "text": "Adding Functionality\n\n\nCreating blocks is an arduous task. We’d like a way to make new blocks out of old ones! How many different kinds of blocks are found in this image? How are they related to one another?"
+  },
+  {
+    "objectID": "slides/07_member-functions.html#example-block",
+    "href": "slides/07_member-functions.html#example-block",
+    "title": "Discrete Math for Data Science",
+    "section": "Example block",
+    "text": "Example block\n\n\n\n\n\n\n\n\n\n\n\nPoint out that coordinates of (0,0) corresponds to to upper left (in contrast to convention of the Cartesian coordinate system). Discuss how to loop with range()."
+  },
+  {
+    "objectID": "slides/07_member-functions.html#a-block-pattern",
+    "href": "slides/07_member-functions.html#a-block-pattern",
+    "title": "Discrete Math for Data Science",
+    "section": "A block pattern",
+    "text": "A block pattern\n\n\nWe can use that one block to create a surprising pattern!\nTODOS:\n\nWrite flippy member functions\nUse them to create patterns"
+  },
+  {
+    "objectID": "slides/07_member-functions.html#a-block-pattern-1",
+    "href": "slides/07_member-functions.html#a-block-pattern-1",
+    "title": "Discrete Math for Data Science",
+    "section": "A block pattern",
+    "text": "A block pattern\n\n\n\n\n\n\n\n\n\n\nPosition\nRow\nColumn\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDevelop positions for each orientation of our block."
+  },
+  {
+    "objectID": "slides/07_member-functions.html#flip-vertical",
+    "href": "slides/07_member-functions.html#flip-vertical",
+    "title": "Discrete Math for Data Science",
+    "section": "Flip vertical",
+    "text": "Flip vertical\nSuppose we want to perform a vertical reflection of a block. Sketch the resulting block. Describe how you would accomplish the flipped block, in terms of the block representation in our code (list of rows).\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMake a new list which is a copy of the old.\nReverse that list.\nBuild a block out of the new list (block constructor).\nReturn the new block.\n\nBlock contains a list of rows AND a position. WHERE shall we put it?"
+  },
+  {
+    "objectID": "slides/07_member-functions.html#flip-vertical-1",
+    "href": "slides/07_member-functions.html#flip-vertical-1",
+    "title": "Discrete Math for Data Science",
+    "section": "Flip vertical",
+    "text": "Flip vertical\nReview the code we’ve written and make 3 observations:\n\nLine ___: ____________________________________\nLine ___: ____________________________________\nLine ___: ____________________________________"
+  },
+  {
+    "objectID": "slides/07_member-functions.html#flip-horizontal",
+    "href": "slides/07_member-functions.html#flip-horizontal",
+    "title": "Discrete Math for Data Science",
+    "section": "Flip horizontal",
+    "text": "Flip horizontal\nSuppose we want to create a new block which is just the horizontal reflection of a given block. Sketch the new block. Describe how you would accomplish the flipped block, in terms of the block representation in our code.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFlip every row.\nNeed a flipH function in row class."
+  },
+  {
+    "objectID": "slides/07_member-functions.html#flip-horizontal-1",
+    "href": "slides/07_member-functions.html#flip-horizontal-1",
+    "title": "Discrete Math for Data Science",
+    "section": "Flip horizontal",
+    "text": "Flip horizontal\nReview the code we’ve written and make 3 observations:\n\nLine ___: ____________________________________\nLine ___: ____________________________________\nLine ___: ____________________________________"
+  },
+  {
+    "objectID": "slides/07_member-functions.html#rotate-180",
+    "href": "slides/07_member-functions.html#rotate-180",
+    "title": "Discrete Math for Data Science",
+    "section": "Rotate 180°",
+    "text": "Rotate 180°\nSuppose we want to create a new block which is a 180° rotation of a given block. Sketch the new block. Describe how you would accomplish the flipped block.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFlip vertical.\nFlip horizontal.\nReturn block."
+  },
+  {
+    "objectID": "slides/07_member-functions.html#rotate-180-1",
+    "href": "slides/07_member-functions.html#rotate-180-1",
+    "title": "Discrete Math for Data Science",
+    "section": "Rotate 180°",
+    "text": "Rotate 180°\nReview the code we’ve written and make 3 observations:\n\nLine ___: ____________________________________\nLine ___: ____________________________________\nLine ___: ____________________________________\n\n\nNext time we will 1) look at ways of streamlining the block creation process and 2) also learn more about member functions."
+  },
+  {
+    "objectID": "slides/07_member-functions.html#additional-resources",
+    "href": "slides/07_member-functions.html#additional-resources",
+    "title": "Discrete Math for Data Science",
+    "section": "Additional resources",
+    "text": "Additional resources\nGreat resource on the Python @dataclass decorator: https://realpython.com/python-data-classes/"
+  },
+  {
+    "objectID": "slides/07_member-functions.html#three-challenges",
+    "href": "slides/07_member-functions.html#three-challenges",
+    "title": "Discrete Math for Data Science",
+    "section": "Three challenges",
+    "text": "Three challenges\n\nWrite a member function whose purpose is to change the color of a handcraft. What’s a reasonable name for your new function? In which class should the function live? How can you test your code?\nWrite a member function called invert() that changes knits to purls and purls to knits. We expect to use this function on an object of type hc.\nWrite a block member function that flips a block around its diagonal.\n\n\n  \n    −\n    +\n \n 45:00"
+  },
+  {
+    "objectID": "slides/05_efficiency.html#announcements",
+    "href": "slides/05_efficiency.html#announcements",
+    "title": "Discrete Math for Data Science",
+    "section": "Announcements",
+    "text": "Announcements"
+  },
+  {
+    "objectID": "slides/05_efficiency.html#when-to-do-what-in-cpsc-203",
+    "href": "slides/05_efficiency.html#when-to-do-what-in-cpsc-203",
+    "title": "Discrete Math for Data Science",
+    "section": "When to do what in CPSC 203",
+    "text": "When to do what in CPSC 203\n\n\n—This week’s content; —Last week’s content\n\n\n\n\n\n\n\n\n\n\n\nMon\nTue\nWed\nThu\nFri\n\n\n\n\nPre-class videos\n\n\n\n\n\n\n\nClasses\n\n\n\n\n\n\n\nLearning Log\n\n\n\n\n\n\n\nProblems of the Week\n\n\n\n\n\n\n\nLabs\n\n\n\n\n\n\n\nPractice Test and Test\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNote\n\n\nNote: this is a “suggested” schedule. All due dates are on Friday at 6 PM (with a 48-hour grace period).\nTerm projects are not on this schedule as they span multiple weeks."
+  },
+  {
+    "objectID": "slides/05_efficiency.html#your-turn-elegance",
+    "href": "slides/05_efficiency.html#your-turn-elegance",
+    "title": "Discrete Math for Data Science",
+    "section": " Your turn: Elegance",
+    "text": "Your turn: Elegance\nFind 2 images, one which exemplifies your definition of elegance, and one which decidedly does not. They should be related to each other…\n\n\nNaming convention for files\n\n\n\n\n\n\n\n\nNaming\nExample\n\n\n\n\nelegant\ne&lt;name&gt;.&lt;ext&gt;\neKITTY.png\n\n\nnot elegant\nnote&lt;name&gt;.&lt;ext&gt;\nnoteKITTY.png\n\n\n\n\nUpload your images to this directory:\nhttps://bit.ly/3QucOO3\n\n  \n    −\n    +\n \n 10:00\n \n\n(Gallery walk)"
+  },
+  {
+    "objectID": "slides/05_efficiency.html#elegance-examples",
+    "href": "slides/05_efficiency.html#elegance-examples",
+    "title": "Discrete Math for Data Science",
+    "section": "Elegance: examples",
+    "text": "Elegance: examples\nScissors…\n\n\n\n\n\n\n\n\n\nHeidi…"
+  },
+  {
+    "objectID": "slides/05_efficiency.html#your-turn-elegancedefinition",
+    "href": "slides/05_efficiency.html#your-turn-elegancedefinition",
+    "title": "Discrete Math for Data Science",
+    "section": " Your turn: Elegance—definition",
+    "text": "Your turn: Elegance—definition\nGallery: https://bit.ly/3QucOO3\nAfter looking at the images in the gallery, reflect and write a short definition of the word elegance:\nhttps://forms.gle/1eGK2xnH7quAt2nf8\nElegance: the quality of being ____________\n\n  \n    −\n    +\n \n 10:00"
+  },
+  {
+    "objectID": "slides/05_efficiency.html#elegance-and-computing",
+    "href": "slides/05_efficiency.html#elegance-and-computing",
+    "title": "Discrete Math for Data Science",
+    "section": "Elegance and computing",
+    "text": "Elegance and computing\nHow does this apply to the way we solve problems in computing?\nIngenuity:\n\n\n\nSimplicity:\n\n\n\nINGENUITY — The problems themselves are no longer straightforward examples of things we’ve seen before. Class is about creating a larger set of tools and the confident deployment of them.\nSIMPLICITY — Our software should be considered to be a means of communicating with other humans who want to know how we have solved the problem. Humans are not good readers, but they think they are good programmers, so if they cannot understand our solution, then they will just rewrite it! (Complexity gives people a reason not to connect).\n\n\n\nFor further reading: https://www.smithsonianmag.com/arts-culture/how-steve-jobs-love-of-simplicity-fueled-a-design-revolution-23868877/"
+  },
+  {
+    "objectID": "slides/05_efficiency.html#section",
+    "href": "slides/05_efficiency.html#section",
+    "title": "Discrete Math for Data Science",
+    "section": "",
+    "text": "Simplicity is the ultimate sophistication. It takes a lot of hard work to make something simple, to truly understand the underlying challenges and come up with elegant solutions. […] It’s not just minimalism or the absence of clutter. It involves digging through the depth of complexity. To be truly simple, you have to go really deep. […] You have to understand the essence of a product in order to be able to get rid of the parts that are not essential.\n— Steve Jobs"
+  },
+  {
+    "objectID": "slides/05_efficiency.html#handcraft",
+    "href": "slides/05_efficiency.html#handcraft",
+    "title": "Discrete Math for Data Science",
+    "section": "Handcraft",
+    "text": "Handcraft\n\n\n\n\n\n\n\n\n\n\n\n\nMetaphor for software development—ingenuity, function, simplicity, resource constraints. But also a direct parallel. Knitting patterns, in particular, are communicated using language very similar to Python, so our first experiences are going to exploit the metaphor.\n\nQuilt—patterns\nCrochet—2 different kinds\nPaper—Friend’s artistry"
+  },
+  {
+    "objectID": "slides/05_efficiency.html#knitting",
+    "href": "slides/05_efficiency.html#knitting",
+    "title": "Discrete Math for Data Science",
+    "section": "Knitting",
+    "text": "Knitting\n\n\nThe language used to communicate patterns uses exactly the same fundamental constructs as Python!!!"
+  },
+  {
+    "objectID": "slides/05_efficiency.html#knitting-examples",
+    "href": "slides/05_efficiency.html#knitting-examples",
+    "title": "Discrete Math for Data Science",
+    "section": "Knitting: examples",
+    "text": "Knitting: examples\n\n\n\n\n\n\n\n\n\n\n\n\nShow \\(40 \\times 40\\), but then transition into \\(n \\times n\\)—“one difference between a knitting project and our problems we solve”\nAxis of algorithmic quality includes"
+  },
+  {
+    "objectID": "slides/05_efficiency.html#quantifying-the-task",
+    "href": "slides/05_efficiency.html#quantifying-the-task",
+    "title": "Discrete Math for Data Science",
+    "section": "Quantifying the task…",
+    "text": "Quantifying the task…\n\n\n\n\nIf we describe one dimension of a square rag by \\(n\\), how much work is done by the knitter? ____________\nIf we have enough yarn for 36,000,000 stitches, what is the largest rag we could make? ____________\nIf each stitch takes a second, what is the largest rag we could make in one evening? ____________\nIf it takes an evening to make a \\(40 \\times 40\\) rag, how long will it take to make an \\(80 \\times 80\\) rag? ____________\nIf it takes time \\(t\\) to make an \\(n\\) by \\(n\\) rag, how long will it take to make a \\(3n \\times 3n\\) rag? ____________\n\n\nGeneral idea: quantify the size of the problem (\\(n\\)) and consider the cost of our task as that size increases.\n\nDraw the parabola in 4. Point out that quadratic is slower than exponential growth."
+  },
+  {
+    "objectID": "slides/05_efficiency.html#quantifying-the-task-1",
+    "href": "slides/05_efficiency.html#quantifying-the-task-1",
+    "title": "Discrete Math for Data Science",
+    "section": "Quantifying the task…",
+    "text": "Quantifying the task…\nIf we are solving a problem ____________ for a given input, we can parameterize the running time of the solution by the size of the input.\nWe usually denote this input size using the variable \\(n\\).\n\n\n\n\nDiscussion:\n\n\n\n\n\n\n\nFirst blank: or write an algorithm\n\nIn this example we choose to label \\(n\\) as the side-length\nWe don’t care so much about units, so we communicate using the largest order term so a scarf which is always 3\\(n\\) x \\(n\\) takes time 3\\(n^2\\) to knit, we ignore the 3 when we’re talking about algorithms. It’s the squared part that really determines how long we’ll have to wait. We say that the variable term “dominates”.\nSometimes we have more than one parameter"
+  },
+  {
+    "objectID": "slides/05_efficiency.html#quantifying-the-task-2",
+    "href": "slides/05_efficiency.html#quantifying-the-task-2",
+    "title": "Discrete Math for Data Science",
+    "section": "Quantifying the task…",
+    "text": "Quantifying the task…\nSuppose we can knit 1012 stitches per second…\n\n\n\n\n10\n100\n1000\n10,000\n1012\n\n\n\n\n\\(n\\)\n10-11 s\n10-10 s\n10-9 s\n10-8 s\n1 s\n\n\n\\(n \\log n\\)\n10-11 s\n10-9 s\n10-8 s\n10-7 s\n40 s\n\n\n\\(n^2\\)\n10-10 s\n10-8 s\n10-6 s\n10-4 s\n1012 s\n\n\n\\(n^3\\)\n10-9 s\n10-6 s\n10-3 s\n1 s\n1024 s\n\n\n\\(2^n\\)\n10-9 s\n1018 s\n10289 s\n\n\n\n\n\nThe amount of computation we do inside our algorithm actually matters!\n\nWhy does this matter?\nAnnotate:\n\nEach stitch takes a tiny tiny fraction of a second 1/1012 = 10-12 (fastest machine is 415 x 1015).\n\\(n\\) is size parameter for our computation.\n\\(T(n)\\) is the amount of time our computation takes.\n\nChoose one to illustrate if our rag/data size is 1000, and we need to compute n3 steps/stitches (like knitting a cube!!), then the total time is 10003/1012 = 10-3 a thousandth of a second. Nbd.\nBUT let’s look at bigger data. 1012 (~128gb pretty big) 1012 mm = 1M km, 384,400 km to the moon. 149M km to the sun. So knitting something that big would take 1012 s = ~32000 years. The sun will long since have burnt out by 1018 s\nPunchline—we don’t want to do \\(2^n\\) amount of computation, and we need creative approaches for big data.\nRecap—we’ve seen a problem whose size we characterize by \\(n^2\\), we’ll see problems whose time we characterize by \\(n\\), for sure, and later in the term, we’ll see a problem which is very simply stated, whose size we characterize by \\(2^n\\). 🙁\nNOTE: \\(\\log\\) is \\(\\log_2\\). And \\(\\log 1000 = 10\\)."
+  },
+  {
+    "objectID": "slides/05_efficiency.html#colour-interpretation",
+    "href": "slides/05_efficiency.html#colour-interpretation",
+    "title": "Discrete Math for Data Science",
+    "section": "Colour interpretation",
+    "text": "Colour interpretation\nWhat’s your favorite color? Do you have a sense for why it’s your favorite? Does that color influence your dress/decor/purchases?\nPsychological: https://www.playbuzz.com/jon10/what-color-matches-your-personality\nCultural: https://markedbydesign.net/blog/meaning-in-color"
+  },
+  {
+    "objectID": "slides/05_efficiency.html#your-turn-colourcultural-interpretations",
+    "href": "slides/05_efficiency.html#your-turn-colourcultural-interpretations",
+    "title": "Discrete Math for Data Science",
+    "section": " Your turn: Colour—cultural interpretations",
+    "text": "Your turn: Colour—cultural interpretations\nActivity—In pairs, choose a color (primary or secondary) and find something in its cultural symbolism that surprises you. Contradictions are especially interesting. Report your findings to the group (briefly).\n\n\n\n\n\n\n\n  \n    −\n    +\n \n 02:00\n \n\nBig design implications for data visualization"
+  },
+  {
+    "objectID": "slides/05_efficiency.html#colourrepresentation",
+    "href": "slides/05_efficiency.html#colourrepresentation",
+    "title": "Discrete Math for Data Science",
+    "section": "Colour—representation",
+    "text": "Colour—representation\n\nFirst, some general questions…\nWhat does data look like to a computer?\n\n\n\nIs that enough?\n\nhttps://arstechnica.com/information-technology/2012/06/inside-the-ssd-revolution-how-solid-state-disks-really-work/2/\n\n\n\nPositive and negative charges interpreted as 1 and 0.\nBinary digits = bits"
+  },
+  {
+    "objectID": "slides/05_efficiency.html#colourrepresentation-1",
+    "href": "slides/05_efficiency.html#colourrepresentation-1",
+    "title": "Discrete Math for Data Science",
+    "section": "Colour—representation",
+    "text": "Colour—representation\nCan we use bits to represent integers?\n\n\n\n3\n1\n5\n7\n\n\n103\n102\n101\n100\n\n\n\n\n\n\n\n\n\n\n\n\n103\n102\n101\n100\n\n\n23\n22\n21\n20\n\n\n\n\nTalk about the BASE of the number."
+  },
+  {
+    "objectID": "slides/05_efficiency.html#colourrepresentation-2",
+    "href": "slides/05_efficiency.html#colourrepresentation-2",
+    "title": "Discrete Math for Data Science",
+    "section": "Colour—representation",
+    "text": "Colour—representation\nWhat’s the highest number we can represent with 4 bits?\n\n\n\nWhat’s the highest number we can represent with 5 bits?\n\n\n\nHow many bits do we need to express 127?\n\n\n\n\nCan we represent any integer this way? YES! Until we run out of memory. But we have more memory than we can even conceive of.\nHow does this help us with color?"
+  },
+  {
+    "objectID": "slides/05_efficiency.html#colourrepresentation-3",
+    "href": "slides/05_efficiency.html#colourrepresentation-3",
+    "title": "Discrete Math for Data Science",
+    "section": "Colour—representation",
+    "text": "Colour—representation\nCan we use integers to represent colors?\nRGB (red, green, blue), where each “component” is in range 0 through 255.\nex. (255, 0, 127) ==\nFun calculator for color values: https://colorizer.org\nHow many bits for 256 values? 4  5  6  7  8  9  10"
+  },
+  {
+    "objectID": "slides/05_efficiency.html#colourrepresentation-4",
+    "href": "slides/05_efficiency.html#colourrepresentation-4",
+    "title": "Discrete Math for Data Science",
+    "section": "Colour—representation",
+    "text": "Colour—representation\nWhat color is\n\n\n\n0 1 0 1 1 0 1 1 0 1 0 1 1 0 1 1 0 1 0 1 1 0 1 1\n\n\n\nEasier to read if we use hexadecimal representation:\nEach component is represented by 2 hex digits 0123456789abcdef\nex. #674ea7\n\nHex = base 16"
+  },
+  {
+    "objectID": "slides/05_efficiency.html#colourrepresentation-aside",
+    "href": "slides/05_efficiency.html#colourrepresentation-aside",
+    "title": "Discrete Math for Data Science",
+    "section": "Colour—representation (aside)",
+    "text": "Colour—representation (aside)\nWhat do you observe about the following RGB colors?\n\n\n\nRed\nGreen\nBlue\n\n\n\n\n255\n0\n0\n\n\n17\n0\n178\n\n\n45\n0\n13\n\n\n200\n0\n220\n\n\n62\n0\n37\n\n\n130\n0\n95"
+  },
+  {
+    "objectID": "slides/05_efficiency.html#potd-demo",
+    "href": "slides/05_efficiency.html#potd-demo",
+    "title": "Discrete Math for Data Science",
+    "section": "POTD demo",
+    "text": "POTD demo\nThe “problem of the day” (POTD) programming exercises start next week.\nNavigate to ca.prairielearn.com…"
+  },
+  {
+    "objectID": "slides/05_efficiency.html#todo-for-next-class",
+    "href": "slides/05_efficiency.html#todo-for-next-class",
+    "title": "Discrete Math for Data Science",
+    "section": "TODO for next class…",
+    "text": "TODO for next class…\nPOTD\nPlay: https://www.google.com/search?q=color+picker\nPractice exercises for next week’s examlet available Sunday."
+  },
+  {
+    "objectID": "slides/03_python-1.html#announcements",
+    "href": "slides/03_python-1.html#announcements",
+    "title": "Discrete Math for Data Science",
+    "section": "Announcements",
+    "text": "Announcements"
+  },
+  {
+    "objectID": "slides/01_truth.html#warm-up",
+    "href": "slides/01_truth.html#warm-up",
+    "title": "Discrete Math for Data Science",
+    "section": "Warm-Up",
+    "text": "Warm-Up\nMake at least 3 observations about the following table:\n\n\n\n\n\np\nq\np ∨ q\n\n\n\n\nF\nF\nF\n\n\nF\nT\nT\n\n\nT\nF\nT\n\n\nT\nT\nT"
+  },
+  {
+    "objectID": "slides/01_truth.html#summary",
+    "href": "slides/01_truth.html#summary",
+    "title": "Discrete Math for Data Science",
+    "section": "Summary",
+    "text": "Summary\nKey observations about the table:\n\n\n\n\n\np\nq\np ∨ q\n\n\n\n\nF\nF\nF\n\n\nF\nT\nT\n\n\nT\nF\nT\n\n\nT\nT\nT\n\n\n\n\n\nThe diagram is called a Truth Table\np and q are variables, each of which take on one of two Boolean values, True or False (T/F, 1/0)\n∨ is a binary operator that implements a function (creates output) from the 2 input variables to another Boolean value. It is characterized by its output values.\nThe operator ∨ corresponds to the English word or.\nThe expression p ∨ q is called a proposition."
+  },
+  {
+    "objectID": "slides/01_truth.html#truth-tables",
+    "href": "slides/01_truth.html#truth-tables",
+    "title": "Discrete Math for Data Science",
+    "section": "Truth Tables",
+    "text": "Truth Tables\nSome questions to ponder:\n\n\n\n\n\np\nq\np ∨ q\n\n\n\n\nF\nF\nF\n\n\nF\nT\nT\n\n\nT\nF\nT\n\n\nT\nT\nT\n\n\n\n\n\nHow many rows for a proposition on 3 variables? k variables?\nGive a good name for an operator that takes 1 variable: __________\nGive a good name for an operator that takes 3 variables: __________\nHow many different binary operators could there be?"
+  },
+  {
+    "objectID": "slides/01_truth.html#truth-tables-1",
+    "href": "slides/01_truth.html#truth-tables-1",
+    "title": "Discrete Math for Data Science",
+    "section": "Truth Tables",
+    "text": "Truth Tables\nAll graded learning activities in the course will use a tool called PrairieLearn.\nNavigate to today’s activity and complete question 1\n\n\n    \nhttps://us.prairielearn.com/pl/course_instance/186238/assessment/2562335"
+  },
+  {
+    "objectID": "slides/01_truth.html#beyond-operators",
+    "href": "slides/01_truth.html#beyond-operators",
+    "title": "Discrete Math for Data Science",
+    "section": "Beyond Operators",
+    "text": "Beyond Operators\nPropositions can be more complex than just a single operator!\nExample:\n\n\n\np\nq\n~(p ∨ q)\n\n\n\n\nF\nF\nT\n\n\nF\nT\nF\n\n\nT\nF\nF\n\n\nT\nT\nF"
+  },
+  {
+    "objectID": "slides/01_truth.html#wffs",
+    "href": "slides/01_truth.html#wffs",
+    "title": "Discrete Math for Data Science",
+    "section": "WFFs",
+    "text": "WFFs\nA well-formed formula is a Boolean statement generated by the following rules:\n&lt;wff&gt; ::= &lt;atom&gt;\n        | ~ &lt;wff&gt;\n        | ( &lt;wff&gt; ∧ &lt;wff&gt; )\n        | ( &lt;wff&gt; ∨ &lt;wff&gt; )\n\n&lt;atom&gt; ::= p | q | r | s | ...\nSpeculate:"
+  },
+  {
+    "objectID": "slides/01_truth.html#wffs-1",
+    "href": "slides/01_truth.html#wffs-1",
+    "title": "Discrete Math for Data Science",
+    "section": "WFFs",
+    "text": "WFFs\nA well-formed formula is a Boolean statement generated by the following rules:\n&lt;wff&gt; ::= &lt;atom&gt;\n        | ~ &lt;wff&gt;\n        | ( &lt;wff&gt; ∧ &lt;wff&gt; )\n        | ( &lt;wff&gt; ∨ &lt;wff&gt; )\n\n&lt;atom&gt; ::= p | q | r | s | ...\nThis definition is in the form of a Grammar.\n_____________: &lt;wff&gt; and &lt;atom&gt;\n_____________: p, q, r, s …\nIt is our first self-referential or recursive definition."
+  },
+  {
+    "objectID": "slides/01_truth.html#wffs-2",
+    "href": "slides/01_truth.html#wffs-2",
+    "title": "Discrete Math for Data Science",
+    "section": "WFFs",
+    "text": "WFFs\n&lt;wff&gt; ::= &lt;atom&gt;\n        | ~ &lt;wff&gt;\n        | ( &lt;wff&gt; ∧ &lt;wff&gt; )\n        | ( &lt;wff&gt; ∨ &lt;wff&gt; )\n\n&lt;atom&gt; ::= p | q \nExample derivation:\n&lt;wff&gt;"
+  },
+  {
+    "objectID": "slides/01_truth.html#wffs-notes",
+    "href": "slides/01_truth.html#wffs-notes",
+    "title": "Discrete Math for Data Science",
+    "section": "WFFs (Notes)",
+    "text": "WFFs (Notes)\n&lt;wff&gt; ::= &lt;atom&gt;\n        | ~ &lt;wff&gt;\n        | ( &lt;wff&gt; ∧ &lt;wff&gt; )\n        | ( &lt;wff&gt; ∨ &lt;wff&gt; )\n\n&lt;atom&gt; ::= p | q \n\nGrammars can be used to construct many different sequences.\nWe could have included additional operators \\(\\rightarrow\\), \\(\\leftrightarrow\\), \\(\\oplus\\), \\(\\uparrow\\)\nComputational evaluation of &lt;wff&gt;is covered in DSCI221. For now, we trust Python and focus on logic.\nThe &lt;wff&gt; are propositions."
+  },
+  {
+    "objectID": "slides/01_truth.html#logical-equivalence",
+    "href": "slides/01_truth.html#logical-equivalence",
+    "title": "Discrete Math for Data Science",
+    "section": "Logical Equivalence",
+    "text": "Logical Equivalence\n\n\nEx: Is it true that \\((p \\lor q) \\equiv (q\\lor p)\\) ?\n\n\nDiscussion points:\n\n\\(\\equiv\\) means logically equivalent\nThe answer had better be _________!!!\nHow can we justify our instinct?"
+  },
+  {
+    "objectID": "slides/01_truth.html#logical-equivalence-example",
+    "href": "slides/01_truth.html#logical-equivalence-example",
+    "title": "Discrete Math for Data Science",
+    "section": "Logical Equivalence example",
+    "text": "Logical Equivalence example"
+  },
+  {
+    "objectID": "slides/01_truth.html#you",
+    "href": "slides/01_truth.html#you",
+    "title": "Discrete Math for Data Science",
+    "section": "You?",
+    "text": "You?\nQuestions:\n\nWhat’s an ideal factoid? One that…\n\nWhat’s the least number of questions we can hope for?\n\nWhy did we do this?"
+  },
+  {
+    "objectID": "slides/01_truth.html#where-to-start",
+    "href": "slides/01_truth.html#where-to-start",
+    "title": "Discrete Math for Data Science",
+    "section": "Where to start?",
+    "text": "Where to start?\nCanvas: https://canvas.ubc.ca/courses/130127"
+  },
+  {
+    "objectID": "slides/01_truth.html#about-this-course",
+    "href": "slides/01_truth.html#about-this-course",
+    "title": "Discrete Math for Data Science",
+    "section": "About This Course",
+    "text": "About This Course\nThis course will teach you a bajillion different things!\n\nTools: Terminal, Markdown, Git, Visual Studio Code, PrairieLearn\nComputer science: Python (!!!), efficiency, web scraping, graphs\nData science: Pandas, DataFrames, visualizations\nAlgorithms: many algorithms!\nArt and creativity: lots of examples!"
+  },
+  {
+    "objectID": "slides/01_truth.html#course-designer-dr.-cinda-heeren",
+    "href": "slides/01_truth.html#course-designer-dr.-cinda-heeren",
+    "title": "Discrete Math for Data Science",
+    "section": "Course Designer – Dr. Cinda Heeren!",
+    "text": "Course Designer – Dr. Cinda Heeren!\n\n\n\nTeaching Professor, at UBC since 2017 (previously at University of Illinois Urbana-Champaign).\nTeaches mid-level required courses for CS specializations (mostly CPSC 221) & a similar course for non-majors!"
+  },
+  {
+    "objectID": "slides/01_truth.html#course-components",
+    "href": "slides/01_truth.html#course-components",
+    "title": "Discrete Math for Data Science",
+    "section": "Course Components",
+    "text": "Course Components\nLectures: in-class activities based on problem solving and design.\nLabs: practice on lecture material\nProblems of the day (POTD): one per (week)day, 5/week, ~ 50 / term\nProjects: 3 total\nAssessments: 6 tests (examlets) + final"
+  },
+  {
+    "objectID": "slides/01_truth.html#passing-requirements",
+    "href": "slides/01_truth.html#passing-requirements",
+    "title": "Discrete Math for Data Science",
+    "section": "Passing Requirements",
+    "text": "Passing Requirements\nYou must satisfy ALL conditions to pass the course:\n\nEarn a grade of at least 50% in the Lab component.\nAchieve a minimum grade of 50% in both the Test and Exam components combined.\nPass the Final Exam with a minimum grade of 40%.\n\nIf students do not satisfy the appropriate requirements, the student will be assigned the lower of their earned course grade or a maximum overall grade of 45 in the course."
+  },
+  {
+    "objectID": "slides/01_truth.html#evaluation",
+    "href": "slides/01_truth.html#evaluation",
+    "title": "Discrete Math for Data Science",
+    "section": "Evaluation",
+    "text": "Evaluation\n\n\nCourse grading scheme: There will be 6 tests in this course in an (approximately) bi-weekly schedule.\n\n\nItem\nWeight\nDue date(s)\n\n\n\n\nLearning Logs\n5% (10 x 0.5%)\nSaturdays at 6 PM\n\n\nProblems of the Week\n25% (10 x 2.5%)\nFridays at 6 PM\n\n\nLabs\n5% (10 x 0.5%)\nFridays at 6 PM\n\n\nProgramming Projects\n15% (3 x 5%)\nThree in the term\n\n\nTests (Examlets)\n30% (6 x 5%)\n~ Bi-weekly\n\n\nFinal Exam\n20%\nTBD\n\n\n\n\n\n\n\n\n\n\nGrace period for due dates\n\n\nAll due dates in this course have an automatic 48-hour grace period after the due dates listed above. Any submissions submitted past the grace period will not be graded (with some exceptions)."
+  },
+  {
+    "objectID": "slides/01_truth.html#semester-overview",
+    "href": "slides/01_truth.html#semester-overview",
+    "title": "Discrete Math for Data Science",
+    "section": "Semester overview",
+    "text": "Semester overview\n\n\n\n\n\n\n\n\n\n\n\nHandcraft\nBillboard Hot 100\nThe Overstory and Pointillism\nArtificial Music Composition\nRoad Trip Planning\nSpiderman’s Social Network\n\n\n\n\nDesign\nObjects\nIteration\nWeb Scraping\nData Frames\nMatPlotLib\nVoronoi Diagrams\nEfficiency\nMarkov Chains\nRandom Numbers\nGraphs\nTraveling Salesperson\nIntractable Problems\nNatural Language\n\n\n\nThis course consists of a sequence of six explorations, assembled to provide a tour through data structure applications and algorithmic design. Built around topics from arts, sciences, and technology, the explorations are thought provoking and engaging. You will emerge from the course with increased proficiency in Python programming, and with a broad spectrum of tools for algorithmic problem solving."
+  },
+  {
+    "objectID": "slides/01_truth.html#course-tools",
+    "href": "slides/01_truth.html#course-tools",
+    "title": "Discrete Math for Data Science",
+    "section": "Course Tools",
+    "text": "Course Tools\nEd Discussion: class discussion forum\nPrairieLearn: platform to help us give you feedback on work you do!\nGitHub: code repository and version control\nVisual Studio Code: developer environment\nCanvas: basically just a place for you to find all the relevant links to things…"
+  },
+  {
+    "objectID": "slides/01_truth.html#tangrams",
+    "href": "slides/01_truth.html#tangrams",
+    "title": "Discrete Math for Data Science",
+    "section": "Tangrams",
+    "text": "Tangrams"
+  },
+  {
+    "objectID": "slides/01_truth.html#your-turn-tangrams",
+    "href": "slides/01_truth.html#your-turn-tangrams",
+    "title": "Discrete Math for Data Science",
+    "section": " Your turn: tangrams",
+    "text": "Your turn: tangrams\n\nDefine a small working group of size up to 4.\nOne of you share: https://mathigon.org/tangram\nSolve as many as you’d like, together\nSpeculate together on why you’re doing this!!\n\n\n  \n    −\n    +\n \n 10:00"
+  },
+  {
+    "objectID": "slides/01_truth.html#your-turn-time-to-practice-markdown",
+    "href": "slides/01_truth.html#your-turn-time-to-practice-markdown",
+    "title": "Discrete Math for Data Science",
+    "section": " Your turn: time to practice Markdown!",
+    "text": "Your turn: time to practice Markdown!\n\n  \n    −\n    +\n \n 20:00"
+  },
+  {
+    "objectID": "pre-activities/10_data-wrangling.html#optional-videos",
+    "href": "pre-activities/10_data-wrangling.html#optional-videos",
+    "title": " Pre-activity: Data wrangling",
+    "section": "Optional videos",
+    "text": "Optional videos\n\nPandas in data science tutorial\nSome of you have asked me for advanced pandas tutorials for your own side-projects and other courses. Though much of this content is beyond the scope of this course, here is a nice video that I assign to students in one of my other data science courses that might be useful for you.\nYou can download the pokemon.csv dataset here and this notebook here."
+  },
+  {
+    "objectID": "pre-activities/10_data-wrangling.html#seaborn",
+    "href": "pre-activities/10_data-wrangling.html#seaborn",
+    "title": " Pre-activity: Data wrangling",
+    "section": "Seaborn",
+    "text": "Seaborn\nSeaborn is a Python library for plotting data. You can see the associated Jupyter Notebook for the video here."
+  },
+  {
+    "objectID": "pre-activities/03_binary-and-time-complexity.html#optional-videos",
+    "href": "pre-activities/03_binary-and-time-complexity.html#optional-videos",
+    "title": " Pre-activity: Binary and time complexity",
+    "section": "Optional videos",
+    "text": "Optional videos\n\nShowing the differences between a traditional and a flipped classroom\n\n\n\nHow to convert decimal to binary\n\n\n\nHow to convert binary to decimal\n\n\n\nCalculating time complexity"
+  },
+  {
+    "objectID": "pre-activities/01_course-resources.html",
+    "href": "pre-activities/01_course-resources.html",
+    "title": " Pre-activity: Course resources",
+    "section": "",
+    "text": "Bookmark these course resources:\n\n Canvas\nPrairLearn"
+  },
+  {
+    "objectID": "posts/12_week-12/index.html",
+    "href": "posts/12_week-12/index.html",
+    "title": "Week 12",
+    "section": "",
+    "text": "This week we will are talking about state spaces, and diving deeper into graphs."
+  },
+  {
+    "objectID": "posts/10_week-10/index.html",
+    "href": "posts/10_week-10/index.html",
+    "title": "Week 10",
+    "section": "",
+    "text": "This week there is no new lecture content. Instead, take the time to catch your breath and catch up on anything from the last few weeks that you didn’t have time to grasp or go through. This may include test questions, missed POTW questions, videos that you didn’t watch, activities you didn’t finish, or anything else left over.\nYou can also get started on (and maybe finished with?) Project 2: Game of Life.\nThere are no formal lectures this week, but the instructor will be available in the lecture hall during the usual lecture period to answer questions about CPSC 203.\nThough you don’t have to use this break for CPSC 203, I encourage you to make sure you are actually caught up before re-purposing that time for other courses."
+  },
+  {
+    "objectID": "posts/08_week-8/index.html",
+    "href": "posts/08_week-8/index.html",
+    "title": "Week 8",
+    "section": "",
+    "text": "This week we will talk about some new data structures and formalize a language for all the data structures we’ve seen (and will see)!"
+  },
+  {
+    "objectID": "posts/06_week-6/index.html",
+    "href": "posts/06_week-6/index.html",
+    "title": "Week 6",
+    "section": "",
+    "text": "This week we will start introducing a new tool in our course, Git and GitHub!"
+  },
+  {
+    "objectID": "posts/04_week-4/index.html",
+    "href": "posts/04_week-4/index.html",
+    "title": "Week 4",
+    "section": "",
+    "text": "This week we will be continuing knitting and learning about Python classes, and then learning about Pandas."
+  },
+  {
+    "objectID": "posts/02_week-2/index.html",
+    "href": "posts/02_week-2/index.html",
+    "title": "Week 2",
+    "section": "",
+    "text": "This week we will be doing a Python introduction so that we’re all on the same page before we start getting to some programming and design. In terms of content, we’ll learn about Python dataypes, conditionals, loops, functions, and error handling."
+  },
+  {
+    "objectID": "posts/00_welcome/index.html",
+    "href": "posts/00_welcome/index.html",
+    "title": "Welcome to DSCI 220!",
+    "section": "",
+    "text": "I am excited to welcome you to DSCI 220! This short announcement is here to get you oriented to this course website and point out some important resources. The landing page contains the schedule where you can see all the things happening in the weeks to come and the most recent post in announcements. Then take a look at the syllabus to gain an overview of the course and its requirements, but we will discuss it in the first class.\nOh, and if you have a GitHub.com account, please feel free to introduce yourself in the comment section. If you do not have an account yet, don’t worry! We will learn soon how to set one up!"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "DSCI 220: Discrete Math for Data Science",
+    "section": "",
+    "text": "Welcome to the webpage for DSCI 220!\n\n\n\n\n\n    \n\n\n\n\nWarning: Values from `path` are not uniquely identified; output will contain list-cols.\n• Use `values_fn = list` to suppress this warning.\n• Use `values_fn = {summary_fun}` to summarise duplicates.\n• Use the following dplyr code to identify duplicates.\n  {data} |&gt;\n  dplyr::summarise(n = dplyr::n(), .by = c(id, type)) |&gt;\n  dplyr::filter(n &gt; 1L)\n\n\n\n\n\n\n\n  \n    \n      Module\n      week\n      Date\n      Day\n      Topic\n      Pre\n      Slides\n      Activity\n      Lab\n      Social\n    \n  \n  \n    \n      Introductions\n    \n    Introductions and Markdown\n1\nJan 6\nTue\n\n\n\n\n\n\n    Command-line interface\n1\nJan 8\nThu\n\n\n\n\n\n\n    Python review\n2\nJan 13\nTue\n\n\n\n\n\n\n    Python review\n2\nJan 15\nThu\n\n\n\n\n\n\n    \n      Dataclass in Python\n    \n    Efficiency and dataclass\n3\nJan 20\nTue\n\n\n\n\n\n\n    Efficiency and dataclass\n3\nJan 22\nThu\n\n\n\n\n\n\n    Dataclass cont'd\n4\nJan 27\nTue\n\n\n\n\n\n\n    Dataclass cont'd\n4\nJan 29\nThu\n\n\n\n\n\n\n    \n      Working with data\n    \n    Web scraping\n5\nFeb 3\nTue\n\n\n\n\n\n\n    Web scraping\n5\nFeb 5\nThu\n\n\n\n\n\n\n    Git and version control\n6\nFeb 10\nTue\n\n\n\n\n\n\n    Git and version control\n6\nFeb 12\nThu\n\n\n\n\n\n\n    Reading weak\n7\nFeb 17\nTue\n\n\n\n\n\n\n    Reading weak\n7\nFeb 19\nThu\n\n\n\n\n\n\n    \n      Algorithms and data structures\n    \n    Data structures\n8\nFeb 24\nTue\n\n\n\n\n\n\n    Data structures\n8\nFeb 26\nThu\n\n\n\n\n\n\n    Graphs\n9\nMar 3\nTue\n\n\n\n\n\n\n    Graphs\n9\nMar 5\nThu\n\n\n\n\n\n\n    Catch up week\n10\nMar 10\nTue\n\n\n\n\n\n\n    Catch up week\n10\nMar 12\nThu\n\n\n\n\n\n\n    MHall\n11\nMar 17\nTue\n\n\n\n\n\n\n    MHall\n11\nMar 19\nThu\n\n\n\n\n\n\n    State spaces\n12\nMar 24\nTue\n\n\n\n\n\n\n    State spaces\n12\nMar 26\nThu\n\n\n\n\n\n\n    Maps\n13\nMar 31\nTue\n\n\n\n\n\n\n    Maps\n13\nApr 2\nThu\n\n\n\n\n\n\n    Natural language processing\n14\nApr 7\nTue\n\n\n\n\n\n\n    Natural language processing\n14\nApr 9\nThu\n\n\n\n\n\n\n    Summary\n\n\n\n\n\n\n\n\n\n    Summary\n\n\n\n\n\n\n\n\n\n  \n  \n  \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 13\n\n\n\n\n\nMaps data\n\n\n\n\n\nMar 30, 2026\n\n1 min\n\n\n\n\nNo matching items",
+    "crumbs": [
+      "Course information",
+      "Schedule"
+    ]
+  },
+  {
+    "objectID": "announcements.html",
+    "href": "announcements.html",
+    "title": "Announcements",
+    "section": "",
+    "text": "Week 13\n\n\n\n\n\nMaps data\n\n\n\n\n\nMar 30, 2026\n\n1 min\n\n\n\n\n\n\n\n\n\n\n\nWeek 12\n\n\n\n\n\nState spaces and more on graphs\n\n\n\n\n\nMar 23, 2026\n\n1 min\n\n\n\n\n\n\n\n\n\n\n\nWeek 11\n\n\n\n\n\nMarkov chains\n\n\n\n\n\nMar 16, 2026\n\n1 min\n\n\n\n\n\n\n\n\n\n\n\nWeek 10\n\n\n\n\n\nCatch up week\n\n\n\n\n\nMar 9, 2026\n\n1 min\n\n\n\n\n\n\n\n\n\n\n\nWeek 9\n\n\n\n\n\nWrap up on queues and then graphs\n\n\n\n\n\nMar 2, 2026\n\n1 min\n\n\n\n\n\n\n\n\n\n\n\nWeek 8\n\n\n\n\n\nMore data structures\n\n\n\n\n\nFeb 23, 2026\n\n1 min\n\n\n\n\n\n\n\n\n\n\n\nWeek 7\n\n\n\n\n\nReading week!\n\n\n\n\n\nFeb 16, 2026\n\n1 min\n\n\n\n\n\n\n\n\n\n\n\nWeek 6\n\n\n\n\n\nVersion control with  Git and  GitHub\n\n\n\n\n\nFeb 9, 2026\n\n1 min\n\n\n\n\n\n\n\n\n\n\n\nWeek 5\n\n\n\n\n\nWeb scraping and data wrangling\n\n\n\n\n\nFeb 2, 2026\n\n1 min\n\n\n\n\n\n\n\n\n\n\n\nWeek 4\n\n\n\n\n\nMore on  Python classes and an introduction  pandas\n\n\n\n\n\nJan 26, 2026\n\n1 min\n\n\n\n\n\n\n\n\n\n\n\nWeek 3\n\n\n\n\n\n Python classes\n\n\n\n\n\nJan 19, 2026\n\n1 min\n\n\n\n\n\n\n\n\n\n\n\nWeek 2\n\n\n\n\n\nIntroduction to  Python\n\n\n\n\n\nJan 12, 2026\n\n1 min\n\n\n\n\n\n\n\n\n\n\n\nWeek 1\n\n\n\n\n\nCourse organisation and website,  Markdown and the  command-line interface\n\n\n\n\n\nJan 5, 2026\n\n1 min\n\n\n\n\n\n\n\n\n\n\n\nWelcome to DSCI 220!\n\n\n\n\n\nGetting your bearings in DSCI 220\n\n\n\n\n\nJan 1, 2026\n\n1 min\n\n\n\n\nNo matching items",
+    "crumbs": [
+      "Course information",
+      "Announcements"
+    ]
+  },
+  {
+    "objectID": "activities/99_extra-git.html#lecture-outline",
+    "href": "activities/99_extra-git.html#lecture-outline",
+    "title": "Class 8C. Version Control with Git",
+    "section": "Lecture Outline",
+    "text": "Lecture Outline\n1. Announcements (2 mins)\n2.Version Control with git? (3 mins)\n3. The GitHub flow (5 mins)\n4. Introduction to Branches and Pull Requests (10 mins)\n5. Guided Activity: Create a Branch, submit a Pull Request (25 mins)"
+  },
+  {
+    "objectID": "activities/99_extra-git.html#request-for-volunteers",
+    "href": "activities/99_extra-git.html#request-for-volunteers",
+    "title": "Class 8C. Version Control with Git",
+    "section": "Request for Volunteers !",
+    "text": "Request for Volunteers !\n\nYou don’t need to have any prior experience, nor do you have to be a computer pro.\nProbably will just ask you to share your screen and follow directions.\nI’ll walk you through what you have to type and click and hopefully it’s illustrative what needs to be done.\nYou don’t need to be a computer or git expert!"
+  },
+  {
+    "objectID": "activities/99_extra-git.html#version-control-with-git",
+    "href": "activities/99_extra-git.html#version-control-with-git",
+    "title": "Class 8C. Version Control with Git",
+    "section": "Version Control with Git",
+    "text": "Version Control with Git\n\nWhy Git?"
+  },
+  {
+    "objectID": "activities/99_extra-git.html#what-is-git",
+    "href": "activities/99_extra-git.html#what-is-git",
+    "title": "Class 8C. Version Control with Git",
+    "section": "What is Git?",
+    "text": "What is Git?\n\nImage Source: Noble Desktop."
+  },
+  {
+    "objectID": "activities/99_extra-git.html#revisiting-learn-git-branching",
+    "href": "activities/99_extra-git.html#revisiting-learn-git-branching",
+    "title": "Class 8C. Version Control with Git",
+    "section": "Revisiting Learn Git Branching",
+    "text": "Revisiting Learn Git Branching"
+  },
+  {
+    "objectID": "activities/99_extra-git.html#the-github-flow",
+    "href": "activities/99_extra-git.html#the-github-flow",
+    "title": "Class 8C. Version Control with Git",
+    "section": "The GitHub Flow",
+    "text": "The GitHub Flow"
+  },
+  {
+    "objectID": "activities/99_extra-git.html#github-guides",
+    "href": "activities/99_extra-git.html#github-guides",
+    "title": "Class 8C. Version Control with Git",
+    "section": "GitHub Guides",
+    "text": "GitHub Guides\nSee this link for lots more about using GitHub: https://github.com/git-guides"
+  },
+  {
+    "objectID": "activities/99_extra-git.html#guided-activity-create-and-resolve-a-merge-conflict",
+    "href": "activities/99_extra-git.html#guided-activity-create-and-resolve-a-merge-conflict",
+    "title": "Class 8C. Version Control with Git",
+    "section": "Guided Activity: Create and resolve a merge conflict",
+    "text": "Guided Activity: Create and resolve a merge conflict\n\nMessage your group mates and get in touch with them\nONE PERSON IN EACH ROOM, will fork this repository onto your own GitHub account\nClone that fork onto your computer\nAdd your teammates to the repository\nTeammates clone onto computer\nTry to create and resolve a merge conflict."
+  },
+  {
+    "objectID": "activities/99_extra-git.html#lecture-outline-1",
+    "href": "activities/99_extra-git.html#lecture-outline-1",
+    "title": "Class 8C. Version Control with Git",
+    "section": "Lecture Outline",
+    "text": "Lecture Outline\n1. Announcements and Recap (5 mins)"
+  },
+  {
+    "objectID": "activities/99_extra-git.html#part-1.-announcements-5-mins",
+    "href": "activities/99_extra-git.html#part-1.-announcements-5-mins",
+    "title": "Class 8C. Version Control with Git",
+    "section": "Part 1. Announcements (5 mins)",
+    "text": "Part 1. Announcements (5 mins)"
+  },
+  {
+    "objectID": "activities/99_extra-git.html#part-2.-introduction-to-branches-and-pull-requests-20-mins",
+    "href": "activities/99_extra-git.html#part-2.-introduction-to-branches-and-pull-requests-20-mins",
+    "title": "Class 8C. Version Control with Git",
+    "section": "Part 2. Introduction to Branches and Pull Requests (20 mins)",
+    "text": "Part 2. Introduction to Branches and Pull Requests (20 mins)\n\nCreate and switch to a new branch\nTo checkout a new branch that doesn’t already exist, use:\ngit switch -c new_branch_name\n\n\nSwitch to an existing branch\nTo switch to a new branch that already exists, use:\ngit switch branch_name"
+  },
+  {
+    "objectID": "activities/99_extra-git.html#guided-activity-create-a-branch-submit-a-pull-request-20-mins",
+    "href": "activities/99_extra-git.html#guided-activity-create-a-branch-submit-a-pull-request-20-mins",
+    "title": "Class 8C. Version Control with Git",
+    "section": "Guided Activity: Create a Branch, submit a Pull Request (20 mins)",
+    "text": "Guided Activity: Create a Branch, submit a Pull Request (20 mins)\n- Important! Use your Group Project repo\nPartner 1: \"Contributor 1\"\n\nPartner 2: \"Contributor 2\"\n\nPartner 3: Contributor 3\"\n\nPartner 1 Creates and switches to a new branch:\n\ngit switch -c newchange1\n\nPartner 2 Creates and switches to a new branch:\n\ngit switch -c newchange2\n\nPartner 3 Creates and switches to a new branch:\n\ngit switch -c newchange3\n\nAll partners make sure the branch is switched:\n\ngit status\n\nPartner 2 creates a new md file:\n\ncode newfile.md\nWrite a bunch of stuff\nSave\ngit add .\ngit commit -m “new change”\ngit push\n\nPartner 2 goes to the Github.com repo,\n\nClick “Compare and Pull Request”\nRequest a review from Partner 1 and Partner 3\nSubmit Pull Request\n\nPartner 3 does the same thing as above\n\n\nTips\nHere are some command sequences that might be useful:\n- git switch -c 'person1'\n- git switch -c 'person2'\n- edit the file\n- add, commit, push\n- deal with the Pull Request(PR) on GitHub"
+  },
+  {
+    "objectID": "activities/23_maps.html",
+    "href": "activities/23_maps.html",
+    "title": " Geographic maps",
+    "section": "",
+    "text": "Today we will be working on Python code for geographic maps."
+  },
+  {
+    "objectID": "activities/23_maps.html#resources",
+    "href": "activities/23_maps.html#resources",
+    "title": " Geographic maps",
+    "section": " Resources",
+    "text": "Resources\n\nMapping\n\nVideo intro to Geographic Information Systems (GIS) and Python mapping modules.\n\nOpenStreetMap (OSM) and an explanation of OSM.\n\nPython package OSMnx for accessing OSM data.\n\nLots of OSMnx examples.\nAn OSMnx tutorial.\n\nPython package NetworkX for representing and manipulating graphs.\n\nA NetworkX tutorial.\n\nPython package GeoPandas that extends ideas from pandas to geospatial data.\n\nIn particular, we will be working with the GeoDataFrame data structure (which extends pandas’ DataFrame to geospatial data) and GeoDataFrame.explore for creating interactive map visualizations."
+  },
+  {
+    "objectID": "activities/23_maps.html#logistics",
+    "href": "activities/23_maps.html#logistics",
+    "title": " Geographic maps",
+    "section": "Logistics",
+    "text": "Logistics\n\nInstalling packages\nYou will probably need to install some package(s) for today’s class: conda install osmnx (which should also install networkx)\n\n\nGetting the class activity starter code\nYou have two choices for how to work with the class activity code:\nIf you want to keep a repository on GitHub of my personal changes to the code:\n\nMake a copy of the class activity repository.\nClone your personal copy to your laptop.\n\nIf you are happy to keep your personal changes only on your laptop: You can directly clone the class activity repository.\nHere is the Template repository for class activity 13A. You have only read access to the template repository, so you will not be able to push any changes back to it.\n\n\nHow to copy the class activity repository\nIf you make a copy of the template repository on GitHub, then you can push your changes to the code back up to your copy on GitHub any time you want. To copy the template repository, follow the instructions at Creating a repository from a template.\n\n\nClone the appropriate repository\nFollow the standard Git procedure to clone the appropriate repository onto your laptop:\ngit clone &lt;URL-of-repository&gt;\nNote that you can work on your local repository on your laptop (commit, branch, switch, restore, etc.) whether you cloned the template repository or your own copy. But you can only push changes back up to GitHub if you made your own copy on GitHub of the template repository."
+  },
+  {
+    "objectID": "activities/21_sudoku.html",
+    "href": "activities/21_sudoku.html",
+    "title": " Sudoku",
+    "section": "",
+    "text": "Today we will be working on understanding and exploring the depth-first algorithm."
+  },
+  {
+    "objectID": "activities/21_sudoku.html#resources",
+    "href": "activities/21_sudoku.html#resources",
+    "title": " Sudoku",
+    "section": " Resources",
+    "text": "Resources\n\nSolve a Sudoku puzzle\nMathematics of Sudoku"
+  },
+  {
+    "objectID": "activities/21_sudoku.html#logistics",
+    "href": "activities/21_sudoku.html#logistics",
+    "title": " Sudoku",
+    "section": "Logistics",
+    "text": "Logistics\nYou have two choices for how to work with the class activity code:\nIf you want to keep a repository on GitHub of my personal changes to the code:\n\nMake a copy of the class activity repository.\nClone your personal copy to your laptop.\n\nIf you are happy to keep your personal changes only on your laptop: You can directly clone the class activity repository.\nHere is the Template repository for class activity 12A. You have only read access to the template repository, so you will not be able to push any changes back to it.\n\nHow to copy the class activity repository\nIf you make a copy of the template repository on GitHub, then you can push your changes to the code back up to your copy on GitHub any time you want. To copy the template repository, follow the instructions at Creating a repository from a template.\n\n\nClone the appropriate repository\nFollow the standard Git procedure to clone the appropriate repository onto your laptop:\ngit clone &lt;URL-of-repository&gt;\nNote that you can work on your local repository on your laptop (commit, branch, switch, restore, etc.) whether you cloned the template repository or your own copy. But you can only push changes back up to GitHub if you made your own copy on GitHub of the template repository."
+  },
+  {
+    "objectID": "activities/19_markov-1.html",
+    "href": "activities/19_markov-1.html",
+    "title": " Music generator",
+    "section": "",
+    "text": "Today we will be working on creating some music (and later linking it back to Graphs)!"
+  },
+  {
+    "objectID": "activities/19_markov-1.html#resources",
+    "href": "activities/19_markov-1.html#resources",
+    "title": " Music generator",
+    "section": " Resources",
+    "text": "Resources\n\nMarkov Chains Demo\nMarkov Chains"
+  },
+  {
+    "objectID": "activities/19_markov-1.html#logistics",
+    "href": "activities/19_markov-1.html#logistics",
+    "title": " Music generator",
+    "section": "Logistics",
+    "text": "Logistics\nYou have two choices for how to work with the class activity code:\nIf you want to keep a repository on GitHub of my personal changes to the code:\n\nMake a copy of the class activity repository.\nClone your personal copy to your laptop.\n\nIf you are happy to keep your personal changes only on your laptop: You can directly clone the class activity repository.\nHere is the Template repository for class activity 11A. You have only read access to the template repository, so you will not be able to push any changes back to it.\n\nHow to Copy the Class Activity Repository\nIf you make a copy of the template repository on GitHub, then you can push your changes to the code back up to your copy on GitHub any time you want. To copy the template repository, follow the instructions at Creating a repository from a template.\n\n\nClone the appropriate repository\nFollow the standard Git procedure to clone the appropriate repository onto your laptop:\ngit clone &lt;URL-of-repository&gt;\nNote that you can work on your local repository on your laptop (commit, branch, switch, restore, etc.) whether you cloned the template repository or your own copy. But you can only push changes back up to GitHub if you made your own copy on GitHub of the template repository."
+  },
+  {
+    "objectID": "activities/15_voronoi-2.html",
+    "href": "activities/15_voronoi-2.html",
+    "title": " Voronoi algorithm performance",
+    "section": "",
+    "text": "Today we will be wrapping up our Voronoi Art code."
+  },
+  {
+    "objectID": "activities/15_voronoi-2.html#topics-for-todays-lecture",
+    "href": "activities/15_voronoi-2.html#topics-for-todays-lecture",
+    "title": " Voronoi algorithm performance",
+    "section": "Topics for today’s lecture",
+    "text": "Topics for today’s lecture\n\nAnalyzing the complexity of our Voronoi image generator. (Hint: It is disappointingly slow.)\nDescribing a faster algorithm: Building outwards from the centers.\nImplementing the faster algorithm with a queue and a Python deque.\nAnalyzing the complexity of faster algorithm.\nIntro to graphs(?)"
+  },
+  {
+    "objectID": "activities/15_voronoi-2.html#resources",
+    "href": "activities/15_voronoi-2.html#resources",
+    "title": " Voronoi algorithm performance",
+    "section": " Resources",
+    "text": "Resources\n\nDeque"
+  },
+  {
+    "objectID": "activities/15_voronoi-2.html#logistics",
+    "href": "activities/15_voronoi-2.html#logistics",
+    "title": " Voronoi algorithm performance",
+    "section": "Logistics",
+    "text": "Logistics\nAs discussed in the previous lecture, you have two choices for how to work with the class activity code:\nIf you want to keep a repository on GitHub of my personal changes to the code:\n\nMake a copy of the class activity repository.\nClone your personal copy to your laptop.\n\nIf you are happy to keep your personal changes only on your laptop: You can directly clone the class activity repository.\nHere is the Template repository for class activity 09A. You have only read access to the template repository, so you will not be able to push any changes back to it.\n\nHow to Copy the Class Activity Repository\nIf you make a copy of the template repository on GitHub, then you can push your changes to the code back up to your copy on GitHub any time you want. To copy the template repository, follow the instructions at Creating a repository from a template.\n\n\nClone the appropriate repository\nFollow the standard Git procedure to clone the appropriate repository onto your laptop:\ngit clone &lt;URL-of-repository&gt;\nNote that you can work on your local repository on your laptop (commit, branch, switch, restore, etc.) whether you cloned the template repository or your own copy. But you can only push changes back up to GitHub if you made your own copy on GitHub of the template repository."
+  },
+  {
+    "objectID": "activities/13_data-structures.html",
+    "href": "activities/13_data-structures.html",
+    "title": " Introduction of queues",
+    "section": "",
+    "text": "Review of basic Python data structures that we have seen.\n\nLists, dictionaries, sets, tuples, frozensets, strings, and the various additional data types in the collections module can all operate as the “arbitrary-sized” data type that you encountered in CPSC 103 or CPSC 110: You can pass through every element of the collection (using a for loop) and and use accumulator(s) to perform some operation (such as a filter, map, and/or reduction). Furthermore, looping through a collection in this manner is essentially the same speed no matter which type of collection you use.\nBut each type of collection has its own useful features; for example, a list is ordered, the keys in a dictionary can be any (immutable) data, a set will never have duplicate elements…\nEven though looping through its elements is the most common operation on a collection, we generally choose a particular type of collection based on the other operations we wish to perform.\nWe will build data structures for more complex information from these basic Python data structures. In order to make wise choices, we will need to think about the types of operations we wish to perform on both the more complex data structure and the more basic ones from which it is built.\n\nQueues, which operate on data in a First In First Out (FIFO) manner.\n\nWe will see an application of queues on Thursday.\nQueues can be built on top of Python lists, but it turns out to be inefficient.\nA more efficient approach is to use the deque data structure from the collections module.\n\nDiscussion and demonstration of execution speed of various operations on Python lists and deques.\n\nMostly in JupyterLab using %%timeit, but also example in regular Python file using time module."
+  },
+  {
+    "objectID": "activities/13_data-structures.html#topics-for-todays-lecture",
+    "href": "activities/13_data-structures.html#topics-for-todays-lecture",
+    "title": " Introduction of queues",
+    "section": "",
+    "text": "Review of basic Python data structures that we have seen.\n\nLists, dictionaries, sets, tuples, frozensets, strings, and the various additional data types in the collections module can all operate as the “arbitrary-sized” data type that you encountered in CPSC 103 or CPSC 110: You can pass through every element of the collection (using a for loop) and and use accumulator(s) to perform some operation (such as a filter, map, and/or reduction). Furthermore, looping through a collection in this manner is essentially the same speed no matter which type of collection you use.\nBut each type of collection has its own useful features; for example, a list is ordered, the keys in a dictionary can be any (immutable) data, a set will never have duplicate elements…\nEven though looping through its elements is the most common operation on a collection, we generally choose a particular type of collection based on the other operations we wish to perform.\nWe will build data structures for more complex information from these basic Python data structures. In order to make wise choices, we will need to think about the types of operations we wish to perform on both the more complex data structure and the more basic ones from which it is built.\n\nQueues, which operate on data in a First In First Out (FIFO) manner.\n\nWe will see an application of queues on Thursday.\nQueues can be built on top of Python lists, but it turns out to be inefficient.\nA more efficient approach is to use the deque data structure from the collections module.\n\nDiscussion and demonstration of execution speed of various operations on Python lists and deques.\n\nMostly in JupyterLab using %%timeit, but also example in regular Python file using time module."
+  },
+  {
+    "objectID": "activities/13_data-structures.html#resources",
+    "href": "activities/13_data-structures.html#resources",
+    "title": " Introduction of queues",
+    "section": " Resources",
+    "text": "Resources\n\nGuide to Python data structures\nDeque\n\n\n\n\n\n\n\nWarning\n\n\n\nGeeks for Geeks has great content, but I find that—at least on my platform (aging Dell laptop with Windows 11 + Firefox or MS Edge)—opening any of their pages tends to send my CPU and memory usage skyrocketing to the point that it is hard to do anything on the laptop other than browse that page. The good news is that closing the page appears to resolve the issue quickly, so my workaround is just to close their page(s) whenever I’m not actively reading, and reopen if need be. Your mileage may vary…"
+  },
+  {
+    "objectID": "activities/13_data-structures.html#logistics",
+    "href": "activities/13_data-structures.html#logistics",
+    "title": " Introduction of queues",
+    "section": "Logistics",
+    "text": "Logistics\n\nJupyter Lab\nFor class today, you will need to install JupyterLab because we’ll be using an .ipynb file to use the %%timeit cell-magic. You can do this by running the following command in the Terminal:\nconda install -c conda-forge jupyterlab\nYou can then run jupyter lab in the Terminal to launch a JupyterLab instance.\n\n\n\n\n\n\nWarning\n\n\n\n\nWhile JupyterLab is running, you will not be able to use that terminal for anything else. If you want to do something else in a terminal, start a new terminal.\nThe terminal will fill with a bunch of log messages, many of which will not be useful. One message which may be useful will look something link this:\n\n To access the server, open this file in a browser:\n        file:///C:/Users/.../something.html\n    Or copy and paste one of these URLs:\n        http://localhost:8888/lab?token=a-big-long-string-of-characters\n        http://127.0.0.1:8888/lab?token=the-same-big-long-string-of-characters\nYou can use those URLs to open additional windows / tabs in your browser that are connected to your local JupyterLab server.\n\n\n\n\nCopy the Class Activity Repository\nYou first need to copy the template repository for class activity 08A containing the code for today’s activity. This step will create a copy of the template repository in your own GitHub account, so that you can commit and push edits as much as you want.\nDO NOT directly clone the template repository. You have only read access to the template repository, so you will not be able to push any changes back to it.\nTo copy the template repository, follow the instructions at Creating a repository from a template.\n\n\n\nClone your copy of the Class Activity Repository\nOnce you have created your own copy of the template repository, you can then clone your copy down to your local machine:\ngit clone &lt;name-of-your-copy&gt;\nYou can then commit and push changes as you would to any personal repository."
+  },
+  {
+    "objectID": "activities/11_pandas.html",
+    "href": "activities/11_pandas.html",
+    "title": " More on pandas",
+    "section": "",
+    "text": "We continue our exploration of pandas in Class Activity 5B."
+  },
+  {
+    "objectID": "activities/09_billboard-1.html",
+    "href": "activities/09_billboard-1.html",
+    "title": " Accessing Billboard Hot 100 data",
+    "section": "",
+    "text": "During the lecture we played around with the ChartData and ChartEntry classes from the billboard module. I wrote and deleted a lot of code as we explored the VSCode environment and these classes, but here is the final version of the code. It should print one line for each entry in the Hot-100 list showing the current position and the position for the previous week.\nYour task to complete before Thursday’s lecture is:\nIn other words, you are coverting from ChartEntry objects to dictionary objects. On Thursday we will load those dictionaries into a Pandas dataframe and then play around with the data."
+  },
+  {
+    "objectID": "activities/09_billboard-1.html#resources",
+    "href": "activities/09_billboard-1.html#resources",
+    "title": " Accessing Billboard Hot 100 data",
+    "section": " Resources",
+    "text": "Resources\n\nbeautifulsoup4 library (and Beautiful Soup documentation).\nbillboard library (and The Python Package Index version)"
+  },
+  {
+    "objectID": "activities/07_classes.html",
+    "href": "activities/07_classes.html",
+    "title": " More on data classes and member functions",
+    "section": "",
+    "text": "We will work on the various data classes to define a handcraft in the Class Activity 3B and Class Activity 4A workspaces."
+  },
+  {
+    "objectID": "activities/04_python-2.html",
+    "href": "activities/04_python-2.html",
+    "title": " Review of Programming in Python II",
+    "section": "",
+    "text": "The material for this lecture is best experienced as a Jupyter Notebook. Go to PrairieLearn Class Activity 2B and open the workspace in the question there to get access to a cloud-based version of this notebook."
+  },
+  {
+    "objectID": "activities/04_python-2.html#lecture-outline",
+    "href": "activities/04_python-2.html#lecture-outline",
+    "title": " Review of Programming in Python II",
+    "section": "Lecture Outline",
+    "text": "Lecture Outline\n\nComments (0 min)\nLoops\nComprehensions\nBreak (5 min)\nFunctions\nExceptions\nTesting\nQuestions and Recap\n\n\nAttribution\n\nThe original version of these Python lectures were by Patrick Walls.\nThese lectures were originally delivered by Mike Gelbart and are available publicly here."
+  },
+  {
+    "objectID": "activities/04_python-2.html#comments-in-python",
+    "href": "activities/04_python-2.html#comments-in-python",
+    "title": " Review of Programming in Python II",
+    "section": "Comments in python",
+    "text": "Comments in python\n\nx = 1 # 5 + 5 this is a comment\n\n\n# \"\"\"\n# this is a string, which does nothing\n# and can be used as a comment\n# \"\"\"\n\n7\n\n\nx = 1"
+  },
+  {
+    "objectID": "activities/04_python-2.html#loops",
+    "href": "activities/04_python-2.html#loops",
+    "title": " Review of Programming in Python II",
+    "section": "Loops",
+    "text": "Loops\n\nLoops allow us to execute a block of code multiple times.\nWe will focus on for loops\n\n\n\"I have 5 apples\"\n\"I have 6 apples\"\n\n'I have 6 apples'\n\n\n\nfor loops\n\nfor n in [2, 7, -1, 5]:\n    print(\"The number is\", n, \"its square is\", n**2)\n    if n &gt; 2:\n        print(\"hallelujah\")\n    # this is inside the loop\n# this is outside the loop\n\nThe number is 2 its square is 4\nThe number is 7 its square is 49\nhallelujah\nThe number is -1 its square is 1\nThe number is 5 its square is 25\nhallelujah\n\n\n\nimport numpy as np\nnp.arange(0,100,2)\n\narray([ 0,  2,  4,  6,  8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32,\n       34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66,\n       68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92, 94, 96, 98])\n\n\nThe main points to notice:\n\nKeyword for begins the loop\nColon : ends the first line of the loop\nWe can iterate over any kind of iterable: list, tuple, range, string. In this case, we are iterating over the values in a list\nBlock of code indented is executed for each value in the list (hence the name “for” loops, sometimes also called “for each” loops)\nThe loop ends after the variable n has taken all the values in the list\n\n\n\"abc\" + \"def\"\n\n'abcdef'\n\n\n\nword = \"Python\"\nfor letter in word:\n    print(\"Gimme a \" + letter + \"!\")\n\nprint(\"\\tWhat's that spell?!! \" + word + \"!\")\n\nGimme a P!\nGimme a y!\nGimme a t!\nGimme a h!\nGimme a o!\nGimme a n!\n    What's that spell?!! Python!\n\n\n\nA very common pattern is to use for with range.\nrange gives you a sequence of integers up to some value.\n\n\nfor i in range(10):\n    print(i)\n\n0\n1\n2\n3\n4\n5\n6\n7\n8\n9\n\n\nWe can also specify a start value and a skip-by value with range:\n\nfor i in range(1,101,10):\n    print(i)\n\n1\n11\n21\n31\n41\n51\n61\n71\n81\n91\n\n\nWe can write a loop inside another loop to iterate over multiple dimensions of data. Consider the following loop as enumerating the coordinates in a 3 by 3 grid of points.\n\nfor x in [1,2,3]:\n    for y in [\"a\",\"b\",\"c\"]:\n        print((x,y))\n\n(1, 'a')\n(1, 'b')\n(1, 'c')\n(2, 'a')\n(2, 'b')\n(2, 'c')\n(3, 'a')\n(3, 'b')\n(3, 'c')\n\n\n\nlist_1 = [1,2,3,4,5]\nlist_2 = [\"a\",\"b\",\"c\",\"d\"]\nfor i in range(5):\n    print(list_1[i], list_2[i])\n\n1 a\n2 b\n3 c\n4 d\n\n\n\n---------------------------------------------------------------------------\nIndexError                                Traceback (most recent call last)\nCell In[11], line 4\n      2 list_2 = [\"a\",\"b\",\"c\",\"d\"]\n      3 for i in range(5):\n----&gt; 4     print(list_1[i], list_2[i])\n\nIndexError: list index out of range\n\n\n\n\nfor i,j in zip(list_1,list_2):\n    print(i,j)\n\n1 a\n2 b\n3 c\n4 d\n\n\nWe can loop through key-value pairs of a dictionary using .items():\n\nprint(\"Hello\\\\nWorld\")\n\nHello\\nWorld\n\n\n\nh = \"\"\"Hello \\\\n\nWorld\"\"\"\n\nprint(h)\n\nHello \\n\nWorld\n\n\n\ncourses = {521 : \"awesome\",\n           551 : \"riveting\",\n           511 : \"naptime!\"}\n\nfor course_num, description in courses.items():\n    print(\"DSCI\", course_num, \"is\", description)\n\nDSCI 521 is awesome\nDSCI 551 is riveting\nDSCI 511 is naptime!\n\n\n\nfor course_num,course_desc in courses.items():\n    print(course_num, course_desc)\n#    print(course_num, courses[course_num])\n\n521 awesome\n551 riveting\n511 naptime!\n\n\nAbove: the general syntax is for key, value in dictionary.items():\n\n\nwhile loops\n\nWe can also use a while loop to excute a block of code several times.\nIn reality, I rarely use these.\nBeware! If the conditional expression is always True, then you’ve got an infintite loop!\n\n(Use the “Stop” button in the toolbar above, or Ctrl-C in the terminal, to kill the program if you get an infinite loop.)\n\n\n\nn = 10\nwhile n &gt; 0:\n    print(n)\n    n = n - 1\n\nprint(\"Blast off!\")\n\n10\n9\n8\n7\n6\n5\n4\n3\n2\n1\nBlast off!"
+  },
+  {
+    "objectID": "activities/04_python-2.html#comprehensions",
+    "href": "activities/04_python-2.html#comprehensions",
+    "title": " Review of Programming in Python II",
+    "section": "Comprehensions",
+    "text": "Comprehensions\nComprehensions allow us to build lists/sets/dictionaries in one convenient, compact line of code.\n\nList Comprehensions\nList comprehensions are one of my favourite features of Python!\n\n[hh*10 for hh in range(10)]\n\n[0, 10, 20, 30, 40, 50, 60, 70, 80, 90]\n\n\n\nwords = [\"hello\", \"goodbye\", \"the\", \"antidisestablishmentarianism\"]\n\ny = [word[-3:] for word in words]  # list comprehension\ny\n\n['llo', 'bye', 'the', 'ism']\n\n\n\nfor word in words:\n    print(word[-3:])\n\nllo\nbye\nthe\nism\n\n\n\ny = list()\nfor word in words:\n    y.append(word[-3:])\ny\n\n['llo', 'bye', 'the', 'ism']\n\n\n\n\nDictionary comprehension\n\nword_lengths = {word : len(word) for word in words} # dictionary comprehension\nword_lengths\n\n{'hello': 5, 'goodbye': 7, 'the': 3, 'antidisestablishmentarianism': 28}\n\n\n\nword_upper = {word : word.upper() for word in words}\nword_upper\n\n{'hello': 'HELLO',\n 'goodbye': 'GOODBYE',\n 'the': 'THE',\n 'antidisestablishmentarianism': 'ANTIDISESTABLISHMENTARIANISM'}\n\n\n\n\nSet Comprehensions\n\ny = {word[-1] for word in words}  # set comprehension\nprint(y)\n\n{'m', 'o', 'e'}\n\n\n\n\nTuple Comprehensions\nTuple comprehensions actually don’t exist! But, you can use generators.\nSee this StackOverflow post for (some fun) details!"
+  },
+  {
+    "objectID": "activities/04_python-2.html#break-5-min",
+    "href": "activities/04_python-2.html#break-5-min",
+    "title": " Review of Programming in Python II",
+    "section": "Break (5 min)",
+    "text": "Break (5 min)"
+  },
+  {
+    "objectID": "activities/04_python-2.html#functions",
+    "href": "activities/04_python-2.html#functions",
+    "title": " Review of Programming in Python II",
+    "section": "Functions",
+    "text": "Functions\n\nDefine a function to re-use a block of code with different input parameters, also known as arguments.\nFor example, define a function called square which takes one input parameter n and returns the square n**2.\n\n\ndef square(n):\n    n_squared = n**2\n    return n_squared\n\n# quick test:\nassert square(2) ==4\n\n\nsquare(12345)\n\n152399025\n\n\n\nsquare(2)\n\n4\n\n\n\nsquare(100)\n\n10000\n\n\n\n# this will fail \n# square('hello')\n\n\nBegins with def keyword, function name, input parameters and then colon (:)\nFunction block defined by indentation\nOutput or “return” value of the function is given by the return keyword\n\n\nSide effects\n\nIf a function changes the variables passed into it, then it is said to have side effects\nExample:\n\n\ndef silly_sum(sri):\n    sri.append(0)\n    return sum(sri)\n\n\nsilly_sum([1,2,3,4])\n\n10\n\n\nLooks good, like it sums the numbers? But wait…\n\nlst = [1,2,3,4]\nsilly_sum(lst)\n\n10\n\n\n\nsilly_sum(lst)\n\n10\n\n\n\nlst\n\n[1, 2, 3, 4, 0, 0]\n\n\n\nIf your function has side effects like this, you must mention it in the documentation (later today).\nMore on how this works next class.\n\n\n\nNull return type\nIf you do not specify a return value, the function returns None when it terminates:\n\ndef f(x):\n    x + 1 # no return!\n    if x == 999:\n        return\n    else:\n        return('hello')\nprint(f(998))\n\nhello\n\n\n\n\nDesigning good functions - DRY principle (15 min)\n\nDRY: Don’t Repeat Yourself\nSee Wikipedia article\nConsider the task of, for each element of a list, turning it into a palindrome\n\ne.g. “mike” –&gt; “mikeekim”\n\n\n\nnames = [\"milad\", \"rodolfo\", \"tiffany\", \"khalad\", \"jeff\", \"christel\",\"firas\"]\n\n\nname = \"mike\"\nname[::-1]\n\n'ekim'\n\n\n\nnames_backwards = list()\n\nnames_backwards.append(names[0] + names[0][::-1])\nnames_backwards.append(names[1] + names[1][::-1])\nnames_backwards.append(names[2] + names[2][::-1])\nnames_backwards.append(names[3] + names[3][::-1])\nnames_backwards.append(names[4] + names[4][::-1])\nnames_backwards.append(names[5] + names[5][::-1])\nnames_backwards.append(names[6] + names[6][::-1])\n\n\nnames_backwards\n\n['miladdalim',\n 'rodolfooflodor',\n 'tiffanyynaffit',\n 'khaladdalahk',\n 'jeffffej',\n 'christelletsirhc',\n 'firassarif']\n\n\n\nAbove: this is gross, terrible, yucky code\n\nIt only works for a list with 3 elements\nIt only works for a list named names\nIf we want to change its functionality, we need to change 3 similar lines of code (Don’t Repeat Yourself!!)\nIt is hard to understand what it does just by looking at it\n\n\n\nnames_backwards = list()\n\nfor name in names:\n    names_backwards.append(name + name[::-1])\n    \nnames_backwards\n\n['miladdalim',\n 'rodolfooflodor',\n 'tiffanyynaffit',\n 'khaladdalahk',\n 'jeffffej',\n 'christelletsirhc',\n 'firassarif']\n\n\nAbove: this is slightly better. We have solved problems (1) and (3).\n\ndef make_palindromes(names):\n    names_backwards = list()\n    \n    for name in names:\n        names_backwards.append(name + name[::-1])\n    \n    return names_backwards\n\n\np_name = make_palindromes(names)\n\n\nfor p in p_name:\n    print(p.upper())\n\nMILADDALIM\nRODOLFOOFLODOR\nTIFFANYYNAFFIT\nKHALADDALAHK\nJEFFFFEJ\nCHRISTELLETSIRHC\nFIRASSARIF\n\n\n\nAbove: this is even better. We have now also solved problem (2), because you can call the function with any list, not just names.\nFor example, what if we had multiple lists:\n\n\nnames1 = [\"milad\", \"rodolfo\", \"tiffany\"]\nnames2 = [\"Trudeau\", \"Scheer\", \"Singh\", \"Blanchet\", \"May\"]\nnames3 = [\"apple\", \"orange\", \"banana\"]\n\n\nnames_backwards_1 = list()\n\nfor name in names1:\n    names_backwards_1.append(name + name[::-1])\n    \nnames_backwards_1\n\n['miladdalim', 'rodolfooflodor', 'tiffanyynaffit']\n\n\n\nnames_backwards_2 = list()\n\nfor name in names2:\n    names_backwards_2.append(name + name[::-1])\n    \nnames_backwards_2\n\n['TrudeauuaedurT', 'ScheerreehcS', 'SinghhgniS', 'BlanchettehcnalB', 'MayyaM']\n\n\n\nnames_backwards_3 = list()\n\nfor name in names3:\n    names_backwards_3.append(name + name[::-1])\n    \nnames_backwards_3\n\n['appleelppa', 'orangeegnaro', 'bananaananab']\n\n\nAbove: this is very bad also (and imagine if it was 20 lines of code instead of 2). This was problem (2). Our function makes it much better:\n\nmake_palindromes(names1)\n\n['miladdalim', 'rodolfooflodor', 'tiffanyynaffit']\n\n\n\nmake_palindromes(names2)\n\n['TrudeauuaedurT', 'ScheerreehcS', 'SinghhgniS', 'BlanchettehcnalB', 'MayyaM']\n\n\n\nmake_palindromes(names3)\n\n['appleelppa', 'orangeegnaro', 'bananaananab']\n\n\n\nYou could get even more fancy, and put the lists of names into a list (so you have a list of lists).\nThen you could loop over the list and call the function each time:\n\n\nfor list_of_names in [names1, names2, names3]:\n    print(make_palindromes(list_of_names))\n\n['miladdalim', 'rodolfooflodor', 'tiffanyynaffit']\n['TrudeauuaedurT', 'ScheerreehcS', 'SinghhgniS', 'BlanchettehcnalB', 'MayyaM']\n['appleelppa', 'orangeegnaro', 'bananaananab']\n\n\n\n\nDesigning good functions\n\nHow far you go with this is sort of a matter of personal style, and how you choose to apply the DRY principle: DON’T REPEAT YOURSELF!\nThese decisions are often ambiguous. For example:\n\nShould make_palindromes be a function if I’m only ever doing it once? Twice?\nShould the loop be inside the function, or outside?\nOr should there be TWO functions, one that loops over the other??\n\nIn my personal opinion, make_palindromes does a bit too much to be understandable.\nI prefer this:\n\n\ndef make_palindrome(name):\n    return name + name[::-1]\n\nmake_palindrome(\"milad\")\n\n'miladdalim'\n\n\n\nFrom here, we want to “apply make_palindrome to every element of a list”\nIt turns out this is an extremely common desire, so Python has built-in functions.\nOne of these is map, which we’ll cover later. But for now, just a comprehension will do:\n\n\n[make_palindrome(name) for name in names]\n\n['miladdalim',\n 'rodolfooflodor',\n 'tiffanyynaffit',\n 'khaladdalahk',\n 'jeffffej',\n 'christelletsirhc',\n 'firassarif']\n\n\nOther function design considerations:\n\nShould we print output or produce plots inside or outside functions?\n\nI would usually say outside, because this is a “side effect” of sorts\n\nShould the function do one thing or many things?\n\nThis is a tough one, hard to answer in general\n\n\n\n\nOptional & keyword arguments\n\nSometimes it is convenient to have default values for some arguments in a function.\nBecause they have default values, these arguments are optional, hence “optional arguments”\nExample:\n\n\ndef repeat_string(s, n=2):\n    return s*n\n\n\nrepeat_string(\"mds\", 2)\n\n'mdsmds'\n\n\n\nrepeat_string(\"mds\", 5)\n\n'mdsmdsmdsmdsmds'\n\n\nSane defaults:\n\nIdeally, the default should be carefully chosen.\nHere, the idea of “repeating” something makes me think of having 2 copies, so n=2 feels like a sane default.\n\nSyntax:\n\nYou can have any number of arguments and any number of optional arguments\n**All the optional arguments must come after the regular arguments\nThe regular arguments are mapped by the order they appear\nThe optional arguments can be specified out of order\n\n\ndef example(a, b, c=\"DEFAULT\", d=\"DEFAULT\"):\n    print(a,b,c,d)\n    \nexample(1,2,3,4)\n\n1 2 3 4\n\n\nUsing the defaults for c and d:\n\nexample(1,2)\n\n1 2 DEFAULT DEFAULT\n\n\nSpecifying c and d as keyword arguments (i.e. by name):\n\nexample(1,2,c=3,d=4)\n\n1 2 3 4\n\n\nSpecifying only one of the optional arguments, by keyword:\n\nexample(1,2,c=3)\n\n1 2 3 DEFAULT\n\n\nOr the other:\n\nexample(1,2,d=4)\n\n1 2 DEFAULT 4\n\n\nSpecifying all the arguments as keyword arguments, even though only c and d are optional:\n\nexample(a=1,b=2,c=3,d=4)\n\n1 2 3 4\n\n\nSpecifying c by the fact that it comes 3rd (I do not recommend this because I find it is confusing):\n\nexample(1,2,3) \n\n1 2 3 DEFAULT\n\n\nSpecifying the optional arguments by keyword, but in the wrong order (this is also somewhat confusing, but not so terrible - I am OK with it):\n\nexample(1,2,d=4,c=3) \n\n1 2 3 4\n\n\nSpecifying the non-optional arguments by keyword (I am fine with this):\n\nexample(a=1,b=2)\n\n1 2 DEFAULT DEFAULT\n\n\nSpecifying the non-optional arguments by keyword, but in the wrong order (not recommended, I find it confusing):\n\nexample(b=2,a=1)\n\n1 2 DEFAULT DEFAULT\n\n\nSpecifying keyword arguments before non-keyword arguments (this throws an error):\n\nexample(a=2,b=1)\n\n2 1 DEFAULT DEFAULT\n\n\n\nIn general, I am used to calling non-optional arguments by order, and optional arguments by keyword.\nThe language allows us to deviate from this, but it can be unnecessarily confusing sometimes.\n\n\n\nkwargs:\n\nYou can also call/define functions with *args and **kwargs; see, e.g. here\nDo not instantiate objects in the function definition - see here under “Mutable Default Arguments”\n\n\ndef example(a, b=[]): # don't do this!\n    return 0\n\n\ndef example(a, b=None): # insted, do this\n    if b is None:\n        b = []\n    return 0\n\n\n\nAnonymous functions (5 min)\nThere are two ways to define functions in Python:\n\ndef add_one(x):\n    return x+1\n\n\nadd_one(7.2)\n\n8.2\n\n\n\nadd_one = lambda x: x+1 \n\n\ntype(add_one)\n\nfunction\n\n\n\nadd_one(7.2)\n\n8.2\n\n\nThe two approaches above are identical. The one with lambda is called an anonymous function.\nSome differences:\n\nanonymous functions can only take up one line of code, so they aren’t appropriate in most cases.\nanonymous functions evaluate to a function (remember, functions are first-class objects) immediate, so we can do weird stuff with them.\n\n\n(lambda x,y: x+y)(6,7)\n\n13\n\n\n\nevaluate_function_on_x_plus_1(lambda x: x**2, 5)\n\n\n---------------------------------------------------------------------------\nNameError                                 Traceback (most recent call last)\nCell In[75], line 1\n----&gt; 1 evaluate_function_on_x_plus_1(lambda x: x**2, 5)\n\nNameError: name 'evaluate_function_on_x_plus_1' is not defined\n\n\n\nAbove:\n\nFirst, lambda x: x**2 evaluates to a value of type function\n\nNotice that this function is never given a name - hence “anonymous functions” !\n\nThen, the function and the integer 5 are passed into evaluate_function_on_x_plus_1\nAt which point the anonymous function is evaluated on 5+1, and we get 36."
+  },
+  {
+    "objectID": "activities/04_python-2.html#exceptions-tryexcept-10-min",
+    "href": "activities/04_python-2.html#exceptions-tryexcept-10-min",
+    "title": " Review of Programming in Python II",
+    "section": "Exceptions, try/except (10 min)",
+    "text": "Exceptions, try/except (10 min)\n\nIf something goes wrong, we don’t want the code to crash - we want it to fail gracefully.\nIn Python, this can be accomplished using try/except:\nHere is a basic example:\n\n\nthis_variable_does_not_exist\n\n\n---------------------------------------------------------------------------\nNameError                                 Traceback (most recent call last)\nCell In[76], line 1\n----&gt; 1 this_variable_does_not_exist\n\nNameError: name 'this_variable_does_not_exist' is not defined\n\n\n\n\ntry:\n    this_variable_does_not_exist\nexcept:\n#     pass\n    print(\"You did something bad!\")\n\nYou did something bad!\n\n\n\nPython tries to execute the code in the try block.\nIf an error is encountered, we “catch” this in the except block (also called try/catch in other languages).\nThere are many different error types, or exceptions - we saw NameError above.\n\n\n5/0\n\n\n---------------------------------------------------------------------------\nZeroDivisionError                         Traceback (most recent call last)\nCell In[78], line 1\n----&gt; 1 5/0\n\nZeroDivisionError: division by zero\n\n\n\n\nmy_list = [1,2,3]\nmy_list[5]\n\n\n---------------------------------------------------------------------------\nIndexError                                Traceback (most recent call last)\nCell In[79], line 2\n      1 my_list = [1,2,3]\n----&gt; 2 my_list[5]\n\nIndexError: list index out of range\n\n\n\n\n# (note: this is also valid syntax, just very confusing)\n[1,2,3][5]\n\n\n---------------------------------------------------------------------------\nIndexError                                Traceback (most recent call last)\nCell In[80], line 2\n      1 # (note: this is also valid syntax, just very confusing)\n----&gt; 2 [1,2,3][5]\n\nIndexError: list index out of range\n\n\n\n\nmy_tuple = (1,2,3)\nmy_tuple[0] = 0\n\n\n---------------------------------------------------------------------------\nTypeError                                 Traceback (most recent call last)\nCell In[81], line 2\n      1 my_tuple = (1,2,3)\n----&gt; 2 my_tuple[0] = 0\n\nTypeError: 'tuple' object does not support item assignment\n\n\n\n\nOk, so there are apparently a bunch of different errors one could run into.\nWith try/except you can also catch the exception itself:\n\n\ntry:\n    this_variable_does_not_exist\nexcept Exception as ex:\n    print(\"You did something bad!\")\n    print(ex)\n    print(type(ex))\n\nYou did something bad!\nname 'this_variable_does_not_exist' is not defined\n&lt;class 'NameError'&gt;\n\n\n\nIn the above, we caught the exception and assigned it to the variable ex so that we could print it out.\nThis is useful because you can see what the error message would have been, without crashing your program.\nYou can also catch specific exceptions types, like so:\n\n\ntry:\n    this_variable_does_not_exist\nexcept TypeError:\n    print(\"You made a type error!\")\nexcept NameError:\n    print(\"You made a name error!\")\nexcept:\n    print(\"You made some other sort of error\")\n\nYou made a name error!\n\n\n\nThe final except would trigger if the error is none of the above types, so this sort of has an if/elif/else feel to it.\nThere are some extra features, in particular an else and finally block; if you are interested, see e.g., here.\n\n\ntry:\n    5/0\nexcept TypeError:\n    print(\"You made a type error!\")\nexcept NameError:\n    print(\"You made a name error!\")\nexcept Exception as ex:\n    print(\"You made some other sort of error\")\n\nYou made some other sort of error\n\n\n\nIdeally, try to make your try/except blocks specific, and try not to put more errors inside the except…\n\n\ntry:\n    this_variable_does_not_exist\nexcept:\n    5/0\n\n\n---------------------------------------------------------------------------\nNameError                                 Traceback (most recent call last)\nCell In[85], line 2\n      1 try:\n----&gt; 2     this_variable_does_not_exist\n      3 except:\n\nNameError: name 'this_variable_does_not_exist' is not defined\n\nDuring handling of the above exception, another exception occurred:\n\nZeroDivisionError                         Traceback (most recent call last)\nCell In[85], line 4\n      2     this_variable_does_not_exist\n      3 except:\n----&gt; 4     5/0\n\nZeroDivisionError: division by zero\n\n\n\n\nThis is a bit much, but it does happen sometimes :(\n\n\nUsing raise\n\nYou can also write code that raises an exception on purpose, using raise\n\n\ndef add_one(x):\n    return x+1\n\n\nadd_one(\"blah\")\n\n\n---------------------------------------------------------------------------\nTypeError                                 Traceback (most recent call last)\nCell In[87], line 1\n----&gt; 1 add_one(\"blah\")\n\nCell In[86], line 2, in add_one(x)\n      1 def add_one(x):\n----&gt; 2     return x+1\n\nTypeError: can only concatenate str (not \"int\") to str\n\n\n\n\ndef add_one(x):\n    if not isinstance(x, float) and not isinstance(x, int):\n        raise Exception(\"Sorry, x must be numeric\")\n        \n    return x+1\n\n\nadd_one(\"blah\")\n\n\n---------------------------------------------------------------------------\nException                                 Traceback (most recent call last)\nCell In[89], line 1\n----&gt; 1 add_one(\"blah\")\n\nCell In[88], line 3, in add_one(x)\n      1 def add_one(x):\n      2     if not isinstance(x, float) and not isinstance(x, int):\n----&gt; 3         raise Exception(\"Sorry, x must be numeric\")\n      5     return x+1\n\nException: Sorry, x must be numeric\n\n\n\n\nThis is useful when your function is complicated and would fail in a complicated way, with a weird error message.\nYou can make the cause of the error much clearer to the caller of the function.\nThus, your function is more usable this way.\nIf you do this, you should ideally describe these exceptions in the function documentation, so a user knows what to expect if they call your function.\nYou can also raise other types of exceptions, or even define your own exception types, as in lab 2.\nYou can also use raise by itself to raise whatever exception was going on:\n\n\ntry:\n    this_variable_does_not_exist\nexcept:\n    print(\"You did something bad!\")\n    raise\n\nYou did something bad!\n\n\n\n---------------------------------------------------------------------------\nNameError                                 Traceback (most recent call last)\nCell In[90], line 2\n      1 try:\n----&gt; 2     this_variable_does_not_exist\n      3 except:\n      4     print(\"You did something bad!\")\n\nNameError: name 'this_variable_does_not_exist' is not defined\n\n\n\n\nHere, the original exception is raised after we ran some other code."
+  },
+  {
+    "objectID": "activities/04_python-2.html#testing",
+    "href": "activities/04_python-2.html#testing",
+    "title": " Review of Programming in Python II",
+    "section": "Testing",
+    "text": "Testing\n\nassert statements\n\nassert statementS cause your program to fail if the condition is False.\nThey can be used as sanity checks for your program.\nThere are more sophisticated way to “test” your programs, which we’ll discuss in Workflows.\nThe syntax is:\n\nassert expression , \"Error message if expression is False or raises an error.\"\n\na = 4\nb = 5\n\n# Change this assert statement so a and b is used instead of \"hard-coded 1 and 2\"\nassert a == b , f\"{a} is not equal to {b}.\"\n\n\n---------------------------------------------------------------------------\nAssertionError                            Traceback (most recent call last)\nCell In[91], line 5\n      2 b = 5\n      4 # Change this assert statement so a and b is used instead of \"hard-coded 1 and 2\"\n----&gt; 5 assert a == b , f\"{a} is not equal to {b}.\"\n\nAssertionError: 4 is not equal to 5.\n\n\n\n\n\nSystematic Program Design\nA systematic approach to program design is a general set of steps to follow when writing programs. Our approach includes:\n\nWrite a stub: a function that does nothing but accept all input parameters and return the correct datatype.\nWrite tests to satisfy the design specifications.\nOutline the program with pseudo-code.\nWrite code and test frequently.\nWrite documentation.\n\nThe key point: write tests BEFORE you write code.\n\nYou do not have to do this in MDS, but you may find it surprisingly helpful.\nOften writing tests helps you think through what you are trying to accomplish.\nIt’s best to have that clear before you write the actual code.\n\n\n# Task: Let's calculate area of a rectangle, given length and width\n\n\ndef calculate_rectangle_area(length, width):\n    \"\"\" Computes the area of a rectangle given a length and a width\n    inputs: length (float) and width(float)\n    \n    oututs: area (float)\n    \"\"\"\n    \n    # Check the inputs\n    # check if length and width are floats\n    \n    # Compute area\n    area = length * width\n    \n    print(f\"the area should be : {length * width} and is {area}\")\n    \n    return area\n\nassert calculate_rectangle_area(5,5) == 25, \"the function is not quite correct because the area of a 5x5 should be 25.\"\ncalculate_rectangle_area(5,5)\n\nthe area should be : 25 and is 25\nthe area should be : 25 and is 25\n\n\n25\n\n\n\n\nTesting woes - false positives\n\nJust because all your tests pass, this does not mean your program is correct!!\nThis happens all the time. How to deal with it?\n\nWrite a lot of tests!\nDon’t be overconfident, even after writing a lot of tests!\n\n\n\ndef sample_median(x):\n    \"\"\"Finds the median of a list of numbers.\"\"\"\n    x_sorted = sorted(x)\n    return x_sorted[len(x_sorted)//2]\n\nassert sample_median([1,2,3,4,5]) == 3\nassert sample_median([0,0,0,0]) == 0\n\nLooks good? … ?\n\n4//2 \n\n#is equivalent to\n\nint(4/2)\n\n2\n\n\n\nassert sample_median([1,2,3,4]) == 2.5\n\n\n---------------------------------------------------------------------------\nAssertionError                            Traceback (most recent call last)\nCell In[96], line 1\n----&gt; 1 assert sample_median([1,2,3,4]) == 2.5\n\nAssertionError: \n\n\n\n\nassert sample_median([1,3,2]) == 2\n\n\n\nTesting woes - false negatives\n\nIt can also happen, though more rarely, that your tests fail but your program is correct.\nThis means there is something wrong with your test.\nFor example, in the autograding for lab1 this happened to some people, because of tiny roundoff errors.\n\n\n\nCorner cases\n\nA corner case is an input that is reasonable but a bit unusual, and may trip up your code.\nFor example, taking the median of an empty list, or a list with only one element.\nOften it is desirable to add test cases to address corner cases.\n\n\nassert sample_median([1]) == 1\n\n\nIn this case the code worked with no extra effort, but sometimes we need if statements to handle the weird cases.\nSometimes we want the code to throw an error (e.g. median of an empty list)"
+  },
+  {
+    "objectID": "activities/04_python-2.html#questions-and-recap",
+    "href": "activities/04_python-2.html#questions-and-recap",
+    "title": " Review of Programming in Python II",
+    "section": "Questions and Recap?",
+    "text": "Questions and Recap?"
+  },
+  {
+    "objectID": "activities/02_command-line-interface.html",
+    "href": "activities/02_command-line-interface.html",
+    "title": " Command-line interface",
+    "section": "",
+    "text": "Today we will be learning about the Terminal! If you have not yet set up your local software stack, look in PrairieLearn for Class Activity 1B. Each of the questions there allow you to open a workspace in which you can play around with a cloud-based terminal."
+  },
+  {
+    "objectID": "activities/02_command-line-interface.html#introduction-to-the-terminal-command-line",
+    "href": "activities/02_command-line-interface.html#introduction-to-the-terminal-command-line",
+    "title": " Command-line interface",
+    "section": "Introduction to the  Terminal (Command Line)",
+    "text": "Introduction to the  Terminal (Command Line)\nIf you would like some additional notes and a much deeper explanation of the command line (also known as the Terminal), I suggest the notes from Software Carpentry! They are excellent.\nIn particular, I suggest “Introducing the shell”, “Navigating Files and Directories”, and “Working with Files and Directories”\n\nWhat is the Command Line?\nThe command line is the text interface to the computer that accepts commands that the computer will execute. These commands include:\n\nstarting programs\nnavigating directories and manipulating files\nsearching, sorting, and editing text files\nsystem and environment configuration\n\n\n\nWhy learn command line?\nThe command line is the text interface to the computer. Understanding the command line allows you to interact with the computer in ways that you often cannot with the graphical user interface (GUI).\nThe command line is commonly used for scripting and automation of tasks and when accessing remote systems. It will also be useful to run programs that make use of the command line (eg. github).\n\n\nWhy use command line?\nThe command line is part of the operating system (OS), which is software that manages your computer including all devices and programs.\n\nCommon operating systems include Windows, Mac OS, and Linux/Unix.\nSome commands will be OS specific\n\nYou might be wondering why we would ever prefer command line over using the graphical user interface (GUI). - Certain tools may only be available to command line. - Sometimes command line is faster.\n\n\nCommand Line on Windows\nThe command line on Windows dates back to the original Microsoft operating system called DOS (Disk Operating System) in 1981.\nThis command line interface is still part of all modern Windows operating systems and is accessible as the “Command Prompt”.\nI am requiring you use GitBash instead of the default Windows Command Prompt.\n\n\nWindows Terminal\nThis is what the GitBash “Terminal” looks like. From here on out, whenever we say “Terminal”, we mean “GitBash on Windows”, “Terminal on macOS and Ubuntu”\n\n\nThe directory separator is a forward slash / for Macs/Ubuntu, and the opposite pointing slash on Windows \\\nHowever if you use GitBash, this should preserve your sanity and you should be able to use forward slash on Windows as well\nIn fact, many of the macOS/Ubuntu commands will also work in GitBash, but for completeness we will also share the other commands\n\nImage source: Git for windows\n\n\nMac OS Command Line\nThe command line for Mac OS uses the same commands as Linux. It can be opened using Finder then Utilities then Terminal.\n\nAlternatively, we could type Command-SpaceCommand-Space, then type “Terminal” and press EnterEnter.\n\n\nEntering Commands\nEnter a command at a prompt. The prompt may be a &gt; or a $ or customized by the user.\nPress EnterEnter to execute the command.\nCommands are case-insensitive on both Mac/Linux and Windows. \nHere are some useful Terminal Commands\n\ncd: change directory\npwd: print working directory\nmkdir: make directory\nmkdir -p: make directory and create (p)arent directories if they do not exist\nls: list directory contents\nrm: Delete a file\nrm -r: Delete a directory\ntouch: create an empty file with a specific name\n\n\n\nSpecial Commands\nThese are commands that will require some extra configuration to use. In this workspace, we’ve set them up for you already, but just be warned, these will not be available by default on all machines.\n\ntree: print out a directory tree view of files and folders\ncode: edit the file in the VS Code editor\n\n\n\nLearning Intentions: Terminal\nBy the end of class, and after deliberate practice you should be able to:\n\nDefine command line and list some of its uses\nExplain the purpose of an operating system\nKnow how to open the command line window on macOS and Windows\nEnter commands in the Terminal and stop them\nDefine: file system, folder, file\nExplain the difference between an absolute and relative path\nUse command line shortcuts to save time\nBe able to cancel a command (Ctrl-CCtrl-C)"
+  },
+  {
+    "objectID": "activities/02_command-line-interface.html#tips-and-tricks-with-the-terminal",
+    "href": "activities/02_command-line-interface.html#tips-and-tricks-with-the-terminal",
+    "title": " Command-line interface",
+    "section": "Tips and Tricks with the Terminal",
+    "text": "Tips and Tricks with the Terminal\n\nUse the pwd command to find out where you are in the Terminal at any point!\nUse ↑↑ and ↓↓ to cycle through previously used commands.\n\nThis is a huge time saver!\n\nUse Tab completion!!\n\nPress tab to see available options\n\nUse * to autocomplete partial matches\n\n\nConclusion\n\nThe command line is the text interface to the computer that accepts commands that the computer will execute including running programs, manipulating files, and running scripts.\nThe command line allows for automation and more control than may be available in the user interface. It may also be the only way to interact with the machine if connecting via SSH.\nThe command environment allows for redirecting the standard input and output using input/output redirection and pipes.\nYou need to PRACTICE PRACTICE PRACTICE working in the Terminal: to get yourself used to it, I suggest not using the Finder/Explorer on your computer and use the Terminal for everything.\n\nopen will open a file in the default application on macOS.\n\nopen . will open the file in Finder.\nexplorer.exe . will open the folder in Explorer"
+  },
+  {
+    "objectID": "activities/02_command-line-interface.html#guide-to-your-operating-system-optional",
+    "href": "activities/02_command-line-interface.html#guide-to-your-operating-system-optional",
+    "title": " Command-line interface",
+    "section": "Guide to your operating system (Optional)",
+    "text": "Guide to your operating system (Optional)\n\nmacOS\n\n\n\nWindows 10"
+  },
+  {
+    "objectID": "activities/03_python-1.html",
+    "href": "activities/03_python-1.html",
+    "title": " Review of Programming in Python I",
+    "section": "",
+    "text": "The material for this lecture is best experienced as a Jupyter Notebook. Go to PrairieLearn Class Activity 2A and open the workspace in the question there to get access to a cloud-based version of this notebook.\nNote: Some images may look slightly different than yours as the software gets more polished and icons/user interfaces change, but this should give you a general gist of the essential things."
+  },
+  {
+    "objectID": "activities/03_python-1.html#part-1-introduction-30-mins",
+    "href": "activities/03_python-1.html#part-1-introduction-30-mins",
+    "title": " Review of Programming in Python I",
+    "section": "Part 1: Introduction (30 mins)",
+    "text": "Part 1: Introduction (30 mins)"
+  },
+  {
+    "objectID": "activities/03_python-1.html#outline",
+    "href": "activities/03_python-1.html#outline",
+    "title": " Review of Programming in Python I",
+    "section": "Outline:",
+    "text": "Outline:\n\nPart 1: Review of Python\n\nBasic datatypes\nLists and tuples\nBreak (5 min)\nString methods\nDictionaries\nConditionals"
+  },
+  {
+    "objectID": "activities/03_python-1.html#datatypes-in-python",
+    "href": "activities/03_python-1.html#datatypes-in-python",
+    "title": " Review of Programming in Python I",
+    "section": "Datatypes in Python",
+    "text": "Datatypes in Python\nPython has several data types available. The diagram below from Geeks for Geeks shows a nice summary of how the datatypes are classified, and examples of each. You’ll notice that some types are in a class of their own (dict, set, bool) whereas other ones are similar but have distinguishing features (list/tuple/str and int/float etc…).\n\n\nCommon built-in Python data types\n\n\n\n\n\n\n\n\n\nEnglish name\nType name\nDescription\nExample\n\n\n\n\ninteger\nint\npositive/negative whole numbers\n42\n\n\nfloating point number\nfloat\nreal number in decimal form\n3.14159\n\n\nboolean\nbool\ntrue or false\nTrue\n\n\nstring\nstr\ntext\n\"I Can Has Cheezburger?\"\n\n\nlist\nlist\na collection of objects - mutable & ordered\n['Ali','Xinyi','Miriam']\n\n\ntuple\ntuple\na collection of objects - immutable & ordered\n('Thursday',6,9,2018)\n\n\ndictionary\ndict\nmapping of key-value pairs\n{'name':'DSCI','code':511,'credits':2}\n\n\nnone\nNoneType\nrepresents no value\nNone\n\n\n\n\n\nVariables and Values\n\nA value is a piece of data that a computer program works with such as a number or text.\nThere are different types of values: 42 is an integer and \"Hello!\" is a string.\nA variable is a name that refers to a value.\n\nIn mathematics and statistics, we usually use variables names like \\(x\\) and \\(y\\).\nIn Python, we can use any word as a variable name (as long as it starts with a letter and is not a reserved word in Python such as for, while, class, lambda, etc.).\n\nAnd we use the assignment operator = to assign a value to a variable.\nSee the Python 3 documentation for a summary of the standard built-in Python datatypes.\nSee Think Python (Chapter 2) for a discussion of variables, expressions and statements in Python.\n\n\n\nNumeric Types\n\nx = 42.5\n\n\ntype(x)\n\nfloat\n\n\n\nx = 5\nprint(x)\n\n5\n\n\n\nx=5\nx-2\n\n3\n\n\n\npi = 3.14159\n\n\nprint(pi)\n\n3.14159\n\n\n\ntype(pi)\n\nfloat\n\n\n\nArithmetic Operators\nThe syntax for the arithmetic operators are:\n\n\n\nOperator\nDescription\n\n\n\n\n+\naddition\n\n\n-\nsubtraction\n\n\n*\nmultiplication\n\n\n/\ndivision\n\n\n**\nexponentiation\n\n\n//\ninteger division\n\n\n%\nmodulo\n\n\n\nLet’s apply these operators to numeric types and observe the results.\n\n1 + 2 + 3 + 4 + 5\n\n15\n\n\n\n0.1 + 0.2\n\n0.30000000000000004\n\n\n\n\n\n\n\n\nTip\n\n\n\nFrom Firas: This is floating point arithmetic. For an explanation of what’s going on, see this tutorial.\n\n\n\n2 * 3.14159\n\n6.28318\n\n\n\n2**10\n\n1024\n\n\n\ntype(2**10)\n\nint\n\n\n\n2.0**10\n\n1024.0\n\n\n\nint_2 = 2\n\n\nfloat_2 = 2.0\n\n\nfloat_2_again = 2.\n\n\n107 / 2\n\n53.5\n\n\n\n107 // 2 # \"integer division\" - always rounds down\n\n53\n\n\n\n101 % 2 # \"101 mod 2\", or the remainder when 101 is divided by 2\n\n1\n\n\n\n\n\nStrings\n\nText is stored as a type called a string.\nWe think of a string as a sequence of characters.\nWe write strings as characters enclosed with either:\n\nsingle quotes, e.g., 'Hello'\ndouble quotes, e.g., \"Goodbye\"\ntriple single quotes, e.g., '''Yesterday'''\ntriple double quotes, e.g., \"\"\"Tomorrow\"\"\"\n\n\n\nmy_name = \"Firas Moosvi\"\n\n\nprint(my_name)\n\nFiras Moosvi\n\n\n\ntype(my_name)\n\nstr\n\n\n\ncourse = 'CPSC 203'\n\n\nprint(course)\n\nCPSC 203\n\n\n\ntype(course)\n\nstr\n\n\nIf the string contains a quotation or apostrophe, we can use double quotes or triple quotes to define the string.\n\nsentence = \"It's a rainy day.\"\n\n\nprint(sentence)\n\nIt's a rainy day.\n\n\n\ntype(sentence)\n\nstr\n\n\n\nsaying = '''They say: \n\"It's a rainy day!\"'''\n\n\nprint(saying)\n\nThey say: \n\"It's a rainy day!\"\n\n\n\n\nSequence Type\nThis datatype contains three subtypes and serves as a good way to “hold/store stuff” - a container.\nEach subtype has their own unique distinguishing features but they can all hold items of any type (and multiple types).\nBelow are the main differences between lists, tuples, and sets:\n\nlist: items are ordered, and can be edited, changed after insertion.\nset: items are unique, but not ordered. Items cannot be replaced or changed, but can be removed or added.\ntuple: items are ordered, but cannot be replaced or changed once created.\n\n\nmylist = ['one','two','apples','three','apples',600.50, 50, 'banana']\n\n\nset(mylist)\n\n{50, 600.5, 'apples', 'banana', 'one', 'three', 'two'}\n\n\n\nmytuple = ('one','two','apples', 600.5)\n\nmytuple\n\n('one', 'two', 'apples', 600.5)\n\n\n\nmytuple +('blagreenck',)\n\n('one', 'two', 'apples', 600.5, 'blagreenck')\n\n\n\nSets\n\nAnother built-in Python data type is the set, which stores an un-ordered list of unique items.\n\n\ns = {2,3,5,11}\ns\n\n{2, 3, 5, 11}\n\n\n\n{1,2,3} == {3,2,1}\n\nTrue\n\n\n\n[1,2,3] == [3,2,1]\n\nFalse\n\n\n\ns.add(2) # does nothing\ns\n\n{2, 3, 5, 11}\n\n\n\ns[0]\n\n\n---------------------------------------------------------------------------\nTypeError                                 Traceback (most recent call last)\nCell In[39], line 1\n----&gt; 1 s[0]\n\nTypeError: 'set' object is not subscriptable\n\n\n\nAbove: throws an error because elements are not ordered.\n\n\n\nBoolean\n\nThe Boolean (bool) type has two values: True and False.\n\n\nthe_truth = True\n\n\nprint(the_truth)\n\nTrue\n\n\n\ntype(the_truth)\n\nbool\n\n\n\nlies = False\n\n\nprint(lies)\n\nFalse\n\n\n\ntype(lies)\n\nbool\n\n\n\nComparison Operators\nCompare objects using comparison operators. The result is a Boolean value.\n\n\n\nOperator\nDescription\n\n\n\n\nx == y\nis x equal to y?\n\n\nx != y\nis x not equal to y?\n\n\nx &gt; y\nis x greater than y?\n\n\nx &gt;= y\nis x greater than or equal to y?\n\n\nx &lt; y\nis x less than y?\n\n\nx &lt;= y\nis x less than or equal to y?\n\n\nx is y\nis x the same object as y?\n\n\n\n\n2 &lt; 3\n\nTrue\n\n\n\n\"Data Science\" != \"Deep Learning\"\n\nTrue\n\n\n\n2.0 == \"two\"\n\nFalse\n\n\n\n2 == 2.0\n\nTrue\n\n\nNote: we will discuss is next week.\nOperators on Boolean values.\n\n\n\nOperator\nDescription\n\n\n\n\nx and y\nare x and y both true?\n\n\nx or y\nis at least one of x or y true?\n\n\nnot x\nis x false?\n\n\n\n\nTrue and True\n\nTrue\n\n\n\nTrue and False\n\nFalse\n\n\n\nFalse or False\n\nFalse\n\n\n\n(\"Python 2\" != \"Python 3\") and (2 &lt;= 3)\n\nTrue\n\n\n\nnot True\n\nFalse\n\n\n\nnot not True\n\nTrue\n\n\n\n\n\nNoneType\n\nNoneType is its own type in Python.\nIt only has one possible value, None\nYou may have seen similar things in other languages, like null in Java, etc.\n\n\nx = None\n\n\nprint(x)\n\nNone\n\n\n\ntype(x)\n\nNoneType\n\n\n\nbool(None)\n\nFalse\n\n\n\n\nDictionaries\nDictionaries are awesome! We’ll look at those in a lot more detail soon."
+  },
+  {
+    "objectID": "activities/03_python-1.html#break",
+    "href": "activities/03_python-1.html#break",
+    "title": " Review of Programming in Python I",
+    "section": "Break!",
+    "text": "Break!"
+  },
+  {
+    "objectID": "activities/03_python-1.html#dictionaries-10-min",
+    "href": "activities/03_python-1.html#dictionaries-10-min",
+    "title": " Review of Programming in Python I",
+    "section": "Dictionaries (10 min)",
+    "text": "Dictionaries (10 min)\nA dictionary is a mapping between key-values pairs.\n\nhouse = {'bedrooms': 3, \n         'bathrooms': 2, \n         'city': 'Vancouver', \n         'price': 2499999, \n         'date_sold': (1,3,2015)}\n\ncondo = {'bedrooms' : 2, \n         'bathrooms': 1, \n         'city'     : 'Burnaby', \n         'price'    : 699999, \n         'date_sold': (27,8,2011)\n        }\n\n\nhouse\n\n{'bedrooms': 3,\n 'bathrooms': 2,\n 'city': 'Vancouver',\n 'price': 2499999,\n 'date_sold': (1, 3, 2015)}\n\n\nWe can access a specific field of a dictionary with square brackets:\n\nhouse['price']\n\n2499999\n\n\n\ncondo['city']\n\n'Burnaby'\n\n\nWe can also edit dictionaries (they are mutable):\n\ncondo['price'] = 5 # price already in the dict\ncondo\n\n{'bedrooms': 2,\n 'bathrooms': 1,\n 'city': 'Burnaby',\n 'price': 5,\n 'date_sold': (27, 8, 2011)}\n\n\n\ncondo['flooring'] = \"wood\"\n\n\ncondo\n\n{'bedrooms': 2,\n 'bathrooms': 1,\n 'city': 'Burnaby',\n 'price': 5,\n 'date_sold': (27, 8, 2011),\n 'flooring': 'wood'}\n\n\nWe can delete fields entirely (though I rarely use this):\n\ndel condo[\"city\"]\n\n\ncondo\n\n{'bedrooms': 2,\n 'bathrooms': 1,\n 'price': 5,\n 'date_sold': (27, 8, 2011),\n 'flooring': 'wood'}\n\n\n\ncondo[5] = 443345\n\n\ncondo\n\n{'bedrooms': 2,\n 'bathrooms': 1,\n 'price': 5,\n 'date_sold': (27, 8, 2011),\n 'flooring': 'wood',\n 5: 443345}\n\n\n\ncondo[(1,2,3)] = 777\ncondo\n\n{'bedrooms': 2,\n 'bathrooms': 1,\n 'price': 5,\n 'date_sold': (27, 8, 2011),\n 'flooring': 'wood',\n 5: 443345,\n (1, 2, 3): 777}\n\n\n\ncondo[\"nothere\"]\n\n\n---------------------------------------------------------------------------\nKeyError                                  Traceback (most recent call last)\nCell In[72], line 1\n----&gt; 1 condo[\"nothere\"]\n\nKeyError: 'nothere'\n\n\n\nA sometimes useful trick about default values:\n\ncondo[\"bedrooms\"]\n\n2\n\n\nis shorthand for\n\ncondo.get(\"bedrooms\")\n\n2\n\n\n\ntype(condo.get('nothere'))\n\nNoneType\n\n\nWith this syntax you can also use default values:\n\ncondo.get(\"bedrooms\", \"unknown\")\n\n2\n\n\n\ncondo.get(\"fireplaces\", \"FREEZER\")\n\n'FREEZER'\n\n\n\nA common operation is finding the maximum dictionary key by value.\nThere are a few ways to do this, see this StackOverflow page.\nOne way of doing it:\n\n\nmax(word_lengths, key=word_lengths.get)\n\n\n---------------------------------------------------------------------------\nNameError                                 Traceback (most recent call last)\nCell In[78], line 1\n----&gt; 1 max(word_lengths, key=word_lengths.get)\n\nNameError: name 'word_lengths' is not defined\n\n\n\nWe saw word_lengths.get above - it is saying that we should call this function on each key of the dict to decide how to sort."
+  },
+  {
+    "objectID": "activities/03_python-1.html#indexing-sequences-lists-and-tuples-20-min",
+    "href": "activities/03_python-1.html#indexing-sequences-lists-and-tuples-20-min",
+    "title": " Review of Programming in Python I",
+    "section": "Indexing Sequences (Lists and Tuples) (20 min)",
+    "text": "Indexing Sequences (Lists and Tuples) (20 min)\n\nLists and tuples allow us to store multiple things (“elements”) in a single object.\nThe elements are ordered.\nWe can access values inside a list, tuple, or string using the bracket syntax.\nPython uses zero-based indexing, which means the first element of the list is in position 0, not position 1.\n\n\nmy_list = [1, 2, \"THREE\", 4, 0.5]\n\n\nprint(my_list)\n\n[1, 2, 'THREE', 4, 0.5]\n\n\n\ntype(my_list)\n\nlist\n\n\nYou can get the length of the list with len:\n\nlen(my_list)\n\n5\n\n\n\ntoday = (1, 2, \"THREE\", 4, 0.5)\n\n\nprint(today)\n\n(1, 2, 'THREE', 4, 0.5)\n\n\n\ntype(today)\n\ntuple\n\n\n\nlen(today)\n\n5\n\n\n\nmy_list\n\n[1, 2, 'THREE', 4, 0.5]\n\n\n\nmy_list[0]\n\n1\n\n\n\nmy_list[4]\n\n0.5\n\n\n\nmy_list[5]\n\n\n---------------------------------------------------------------------------\nIndexError                                Traceback (most recent call last)\nCell In[90], line 1\n----&gt; 1 my_list[5]\n\nIndexError: list index out of range\n\n\n\n\ntoday[4]\n\n0.5\n\n\nWe can use negative indices to count backwards from the end of the list.\n\nmy_list\n\n[1, 2, 'THREE', 4, 0.5]\n\n\n\nmy_list[-1]\n\n0.5\n\n\nWe use the colon : to access a subsequence. This is called “slicing”.\n\nmy_list[1:4]\n\n[2, 'THREE', 4]\n\n\n\nAbove: note that the start is inclusive and the end is exclusive.\nSo my_list[1:3] fetches elements 1 and 2, but not 3.\nIn other words, it gets the 2nd and 3rd elements in the list.\n\nWe can omit the start or end:\n\nmy_list[:3]\n\n[1, 2, 'THREE']\n\n\n\nmy_list[3:]\n\n[4, 0.5]\n\n\n\nmy_list[:] # *almost* same as my_list - more details next week\n\n[1, 2, 'THREE', 4, 0.5]\n\n\nStrings behave the same as lists and tuples when it comes to indexing and slicing.\n\nalphabet = \"abcdefghijklmnopqrstuvwxyz\"\n\n\nalphabet[0]\n\n'a'\n\n\n\nalphabet[-1]\n\n'z'\n\n\n\nalphabet[-3]\n\n'x'\n\n\n\nalphabet[:5]\n\n'abcde'\n\n\n\nalphabet[12:20]\n\n'mnopqrst'\n\n\n\nList Methods\n\nA list is an object and it has methods for interacting with its data.\nFor example, list.append(item) appends an item to the end of the list.\nSee the documentation for more list methods.\n\n\nprimes = [2,3,5,7,11]\nprimes\n\n[2, 3, 5, 7, 11]\n\n\n\nlen(primes)\n\n5\n\n\n\nprimes.append(13)\n\n\nprimes\n\n[2, 3, 5, 7, 11, 13]\n\n\n\nlen(primes)\n\n6\n\n\n\nmax(primes)\n\n13\n\n\n\nmin(primes)\n\n2\n\n\n\nsum(primes)\n\n41\n\n\n\nw =[1,2,3] + [\"Hello\", 7]\nw\n\n[1, 2, 3, 'Hello', 7]\n\n\n\ntype(w)\n\nlist\n\n\n\nMutable vs. Immutable Types\n\nStrings and tuples are immutable types which means they cannot be modified.\nLists are mutable and we can assign new values for its various entries.\nThis is the main difference between lists and tuples.\n\n\nnames_list = [\"Indiana\",\"Fang\",\"Linsey\"]\nnames_list\n\n['Indiana', 'Fang', 'Linsey']\n\n\n\nnames_list[0] = \"Cool guy\"\nnames_list\n\n['Cool guy', 'Fang', 'Linsey']\n\n\n\nnames_tuple = (\"Indiana\",\"Fang\",\"Linsey\")\nnames_tuple\n\n('Indiana', 'Fang', 'Linsey')\n\n\n\nnames_tuple[0] = \"Not cool guy\"\n\n\n---------------------------------------------------------------------------\nTypeError                                 Traceback (most recent call last)\nCell In[117], line 1\n----&gt; 1 names_tuple[0] = \"Not cool guy\"\n\nTypeError: 'tuple' object does not support item assignment\n\n\n\nSame goes for strings. Once defined we cannot modifiy the characters of the string.\n\nmy_name = \"Firas\"\n\n\nmy_name[-1] = 'q'\n\n\n---------------------------------------------------------------------------\nTypeError                                 Traceback (most recent call last)\nCell In[119], line 1\n----&gt; 1 my_name[-1] = 'q'\n\nTypeError: 'str' object does not support item assignment\n\n\n\n\nx = ([1,2,3],5)\n\n\nx[1] = 7\n\n\n---------------------------------------------------------------------------\nTypeError                                 Traceback (most recent call last)\nCell In[121], line 1\n----&gt; 1 x[1] = 7\n\nTypeError: 'tuple' object does not support item assignment\n\n\n\n\nx\n\n([1, 2, 3], 5)\n\n\n\nx[0][1] = 4\n\n\nx\n\n([1, 4, 3], 5)"
+  },
+  {
+    "objectID": "activities/03_python-1.html#string-methods-5-min",
+    "href": "activities/03_python-1.html#string-methods-5-min",
+    "title": " Review of Programming in Python I",
+    "section": "String Methods (5 min)",
+    "text": "String Methods (5 min)\n\nThere are various useful string methods in Python.\n\n\nall_caps = \"HOW ARE YOU TODAY?\"\nprint(all_caps)\n\nHOW ARE YOU TODAY?\n\n\n\nnew_str = all_caps.lower()\nnew_str\n\n'how are you today?'\n\n\nNote that the method lower doesn’t change the original string but rather returns a new one.\n\nall_caps\n\n'HOW ARE YOU TODAY?'\n\n\nThere are many string methods. Check out the documentation.\n\nall_caps.split()\n\n['HOW', 'ARE', 'YOU', 'TODAY?']\n\n\n\nall_caps.count(\"O\")\n\n3\n\n\nOne can explicitly cast a string to a list:\n\ncaps_list = list(all_caps)\ncaps_list\n\n['H',\n 'O',\n 'W',\n ' ',\n 'A',\n 'R',\n 'E',\n ' ',\n 'Y',\n 'O',\n 'U',\n ' ',\n 'T',\n 'O',\n 'D',\n 'A',\n 'Y',\n '?']\n\n\n\nlen(all_caps)\n\n18\n\n\n\nlen(caps_list)\n\n18\n\n\n\nString formatting\n\nPython has a really awesome way of formatting strings by “filling in the blanks” and formatting them nicely.\nThere are a few ways of doing this, but f-strings are what I would recommend.\n\n\nmyname = \"Firas\"\nage = 5\n\nnew = f\"Hello, my name is {myname}. I am {age} years old.\"\n\nprint(new)\n\nHello, my name is Firas. I am 5 years old.\n\n\n\n\nEmpties\n\nlst = list() # empty list\nlst\n\n[]\n\n\n\nlst = [] # empty list\nlst\n\n[]\n\n\n\ntup = tuple() # empty tuple\ntup\n\n()\n\n\n\ntup = () # empty tuple\ntup\n\n()\n\n\n\ndic = dict() # empty dict\ndic\n\n{}\n\n\n\ndic = {} # empty dict\ndic\n\n{}\n\n\n\nst = set() # emtpy set\nst\n\nset()\n\n\n\nst = {} # NOT an empty set!\ntype(st)\n\ndict\n\n\n\nst = {1}\ntype(st)\n\nset"
+  },
+  {
+    "objectID": "activities/03_python-1.html#conditionals-10-min",
+    "href": "activities/03_python-1.html#conditionals-10-min",
+    "title": " Review of Programming in Python I",
+    "section": "Conditionals (10 min)",
+    "text": "Conditionals (10 min)\n\nConditional statements allow us to write programs where only certain blocks of code are executed depending on the state of the program.\nLet’s look at some examples and take note of the keywords, syntax and indentation.\nCheck out the Python documentation and Think Python (Chapter 5) for more information about conditional execution.\n\n\nname = input(\"What's your name?\")\n\nif name.lower() == 'mike':\n    print(\"That's my name too!\")\nelif name.lower() == 'santa':\n    print(\"That's a funny name.\")\nelif name.lower() == 'firas':\n    print(\"That's a great name\")\nelse:\n    print(f\"Hello {name}! That's a cool name.\")\n\n    print('Nice to meet you!')\n\nThe main points to notice:\n\nUse keywords if, elif and else\nThe colon : ends each conditional expression\nIndentation (by 4 empty space) defines code blocks\nIn an if statement, the first block whose conditional statement returns True is executed and the program exits the if block\nif statements don’t necessarily need elif or else\nelif lets us check several conditions\nelse lets us evaluate a default block if all other conditions are False\nthe end of the entire if statement is where the indentation returns to the same level as the first if keyword\n\nIf statements can also be nested inside of one another:\n\nname = input(\"What's your name?\")\n\nif name.lower() == 'mike':\n    print(\"That's my name too!\")\nelif name.lower() == 'santa':\n    print(\"That's a funny name.\")\nelse:\n    print(\"Hello {0}! That's a cool name.\".format(name))\n    if name.lower().startswith(\"super\"):\n        print(\"Do you have superpowers?\")\n\nprint('Nice to meet you!')\n\n\nInline if/else\n\nwords = [\"the\", \"list\", \"of\", \"words\"]\n\nx = \"long list\" if len(words) &gt; 10 else \"short list\"\nx\n\n'short list'\n\n\n\nif len(words) &gt; 10:\n    x = \"long list\"\nelse:\n    x = \"short list\"\n\n\nx\n\n'short list'"
+  },
+  {
+    "objectID": "activities/03_python-1.html#preview-next-class",
+    "href": "activities/03_python-1.html#preview-next-class",
+    "title": " Review of Programming in Python I",
+    "section": "Preview: Next Class",
+    "text": "Preview: Next Class\nNext class we will look at loops, functions, and error handling. After that, we’ll be in business for the rest of the course!"
+  },
+  {
+    "objectID": "activities/06_data-classes.html",
+    "href": "activities/06_data-classes.html",
+    "title": " Data classes",
+    "section": "",
+    "text": "Explore the Student data class in the Class Activity 3B using the VSCode workspace."
+  },
+  {
+    "objectID": "activities/08_more-classes-and-pandas.html",
+    "href": "activities/08_more-classes-and-pandas.html",
+    "title": " More on member functions and an introduction to pandas",
+    "section": "",
+    "text": "We will work on the various data classes to manipulate blocks in a handcraft in the Class Activity 4A workspace."
+  },
+  {
+    "objectID": "activities/08_more-classes-and-pandas.html#resources",
+    "href": "activities/08_more-classes-and-pandas.html#resources",
+    "title": " More on member functions and an introduction to pandas",
+    "section": " Resources",
+    "text": "Resources\npandas cheat sheet"
+  },
+  {
+    "objectID": "activities/10_billboard-2.html",
+    "href": "activities/10_billboard-2.html",
+    "title": " Wrangling Billboard Hot 100 data",
+    "section": "",
+    "text": "In Class Activity 5B, we will convert the Billboard Hot 100 data into a suitable form (a list of dictionaries) for them to be loaded it into Pandas, and then we explore various manipulations we can perform using Pandas powerful (if sometimes obscure) overloading of the [] (square brackets) operator. We also touch briefly on Python’s formatted string literals (also commonly called “f-strings”)."
+  },
+  {
+    "objectID": "activities/10_billboard-2.html#resources",
+    "href": "activities/10_billboard-2.html#resources",
+    "title": " Wrangling Billboard Hot 100 data",
+    "section": " Resources",
+    "text": "Resources\n\nLOTS more on Pandas (courtesy of Dr. Moosvi’s former DATA 301 course at UBC-O).\nAn f-string tutorial if you want to use some of the more powerful features."
+  },
+  {
+    "objectID": "activities/12_git.html",
+    "href": "activities/12_git.html",
+    "title": " An introduction to Git",
+    "section": "",
+    "text": "There were no slides for today’s lecture."
+  },
+  {
+    "objectID": "activities/12_git.html#version-control-with-git",
+    "href": "activities/12_git.html#version-control-with-git",
+    "title": " An introduction to Git",
+    "section": "Version Control with Git",
+    "text": "Version Control with Git\n\n\nWhy Git?\nThe GitHub flow.\nThe evolution of version control, aka “why is git so complicated?”\n\n\n\nWhy Git\n ### What is Git?\n\n\n\nImage Source: Noble Desktop\n\n\n\n\nWhy is Git so complicated?\nEach feature of Git is designed to solve particular issues that arise when managing versions of potentially large, distributed, and long-term projects, and understanding how to use Git may be made easier if you think about the issue you are trying to solve first."
+  },
+  {
+    "objectID": "activities/12_git.html#learn-git-branching",
+    "href": "activities/12_git.html#learn-git-branching",
+    "title": " An introduction to Git",
+    "section": "Learn Git Branching",
+    "text": "Learn Git Branching"
+  },
+  {
+    "objectID": "activities/12_git.html#useful-git-commands",
+    "href": "activities/12_git.html#useful-git-commands",
+    "title": " An introduction to Git",
+    "section": "Useful Git Commands",
+    "text": "Useful Git Commands\nHere are some command sequences that might be useful:\n\ngit clone\ngit status\ngit switch\ngit add, git add ., or git add -A\ngit commit or git commit -m\ngit push\ngit pull\ngit fetch\ngit merge\ngit rebase\ngit branch"
+  },
+  {
+    "objectID": "activities/12_git.html#resources",
+    "href": "activities/12_git.html#resources",
+    "title": " An introduction to Git",
+    "section": " Resources",
+    "text": "Resources\n\nGitHub Guide\nGitHub Flow cheatsheet\nLearn Git Branching"
+  },
+  {
+    "objectID": "activities/14_voronoi-1.html",
+    "href": "activities/14_voronoi-1.html",
+    "title": " Voronoi and pointillism",
+    "section": "",
+    "text": "Motivating Voronoi diagrams.\n\nVoronoi diagrams have interesting connections to nearest neighbour search and the Delaunay triangulation, but we won’t have time to discuss them in CPSC 203.\n\nDistance between pixels in an image.\nPointillism as an example of using Voronoi diagrams.\n\nDisclaimer: The artistic style of pointillism has nothing to do with Voronoi diagrams; however, we can illustrate Voronoi diagrams using images that end up looking like a blobby version of pointillism.\nAn implementation of image-based Voronoi diagrams."
+  },
+  {
+    "objectID": "activities/14_voronoi-1.html#topics-for-todays-lecture",
+    "href": "activities/14_voronoi-1.html#topics-for-todays-lecture",
+    "title": " Voronoi and pointillism",
+    "section": "",
+    "text": "Motivating Voronoi diagrams.\n\nVoronoi diagrams have interesting connections to nearest neighbour search and the Delaunay triangulation, but we won’t have time to discuss them in CPSC 203.\n\nDistance between pixels in an image.\nPointillism as an example of using Voronoi diagrams.\n\nDisclaimer: The artistic style of pointillism has nothing to do with Voronoi diagrams; however, we can illustrate Voronoi diagrams using images that end up looking like a blobby version of pointillism.\nAn implementation of image-based Voronoi diagrams."
+  },
+  {
+    "objectID": "activities/14_voronoi-1.html#logistics",
+    "href": "activities/14_voronoi-1.html#logistics",
+    "title": " Voronoi and pointillism",
+    "section": "Logistics",
+    "text": "Logistics\nAs discussed in the previous lecture, you have two choices for how to work with the class activity code:\nIf you want to keep a repository on GitHub of my personal changes to the code:\n\nMake a copy of the class activity repository.\nClone your personal copy to your laptop.\n\nIf you are happy to keep your personal changes only on your laptop: You can directly clone the class activity repository.\nHere is the Template repository for class activity 08B. You have only read access to the template repository, so you will not be able to push any changes back to it.\n\nHow to Copy the Class Activity Repository\nIf you make a copy of the template repository on GitHub, then you can push your changes to the code back up to your copy on GitHub any time you want. To copy the template repository, follow the instructions at Creating a repository from a template.\n\n\nClone the appropriate repository\nFollow the standard Git procedure to clone the appropriate repository onto your laptop:\ngit clone &lt;URL-of-repository&gt;\nNote that you can work on your local repository on your laptop (commit, branch, switch, restore, etc.) whether you cloned the template repository or your own copy. But you can only push changes back up to GitHub if you made your own copy on GitHub of the template repository."
+  },
+  {
+    "objectID": "activities/16_graphs.html",
+    "href": "activities/16_graphs.html",
+    "title": " Graphs",
+    "section": "",
+    "text": "Today we will be discussing a new data structure: Graphs."
+  },
+  {
+    "objectID": "activities/16_graphs.html#topics-for-todays-lecture",
+    "href": "activities/16_graphs.html#topics-for-todays-lecture",
+    "title": " Graphs",
+    "section": "Topics for today’s lecture",
+    "text": "Topics for today’s lecture\n\nWhat does it mean to be a “neighbour” in our Voronoi blobification algorithm?\n\nEffect of different choices on the meaning of distance.\nCan we replicate our traditional (Euclidean) meaning of distance?\n\nIntro to graphs.\n\nSome graph vocabulary.\nSome examples of graphs.\nConstructing a template for processing graphs with stacks / queues."
+  },
+  {
+    "objectID": "activities/16_graphs.html#resources",
+    "href": "activities/16_graphs.html#resources",
+    "title": " Graphs",
+    "section": " Resources",
+    "text": "Resources\n\nIntroduction to graphs"
+  },
+  {
+    "objectID": "activities/16_graphs.html#logistics",
+    "href": "activities/16_graphs.html#logistics",
+    "title": " Graphs",
+    "section": "Logistics",
+    "text": "Logistics\nNothing to clone for today."
+  },
+  {
+    "objectID": "activities/20_markov-2.html",
+    "href": "activities/20_markov-2.html",
+    "title": " Music generator continued",
+    "section": "",
+    "text": "Today we will continue with the Mary had a little lamb example."
+  },
+  {
+    "objectID": "activities/20_markov-2.html#logistics",
+    "href": "activities/20_markov-2.html#logistics",
+    "title": " Music generator continued",
+    "section": "Logistics",
+    "text": "Logistics\nI made significant changes to the starter file demoA.py, so I recommend that you get the new copy from the Template repository for class activity 11A.\n\nIf you just cloned the original repository, you can git pull the changes.\nIf you made a copy of the original repository, you will have to get the changes and merge them into your own copy."
+  },
+  {
+    "objectID": "activities/22_dijkstra.html",
+    "href": "activities/22_dijkstra.html",
+    "title": " More Sudoku, Dijkstra’s algorithm and priority queues",
+    "section": "",
+    "text": "Today we will finish off our discussion of depth first search to solve Sudoku puzzles. Then we will talk about shortest path search using Dijkstra’s algorithm and priority queues."
+  },
+  {
+    "objectID": "activities/22_dijkstra.html#resources",
+    "href": "activities/22_dijkstra.html#resources",
+    "title": " More Sudoku, Dijkstra’s algorithm and priority queues",
+    "section": " Resources",
+    "text": "Resources\n\nDijkstra’s algorithm.\n\nGraphical explanation of Dijkstra’s algorithm.\nAnother graphical explanation of Dijkstra’s algorithm.\nBuild your own grid and run Dijkstra’s algorithm\n\nPython’s heapq module provides an implementation of a priority queue.\n\nThere is also the PriorityQueue in the queue module, but that is unnecessarily fancy for our simple Dijkstra’s algorithm. (It allows multiple threads to access the queue at once, which is necessary for parallel programming but not for our single threaded serial program.)\nTutorial implementing Dijkstra’s algorithm using heapq. Because there is no way to remove or update an entry in heapq, we may end up removing a node from the queue multiple times; however, that is okay since the first removal will represent the minimum distance / shortest path so subsequent removals can be ignored."
+  },
+  {
+    "objectID": "activities/22_dijkstra.html#logistics",
+    "href": "activities/22_dijkstra.html#logistics",
+    "title": " More Sudoku, Dijkstra’s algorithm and priority queues",
+    "section": "Logistics",
+    "text": "Logistics\nThere is no repo to clone today!"
+  },
+  {
+    "objectID": "activities/24_travelling-salesperson.html",
+    "href": "activities/24_travelling-salesperson.html",
+    "title": " Travelling salesperson",
+    "section": "",
+    "text": "Today we will be working on the travelling salesperson problem."
+  },
+  {
+    "objectID": "activities/24_travelling-salesperson.html#logistics",
+    "href": "activities/24_travelling-salesperson.html#logistics",
+    "title": " Travelling salesperson",
+    "section": "Logistics",
+    "text": "Logistics\n\nGetting the class activity starter code\nYou have two choices for how to work with the class activity code:\nIf you want to keep a repository on GitHub of my personal changes to the code:\n\nMake a copy of the class activity repository.\nClone your personal copy to your laptop.\n\nIf you are happy to keep your personal changes only on your laptop: You can directly clone the class activity repository.\nHere is the Template repository for class activity 13B. You have only read access to the template repository, so you will not be able to push any changes back to it.\n\n\nHow to copy the class activity repository\nIf you make a copy of the template repository on GitHub, then you can push your changes to the code back up to your copy on GitHub any time you want. To copy the template repository, follow the instructions at Creating a repository from a template.\n\n\nClone the appropriate repository\nFollow the standard Git procedure to clone the appropriate repository onto your laptop:\ngit clone &lt;URL-of-repository&gt;\nNote that you can work on your local repository on your laptop (commit, branch, switch, restore, etc.) whether you cloned the template repository or your own copy. But you can only push changes back up to GitHub if you made your own copy on GitHub of the template repository."
+  },
+  {
+    "objectID": "formatting.html",
+    "href": "formatting.html",
+    "title": "Formatting",
+    "section": "",
+    "text": "In text paragraphs, code is always formatted with a monospace font and surrounded by a box like this. Longer examples of code will be in a separate box.\nFirst line of code\nSecond line of code\n...\nIn many cases, the output for code in these boxes will be below them.\nReplace any placeholder indicated by angular brackets &lt;placeholder&gt; with your own code.\nPressing a Key on the keyboard is formatted like that.",
+    "crumbs": [
+      "Resources",
+      "Formatting"
+    ]
+  },
+  {
+    "objectID": "labs/02_create-website.html",
+    "href": "labs/02_create-website.html",
+    "title": " Lab: Create your own website!",
+    "section": "",
+    "text": "We are going to create a website using a Quarto. Quarto documents are a mix of natural language and executed code and this pattern is called literate programming. A Quarto document usually contains:\n\nText formatted in Markdown.\nCode is fenced as code chunk between ```{r} and ```.\nMetadata as YAML with the format key: value. You can find metadata in the header of the document fenced by ---, or in code chunks starting with #|.\n\n---\ntitle: \"Untitled\"\nformat: html\n---\n\n## Quarto\n\nQuarto enables you to weave together content and executable code into\na finished document. To learn more about Quarto see &lt;https://quarto.org&gt;.\n\n```{r}\n#| label: calculation\n\n1 + 1\n```"
+  },
+  {
+    "objectID": "labs/02_create-website.html#basic-structure-of-quarto-document",
+    "href": "labs/02_create-website.html#basic-structure-of-quarto-document",
+    "title": " Lab: Create your own website!",
+    "section": "",
+    "text": "We are going to create a website using a Quarto. Quarto documents are a mix of natural language and executed code and this pattern is called literate programming. A Quarto document usually contains:\n\nText formatted in Markdown.\nCode is fenced as code chunk between ```{r} and ```.\nMetadata as YAML with the format key: value. You can find metadata in the header of the document fenced by ---, or in code chunks starting with #|.\n\n---\ntitle: \"Untitled\"\nformat: html\n---\n\n## Quarto\n\nQuarto enables you to weave together content and executable code into\na finished document. To learn more about Quarto see &lt;https://quarto.org&gt;.\n\n```{r}\n#| label: calculation\n\n1 + 1\n```"
+  },
+  {
+    "objectID": "labs/02_create-website.html#steps",
+    "href": "labs/02_create-website.html#steps",
+    "title": " Lab: Create your own website!",
+    "section": " Steps",
+    "text": "Steps\n\nOpen your workspace: skng.de/mbim/td-padlet.\nCreate index.qmd.\nClick the “Render” button on top.\nDownload the output directory _site.\nOpen Netlify Drop: app.netlify.com/drop.\nDrag and drop the downloaded _site onto Netlify Drop.\nPost the link to your website in the comments below or on our Padlet: skng.io/mbim/td-padlet"
+  },
+  {
+    "objectID": "labs/02_create-website.html#resources",
+    "href": "labs/02_create-website.html#resources",
+    "title": " Lab: Create your own website!",
+    "section": " Resources",
+    "text": "Resources\n\nDaring Fireball: Markdown\nInteractive Commonmark Markdown tutorial\nQuarto documentation\nGet started with Quarto Workshop including the material and this video:"
+  },
+  {
+    "objectID": "posts/01_week-1/index.html",
+    "href": "posts/01_week-1/index.html",
+    "title": "Week 1",
+    "section": "",
+    "text": "This week we will be doing course introductions, I will be showing you how to navigate the course website, and how the course is set up. In terms of content, we will learn Markdown together, and then start getting familiar with some course tools."
+  },
+  {
+    "objectID": "posts/03_week-3/index.html",
+    "href": "posts/03_week-3/index.html",
+    "title": "Week 3",
+    "section": "",
+    "text": "This week we will be learning about Python classes, including the dataclass, knitting and other fun things!"
+  },
+  {
+    "objectID": "posts/05_week-5/index.html",
+    "href": "posts/05_week-5/index.html",
+    "title": "Week 5",
+    "section": "",
+    "text": "This week we will start working with some data, using the BeautifulSoup, and parsing data from the internet!"
+  },
+  {
+    "objectID": "posts/07_week-7/index.html",
+    "href": "posts/07_week-7/index.html",
+    "title": "Week 7",
+    "section": "",
+    "text": "This week there is no new content in this course - it’s Reading week! This week, you’ll have an opportunity to catch your breath and catch up on anything from the last few weeks that you didn’t have time to grasp or go through. This may include test questions, missed POTW questions, videos that you didn’t watch, activities you didn’t finish, or anything else left over. Though you don’t have to use this break for CPSC 203, I encourage you to make sure you are actually caught up before re-purposing that time for other courses.\nHere’s a fun video from a game I enjoyed playing a lot!"
+  },
+  {
+    "objectID": "posts/07_week-7/index.html#portal",
+    "href": "posts/07_week-7/index.html#portal",
+    "title": "Week 7",
+    "section": "Portal",
+    "text": "Portal\n\nLink to the game"
+  },
+  {
+    "objectID": "posts/09_week-9/index.html",
+    "href": "posts/09_week-9/index.html",
+    "title": "Week 9",
+    "section": "",
+    "text": "This week we will finish up with queues, and then move on to Graphs as a new data structure."
+  },
+  {
+    "objectID": "posts/11_week-11/index.html",
+    "href": "posts/11_week-11/index.html",
+    "title": "Week 11",
+    "section": "",
+    "text": "This week we will continue our discussion on Graphs and look at two examples of them with code."
+  },
+  {
+    "objectID": "posts/13_week-13/index.html",
+    "href": "posts/13_week-13/index.html",
+    "title": "Week 13",
+    "section": "",
+    "text": "This week we will be working with maps data, a natural application of Graphs."
+  },
+  {
+    "objectID": "pre-activities/02_markdown.html",
+    "href": "pre-activities/02_markdown.html",
+    "title": " Pre-activity: Markdown",
+    "section": "",
+    "text": "In the last class, you learned how to format documents using Markdown. Have you ever wondered about the origin of its name? Markdown is a play on words of the term markup:\n\nMarkup is specifically used to label parts of the document for what they are, rather than how they should be processed.\n— Wikipedia (Nov 17, 2023)\n\nIn this pre-reading, you will practice the syntax most common text elements."
+  },
+  {
+    "objectID": "pre-activities/02_markdown.html#overview",
+    "href": "pre-activities/02_markdown.html#overview",
+    "title": " Pre-activity: Markdown",
+    "section": "",
+    "text": "In the last class, you learned how to format documents using Markdown. Have you ever wondered about the origin of its name? Markdown is a play on words of the term markup:\n\nMarkup is specifically used to label parts of the document for what they are, rather than how they should be processed.\n— Wikipedia (Nov 17, 2023)\n\nIn this pre-reading, you will practice the syntax most common text elements."
+  },
+  {
+    "objectID": "pre-activities/02_markdown.html#markdown",
+    "href": "pre-activities/02_markdown.html#markdown",
+    "title": " Pre-activity: Markdown",
+    "section": " Markdown",
+    "text": "Markdown\n\nThe overriding design goal for Markdown’s formatting syntax is to make it as readable as possible. […] To this end, Markdown’s syntax is comprised entirely of punctuation characters, which punctuation characters have been carefully chosen so as to look like what they mean. E.g., asterisks around a word actually look like *emphasis*.\n— John Gruber @ Daring Fireball"
+  },
+  {
+    "objectID": "pre-activities/02_markdown.html#your-turn-interactive-markdown-tutorial",
+    "href": "pre-activities/02_markdown.html#your-turn-interactive-markdown-tutorial",
+    "title": " Pre-activity: Markdown",
+    "section": " Your Turn: Interactive Markdown tutorial",
+    "text": "Your Turn: Interactive Markdown tutorial\n\nOpen Markdown tutorial\nExplore Markdown syntax\nCheck out the Code formatting section"
+  },
+  {
+    "objectID": "pre-activities/11_git.html",
+    "href": "pre-activities/11_git.html",
+    "title": " Pre-activity: Git",
+    "section": "",
+    "text": "Note\n\n\n\nNote: It is important you know how to create a repository for your own personal projects. However in this course, you will always get a “GitHub Classroom link” that will create a repository with some starter code."
+  },
+  {
+    "objectID": "pre-activities/11_git.html#required-videos",
+    "href": "pre-activities/11_git.html#required-videos",
+    "title": " Pre-activity: Git",
+    "section": "",
+    "text": "Note\n\n\n\nNote: It is important you know how to create a repository for your own personal projects. However in this course, you will always get a “GitHub Classroom link” that will create a repository with some starter code."
+  },
+  {
+    "objectID": "slides/01_intro.html#about-me",
+    "href": "slides/01_intro.html#about-me",
+    "title": "Discrete Math for Data Science",
+    "section": "About me",
+    "text": "About me"
+  },
+  {
+    "objectID": "slides/01_intro.html#our-amazing-tas",
+    "href": "slides/01_intro.html#our-amazing-tas",
+    "title": "Discrete Math for Data Science",
+    "section": "Our amazing TAs",
+    "text": "Our amazing TAs"
+  },
+  {
+    "objectID": "slides/01_intro.html#you",
+    "href": "slides/01_intro.html#you",
+    "title": "Discrete Math for Data Science",
+    "section": "You?",
+    "text": "You?\nLet’s play a game\nGoal – join everyone together via a small # of introductions.\n\nDesignate a first player.\nAt each turn (🕺🏽 💁 💃 🙅🏿 🤗 ):\n\nMove: Player introduces themselves by telling one factoid about their life, and then poses, and everyone who identifies with the factoid joins by posing like the Player\nRespond: Joins are invalid and must be reversed if…\n\n≥ 8 students remain, and more than half of remaining students join, or\n&lt; 8 students remain, and fewer than all join.\n\nIf the join is valid, then all who have ever joined take the new pose.\nIterate: Player selects a new player for the next round.\n\n\n\nIcebreaker game"
+  },
+  {
+    "objectID": "slides/01_intro.html#you-1",
+    "href": "slides/01_intro.html#you-1",
+    "title": "Discrete Math for Data Science",
+    "section": "You?",
+    "text": "You?\nQuestions:\n\nWhat’s an ideal factoid? One that…\n\nWhat’s the least number of questions we can hope for?\n\nWhy did we do this?"
+  },
+  {
+    "objectID": "slides/01_intro.html#where-to-start",
+    "href": "slides/01_intro.html#where-to-start",
+    "title": "Discrete Math for Data Science",
+    "section": "Where to start?",
+    "text": "Where to start?\nCanvas: https://canvas.ubc.ca/courses/130127"
+  },
+  {
+    "objectID": "slides/01_intro.html#about-this-course",
+    "href": "slides/01_intro.html#about-this-course",
+    "title": "Discrete Math for Data Science",
+    "section": "About This Course",
+    "text": "About This Course\nThis course will teach you a bajillion different things!\n\nTools: Terminal, Markdown, Git, Visual Studio Code, PrairieLearn\nComputer science: Python (!!!), efficiency, web scraping, graphs\nData science: Pandas, DataFrames, visualizations\nAlgorithms: many algorithms!\nArt and creativity: lots of examples!"
+  },
+  {
+    "objectID": "slides/01_intro.html#course-designer-dr.-cinda-heeren",
+    "href": "slides/01_intro.html#course-designer-dr.-cinda-heeren",
+    "title": "Discrete Math for Data Science",
+    "section": "Course Designer – Dr. Cinda Heeren!",
+    "text": "Course Designer – Dr. Cinda Heeren!\n\n\n\nTeaching Professor, at UBC since 2017 (previously at University of Illinois Urbana-Champaign).\nTeaches mid-level required courses for CS specializations (mostly CPSC 221) & a similar course for non-majors!"
+  },
+  {
+    "objectID": "slides/01_intro.html#course-components",
+    "href": "slides/01_intro.html#course-components",
+    "title": "Discrete Math for Data Science",
+    "section": "Course Components",
+    "text": "Course Components\nLectures: in-class activities based on problem solving and design.\nLabs: practice on lecture material\nProblems of the day (POTD): one per (week)day, 5/week, ~ 50 / term\nProjects: 3 total\nAssessments: 6 tests (examlets) + final"
+  },
+  {
+    "objectID": "slides/01_intro.html#passing-requirements",
+    "href": "slides/01_intro.html#passing-requirements",
+    "title": "Discrete Math for Data Science",
+    "section": "Passing Requirements",
+    "text": "Passing Requirements\nYou must satisfy ALL conditions to pass the course:\n\nEarn a grade of at least 50% in the Lab component.\nAchieve a minimum grade of 50% in both the Test and Exam components combined.\nPass the Final Exam with a minimum grade of 40%.\n\nIf students do not satisfy the appropriate requirements, the student will be assigned the lower of their earned course grade or a maximum overall grade of 45 in the course."
+  },
+  {
+    "objectID": "slides/01_intro.html#evaluation",
+    "href": "slides/01_intro.html#evaluation",
+    "title": "Discrete Math for Data Science",
+    "section": "Evaluation",
+    "text": "Evaluation\n\n\nCourse grading scheme: There will be 6 tests in this course in an (approximately) bi-weekly schedule.\n\n\nItem\nWeight\nDue date(s)\n\n\n\n\nLearning Logs\n5% (10 x 0.5%)\nSaturdays at 6 PM\n\n\nProblems of the Week\n25% (10 x 2.5%)\nFridays at 6 PM\n\n\nLabs\n5% (10 x 0.5%)\nFridays at 6 PM\n\n\nProgramming Projects\n15% (3 x 5%)\nThree in the term\n\n\nTests (Examlets)\n30% (6 x 5%)\n~ Bi-weekly\n\n\nFinal Exam\n20%\nTBD\n\n\n\n\n\n\n\n\n\n\nGrace period for due dates\n\n\nAll due dates in this course have an automatic 48-hour grace period after the due dates listed above. Any submissions submitted past the grace period will not be graded (with some exceptions)."
+  },
+  {
+    "objectID": "slides/01_intro.html#semester-overview",
+    "href": "slides/01_intro.html#semester-overview",
+    "title": "Discrete Math for Data Science",
+    "section": "Semester overview",
+    "text": "Semester overview\n\n\n\n\n\n\n\n\n\n\n\nHandcraft\nBillboard Hot 100\nThe Overstory and Pointillism\nArtificial Music Composition\nRoad Trip Planning\nSpiderman’s Social Network\n\n\n\n\nDesign\nObjects\nIteration\nWeb Scraping\nData Frames\nMatPlotLib\nVoronoi Diagrams\nEfficiency\nMarkov Chains\nRandom Numbers\nGraphs\nTraveling Salesperson\nIntractable Problems\nNatural Language\n\n\n\nThis course consists of a sequence of six explorations, assembled to provide a tour through data structure applications and algorithmic design. Built around topics from arts, sciences, and technology, the explorations are thought provoking and engaging. You will emerge from the course with increased proficiency in Python programming, and with a broad spectrum of tools for algorithmic problem solving."
+  },
+  {
+    "objectID": "slides/01_intro.html#course-tools",
+    "href": "slides/01_intro.html#course-tools",
+    "title": "Discrete Math for Data Science",
+    "section": "Course Tools",
+    "text": "Course Tools\nEd Discussion: class discussion forum\nPrairieLearn: platform to help us give you feedback on work you do!\nGitHub: code repository and version control\nVisual Studio Code: developer environment\nCanvas: basically just a place for you to find all the relevant links to things…"
+  },
+  {
+    "objectID": "slides/01_intro.html#tangrams",
+    "href": "slides/01_intro.html#tangrams",
+    "title": "Discrete Math for Data Science",
+    "section": "Tangrams",
+    "text": "Tangrams"
+  },
+  {
+    "objectID": "slides/01_intro.html#your-turn-tangrams",
+    "href": "slides/01_intro.html#your-turn-tangrams",
+    "title": "Discrete Math for Data Science",
+    "section": " Your turn: tangrams",
+    "text": "Your turn: tangrams\n\nDefine a small working group of size up to 4.\nOne of you share: https://mathigon.org/tangram\nSolve as many as you’d like, together\nSpeculate together on why you’re doing this!!\n\n\n  \n    −\n    +\n \n 10:00"
+  },
+  {
+    "objectID": "slides/01_intro.html#your-turn-time-to-practice-markdown",
+    "href": "slides/01_intro.html#your-turn-time-to-practice-markdown",
+    "title": "Discrete Math for Data Science",
+    "section": " Your turn: time to practice Markdown!",
+    "text": "Your turn: time to practice Markdown!\n\n  \n    −\n    +\n \n 20:00"
+  },
+  {
+    "objectID": "slides/02_terminal.html#announcements",
+    "href": "slides/02_terminal.html#announcements",
+    "title": "Discrete Math for Data Science",
+    "section": "Announcements",
+    "text": "Announcements"
+  },
+  {
+    "objectID": "slides/02_terminal.html#test-1",
+    "href": "slides/02_terminal.html#test-1",
+    "title": "Discrete Math for Data Science",
+    "section": "Test 1",
+    "text": "Test 1\n\nDon’t stress! This is mostly to get you familiar with the testing environment and reservation process\nThere will be ~ 10 questions on this quiz\n\nMarkdown Syntax (40%)\nQuestions from the Syllabus (20%)\nTerminal Commands (40%)"
+  },
+  {
+    "objectID": "slides/02_terminal.html#test-1-cont.",
+    "href": "slides/02_terminal.html#test-1-cont.",
+    "title": "Discrete Math for Data Science",
+    "section": "Test 1 (cont.)",
+    "text": "Test 1 (cont.)\nYou will have 50 minutes to do the quiz\nYou will self-schedule a time during one of the available slots\nYou will have access to VS Code in the browser to test Markdown and Terminal commands.\nTest will be closed book and closed notes."
+  },
+  {
+    "objectID": "slides/02_terminal.html#computer-based-testing-facility-cbtf",
+    "href": "slides/02_terminal.html#computer-based-testing-facility-cbtf",
+    "title": "Discrete Math for Data Science",
+    "section": "Computer-based testing facility (CBTF)",
+    "text": "Computer-based testing facility (CBTF)"
+  },
+  {
+    "objectID": "slides/02_terminal.html#computer-based-testing-facility-cbtf-1",
+    "href": "slides/02_terminal.html#computer-based-testing-facility-cbtf-1",
+    "title": "Discrete Math for Data Science",
+    "section": "Computer-based testing facility (CBTF)",
+    "text": "Computer-based testing facility (CBTF)"
+  },
+  {
+    "objectID": "slides/04_python-2.html#announcements",
+    "href": "slides/04_python-2.html#announcements",
+    "title": "Discrete Math for Data Science",
+    "section": "Announcements",
+    "text": "Announcements"
+  },
+  {
+    "objectID": "slides/06_classes.html#announcements",
+    "href": "slides/06_classes.html#announcements",
+    "title": "Discrete Math for Data Science",
+    "section": "Announcements",
+    "text": "Announcements"
+  },
+  {
+    "objectID": "slides/06_classes.html#practice-problems",
+    "href": "slides/06_classes.html#practice-problems",
+    "title": "Discrete Math for Data Science",
+    "section": "Practice problems",
+    "text": "Practice problems\n\\(1 + 3 + 5 + \\ldots + 1337\\) = ____________\n\n\nHow many terms?\nEnglish description: The sum of the first \\(k\\) odd integers is ________\nWhat about \\(11 + 13 + \\ldots + 23\\)?\n\n\nAnd \\(2 + 4 + 6 + \\ldots + 1338\\)?"
+  },
+  {
+    "objectID": "slides/06_classes.html#back-to-handcraft",
+    "href": "slides/06_classes.html#back-to-handcraft",
+    "title": "Discrete Math for Data Science",
+    "section": "Back to handcraft",
+    "text": "Back to handcraft"
+  },
+  {
+    "objectID": "slides/06_classes.html#where-are-we",
+    "href": "slides/06_classes.html#where-are-we",
+    "title": "Discrete Math for Data Science",
+    "section": "Where are we?",
+    "text": "Where are we?\n\n\n\n\n\n\n\n\n\n\n\nThe 8x8 grid illustrates dishcloth. Each block has 5 rows of 5 stitches. How would you represent a handcraft using Python types?"
+  },
+  {
+    "objectID": "slides/06_classes.html#program-design",
+    "href": "slides/06_classes.html#program-design",
+    "title": "Discrete Math for Data Science",
+    "section": "Program design",
+    "text": "Program design\n\n\n\n\n\n\n\n\n\n\n\n\n\nA handcraft is a collection of __________. Every __________ has a __________, and a collection of __________. Every __________ is a collection of __________. Every __________ is either “knit” or “purl,” and is drawn as a __________.\n\nMissing words: blocks, blocks, position, rows, stitches, rectangles"
+  },
+  {
+    "objectID": "slides/06_classes.html#classes-in-python",
+    "href": "slides/06_classes.html#classes-in-python",
+    "title": "Discrete Math for Data Science",
+    "section": "Classes in Python",
+    "text": "Classes in Python\nMechanism for creating user-defined types.\nUsed to identify attributes with an object. Associates functionality with the relevant objects.\nExample:\n@dataclass\nclass color:\n  \"\"\"\n  color: simply gathers color components\n  \"\"\"\n  red: int = 120\n  green: int = 120\n  blue: int = 120\n\nData classes allow us to create substructures to organize data in a way useful to us. Attributes are data and the functionality a member functions. Attributes can be defined with default values."
+  },
+  {
+    "objectID": "slides/06_classes.html#design-strategies",
+    "href": "slides/06_classes.html#design-strategies",
+    "title": "Discrete Math for Data Science",
+    "section": "Design Strategies",
+    "text": "Design Strategies\n\nDecompose a problem into classes\nList the data associated with each class\nWrite the “driver” code that illustrates the functionality you expect from each class.\nImplement the functions you expect.\nRun the driver code to test your functionality."
+  },
+  {
+    "objectID": "slides/08_review.html#announcements",
+    "href": "slides/08_review.html#announcements",
+    "title": "Discrete Math for Data Science",
+    "section": "Announcements",
+    "text": "Announcements"
+  },
+  {
+    "objectID": "slides/10_visualization.html#announcements",
+    "href": "slides/10_visualization.html#announcements",
+    "title": "Discrete Math for Data Science",
+    "section": "Announcements",
+    "text": "Announcements"
+  },
+  {
+    "objectID": "slides/10_visualization.html#warm-up-puzzle-whats-the-date-of-last-saturday",
+    "href": "slides/10_visualization.html#warm-up-puzzle-whats-the-date-of-last-saturday",
+    "title": "Discrete Math for Data Science",
+    "section": "Warm-up Puzzle: What’s the date of last saturday?",
+    "text": "Warm-up Puzzle: What’s the date of last saturday?\nimport datetime as dt\ntoday = dt.date.today()\n1today.weekday()\ndayspostsat =\n\n1\n\nGives the day of the week\n\n\n\n\n\n\n\nSat\nSun\nMon\nTue\nWed\nThu\nFri\n\n\n\n\n5\n6\n0\n1\n2\n3\n4\n\n\n\n\nUse modular arithmetic."
+  },
+  {
+    "objectID": "slides/10_visualization.html#pandas-and-data-frames",
+    "href": "slides/10_visualization.html#pandas-and-data-frames",
+    "title": "Discrete Math for Data Science",
+    "section": "Pandas and data frames",
+    "text": "Pandas and data frames\nimport pandas\nImports the pandas library. We will almost always use an abbreviation…\nInstead of saying pandas.read_csv('file.csv')\nwe can say\nThis function returns a DataFrame containing the data from file.csv."
+  },
+  {
+    "objectID": "slides/10_visualization.html#csv-files",
+    "href": "slides/10_visualization.html#csv-files",
+    "title": "Discrete Math for Data Science",
+    "section": "CSV files",
+    "text": "CSV files\nTo implement: df = pd.read_csv('file.csv')\nfile.csv must have field names in row 1, and data beginning in row 2.\n\n\nbill_week.csv\n\n,week,title,artist,rank,last_week,peak_pos,weeks_on_chart\n0,2019-09-21,Truth Hurts,Lizzo,1,1,1,19\n1,2019-09-21,Senorita,Shawn Mendes & Camila Cabello,2,2,1,12\n2,2019-09-21,Goodbyes,Post Malone Featuring Young Thug,3,10,3,10\n3,2019-09-21,Circles,Post Malone,4,7,4,2\n4,2019-09-21,Bad Guy,Billie Eilish,5,3,1,24\n5,2019-09-21,Ran$om,Lil Tecca,6,4,4,15\n6,2019-09-21,No Guidance,Chris Brown Featuring Drake,7,6,6,14"
+  },
+  {
+    "objectID": "slides/10_visualization.html#selecting-rows",
+    "href": "slides/10_visualization.html#selecting-rows",
+    "title": "Discrete Math for Data Science",
+    "section": "Selecting rows",
+    "text": "Selecting rows\n\n\n\n\n\ndf.nlargest(10,'last_week')\nReturns top 10 hits from last week.\n\n\n\n\ndf[ df['weeks_on_chart'] &gt; 10 ]\nReturns all songs that have been on the charts for more than 10 weeks."
+  },
+  {
+    "objectID": "slides/10_visualization.html#adding-a-column",
+    "href": "slides/10_visualization.html#adding-a-column",
+    "title": "Discrete Math for Data Science",
+    "section": "Adding a column",
+    "text": "Adding a column\n\ndf['gradient'] = df['last_week'] - df['rank']\nAdds a column to the DataFrame containing the difference for every row.\n\n\n\n\ndf[ df['gradient'] &gt; 10 ]\nReturns all songs that have moved more than 10 spaces in the last week."
+  },
+  {
+    "objectID": "slides/10_visualization.html#some-challenges",
+    "href": "slides/10_visualization.html#some-challenges",
+    "title": "Discrete Math for Data Science",
+    "section": "Some challenges…",
+    "text": "Some challenges…\nGiven last week’s chart:\n\nHow many new songs were there?\nWhat’s the average peak?\nAmong those who were on the list for more than 10wk, what’s the average peak? (Is it very different than the previous answer?)\nWhich song changed the most? Was it rising or falling?\nWrite and answer your own question:\n_____________________________________________________\n\n\ndf2 = pd.read_csv('bill_week.csv')\ndf3 = df2[ df2['weeks_on_chart'] &gt; 10 ]\nprint(\"all:  \")\nprint(df2)\nprint(\"endurance:  \")\nprint(df3)\n\ndf4 = df2[ df2['last_week'] == 101].count()['title']\ndf5 = df3['peak_pos'].mean()\nprint(\"new count\")\nprint(df4)\nprint(\"peak avg\")\nprint(df5)"
+  },
+  {
+    "objectID": "slides/10_visualization.html#some-challenges-1",
+    "href": "slides/10_visualization.html#some-challenges-1",
+    "title": "Discrete Math for Data Science",
+    "section": "Some challenges…",
+    "text": "Some challenges…\n\n\nHow many new songs were there?\n\n\n\n\n\n\n\n\n\n\n\n\nC\nC\nC\nC\nC\nC\n\n\n\n\nC\nC\nC\nC\nC\nC\n\n\nC\nC\nC\nC\nC\nC\n\n\nC\nC\nC\nC\nC\nC\n\n\nC\nC\nC\nC\nC\nC\n\n\nC\nC\nC\nC\nC\nC\n\n\nC\nC\nC\nC\nC\nC\n\n\nC\nC\nC\nC\nC\nC\n\n\nC\nC\nC\nC\nC\nC\n\n\nC\nC\nC\nC\nC\nC\n\n\n\n\n\nFilter, apply function, think about output (sometimes means choosing columns, too)\ndf[df['last_week'] == 101][['title', 'artist', 'weeks_on_chart']] .count()[‘title']"
+  },
+  {
+    "objectID": "slides/10_visualization.html#some-challenges-2",
+    "href": "slides/10_visualization.html#some-challenges-2",
+    "title": "Discrete Math for Data Science",
+    "section": "Some challenges…",
+    "text": "Some challenges…\n\n\nWhat’s the average peak?\n\n\n\n\n\n\n\n\n\n\n\n\nC\nC\nC\nC\nC\nC\n\n\n\n\nC\nC\nC\nC\nC\nC\n\n\nC\nC\nC\nC\nC\nC\n\n\nC\nC\nC\nC\nC\nC\n\n\nC\nC\nC\nC\nC\nC\n\n\nC\nC\nC\nC\nC\nC\n\n\nC\nC\nC\nC\nC\nC\n\n\nC\nC\nC\nC\nC\nC\n\n\nC\nC\nC\nC\nC\nC\n\n\nC\nC\nC\nC\nC\nC\n\n\n\n\n\ndf5 = df3['peak_pos'].mean()"
+  },
+  {
+    "objectID": "slides/10_visualization.html#some-challenges-3",
+    "href": "slides/10_visualization.html#some-challenges-3",
+    "title": "Discrete Math for Data Science",
+    "section": "Some challenges…",
+    "text": "Some challenges…\n\n\nAmong those who were on the list for more than 10wk, what’s the average peak? (Is it very different than the previous answer?)\n\n\n\n\n\n\n\n\n\n\n\n\nC\nC\nC\nC\nC\nC\n\n\n\n\nC\nC\nC\nC\nC\nC\n\n\nC\nC\nC\nC\nC\nC\n\n\nC\nC\nC\nC\nC\nC\n\n\nC\nC\nC\nC\nC\nC\n\n\nC\nC\nC\nC\nC\nC\n\n\nC\nC\nC\nC\nC\nC\n\n\nC\nC\nC\nC\nC\nC\n\n\nC\nC\nC\nC\nC\nC\n\n\nC\nC\nC\nC\nC\nC\n\n\n\n\n\nenduring_peak = df[df['weeks_on_chart']&gt;=10]['peak_pos'].mean()\nprint(\"enduring avg peak: \" + str(enduring_peak))"
+  },
+  {
+    "objectID": "slides/10_visualization.html#some-challenges-4",
+    "href": "slides/10_visualization.html#some-challenges-4",
+    "title": "Discrete Math for Data Science",
+    "section": "Some challenges…",
+    "text": "Some challenges…\n\n\nWhich song moved the most? Did it rise or fall?\n\n\n\n\n\n\n\n\n\n\n\n\nC\nC\nC\nC\nC\nC\n\n\n\n\nC\nC\nC\nC\nC\nC\n\n\nC\nC\nC\nC\nC\nC\n\n\nC\nC\nC\nC\nC\nC\n\n\nC\nC\nC\nC\nC\nC\n\n\nC\nC\nC\nC\nC\nC\n\n\nC\nC\nC\nC\nC\nC\n\n\nC\nC\nC\nC\nC\nC\n\n\nC\nC\nC\nC\nC\nC\n\n\nC\nC\nC\nC\nC\nC\n\n\n\n\n\ndf['gradient'] = df['rank'] - df['last_week']\nprint(df.loc[df['gradient'].abs().idxmax()])"
+  },
+  {
+    "objectID": "slides/10_visualization.html#the-plot-thickens",
+    "href": "slides/10_visualization.html#the-plot-thickens",
+    "title": "Discrete Math for Data Science",
+    "section": "The Plot Thickens…",
+    "text": "The Plot Thickens…\n\nSketch Cartesian coordinate system."
+  },
+  {
+    "objectID": "slides/10_visualization.html#plotting-with-pandas",
+    "href": "slides/10_visualization.html#plotting-with-pandas",
+    "title": "Discrete Math for Data Science",
+    "section": "Plotting with Pandas",
+    "text": "Plotting with Pandas"
+  },
+  {
+    "objectID": "slides/10_visualization.html#resources",
+    "href": "slides/10_visualization.html#resources",
+    "title": "Discrete Math for Data Science",
+    "section": "Resources",
+    "text": "Resources\nhttps://pymotw.com/2/datetime/\nhttps://www.dataschool.io/best-python-pandas-resources/\nhttps://pandas.pydata.org/Pandas_Cheat_Sheet.pdf\nhttps://queirozf.com/entries/pandas-dataframe-plot-examples-with-matplotlib-pyplot"
+  }
+]

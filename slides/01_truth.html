@@ -1,0 +1,1172 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/quarto-contrib/live-runtime/live-runtime.js" type="module"></script>
+<link href="../site_libs/quarto-contrib/live-runtime/live-runtime.css" rel="stylesheet">
+<script src="../site_libs/quarto-contrib/qrcodejs-v1.0.0/qrcode.js"></script>
+<script src="../site_libs/quarto-contrib/countdown-0.5.0/countdown.js"></script>
+<link href="../site_libs/quarto-contrib/countdown-0.5.0/countdown.css" rel="stylesheet">
+<script src="../site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.7.32">
+
+  <meta name="dcterms.date" content="2026-01-06">
+  <title>{{&lt; var course.full-title &gt;}} – Discrete Math for Data Science</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-0fb75280f5e48338ee47e8b42c61baf3.css">
+  <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-drop/drop-runtime.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+  <script type="module" src="../site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
+  <link href="../site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
+<meta property="og:title" content="Discrete Math for Data Science – DSCI 220: Discrete Math for Data Science">
+<meta property="og:description" content="DSCI 220, 2025 W1">
+<meta property="og:site_name" content="{{< var course.full-title >}}">
+<meta name="twitter:title" content="Discrete Math for Data Science – DSCI 220: Discrete Math for Data Science">
+<meta name="twitter:description" content="DSCI 220, 2025 W1">
+<meta name="twitter:card" content="summary">
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Discrete Math for Data Science</h1>
+  <p class="subtitle">DSCI 220, 2025 W1</p>
+
+<div class="quarto-title-authors">
+</div>
+
+  <p class="date">January 6, 2026</p>
+</section>
+<section>
+<section id="truth" class="title-slide slide level1 center">
+<h1>Truth</h1>
+
+</section>
+<section id="warm-up" class="slide level2">
+<h2>Warm-Up</h2>
+<p>Make at least 3 observations about the following table:</p>
+<div class="columns">
+<div class="column" style="width:30%;">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>p</th>
+<th>q</th>
+<th style="text-align: center;">p ∨ q</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>F</td>
+<td>F</td>
+<td style="text-align: center;">F</td>
+</tr>
+<tr class="even">
+<td>F</td>
+<td>T</td>
+<td style="text-align: center;">T</td>
+</tr>
+<tr class="odd">
+<td>T</td>
+<td>F</td>
+<td style="text-align: center;">T</td>
+</tr>
+<tr class="even">
+<td>T</td>
+<td>T</td>
+<td style="text-align: center;">T</td>
+</tr>
+</tbody>
+</table>
+</div><div class="column" style="width:70%;">
+<ul>
+<li></li>
+</ul>
+<p><br>
+</p>
+<ul>
+<li></li>
+</ul>
+<p><br>
+</p>
+<ul>
+<li></li>
+</ul>
+</div></div>
+</section>
+<section id="summary" class="slide level2">
+<h2>Summary</h2>
+<p>Key observations about the table:</p>
+<div class="columns">
+<div class="column" style="width:30%;">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>p</th>
+<th>q</th>
+<th style="text-align: center;">p ∨ q</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>F</td>
+<td>F</td>
+<td style="text-align: center;">F</td>
+</tr>
+<tr class="even">
+<td>F</td>
+<td>T</td>
+<td style="text-align: center;">T</td>
+</tr>
+<tr class="odd">
+<td>T</td>
+<td>F</td>
+<td style="text-align: center;">T</td>
+</tr>
+<tr class="even">
+<td>T</td>
+<td>T</td>
+<td style="text-align: center;">T</td>
+</tr>
+</tbody>
+</table>
+</div><div class="column" style="width: 70%; font-size: 80%;">
+<ul>
+<li>The diagram is called a <em>Truth Table</em></li>
+<li>p and q are <em>variables</em>, each of which take on one of two <em>Boolean</em> values, True or False (T/F, 1/0)</li>
+<li>∨ is a <em>binary operator</em> that implements a function (creates output) from the 2 input variables to another Boolean value. It is characterized by its output values.</li>
+<li>The operator ∨ corresponds to the English word <em>or</em>.</li>
+<li>The expression p ∨ q is called a <em>proposition</em>.</li>
+</ul>
+</div></div>
+</section>
+<section id="truth-tables" class="slide level2">
+<h2>Truth Tables</h2>
+<p>Some questions to ponder:</p>
+<div class="columns">
+<div class="column" style="width:30%;">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>p</th>
+<th>q</th>
+<th style="text-align: center;">p ∨ q</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>F</td>
+<td>F</td>
+<td style="text-align: center;">F</td>
+</tr>
+<tr class="even">
+<td>F</td>
+<td>T</td>
+<td style="text-align: center;">T</td>
+</tr>
+<tr class="odd">
+<td>T</td>
+<td>F</td>
+<td style="text-align: center;">T</td>
+</tr>
+<tr class="even">
+<td>T</td>
+<td>T</td>
+<td style="text-align: center;">T</td>
+</tr>
+</tbody>
+</table>
+</div><div class="column" style="width: 70%;">
+<ul>
+<li><p>How many rows for a proposition on 3 variables? <em>k</em> variables?</p></li>
+<li><p>Give a good name for an operator that takes 1 variable: __________</p></li>
+<li><p>Give a good name for an operator that takes 3 variables: __________</p></li>
+<li><p>How many different binary operators could there be?</p></li>
+</ul>
+</div></div>
+</section>
+<section id="truth-tables-1" class="slide level2">
+<h2>Truth Tables</h2>
+<p>All graded learning activities in the course will use a tool called <em>PrairieLearn</em>.</p>
+<p>Navigate to today’s activity and complete question 1</p>
+<div id="" class="qrcode"></div>
+<script type="text/javascript">
+(function() {
+  var script = document.currentScript;
+  var qrcode = script.previousElementSibling;
+  qrcode.qrcode = new QRCode(qrcode, {"colorDark":"#000000","colorLight":"#ffffff","height":128,"text":"https://us.prairielearn.com/pl/course_instance/186238/assessment/2562335","width":128});
+  script.remove();
+})();
+</script>
+    
+<p><a href="https://us.prairielearn.com/pl/course_instance/186238/assessment/2562335" class="uri">https://us.prairielearn.com/pl/course_instance/186238/assessment/2562335</a></p>
+</section>
+<section id="beyond-operators" class="slide level2">
+<h2>Beyond Operators</h2>
+<p><em>Propositions</em> can be more complex than just a single operator!</p>
+<p>Example:</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>p</th>
+<th>q</th>
+<th style="text-align: center;">~(p ∨ q)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>F</td>
+<td>F</td>
+<td style="text-align: center;">T</td>
+</tr>
+<tr class="even">
+<td>F</td>
+<td>T</td>
+<td style="text-align: center;">F</td>
+</tr>
+<tr class="odd">
+<td>T</td>
+<td>F</td>
+<td style="text-align: center;">F</td>
+</tr>
+<tr class="even">
+<td>T</td>
+<td>T</td>
+<td style="text-align: center;">F</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="wffs" class="slide level2">
+<h2>WFFs</h2>
+<p>A <em>well-formed formula</em> is a Boolean statement generated by the following rules:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource {bnf} number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a></a>&lt;wff&gt; ::= &lt;atom&gt;</span>
+<span id="cb1-2"><a></a>        | ~ &lt;wff&gt;</span>
+<span id="cb1-3"><a></a>        | ( &lt;wff&gt; ∧ &lt;wff&gt; )</span>
+<span id="cb1-4"><a></a>        | ( &lt;wff&gt; ∨ &lt;wff&gt; )</span>
+<span id="cb1-5"><a></a></span>
+<span id="cb1-6"><a></a>&lt;atom&gt; ::= p | q | r | s | ...</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Speculate:</p>
+<ul>
+<li></li>
+<li></li>
+<li></li>
+</ul>
+</section>
+<section id="wffs-1" class="slide level2">
+<h2>WFFs</h2>
+<p>A <em>well-formed formula</em> is a Boolean statement generated by the following rules:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource {bnf} number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a></a>&lt;wff&gt; ::= &lt;atom&gt;</span>
+<span id="cb2-2"><a></a>        | ~ &lt;wff&gt;</span>
+<span id="cb2-3"><a></a>        | ( &lt;wff&gt; ∧ &lt;wff&gt; )</span>
+<span id="cb2-4"><a></a>        | ( &lt;wff&gt; ∨ &lt;wff&gt; )</span>
+<span id="cb2-5"><a></a></span>
+<span id="cb2-6"><a></a>&lt;atom&gt; ::= p | q | r | s | ...</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This definition is in the form of a <em>Grammar</em>.</p>
+<p>_____________: <code>&lt;wff&gt;</code> and <code>&lt;atom&gt;</code></p>
+<p>_____________: <code>p</code>, <code>q</code>, <code>r</code>, <code>s</code> …</p>
+<p>It is our first self-referential or <em>recursive</em> definition.</p>
+</section>
+<section id="wffs-2" class="slide level2">
+<h2>WFFs</h2>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource {bnf} number-lines code-with-copy"><code class="sourceCode"><span id="cb3-1"><a></a>&lt;wff&gt; ::= &lt;atom&gt;</span>
+<span id="cb3-2"><a></a>        | ~ &lt;wff&gt;</span>
+<span id="cb3-3"><a></a>        | ( &lt;wff&gt; ∧ &lt;wff&gt; )</span>
+<span id="cb3-4"><a></a>        | ( &lt;wff&gt; ∨ &lt;wff&gt; )</span>
+<span id="cb3-5"><a></a></span>
+<span id="cb3-6"><a></a>&lt;atom&gt; ::= p | q </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Example derivation:</p>
+<p><code>&lt;wff&gt;</code></p>
+</section>
+<section id="wffs-notes" class="slide level2">
+<h2>WFFs (Notes)</h2>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource {bnf} number-lines code-with-copy"><code class="sourceCode"><span id="cb4-1"><a></a>&lt;wff&gt; ::= &lt;atom&gt;</span>
+<span id="cb4-2"><a></a>        | ~ &lt;wff&gt;</span>
+<span id="cb4-3"><a></a>        | ( &lt;wff&gt; ∧ &lt;wff&gt; )</span>
+<span id="cb4-4"><a></a>        | ( &lt;wff&gt; ∨ &lt;wff&gt; )</span>
+<span id="cb4-5"><a></a></span>
+<span id="cb4-6"><a></a>&lt;atom&gt; ::= p | q </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li><p>Grammars can be used to construct <em>many</em> different sequences.</p></li>
+<li><p>We could have included additional operators <span class="math inline">\(\rightarrow\)</span>, <span class="math inline">\(\leftrightarrow\)</span>, <span class="math inline">\(\oplus\)</span>, <span class="math inline">\(\uparrow\)</span></p></li>
+<li><p>Computational evaluation of <code>&lt;wff&gt;</code>is covered in DSCI221. For now, we trust Python and focus on logic.</p></li>
+<li><p>The <code>&lt;wff&gt;</code> are <em>propositions</em>.</p></li>
+</ul>
+</section>
+<section id="logical-equivalence" class="slide level2">
+<h2>Logical Equivalence</h2>
+<p><br>
+</p>
+<p>Ex: Is it true that <span class="math inline">\((p \lor q) \equiv (q\lor p)\)</span> ?</p>
+<p><br>
+</p>
+<p>Discussion points:</p>
+<ul>
+<li><p><span class="math inline">\(\equiv\)</span> means <em>logically equivalent</em></p></li>
+<li><p>The answer had better be _________!!!</p></li>
+<li><p>How can we justify our instinct?</p></li>
+</ul>
+<!-- 1) show same truth table 2) chains of equivalence -->
+<!-- same as saying "write a proof" -->
+</section>
+<section id="logical-equivalence-example" class="slide level2">
+<h2>Logical Equivalence example</h2>
+<iframe data-external="1" src="https://www.youtube.com/embed/CLQ0LZSnJFE?si=jHDBkjZ2OnkfQqwW" width="850" height="475" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+<script type="exercise-setup-ex_cereal-contents">
+eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWUsImV4ZXJjaXNlIjoiZXhfY2VyZWFsIiwic2V0dXAiOnRydWV9LCJjb2RlIjoiaW1wb3J0IHBhbmRhcyBhcyBwZFxuIyBpbXBvcnQgbnVtcHkgYXMgbnBcblxuIyBMb2FkIGFuZCBwcmVwYXJlIGRhdGFcbmNlcmVhbHMgPSBwZC5yZWFkX2NzdignaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL1VCQy1DUy9kc2NpMjIwL3JlZnMvaGVhZHMvbWFpbi9kYXRhL2NlcmVhbC5jc3Y/dG9rZW49R0hTQVQwQUFBQUFBREc0TERQVVVFVE8zSUFHRlFHN0hIU1cyRDVMVFBBJylcbiMgY2VyZWFscyA9IGNlcmVhbHMuZHJvcG5hKCkifQ==
+</script>
+<div>
+<div id="pyodide-2" class="exercise-cell">
+
+</div>
+<script type="pyodide-2-contents">
+eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWUsImV4ZXJjaXNlIjoiZXhfY2VyZWFsIn0sImNvZGUiOiJmaWx0ZXJlZF9kZiA9IGNlcmVhbFtfX19fX19dXG5maWx0ZXJlZF9kZiJ9
+</script>
+</div>
+<script type="exercise-check-ex_cereal-contents">
+eyJhdHRyIjp7ImNoZWNrIjp0cnVlLCJlZGl0Ijp0cnVlLCJldmFsIjp0cnVlLCJleGVyY2lzZSI6ImV4X2NlcmVhbCJ9LCJjb2RlIjoiY29ycmVjdF9hbnN3ZXIgPSBjZXJlYWxzWyhjZXJlYWxzWyduYW1lJ10gPT0gJ0dlbnRvbycpICYgKGNlcmVhbHNbJ2JvZHlfbWFzc19nJ10gPiA1MDAwKV1cbmlmIGxlbihyZXN1bHQpID09IGxlbihjb3JyZWN0X2Fuc3dlcikgYW5kIGFsbChyZXN1bHQuaW5kZXggPT0gY29ycmVjdF9hbnN3ZXIuaW5kZXgpOlxuIGZlZWRiYWNrID0ge1xuIFwiY29ycmVjdFwiOiBUcnVlLFxuIFwibWVzc2FnZVwiOiBcIlBlcmZlY3QhIFlvdSBjb3JyZWN0bHkgZmlsdGVyZWQgZm9yIEdlbnRvbyBwZW5ndWlucyBvdmVyIDUwMDBnLlwiXG4gfVxuZWxzZTpcbiBmZWVkYmFjayA9IHtcbiBcImNvcnJlY3RcIjogRmFsc2UsXG4gXCJtZXNzYWdlXCI6IFwiTm90IHF1aXRlLiBNYWtlIHN1cmUgeW91J3JlIHVzaW5nIGJvdGggY29uZGl0aW9uczogc3BlY2llcz09J0dlbnRvbycgYW5kIGJvZHlfbWFzc19nPjUwMDBcIlxuIH1cbiBmZWVkYmFjayJ9
+</script>
+</section>
+<section id="you" class="slide level2">
+<h2>You?</h2>
+<p>Questions:</p>
+<ol type="1">
+<li>What’s an ideal factoid? One that…<br>
+</li>
+<li>What’s the least number of questions we can hope for?</li>
+</ol>
+<p><span class="fragment">Why did we do this?</span></p>
+</section>
+<section id="where-to-start" class="slide level2 center">
+<h2>Where to start?</h2>
+<p>Canvas: <a href="https://canvas.ubc.ca/courses/130127" class="uri">https://canvas.ubc.ca/courses/130127</a></p>
+</section>
+<section id="section" class="slide level2 bg-how-learning-works" data-menu-title="Elements of mastery">
+<h2></h2>
+</section>
+<section id="section-1" class="slide level2" data-background-iframe="https://firas.moosvi.com/courses/cpsc203/2023_WT2" data-background-interactive="true" data-menu-title="Course Website">
+<h2></h2>
+</section>
+<section id="about-this-course" class="slide level2">
+<h2>About This Course</h2>
+<p>This course will teach you a bajillion different things!</p>
+<ul>
+<li>Tools: Terminal, Markdown, Git, Visual Studio Code, PrairieLearn</li>
+<li>Computer science: Python (!!!), efficiency, web scraping, graphs</li>
+<li>Data science: Pandas, DataFrames, visualizations</li>
+<li>Algorithms: many algorithms!</li>
+<li>Art and creativity: lots of examples!</li>
+</ul>
+</section>
+<section id="course-designer-dr.-cinda-heeren" class="slide level2">
+<h2>Course Designer – Dr.&nbsp;Cinda Heeren!</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<ul>
+<li><p>Teaching Professor, at UBC since 2017 (previously at University of Illinois Urbana-Champaign).</p></li>
+<li><p>Teaches mid-level required courses for CS specializations (mostly CPSC 221) &amp; a similar course for non-majors!</p></li>
+</ul>
+</div><div class="column" style="width:40%;">
+<p><img data-src="../images/cinda-heeren.jpg" alt="Course designer Dr. Cinda Heeren"></p>
+</div></div>
+</section>
+<section id="course-components" class="slide level2">
+<h2>Course Components</h2>
+<p><strong>Lectures:</strong> in-class activities based on problem solving and design.</p>
+<p><strong>Labs:</strong> practice on lecture material</p>
+<p><strong>Problems of the day (POTD):</strong> one per (week)day, 5/week, ~ 50 / term</p>
+<p><strong>Projects:</strong> 3 total</p>
+<p><strong>Assessments:</strong> 6 tests (examlets) + final</p>
+</section>
+<section id="passing-requirements" class="slide level2">
+<h2>Passing Requirements</h2>
+<p>You must satisfy <strong>ALL</strong> conditions to pass the course:</p>
+<ol type="1">
+<li>Earn a grade of at least 50% in the Lab component.</li>
+<li>Achieve a minimum grade of 50% in both the Test and Exam components combined.</li>
+<li>Pass the Final Exam with a minimum grade of 40%.</li>
+</ol>
+<p>If students do not satisfy the appropriate requirements, the student will be assigned the <strong>lower</strong> of their earned course grade or a maximum overall grade of 45 in the course.</p>
+</section>
+<section id="evaluation" class="slide level2">
+<h2>Evaluation</h2>
+<div class="small-font-size">
+<table class="caption-top">
+<caption>Course grading scheme: There will be 6 tests in this course in an (approximately) bi-weekly schedule.</caption>
+<thead>
+<tr class="header">
+<th>Item</th>
+<th>Weight</th>
+<th>Due date(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Learning Logs</td>
+<td>5% (10 x 0.5%)</td>
+<td>Saturdays at 6 PM</td>
+</tr>
+<tr class="even">
+<td>Problems of the Week</td>
+<td>25% (10 x 2.5%)</td>
+<td>Fridays at 6 PM</td>
+</tr>
+<tr class="odd">
+<td>Labs</td>
+<td>5% (10 x 0.5%)</td>
+<td>Fridays at 6 PM</td>
+</tr>
+<tr class="even">
+<td>Programming Projects</td>
+<td>15% (3 x 5%)</td>
+<td>Three in the term</td>
+</tr>
+<tr class="odd">
+<td>Tests (Examlets)</td>
+<td>30% (6 x 5%)</td>
+<td>~ Bi-weekly</td>
+</tr>
+<tr class="even">
+<td>Final Exam</td>
+<td>20%</td>
+<td>TBD</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Grace period for due dates</strong></p>
+</div>
+<div class="callout-content">
+<p>All due dates in this course have an automatic 48-hour grace period after the due dates listed above. Any submissions submitted past the grace period will not be graded (with some exceptions).</p>
+</div>
+</div>
+</div>
+</section>
+<section id="semester-overview" class="slide level2 smaller">
+<h2>Semester overview</h2>
+<table class="caption-top" style="width:97%;">
+<colgroup>
+<col style="width: 7%">
+<col style="width: 13%">
+<col style="width: 21%">
+<col style="width: 20%">
+<col style="width: 15%">
+<col style="width: 19%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Handcraft</th>
+<th>Billboard Hot 100</th>
+<th>The Overstory and Pointillism</th>
+<th>Artificial Music Composition</th>
+<th>Road Trip Planning</th>
+<th>Spiderman’s Social Network</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><p>Design</p>
+<p>Objects</p>
+<p>Iteration</p></td>
+<td><p>Web Scraping</p>
+<p>Data Frames</p>
+<p>MatPlotLib</p></td>
+<td><p>Voronoi Diagrams</p>
+<p>Efficiency</p></td>
+<td><p>Markov Chains</p>
+<p>Random Numbers</p>
+<p>Graphs</p></td>
+<td><p>Traveling Salesperson</p>
+<p>Intractable Problems</p></td>
+<td>Natural Language</td>
+</tr>
+</tbody>
+</table>
+<p>This course consists of a sequence of six explorations, assembled to provide a tour through data structure applications and algorithmic design. Built around topics from arts, sciences, and technology, the explorations are thought provoking and engaging. You will emerge from the course with increased proficiency in Python programming, and with a broad spectrum of tools for algorithmic problem solving.</p>
+</section>
+<section id="course-tools" class="slide level2">
+<h2>Course Tools</h2>
+<p><strong>Ed Discussion:</strong> class discussion forum</p>
+<p><strong>PrairieLearn:</strong> platform to help us give you feedback on work you do!</p>
+<p><strong>GitHub:</strong> code repository and version control</p>
+<p><strong>Visual Studio Code:</strong> developer environment</p>
+<p><strong>Canvas:</strong> basically just a place for you to find all the relevant links to things…</p>
+</section></section>
+<section id="any-questions-before-we-continue" class="title-slide slide level1 center">
+<h1>Any questions before we continue?</h1>
+
+</section>
+
+<section>
+<section id="break" class="title-slide slide level1 center">
+<h1>Break</h1>
+<div id="timer_b4c3f0101b56ed55ba8d6c912838f91d657bd5d3" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+  <div class="countdown-controls">
+    <button class="countdown-bump-down">−</button>
+    <button class="countdown-bump-up">+</button>
+ </div>
+ <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+ </div>
+</section>
+<section id="tangrams" class="slide level2">
+<h2>Tangrams</h2>
+<div class="quarto-layout-panel" data-layout="[35.7,5,59.3]">
+<div class="quarto-layout-row quarto-layout-valign-center">
+<div class="quarto-layout-cell" style="flex-basis: 35.7%;justify-content: center;">
+<p><img data-src="../images/tangram-square.png" alt="The different geometric shapes of a tangram form a square."></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 5.0%;justify-content: flex-start;">
+<p><iconify-icon inline="true" role="img" icon="fa6-solid:arrow-right" style="font-size: 2em;" aria-label="Icon arrow-right from fa6-solid Iconify.design set." title="Icon arrow-right from fa6-solid Iconify.design set."></iconify-icon></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 59.3%;justify-content: center;">
+<p><img data-src="../images/tangram-house.png" alt="The different geometric shapes of a tangram form a house"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="your-turn-tangrams" class="slide level2 activity">
+<h2><iconify-icon inline="true" role="img" icon="fa6-solid:laptop-code" aria-label="Icon laptop-code from fa6-solid Iconify.design set." title="Icon laptop-code from fa6-solid Iconify.design set."></iconify-icon> Your turn: tangrams</h2>
+<ol type="1">
+<li><p>Define a small working group of size up to 4.</p></li>
+<li><p>One of you share: <a href="https://mathigon.org/tangram" class="uri">https://mathigon.org/tangram</a></p></li>
+<li><p>Solve as many as you’d like, together</p></li>
+<li><p>Speculate together on why you’re doing this!!</p></li>
+</ol>
+<div id="timer_b4c3f0101b56ed55ba8d6c912838f91d657bd5d3" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+  <div class="countdown-controls">
+    <button class="countdown-bump-down">−</button>
+    <button class="countdown-bump-up">+</button>
+ </div>
+ <code class="countdown-time"><span class="countdown-digits minutes">10</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+ </div>
+</section></section>
+<section>
+<section id="lets-learn-markdown" class="title-slide slide level1 center">
+<h1>Let’s learn <br> <iconify-icon inline="true" role="img" icon="fa6-brands:markdown" aria-label="Icon markdown from fa6-brands Iconify.design set." title="Icon markdown from fa6-brands Iconify.design set."></iconify-icon> Markdown</h1>
+<div id="timer_b4c3f0101b56ed55ba8d6c912838f91d657bd5d3" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+  <div class="countdown-controls">
+    <button class="countdown-bump-down">−</button>
+    <button class="countdown-bump-up">+</button>
+ </div>
+ <code class="countdown-time"><span class="countdown-digits minutes">20</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+ </div>
+</section>
+<section id="your-turn-time-to-practice-markdown" class="slide level2 activity">
+<h2><iconify-icon inline="true" role="img" icon="fa6-solid:laptop-code" aria-label="Icon laptop-code from fa6-solid Iconify.design set." title="Icon laptop-code from fa6-solid Iconify.design set."></iconify-icon> Your turn: time to practice Markdown!</h2>
+<div id="timer_b4c3f0101b56ed55ba8d6c912838f91d657bd5d3" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+  <div class="countdown-controls">
+    <button class="countdown-bump-down">−</button>
+    <button class="countdown-bump-up">+</button>
+ </div>
+ <code class="countdown-time"><span class="countdown-digits minutes">20</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+ </div>
+</section></section>
+<section id="the-magic-number-for-today-______-see-you-thursday" class="title-slide slide level1 center" style="text-align: center;">
+<h1>The Magic Number for today <br> <br> ______ <br> <br> See you Thursday!</h1>
+
+
+<script type="pyodide-data">
+eyJvcHRpb25zIjp7ImVudiI6eyJQTE9UTFlfUkVOREVSRVIiOiJwbG90bHlfbWltZXR5cGUifSwiaW5kZXhVUkwiOiJodHRwczovL2Nkbi5qc2RlbGl2ci5uZXQvcHlvZGlkZS92MC4yNy4wL2Z1bGwvIn0sInBhY2thZ2VzIjp7InBrZ3MiOlsicHlvZGlkZV9odHRwIiwibWljcm9waXAiLCJpcHl0aG9uIl19fQ==
+</script>
+<script type="ojs-module-contents">
+eyJjb250ZW50cyI6W3siY2VsbE5hbWUiOiJweW9kaWRlLTIiLCJpbmxpbmUiOmZhbHNlLCJtZXRob2ROYW1lIjoiaW50ZXJwcmV0Iiwic291cmNlIjoidmlld29mIF9weW9kaWRlX2VkaXRvcl8yID0ge1xuICBjb25zdCB7IFB5b2RpZGVFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuXG4gIGNvbnN0IHNjcmlwdENvbnRlbnQgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKGBzY3JpcHRbdHlwZT1cXFwicHlvZGlkZS0yLWNvbnRlbnRzXFxcIl1gKS50ZXh0Q29udGVudDtcbiAgY29uc3QgYmxvY2sgPSBKU09OLnBhcnNlKGI2NERlY29kZShzY3JpcHRDb250ZW50KSk7XG5cbiAgLy8gRGVmYXVsdCBleGVyY2lzZSBjb25maWd1cmF0aW9uXG4gIGNvbnN0IG9wdGlvbnMgPSBPYmplY3QuYXNzaWduKFxuICAgIHtcbiAgICAgIGlkOiBcInB5b2RpZGUtMi1jb250ZW50c1wiLFxuICAgICAgZW52aXI6IGBleGVyY2lzZS1lbnYtJHtibG9jay5hdHRyLmV4ZXJjaXNlfWAsXG4gICAgICBlcnJvcjogZmFsc2UsXG4gICAgICBjYXB0aW9uOiAnRXhlcmNpc2UnLFxuICAgIH0sXG4gICAgYmxvY2suYXR0clxuICApO1xuXG4gIGNvbnN0IGVkaXRvciA9IG5ldyBQeW9kaWRlRXhlcmNpc2VFZGl0b3IocHlvZGlkZU9qcy5weW9kaWRlUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG4gIHJldHVybiBlZGl0b3IuY29udGFpbmVyO1xufVxudmlld29mIF9weW9kaWRlX3ZhbHVlXzIgPSBweW9kaWRlT2pzLnByb2Nlc3MoX3B5b2RpZGVfZWRpdG9yXzIsIHt9KTtcbl9weW9kaWRlX2ZlZWRiYWNrXzIgPSB7XG4gIGNvbnN0IHsgUHlvZGlkZUdyYWRlciB9ID0gd2luZG93Ll9leGVyY2lzZV9vanNfcnVudGltZTtcbiAgY29uc3QgZW1wdHlGZWVkYmFjayA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoJ2RpdicpO1xuXG4gIGNvbnN0IGdyYWRlciA9IG5ldyBQeW9kaWRlR3JhZGVyKF9weW9kaWRlX3ZhbHVlXzIuZXZhbHVhdG9yKTtcbiAgY29uc3QgZmVlZGJhY2sgPSBhd2FpdCBncmFkZXIuZ3JhZGVFeGVyY2lzZSgpO1xuICBpZiAoIWZlZWRiYWNrKSByZXR1cm4gZW1wdHlGZWVkYmFjaztcbiAgcmV0dXJuIGZlZWRiYWNrO1xufVxuIn0seyJjZWxsTmFtZSI6InB5b2RpZGUtcHJlbHVkZSIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6InB5b2RpZGVPanMgPSB7XG4gIGNvbnN0IHtcbiAgICBQeW9kaWRlRXZhbHVhdG9yLFxuICAgIFB5b2RpZGVFbnZpcm9ubWVudE1hbmFnZXIsXG4gICAgc2V0dXBQeXRob24sXG4gICAgc3RhcnRQeW9kaWRlV29ya2VyLFxuICAgIGI2NERlY29kZSxcbiAgICBjb2xsYXBzZVBhdGgsXG4gIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuXG4gIGNvbnN0IHN0YXR1c0NvbnRhaW5lciA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKFwiZXhlcmNpc2UtbG9hZGluZy1zdGF0dXNcIik7XG4gIGNvbnN0IGluZGljYXRvckNvbnRhaW5lciA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKFwiZXhlcmNpc2UtbG9hZGluZy1pbmRpY2F0b3JcIik7XG4gIGluZGljYXRvckNvbnRhaW5lci5jbGFzc0xpc3QucmVtb3ZlKFwiZC1ub25lXCIpO1xuXG4gIGxldCBzdGF0dXNUZXh0ID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudChcImRpdlwiKVxuICBzdGF0dXNUZXh0LmNsYXNzTGlzdCA9IFwiZXhlcmNpc2UtbG9hZGluZy1kZXRhaWxzXCI7XG4gIHN0YXR1c1RleHQgPSBzdGF0dXNDb250YWluZXIuYXBwZW5kQ2hpbGQoc3RhdHVzVGV4dCk7XG4gIHN0YXR1c1RleHQudGV4dENvbnRlbnQgPSBgSW5pdGlhbGlzZWA7XG5cbiAgLy8gSG9pc3QgaW5kaWNhdG9yIG91dCBmcm9tIGZpbmFsIHNsaWRlIHdoZW4gcnVubmluZyB1bmRlciByZXZlYWxcbiAgY29uc3QgcmV2ZWFsU3RhdHVzID0gZG9jdW1lbnQucXVlcnlTZWxlY3RvcihcIi5yZXZlYWwgLmV4ZXJjaXNlLWxvYWRpbmctaW5kaWNhdG9yXCIpO1xuICBpZiAocmV2ZWFsU3RhdHVzKSB7XG4gICAgcmV2ZWFsU3RhdHVzLnJlbW92ZSgpO1xuICAgIGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoXCIucmV2ZWFsID4gLnNsaWRlc1wiKS5hcHBlbmRDaGlsZChyZXZlYWxTdGF0dXMpO1xuICB9XG5cbiAgLy8gTWFrZSBhbnkgcmV2ZWFsIHNsaWRlcyB3aXRoIGxpdmUgY2VsbHMgc2Nyb2xsYWJsZVxuICBkb2N1bWVudC5xdWVyeVNlbGVjdG9yQWxsKFwiLnJldmVhbCAuZXhlcmNpc2UtY2VsbFwiKS5mb3JFYWNoKChlbCkgPT4ge1xuICAgIGVsLmNsb3Nlc3QoJ3NlY3Rpb24uc2xpZGUnKS5jbGFzc0xpc3QuYWRkKFwic2Nyb2xsYWJsZVwiKTtcbiAgfSlcblxuICAvLyBQeW9kaWRlIHN1cHBsZW1lbnRhbCBkYXRhIGFuZCBvcHRpb25zXG4gIGNvbnN0IGRhdGFDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcInB5b2RpZGUtZGF0YVxcXCJdYCkudGV4dENvbnRlbnQ7XG4gIGNvbnN0IGRhdGEgPSBKU09OLnBhcnNlKGI2NERlY29kZShkYXRhQ29udGVudCkpO1xuXG4gIC8vIEdyYWIgbGlzdCBvZiByZXNvdXJjZXMgdG8gYmUgZG93bmxvYWRlZFxuICBjb25zdCBmaWxlc0NvbnRlbnQgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKGBzY3JpcHRbdHlwZT1cXFwidmZzLWZpbGVcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBmaWxlcyA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKGZpbGVzQ29udGVudCkpO1xuXG4gIGxldCBweW9kaWRlUHJvbWlzZSA9IChhc3luYyAoKSA9PiB7XG4gICAgc3RhdHVzVGV4dC50ZXh0Q29udGVudCA9IGBEb3dubG9hZGluZyBQeW9kaWRlYDtcbiAgICBjb25zdCBweW9kaWRlID0gYXdhaXQgc3RhcnRQeW9kaWRlV29ya2VyKGRhdGEub3B0aW9ucyk7XG5cbiAgICBzdGF0dXNUZXh0LnRleHRDb250ZW50ID0gYERvd25sb2FkaW5nIHBhY2thZ2U6IG1pY3JvcGlwYDtcbiAgICBhd2FpdCBweW9kaWRlLmxvYWRQYWNrYWdlKFwibWljcm9waXBcIik7XG4gICAgY29uc3QgbWljcm9waXAgPSBhd2FpdCBweW9kaWRlLnB5aW1wb3J0KFwibWljcm9waXBcIik7XG4gICAgYXdhaXQgZGF0YS5wYWNrYWdlcy5wa2dzLm1hcCgocGtnKSA9PiAoKSA9PiB7XG4gICAgICBzdGF0dXNUZXh0LnRleHRDb250ZW50ID0gYERvd25sb2FkaW5nIHBhY2thZ2U6ICR7cGtnfWA7XG4gICAgICByZXR1cm4gbWljcm9waXAuaW5zdGFsbChwa2cpO1xuICAgIH0pLnJlZHVjZSgoY3VyLCBuZXh0KSA9PiBjdXIudGhlbihuZXh0KSwgUHJvbWlzZS5yZXNvbHZlKCkpO1xuICAgIGF3YWl0IG1pY3JvcGlwLmRlc3Ryb3koKTtcblxuICAgIC8vIERvd25sb2FkIGFuZCBpbnN0YWxsIHJlc291cmNlc1xuICAgIGF3YWl0IGZpbGVzLm1hcCgoZmlsZSkgPT4gYXN5bmMgKCkgPT4ge1xuICAgICAgY29uc3QgbmFtZSA9IGZpbGUuc3Vic3RyaW5nKGZpbGUubGFzdEluZGV4T2YoJy8nKSArIDEpO1xuICAgICAgc3RhdHVzVGV4dC50ZXh0Q29udGVudCA9IGBEb3dubG9hZGluZyByZXNvdXJjZTogJHtuYW1lfWA7XG4gICAgICBjb25zdCByZXNwb25zZSA9IGF3YWl0IGZldGNoKGZpbGUpO1xuICAgICAgaWYgKCFyZXNwb25zZS5vaykge1xuICAgICAgICB0aHJvdyBuZXcgRXJyb3IoYENhbid0IGRvd25sb2FkIFxcYCR7ZmlsZX1cXGAuIEVycm9yICR7cmVzcG9uc2Uuc3RhdHVzfTogXCIke3Jlc3BvbnNlLnN0YXR1c1RleHR9XCIuYCk7XG4gICAgICB9XG4gICAgICBjb25zdCBkYXRhID0gYXdhaXQgcmVzcG9uc2UuYXJyYXlCdWZmZXIoKTtcblxuICAgICAgLy8gU3RvcmUgVVJMcyBpbiB0aGUgY3dkIHdpdGhvdXQgYW55IHN1YmRpcmVjdG9yeSBzdHJ1Y3R1cmVcbiAgICAgIGlmIChmaWxlLmluY2x1ZGVzKFwiOi8vXCIpKSB7XG4gICAgICAgIGZpbGUgPSBuYW1lO1xuICAgICAgfVxuXG4gICAgICAvLyBDb2xsYXBzZSBoaWdoZXIgZGlyZWN0b3J5IHN0cnVjdHVyZVxuICAgICAgZmlsZSA9IGNvbGxhcHNlUGF0aChmaWxlKTtcblxuICAgICAgLy8gQ3JlYXRlIGRpcmVjdG9yeSB0cmVlLCBpZ25vcmluZyBcImRpcmVjdG9yeSBleGlzdHNcIiBWRlMgZXJyb3JzXG4gICAgICBjb25zdCBwYXJ0cyA9IGZpbGUuc3BsaXQoJy8nKS5zbGljZSgwLCAtMSk7XG4gICAgICBsZXQgcGF0aCA9ICcnO1xuICAgICAgd2hpbGUgKHBhcnRzLmxlbmd0aCA+IDApIHtcbiAgICAgICAgcGF0aCArPSBwYXJ0cy5zaGlmdCgpICsgJy8nO1xuICAgICAgICB0cnkge1xuICAgICAgICAgIGF3YWl0IHB5b2RpZGUuRlMubWtkaXIocGF0aCk7XG4gICAgICAgIH0gY2F0Y2ggKGUpIHtcbiAgICAgICAgICBpZiAoZS5uYW1lICE9PSBcIkVycm5vRXJyb3JcIikgdGhyb3cgZTtcbiAgICAgICAgICBpZiAoZS5lcnJubyAhPT0gMjApIHtcbiAgICAgICAgICAgIGNvbnN0IGVycm9yVGV4dFB0ciA9IGF3YWl0IHB5b2RpZGUuX21vZHVsZS5fc3RyZXJyb3IoZS5lcnJubyk7XG4gICAgICAgICAgICBjb25zdCBlcnJvclRleHQgPSBhd2FpdCBweW9kaWRlLl9tb2R1bGUuVVRGOFRvU3RyaW5nKGVycm9yVGV4dFB0cik7XG4gICAgICAgICAgICB0aHJvdyBuZXcgRXJyb3IoYEZpbGVzeXN0ZW0gRXJyb3IgJHtlLmVycm5vfSBcIiR7ZXJyb3JUZXh0fVwiLmApO1xuICAgICAgICAgIH1cbiAgICAgICAgfVxuICAgICAgfVxuXG4gICAgICAvLyBXcml0ZSB0aGlzIGZpbGUgdG8gdGhlIFZGU1xuICAgICAgdHJ5IHtcbiAgICAgICAgcmV0dXJuIGF3YWl0IHB5b2RpZGUuRlMud3JpdGVGaWxlKGZpbGUsIG5ldyBVaW50OEFycmF5KGRhdGEpKTtcbiAgICAgIH0gY2F0Y2ggKGUpIHtcbiAgICAgICAgaWYgKGUubmFtZSAhPT0gXCJFcnJub0Vycm9yXCIpIHRocm93IGU7XG4gICAgICAgIGNvbnN0IGVycm9yVGV4dFB0ciA9IGF3YWl0IHB5b2RpZGUuX21vZHVsZS5fc3RyZXJyb3IoZS5lcnJubyk7XG4gICAgICAgIGNvbnN0IGVycm9yVGV4dCA9IGF3YWl0IHB5b2RpZGUuX21vZHVsZS5VVEY4VG9TdHJpbmcoZXJyb3JUZXh0UHRyKTtcbiAgICAgICAgdGhyb3cgbmV3IEVycm9yKGBGaWxlc3lzdGVtIEVycm9yICR7ZS5lcnJub30gXCIke2Vycm9yVGV4dH1cIi5gKTtcbiAgICAgIH1cbiAgICB9KS5yZWR1Y2UoKGN1ciwgbmV4dCkgPT4gY3VyLnRoZW4obmV4dCksIFByb21pc2UucmVzb2x2ZSgpKTtcblxuICAgIHN0YXR1c1RleHQudGV4dENvbnRlbnQgPSBgUHlvZGlkZSBlbnZpcm9ubWVudCBzZXR1cGA7XG4gICAgYXdhaXQgc2V0dXBQeXRob24ocHlvZGlkZSk7XG5cbiAgICBzdGF0dXNUZXh0LnJlbW92ZSgpO1xuICAgIGlmIChzdGF0dXNDb250YWluZXIuY2hpbGRyZW4ubGVuZ3RoID09IDApIHtcbiAgICAgIHN0YXR1c0NvbnRhaW5lci5wYXJlbnROb2RlLnJlbW92ZSgpO1xuICAgIH1cbiAgICByZXR1cm4gcHlvZGlkZTtcbiAgfSkoKS5jYXRjaCgoZXJyKSA9PiB7XG4gICAgc3RhdHVzVGV4dC5zdHlsZS5jb2xvciA9IFwidmFyKC0tZXhlcmNpc2UtZWRpdG9yLWhsLWVyLCAjQUQwMDAwKVwiO1xuICAgIHN0YXR1c1RleHQudGV4dENvbnRlbnQgPSBlcnIubWVzc2FnZTtcbiAgICAvL2luZGljYXRvckNvbnRhaW5lci5xdWVyeVNlbGVjdG9yKFwiLnNwaW5uZXItZ3Jvd1wiKS5jbGFzc0xpc3QuYWRkKFwiZC1ub25lXCIpO1xuICAgIHRocm93IGVycjtcbiAgfSk7XG5cbiAgLy8gS2VlcCB0cmFjayBvZiBpbml0aWFsIE9KUyBibG9jayByZW5kZXJcbiAgY29uc3QgcmVuZGVyZWRPanMgPSB7fTtcblxuICBjb25zdCBwcm9jZXNzID0gYXN5bmMgKGNvbnRleHQsIGlucHV0cykgPT4ge1xuICAgIGNvbnN0IHB5b2RpZGUgPSBhd2FpdCBweW9kaWRlUHJvbWlzZTtcbiAgICBjb25zdCBldmFsdWF0b3IgPSBuZXcgUHlvZGlkZUV2YWx1YXRvcihweW9kaWRlLCBjb250ZXh0KTtcbiAgICBhd2FpdCBldmFsdWF0b3IucHJvY2VzcyhpbnB1dHMpO1xuICAgIHJldHVybiBldmFsdWF0b3IuY29udGFpbmVyO1xuICB9XG5cbiAgcmV0dXJuIHtcbiAgICBweW9kaWRlUHJvbWlzZSxcbiAgICByZW5kZXJlZE9qcyxcbiAgICBwcm9jZXNzLFxuICB9O1xufVxuIn1dfQ==
+</script>
+<div id="exercise-loading-indicator" class="exercise-loading-indicator d-none d-flex align-items-center gap-2">
+<div id="exercise-loading-status" class="d-flex gap-2">
+
+</div>
+<div class="spinner-grow spinner-grow-sm">
+
+</div>
+</div>
+<script type="vfs-file">
+W10=
+</script>
+</section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-drop/drop-runtime.js"></script>
+  <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': false,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true},
+'drop': {"button":true,"shortcut":"`","engine":"pyodide","webr":{"packages":[]},"pyodide":{"packages":[]}},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: true,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: false,
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, RevealDrop, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script type="ojs-module-contents">
+    eyJjb250ZW50cyI6W119
+    </script>
+    <script type="module">
+    if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
+    window._ojs.paths.runtimeToDoc = "../../slides";
+    window._ojs.paths.runtimeToRoot = "../..";
+    window._ojs.paths.docToRoot = "..";
+    window._ojs.selfContained = false;
+    window._ojs.runtime.interpretFromScriptTags();
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+            const codeEl = trigger.previousElementSibling.cloneNode(true);
+            for (const childEl of codeEl.children) {
+              if (isCodeAnnotation(childEl)) {
+                childEl.remove();
+              }
+            }
+            return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp("https:\/\/ubc-cs\.github\.io\/dsci220");
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
+
+</body></html>

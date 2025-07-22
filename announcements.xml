@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>{{&lt; var course.full-title &gt;}}</title>
+<link>https://ubc-cs.github.io/dsci220/announcements.html</link>
+<atom:link href="https://ubc-cs.github.io/dsci220/announcements.xml" rel="self" type="application/rss+xml"/>
+<description>Course website for {{&lt; var course.code &gt;}} of the Department of Computer Science at the University of British Columbia
+</description>
+<generator>quarto-1.7.32</generator>
+<lastBuildDate>Mon, 30 Mar 2026 07:00:00 GMT</lastBuildDate>
+<item>
+  <title>Week 13</title>
+  <dc:creator>{{&lt; var instructor.name &gt;}}</dc:creator>
+  <link>https://ubc-cs.github.io/dsci220/posts/13_week-13/</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>This week we will be working with maps data, a natural application of Graphs.</p>
+
+
+
+ ]]></description>
+  <category>weekly announcement</category>
+  <guid>https://ubc-cs.github.io/dsci220/posts/13_week-13/</guid>
+  <pubDate>Mon, 30 Mar 2026 07:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Week 12</title>
+  <dc:creator>{{&lt; var instructor.name &gt;}}</dc:creator>
+  <link>https://ubc-cs.github.io/dsci220/posts/12_week-12/</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>This week we will are talking about state spaces, and diving deeper into graphs.</p>
+
+
+
+ ]]></description>
+  <category>weekly announcement</category>
+  <guid>https://ubc-cs.github.io/dsci220/posts/12_week-12/</guid>
+  <pubDate>Mon, 23 Mar 2026 07:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Week 11</title>
+  <dc:creator>{{&lt; var instructor.name &gt;}}</dc:creator>
+  <link>https://ubc-cs.github.io/dsci220/posts/11_week-11/</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>This week we will continue our discussion on Graphs and look at two examples of them with code.</p>
+
+
+
+ ]]></description>
+  <category>weekly announcement</category>
+  <guid>https://ubc-cs.github.io/dsci220/posts/11_week-11/</guid>
+  <pubDate>Mon, 16 Mar 2026 07:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Week 10</title>
+  <dc:creator>{{&lt; var instructor.name &gt;}}</dc:creator>
+  <link>https://ubc-cs.github.io/dsci220/posts/10_week-10/</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>This week there is no new lecture content. Instead, take the time to catch your breath and catch up on anything from the last few weeks that you didn’t have time to grasp or go through. This may include test questions, missed POTW questions, videos that you didn’t watch, activities you didn’t finish, or anything else left over.</p>
+<p>You can also get started on (and maybe finished with?) <a href="https://us.prairielearn.com/pl/course_instance/172874/assessment/2495568">Project 2: Game of Life</a>.</p>
+<p>There are no formal lectures this week, but the instructor will be available in the lecture hall during the usual lecture period to answer questions about CPSC 203.</p>
+<p>Though you don’t <em>have to</em> use this break for CPSC 203, I encourage you to make sure you are actually caught up before re-purposing that time for other courses.</p>
+<!--
+In the future, definitely skip this catch up week.  That would provide time to do LLMs at the end, or maybe even just extend the MC stuff in week 11.
+-->
+
+
+
+ ]]></description>
+  <category>weekly announcement</category>
+  <guid>https://ubc-cs.github.io/dsci220/posts/10_week-10/</guid>
+  <pubDate>Mon, 09 Mar 2026 07:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Week 9</title>
+  <dc:creator>{{&lt; var instructor.name &gt;}}</dc:creator>
+  <link>https://ubc-cs.github.io/dsci220/posts/09_week-9/</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>This week we will finish up with queues, and then move on to Graphs as a new data structure.</p>
+
+
+
+ ]]></description>
+  <category>weekly announcement</category>
+  <guid>https://ubc-cs.github.io/dsci220/posts/09_week-9/</guid>
+  <pubDate>Mon, 02 Mar 2026 08:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Week 8</title>
+  <dc:creator>{{&lt; var instructor.name &gt;}}</dc:creator>
+  <link>https://ubc-cs.github.io/dsci220/posts/08_week-8/</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>This week we will talk about some new data structures and formalize a language for all the data structures we’ve seen (and will see)!</p>
+
+
+
+ ]]></description>
+  <category>weekly announcement</category>
+  <guid>https://ubc-cs.github.io/dsci220/posts/08_week-8/</guid>
+  <pubDate>Mon, 23 Feb 2026 08:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Week 7</title>
+  <dc:creator>{{&lt; var instructor.name &gt;}}</dc:creator>
+  <link>https://ubc-cs.github.io/dsci220/posts/07_week-7/</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>This week there is no new content in this course - it’s Reading week! This week, you’ll have an opportunity to catch your breath and catch up on anything from the last few weeks that you didn’t have time to grasp or go through. This may include test questions, missed POTW questions, videos that you didn’t watch, activities you didn’t finish, or anything else left over. Though you don’t <em>have to</em> use this break for CPSC 203, I encourage you to make sure you are actually caught up before re-purposing that time for other courses.</p>
+<p>Here’s a fun video from a game I enjoyed playing a lot!</p>
+<section id="portal" class="level2">
+<h2 class="anchored" data-anchor-id="portal">Portal</h2>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/TluRVBhmf8w" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<p><a href="https://store.steampowered.com/app/400/Portal">Link to the game</a></p>
+
+
+</section>
+
+ ]]></description>
+  <category>weekly announcement</category>
+  <guid>https://ubc-cs.github.io/dsci220/posts/07_week-7/</guid>
+  <pubDate>Mon, 16 Feb 2026 08:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Week 6</title>
+  <dc:creator>{{&lt; var instructor.name &gt;}}</dc:creator>
+  <link>https://ubc-cs.github.io/dsci220/posts/06_week-6/</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>This week we will start introducing a new tool in our course, Git and GitHub!</p>
+
+
+
+ ]]></description>
+  <category>weekly announcement</category>
+  <guid>https://ubc-cs.github.io/dsci220/posts/06_week-6/</guid>
+  <pubDate>Mon, 09 Feb 2026 08:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Week 5</title>
+  <dc:creator>{{&lt; var instructor.name &gt;}}</dc:creator>
+  <link>https://ubc-cs.github.io/dsci220/posts/05_week-5/</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>This week we will start working with some data, using the BeautifulSoup, and parsing data from the internet!</p>
+
+
+
+ ]]></description>
+  <category>weekly announcement</category>
+  <guid>https://ubc-cs.github.io/dsci220/posts/05_week-5/</guid>
+  <pubDate>Mon, 02 Feb 2026 08:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Week 4</title>
+  <dc:creator>{{&lt; var instructor.name &gt;}}</dc:creator>
+  <link>https://ubc-cs.github.io/dsci220/posts/04_week-4/</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>This week we will be continuing knitting and learning about Python classes, and then learning about Pandas.</p>
+
+
+
+ ]]></description>
+  <category>weekly announcement</category>
+  <guid>https://ubc-cs.github.io/dsci220/posts/04_week-4/</guid>
+  <pubDate>Mon, 26 Jan 2026 08:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Week 3</title>
+  <dc:creator>{{&lt; var instructor.name &gt;}}</dc:creator>
+  <link>https://ubc-cs.github.io/dsci220/posts/03_week-3/</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>This week we will be learning about Python classes, including the <code>dataclass</code>, knitting and other fun things!</p>
+
+
+
+ ]]></description>
+  <category>weekly announcement</category>
+  <guid>https://ubc-cs.github.io/dsci220/posts/03_week-3/</guid>
+  <pubDate>Mon, 19 Jan 2026 08:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Week 2</title>
+  <dc:creator>{{&lt; var instructor.name &gt;}}</dc:creator>
+  <link>https://ubc-cs.github.io/dsci220/posts/02_week-2/</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>This week we will be doing a Python introduction so that we’re all on the same page before we start getting to some programming and design. In terms of content, we’ll learn about Python dataypes, conditionals, loops, functions, and error handling.</p>
+
+
+
+ ]]></description>
+  <category>weekly announcement</category>
+  <guid>https://ubc-cs.github.io/dsci220/posts/02_week-2/</guid>
+  <pubDate>Mon, 12 Jan 2026 08:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Week 1</title>
+  <dc:creator>{{&lt; var instructor.name &gt;}}</dc:creator>
+  <link>https://ubc-cs.github.io/dsci220/posts/01_week-1/</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>This week we will be doing course introductions, I will be showing you how to navigate the course website, and how the course is set up. In terms of content, we will learn Markdown together, and then start getting familiar with some course tools.</p>
+
+
+
+ ]]></description>
+  <category>weekly announcement</category>
+  <guid>https://ubc-cs.github.io/dsci220/posts/01_week-1/</guid>
+  <pubDate>Mon, 05 Jan 2026 08:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Welcome to DSCI 220!</title>
+  <dc:creator>{{&lt; var instructor.name &gt;}}</dc:creator>
+  <link>https://ubc-cs.github.io/dsci220/posts/00_welcome/</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>I am excited to welcome you to DSCI 220! This short announcement is here to get you oriented to this course website and point out some important resources. The landing page contains the <a href="../../index.html">schedule</a> where you can see all the things happening in the weeks to come and the most recent post in <a href="../../announcements.html">announcements</a>. Then take a look at the <a href="../../syllabus.html">syllabus</a> to gain an overview of the course and its requirements, but we will discuss it in the first class.</p>
+<p>Oh, and if you have a <a href="https://github/com">GitHub.com</a> account, please feel free to introduce yourself in the comment section. If you do not have an account yet, don’t worry! We will learn soon how to set one up!</p>
+
+
+
+ ]]></description>
+  <category>orientation</category>
+  <category>resource</category>
+  <guid>https://ubc-cs.github.io/dsci220/posts/00_welcome/</guid>
+  <pubDate>Thu, 01 Jan 2026 08:00:00 GMT</pubDate>
+</item>
+</channel>
+</rss>

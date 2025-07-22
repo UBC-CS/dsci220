@@ -1,0 +1,40 @@
+[
+  {
+    "listing": "/index.html",
+    "items": [
+      "/posts/13_week-13/index.html",
+      "/posts/12_week-12/index.html",
+      "/posts/11_week-11/index.html",
+      "/posts/10_week-10/index.html",
+      "/posts/09_week-9/index.html",
+      "/posts/08_week-8/index.html",
+      "/posts/07_week-7/index.html",
+      "/posts/06_week-6/index.html",
+      "/posts/05_week-5/index.html",
+      "/posts/04_week-4/index.html",
+      "/posts/03_week-3/index.html",
+      "/posts/02_week-2/index.html",
+      "/posts/01_week-1/index.html",
+      "/posts/00_welcome/index.html"
+    ]
+  },
+  {
+    "listing": "/announcements.html",
+    "items": [
+      "/posts/13_week-13/index.html",
+      "/posts/12_week-12/index.html",
+      "/posts/11_week-11/index.html",
+      "/posts/10_week-10/index.html",
+      "/posts/09_week-9/index.html",
+      "/posts/08_week-8/index.html",
+      "/posts/07_week-7/index.html",
+      "/posts/06_week-6/index.html",
+      "/posts/05_week-5/index.html",
+      "/posts/04_week-4/index.html",
+      "/posts/03_week-3/index.html",
+      "/posts/02_week-2/index.html",
+      "/posts/01_week-1/index.html",
+      "/posts/00_welcome/index.html"
+    ]
+  }
+]
