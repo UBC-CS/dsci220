@@ -221,22 +221,18 @@ Discussion points:
 
 ## Logical Equivalence example
 
+{{< video https://youtu.be/CLQ0LZSnJFE?si=jHDBkjZ2OnkfQqwW width="850" height="475">}}
+
 ```{pyodide}
 #| setup: true
 #| exercise: ex_cereal
 import pandas as pd
-import numpy as np
-from sklearn.preprocessing import StandardScaler
-import kagglehub
+# import numpy as np
 
-# Download latest version
-path = kagglehub.dataset_download("crawford/80-cereals")
-
-print("Path to dataset files:", path)
 # Load and prepare data
-cereals = pd.read_csv('https://www.kaggle.com/api/v1/datasets/download/crawford/80-cereals')
+cereals = pd.read_csv('https://raw.githubusercontent.com/UBC-CS/dsci220/refs/heads/main/data/cereal.csv?token=GHSAT0AAAAAADG4LDPUUETO3IAGFQG7HHSW2D5LTPA')
 # cereals = cereals.dropna()
-cereals
+
 ```
 
 ```{pyodide}
