@@ -14,8 +14,8 @@ website:
     University of British Columbia
   open-graph: true
   twitter-card: true
-  site-url: "https://ubc-cs.github.io/cpsc203"
-  repo-url: "https://github.com/UBC-CS/cpsc203"
+  site-url: "https://ubc-cs.github.io/dsci220"
+  repo-url: "https://github.com/UBC-CS/dsci220"
   repo-actions: [source, edit, issue]
   bread-crumbs: false
 
@@ -53,11 +53,11 @@ website:
             text: "Setup"
           - href: formatting.qmd
             text: "Formatting"
-          - href: "https://canvas.ubc.ca/courses/170624"
+          - href: "https://canvas.ubc.ca/courses/169809"
             text: "Canvas"
-          - href: "https://piazza.com/ubc.ca/winterterm12025/cpsc203"
+          - href: "https://piazza.com/ubc.ca/winterterm12025/dsci220"
             text: "Piazza"
-          - href: "https://us.prairielearn.com/pl/course_instance/193300"
+          - href: "https://us.prairielearn.com/pl/course_instance/14835"
             text: "PrairieLearn"
           - href: "https://us.prairietest.com"
             text: "PrairieTest"

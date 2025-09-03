@@ -1,6 +1,6 @@
 # Book settings
-title: CPSC 203 
-author: Firas Moosvi and Ian M. Mitchell
+title: DSCI 220
+author: Cinda Heeren
 logo: images/logo.png
 copyright: ""
 exclude_patterns: ["LICENSE.md", "README.md"]
@@ -23,7 +23,7 @@ html:
   comments:
     hypothesis: false
     utterances:
-      repo: "UBC-CS/cpsc203"
+      repo: "UBC-CS/dsci220"
     dokieli: false
   extra_footer : |
       <div>
@@ -37,7 +37,7 @@ html:
 #   thebe              : true
 
 repository: 
-  url          : https://github.com/UBC-CS/cpsc203
+  url          : https://github.com/UBC-CS/dsci220
   path_to_book : ""
   branch       : main
 
@@ -60,30 +60,30 @@ sphinx:
 
     myst_substitutions:
       # Instructor information
-      INSTRUCTOR: "Ian M. Mitchell (he/his/him)"
-      PRONOUNCE: "ee-en mitch-ell"
-      OFFICE: "ICCS 223"
+      INSTRUCTOR: "Cinda Heeren (she/her)"
+      PRONOUNCE: "N/A"
+      OFFICE: "ICCS 233"
       PHONE: "N/A"
 
       # Course Information
-      COURSE_CODE: "CPSC 203"
-      SECTION: "201"
-      CREDITS: "3"
-      TITLE: "Programming, Problem Solving, and Algorithms"
-      PREREQS: "Pre-reqs: One of CPSC 103, CPSC 110, APSC 160, EOSC 211, MATH 210, PHYS 210, COMM 337."
+      COURSE_CODE: "DSCI 220"
+      SECTION: "101"
+      CREDITS: "4"
+      TITLE: "Discrete Math for Data Science"
+      PREREQS: "Pre-reqs: either SCIE_V 001 or MATH_V 100; and DSCI_V 100; and either CPSC_V 103 or CPSC_V 203."
       COREQS: "N/A"
-      TERM: "2024 Winter Term 2"
-      ROOM: "SWNG 221"
-      MEETING_TIMES: "Tuesday, Thursday from 12:30 -14:00"
+      TERM: "2025 Winter Term 1"
+      ROOM: "MCML 360"
+      MEETING_TIMES: "Monday, Wednesday, Friday 11:00-12:00"
       # FORMAT: "Lectures, Labs, Tutorials will all be running in-person."
 
       # Important Links
-      CANVAS_ID: "152117"
+      CANVAS_ID: "169809"
       CANVAS_LINK: "https://canvas.ubc.ca/courses/CANVAS_ID"
       #ZOOM_LINK: "[Zoom](https://canvas.ubc.ca/courses/CANVAS_ID/external_tools/15408)"
       #ANNOUNCEMENTS_LINK: "[Canvas Announcements](https://canvas.ubc.ca/courses/CANVAS_ID/announcements)"
-      COURSE_LINK: "https://ubc-cs.github.io/cpsc203/"
-      FORUM_LINK: "[Piazza](https://piazza.com/ubc.ca/winterterm22024/cpsc203/home)"
+      COURSE_LINK: "https://ubc-cs.github.io/dsci220/"
+      FORUM_LINK: "[Piazza](https://piazza.com/ubc.ca/winterterm12025/dsci220/home)"
       TEXTBOOK: "We will not be needing a textbook for this course as you will be provided all the notes you need via the course website and linked materials."
       #ANON_FEEDBACK: "[feedback form](https://ubc.ca1.qualtrics.com/?course=cpsc203&term=2023_WT2)"
       #ASSOCIATE_HEAD: "Associate Head [associate.head@fakeemail.ca](mailto:associate.head@fakeemail.ca)"
@@ -91,18 +91,18 @@ sphinx:
 
       # Withdrawal Dates and Exam Period
       # https://vancouver.calendar.ubc.ca/dates-and-deadlines
-      W_DATE_1: "11:59 PDT on Friday, January 17, 2025"
-      W_DATE_2: "11:59 PDT on Friday, March 7, 2025"
-      W_DATE_3: "11:59 PDT on Friday, March 7, 2025"
-      EXAM_PERIOD: "Saturday April 12th - Sunday, April 27, 2025"
+      W_DATE_1: "11:59 PDT on Monday, September 15, 2025"
+      W_DATE_2: "11:59 PDT on Friday, October 24, 2025"
+      W_DATE_3: "11:59 PDT on Friday, October 24, 2025"
+      EXAM_PERIOD: "Tuesday, December 9th - Saturday, December 20, 2025"
 
       # Course Policies
-      GRACE_PERIOD: "48 hours"
+      GRACE_PERIOD: "0 hours"
 
       # TA Names
       TA1: "Minh Anh Nguyen"
       TA1pronounce: "ming ang"
-      TA2: "Aryan Ballani"
-      TA2pronounce: "ar-yan"
+      TA2: "Joel Gunawan"
+      TA2pronounce: ""
       #TA3: "Minh Anh Nguyen"
       #TA3pronounce: "Ming Ang"
