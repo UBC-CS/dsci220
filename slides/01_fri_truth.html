@@ -6,12 +6,12 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-c8ad9e5dbd60b7b70b38521ab19b7da4.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/quarto-contrib/live-runtime/live-runtime.js" type="module"></script>
 <link href="../site_libs/quarto-contrib/live-runtime/live-runtime.css" rel="stylesheet">
 <script src="../site_libs/quarto-contrib/qrcodejs-v1.0.0/qrcode.js"></script>
 <script src="../site_libs/quarto-contrib/iconify-3.0.0/iconify-icon.min.js"></script><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.7.32">
+  <meta name="generator" content="quarto-1.7.34">
 
   <meta name="dcterms.date" content="2025-09-05">
   <title>{{&lt; var course.full-title &gt;}} – Discrete Math for Data Science</title>
@@ -266,19 +266,51 @@
 <li>The expression p ∨ q is called a <em>proposition</em>.</li>
 </ul>
 </div></div>
-<aside class="notes">
 <!-- from last time -->
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
+</section>
+<section id="warm-up" class="slide level2">
+<h2>Warm Up</h2>
+<div class="columns">
+<div class="column" style="width:30%;">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th><span class="math inline">\(p\)</span></th>
+<th><span class="math inline">\(q\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(p \lor q\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>F</td>
+<td>F</td>
+<td style="text-align: center;">F</td>
+</tr>
+<tr class="even">
+<td>F</td>
+<td>T</td>
+<td style="text-align: center;">T</td>
+</tr>
+<tr class="odd">
+<td>T</td>
+<td>F</td>
+<td style="text-align: center;">T</td>
+</tr>
+<tr class="even">
+<td>T</td>
+<td>T</td>
+<td style="text-align: center;">T</td>
+</tr>
+</tbody>
+</table>
+</div><div class="column" style="width: 70%;">
+<ul>
+<li><p>How many rows for a proposition on 3 variables? <span class="math inline">\(k\)</span> variables?</p></li>
+<li><p>Give a good name for an operator that takes 1 variable: __________</p></li>
+<li><p>Give a good name for an operator that takes 3 variables: __________</p></li>
+<li><p>How many different binary operators could there be?</p></li>
+</ul>
+</div></div>
 </section>
 <section id="truth-tables-1" class="slide level2">
 <h2>Truth Tables</h2>
@@ -331,19 +363,7 @@
 </tr>
 </tbody>
 </table>
-<aside class="notes">
 <!-- so what kinds of expressions CAN we make? -->
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="wffs" class="slide level2">
 <h2>WFFs</h2>
@@ -419,22 +439,10 @@
 <li><span class="math inline">\(\neg (p ∨ q))\)</span></li>
 </ol>
 </div></div>
-<aside class="notes">
 <!-- notes: sometimes pq is the same as p^q, p & q, p && q, but our grammar only 
 uses ^. In this course we will vary symbols fluidly, partly because we're 
 assembling info from many different sources, but also partly because you'll
 need to be agile in the future. Note that the same issues exist for other operators. -->
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="wffs-3" class="slide level2">
 <h2>WFFs</h2>
@@ -445,7 +453,6 @@ need to be agile in the future. Note that the same issues exist for other operat
 <span id="cb5-5"><a></a></span>
 <span id="cb5-6"><a></a>&lt;atom&gt; ::= p | q </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Theorem: <span class="math inline">\(\neg (p ∨ q))\)</span> is not a WFF. Proof:</p>
-<aside class="notes">
 <!-- assume that it is! then ~<wff> must have been the last rule applied, 
 and $( p v q))$ must be a <wff>. then ( <wff> v <wff> ) must have been the 
 last rule applied, and $p$ and $q)$ must be <wff>. take each case separately:
@@ -456,17 +463,6 @@ is false!
 We include this as foreshadowing for a proof strategy called "proof by 
 contradition."" Making arguments like this (proofs) is the substance of this course, 
 but don't worry, we'll be teaching you how to do it. -->
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="propositions" class="slide level2">
 <h2>Propositions</h2>
@@ -522,20 +518,8 @@ but don't worry, we'll be teaching you how to do it. -->
 <li><p>The answer had better be _________!!!</p></li>
 <li><p>How can we justify our instinct?</p></li>
 </ul>
-<aside class="notes">
 <!-- 1) show same truth table 2) chains of equivalence -->
 <!-- same as saying "write a proof" -->
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="logical-equivalence-example" class="slide level2">
 <h2>Logical Equivalence example</h2>
@@ -558,20 +542,8 @@ eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWUsImV4ZXJjaXNlIjoiZXhfY2VyZWFsIn0sImNv
 <script type="exercise-check-ex_cereal-contents">
 eyJhdHRyIjp7ImNoZWNrIjp0cnVlLCJlZGl0Ijp0cnVlLCJldmFsIjp0cnVlLCJleGVyY2lzZSI6ImV4X2NlcmVhbCJ9LCJjb2RlIjoiY29ycmVjdF9hbnN3ZXIgPSBjZXJlYWxzWyhjZXJlYWxzWydwcm90ZWluJ10gPj0gNCkgJiAoY2VyZWFsc1snc3VnYXJzJ10gPD0gNildXG5pZiBsZW4oZmlsdGVyZWRfZGYpID09IGxlbihjb3JyZWN0X2Fuc3dlcikgYW5kIGFsbChmaWx0ZXJlZF9kZi5pbmRleCA9PSBjb3JyZWN0X2Fuc3dlci5pbmRleCk6XG4gICAgICAgIGZlZWRiYWNrID0ge1xuICAgICAgICBcImNvcnJlY3RcIjogVHJ1ZSxcbiAgICAgICAgXCJtZXNzYWdlXCI6IFwiUGVyZmVjdCEgWW91IGNvcnJlY3RseSBmaWx0ZXJlZCBmb3IgaGVhbHRoeSBjZXJlYWwuXCJcbiAgICAgICAgfVxuZWxzZTpcbiAgICAgICAgZmVlZGJhY2sgPSB7XG4gICAgICAgIFwiY29ycmVjdFwiOiBGYWxzZSxcbiAgICAgICAgXCJtZXNzYWdlXCI6IFwiTm90IHF1aXRlLiBNYWtlIHN1cmUgeW91J3JlIHVzaW5nIGJvdGggY29uZGl0aW9uczogcHJvdGVpbiBvZiBhdCBsZWFzdCA0IGFuZCBzdWdhcnMgb2YgYXQgbW9zdCA2LlwiXG4gICAgICAgIH1cbiBmZWVkYmFjayJ9
 </script>
-<aside class="notes">
 <!-- note that by doing this filtering, we are defining a predicate instantiated by
 each row whose truth value is evaluated. -->
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="logical-equivalence-1" class="slide level2">
 <h2>Logical Equivalence</h2>
@@ -649,20 +621,8 @@ each row whose truth value is evaluated. -->
 </tbody>
 </table>
 </div></div>
-<aside class="notes">
 <!-- half the class complete the TT on the left, the other half on 
 the right, then we all read our responses aloud! -->
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="words-and-ideas" class="slide level2">
 <h2>Words and Ideas</h2>

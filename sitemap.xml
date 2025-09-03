@@ -1,95 +1,95 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://ubc-cs.github.io/dsci220/setup.html</loc>
-    <lastmod>2025-09-03T02:27:50.432Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ubc-cs.github.io/dsci220/announcements.html</loc>
-    <lastmod>2025-09-03T02:27:50.266Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ubc-cs.github.io/dsci220/slides/01_thu_intro.html</loc>
-    <lastmod>2025-09-03T02:27:50.248Z</lastmod>
-  </url>
-  <url>
     <loc>https://ubc-cs.github.io/dsci220/slides/tbd_tbd_member-functions.html</loc>
-    <lastmod>2025-09-03T02:27:50.247Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ubc-cs.github.io/dsci220/slides/tbd_tbd_review.html</loc>
-    <lastmod>2025-09-03T02:27:50.246Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ubc-cs.github.io/dsci220/slides/tbd_tbd_terminal.html</loc>
-    <lastmod>2025-09-03T02:27:50.246Z</lastmod>
+    <lastmod>2025-09-03T16:36:16.117Z</lastmod>
   </url>
   <url>
     <loc>https://ubc-cs.github.io/dsci220/slides/tbd_tbd_python-2.html</loc>
-    <lastmod>2025-09-03T02:27:50.245Z</lastmod>
+    <lastmod>2025-09-03T16:36:16.117Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ubc-cs.github.io/dsci220/slides/tbd_tbd_terminal.html</loc>
+    <lastmod>2025-09-03T16:36:16.117Z</lastmod>
   </url>
   <url>
     <loc>https://ubc-cs.github.io/dsci220/slides/02_quantifiers.html</loc>
-    <lastmod>2025-09-03T04:42:07.976Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ubc-cs.github.io/dsci220/slides/01_wed_intro.html</loc>
-    <lastmod>2025-09-03T07:01:20.643Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ubc-cs.github.io/dsci220/slides/tbd_tbd_voronoi-1.html</loc>
-    <lastmod>2025-09-03T02:27:50.244Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ubc-cs.github.io/dsci220/formatting.html</loc>
-    <lastmod>2025-09-03T02:27:50.243Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ubc-cs.github.io/dsci220/LICENSE.html</loc>
-    <lastmod>2025-09-03T02:27:50.088Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ubc-cs.github.io/dsci220/index.html</loc>
-    <lastmod>2025-09-03T05:25:16.979Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ubc-cs.github.io/dsci220/slides/tbd_tbd_web-as-data.html</loc>
-    <lastmod>2025-09-03T02:27:50.244Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ubc-cs.github.io/dsci220/slides/01_fri_truth.html</loc>
-    <lastmod>2025-09-03T07:01:57.553Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ubc-cs.github.io/dsci220/slides/tbd_tbd_git.html</loc>
-    <lastmod>2025-09-03T02:27:50.245Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ubc-cs.github.io/dsci220/slides/tbd_tbd_classes.html</loc>
-    <lastmod>2025-09-03T02:27:50.245Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ubc-cs.github.io/dsci220/slides/tbd_tbd_python-1.html</loc>
-    <lastmod>2025-09-03T02:27:50.246Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ubc-cs.github.io/dsci220/slides/tbd_tbd_visualization.html</loc>
-    <lastmod>2025-09-03T02:27:50.246Z</lastmod>
+    <lastmod>2025-09-03T16:36:16.116Z</lastmod>
   </url>
   <url>
     <loc>https://ubc-cs.github.io/dsci220/slides/02_tue_efficiency.html</loc>
-    <lastmod>2025-09-03T02:27:50.247Z</lastmod>
+    <lastmod>2025-09-03T16:36:16.116Z</lastmod>
   </url>
   <url>
-    <loc>https://ubc-cs.github.io/dsci220/slides/tbd_tbd_data-structures.html</loc>
-    <lastmod>2025-09-03T02:27:50.247Z</lastmod>
+    <loc>https://ubc-cs.github.io/dsci220/slides/tbd_tbd_visualization.html</loc>
+    <lastmod>2025-09-03T16:36:16.117Z</lastmod>
   </url>
   <url>
-    <loc>https://ubc-cs.github.io/dsci220/about.html</loc>
-    <lastmod>2025-09-03T02:27:50.248Z</lastmod>
+    <loc>https://ubc-cs.github.io/dsci220/slides/tbd_tbd_review.html</loc>
+    <lastmod>2025-09-03T16:36:16.117Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ubc-cs.github.io/dsci220/slides/tbd_tbd_classes.html</loc>
+    <lastmod>2025-09-03T16:36:16.116Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ubc-cs.github.io/dsci220/index.html</loc>
+    <lastmod>2025-09-03T16:36:16.113Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ubc-cs.github.io/dsci220/announcements.html</loc>
+    <lastmod>2025-09-03T16:36:15.860Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ubc-cs.github.io/dsci220/setup.html</loc>
+    <lastmod>2025-09-03T16:36:16.115Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ubc-cs.github.io/dsci220/formatting.html</loc>
+    <lastmod>2025-09-03T16:36:15.860Z</lastmod>
   </url>
   <url>
     <loc>https://ubc-cs.github.io/dsci220/syllabus.html</loc>
-    <lastmod>2025-09-03T02:27:50.298Z</lastmod>
+    <lastmod>2025-09-03T16:36:16.117Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ubc-cs.github.io/dsci220/LICENSE.html</loc>
+    <lastmod>2025-09-03T16:36:15.811Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ubc-cs.github.io/dsci220/about.html</loc>
+    <lastmod>2025-09-03T16:36:15.860Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ubc-cs.github.io/dsci220/slides/01_thu_intro.html</loc>
+    <lastmod>2025-09-03T16:36:16.116Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ubc-cs.github.io/dsci220/slides/tbd_tbd_git.html</loc>
+    <lastmod>2025-09-03T16:36:16.117Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ubc-cs.github.io/dsci220/slides/01_fri_truth.html</loc>
+    <lastmod>2025-09-03T16:36:16.115Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ubc-cs.github.io/dsci220/slides/tbd_tbd_web-as-data.html</loc>
+    <lastmod>2025-09-03T16:36:16.117Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ubc-cs.github.io/dsci220/slides/tbd_tbd_data-structures.html</loc>
+    <lastmod>2025-09-03T16:36:16.116Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ubc-cs.github.io/dsci220/slides/01_wed_intro.html</loc>
+    <lastmod>2025-09-03T16:36:16.116Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ubc-cs.github.io/dsci220/slides/tbd_tbd_python-1.html</loc>
+    <lastmod>2025-09-03T16:36:16.117Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ubc-cs.github.io/dsci220/slides/tbd_tbd_voronoi-1.html</loc>
+    <lastmod>2025-09-03T16:36:16.117Z</lastmod>
   </url>
 </urlset>
