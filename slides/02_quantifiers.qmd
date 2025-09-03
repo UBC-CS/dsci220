@@ -1,0 +1,101 @@
+---
+date: 2025-09-05
+---
+# Implication
+
+## Warm Up
+
+Last time we discussed Logical Equivalence (LE) and showed an example. The table below 
+illustrates LE that are so important, they have names!
+
+::::: {.columns}
+
+::: {.column width="50%"}
+
+[![](/images/LE.png){fig-alt="logical equivalences" }](https://en.wikipedia.org/wiki/Logical_equivalence)
+
+:::
+
+::: {.column width="50%"}
+
+Observations:
+
+*  
+
+* 
+
+*   
+
+* 
+
+*    
+
+:::
+
+:::::
+
+
+
+## Logical Equivalence Practice
+
+Navigate to PL Activity 1 and complete Question 2.
+
+{{< qrcode https://us.prairielearn.com/pl/course_instance/186238/assessment/2562335 >}}
+
+<https://us.prairielearn.com/pl/course_instance/186238/assessment/2562335>
+
+## Implication
+
+Connect operator $\rightarrow$ to a logically equivalent expression using only _and_, _or_, and _not_.
+
+| $p$ | $q$ | $p\rightarrow q$ | $\underline{\hspace{3em}}$ |
+|---|---|:--------:|:--------:|
+| F | F |   T    |      |
+| F | T |   T    |      |
+| T | F |   F    |      |
+| T | T |   T    |      |
+
+
+* Note: $p \rightarrow q \equiv$  _______.
+
+* $p \rightarrow q$ Corresponds to "if $p$ then $q$"
+
+* Gives us mechanism for reasoning!
+
+
+
+PL exercises on Logical equivalence involving implication?
+
+
+
+
+## Special Logical Equivalences
+
+Suppose $p\equiv$ **T** . Then $p$ is a _Tautology_. 
+
+Suppose $p\equiv$ **F** . Then $p$ is a _Contradiction_.
+
+## Logical Equivalence Practice
+
+link to PL question
+
+## Words and Ideas
+
+Truth Table
+
+Proposition
+
+Grammar
+
+Predicate
+
+Boolean Mask
+
+Logical Equivalence
+
+Tautology
+
+Contradiction
+
+
+
