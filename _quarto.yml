@@ -4,9 +4,6 @@ project:
   type: website
   output-dir: _site
 
-  # post-render:
-  #   - R/combine-pdfs.R
-
 website:
   title: "DSCI 220: Discrete Math for Data Science"
   description: >
@@ -65,16 +62,6 @@ website:
             text: "CBTF"
       - href: about.qmd
         text: About
-
-  # comments:
-  #   giscus:
-  #     repo: UBC-CS/cpsc203
-  #     repo-id:
-  #     category: announcements
-  #     category-id:
-  #     mapping: title
-  #     reactions-enabled: true
-  #     loading: lazy
 
 format:
   html:
