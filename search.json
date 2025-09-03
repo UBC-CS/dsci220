@@ -342,6 +342,13 @@
     "text": "Announcements"
   },
   {
+    "objectID": "slides/02_quantifiers.html#hat-tip",
+    "href": "slides/02_quantifiers.html#hat-tip",
+    "title": "Discrete Math for Data Science",
+    "section": "Hat Tip 🎉",
+    "text": "Hat Tip 🎉\n\nThis flashlight idea was inspired by\na viral concert moment 💡✨"
+  },
+  {
     "objectID": "slides/02_quantifiers.html#warm-up",
     "href": "slides/02_quantifiers.html#warm-up",
     "title": "Discrete Math for Data Science",
@@ -353,7 +360,7 @@
     "href": "slides/02_quantifiers.html#logical-equivalence-practice",
     "title": "Discrete Math for Data Science",
     "section": "Logical Equivalence Practice",
-    "text": "Logical Equivalence Practice\nNavigate to PL Activity 1 and complete Question 2.\n\n\n    \nhttps://us.prairielearn.com/pl/course_instance/186238/assessment/2562335"
+    "text": "Logical Equivalence Practice\nAll graded learning activities in the course will use a tool called PrairieLearn.\nNavigate to Activity 1 and complete question 2.\n\n\n    \nhttps://us.prairielearn.com/pl/course_instance/186238/assessment/2562335"
   },
   {
     "objectID": "slides/02_quantifiers.html#implication-1",
@@ -382,6 +389,69 @@
     "title": "Discrete Math for Data Science",
     "section": "Words and Ideas",
     "text": "Words and Ideas\nTruth Table\nProposition\nGrammar\nPredicate\nBoolean Mask\nLogical Equivalence\nTautology\nContradiction"
+  },
+  {
+    "objectID": "slides/01_wed_intro.html#sages-tricksters",
+    "href": "slides/01_wed_intro.html#sages-tricksters",
+    "title": "Discrete Math for Data Science",
+    "section": "🎭 Sages & Tricksters",
+    "text": "🎭 Sages & Tricksters\nHow to Play\n\nEach of you are secretly assigned a role:\n\nSage = always tell the truth (Black)\nTrickster = always lie (Red)\n\nEveryone sees the packet of 6 cards and the fact (the fact is true).\n\nIn rounds, each player may ask one yes/no question about the fact.\n\nWork together: compare answers, spot contradictions.\n\nGoal: Deduce each person’s role!"
+  },
+  {
+    "objectID": "slides/01_wed_intro.html#round-structure",
+    "href": "slides/01_wed_intro.html#round-structure",
+    "title": "Discrete Math for Data Science",
+    "section": "🔄 Round Structure",
+    "text": "🔄 Round Structure\n1. Two Info Rounds\n\nTake turns asking one yes/no question about the fact\n\n2. Debate Round\n\nCompare answers\n\nLook for contradictions\n\n3. Conclusion\n\nAgree on everyone’s roles\n\nReveal the cards & roles!"
+  },
+  {
+    "objectID": "slides/01_wed_intro.html#logic-in-action",
+    "href": "slides/01_wed_intro.html#logic-in-action",
+    "title": "Discrete Math for Data Science",
+    "section": "🧩 Logic in Action",
+    "text": "🧩 Logic in Action\n\nLogic means starting from true facts\n\nAsking the right questions\n\nSpotting contradictions\n\nAnd making valid inferences\n\nIn this course we’ll apply all of this to Data Science!"
+  },
+  {
+    "objectID": "slides/01_wed_intro.html#instructional-team",
+    "href": "slides/01_wed_intro.html#instructional-team",
+    "title": "Discrete Math for Data Science",
+    "section": "Instructional Team:",
+    "text": "Instructional Team:\n\nProf: Cinda Heeren\n📧 cheeren@cs.ubc.ca\n⏰ Mon 2–4pm · 🏢 ICCS 233 · \nTA: Joe Wonsil\n📧 joe.wonsil@gmail.com\n⏰ Thu 10–11am · 🏢 ICCS 355 ·"
+  },
+  {
+    "objectID": "slides/01_wed_intro.html#term-structure",
+    "href": "slides/01_wed_intro.html#term-structure",
+    "title": "Discrete Math for Data Science",
+    "section": "Term Structure:",
+    "text": "Term Structure:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek\nSunday\nM\nT\nW\nF\nTutorial\nExamlet\n\n\n\n\n1\n8/31/2025\n    \n\n🎉\n🎉\n\n\n\n\n2\n9/7/2025\n🎉\n\n🎉\n🎉\n\n\n\n\n3\n9/14/2025\n🎉\n📺\n🎉\n    \n🪄\n🤩\n\n\n4\n9/21/2025\n🎉\n📺\n🎉\n    \n🪄\n\n\n\n5\n9/28/2025\n🎉\n📺\n🎉\n    \n🪄\n🤩\n\n\n6\n10/5/2025\n🎉\n📺\n🎉\n    \n🪄\n\n\n\n7\n10/12/2025\n    \n\n📺\n📺\n\n\n\n\n8\n10/19/2025\n🎉\n📺\n🎉\n    \n🪄\n🤩\n\n\n9\n10/26/2025\n🎉\n📺\n🎉\n    \n🪄\n\n\n\n10\n11/2/2025\n🎉\n📺\n🎉\n    \n🪄\n🤩\n\n\n11\n11/9/2025\n    \n\n    \n📺\n\n\n\n\n12\n11/16/2025\n🎉\n📺\n🎉\n    \n🪄\n\n\n\n13\n11/23/2025\n🎉\n📺\n🎉\n    \n🪄\n🤩\n\n\n14\n11/30/2025\n🎉\n📺\n🎉\n    \n🪄"
+  },
+  {
+    "objectID": "slides/01_wed_intro.html#grading",
+    "href": "slides/01_wed_intro.html#grading",
+    "title": "Discrete Math for Data Science",
+    "section": "Grading:",
+    "text": "Grading:\n\n\n\n\n\n\n\n\nComponent\nWeight\n\n\n\n\n🎉 Class Meetings\n0%\n\n\n🪄 Tutorials\n15%\n\n\n🤩 Examlets\n55%\n\n\n🤩 Final Exam\n30%"
+  },
+  {
+    "objectID": "slides/01_wed_intro.html#communications",
+    "href": "slides/01_wed_intro.html#communications",
+    "title": "Discrete Math for Data Science",
+    "section": "Communications",
+    "text": "Communications\n\n\n📧 Email cheeren@cs.ubc.ca\nChecked daily. Please place “DSCI220” in subject!\n   Piazza piazza.com/ubc.ca/winterterm12025/dsci220\nPost questions for quick response.\n🏫 Office Hours\n\n\n\n\n\n\n\n\n\n\nName\nTime\nLocation & Zoom\n\n\n\n\nCinda\nMon 2–4pm\n🏢 ICCS 233 · \n\n\nJoe\nThu 10–11am\n🏢 ICCS 355 · \n\n\n\n\n\n🌐 Course Website course.ubc.ca/discrete-math\nSyllabus, schedule, resources"
+  },
+  {
+    "objectID": "slides/01_wed_intro.html#warm-up",
+    "href": "slides/01_wed_intro.html#warm-up",
+    "title": "Discrete Math for Data Science",
+    "section": "Warm-Up",
+    "text": "Warm-Up\nMake at least 3 observations about the following table:\n\n\n\n\n\n\\(p\\)\n\\(q\\)\n\\(p \\lor q\\)\n\n\n\n\nF\nF\nF\n\n\nF\nT\nT\n\n\nT\nF\nT\n\n\nT\nT\nT"
+  },
+  {
+    "objectID": "slides/01_wed_intro.html#summary",
+    "href": "slides/01_wed_intro.html#summary",
+    "title": "Discrete Math for Data Science",
+    "section": "Summary",
+    "text": "Summary\nKey observations about the table:\n\n\n\n\n\n\\(p\\)\n\\(q\\)\n\\(p \\lor q\\)\n\n\n\n\nF\nF\nF\n\n\nF\nT\nT\n\n\nT\nF\nT\n\n\nT\nT\nT\n\n\n\n\n\nThe diagram is called a Truth Table\np and q are variables, each of which take on one of two Boolean values, True or False (T/F, 1/0)\n∨ is a binary operator that implements a function (creates output) from the 2 input variables to another Boolean value. It is characterized by its output values.\nThe operator ∨ corresponds to the English word or.\nThe expression p ∨ q is called a proposition."
   },
   {
     "objectID": "slides/tbd_tbd_voronoi-1.html#announcements",
@@ -441,7 +511,7 @@
     "href": "index.html",
     "title": "DSCI 220: Discrete Math for Data Science",
     "section": "",
-    "text": "Welcome to the webpage for DSCI 220!",
+    "text": "Instructor: Dr. Cinda Heeren (She, Her)\n\n\n\nContact\n📧 cheeren@cs.ubc.ca\n⏰ Mon 2–4pm appointment\n🏢 ICCS 233 · \n\nClass\nMon/Wed/Fri 11:00-12:00\n317 Frank Forward Building\n\n\n\n\n\n\nNo matching items\n\n\n\n\n\n\n  \n    \n      Week\n      Mon\n      \n        Tue\n      \n      \n        Thu\n      \n      Lab\n      POTW\n      \n        Examlet\n      \n      fri_slides\n      wed_slides\n      NA_slides\n    \n    \n      S\n      A\n      V\n      S\n      A\n      V\n      Book\n      Due\n      Practice\n    \n  \n  \n    01\nSep 1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    02\nSep 8\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    03\nSep 15\n\n\n\n\n\n\n\n\nEX1\nSep 20\n\n\n\n\n    04\nSep 22\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    05\nSep 29\n\n\n\n\n\n\n\n\nEX2\nOct 4\n\n\n\n\n    06\nOct 6\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    07\nOct 13\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    08\nOct 20\n\n\n\n\n\n\n\n\nEX3\nOct 25\n\n\n\n\n    09\nOct 27\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    10\nNov 3\n\n\n\n\n\n\n\n\nEX4\nNov 8\n\n\n\n\n    11\nNov 10\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    12\nNov 17\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    13\nNov 24\n\n\n\n\n\n\n\n\nEX5\nNov 29\n\n\n\n\n    14\nDec 1",
     "crumbs": [
       "Course information",
       "Schedule"
@@ -451,8 +521,8 @@
     "objectID": "index.html#course-information",
     "href": "index.html#course-information",
     "title": "DSCI 220: Discrete Math for Data Science",
-    "section": "Course information",
-    "text": "Course information\nInstructor: Dr. Cinda Heeren (She, Her)\nTime: Monday, Wednesday, and Friday, 11:00-12:00\nLocation: Frank Forward Building (FORW, Wayfinding at UBC, Google Maps), Rm 317",
+    "section": "",
+    "text": "Instructor: Dr. Cinda Heeren (She, Her)\n\n\n\nContact\n📧 cheeren@cs.ubc.ca\n⏰ Mon 2–4pm appointment\n🏢 ICCS 233 · \n\nClass\nMon/Wed/Fri 11:00-12:00\n317 Frank Forward Building\n\n\n\n\n\n\nNo matching items\n\n\n\n\n\n\n  \n    \n      Week\n      Mon\n      \n        Tue\n      \n      \n        Thu\n      \n      Lab\n      POTW\n      \n        Examlet\n      \n      fri_slides\n      wed_slides\n      NA_slides\n    \n    \n      S\n      A\n      V\n      S\n      A\n      V\n      Book\n      Due\n      Practice\n    \n  \n  \n    01\nSep 1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    02\nSep 8\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    03\nSep 15\n\n\n\n\n\n\n\n\nEX1\nSep 20\n\n\n\n\n    04\nSep 22\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    05\nSep 29\n\n\n\n\n\n\n\n\nEX2\nOct 4\n\n\n\n\n    06\nOct 6\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    07\nOct 13\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    08\nOct 20\n\n\n\n\n\n\n\n\nEX3\nOct 25\n\n\n\n\n    09\nOct 27\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    10\nNov 3\n\n\n\n\n\n\n\n\nEX4\nNov 8\n\n\n\n\n    11\nNov 10\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    12\nNov 17\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    13\nNov 24\n\n\n\n\n\n\n\n\nEX5\nNov 29\n\n\n\n\n    14\nDec 1",
     "crumbs": [
       "Course information",
       "Schedule"
@@ -462,8 +532,8 @@
     "objectID": "index.html#most-recent-announcement",
     "href": "index.html#most-recent-announcement",
     "title": "DSCI 220: Discrete Math for Data Science",
-    "section": "Most recent announcement",
-    "text": "Most recent announcement\n\n\n\n\nNo matching items\n\n\n\n\n\n\n  \n    \n      Week\n      Mon\n      \n        Tue\n      \n      \n        Thu\n      \n      Lab\n      POTW\n      \n        Examlet\n      \n      NA_slides\n    \n    \n      S\n      A\n      V\n      S\n      A\n      V\n      Book\n      Due\n      Practice\n    \n  \n  \n    01\nSep 1\n\n\n\n\n\n\n\n\n\n\n\n\n    02\nSep 8\n\n\n\n\n\n\n\n\n\n\n\n\n    03\nSep 15\n\n\n\n\n\n\n\n\nEX1\nSep 20\n\n\n    04\nSep 22\n\n\n\n\n\n\n\n\n\n\n\n\n    05\nSep 29\n\n\n\n\n\n\n\n\nEX2\nOct 4\n\n\n    06\nOct 6\n\n\n\n\n\n\n\n\n\n\n\n\n    07\nOct 13\n\n\n\n\n\n\n\n\n\n\n\n\n    08\nOct 20\n\n\n\n\n\n\n\n\nEX3\nOct 25\n\n\n    09\nOct 27\n\n\n\n\n\n\n\n\n\n\n\n\n    10\nNov 3\n\n\n\n\n\n\n\n\nEX4\nNov 8\n\n\n    11\nNov 10\n\n\n\n\n\n\n\n\n\n\n\n\n    12\nNov 17\n\n\n\n\n\n\n\n\n\n\n\n\n    13\nNov 24\n\n\n\n\n\n\n\n\nEX5\nNov 29\n\n\n    14\nDec 1",
+    "section": "",
+    "text": "No matching items\n\n\n\n\n\n\n  \n    \n      Week\n      Mon\n      \n        Tue\n      \n      \n        Thu\n      \n      Lab\n      POTW\n      \n        Examlet\n      \n      fri_slides\n      wed_slides\n      NA_slides\n    \n    \n      S\n      A\n      V\n      S\n      A\n      V\n      Book\n      Due\n      Practice\n    \n  \n  \n    01\nSep 1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    02\nSep 8\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    03\nSep 15\n\n\n\n\n\n\n\n\nEX1\nSep 20\n\n\n\n\n    04\nSep 22\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    05\nSep 29\n\n\n\n\n\n\n\n\nEX2\nOct 4\n\n\n\n\n    06\nOct 6\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    07\nOct 13\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    08\nOct 20\n\n\n\n\n\n\n\n\nEX3\nOct 25\n\n\n\n\n    09\nOct 27\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    10\nNov 3\n\n\n\n\n\n\n\n\nEX4\nNov 8\n\n\n\n\n    11\nNov 10\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    12\nNov 17\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    13\nNov 24\n\n\n\n\n\n\n\n\nEX5\nNov 29\n\n\n\n\n    14\nDec 1",
     "crumbs": [
       "Course information",
       "Schedule"
@@ -524,6 +594,132 @@
     "title": "Discrete Math for Data Science",
     "section": "Beautiful Soup",
     "text": "Beautiful Soup\nReads the HTHL source into a data structure that’s easy to query!\nhttps://www.crummy.com/software/BeautifulSoup/bs4/doc/\n\n\nhtml = simple_get(\"https://www.billboard.com/charts/hot-100\" + '/' + date)\nmydivs = html.findAll(\"div\", {\"class\": \"chart-list-item\"}) // all the data is here!!\n\nfor div in mydivs:\n    s = Song(div.attrs['data-title'], div.attrs['data-artist'], int(div.attrs['data-rank']))\n\n\nStill too messy for us! Remedy? https://github.com/guoguo12/billboard-charts\n\nBeautiful is a library that allows us to create native Python structures (such as lists and dictionaries) from HTML sources. Still requires scrutiny of what we want. Instead use other library that anticipates what information we would like to extract from the Billboard charts."
+  },
+  {
+    "objectID": "slides/01_fri_truth.html#truth-tables",
+    "href": "slides/01_fri_truth.html#truth-tables",
+    "title": "Discrete Math for Data Science",
+    "section": "Truth Tables",
+    "text": "Truth Tables\nKey observations about the table:\n\n\n\n\n\n\\(p\\)\n\\(q\\)\n\\(p \\lor q\\)\n\n\n\n\nF\nF\nF\n\n\nF\nT\nT\n\n\nT\nF\nT\n\n\nT\nT\nT\n\n\n\n\n\nThe diagram is called a Truth Table\np and q are variables, each of which take on one of two Boolean values, True or False (T/F, 1/0)\n∨ is a binary operator that implements a function (creates output) from the 2 input variables to another Boolean value. It is characterized by its output values.\nThe operator ∨ corresponds to the English word or.\nThe expression p ∨ q is called a proposition."
+  },
+  {
+    "objectID": "slides/01_fri_truth.html#warm-up",
+    "href": "slides/01_fri_truth.html#warm-up",
+    "title": "Discrete Math for Data Science",
+    "section": "Warm Up",
+    "text": "Warm Up\n\n\n\n\n\n\\(p\\)\n\\(q\\)\n\\(p \\lor q\\)\n\n\n\n\nF\nF\nF\n\n\nF\nT\nT\n\n\nT\nF\nT\n\n\nT\nT\nT\n\n\n\n\n\nHow many rows for a proposition on 3 variables? \\(k\\) variables?\nGive a good name for an operator that takes 1 variable: __________\nGive a good name for an operator that takes 3 variables: __________\nHow many different binary operators could there be?"
+  },
+  {
+    "objectID": "slides/01_fri_truth.html#truth-tables-1",
+    "href": "slides/01_fri_truth.html#truth-tables-1",
+    "title": "Discrete Math for Data Science",
+    "section": "Truth Tables",
+    "text": "Truth Tables\nAll graded learning activities in the course will use a tool called PrairieLearn.\nNavigate to today’s activity and complete question 1\n\n\n    \nhttps://us.prairielearn.com/pl/course_instance/186238/assessment/2562335"
+  },
+  {
+    "objectID": "slides/01_fri_truth.html#beyond-operators",
+    "href": "slides/01_fri_truth.html#beyond-operators",
+    "title": "Discrete Math for Data Science",
+    "section": "Beyond Operators",
+    "text": "Beyond Operators\nPropositions can be more complex than just a single operator!\nExample:\n\n\n\n\\(p\\)\n\\(q\\)\n\\(\\neg(p \\lor q)\\)\n\n\n\n\nF\nF\nT\n\n\nF\nT\nF\n\n\nT\nF\nF\n\n\nT\nT\nF"
+  },
+  {
+    "objectID": "slides/01_fri_truth.html#wffs",
+    "href": "slides/01_fri_truth.html#wffs",
+    "title": "Discrete Math for Data Science",
+    "section": "WFFs",
+    "text": "WFFs\nA well-formed formula is a Boolean statement generated by the following rules:\n&lt;wff&gt; ::= &lt;atom&gt;\n        | ~ &lt;wff&gt;\n        | ( &lt;wff&gt; ∧ &lt;wff&gt; )\n        | ( &lt;wff&gt; ∨ &lt;wff&gt; )\n\n&lt;atom&gt; ::= p | q | r | s | ...\nSpeculate:"
+  },
+  {
+    "objectID": "slides/01_fri_truth.html#wffs-1",
+    "href": "slides/01_fri_truth.html#wffs-1",
+    "title": "Discrete Math for Data Science",
+    "section": "WFFs",
+    "text": "WFFs\nA well-formed formula is a Boolean statement generated by the following rules:\n&lt;wff&gt; ::= &lt;atom&gt;\n        | ~ &lt;wff&gt;\n        | ( &lt;wff&gt; ∧ &lt;wff&gt; )\n        | ( &lt;wff&gt; ∨ &lt;wff&gt; )\n\n&lt;atom&gt; ::= p | q | r | s | ...\nThis definition is in the form of a Grammar.\n_____________: &lt;wff&gt; and &lt;atom&gt;\n_____________: p, q, r, s …\nIt is our first self-referential or recursive definition."
+  },
+  {
+    "objectID": "slides/01_fri_truth.html#wffs-2",
+    "href": "slides/01_fri_truth.html#wffs-2",
+    "title": "Discrete Math for Data Science",
+    "section": "WFFs",
+    "text": "WFFs\n&lt;wff&gt; ::= &lt;atom&gt;\n        | ~ &lt;wff&gt;\n        | ( &lt;wff&gt; ∧ &lt;wff&gt; )\n        | ( &lt;wff&gt; ∨ &lt;wff&gt; )\n\n&lt;atom&gt; ::= p | q \nExample derivation:\n&lt;wff&gt;"
+  },
+  {
+    "objectID": "slides/01_fri_truth.html#wffs-notes",
+    "href": "slides/01_fri_truth.html#wffs-notes",
+    "title": "Discrete Math for Data Science",
+    "section": "WFFs (Notes)",
+    "text": "WFFs (Notes)\n&lt;wff&gt; ::= &lt;atom&gt;\n        | ~ &lt;wff&gt;\n        | ( &lt;wff&gt; ∧ &lt;wff&gt; )\n        | ( &lt;wff&gt; ∨ &lt;wff&gt; )\n\n&lt;atom&gt; ::= p | q \n\nGrammars can be used to construct many different kinds of sequences.\nWe could have included additional operators \\(\\rightarrow\\), \\(\\leftrightarrow\\), \\(\\oplus\\), \\(\\uparrow\\)\nComputational evaluation of &lt;wff&gt;is covered in DSCI221. For now, we trust Python and focus on logic.\nThe &lt;wff&gt; are propositions."
+  },
+  {
+    "objectID": "slides/01_fri_truth.html#wff-puzzle",
+    "href": "slides/01_fri_truth.html#wff-puzzle",
+    "title": "Discrete Math for Data Science",
+    "section": "WFF Puzzle",
+    "text": "WFF Puzzle\nWhich of these are WFFs?\n\n\n\n\\((\\neg p ∧ (q ∨ r))\\)\n\n\\(((p ∧ q) ∨ (r ∧ \\neg s))\\)\n\\(((\\neg p) ∨ (q ∨ r))\\)\n\n\n\n\\((p ∨ (qr))\\)\n\\(\\neg (p ∨ (q ∧ \\neg r))\\)\n\\(\\neg (p ∨ q))\\)"
+  },
+  {
+    "objectID": "slides/01_fri_truth.html#wffs-3",
+    "href": "slides/01_fri_truth.html#wffs-3",
+    "title": "Discrete Math for Data Science",
+    "section": "WFFs",
+    "text": "WFFs\n&lt;wff&gt; ::= &lt;atom&gt;\n        | ~ &lt;wff&gt;\n        | ( &lt;wff&gt; ∧ &lt;wff&gt; )\n        | ( &lt;wff&gt; ∨ &lt;wff&gt; )\n\n&lt;atom&gt; ::= p | q \nTheorem: \\(\\neg (p ∨ q))\\) is not a WFF. Proof:"
+  },
+  {
+    "objectID": "slides/01_fri_truth.html#propositions",
+    "href": "slides/01_fri_truth.html#propositions",
+    "title": "Discrete Math for Data Science",
+    "section": "Propositions",
+    "text": "Propositions\nA proposition is a statement that can be either True or False.\nExamples:\n\n\\(37 &gt; 12\\)\nFewer than 5 people in this room feel sleepy.\nThere are extra-terrestrial life forms.\nThis statement is False.\n\\(\\underline{\\hspace{10em}}\\)"
+  },
+  {
+    "objectID": "slides/01_fri_truth.html#found-in-translation",
+    "href": "slides/01_fri_truth.html#found-in-translation",
+    "title": "Discrete Math for Data Science",
+    "section": "Found in Translation",
+    "text": "Found in Translation\n\n\n\\(p\\): ___________ ate cereal for breakfast.\n\\(q\\): ___________ brought a backpack to class.\n \n\n\\((p\\lor q)\\)\n\\((p\\wedge q)\\)\n\\(\\neg q\\)"
+  },
+  {
+    "objectID": "slides/01_fri_truth.html#predicates",
+    "href": "slides/01_fri_truth.html#predicates",
+    "title": "Discrete Math for Data Science",
+    "section": "Predicates",
+    "text": "Predicates\n\n\n\\(p\\): ___________ ate cereal for breakfast.\n\n\nWe may want to apply the statement to many students, in which case we define a Predicate.\n\n\n\n\\(P(x)\\): \\(x\\) ate cereal for breakfast.\n\\(x\\) can be instantiated to be a particular student, or an arbitrary student.\n\\(P(\\underline{\\hspace{2em}})\\) is a proposition."
+  },
+  {
+    "objectID": "slides/01_fri_truth.html#logical-equivalence",
+    "href": "slides/01_fri_truth.html#logical-equivalence",
+    "title": "Discrete Math for Data Science",
+    "section": "Logical Equivalence",
+    "text": "Logical Equivalence\n\n\nEx: Is it true that \\((p \\lor q) \\equiv (q\\lor p)\\) ?\n\n\nDiscussion points:\n\n\\(\\equiv\\) means logically equivalent\nThe answer had better be _________!!!\nHow can we justify our instinct?"
+  },
+  {
+    "objectID": "slides/01_fri_truth.html#logical-equivalence-example",
+    "href": "slides/01_fri_truth.html#logical-equivalence-example",
+    "title": "Discrete Math for Data Science",
+    "section": "Logical Equivalence example",
+    "text": "Logical Equivalence example"
+  },
+  {
+    "objectID": "slides/01_fri_truth.html#boolean-masks",
+    "href": "slides/01_fri_truth.html#boolean-masks",
+    "title": "Discrete Math for Data Science",
+    "section": "Boolean Masks",
+    "text": "Boolean Masks\nSelect all the cereals with at least 4 units of protein and no more than 6 units of sugars."
+  },
+  {
+    "objectID": "slides/01_fri_truth.html#logical-equivalence-1",
+    "href": "slides/01_fri_truth.html#logical-equivalence-1",
+    "title": "Discrete Math for Data Science",
+    "section": "Logical Equivalence",
+    "text": "Logical Equivalence\n\n“Select all the cereals with at least 4 units of protein and no more than 6 units of sugars.”\n       \\(p\\): a cereal has less than 4 units of protein\n       \\(q\\): a cereal has more than 6 units of sugars\nWe suspect that \\(\\neg p\\wedge \\neg q \\equiv \\neg( p\\lor q)\\):\n\n\n\n\n\n\n\n\n\\(p\\)\n\\(q\\)\n\\(\\hspace{4em}\\neg p\\wedge \\neg q\\)\n\n\n\n\nF\nF\n\n\n\nF\nT\n\n\n\nT\nF\n\n\n\nT\nT\n\n\n\n\n\n\n\n\n\\(p\\)\n\\(q\\)\n\\(\\hspace{4em}\\neg( p\\lor q)\\)\n\n\n\n\nF\nF\n\n\n\nF\nT\n\n\n\nT\nF\n\n\n\nT\nT"
+  },
+  {
+    "objectID": "slides/01_fri_truth.html#words-and-ideas",
+    "href": "slides/01_fri_truth.html#words-and-ideas",
+    "title": "Discrete Math for Data Science",
+    "section": "Words and Ideas",
+    "text": "Words and Ideas\nTruth Table\nProposition\nGrammar\nPredicate\nBoolean Mask\nLogical Equivalence"
   },
   {
     "objectID": "slides/tbd_tbd_git.html#announcements",

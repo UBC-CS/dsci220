@@ -9,12 +9,11 @@
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/quarto-contrib/live-runtime/live-runtime.js" type="module"></script>
 <link href="../site_libs/quarto-contrib/live-runtime/live-runtime.css" rel="stylesheet">
-<script src="../site_libs/quarto-contrib/countdown-0.5.0/countdown.js"></script>
-<link href="../site_libs/quarto-contrib/countdown-0.5.0/countdown.css" rel="stylesheet">
+<script src="../site_libs/quarto-contrib/qrcodejs-v1.0.0/qrcode.js"></script>
 <script src="../site_libs/quarto-contrib/iconify-3.0.0/iconify-icon.min.js"></script><meta charset="utf-8">
   <meta name="generator" content="quarto-1.7.32">
 
-  <meta name="dcterms.date" content="2023-01-08">
+  <meta name="dcterms.date" content="2025-09-05">
   <title>{{&lt; var course.full-title &gt;}} – Discrete Math for Data Science</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -215,197 +214,431 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">January 8, 2023</p>
+  <p class="date">September 5, 2025</p>
 </section>
-<section id="announcements" class="slide level2">
-<h2>Announcements</h2>
-</section>
-<section id="section" class="slide level2 centered" data-background-iframe="https://ubc-cs.github.io/cpsc203/setup.html" data-background-interactive="true" data-menu-title="Tech stack instructions">
-<h2></h2>
-</section>
-<section id="practice-problems" class="slide level2">
-<h2>Practice problems</h2>
-<p><span class="math inline">\(1 + 3 + 5 + \ldots + 1337\)</span> = <u>____________</u></p>
-<p><br>
-</p>
-<p>How many terms?</p>
-<p>English description: The sum of the first <span class="math inline">\(k\)</span> odd integers is <u>________</u></p>
-<p>What about <span class="math inline">\(11 + 13 + \ldots + 23\)</span>?</p>
-<p><br>
-</p>
-<p>And <span class="math inline">\(2 + 4 + 6 + \ldots + 1338\)</span>?</p>
-</section>
-<section id="python-demo-lists" class="title-slide slide level1 center">
-<h1>Python Demo: Lists</h1>
-<p>Given code lives at <a href="https://us.prairielearn.com" class="uri">https://us.prairielearn.com</a></p>
-<p>Normally you will work on the exercises on your own machines.</p>
-<p>Today, we have not yet set up your machines!!</p>
-</section>
-
 <section>
-<section id="slides-from-the-assigned-videos" class="title-slide slide level1 center">
-<h1>Slides from the assigned videos</h1>
+<section id="truth" class="title-slide slide level1 center">
+<h1>Truth</h1>
 
 </section>
-<section id="section-1" class="slide level2" data-background-iframe="https://player.vimeo.com/video/905091212" data-menu-title="Handcraft program design">
-<h2></h2>
-</section>
-<section id="back-to-handcraft" class="slide level2">
-<h2>Back to handcraft</h2>
+<section id="truth-tables" class="slide level2">
+<h2>Truth Tables</h2>
+<p>Key observations about the table:</p>
 <div class="columns">
-<div class="column" style="width:33%;">
-<p><img data-src="../images/quilt.jpg" alt="A quilt in different colours—green and pink—and patterns—paisley and flowers."></p>
-<p><img data-src="../images/doily.jpg" alt="A white doily with a spiral pattern on a wooden surface."></p>
-</div><div class="column" style="width:33%;">
-<p><img data-src="../images/pinecone-pen.jpg" alt="A pen made from pinecone."></p>
-<p><img data-src="../images/shirt.jpg" alt="A vibrant woven textile with intricate geometric patterns in various colours the main being red, displayed against a mossy wooden background."></p>
-</div><div class="column" style="width:33%;">
-<p><img data-src="../images/paper-violin.jpg" alt="A violin made from intricately quilled green paper with a bow."></p>
-<p><img data-src="../images/crochet-bike.jpg" alt="A bicycle covered in crocheted yarn in various colours."></p>
+<div class="column" style="width:30%;">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th><span class="math inline">\(p\)</span></th>
+<th><span class="math inline">\(q\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(p \lor q\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>F</td>
+<td>F</td>
+<td style="text-align: center;">F</td>
+</tr>
+<tr class="even">
+<td>F</td>
+<td>T</td>
+<td style="text-align: center;">T</td>
+</tr>
+<tr class="odd">
+<td>T</td>
+<td>F</td>
+<td style="text-align: center;">T</td>
+</tr>
+<tr class="even">
+<td>T</td>
+<td>T</td>
+<td style="text-align: center;">T</td>
+</tr>
+</tbody>
+</table>
+</div><div class="column" style="width: 70%; font-size: 80%;">
+<ul>
+<li>The diagram is called a <em>Truth Table</em></li>
+<li>p and q are <em>variables</em>, each of which take on one of two <em>Boolean</em> values, True or False (T/F, 1/0)</li>
+<li>∨ is a <em>binary operator</em> that implements a function (creates output) from the 2 input variables to another Boolean value. It is characterized by its output values.</li>
+<li>The operator ∨ corresponds to the English word <em>or</em>.</li>
+<li>The expression p ∨ q is called a <em>proposition</em>.</li>
+</ul>
+</div></div>
+<!-- from last time -->
+</section>
+<section id="warm-up" class="slide level2">
+<h2>Warm Up</h2>
+<div class="columns">
+<div class="column" style="width:30%;">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th><span class="math inline">\(p\)</span></th>
+<th><span class="math inline">\(q\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(p \lor q\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>F</td>
+<td>F</td>
+<td style="text-align: center;">F</td>
+</tr>
+<tr class="even">
+<td>F</td>
+<td>T</td>
+<td style="text-align: center;">T</td>
+</tr>
+<tr class="odd">
+<td>T</td>
+<td>F</td>
+<td style="text-align: center;">T</td>
+</tr>
+<tr class="even">
+<td>T</td>
+<td>T</td>
+<td style="text-align: center;">T</td>
+</tr>
+</tbody>
+</table>
+</div><div class="column" style="width: 70%;">
+<ul>
+<li><p>How many rows for a proposition on 3 variables? <span class="math inline">\(k\)</span> variables?</p></li>
+<li><p>Give a good name for an operator that takes 1 variable: __________</p></li>
+<li><p>Give a good name for an operator that takes 3 variables: __________</p></li>
+<li><p>How many different binary operators could there be?</p></li>
+</ul>
 </div></div>
 </section>
-<section id="where-are-we" class="slide level2">
-<h2>Where are we?</h2>
-<div class="quarto-layout-panel" data-layout="[2,8]">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 20.0%;justify-content: center;">
-<p><img data-src="../images/knitted-dishcloth-with-basket-weave.png" alt="A teal knitted dishcloth with a basketweave pattern and two red knitting needles resting on it."></p>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 80.0%;justify-content: center;">
-<p><img data-src="../images/nested-grids.png" alt="A 2D grid with one square extended, showing it as a smaller grid pattern that repeats across the larger grid."></p>
-</div>
-</div>
-</div>
-<aside class="notes">
-<p>The 8x8 grid illustrates dishcloth. Each block has 5 rows of 5 stitches. How would you represent a handcraft using Python types?</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
+<section id="truth-tables-1" class="slide level2">
+<h2>Truth Tables</h2>
+<p>All graded learning activities in the course will use a tool called <em>PrairieLearn</em>.</p>
+<p>Navigate to today’s activity and complete question 1</p>
+<div id="" class="qrcode"></div>
+<script type="text/javascript">
+(function() {
+  var script = document.currentScript;
+  var qrcode = script.previousElementSibling;
+  qrcode.qrcode = new QRCode(qrcode, {"colorDark":"#000000","colorLight":"#ffffff","height":128,"text":"https://us.prairielearn.com/pl/course_instance/186238/assessment/2562335","width":128});
+  script.remove();
+})();
+</script>
+    
+<p><a href="https://us.prairielearn.com/pl/course_instance/186238/assessment/2562335" class="uri">https://us.prairielearn.com/pl/course_instance/186238/assessment/2562335</a></p>
 </section>
-<section id="program-design" class="slide level2">
-<h2>Program design</h2>
-<div class="quarto-layout-panel" data-layout="[1,1,1]">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
-<p><img data-src="../images/pixelated-chevron-knitting-pattern.jpg" alt="A chevron knitting pattern with zigzag lines."></p>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
-<p><img data-src="../images/pixelated-diagonal-lines-knitting-pattern.jpg" alt="A knitting pattern with diagonal stripes."></p>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
-<p><img data-src="../images/pixelated-diamond-knitting-pattern.jpg" alt="A knitting pattern with diagonal stripes."></p>
-</div>
-</div>
-</div>
-<p>A handcraft is a collection of <u>__________</u>. Every <u>__________</u> has a <u>__________</u>, and a collection of <u>__________</u>. Every <u>__________</u> is a collection of <u>__________</u>. Every <u>__________</u> is either “knit” or “purl,” and is drawn as a <u>__________</u>.</p>
-<aside class="notes">
-<p>Missing words: blocks, blocks, position, rows, stitches, rectangles</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="section-2" class="slide level2" data-background-iframe="https://player.vimeo.com/video/905092897" data-menu-title="Classes in Python" data-menu="false">
-<h2></h2>
-</section>
-<section id="classes-in-python" class="slide level2">
-<h2>Classes in Python</h2>
-<p>Mechanism for creating user-defined types.</p>
-<p>Used to identify attributes with an object. Associates functionality with the relevant objects.</p>
+<section id="beyond-operators" class="slide level2">
+<h2>Beyond Operators</h2>
+<p><em>Propositions</em> can be more complex than just a single operator!</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a><span class="at">@dataclass</span></span>
-<span id="cb1-2"><a></a><span class="kw">class</span> color:</span>
-<span id="cb1-3"><a></a>  <span class="co">"""</span></span>
-<span id="cb1-4"><a></a><span class="co">  color: simply gathers color components</span></span>
-<span id="cb1-5"><a></a><span class="co">  """</span></span>
-<span id="cb1-6"><a></a>  red: <span class="bu">int</span> <span class="op">=</span> <span class="dv">120</span></span>
-<span id="cb1-7"><a></a>  green: <span class="bu">int</span> <span class="op">=</span> <span class="dv">120</span></span>
-<span id="cb1-8"><a></a>  blue: <span class="bu">int</span> <span class="op">=</span> <span class="dv">120</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<aside class="notes">
-<p>Data classes allow us to create substructures to organize data in a way useful to us. Attributes are data and the functionality a member functions. Attributes can be defined with default values.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th><span class="math inline">\(p\)</span></th>
+<th><span class="math inline">\(q\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(\neg(p \lor q)\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>F</td>
+<td>F</td>
+<td style="text-align: center;">T</td>
+</tr>
+<tr class="even">
+<td>F</td>
+<td>T</td>
+<td style="text-align: center;">F</td>
+</tr>
+<tr class="odd">
+<td>T</td>
+<td>F</td>
+<td style="text-align: center;">F</td>
+</tr>
+<tr class="even">
+<td>T</td>
+<td>T</td>
+<td style="text-align: center;">F</td>
+</tr>
+</tbody>
+</table>
+<!-- so what kinds of expressions CAN we make? -->
 </section>
-<section id="design-strategies" class="slide level2">
-<h2>Design Strategies</h2>
+<section id="wffs" class="slide level2">
+<h2>WFFs</h2>
+<p>A <em>well-formed formula</em> is a Boolean statement generated by the following rules:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource {bnf} number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a></a>&lt;wff&gt; ::= &lt;atom&gt;</span>
+<span id="cb1-2"><a></a>        | ~ &lt;wff&gt;</span>
+<span id="cb1-3"><a></a>        | ( &lt;wff&gt; ∧ &lt;wff&gt; )</span>
+<span id="cb1-4"><a></a>        | ( &lt;wff&gt; ∨ &lt;wff&gt; )</span>
+<span id="cb1-5"><a></a></span>
+<span id="cb1-6"><a></a>&lt;atom&gt; ::= p | q | r | s | ...</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Speculate:</p>
+<ul>
+<li></li>
+<li></li>
+<li></li>
+</ul>
+</section>
+<section id="wffs-1" class="slide level2">
+<h2>WFFs</h2>
+<p>A <em>well-formed formula</em> is a Boolean statement generated by the following rules:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource {bnf} number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a></a>&lt;wff&gt; ::= &lt;atom&gt;</span>
+<span id="cb2-2"><a></a>        | ~ &lt;wff&gt;</span>
+<span id="cb2-3"><a></a>        | ( &lt;wff&gt; ∧ &lt;wff&gt; )</span>
+<span id="cb2-4"><a></a>        | ( &lt;wff&gt; ∨ &lt;wff&gt; )</span>
+<span id="cb2-5"><a></a></span>
+<span id="cb2-6"><a></a>&lt;atom&gt; ::= p | q | r | s | ...</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This definition is in the form of a <em>Grammar</em>.</p>
+<p>_____________: <code>&lt;wff&gt;</code> and <code>&lt;atom&gt;</code></p>
+<p>_____________: <code>p</code>, <code>q</code>, <code>r</code>, <code>s</code> …</p>
+<p>It is our first self-referential or <em>recursive</em> definition.</p>
+</section>
+<section id="wffs-2" class="slide level2">
+<h2>WFFs</h2>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource {bnf} number-lines code-with-copy"><code class="sourceCode"><span id="cb3-1"><a></a>&lt;wff&gt; ::= &lt;atom&gt;</span>
+<span id="cb3-2"><a></a>        | ~ &lt;wff&gt;</span>
+<span id="cb3-3"><a></a>        | ( &lt;wff&gt; ∧ &lt;wff&gt; )</span>
+<span id="cb3-4"><a></a>        | ( &lt;wff&gt; ∨ &lt;wff&gt; )</span>
+<span id="cb3-5"><a></a></span>
+<span id="cb3-6"><a></a>&lt;atom&gt; ::= p | q </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Example derivation:</p>
+<p><code>&lt;wff&gt;</code></p>
+</section>
+<section id="wffs-notes" class="slide level2">
+<h2>WFFs (Notes)</h2>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource {bnf} number-lines code-with-copy"><code class="sourceCode"><span id="cb4-1"><a></a>&lt;wff&gt; ::= &lt;atom&gt;</span>
+<span id="cb4-2"><a></a>        | ~ &lt;wff&gt;</span>
+<span id="cb4-3"><a></a>        | ( &lt;wff&gt; ∧ &lt;wff&gt; )</span>
+<span id="cb4-4"><a></a>        | ( &lt;wff&gt; ∨ &lt;wff&gt; )</span>
+<span id="cb4-5"><a></a></span>
+<span id="cb4-6"><a></a>&lt;atom&gt; ::= p | q </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li><p>Grammars can be used to construct <em>many</em> different kinds of sequences.</p></li>
+<li><p>We could have included additional operators <span class="math inline">\(\rightarrow\)</span>, <span class="math inline">\(\leftrightarrow\)</span>, <span class="math inline">\(\oplus\)</span>, <span class="math inline">\(\uparrow\)</span></p></li>
+<li><p>Computational evaluation of <code>&lt;wff&gt;</code>is covered in DSCI221. For now, we trust Python and focus on logic.</p></li>
+<li><p>The <code>&lt;wff&gt;</code> are <em>propositions</em>.</p></li>
+</ul>
+</section>
+<section id="wff-puzzle" class="slide level2">
+<h2>WFF Puzzle</h2>
+<p>Which of these are WFFs?</p>
+<div class="columns">
+<div class="column" style="width:50%;">
 <ol type="1">
-<li><p>Decompose a problem into classes</p></li>
-<li><p>List the data associated with each class</p></li>
-<li><p>Write the “driver” code that illustrates the functionality you expect from each class.</p></li>
-<li><p>Implement the functions you expect.</p></li>
-<li><p>Run the driver code to test your functionality.</p></li>
+<li><span class="math inline">\((\neg p ∧ (q ∨ r))\)</span><br>
+</li>
+<li><span class="math inline">\(((p ∧ q) ∨ (r ∧ \neg s))\)</span></li>
+<li><span class="math inline">\(((\neg p) ∨ (q ∨ r))\)</span></li>
 </ol>
-</section></section>
-<section id="class-activity" class="title-slide slide level1 center">
-<h1>Class activity</h1>
-<div id="timer_19a30e22047a8d1fb96673998c27c70e25859f77" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
-  <div class="countdown-controls">
-    <button class="countdown-bump-down">−</button>
-    <button class="countdown-bump-up">+</button>
- </div>
- <code class="countdown-time"><span class="countdown-digits minutes">10</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
- </div>
+</div><div class="column" style="width:50%;">
+<ol start="4" type="1">
+<li><span class="math inline">\((p ∨ (qr))\)</span></li>
+<li><span class="math inline">\(\neg (p ∨ (q ∧ \neg r))\)</span></li>
+<li><span class="math inline">\(\neg (p ∨ q))\)</span></li>
+</ol>
+</div></div>
+<!-- notes: sometimes pq is the same as p^q, p & q, p && q, but our grammar only 
+uses ^. In this course we will vary symbols fluidly, partly because we're 
+assembling info from many different sources, but also partly because you'll
+need to be agile in the future. Note that the same issues exist for other operators. -->
 </section>
+<section id="wffs-3" class="slide level2">
+<h2>WFFs</h2>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource {bnf} number-lines code-with-copy"><code class="sourceCode"><span id="cb5-1"><a></a>&lt;wff&gt; ::= &lt;atom&gt;</span>
+<span id="cb5-2"><a></a>        | ~ &lt;wff&gt;</span>
+<span id="cb5-3"><a></a>        | ( &lt;wff&gt; ∧ &lt;wff&gt; )</span>
+<span id="cb5-4"><a></a>        | ( &lt;wff&gt; ∨ &lt;wff&gt; )</span>
+<span id="cb5-5"><a></a></span>
+<span id="cb5-6"><a></a>&lt;atom&gt; ::= p | q </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Theorem: <span class="math inline">\(\neg (p ∨ q))\)</span> is not a WFF. Proof:</p>
+<!-- assume that it is! then ~<wff> must have been the last rule applied, 
+and $( p v q))$ must be a <wff>. then ( <wff> v <wff> ) must have been the 
+last rule applied, and $p$ and $q)$ must be <wff>. take each case separately:
+$q)$ is not a <wff> because none of the rules apply, so we have both that it 
+must be a wff and it is not a wff -- a contradiction, so our assumption 
+is false!  
 
-<section id="break" class="title-slide slide level1 center">
-<h1>Break</h1>
-<div id="timer_19a30e22047a8d1fb96673998c27c70e25859f77" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
-  <div class="countdown-controls">
-    <button class="countdown-bump-down">−</button>
-    <button class="countdown-bump-up">+</button>
- </div>
- <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
- </div>
+We include this as foreshadowing for a proof strategy called "proof by 
+contradition."" Making arguments like this (proofs) is the substance of this course, 
+but don't worry, we'll be teaching you how to do it. -->
 </section>
-
-<section id="potd-week-1-and-2" class="title-slide slide level1 center">
-<h1>POTD week 1 and 2</h1>
-<div id="timer_19a30e22047a8d1fb96673998c27c70e25859f77" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
-  <div class="countdown-controls">
-    <button class="countdown-bump-down">−</button>
-    <button class="countdown-bump-up">+</button>
- </div>
- <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
- </div>
+<section id="propositions" class="slide level2">
+<h2>Propositions</h2>
+<p>A <em>proposition</em> is a statement that can be either <strong>True</strong> or <strong>False</strong>.</p>
+<p>Examples:</p>
+<ul>
+<li><p><span class="math inline">\(37 &gt; 12\)</span></p></li>
+<li><p>Fewer than 5 people in this room feel sleepy.</p></li>
+<li><p>There are extra-terrestrial life forms.</p></li>
+<li><p>This statement is False.</p></li>
+<li><p><span class="math inline">\(\underline{\hspace{10em}}\)</span></p></li>
+</ul>
 </section>
+<section id="found-in-translation" class="slide level2">
+<h2>Found in Translation</h2>
+<p><br>
+</p>
+<p><span class="math inline">\(p\)</span>: ___________ ate cereal for breakfast.</p>
+<p><span class="math inline">\(q\)</span>: ___________ brought a backpack to class.</p>
+<p>&nbsp;</p>
+<ul>
+<li><p><span class="math inline">\((p\lor q)\)</span></p></li>
+<li><p><span class="math inline">\((p\wedge q)\)</span></p></li>
+<li><p><span class="math inline">\(\neg q\)</span></p></li>
+</ul>
+</section>
+<section id="predicates" class="slide level2">
+<h2>Predicates</h2>
+<p><br>
+</p>
+<p><span class="math inline">\(p\)</span>: ___________ ate cereal for breakfast.</p>
+<p><br>
+</p>
+<p>We may want to apply the statement to many students, in which case we define a <em>Predicate</em>.</p>
+<p><br>
+</p>
+<ul>
+<li><p><span class="math inline">\(P(x)\)</span>: <span class="math inline">\(x\)</span> ate cereal for breakfast.</p></li>
+<li><p><span class="math inline">\(x\)</span> can be <em>instantiated</em> to be a particular student, or an arbitrary student.</p></li>
+<li><p><span class="math inline">\(P(\underline{\hspace{2em}})\)</span> is a proposition.</p></li>
+</ul>
+</section>
+<section id="logical-equivalence" class="slide level2">
+<h2>Logical Equivalence</h2>
+<p><br>
+</p>
+<p>Ex: Is it true that <span class="math inline">\((p \lor q) \equiv (q\lor p)\)</span> ?</p>
+<p><br>
+</p>
+<p>Discussion points:</p>
+<ul>
+<li><p><span class="math inline">\(\equiv\)</span> means <em>logically equivalent</em></p></li>
+<li><p>The answer had better be _________!!!</p></li>
+<li><p>How can we justify our instinct?</p></li>
+</ul>
+<!-- 1) show same truth table 2) chains of equivalence -->
+<!-- same as saying "write a proof" -->
+</section>
+<section id="logical-equivalence-example" class="slide level2">
+<h2>Logical Equivalence example</h2>
+<iframe data-external="1" src="https://www.youtube.com/embed/CLQ0LZSnJFE?si=jHDBkjZ2OnkfQqwW" width="850" height="475" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+</section>
+<section id="boolean-masks" class="slide level2">
+<h2>Boolean Masks</h2>
+<p>Select all the cereals with at least 4 units of protein and no more than 6 units of sugars.</p>
+<script type="exercise-setup-ex_cereal-contents">
+eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWUsImV4ZXJjaXNlIjoiZXhfY2VyZWFsIiwic2V0dXAiOnRydWV9LCJjb2RlIjoiaW1wb3J0IHBhbmRhcyBhcyBwZFxuIyBpbXBvcnQgbnVtcHkgYXMgbnBcblxuIyBMb2FkIGFuZCBwcmVwYXJlIGRhdGFcbmNlcmVhbHMgPSBwZC5yZWFkX2NzdignaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL1VCQy1DUy9kc2NpMjIwL3JlZnMvaGVhZHMvbWFpbi9kYXRhL2NlcmVhbC5jc3YnKVxuIyBjZXJlYWxzID0gY2VyZWFscy5kcm9wbmEoKSJ9
+</script>
+<div>
+<div id="pyodide-2" class="exercise-cell">
 
-<section id="review-of-python" class="title-slide slide level1 center">
-<h1>Review of Python</h1>
-<div id="timer_19a30e22047a8d1fb96673998c27c70e25859f77" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
-  <div class="countdown-controls">
-    <button class="countdown-bump-down">−</button>
-    <button class="countdown-bump-up">+</button>
- </div>
- <code class="countdown-time"><span class="countdown-digits minutes">30</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
- </div>
+</div>
+<script type="pyodide-2-contents">
+eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWUsImV4ZXJjaXNlIjoiZXhfY2VyZWFsIn0sImNvZGUiOiJwID0gY2VyZWFsc1sncHJvdGVpbiddIDwgNCBcbnEgPSBjZXJlYWxzWydzdWdhcnMnXSA+IDZcbmZpbHRlcmVkX2RmID0gY2VyZWFsc1tfX19fX19dXG5maWx0ZXJlZF9kZiJ9
+</script>
+</div>
+<script type="exercise-check-ex_cereal-contents">
+eyJhdHRyIjp7ImNoZWNrIjp0cnVlLCJlZGl0Ijp0cnVlLCJldmFsIjp0cnVlLCJleGVyY2lzZSI6ImV4X2NlcmVhbCJ9LCJjb2RlIjoiY29ycmVjdF9hbnN3ZXIgPSBjZXJlYWxzWyhjZXJlYWxzWydwcm90ZWluJ10gPj0gNCkgJiAoY2VyZWFsc1snc3VnYXJzJ10gPD0gNildXG5pZiBsZW4oZmlsdGVyZWRfZGYpID09IGxlbihjb3JyZWN0X2Fuc3dlcikgYW5kIGFsbChmaWx0ZXJlZF9kZi5pbmRleCA9PSBjb3JyZWN0X2Fuc3dlci5pbmRleCk6XG4gICAgICAgIGZlZWRiYWNrID0ge1xuICAgICAgICBcImNvcnJlY3RcIjogVHJ1ZSxcbiAgICAgICAgXCJtZXNzYWdlXCI6IFwiUGVyZmVjdCEgWW91IGNvcnJlY3RseSBmaWx0ZXJlZCBmb3IgaGVhbHRoeSBjZXJlYWwuXCJcbiAgICAgICAgfVxuZWxzZTpcbiAgICAgICAgZmVlZGJhY2sgPSB7XG4gICAgICAgIFwiY29ycmVjdFwiOiBGYWxzZSxcbiAgICAgICAgXCJtZXNzYWdlXCI6IFwiTm90IHF1aXRlLiBNYWtlIHN1cmUgeW91J3JlIHVzaW5nIGJvdGggY29uZGl0aW9uczogcHJvdGVpbiBvZiBhdCBsZWFzdCA0IGFuZCBzdWdhcnMgb2YgYXQgbW9zdCA2LlwiXG4gICAgICAgIH1cbiBmZWVkYmFjayJ9
+</script>
+<!-- note that by doing this filtering, we are defining a predicate instantiated by
+each row whose truth value is evaluated. -->
+</section>
+<section id="logical-equivalence-1" class="slide level2">
+<h2>Logical Equivalence</h2>
+<div class="smaller">
+<p>“Select all the cereals with at least 4 units of protein and no more than 6 units of sugars.”</p>
+<div class="line-block">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(p\)</span>: a cereal has less than 4 units of protein<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(q\)</span>: a cereal has more than 6 units of sugars</div>
+<p>We suspect that <span class="math inline">\(\neg p\wedge \neg q \equiv \neg( p\lor q)\)</span>:</p>
+<p><br>
+</p>
+</div>
+<div class="columns">
+<div class="column" style="width: 50%; font-size: 80%;">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th><span class="math inline">\(p\)</span></th>
+<th><span class="math inline">\(q\)</span></th>
+<th><span class="math inline">\(\hspace{4em}\neg p\wedge \neg q\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>F</td>
+<td>F</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>F</td>
+<td>T</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>T</td>
+<td>F</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>T</td>
+<td>T</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div><div class="column" style="width: 50%; font-size: 80%;">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th><span class="math inline">\(p\)</span></th>
+<th><span class="math inline">\(q\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(\hspace{4em}\neg( p\lor q)\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>F</td>
+<td>F</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td>F</td>
+<td>T</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td>T</td>
+<td>F</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td>T</td>
+<td>T</td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+</div></div>
+<!-- half the class complete the TT on the left, the other half on 
+the right, then we all read our responses aloud! -->
+</section>
+<section id="words-and-ideas" class="slide level2">
+<h2>Words and Ideas</h2>
+<p>Truth Table</p>
+<p>Proposition</p>
+<p>Grammar</p>
+<p>Predicate</p>
+<p>Boolean Mask</p>
+<p>Logical Equivalence</p>
 
 
+<script type="pyodide-data">
+eyJvcHRpb25zIjp7ImVudiI6eyJQTE9UTFlfUkVOREVSRVIiOiJwbG90bHlfbWltZXR5cGUifSwiaW5kZXhVUkwiOiJodHRwczovL2Nkbi5qc2RlbGl2ci5uZXQvcHlvZGlkZS92MC4yNy4wL2Z1bGwvIn0sInBhY2thZ2VzIjp7InBrZ3MiOlsicHlvZGlkZV9odHRwIiwibWljcm9waXAiLCJpcHl0aG9uIl19fQ==
+</script>
 <script type="ojs-module-contents">
-eyJjb250ZW50cyI6W119
+eyJjb250ZW50cyI6W3siY2VsbE5hbWUiOiJweW9kaWRlLTIiLCJpbmxpbmUiOmZhbHNlLCJtZXRob2ROYW1lIjoiaW50ZXJwcmV0Iiwic291cmNlIjoidmlld29mIF9weW9kaWRlX2VkaXRvcl8yID0ge1xuICBjb25zdCB7IFB5b2RpZGVFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuXG4gIGNvbnN0IHNjcmlwdENvbnRlbnQgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKGBzY3JpcHRbdHlwZT1cXFwicHlvZGlkZS0yLWNvbnRlbnRzXFxcIl1gKS50ZXh0Q29udGVudDtcbiAgY29uc3QgYmxvY2sgPSBKU09OLnBhcnNlKGI2NERlY29kZShzY3JpcHRDb250ZW50KSk7XG5cbiAgLy8gRGVmYXVsdCBleGVyY2lzZSBjb25maWd1cmF0aW9uXG4gIGNvbnN0IG9wdGlvbnMgPSBPYmplY3QuYXNzaWduKFxuICAgIHtcbiAgICAgIGlkOiBcInB5b2RpZGUtMi1jb250ZW50c1wiLFxuICAgICAgZW52aXI6IGBleGVyY2lzZS1lbnYtJHtibG9jay5hdHRyLmV4ZXJjaXNlfWAsXG4gICAgICBlcnJvcjogZmFsc2UsXG4gICAgICBjYXB0aW9uOiAnRXhlcmNpc2UnLFxuICAgIH0sXG4gICAgYmxvY2suYXR0clxuICApO1xuXG4gIGNvbnN0IGVkaXRvciA9IG5ldyBQeW9kaWRlRXhlcmNpc2VFZGl0b3IocHlvZGlkZU9qcy5weW9kaWRlUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG4gIHJldHVybiBlZGl0b3IuY29udGFpbmVyO1xufVxudmlld29mIF9weW9kaWRlX3ZhbHVlXzIgPSBweW9kaWRlT2pzLnByb2Nlc3MoX3B5b2RpZGVfZWRpdG9yXzIsIHt9KTtcbl9weW9kaWRlX2ZlZWRiYWNrXzIgPSB7XG4gIGNvbnN0IHsgUHlvZGlkZUdyYWRlciB9ID0gd2luZG93Ll9leGVyY2lzZV9vanNfcnVudGltZTtcbiAgY29uc3QgZW1wdHlGZWVkYmFjayA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoJ2RpdicpO1xuXG4gIGNvbnN0IGdyYWRlciA9IG5ldyBQeW9kaWRlR3JhZGVyKF9weW9kaWRlX3ZhbHVlXzIuZXZhbHVhdG9yKTtcbiAgY29uc3QgZmVlZGJhY2sgPSBhd2FpdCBncmFkZXIuZ3JhZGVFeGVyY2lzZSgpO1xuICBpZiAoIWZlZWRiYWNrKSByZXR1cm4gZW1wdHlGZWVkYmFjaztcbiAgcmV0dXJuIGZlZWRiYWNrO1xufVxuIn0seyJjZWxsTmFtZSI6InB5b2RpZGUtcHJlbHVkZSIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6InB5b2RpZGVPanMgPSB7XG4gIGNvbnN0IHtcbiAgICBQeW9kaWRlRXZhbHVhdG9yLFxuICAgIFB5b2RpZGVFbnZpcm9ubWVudE1hbmFnZXIsXG4gICAgc2V0dXBQeXRob24sXG4gICAgc3RhcnRQeW9kaWRlV29ya2VyLFxuICAgIGI2NERlY29kZSxcbiAgICBjb2xsYXBzZVBhdGgsXG4gIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuXG4gIGNvbnN0IHN0YXR1c0NvbnRhaW5lciA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKFwiZXhlcmNpc2UtbG9hZGluZy1zdGF0dXNcIik7XG4gIGNvbnN0IGluZGljYXRvckNvbnRhaW5lciA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKFwiZXhlcmNpc2UtbG9hZGluZy1pbmRpY2F0b3JcIik7XG4gIGluZGljYXRvckNvbnRhaW5lci5jbGFzc0xpc3QucmVtb3ZlKFwiZC1ub25lXCIpO1xuXG4gIGxldCBzdGF0dXNUZXh0ID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudChcImRpdlwiKVxuICBzdGF0dXNUZXh0LmNsYXNzTGlzdCA9IFwiZXhlcmNpc2UtbG9hZGluZy1kZXRhaWxzXCI7XG4gIHN0YXR1c1RleHQgPSBzdGF0dXNDb250YWluZXIuYXBwZW5kQ2hpbGQoc3RhdHVzVGV4dCk7XG4gIHN0YXR1c1RleHQudGV4dENvbnRlbnQgPSBgSW5pdGlhbGlzZWA7XG5cbiAgLy8gSG9pc3QgaW5kaWNhdG9yIG91dCBmcm9tIGZpbmFsIHNsaWRlIHdoZW4gcnVubmluZyB1bmRlciByZXZlYWxcbiAgY29uc3QgcmV2ZWFsU3RhdHVzID0gZG9jdW1lbnQucXVlcnlTZWxlY3RvcihcIi5yZXZlYWwgLmV4ZXJjaXNlLWxvYWRpbmctaW5kaWNhdG9yXCIpO1xuICBpZiAocmV2ZWFsU3RhdHVzKSB7XG4gICAgcmV2ZWFsU3RhdHVzLnJlbW92ZSgpO1xuICAgIGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoXCIucmV2ZWFsID4gLnNsaWRlc1wiKS5hcHBlbmRDaGlsZChyZXZlYWxTdGF0dXMpO1xuICB9XG5cbiAgLy8gTWFrZSBhbnkgcmV2ZWFsIHNsaWRlcyB3aXRoIGxpdmUgY2VsbHMgc2Nyb2xsYWJsZVxuICBkb2N1bWVudC5xdWVyeVNlbGVjdG9yQWxsKFwiLnJldmVhbCAuZXhlcmNpc2UtY2VsbFwiKS5mb3JFYWNoKChlbCkgPT4ge1xuICAgIGVsLmNsb3Nlc3QoJ3NlY3Rpb24uc2xpZGUnKS5jbGFzc0xpc3QuYWRkKFwic2Nyb2xsYWJsZVwiKTtcbiAgfSlcblxuICAvLyBQeW9kaWRlIHN1cHBsZW1lbnRhbCBkYXRhIGFuZCBvcHRpb25zXG4gIGNvbnN0IGRhdGFDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcInB5b2RpZGUtZGF0YVxcXCJdYCkudGV4dENvbnRlbnQ7XG4gIGNvbnN0IGRhdGEgPSBKU09OLnBhcnNlKGI2NERlY29kZShkYXRhQ29udGVudCkpO1xuXG4gIC8vIEdyYWIgbGlzdCBvZiByZXNvdXJjZXMgdG8gYmUgZG93bmxvYWRlZFxuICBjb25zdCBmaWxlc0NvbnRlbnQgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKGBzY3JpcHRbdHlwZT1cXFwidmZzLWZpbGVcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBmaWxlcyA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKGZpbGVzQ29udGVudCkpO1xuXG4gIGxldCBweW9kaWRlUHJvbWlzZSA9IChhc3luYyAoKSA9PiB7XG4gICAgc3RhdHVzVGV4dC50ZXh0Q29udGVudCA9IGBEb3dubG9hZGluZyBQeW9kaWRlYDtcbiAgICBjb25zdCBweW9kaWRlID0gYXdhaXQgc3RhcnRQeW9kaWRlV29ya2VyKGRhdGEub3B0aW9ucyk7XG5cbiAgICBzdGF0dXNUZXh0LnRleHRDb250ZW50ID0gYERvd25sb2FkaW5nIHBhY2thZ2U6IG1pY3JvcGlwYDtcbiAgICBhd2FpdCBweW9kaWRlLmxvYWRQYWNrYWdlKFwibWljcm9waXBcIik7XG4gICAgY29uc3QgbWljcm9waXAgPSBhd2FpdCBweW9kaWRlLnB5aW1wb3J0KFwibWljcm9waXBcIik7XG4gICAgYXdhaXQgZGF0YS5wYWNrYWdlcy5wa2dzLm1hcCgocGtnKSA9PiAoKSA9PiB7XG4gICAgICBzdGF0dXNUZXh0LnRleHRDb250ZW50ID0gYERvd25sb2FkaW5nIHBhY2thZ2U6ICR7cGtnfWA7XG4gICAgICByZXR1cm4gbWljcm9waXAuaW5zdGFsbChwa2cpO1xuICAgIH0pLnJlZHVjZSgoY3VyLCBuZXh0KSA9PiBjdXIudGhlbihuZXh0KSwgUHJvbWlzZS5yZXNvbHZlKCkpO1xuICAgIGF3YWl0IG1pY3JvcGlwLmRlc3Ryb3koKTtcblxuICAgIC8vIERvd25sb2FkIGFuZCBpbnN0YWxsIHJlc291cmNlc1xuICAgIGF3YWl0IGZpbGVzLm1hcCgoZmlsZSkgPT4gYXN5bmMgKCkgPT4ge1xuICAgICAgY29uc3QgbmFtZSA9IGZpbGUuc3Vic3RyaW5nKGZpbGUubGFzdEluZGV4T2YoJy8nKSArIDEpO1xuICAgICAgc3RhdHVzVGV4dC50ZXh0Q29udGVudCA9IGBEb3dubG9hZGluZyByZXNvdXJjZTogJHtuYW1lfWA7XG4gICAgICBjb25zdCByZXNwb25zZSA9IGF3YWl0IGZldGNoKGZpbGUpO1xuICAgICAgaWYgKCFyZXNwb25zZS5vaykge1xuICAgICAgICB0aHJvdyBuZXcgRXJyb3IoYENhbid0IGRvd25sb2FkIFxcYCR7ZmlsZX1cXGAuIEVycm9yICR7cmVzcG9uc2Uuc3RhdHVzfTogXCIke3Jlc3BvbnNlLnN0YXR1c1RleHR9XCIuYCk7XG4gICAgICB9XG4gICAgICBjb25zdCBkYXRhID0gYXdhaXQgcmVzcG9uc2UuYXJyYXlCdWZmZXIoKTtcblxuICAgICAgLy8gU3RvcmUgVVJMcyBpbiB0aGUgY3dkIHdpdGhvdXQgYW55IHN1YmRpcmVjdG9yeSBzdHJ1Y3R1cmVcbiAgICAgIGlmIChmaWxlLmluY2x1ZGVzKFwiOi8vXCIpKSB7XG4gICAgICAgIGZpbGUgPSBuYW1lO1xuICAgICAgfVxuXG4gICAgICAvLyBDb2xsYXBzZSBoaWdoZXIgZGlyZWN0b3J5IHN0cnVjdHVyZVxuICAgICAgZmlsZSA9IGNvbGxhcHNlUGF0aChmaWxlKTtcblxuICAgICAgLy8gQ3JlYXRlIGRpcmVjdG9yeSB0cmVlLCBpZ25vcmluZyBcImRpcmVjdG9yeSBleGlzdHNcIiBWRlMgZXJyb3JzXG4gICAgICBjb25zdCBwYXJ0cyA9IGZpbGUuc3BsaXQoJy8nKS5zbGljZSgwLCAtMSk7XG4gICAgICBsZXQgcGF0aCA9ICcnO1xuICAgICAgd2hpbGUgKHBhcnRzLmxlbmd0aCA+IDApIHtcbiAgICAgICAgcGF0aCArPSBwYXJ0cy5zaGlmdCgpICsgJy8nO1xuICAgICAgICB0cnkge1xuICAgICAgICAgIGF3YWl0IHB5b2RpZGUuRlMubWtkaXIocGF0aCk7XG4gICAgICAgIH0gY2F0Y2ggKGUpIHtcbiAgICAgICAgICBpZiAoZS5uYW1lICE9PSBcIkVycm5vRXJyb3JcIikgdGhyb3cgZTtcbiAgICAgICAgICBpZiAoZS5lcnJubyAhPT0gMjApIHtcbiAgICAgICAgICAgIGNvbnN0IGVycm9yVGV4dFB0ciA9IGF3YWl0IHB5b2RpZGUuX21vZHVsZS5fc3RyZXJyb3IoZS5lcnJubyk7XG4gICAgICAgICAgICBjb25zdCBlcnJvclRleHQgPSBhd2FpdCBweW9kaWRlLl9tb2R1bGUuVVRGOFRvU3RyaW5nKGVycm9yVGV4dFB0cik7XG4gICAgICAgICAgICB0aHJvdyBuZXcgRXJyb3IoYEZpbGVzeXN0ZW0gRXJyb3IgJHtlLmVycm5vfSBcIiR7ZXJyb3JUZXh0fVwiLmApO1xuICAgICAgICAgIH1cbiAgICAgICAgfVxuICAgICAgfVxuXG4gICAgICAvLyBXcml0ZSB0aGlzIGZpbGUgdG8gdGhlIFZGU1xuICAgICAgdHJ5IHtcbiAgICAgICAgcmV0dXJuIGF3YWl0IHB5b2RpZGUuRlMud3JpdGVGaWxlKGZpbGUsIG5ldyBVaW50OEFycmF5KGRhdGEpKTtcbiAgICAgIH0gY2F0Y2ggKGUpIHtcbiAgICAgICAgaWYgKGUubmFtZSAhPT0gXCJFcnJub0Vycm9yXCIpIHRocm93IGU7XG4gICAgICAgIGNvbnN0IGVycm9yVGV4dFB0ciA9IGF3YWl0IHB5b2RpZGUuX21vZHVsZS5fc3RyZXJyb3IoZS5lcnJubyk7XG4gICAgICAgIGNvbnN0IGVycm9yVGV4dCA9IGF3YWl0IHB5b2RpZGUuX21vZHVsZS5VVEY4VG9TdHJpbmcoZXJyb3JUZXh0UHRyKTtcbiAgICAgICAgdGhyb3cgbmV3IEVycm9yKGBGaWxlc3lzdGVtIEVycm9yICR7ZS5lcnJub30gXCIke2Vycm9yVGV4dH1cIi5gKTtcbiAgICAgIH1cbiAgICB9KS5yZWR1Y2UoKGN1ciwgbmV4dCkgPT4gY3VyLnRoZW4obmV4dCksIFByb21pc2UucmVzb2x2ZSgpKTtcblxuICAgIHN0YXR1c1RleHQudGV4dENvbnRlbnQgPSBgUHlvZGlkZSBlbnZpcm9ubWVudCBzZXR1cGA7XG4gICAgYXdhaXQgc2V0dXBQeXRob24ocHlvZGlkZSk7XG5cbiAgICBzdGF0dXNUZXh0LnJlbW92ZSgpO1xuICAgIGlmIChzdGF0dXNDb250YWluZXIuY2hpbGRyZW4ubGVuZ3RoID09IDApIHtcbiAgICAgIHN0YXR1c0NvbnRhaW5lci5wYXJlbnROb2RlLnJlbW92ZSgpO1xuICAgIH1cbiAgICByZXR1cm4gcHlvZGlkZTtcbiAgfSkoKS5jYXRjaCgoZXJyKSA9PiB7XG4gICAgc3RhdHVzVGV4dC5zdHlsZS5jb2xvciA9IFwidmFyKC0tZXhlcmNpc2UtZWRpdG9yLWhsLWVyLCAjQUQwMDAwKVwiO1xuICAgIHN0YXR1c1RleHQudGV4dENvbnRlbnQgPSBlcnIubWVzc2FnZTtcbiAgICAvL2luZGljYXRvckNvbnRhaW5lci5xdWVyeVNlbGVjdG9yKFwiLnNwaW5uZXItZ3Jvd1wiKS5jbGFzc0xpc3QuYWRkKFwiZC1ub25lXCIpO1xuICAgIHRocm93IGVycjtcbiAgfSk7XG5cbiAgLy8gS2VlcCB0cmFjayBvZiBpbml0aWFsIE9KUyBibG9jayByZW5kZXJcbiAgY29uc3QgcmVuZGVyZWRPanMgPSB7fTtcblxuICBjb25zdCBwcm9jZXNzID0gYXN5bmMgKGNvbnRleHQsIGlucHV0cykgPT4ge1xuICAgIGNvbnN0IHB5b2RpZGUgPSBhd2FpdCBweW9kaWRlUHJvbWlzZTtcbiAgICBjb25zdCBldmFsdWF0b3IgPSBuZXcgUHlvZGlkZUV2YWx1YXRvcihweW9kaWRlLCBjb250ZXh0KTtcbiAgICBhd2FpdCBldmFsdWF0b3IucHJvY2VzcyhpbnB1dHMpO1xuICAgIHJldHVybiBldmFsdWF0b3IuY29udGFpbmVyO1xuICB9XG5cbiAgcmV0dXJuIHtcbiAgICBweW9kaWRlUHJvbWlzZSxcbiAgICByZW5kZXJlZE9qcyxcbiAgICBwcm9jZXNzLFxuICB9O1xufVxuIn1dfQ==
 </script>
 <div id="exercise-loading-indicator" class="exercise-loading-indicator d-none d-flex align-items-center gap-2">
 <div id="exercise-loading-status" class="d-flex gap-2">
@@ -418,7 +651,7 @@ eyJjb250ZW50cyI6W119
 <script type="vfs-file">
 W10=
 </script>
-</section>
+</section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
