@@ -454,6 +454,13 @@
     "text": "Summary\nKey observations about the table:\n\n\n\n\n\n\\(p\\)\n\\(q\\)\n\\(p \\lor q\\)\n\n\n\n\nF\nF\nF\n\n\nF\nT\nT\n\n\nT\nF\nT\n\n\nT\nT\nT\n\n\n\n\n\nThe diagram is called a Truth Table\np and q are variables, each of which take on one of two Boolean values, True or False (T/F, 1/0)\n∨ is a binary operator that implements a function (creates output) from the 2 input variables to another Boolean value. It is characterized by its output values.\nThe operator ∨ corresponds to the English word or.\nThe expression p ∨ q is called a proposition."
   },
   {
+    "objectID": "slides/01_wed_intro.html#cool-down",
+    "href": "slides/01_wed_intro.html#cool-down",
+    "title": "Discrete Math for Data Science",
+    "section": "Cool down",
+    "text": "Cool down\n\n\n\n\n\n\\(p\\)\n\\(q\\)\n\\(p \\lor q\\)\n\n\n\n\nF\nF\nF\n\n\nF\nT\nT\n\n\nT\nF\nT\n\n\nT\nT\nT\n\n\n\n\n\nHow many rows for a proposition on 3 variables? \\(k\\) variables?\nGive a good name for an operator that takes 1 variable: __________\nGive a good name for an operator that takes 3 variables: __________\nHow many different binary operators could there be?"
+  },
+  {
     "objectID": "slides/tbd_tbd_voronoi-1.html#announcements",
     "href": "slides/tbd_tbd_voronoi-1.html#announcements",
     "title": "Discrete Math for Data Science",
@@ -601,13 +608,6 @@
     "title": "Discrete Math for Data Science",
     "section": "Truth Tables",
     "text": "Truth Tables\nKey observations about the table:\n\n\n\n\n\n\\(p\\)\n\\(q\\)\n\\(p \\lor q\\)\n\n\n\n\nF\nF\nF\n\n\nF\nT\nT\n\n\nT\nF\nT\n\n\nT\nT\nT\n\n\n\n\n\nThe diagram is called a Truth Table\np and q are variables, each of which take on one of two Boolean values, True or False (T/F, 1/0)\n∨ is a binary operator that implements a function (creates output) from the 2 input variables to another Boolean value. It is characterized by its output values.\nThe operator ∨ corresponds to the English word or.\nThe expression p ∨ q is called a proposition."
-  },
-  {
-    "objectID": "slides/01_fri_truth.html#warm-up",
-    "href": "slides/01_fri_truth.html#warm-up",
-    "title": "Discrete Math for Data Science",
-    "section": "Warm Up",
-    "text": "Warm Up\n\n\n\n\n\n\\(p\\)\n\\(q\\)\n\\(p \\lor q\\)\n\n\n\n\nF\nF\nF\n\n\nF\nT\nT\n\n\nT\nF\nT\n\n\nT\nT\nT\n\n\n\n\n\nHow many rows for a proposition on 3 variables? \\(k\\) variables?\nGive a good name for an operator that takes 1 variable: __________\nGive a good name for an operator that takes 3 variables: __________\nHow many different binary operators could there be?"
   },
   {
     "objectID": "slides/01_fri_truth.html#truth-tables-1",
