@@ -8,9 +8,9 @@ project:
   #   - R/combine-pdfs.R
 
 website:
-  title: "{{< var course.full-title >}}"
+  title: "DSCI 220: Discrete Math for Data Science"
   description: >
-    Course website for {{< var course.code >}} of the Department of Computer Science at the
+    Course website for DSCI 220 of the Department of Computer Science at the
     University of British Columbia
   open-graph: true
   twitter-card: true
