@@ -73,8 +73,8 @@ sphinx:
       PREREQS: "Pre-reqs: either SCIE_V 001 or MATH_V 100; and DSCI_V 100; and either CPSC_V 103 or CPSC_V 203."
       COREQS: "N/A"
       TERM: "2025 Winter Term 1"
-      ROOM: "MCML 360"
-      MEETING_TIMES: "Monday, Wednesday, Friday 11:00-12:00"
+      ROOM: "FORW 317"
+      MEETING_TIMES: "Mon/Wed/Fri 11:00-12:00"
       # FORMAT: "Lectures, Labs, Tutorials will all be running in-person."
 
       # Important Links

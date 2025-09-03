@@ -4,10 +4,9 @@ course:
   full-title: "{{< var course.code >}}: {{< var course.title >}}"
   term: "2025 W1"
   term-end-date: "2025-12-20"
-  time: "Monday, Wednesday, and Friday, 11:00-12:00"
+  time: "Mon/Wed/Fri 11:00-12:00"
   location: >
-    Frank Forward Building (FORW, [Wayfinding at UBC](https://maps.ubc.ca/?code=FORW),
-    [Google Maps](https://maps.app.goo.gl/ygAdaiBoed4kAvDq7)), Rm 317
+    317 Frank Forward Building [Wayfinding at UBC](https://maps.ubc.ca/?code=FORW)
   website: "https://ubc-cs.github.io/dsci220"
   repo: "https://github.com/UBC-CS/dsci220"
   lms: "https://canvas.ubc.ca/courses/169809"
