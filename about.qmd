@@ -4,5 +4,5 @@ title: About
 
 ## Contributors
 
-CPSC 203 was created by [Dr. Cinda Heeren](https://www.cs.ubc.ca/people/cinda-heeren), then adapted by [Dr. Firas Moosvi](https://firas.moosvi.com), and further refined by [Dr. Ian Mitchell](https://www.cs.ubc.ca/~mitchell/).
-The website and slides were converted to [Quarto](https://quarto.org/) by [Dr. Stephan Koenig](https://stephankoenig.io).
+DSCI 220 was created by [Dr. Cinda Heeren](https://www.cs.ubc.ca/people/cinda-heeren).
+The website shell was set up in [Quarto](https://quarto.org/) by [Dr. Stephan Koenig](https://stephankoenig.io).
