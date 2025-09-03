@@ -44,7 +44,6 @@ library(conflicted)
 library(dplyr)
 conflicts_prefer(dplyr::filter)
 library(fontawesome)
-library(fs)
 library(glue)
 library(gt)
 library(gtExtras)
@@ -52,32 +51,8 @@ library(here)
 library(lubridate)
 library(readr)
 library(stringr)
-library(tidyr)
 
-# Generate ids for each link to join into schedule
-resources_paths <-
-  c(
-    path("slides")
-  )
-
-resources <-
-  tibble(
-    path = dir_ls(resources_paths, glob = "*.qmd"),
-    week = path |> path_file() |> str_extract("^(\\d+).*$", group = 1),
-    day = path |>
-      path_file() |>
-      str_extract("\\d+_([:alpha:]+)_.*$", group = 1),
-    type = path |> path_dir()
-  ) |>
-  # Remove unassigned resources indicated by "tbd"
-  filter(!str_detect(path, "tbd")) |>
-  select(week, type, day, path) |>
-  pivot_wider(names_from = c(day, type), names_sep = "_", values_from = path)
-
-schedule <- read_csv(here("data", "schedule.csv"), show_col_types = FALSE) |>
-  left_join(resources, by = join_by(week), na_matches = "never") |>
-  relocate(tue_slides, .before = tue_activity) |>
-  relocate(thu_slides, .before = thu_activity)
+schedule <- read_csv(here("data", "schedule.csv"), show_col_types = FALSE)
 ```
 
 ```{r}
@@ -115,7 +90,7 @@ schedule |>
     ),
     # Remove any resources from future weeks
     across(
-      starts_with(c("tue", "thu", "lab", "potw")),
+      starts_with(c("mon", "wed", "fri", "lab", "potw")),
       \(column) if_else(date <= monday_of_current_week, column, NA)
     )
   ) |>
@@ -190,12 +165,15 @@ schedule |>
   cols_label(
     week = "Week",
     date = "Mon",
+    mon_slides = "S",
+    mon_activity = "A",
+    mon_video = "V",
     tue_slides = "S",
     tue_activity = "A",
     tue_video = "V",
-    thu_slides = "S",
-    thu_activity = "A",
-    thu_video = "V",
+    wed_slides = "S",
+    wed_activity = "A",
+    wed_video = "V",
     lab = "Lab",
     potw = "POTW",
     exam = "Book",
@@ -203,12 +181,16 @@ schedule |>
     exam_practice = "Practice"
   ) |>
   tab_spanner(
+    label = "Mon",
+    columns = starts_with("mon")
+  ) |>
+  tab_spanner(
     label = "Tue",
     columns = starts_with("tue")
   ) |>
   tab_spanner(
-    label = "Thu",
-    columns = starts_with("thu")
+    label = "Wed",
+    columns = starts_with("wed")
   ) |>
   tab_spanner(
     label = "Examlet",
