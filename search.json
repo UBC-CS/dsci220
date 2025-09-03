@@ -395,28 +395,28 @@
     "href": "slides/01_wed_intro.html#sages-tricksters",
     "title": "Discrete Math for Data Science",
     "section": "🎭 Sages & Tricksters",
-    "text": "🎭 Sages & Tricksters\nHow to Play\n\nEach of you are secretly assigned a role:\n\nSage = always tell the truth (Black)\nTrickster = always lie (Red)\n\nEveryone sees the packet of 6 cards and the fact (the fact is true).\n\nIn rounds, each player may ask one yes/no question about the fact.\n\nWork together: compare answers, spot contradictions.\n\nGoal: Deduce each person’s role!"
+    "text": "🎭 Sages & Tricksters\n\n\n\nHow to Play\n\nEach of you are secretly assigned a role:\n\nSage = always tell the truth (Black)\nTrickster = always lie (Red)\n\nEveryone sees the packet of 6 cards and the fact.\n\nIn rounds, each player may ask yes/no questions about the fact.\n\nWork together: compare answers, spot contradictions.\n\nGoal: Deduce each person’s role!"
   },
   {
     "objectID": "slides/01_wed_intro.html#round-structure",
     "href": "slides/01_wed_intro.html#round-structure",
     "title": "Discrete Math for Data Science",
     "section": "🔄 Round Structure",
-    "text": "🔄 Round Structure\n1. Two Info Rounds\n\nTake turns asking one yes/no question about the fact\n\n2. Debate Round\n\nCompare answers\n\nLook for contradictions\n\n3. Conclusion\n\nAgree on everyone’s roles\n\nReveal the cards & roles!"
+    "text": "🔄 Round Structure\n\n\n\n1. Two Info Rounds\n\nIn each round, take turns asking one yes/no question about the fact\n\n2. Debate Round\n\nCompare answers\n\nLook for contradictions\n\n3. Conclusion\n\nAgree on everyone’s roles\n\nReveal the cards & roles!"
   },
   {
     "objectID": "slides/01_wed_intro.html#logic-in-action",
     "href": "slides/01_wed_intro.html#logic-in-action",
     "title": "Discrete Math for Data Science",
     "section": "🧩 Logic in Action",
-    "text": "🧩 Logic in Action\n\nLogic means starting from true facts\n\nAsking the right questions\n\nSpotting contradictions\n\nAnd making valid inferences\n\nIn this course we’ll apply all of this to Data Science!"
+    "text": "🧩 Logic in Action\n\n\n\nLogic means starting from true facts\n\nAsking the right questions\n\nSpotting contradictions\n\nAnd making valid inferences\n\nIn this course we’ll apply all of this to Data Science!"
   },
   {
     "objectID": "slides/01_wed_intro.html#instructional-team",
     "href": "slides/01_wed_intro.html#instructional-team",
     "title": "Discrete Math for Data Science",
     "section": "Instructional Team:",
-    "text": "Instructional Team:\n\nProf: Cinda Heeren\n📧 cheeren@cs.ubc.ca\n⏰ Mon 2–4pm · 🏢 ICCS 233 · \nTA: Joe Wonsil\n📧 joe.wonsil@gmail.com\n⏰ Thu 10–11am · 🏢 ICCS 355 ·"
+    "text": "Instructional Team:\n\nProf: Cinda Heeren\n📧 cheeren@cs.ubc.ca\n⏰ Mon 2–4pm · 🏢 ICCS 233 · \nTA: Joe Wonsil\n📧 joe.wonsil@gmail.com\n⏰ TBD · 🏢 ICCS 355 ·"
   },
   {
     "objectID": "slides/01_wed_intro.html#term-structure",
@@ -437,14 +437,14 @@
     "href": "slides/01_wed_intro.html#communications",
     "title": "Discrete Math for Data Science",
     "section": "Communications",
-    "text": "Communications\n\n\n📧 Email cheeren@cs.ubc.ca\nChecked daily. Please place “DSCI220” in subject!\n   Piazza piazza.com/ubc.ca/winterterm12025/dsci220\nPost questions for quick response.\n🏫 Office Hours\n\n\n\n\n\n\n\n\n\n\nName\nTime\nLocation & Zoom\n\n\n\n\nCinda\nMon 2–4pm\n🏢 ICCS 233 · \n\n\nJoe\nThu 10–11am\n🏢 ICCS 355 · \n\n\n\n\n\n🌐 Course Website course.ubc.ca/discrete-math\nSyllabus, schedule, resources"
+    "text": "Communications\n\n\n📧 Email cheeren@cs.ubc.ca\nChecked daily. Please place “DSCI220” in subject!\n   Piazza piazza.com/ubc.ca/winterterm12025/dsci220\nPost questions for quick response.\n🏫 Office Hours\n\n\n\n\n\n\n\n\n\n\nName\nTime\nLocation & Zoom\n\n\n\n\nCinda\nMon 2–4pm\n🏢 ICCS 233 · \n\n\nJoe\nTBD\n🏢 ICCS 355 · \n\n\n\n\n\n🌐 Course Website https://ubc-cs.github.io/dsci220/\nSyllabus, schedule, resources"
   },
   {
-    "objectID": "slides/01_wed_intro.html#warm-up",
-    "href": "slides/01_wed_intro.html#warm-up",
+    "objectID": "slides/01_wed_intro.html#truth",
+    "href": "slides/01_wed_intro.html#truth",
     "title": "Discrete Math for Data Science",
-    "section": "Warm-Up",
-    "text": "Warm-Up\nMake at least 3 observations about the following table:\n\n\n\n\n\n\\(p\\)\n\\(q\\)\n\\(p \\lor q\\)\n\n\n\n\nF\nF\nF\n\n\nF\nT\nT\n\n\nT\nF\nT\n\n\nT\nT\nT"
+    "section": "Truth",
+    "text": "Truth\nMake at least 3 observations about the following table:\n\n\n\n\n\n\\(p\\)\n\\(q\\)\n\\(p \\lor q\\)\n\n\n\n\nF\nF\nF\n\n\nF\nT\nT\n\n\nT\nF\nT\n\n\nT\nT\nT"
   },
   {
     "objectID": "slides/01_wed_intro.html#summary",
