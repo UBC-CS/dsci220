@@ -54,9 +54,8 @@ In this course we'll apply all of this to Data Science!
    ⏰ Mon 2–4pm · 🏢 ICCS 233 · <a href="https://ubc.zoom.us/j/5393867685?pwd=N01ZS2dLbVorQkRzcDRuNTdwQmRYUT09"><img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Zoom_Communications_Logo.svg" alt="Zoom" style="height:20px; vertical-align:middle;"></a>
 
 - **TA: Joe Wonsil**  
-  📧 [joe.wonsil@gmail.com](mailto:joe.wonsil@gmail.com)  
-  ⏰ TBD · 🏢 ICCS 355 · <a href="https://ubc.zoom.us/my/joewonsil"><img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Zoom_Communications_Logo.svg" alt="Zoom" style="height:20px; vertical-align:middle;"></a>
-
+  📧 [jwonsil@cs.ubc.ca](mailto:jwonsil@cs.ubc.ca)  
+  ⏰ Fri 11-12a · 🏢 FORW 317 
 
 ## Term Structure: 
 
@@ -117,7 +116,7 @@ In this course we'll apply all of this to Data Science!
 | Name  | Time        | Location & Zoom |
 |-------|-------------|-----------------|
 | Cinda | Mon 2–4pm   | 🏢 ICCS 233 · <a href="https://ubc.zoom.us/j/5393867685?pwd=N01ZS2dLbVorQkRzcDRuNTdwQmRYUT09"><img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Zoom_Communications_Logo.svg" alt="Zoom" style="height:16px; vertical-align:middle;"></a> |
-| Joe   | TBD | 🏢 ICCS 355 · <a href="https://ubc.zoom.us/my/joewonsil"><img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Zoom_Communications_Logo.svg" alt="Zoom" style="height:16px; vertical-align:middle;"></a> |
+| Joe   | Fri 11-12a | 🏢 FORW 317 |
 
 </div>
 
