@@ -94,5 +94,3 @@ editor_options:
     canonical: true
 
 bibliography: references.bib
-
-freeze: auto
