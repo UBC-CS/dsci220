@@ -2,9 +2,8 @@
 date: 2025-09-03
 ---
 
-## 🎭 Sages & Tricksters 
+## 🎭 Sages & Tricksters {.smaller}
 
-::: small-font-size
 \
 
 ### How to Play 
@@ -15,11 +14,9 @@ date: 2025-09-03
 - In rounds, each player may ask **yes/no questions** about the fact.  
 - Work together: compare answers, spot contradictions.  
 - **Goal:** Deduce each person’s role!
-:::
 
-## 🔄 Round Structure 
+## 🔄 Round Structure {.smaller}
 
-::: small-font-size
 \
 
 ### 1. Two Info Rounds 
@@ -32,7 +29,6 @@ date: 2025-09-03
 ### 3. Conclusion  
 - Agree on everyone’s roles  
 - Reveal the cards & roles!
-:::
 
 ## 🧩 Logic in Action
 
