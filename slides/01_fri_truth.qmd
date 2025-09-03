@@ -31,38 +31,10 @@ Key observations about the table:
 :::
 :::::
 
+::: notes
 <!-- from last time -->
-
-
-## Warm Up
-
-::::: {.columns}
-::: {.column width="30%"}
-
-| $p$ | $q$ | $p \lor q$ |
-|---|---|:--------:|
-| F | F |   F    |
-| F | T |   T    |
-| T | F |   T    |
-| T | T |   T    |
-
 :::
 
-::: {.column style="width: 70%;"}
-
-*   How many rows for a proposition on 3 variables? $k$ variables?
-
-
-*   Give a good name for an operator that takes 1 variable: __________
-
-
-*   Give a good name for an operator that takes 3 variables: __________
-
-
-*   How many different binary operators could there be? 
- 
-:::
-:::::
 
 ## Truth Tables
 
@@ -88,7 +60,9 @@ Example:
 | T | F |   F    |
 | T | T |   F    |
 
+::: notes
 <!-- so what kinds of expressions CAN we make? -->
+:::
 
 ## WFFs
 
@@ -189,11 +163,12 @@ Which of these are WFFs?
 :::
 :::::
 
+::: notes
 <!-- notes: sometimes pq is the same as p^q, p & q, p && q, but our grammar only 
 uses ^. In this course we will vary symbols fluidly, partly because we're 
 assembling info from many different sources, but also partly because you'll
 need to be agile in the future. Note that the same issues exist for other operators. -->
-
+:::
 
 ## WFFs
 
@@ -209,6 +184,7 @@ need to be agile in the future. Note that the same issues exist for other operat
 Theorem: $\neg (p ∨ q))$ is not a WFF.
 Proof:
 
+::: notes
 <!-- assume that it is! then ~<wff> must have been the last rule applied, 
 and $( p v q))$ must be a <wff>. then ( <wff> v <wff> ) must have been the 
 last rule applied, and $p$ and $q)$ must be <wff>. take each case separately:
@@ -219,7 +195,7 @@ is false!
 We include this as foreshadowing for a proof strategy called "proof by 
 contradition."" Making arguments like this (proofs) is the substance of this course, 
 but don't worry, we'll be teaching you how to do it. -->
-
+:::
 
 ## Propositions
 
@@ -288,8 +264,10 @@ Discussion points:
 
 * How can we justify our instinct?
 
+::: notes
 <!-- 1) show same truth table 2) chains of equivalence -->
 <!-- same as saying "write a proof" -->
+:::
 
 ## Logical Equivalence example
 
@@ -335,8 +313,10 @@ else:
  feedback
  ```
 
+::: notes
 <!-- note that by doing this filtering, we are defining a predicate instantiated by
 each row whose truth value is evaluated. -->
+:::
 
 ## Logical Equivalence
 
@@ -381,9 +361,10 @@ We suspect that $\neg p\wedge \neg q \equiv \neg( p\lor q)$:
 
 :::::
 
+::: notes
 <!-- half the class complete the TT on the left, the other half on 
 the right, then we all read our responses aloud! -->
-
+:::
 
 ## Words and Ideas 
 

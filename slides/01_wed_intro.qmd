@@ -2,21 +2,28 @@
 date: 2025-09-03
 ---
 
-## 🎭 Sages & Tricksters
+## 🎭 Sages & Tricksters 
 
-### How to Play
+::: small-font-size
+\
+
+### How to Play 
 - Each of you are secretly assigned a role:  
   - **Sage** = always tell the truth (Black)
   - **Trickster** = always lie (Red)
-- Everyone sees the **packet of 6 cards** and the **fact** (the fact is true).  
-- In rounds, each player may ask **one yes/no question** about the fact.  
+- Everyone sees the **packet of 6 cards** and the **fact**.  
+- In rounds, each player may ask **yes/no questions** about the fact.  
 - Work together: compare answers, spot contradictions.  
 - **Goal:** Deduce each person’s role!
+:::
 
-## 🔄 Round Structure
+## 🔄 Round Structure 
+
+::: small-font-size
+\
 
 ### 1. Two Info Rounds 
-- Take turns asking **one yes/no question** about the fact  
+- In each round, take turns asking **one yes/no question** about the fact  
 
 ### 2. Debate Round  
 - Compare answers  
@@ -25,9 +32,11 @@ date: 2025-09-03
 ### 3. Conclusion  
 - Agree on everyone’s roles  
 - Reveal the cards & roles!
-
+:::
 
 ## 🧩 Logic in Action
+
+\
 
 - Logic means starting from **true facts**  
 - Asking the **right questions**  
@@ -46,7 +55,7 @@ In this course we'll apply all of this to Data Science!
 
 - **TA: Joe Wonsil**  
   📧 [joe.wonsil@gmail.com](mailto:joe.wonsil@gmail.com)  
-  ⏰ Thu 10–11am · 🏢 ICCS 355 · <a href="https://ubc.zoom.us/my/joewonsil"><img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Zoom_Communications_Logo.svg" alt="Zoom" style="height:20px; vertical-align:middle;"></a>
+  ⏰ TBD · 🏢 ICCS 355 · <a href="https://ubc.zoom.us/my/joewonsil"><img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Zoom_Communications_Logo.svg" alt="Zoom" style="height:20px; vertical-align:middle;"></a>
 
 
 ## Term Structure: 
@@ -108,18 +117,18 @@ In this course we'll apply all of this to Data Science!
 | Name  | Time        | Location & Zoom |
 |-------|-------------|-----------------|
 | Cinda | Mon 2–4pm   | 🏢 ICCS 233 · <a href="https://ubc.zoom.us/j/5393867685?pwd=N01ZS2dLbVorQkRzcDRuNTdwQmRYUT09"><img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Zoom_Communications_Logo.svg" alt="Zoom" style="height:16px; vertical-align:middle;"></a> |
-| Joe   | Thu 10–11am | 🏢 ICCS 355 · <a href="https://ubc.zoom.us/my/joewonsil"><img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Zoom_Communications_Logo.svg" alt="Zoom" style="height:16px; vertical-align:middle;"></a> |
+| Joe   | TBD | 🏢 ICCS 355 · <a href="https://ubc.zoom.us/my/joewonsil"><img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Zoom_Communications_Logo.svg" alt="Zoom" style="height:16px; vertical-align:middle;"></a> |
 
 </div>
 
-- 🌐 **Course Website** [course.ubc.ca/discrete-math](https://example.com)  
+- 🌐 **Course Website** [https://ubc-cs.github.io/dsci220/](https://ubc-cs.github.io/dsci220/)  
   Syllabus, schedule, resources 
 
 :::
 
-# Truth
+# Logic
 
-## Warm-Up
+## Truth
 
 Make at least 3 observations about the following table:
 
@@ -174,5 +183,35 @@ Key observations about the table:
 *   The operator ∨ corresponds to the English word _or_. 
 *   The expression p ∨ q is called a _proposition_.
     
+:::
+:::::
+
+## Cool down
+
+::::: {.columns}
+::: {.column width="30%"}
+
+| $p$ | $q$ | $p \lor q$ |
+|---|---|:--------:|
+| F | F |   F    |
+| F | T |   T    |
+| T | F |   T    |
+| T | T |   T    |
+
+:::
+
+::: {.column style="width: 70%;"}
+
+*   How many rows for a proposition on 3 variables? $k$ variables?
+
+
+*   Give a good name for an operator that takes 1 variable: __________
+
+
+*   Give a good name for an operator that takes 3 variables: __________
+
+
+*   How many different binary operators could there be? 
+ 
 :::
 :::::
