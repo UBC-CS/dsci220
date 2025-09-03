@@ -193,7 +193,7 @@
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "CPSC 203 was created by Dr. Cinda Heeren, then adapted by Dr. Firas Moosvi, and further refined by Dr. Ian Mitchell. The website and slides were converted to Quarto by Dr. Stephan Koenig.",
+    "text": "DSCI 220 was created by Dr. Cinda Heeren. The website shell was set up in Quarto by Dr. Stephan Koenig.",
     "crumbs": [
       "About"
     ]
@@ -203,7 +203,7 @@
     "href": "about.html#contributors",
     "title": "About",
     "section": "",
-    "text": "CPSC 203 was created by Dr. Cinda Heeren, then adapted by Dr. Firas Moosvi, and further refined by Dr. Ian Mitchell. The website and slides were converted to Quarto by Dr. Stephan Koenig.",
+    "text": "DSCI 220 was created by Dr. Cinda Heeren. The website shell was set up in Quarto by Dr. Stephan Koenig.",
     "crumbs": [
       "About"
     ]
