@@ -1,95 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://ubc-cs.github.io/dsci220/slides/tbd_tbd_member-functions.html</loc>
-    <lastmod>2025-09-03T19:27:40.921Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ubc-cs.github.io/dsci220/slides/tbd_tbd_python-2.html</loc>
-    <lastmod>2025-09-03T19:27:40.921Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ubc-cs.github.io/dsci220/slides/tbd_tbd_terminal.html</loc>
-    <lastmod>2025-09-03T19:27:40.921Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ubc-cs.github.io/dsci220/slides/02_quantifiers.html</loc>
-    <lastmod>2025-09-03T19:27:40.920Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ubc-cs.github.io/dsci220/slides/02_tue_efficiency.html</loc>
-    <lastmod>2025-09-03T19:27:40.920Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ubc-cs.github.io/dsci220/slides/tbd_tbd_visualization.html</loc>
-    <lastmod>2025-09-03T19:27:40.921Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ubc-cs.github.io/dsci220/slides/tbd_tbd_review.html</loc>
-    <lastmod>2025-09-03T19:27:40.921Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ubc-cs.github.io/dsci220/slides/tbd_tbd_classes.html</loc>
-    <lastmod>2025-09-03T19:27:40.921Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ubc-cs.github.io/dsci220/index.html</loc>
-    <lastmod>2025-09-03T19:27:40.918Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ubc-cs.github.io/dsci220/announcements.html</loc>
-    <lastmod>2025-09-03T19:27:40.662Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ubc-cs.github.io/dsci220/setup.html</loc>
-    <lastmod>2025-09-03T19:27:40.920Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ubc-cs.github.io/dsci220/formatting.html</loc>
-    <lastmod>2025-09-03T19:27:40.662Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ubc-cs.github.io/dsci220/syllabus.html</loc>
-    <lastmod>2025-09-03T19:27:40.921Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ubc-cs.github.io/dsci220/LICENSE.html</loc>
-    <lastmod>2025-09-03T19:27:40.614Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ubc-cs.github.io/dsci220/about.html</loc>
-    <lastmod>2025-09-03T19:27:40.662Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ubc-cs.github.io/dsci220/slides/01_thu_intro.html</loc>
-    <lastmod>2025-09-03T19:27:40.920Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ubc-cs.github.io/dsci220/slides/tbd_tbd_git.html</loc>
-    <lastmod>2025-09-03T19:27:40.921Z</lastmod>
+    <loc>https://ubc-cs.github.io/dsci220/slides/01_wed_intro.html</loc>
+    <lastmod>2025-09-03T19:32:24.928Z</lastmod>
   </url>
   <url>
     <loc>https://ubc-cs.github.io/dsci220/slides/01_fri_truth.html</loc>
-    <lastmod>2025-09-03T19:27:40.920Z</lastmod>
+    <lastmod>2025-09-03T19:32:24.928Z</lastmod>
   </url>
   <url>
-    <loc>https://ubc-cs.github.io/dsci220/slides/tbd_tbd_web-as-data.html</loc>
-    <lastmod>2025-09-03T19:27:40.921Z</lastmod>
+    <loc>https://ubc-cs.github.io/dsci220/about.html</loc>
+    <lastmod>2025-09-03T19:32:24.668Z</lastmod>
   </url>
   <url>
-    <loc>https://ubc-cs.github.io/dsci220/slides/tbd_tbd_data-structures.html</loc>
-    <lastmod>2025-09-03T19:27:40.921Z</lastmod>
+    <loc>https://ubc-cs.github.io/dsci220/LICENSE.html</loc>
+    <lastmod>2025-09-03T19:32:24.657Z</lastmod>
   </url>
   <url>
-    <loc>https://ubc-cs.github.io/dsci220/slides/01_wed_intro.html</loc>
-    <lastmod>2025-09-03T19:27:40.920Z</lastmod>
+    <loc>https://ubc-cs.github.io/dsci220/syllabus.html</loc>
+    <lastmod>2025-09-03T19:32:24.929Z</lastmod>
   </url>
   <url>
-    <loc>https://ubc-cs.github.io/dsci220/slides/tbd_tbd_python-1.html</loc>
-    <lastmod>2025-09-03T19:27:40.921Z</lastmod>
+    <loc>https://ubc-cs.github.io/dsci220/formatting.html</loc>
+    <lastmod>2025-09-03T19:32:24.668Z</lastmod>
   </url>
   <url>
-    <loc>https://ubc-cs.github.io/dsci220/slides/tbd_tbd_voronoi-1.html</loc>
-    <lastmod>2025-09-03T19:27:40.921Z</lastmod>
+    <loc>https://ubc-cs.github.io/dsci220/setup.html</loc>
+    <lastmod>2025-09-03T19:32:24.928Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ubc-cs.github.io/dsci220/announcements.html</loc>
+    <lastmod>2025-09-03T19:32:24.668Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ubc-cs.github.io/dsci220/index.html</loc>
+    <lastmod>2025-09-03T19:32:24.926Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ubc-cs.github.io/dsci220/slides/02_quantifiers.html</loc>
+    <lastmod>2025-09-03T19:32:24.928Z</lastmod>
   </url>
 </urlset>

@@ -5,12 +5,12 @@
       xmlns:dc="http://purl.org/dc/elements/1.1/" 
       version="2.0">
 <channel>
-<title>{{&lt; var course.full-title &gt;}}</title>
+<title>DSCI 220: Discrete Math for Data Science</title>
 <link>https://ubc-cs.github.io/dsci220/announcements.html</link>
 <atom:link href="https://ubc-cs.github.io/dsci220/announcements.xml" rel="self" type="application/rss+xml"/>
-<description>Course website for {{&lt; var course.code &gt;}} of the Department of Computer Science at the University of British Columbia
+<description>Course website for DSCI 220 of the Department of Computer Science at the University of British Columbia
 </description>
 <generator>quarto-1.7.34</generator>
-<lastBuildDate>Wed, 03 Sep 2025 19:29:58 GMT</lastBuildDate>
+<lastBuildDate>Wed, 03 Sep 2025 19:34:21 GMT</lastBuildDate>
 </channel>
 </rss>
