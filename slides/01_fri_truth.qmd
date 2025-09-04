@@ -2,13 +2,70 @@
 date: 2025-09-05
 ---
 
-# Truth
+# Syllabus Continued
 
-## Truth Tables
+## Communications
+
+::: {style="font-size: 80%;"}
+
+- 📧 **Email** [cheeren@cs.ubc.ca](mailto:cheeren@cs.ubc.ca)  
+  Checked daily. Please place "DSCI220" in subject!
+
+- <a href="https://piazza.com/ubc.ca/winterterm12025/dsci220">
+    <img src="https://tse2.mm.bing.net/th/id/OIP.usjgslq1FEPq7pholcHorQD6D6?pid=Api"
+         alt="Piazza" style="height:20px; vertical-align:middle;">
+  </a> **Piazza** [piazza.com/ubc.ca/winterterm12025/dsci220](https://piazza.com/ubc.ca/winterterm12025/dsci220)  
+  Post questions for quick response.  
+
+- 🏫 **Office Hours**
+
+<div style="margin:auto; width:fit-content;">
+
+| Name  | Time        | Location & Zoom |
+|-------|-------------|-----------------|
+| Cinda | Mon 2–4pm   | 🏢 ICCS 233 · <a href="https://ubc.zoom.us/j/5393867685?pwd=N01ZS2dLbVorQkRzcDRuNTdwQmRYUT09"><img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Zoom_Communications_Logo.svg" alt="Zoom" style="height:16px; vertical-align:middle;"></a> |
+| Joe   | Fri 11-12a | 🏢 FORW 317 |
+
+</div>
+
+# Logic
+
+## Truth
+
+Make at least 3 observations about the following table:
+
+::::: columns
+::: {.column width="30%"}
+
+| $p$ | $q$ | $p \lor q$ |
+|---|---|:--------:|
+| F | F |   F    |
+| F | T |   T    |
+| T | F |   T    |
+| T | T |   T    |
+
+:::
+
+::: {.column width="70%"}
+
+*  
+
+\
+
+*   
+
+\
+
+*      
+
+:::
+:::::
+
+## Summary
 
 Key observations about the table:
 
-::::: {.columns}
+::::: columns
 ::: {.column width="30%"}
 
 | $p$ | $q$ | $p \lor q$ |
@@ -31,12 +88,41 @@ Key observations about the table:
 :::
 :::::
 
-::: notes
-<!-- from last time -->
+## Foreshadowing {.activity}
+
+::::: {.columns}
+::: {.column width="30%"}
+
+| $p$ | $q$ | $p \lor q$ |
+|---|---|:--------:|
+| F | F |   F    |
+| F | T |   T    |
+| T | F |   T    |
+| T | T |   T    |
+
 :::
 
+::: {.column style="width: 70%;"}
 
-## Truth Tables
+*   How many rows for a proposition on 3 variables? $k$ variables?
+
+
+*   Give a good name for an operator that takes 1 variable: __________
+
+
+*   Give a good name for an operator that takes 3 variables: __________
+
+
+*   How many different binary operators could there be? 
+ 
+:::
+:::::
+
+{{< countdown minutes=10 >}}
+
+
+
+## Truth Tables {.activity}
 
 All graded learning activities in the course will use a tool called _PrairieLearn_. 
 
@@ -45,6 +131,8 @@ Navigate to today's activity and complete question 1
 {{< qrcode https://us.prairielearn.com/pl/course_instance/186238/assessment/2562335 >}}
 
 <https://us.prairielearn.com/pl/course_instance/186238/assessment/2562335>
+
+{{< countdown minutes=10 >}}
 
 ## Beyond Operators
 
@@ -142,7 +230,7 @@ Example derivation:
 
 * The `<wff>` are _propositions_. 
 
-## WFF Puzzle
+## WFF Puzzle {.activity}
 
 Which of these are WFFs?
 
@@ -162,6 +250,9 @@ Which of these are WFFs?
 
 :::
 :::::
+
+{{< countdown minutes=5 >}}
+
 
 ::: notes
 <!-- notes: sometimes pq is the same as p^q, p & q, p && q, but our grammar only 
@@ -213,7 +304,7 @@ Examples:
 
 * $\underline{\hspace{10em}}$
 
-## Found in Translation
+## Translation
 
 \
 
@@ -246,7 +337,7 @@ _Predicate_.
 
 * $x$ can be _instantiated_ to be a particular student, or an arbitrary student.
 
-* $P(\underline{\hspace{2em}})$ is a proposition. 
+* $P(\underline{\hspace{2em}} )$ is a proposition. 
 
 ## Logical Equivalence
 
