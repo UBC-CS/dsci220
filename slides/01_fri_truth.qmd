@@ -28,6 +28,8 @@ date: 2025-09-05
 
 </div>
 
+:::
+
 # Logic
 
 ## Truth
