@@ -155,17 +155,96 @@
 <h1>Implication</h1>
 
 </section>
-<section id="hat-tip" class="slide level2">
-<h2>Hat Tip 🎉</h2>
+<section id="logical-equivalence" class="slide level2">
+<h2>Logical Equivalence</h2>
 <div class="smaller">
-<p>This flashlight idea was inspired by<br>
-a viral concert moment 💡✨</p>
-<div class="content-center">
-<blockquote class="instagram-media" data-instgrm-captioned="" data-instgrm-permalink="https://www.instagram.com/reel/DNc6UDepBdB/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);">
-</blockquote>
-<script async="" src="//www.instagram.com/embed.js"></script>
+<p>“Select all the cereals with at least 4 units of protein and no more than 6 units of sugars.”</p>
+<div class="line-block">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(p\)</span>: a cereal has less than 4 units of protein<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(q\)</span>: a cereal has more than 6 units of sugars</div>
+<p>We suspect that <span class="math inline">\(\neg p\wedge \neg q \equiv \neg( p\lor q)\)</span>:</p>
+<p><br>
+</p>
 </div>
-</div>
+<div class="columns">
+<div class="column" style="width: 50%; font-size: 80%;">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th><span class="math inline">\(p\)</span></th>
+<th><span class="math inline">\(q\)</span></th>
+<th><span class="math inline">\(\hspace{4em}\neg p\wedge \neg q\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>F</td>
+<td>F</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>F</td>
+<td>T</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>T</td>
+<td>F</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>T</td>
+<td>T</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div><div class="column" style="width: 50%; font-size: 80%;">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th><span class="math inline">\(p\)</span></th>
+<th><span class="math inline">\(q\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(\hspace{4em}\neg( p\lor q)\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>F</td>
+<td>F</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td>F</td>
+<td>T</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td>T</td>
+<td>F</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td>T</td>
+<td>T</td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+</div></div>
+<aside class="notes">
+<!-- half the class complete the TT on the left, the other half on 
+the right, then we all read our responses aloud! -->
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="warm-up" class="slide level2">
 <h2>Warm Up</h2>
@@ -187,7 +266,7 @@ a viral concert moment 💡✨</p>
 <section id="logical-equivalence-practice" class="slide level2">
 <h2>Logical Equivalence Practice</h2>
 <p>All graded learning activities in the course will use a tool called <em>PrairieLearn</em>.</p>
-<p>Navigate to Activity 1 and complete question 2.</p>
+<p>Navigate to Activity 1 and complete question 2. Each of you will receive a different version of the problem. Work together in pairs to solve each person’s version.</p>
 <div id="" class="qrcode"></div>
 <script type="text/javascript">
 (function() {
@@ -240,12 +319,28 @@ a viral concert moment 💡✨</p>
 </tbody>
 </table>
 <ul>
+<li><p>Is this operator commutative?</p></li>
 <li><p>Note: <span class="math inline">\(p \rightarrow q \equiv\)</span> _______.</p></li>
 <li><p><span class="math inline">\(p \rightarrow q\)</span> Corresponds to “if <span class="math inline">\(p\)</span> then <span class="math inline">\(q\)</span>”</p></li>
 <li><p>Gives us mechanism for reasoning!</p></li>
 </ul>
+<aside class="notes">
+<p>q and not p is false. so it’s NOT (q^-p) == ???</p>
 <p>PL exercises on Logical equivalence involving implication?</p>
+<p>More on implication and logical equivalence in tutorial questions</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
+<aside class="notes">
 <section id="special-logical-equivalences" class="slide level2">
 <h2>Special Logical Equivalences</h2>
 <p>Suppose <span class="math inline">\(p\equiv\)</span> <strong>T</strong> . Then <span class="math inline">\(p\)</span> is a <em>Tautology</em>.</p>
@@ -255,16 +350,19 @@ a viral concert moment 💡✨</p>
 <h2>Logical Equivalence Practice</h2>
 <p>link to PL question</p>
 </section>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <section id="words-and-ideas" class="slide level2">
 <h2>Words and Ideas</h2>
-<p>Truth Table</p>
-<p>Proposition</p>
-<p>Grammar</p>
-<p>Predicate</p>
-<p>Boolean Mask</p>
-<p>Logical Equivalence</p>
-<p>Tautology</p>
-<p>Contradiction</p>
 
 
 <script type="ojs-module-contents">

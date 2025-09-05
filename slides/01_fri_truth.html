@@ -11,7 +11,6 @@
 <link href="../site_libs/quarto-contrib/live-runtime/live-runtime.css" rel="stylesheet">
 <script src="../site_libs/quarto-contrib/countdown-0.5.0/countdown.js"></script>
 <link href="../site_libs/quarto-contrib/countdown-0.5.0/countdown.css" rel="stylesheet">
-<script src="../site_libs/quarto-contrib/qrcodejs-v1.0.0/qrcode.js"></script>
 <script src="../site_libs/quarto-contrib/iconify-3.0.0/iconify-icon.min.js"></script><meta charset="utf-8">
   <meta name="generator" content="quarto-1.7.34">
 
@@ -414,30 +413,33 @@ Post questions for quick response.</p></li>
 <li><p>How many different binary operators could there be?</p></li>
 </ul>
 </div></div>
-<div id="timer_fdabe97c0f81b73f6ca6858f47e58819f2bf3538" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<div id="timer_2ca0784535073caad595a41f2ac000e9983e352f" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
  </div>
  <code class="countdown-time"><span class="countdown-digits minutes">06</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
  </div>
+<aside class="notes">
+<p>challenge: Of all binary operators, how many are commutative? (Half: 8.)</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="truth-tables" class="slide level2 activity">
 <h2>Truth Tables</h2>
 <p>All graded learning activities in the course will use a tool called <em>PrairieLearn</em>.</p>
 <p>Navigate to today’s activity and complete question 1</p>
-<div id="" class="qrcode"></div>
-<script type="text/javascript">
-(function() {
-  var script = document.currentScript;
-  var qrcode = script.previousElementSibling;
-  qrcode.qrcode = new QRCode(qrcode, {"colorDark":"#000000","colorLight":"#ffffff","height":128,"text":"https://us.prairielearn.com/pl/course_instance/186238/assessment/2562335","width":128});
-  script.remove();
-})();
-</script>
-    
 <p><a href="https://us.prairielearn.com/pl/course_instance/186238/" class="uri">https://us.prairielearn.com/pl/course_instance/186238/</a></p>
-<div id="timer_fdabe97c0f81b73f6ca6858f47e58819f2bf3538" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<div id="timer_2ca0784535073caad595a41f2ac000e9983e352f" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
@@ -563,12 +565,12 @@ Post questions for quick response.</p></li>
 <li><span class="math inline">\(\neg (p ∨ q))\)</span></li>
 </ol>
 </div></div>
-<div id="timer_fdabe97c0f81b73f6ca6858f47e58819f2bf3538" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<div id="timer_2ca0784535073caad595a41f2ac000e9983e352f" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
  </div>
- <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+ <code class="countdown-time"><span class="countdown-digits minutes">03</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
  </div>
 <aside class="notes">
 <!-- notes: sometimes pq is the same as p^q, p & q, p && q, but our grammar only 
@@ -595,7 +597,8 @@ need to be agile in the future. Note that the same issues exist for other operat
 <span id="cb5-4"><a></a>        | ( &lt;wff&gt; ∨ &lt;wff&gt; )</span>
 <span id="cb5-5"><a></a></span>
 <span id="cb5-6"><a></a>&lt;atom&gt; ::= p | q </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Theorem: <span class="math inline">\(\neg (p ∨ q))\)</span> is not a WFF. Proof:</p>
+<p>Theorem: <span class="math inline">\(\neg (p ∨ q))\)</span> is not a WFF.</p>
+<p>Proof:</p>
 <aside class="notes">
 <!-- assume that it is! then ~<wff> must have been the last rule applied, 
 and $( p v q))$ must be a <wff>. then ( <wff> v <wff> ) must have been the 
@@ -707,102 +710,12 @@ eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWUsImV4ZXJjaXNlIjoiZXhfY2VyZWFsIn0sImNv
 </script>
 </div>
 <script type="exercise-check-ex_cereal-contents">
-eyJhdHRyIjp7ImNoZWNrIjp0cnVlLCJlZGl0Ijp0cnVlLCJldmFsIjp0cnVlLCJleGVyY2lzZSI6ImV4X2NlcmVhbCJ9LCJjb2RlIjoiY29ycmVjdF9hbnN3ZXIgPSBjZXJlYWxzWyhjZXJlYWxzWydwcm90ZWluJ10gPj0gNCkgJiAoY2VyZWFsc1snc3VnYXJzJ10gPD0gNildXG5pZiBsZW4oZmlsdGVyZWRfZGYpID09IGxlbihjb3JyZWN0X2Fuc3dlcikgYW5kIGFsbChmaWx0ZXJlZF9kZi5pbmRleCA9PSBjb3JyZWN0X2Fuc3dlci5pbmRleCk6XG4gICAgICAgIGZlZWRiYWNrID0ge1xuICAgICAgICBcImNvcnJlY3RcIjogVHJ1ZSxcbiAgICAgICAgXCJtZXNzYWdlXCI6IFwiUGVyZmVjdCEgWW91IGNvcnJlY3RseSBmaWx0ZXJlZCBmb3IgaGVhbHRoeSBjZXJlYWwuXCJcbiAgICAgICAgfVxuZWxzZTpcbiAgICAgICAgZmVlZGJhY2sgPSB7XG4gICAgICAgIFwiY29ycmVjdFwiOiBGYWxzZSxcbiAgICAgICAgXCJtZXNzYWdlXCI6IFwiTm90IHF1aXRlLiBNYWtlIHN1cmUgeW91J3JlIHVzaW5nIGJvdGggY29uZGl0aW9uczogcHJvdGVpbiBvZiBhdCBsZWFzdCA0IGFuZCBzdWdhcnMgb2YgYXQgbW9zdCA2LlwiXG4gICAgICAgIH1cbiBmZWVkYmFjayJ9
+eyJhdHRyIjp7ImNoZWNrIjp0cnVlLCJlZGl0Ijp0cnVlLCJldmFsIjp0cnVlLCJleGVyY2lzZSI6ImV4X2NlcmVhbCJ9LCJjb2RlIjoiY29ycmVjdF9hbnN3ZXIgPSBjZXJlYWxzWyhjZXJlYWxzWydwcm90ZWluJ10gPj0gNCkgJiAoY2VyZWFsc1snc3VnYXJzJ10gPD0gNildXG5cbm9rID0gKFxuICAgIGxlbihmaWx0ZXJlZF9kZikgPT0gbGVuKGNvcnJlY3RfYW5zd2VyKVxuICAgIGFuZCBmaWx0ZXJlZF9kZi5pbmRleC5lcXVhbHMoY29ycmVjdF9hbnN3ZXIuaW5kZXgpXG4pXG5cbmlmIG9rOlxuICAgIGZlZWRiYWNrID0ge1xuICAgICAgICBcImNvcnJlY3RcIjogVHJ1ZSxcbiAgICAgICAgXCJtZXNzYWdlXCI6IFwiUGVyZmVjdCEgWW91IGNvcnJlY3RseSBmaWx0ZXJlZCBmb3IgaGVhbHRoeSBjZXJlYWwuXCJcbiAgICB9XG5lbHNlOlxuICAgIGZlZWRiYWNrID0ge1xuICAgICAgICBcImNvcnJlY3RcIjogRmFsc2UsXG4gICAgICAgIFwibWVzc2FnZVwiOiBcIk5vdCBxdWl0ZS4gVXNlIGJvdGggY29uZGl0aW9uczogcHJvdGVpbiA+PSA0IGFuZCBzdWdhcnMgPD0gNi5cIlxuICAgIH1cblxuZmVlZGJhY2sgICJ9
 </script>
 <aside class="notes">
 <!-- note that by doing this filtering, we are defining a predicate instantiated by
 each row whose truth value is evaluated. -->
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="logical-equivalence-1" class="slide level2">
-<h2>Logical Equivalence</h2>
-<div class="smaller">
-<p>“Select all the cereals with at least 4 units of protein and no more than 6 units of sugars.”</p>
-<div class="line-block">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(p\)</span>: a cereal has less than 4 units of protein<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(q\)</span>: a cereal has more than 6 units of sugars</div>
-<p>We suspect that <span class="math inline">\(\neg p\wedge \neg q \equiv \neg( p\lor q)\)</span>:</p>
-<p><br>
-</p>
-</div>
-<div class="columns">
-<div class="column" style="width: 50%; font-size: 80%;">
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th><span class="math inline">\(p\)</span></th>
-<th><span class="math inline">\(q\)</span></th>
-<th><span class="math inline">\(\hspace{4em}\neg p\wedge \neg q\)</span></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>F</td>
-<td>F</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>F</td>
-<td>T</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>T</td>
-<td>F</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>T</td>
-<td>T</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-</div><div class="column" style="width: 50%; font-size: 80%;">
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th><span class="math inline">\(p\)</span></th>
-<th><span class="math inline">\(q\)</span></th>
-<th style="text-align: center;"><span class="math inline">\(\hspace{4em}\neg( p\lor q)\)</span></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>F</td>
-<td>F</td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="even">
-<td>F</td>
-<td>T</td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="odd">
-<td>T</td>
-<td>F</td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="even">
-<td>T</td>
-<td>T</td>
-<td style="text-align: center;"></td>
-</tr>
-</tbody>
-</table>
-</div></div>
-<aside class="notes">
-<!-- half the class complete the TT on the left, the other half on 
-the right, then we all read our responses aloud! -->
+<p>Challenge: In pandas, test De Morgan with missing data: create a row with protein = NaN. Show that (~p) &amp; (~q) can differ from ~(p | q) under three-valued logic; propose a fix (.fillna(False) or careful NA handling).</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
