@@ -123,6 +123,9 @@ Key observations about the table:
 
 {{< countdown minutes=6 >}}
 
+::: notes
+challenge: Of all binary operators, how many are commutative? (Half: 8.)
+:::
 
 
 ## Truth Tables {.activity}
@@ -130,8 +133,6 @@ Key observations about the table:
 All graded learning activities in the course will use a tool called _PrairieLearn_. 
 
 Navigate to today's activity and complete question 1
-
-{{< qrcode https://us.prairielearn.com/pl/course_instance/186238/assessment/2562335 >}}
 
 <https://us.prairielearn.com/pl/course_instance/186238/>
 
@@ -244,7 +245,7 @@ Which of these are WFFs?
 :::
 :::::
 
-{{< countdown minutes=5 >}}
+{{< countdown minutes=3 >}}
 
 
 ::: notes
@@ -266,6 +267,7 @@ need to be agile in the future. Note that the same issues exist for other operat
 
 ```
 Theorem: $\neg (p ∨ q))$ is not a WFF.
+
 Proof:
 
 ::: notes
@@ -384,70 +386,33 @@ filtered_df
 #| exercise: ex_cereal
 #| check: true
 correct_answer = cereals[(cereals['protein'] >= 4) & (cereals['sugars'] <= 6)]
-if len(filtered_df) == len(correct_answer) and all(filtered_df.index == correct_answer.index):
-        feedback = {
+
+ok = (
+    len(filtered_df) == len(correct_answer)
+    and filtered_df.index.equals(correct_answer.index)
+)
+
+if ok:
+    feedback = {
         "correct": True,
         "message": "Perfect! You correctly filtered for healthy cereal."
-        }
+    }
 else:
-        feedback = {
+    feedback = {
         "correct": False,
-        "message": "Not quite. Make sure you're using both conditions: protein of at least 4 and sugars of at most 6."
-        }
- feedback
- ```
+        "message": "Not quite. Use both conditions: protein >= 4 and sugars <= 6."
+    }
+
+feedback  
+```
+
 
 ::: notes
 <!-- note that by doing this filtering, we are defining a predicate instantiated by
 each row whose truth value is evaluated. -->
-:::
 
-## Logical Equivalence
+Challenge: In pandas, test De Morgan with missing data: create a row with protein = NaN. Show that (~p) & (~q) can differ from ~(p | q) under three-valued logic; propose a fix (.fillna(False) or careful NA handling).
 
-:::: smaller
-
-"Select all the cereals with at least 4 units of protein and no more than 6 units of sugars."
-
-|        $p$: a cereal has less than 4 units of protein
-|        $q$: a cereal has more than 6 units of sugars
-
-We suspect that $\neg p\wedge \neg q \equiv \neg( p\lor q)$:
-
-\
-
-::::
-
-::::: {.columns}
-
-::: {.column style="width: 50%; font-size: 80%;"}
-
-| $p$ | $q$ | $\hspace{4em}\neg p\wedge \neg q$ |
-|---|---|--------|
-| F | F |       |
-| F | T |       |
-| T | F |       |
-| T | T |       |
-
-:::
-
-::: {.column style="width: 50%; font-size: 80%;"}
-
-
-| $p$ | $q$ | $\hspace{4em}\neg( p\lor q)$ |
-|---|---|:--------:|
-| F | F |       |
-| F | T |       |
-| T | F |       |
-| T | T |       |
-
-
-:::
-
-:::::
-
-::: notes
-<!-- half the class complete the TT on the left, the other half on 
-the right, then we all read our responses aloud! -->
 :::
 
 ## Words and Ideas 
