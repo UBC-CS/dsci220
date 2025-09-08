@@ -40,7 +40,6 @@ include-after-body:
         | ( <wff> ∨ <wff> )
 
 <atom> ::= p | q 
-
 ```
 
 Example derivation:
@@ -56,7 +55,6 @@ Example derivation:
         | ( <wff> ∨ <wff> )
 
 <atom> ::= p | q 
-
 ```
 
 -   Grammars can be used to construct *many* different kinds of sequences.
@@ -79,7 +77,6 @@ Which of these are WFFs?
         | ( <wff> ∨ <wff> )
 
 <atom> ::= p | q 
-
 ```
 
 ::::: columns
@@ -113,7 +110,6 @@ Note that the same issues exist for other operators.
         | ( <wff> ∨ <wff> )
 
 <atom> ::= p | q 
-
 ```
 
 Theorem: $\neg (p ∨ q))$ is not a WFF.
