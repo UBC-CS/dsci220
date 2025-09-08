@@ -5,37 +5,40 @@ date: 2025-09-08
 # Propositions Continued
 
 ## WFFs
+
+```{=html}
 <section>
-        <button id="generateButton1">Rand WFF</button>
-        Apply rule on line: <span id="randomNumberDisplay1"></span>
- </section>
- <section>
-        <button id="generateButton2">Rand atom</button>
-        Atom becomes: <span id="randomNumberDisplay2"></span>
- </section>
- <script>
-        function generateRandomWFF() {
-            // Generate a random number between 1 and 100 (inclusive)
-            const randomNumber = Math.floor(Math.random() * 4) + 1;
-            document.getElementById('randomNumberDisplay1').innerText = randomNumber;
-        }
+    <button id="generateButton1">Rand WFF</button>
+    Apply rule on line: <span id="randomNumberDisplay1"></span>
+</section>
 
-        function generateRandomAtom() {
-            // Generate a random number between 1 and 100 (inclusive)
-            const randomNumber = Math.floor(Math.random() * 2) + 1;
-            if (randomNumber == 1)
-                document.getElementById('randomNumberDisplay2').innerText = 'p';
-            else
-                document.getElementById('randomNumberDisplay2').innerText = 'q';
+<section>
+    <button id="generateButton2">Rand atom</button>
+    Atom becomes: <span id="randomNumberDisplay2"></span>
+</section>
 
-        }
+<script>
+    function generateRandomWFF() {
+        // Generate a random number between 1 and 100 (inclusive)
+        const randomNumber = Math.floor(Math.random() * 4) + 1;
+        document.getElementById('randomNumberDisplay1').innerText = randomNumber;
+    }
+
+    function generateRandomAtom() {
+        // Generate a random number between 1 and 100 (inclusive)
+        const randomNumber = Math.floor(Math.random() * 2) + 1;
+        if (randomNumber == 1)
+            document.getElementById('randomNumberDisplay2').innerText = 'p';
+        else
+            document.getElementById('randomNumberDisplay2').innerText = 'q';
+    }
 
         // Attach the function to the button click event
-        document.getElementById('generateButton1').addEventListener('click', generateRandomWFF);
+    document.getElementById('generateButton1').addEventListener('click', generateRandomWFF);
 
-        document.getElementById('generateButton2').addEventListener('click', generateRandomAtom);
-
+    document.getElementById('generateButton2').addEventListener('click', generateRandomAtom);
 </script>
+```
 
 ```{bnf}
 <wff> ::= <atom>
@@ -46,6 +49,7 @@ date: 2025-09-08
 <atom> ::= p | q 
 
 ```
+
 Example derivation:
 
 `<wff>`
@@ -62,18 +66,18 @@ Example derivation:
 
 ```
 
-* Grammars can be used to construct _many_ different kinds of sequences. 
+-   Grammars can be used to construct *many* different kinds of sequences.
 
-* We could have included additional operators $\rightarrow$, $\leftrightarrow$, $\oplus$, $\uparrow$
+-   We could have included additional operators $\rightarrow$, $\leftrightarrow$, $\oplus$, $\uparrow$
 
-* Computational evaluation of `<wff>`is covered in DSCI221. For now, we trust Python and focus on logic.
+-   Computational evaluation of `<wff>`is covered in DSCI221.
+    For now, we trust Python and focus on logic.
 
-* The `<wff>` are _propositions_. 
+-   The `<wff>` are *propositions*.
 
 ## WFF Puzzle {.activity}
 
 Which of these are WFFs?
-
 
 ```{bnf}
 <wff> ::= <atom>
@@ -85,31 +89,26 @@ Which of these are WFFs?
 
 ```
 
-::::: {.columns}
+::::: columns
 ::: {.column width="50%"}
-
-1. $(\neg p ∧ (q ∨ r))$  
-2. $((p ∧ q) ∨ (r ∧ \neg s))$ 
-3. $((\neg p) ∨ (q ∨ r))$ 
-
+1.  $(\neg p ∧ (q ∨ r))$
+2.  $((p ∧ q) ∨ (r ∧ \neg s))$
+3.  $((\neg p) ∨ (q ∨ r))$
 :::
+
 ::: {.column width="50%"}
-
-4. $(p ∨ (qr))$
-5. $\neg (p ∨ (q ∧ \neg r))$
-6. $\neg (p ∨ q))$
-
+4.  $(p ∨ (qr))$
+5.  $\neg (p ∨ (q ∧ \neg r))$
+6.  $\neg (p ∨ q))$
 :::
 :::::
 
 {{< countdown minutes=3 >}}
 
-
 ::: notes
-<!-- notes: sometimes pq is the same as p^q, p & q, p && q, but our grammar only 
-uses ^. In this course we will vary symbols fluidly, partly because we're 
-assembling info from many different sources, but also partly because you'll
-need to be agile in the future. Note that the same issues exist for other operators. -->
+Sometimes pq is the same as p\^q, p & q, p && q, but our grammar only uses \^.
+In this course we will vary symbols fluidly, partly because we're assembling info from many different sources, but also partly because you'll need to be agile in the future.
+Note that the same issues exist for other operators.
 :::
 
 ## WFFs
@@ -129,35 +128,29 @@ Theorem: $\neg (p ∨ q))$ is not a WFF.
 Proof:
 
 ::: notes
-<!-- assume that it is! then ~<wff> must have been the last rule applied, 
-and $( p v q))$ must be a <wff>. then ( <wff> v <wff> ) must have been the 
-last rule applied, and $p$ and $q)$ must be <wff>. take each case separately:
-$q)$ is not a <wff> because none of the rules apply, so we have both that it 
-must be a wff and it is not a wff -- a contradiction, so our assumption 
-is false!  
+assume that it is!
+then \~<wff> must have been the last rule applied, and $( p v q))$ must be a <wff>.
+then ( <wff> v <wff> ) must have been the last rule applied, and $p$ and $q)$ must be <wff>.
+take each case separately: $q)$ is not a <wff> because none of the rules apply, so we have both that it must be a wff and it is not a wff -- a contradiction, so our assumption is false!
 
-We include this as foreshadowing for a proof strategy called "proof by 
-contradition."" Making arguments like this (proofs) is the substance of this course, 
-but don't worry, we'll be teaching you how to do it. -->
+We include this as foreshadowing for a proof strategy called "proof by contradition." Making arguments like this (proofs) is the substance of this course, but don't worry, we'll be teaching you how to do it.
 :::
-
 
 ## Back to Propositions
 
-A _proposition_ is a statement that can be either **True** or **False**. 
+A *proposition* is a statement that can be either **True** or **False**.
 
 Examples:
 
-* $37 > 12$
+-   $37 > 12$
 
-* Fewer than 5 people in this room feel sleepy.
+-   Fewer than 5 people in this room feel sleepy.
 
-* There are extra-terrestrial life forms. 
+-   There are extra-terrestrial life forms.
 
-* This statement is False. 
+-   This statement is False.
 
-* $\underline{\hspace{10em}}$
-
+-   $\underline{\hspace{10em}}$
 
 ## Translation
 
@@ -165,38 +158,35 @@ From English to logic and back...
 
 \
 
-$p$: ___________ ate cereal for breakfast.
+$p$: \_\_\_\_\_\_\_\_\_\_\_ ate cereal for breakfast.
 
-$q$: ___________ brought a backpack to class.
+$q$: \_\_\_\_\_\_\_\_\_\_\_ brought a backpack to class.
 
-\ 
+ 
 
-* $(p\lor q)$
+-   $(p\lor q)$
 
-* $(p\wedge q)$
+-   $(p\wedge q)$
 
-* $\neg q$
-
+-   $\neg q$
 
 ## Predicates
 
 \
 
-$p$: ___________ ate cereal for breakfast.
+$p$: \_\_\_\_\_\_\_\_\_\_\_ ate cereal for breakfast.
 
 \
 
-We may want to apply the statement to many students, in which case we define a 
-_Predicate_.
+We may want to apply the statement to many students, in which case we define a *Predicate*.
 
 \
 
-* $P(x)$: $x$ ate cereal for breakfast.
+-   $P(x)$: $x$ ate cereal for breakfast.
 
-* $x$ can be _instantiated_ to be a particular student, or an arbitrary student.
+-   $x$ can be *instantiated* to be a particular student, or an arbitrary student.
 
-* $P(\underline{\hspace{2em}} )$ is a proposition. 
-
+-   $P(\underline{\hspace{2em}} )$ is a proposition.
 
 # Logical Equivalence
 
@@ -210,15 +200,17 @@ Ex: Is it true that $(p \lor q) \equiv (q\lor p)$ ?
 
 Discussion points:
 
-* $\equiv$ means _logically equivalent_
+-   $\equiv$ means *logically equivalent*
 
-* The answer had better be _________!!!
+-   The answer had better be \_\_\_\_\_\_\_\_\_!!!
 
-* How can we justify our instinct?
+-   How can we justify our instinct?
 
 ::: notes
-<!-- 1) show same truth table 2) chains of equivalence -->
-<!-- same as saying "write a proof" -->
+1.  Show same truth table
+2.  Chains of equivalence
+
+Same as saying "write a proof"
 :::
 
 ## Logical Equivalence example
@@ -248,6 +240,7 @@ q = cereals['sugars'] > 6
 filtered_df = cereals[______]
 filtered_df
 ```
+
 ```{pyodide}
 #| exercise: ex_cereal
 #| check: true
@@ -272,103 +265,88 @@ else:
 feedback  
 ```
 
-
 ::: notes
-<!-- note that by doing this filtering, we are defining a predicate instantiated by
-each row whose truth value is evaluated. -->
+note that by doing this filtering, we are defining a predicate instantiated by each row whose truth value is evaluated.
 
-Challenge: In pandas, test De Morgan with missing data: create a row with protein = NaN. Show that (~p) & (~q) can differ from ~(p | q) under three-valued logic; propose a fix (.fillna(False) or careful NA handling).
-
+Challenge: In pandas, test De Morgan with missing data: create a row with protein = NaN.
+Show that (\~p) & (\~q) can differ from \~(p \| q) under three-valued logic; propose a fix (.fillna(False) or careful NA handling).
 :::
 
 # Implication
 
 ## Logical Equivalence
 
-:::: smaller
-
+::: smaller
 "Select all the cereals with at least 4 units of protein and no more than 6 units of sugars."
 
 |        $p$: a cereal has less than 4 units of protein
+| 
+| 
 |        $q$: a cereal has more than 6 units of sugars
+| 
+| 
 
 We suspect that $\neg p\wedge \neg q \equiv \neg( p\lor q)$:
 
 \
+:::
 
-::::
-
-::::: {.columns}
-
+::::: columns
 ::: {.column style="width: 50%; font-size: 80%;"}
-
 | $p$ | $q$ | $\hspace{4em}\neg p\wedge \neg q$ |
-|---|---|--------|
-| F | F |       |
-| F | T |       |
-| T | F |       |
-| T | T |       |
-
+|-----|-----|-----------------------------------|
+| F   | F   |                                   |
+| F   | T   |                                   |
+| T   | F   |                                   |
+| T   | T   |                                   |
 :::
 
 ::: {.column style="width: 50%; font-size: 80%;"}
-
-
 | $p$ | $q$ | $\hspace{4em}\neg( p\lor q)$ |
-|---|---|:--------:|
-| F | F |       |
-| F | T |       |
-| T | F |       |
-| T | T |       |
-
-
+|-----|-----|:----------------------------:|
+| F   | F   |                              |
+| F   | T   |                              |
+| T   | F   |                              |
+| T   | T   |                              |
 :::
-
 :::::
 
 ::: notes
-<!-- half the class complete the TT on the left, the other half on 
-the right, then we all read our responses aloud! -->
+half the class complete the TT on the left, the other half on the right, then we all read our responses aloud!
 :::
 
 ## Warm Up
 
-Last time we discussed Logical Equivalence (LE) and showed an example. The table below 
-illustrates LE that are so important, they have names!
+Last time we discussed Logical Equivalence (LE) and showed an example.
+The table below illustrates LE that are so important, they have names!
 
-::::: {.columns}
-
+::::: columns
 ::: {.column width="50%"}
-
-[![](/images/LE.png){fig-alt="logical equivalences" }](https://en.wikipedia.org/wiki/Logical_equivalence)
-
+[![](/images/LE.png){fig-alt="logical equivalences"}](https://en.wikipedia.org/wiki/Logical_equivalence)
 :::
 
 ::: {.column width="50%"}
-
 Observations:
 
-*  
+-   
 
-* 
+-   
 
-*   
+-   
 
-* 
+-   
 
-*    
-
+-   
 :::
-
 :::::
 
 ## Logical Equivalence Practice
 
-All graded learning activities in the course will use a tool called _PrairieLearn_. 
+All graded learning activities in the course will use a tool called *PrairieLearn*.
 
-Navigate to Activity 1 and complete question 2. Each of you will 
-receive a different version of the problem. Work together in pairs to solve
-each person's version. 
+Navigate to Activity 1 and complete question 2.
+Each of you will receive a different version of the problem.
+Work together in pairs to solve each person's version.
 
 {{< qrcode https://us.prairielearn.com/pl/course_instance/186238/assessment/2562335 >}}
 
@@ -376,44 +354,46 @@ each person's version.
 
 ## Implication
 
-Connect operator $\rightarrow$ to a logically equivalent expression using only _and_, _or_, and _not_.
+Connect operator $\rightarrow$ to a logically equivalent expression using only *and*, *or*, and *not*.
 
 | $p$ | $q$ | $p\rightarrow q$ | $\underline{\hspace{3em}}$ |
-|---|---|:--------:|:--------:|
-| F | F |   T    |      |
-| F | T |   T    |      |
-| T | F |   F    |      |
-| T | T |   T    |      |
+|-----|-----|:----------------:|:--------------------------:|
+| F   | F   |        T         |                            |
+| F   | T   |        T         |                            |
+| T   | F   |        F         |                            |
+| T   | T   |        T         |                            |
 
-* Is this operator commutative? 
+-   Is this operator commutative?
 
-* Note: $p \rightarrow q \equiv$  _______.
+-   Note: $p \rightarrow q \equiv$ \_\_\_\_\_\_\_.
 
-* $p \rightarrow q$ Corresponds to "if $p$ then $q$"
+-   $p \rightarrow q$ Corresponds to "if $p$ then $q$"
 
-* Gives us mechanism for reasoning!
+-   Gives us mechanism for reasoning!
 
 ::: notes
-q and not p is false. so it's NOT (q^-p) == ??? (apply demorgan)
+q and not p is false.
+so it's NOT (q\^-p) == ???
+(apply demorgan)
 
 PL exercises on Logical equivalence involving implication?
 
 More on implication and logical equivalence in tutorial questions
 :::
 
-::: notes
 ## Special Logical Equivalences
 
-Suppose $p\equiv$ **T** . Then $p$ is a _Tautology_. 
+Suppose $p\equiv$ **T** .
+Then $p$ is a *Tautology*.
 
-Suppose $p\equiv$ **F** . Then $p$ is a _Contradiction_.
+Suppose $p\equiv$ **F** .
+Then $p$ is a *Contradiction*.
 
 ## Logical Equivalence Practice
 
 link to PL question
-:::
 
-## Words and Ideas 
+## Words and Ideas
 
 Grammar
 
@@ -424,8 +404,3 @@ Boolean Mask
 Logical Equivalence
 
 Implication
-
-
-
-
-
