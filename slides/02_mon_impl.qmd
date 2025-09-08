@@ -29,9 +29,9 @@ include-after-body:
 
 ## WFFs
 
-[Rand WFF]{.btn .btn-primary role="button" id="generateButton1"} Apply rule on line: []{id="randomNumberDisplay1"}
+[Rand WFF]{#generateButton1 .btn .btn-primary role="button"} Apply rule on line:
 
-[Rand atom]{.btn .btn-primary role="button" id="generateButton2"} Atom becomes: []{id="randomNumberDisplay2"}
+[Rand atom]{#generateButton2 .btn .btn-primary role="button"} Atom becomes:
 
 ``` bnf
 <wff> ::= <atom>
