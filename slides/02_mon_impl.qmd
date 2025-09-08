@@ -29,17 +29,9 @@ include-after-body:
 
 ## WFFs
 
-```{=html}
-<section>
-    <button id="generateButton1">Rand WFF</button>
-    Apply rule on line: <span id="randomNumberDisplay1"></span>
-</section>
+[Rand WFF]{.btn .btn-primary role="button" id="generateButton1"} Apply rule on line: []{id="randomNumberDisplay1"}
 
-<section>
-    <button id="generateButton2">Rand atom</button>
-    Atom becomes: <span id="randomNumberDisplay2"></span>
-</section>
-```
+[Rand atom]{.btn .btn-primary role="button" id="generateButton2"} Atom becomes: []{id="randomNumberDisplay2"}
 
 ```{bnf}
 <wff> ::= <atom>
