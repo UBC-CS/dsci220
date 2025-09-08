@@ -6,25 +6,35 @@ date: 2025-09-08
 
 ## WFFs
 <section>
-        <button id="generateButton">Generate New Number</button>
-        Your random number is: <span id="randomNumberDisplay"></span>
+        <button id="generateButton1">Rand WFF</button>
+        Apply rule on line: <span id="randomNumberDisplay1"></span>
+ </section>
+ <section>
+        <button id="generateButton2">Rand atom</button>
+        Atom becomes: <span id="randomNumberDisplay2"></span>
  </section>
  <script>
-        function generateRandomNumber() {
+        function generateRandomWFF() {
             // Generate a random number between 1 and 100 (inclusive)
             const randomNumber = Math.floor(Math.random() * 4) + 1;
-            document.getElementById('randomNumberDisplay').innerText = randomNumber;
+            document.getElementById('randomNumberDisplay1').innerText = randomNumber;
+        }
+
+        function generateRandomAtom() {
+            // Generate a random number between 1 and 100 (inclusive)
+            const randomNumber = Math.floor(Math.random() * 2) + 1;
+            if (randomNumber == 1)
+                document.getElementById('randomNumberDisplay2').innerText = 'p';
+            else
+                document.getElementById('randomNumberDisplay2').innerText = 'q';
+
         }
 
         // Attach the function to the button click event
-        document.getElementById('generateButton').addEventListener('click', generateRandomNumber);
+        document.getElementById('generateButton1').addEventListener('click', generateRandomWFF);
 
-        // Optionally, generate a number on slide load
-        Reveal.on('slidechanged', event => {
-            if (event.currentSlide.querySelector('#randomNumberDisplay')) {
-                generateRandomNumber();
-            }
-        });
+        document.getElementById('generateButton2').addEventListener('click', generateRandomAtom);
+
 </script>
 
 ```{bnf}
@@ -131,7 +141,8 @@ contradition."" Making arguments like this (proofs) is the substance of this cou
 but don't worry, we'll be teaching you how to do it. -->
 :::
 
-## Propositions
+
+## Back to Propositions
 
 A _proposition_ is a statement that can be either **True** or **False**. 
 
@@ -147,7 +158,10 @@ Examples:
 
 * $\underline{\hspace{10em}}$
 
+
 ## Translation
+
+From English to logic and back...
 
 \
 
@@ -162,6 +176,7 @@ $q$: ___________ brought a backpack to class.
 * $(p\wedge q)$
 
 * $\neg q$
+
 
 ## Predicates
 
@@ -181,6 +196,7 @@ _Predicate_.
 * $x$ can be _instantiated_ to be a particular student, or an arbitrary student.
 
 * $P(\underline{\hspace{2em}} )$ is a proposition. 
+
 
 # Logical Equivalence
 
