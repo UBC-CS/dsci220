@@ -1,5 +1,28 @@
 ---
 date: 2025-09-08
+include-after-body:
+  text: |
+    <script>
+        function generateRandomWFF() {
+           // Generate a random number between 1 and 100 (inclusive)
+           const randomNumber = Math.floor(Math.random() * 4) + 1;
+           document.getElementById('randomNumberDisplay1').innerText = randomNumber;
+        }
+
+        function generateRandomAtom() {
+            // Generate a random number between 1 and 100 (inclusive)
+            const randomNumber = Math.floor(Math.random() * 2) + 1;
+            if (randomNumber == 1)
+                document.getElementById('randomNumberDisplay2').innerText = 'p';
+            else
+                document.getElementById('randomNumberDisplay2').innerText = 'q';
+        }
+
+        // Attach the function to the button click event
+        document.getElementById('generateButton1').addEventListener('click', generateRandomWFF);
+
+        document.getElementById('generateButton2').addEventListener('click', generateRandomAtom);
+    </script>
 ---
 
 # Propositions Continued
@@ -16,28 +39,6 @@ date: 2025-09-08
     <button id="generateButton2">Rand atom</button>
     Atom becomes: <span id="randomNumberDisplay2"></span>
 </section>
-
-<script>
-    function generateRandomWFF() {
-        // Generate a random number between 1 and 100 (inclusive)
-        const randomNumber = Math.floor(Math.random() * 4) + 1;
-        document.getElementById('randomNumberDisplay1').innerText = randomNumber;
-    }
-
-    function generateRandomAtom() {
-        // Generate a random number between 1 and 100 (inclusive)
-        const randomNumber = Math.floor(Math.random() * 2) + 1;
-        if (randomNumber == 1)
-            document.getElementById('randomNumberDisplay2').innerText = 'p';
-        else
-            document.getElementById('randomNumberDisplay2').innerText = 'q';
-    }
-
-        // Attach the function to the button click event
-    document.getElementById('generateButton1').addEventListener('click', generateRandomWFF);
-
-    document.getElementById('generateButton2').addEventListener('click', generateRandomAtom);
-</script>
 ```
 
 ```{bnf}
