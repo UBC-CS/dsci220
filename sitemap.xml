@@ -2,42 +2,42 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://ubc-cs.github.io/dsci220/slides/01_wed_intro.html</loc>
-    <lastmod>2025-09-05T06:25:58.779Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ubc-cs.github.io/dsci220/slides/02_mon_quant.html</loc>
-    <lastmod>2025-09-05T06:25:58.779Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ubc-cs.github.io/dsci220/about.html</loc>
-    <lastmod>2025-09-05T06:25:58.520Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ubc-cs.github.io/dsci220/LICENSE.html</loc>
-    <lastmod>2025-09-05T06:25:58.510Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ubc-cs.github.io/dsci220/syllabus.html</loc>
-    <lastmod>2025-09-05T06:25:58.779Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ubc-cs.github.io/dsci220/formatting.html</loc>
-    <lastmod>2025-09-05T06:25:58.520Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ubc-cs.github.io/dsci220/setup.html</loc>
-    <lastmod>2025-09-05T06:25:58.779Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ubc-cs.github.io/dsci220/announcements.html</loc>
-    <lastmod>2025-09-05T06:25:58.520Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ubc-cs.github.io/dsci220/index.html</loc>
-    <lastmod>2025-09-05T06:25:58.777Z</lastmod>
+    <lastmod>2025-09-08T16:18:45.339Z</lastmod>
   </url>
   <url>
     <loc>https://ubc-cs.github.io/dsci220/slides/01_fri_truth.html</loc>
-    <lastmod>2025-09-05T06:25:58.779Z</lastmod>
+    <lastmod>2025-09-08T16:18:45.339Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ubc-cs.github.io/dsci220/about.html</loc>
+    <lastmod>2025-09-08T16:18:45.080Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ubc-cs.github.io/dsci220/LICENSE.html</loc>
+    <lastmod>2025-09-08T16:18:45.070Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ubc-cs.github.io/dsci220/syllabus.html</loc>
+    <lastmod>2025-09-08T16:18:45.339Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ubc-cs.github.io/dsci220/formatting.html</loc>
+    <lastmod>2025-09-08T16:18:45.080Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ubc-cs.github.io/dsci220/setup.html</loc>
+    <lastmod>2025-09-08T16:18:45.338Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ubc-cs.github.io/dsci220/announcements.html</loc>
+    <lastmod>2025-09-08T16:18:45.080Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ubc-cs.github.io/dsci220/index.html</loc>
+    <lastmod>2025-09-08T16:18:45.336Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ubc-cs.github.io/dsci220/slides/02_mon_impl.html</loc>
+    <lastmod>2025-09-08T16:18:45.339Z</lastmod>
   </url>
 </urlset>

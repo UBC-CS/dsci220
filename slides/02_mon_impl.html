@@ -9,6 +9,8 @@
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-c8ad9e5dbd60b7b70b38521ab19b7da4.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/quarto-contrib/live-runtime/live-runtime.js" type="module"></script>
 <link href="../site_libs/quarto-contrib/live-runtime/live-runtime.css" rel="stylesheet">
+<script src="../site_libs/quarto-contrib/countdown-0.5.0/countdown.js"></script>
+<link href="../site_libs/quarto-contrib/countdown-0.5.0/countdown.css" rel="stylesheet">
 <script src="../site_libs/quarto-contrib/qrcodejs-v1.0.0/qrcode.js"></script>
 <script src="../site_libs/quarto-contrib/iconify-3.0.0/iconify-icon.min.js"></script><meta charset="utf-8">
   <meta name="generator" content="quarto-1.7.34">
@@ -32,6 +34,72 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-f2ea9b50adc9fed21b22ebdc19122b64.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -151,11 +219,234 @@
   <p class="date">September 5, 2025</p>
 </section>
 <section>
+<section id="propositions-continued" class="title-slide slide level1 center">
+<h1>Propositions Continued</h1>
+
+</section>
+<section id="wffs" class="slide level2">
+<h2>WFFs</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource {bnf} number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a></a>&lt;wff&gt; ::= &lt;atom&gt;</span>
+<span id="cb1-2"><a></a>        | ~ &lt;wff&gt;</span>
+<span id="cb1-3"><a></a>        | ( &lt;wff&gt; ∧ &lt;wff&gt; )</span>
+<span id="cb1-4"><a></a>        | ( &lt;wff&gt; ∨ &lt;wff&gt; )</span>
+<span id="cb1-5"><a></a></span>
+<span id="cb1-6"><a></a>&lt;atom&gt; ::= p | q </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Example derivation:</p>
+<p><code>&lt;wff&gt;</code></p>
+</section>
+<section id="wffs-notes" class="slide level2">
+<h2>WFFs (Notes)</h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource {bnf} number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a></a>&lt;wff&gt; ::= &lt;atom&gt;</span>
+<span id="cb2-2"><a></a>        | ~ &lt;wff&gt;</span>
+<span id="cb2-3"><a></a>        | ( &lt;wff&gt; ∧ &lt;wff&gt; )</span>
+<span id="cb2-4"><a></a>        | ( &lt;wff&gt; ∨ &lt;wff&gt; )</span>
+<span id="cb2-5"><a></a></span>
+<span id="cb2-6"><a></a>&lt;atom&gt; ::= p | q </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li><p>Grammars can be used to construct <em>many</em> different kinds of sequences.</p></li>
+<li><p>We could have included additional operators <span class="math inline">\(\rightarrow\)</span>, <span class="math inline">\(\leftrightarrow\)</span>, <span class="math inline">\(\oplus\)</span>, <span class="math inline">\(\uparrow\)</span></p></li>
+<li><p>Computational evaluation of <code>&lt;wff&gt;</code>is covered in DSCI221. For now, we trust Python and focus on logic.</p></li>
+<li><p>The <code>&lt;wff&gt;</code> are <em>propositions</em>.</p></li>
+</ul>
+</section>
+<section id="wff-puzzle" class="slide level2 activity">
+<h2>WFF Puzzle</h2>
+<p>Which of these are WFFs?</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource {bnf} number-lines code-with-copy"><code class="sourceCode"><span id="cb3-1"><a></a>&lt;wff&gt; ::= &lt;atom&gt;</span>
+<span id="cb3-2"><a></a>        | ~ &lt;wff&gt;</span>
+<span id="cb3-3"><a></a>        | ( &lt;wff&gt; ∧ &lt;wff&gt; )</span>
+<span id="cb3-4"><a></a>        | ( &lt;wff&gt; ∨ &lt;wff&gt; )</span>
+<span id="cb3-5"><a></a></span>
+<span id="cb3-6"><a></a>&lt;atom&gt; ::= p | q </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ol type="1">
+<li><span class="math inline">\((\neg p ∧ (q ∨ r))\)</span><br>
+</li>
+<li><span class="math inline">\(((p ∧ q) ∨ (r ∧ \neg s))\)</span></li>
+<li><span class="math inline">\(((\neg p) ∨ (q ∨ r))\)</span></li>
+</ol>
+</div><div class="column" style="width:50%;">
+<ol start="4" type="1">
+<li><span class="math inline">\((p ∨ (qr))\)</span></li>
+<li><span class="math inline">\(\neg (p ∨ (q ∧ \neg r))\)</span></li>
+<li><span class="math inline">\(\neg (p ∨ q))\)</span></li>
+</ol>
+</div></div>
+<div id="timer_04a51c408c351043ec60714fb5e880ff9b7f4429" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+  <div class="countdown-controls">
+    <button class="countdown-bump-down">−</button>
+    <button class="countdown-bump-up">+</button>
+ </div>
+ <code class="countdown-time"><span class="countdown-digits minutes">03</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+ </div>
+<aside class="notes">
+<!-- notes: sometimes pq is the same as p^q, p & q, p && q, but our grammar only 
+uses ^. In this course we will vary symbols fluidly, partly because we're 
+assembling info from many different sources, but also partly because you'll
+need to be agile in the future. Note that the same issues exist for other operators. -->
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="wffs-1" class="slide level2">
+<h2>WFFs</h2>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource {bnf} number-lines code-with-copy"><code class="sourceCode"><span id="cb4-1"><a></a>&lt;wff&gt; ::= &lt;atom&gt;</span>
+<span id="cb4-2"><a></a>        | ~ &lt;wff&gt;</span>
+<span id="cb4-3"><a></a>        | ( &lt;wff&gt; ∧ &lt;wff&gt; )</span>
+<span id="cb4-4"><a></a>        | ( &lt;wff&gt; ∨ &lt;wff&gt; )</span>
+<span id="cb4-5"><a></a></span>
+<span id="cb4-6"><a></a>&lt;atom&gt; ::= p | q </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Theorem: <span class="math inline">\(\neg (p ∨ q))\)</span> is not a WFF.</p>
+<p>Proof:</p>
+<aside class="notes">
+<!-- assume that it is! then ~<wff> must have been the last rule applied, 
+and $( p v q))$ must be a <wff>. then ( <wff> v <wff> ) must have been the 
+last rule applied, and $p$ and $q)$ must be <wff>. take each case separately:
+$q)$ is not a <wff> because none of the rules apply, so we have both that it 
+must be a wff and it is not a wff -- a contradiction, so our assumption 
+is false!  
+
+We include this as foreshadowing for a proof strategy called "proof by 
+contradition."" Making arguments like this (proofs) is the substance of this course, 
+but don't worry, we'll be teaching you how to do it. -->
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="propositions" class="slide level2">
+<h2>Propositions</h2>
+<p>A <em>proposition</em> is a statement that can be either <strong>True</strong> or <strong>False</strong>.</p>
+<p>Examples:</p>
+<ul>
+<li><p><span class="math inline">\(37 &gt; 12\)</span></p></li>
+<li><p>Fewer than 5 people in this room feel sleepy.</p></li>
+<li><p>There are extra-terrestrial life forms.</p></li>
+<li><p>This statement is False.</p></li>
+<li><p><span class="math inline">\(\underline{\hspace{10em}}\)</span></p></li>
+</ul>
+</section>
+<section id="translation" class="slide level2">
+<h2>Translation</h2>
+<p><br>
+</p>
+<p><span class="math inline">\(p\)</span>: ___________ ate cereal for breakfast.</p>
+<p><span class="math inline">\(q\)</span>: ___________ brought a backpack to class.</p>
+<p>&nbsp;</p>
+<ul>
+<li><p><span class="math inline">\((p\lor q)\)</span></p></li>
+<li><p><span class="math inline">\((p\wedge q)\)</span></p></li>
+<li><p><span class="math inline">\(\neg q\)</span></p></li>
+</ul>
+</section>
+<section id="predicates" class="slide level2">
+<h2>Predicates</h2>
+<p><br>
+</p>
+<p><span class="math inline">\(p\)</span>: ___________ ate cereal for breakfast.</p>
+<p><br>
+</p>
+<p>We may want to apply the statement to many students, in which case we define a <em>Predicate</em>.</p>
+<p><br>
+</p>
+<ul>
+<li><p><span class="math inline">\(P(x)\)</span>: <span class="math inline">\(x\)</span> ate cereal for breakfast.</p></li>
+<li><p><span class="math inline">\(x\)</span> can be <em>instantiated</em> to be a particular student, or an arbitrary student.</p></li>
+<li><p><span class="math inline">\(P(\underline{\hspace{2em}} )\)</span> is a proposition.</p></li>
+</ul>
+</section></section>
+<section>
+<section id="logical-equivalence" class="title-slide slide level1 center">
+<h1>Logical Equivalence</h1>
+
+</section>
+<section id="logical-equivalence-1" class="slide level2">
+<h2>Logical Equivalence</h2>
+<p><br>
+</p>
+<p>Ex: Is it true that <span class="math inline">\((p \lor q) \equiv (q\lor p)\)</span> ?</p>
+<p><br>
+</p>
+<p>Discussion points:</p>
+<ul>
+<li><p><span class="math inline">\(\equiv\)</span> means <em>logically equivalent</em></p></li>
+<li><p>The answer had better be _________!!!</p></li>
+<li><p>How can we justify our instinct?</p></li>
+</ul>
+<aside class="notes">
+<!-- 1) show same truth table 2) chains of equivalence -->
+<!-- same as saying "write a proof" -->
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="logical-equivalence-example" class="slide level2">
+<h2>Logical Equivalence example</h2>
+<iframe data-external="1" src="https://www.youtube.com/embed/CLQ0LZSnJFE?si=jHDBkjZ2OnkfQqwW" width="850" height="475" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+</section>
+<section id="boolean-masks" class="slide level2">
+<h2>Boolean Masks</h2>
+<p>Select all the cereals with at least 4 units of protein and no more than 6 units of sugars.</p>
+<script type="exercise-setup-ex_cereal-contents">
+eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWUsImV4ZXJjaXNlIjoiZXhfY2VyZWFsIiwic2V0dXAiOnRydWV9LCJjb2RlIjoiaW1wb3J0IHBhbmRhcyBhcyBwZFxuIyBpbXBvcnQgbnVtcHkgYXMgbnBcblxuIyBMb2FkIGFuZCBwcmVwYXJlIGRhdGFcbmNlcmVhbHMgPSBwZC5yZWFkX2NzdignaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL1VCQy1DUy9kc2NpMjIwL3JlZnMvaGVhZHMvbWFpbi9kYXRhL2NlcmVhbC5jc3YnKVxuIyBjZXJlYWxzID0gY2VyZWFscy5kcm9wbmEoKSJ9
+</script>
+<div>
+<div id="pyodide-2" class="exercise-cell">
+
+</div>
+<script type="pyodide-2-contents">
+eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWUsImV4ZXJjaXNlIjoiZXhfY2VyZWFsIn0sImNvZGUiOiJwID0gY2VyZWFsc1sncHJvdGVpbiddIDwgNCBcbnEgPSBjZXJlYWxzWydzdWdhcnMnXSA+IDZcbmZpbHRlcmVkX2RmID0gY2VyZWFsc1tfX19fX19dXG5maWx0ZXJlZF9kZiJ9
+</script>
+</div>
+<script type="exercise-check-ex_cereal-contents">
+eyJhdHRyIjp7ImNoZWNrIjp0cnVlLCJlZGl0Ijp0cnVlLCJldmFsIjp0cnVlLCJleGVyY2lzZSI6ImV4X2NlcmVhbCJ9LCJjb2RlIjoiY29ycmVjdF9hbnN3ZXIgPSBjZXJlYWxzWyhjZXJlYWxzWydwcm90ZWluJ10gPj0gNCkgJiAoY2VyZWFsc1snc3VnYXJzJ10gPD0gNildXG5cbm9rID0gKFxuICAgIGxlbihmaWx0ZXJlZF9kZikgPT0gbGVuKGNvcnJlY3RfYW5zd2VyKVxuICAgIGFuZCBmaWx0ZXJlZF9kZi5pbmRleC5lcXVhbHMoY29ycmVjdF9hbnN3ZXIuaW5kZXgpXG4pXG5cbmlmIG9rOlxuICAgIGZlZWRiYWNrID0ge1xuICAgICAgICBcImNvcnJlY3RcIjogVHJ1ZSxcbiAgICAgICAgXCJtZXNzYWdlXCI6IFwiUGVyZmVjdCEgWW91IGNvcnJlY3RseSBmaWx0ZXJlZCBmb3IgaGVhbHRoeSBjZXJlYWwuXCJcbiAgICB9XG5lbHNlOlxuICAgIGZlZWRiYWNrID0ge1xuICAgICAgICBcImNvcnJlY3RcIjogRmFsc2UsXG4gICAgICAgIFwibWVzc2FnZVwiOiBcIk5vdCBxdWl0ZS4gVXNlIGJvdGggY29uZGl0aW9uczogcHJvdGVpbiA+PSA0IGFuZCBzdWdhcnMgPD0gNi5cIlxuICAgIH1cblxuZmVlZGJhY2sgICJ9
+</script>
+<aside class="notes">
+<!-- note that by doing this filtering, we are defining a predicate instantiated by
+each row whose truth value is evaluated. -->
+<p>Challenge: In pandas, test De Morgan with missing data: create a row with protein = NaN. Show that (~p) &amp; (~q) can differ from ~(p | q) under three-valued logic; propose a fix (.fillna(False) or careful NA handling).</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
 <section id="implication" class="title-slide slide level1 center">
 <h1>Implication</h1>
 
 </section>
-<section id="logical-equivalence" class="slide level2">
+<section id="logical-equivalence-2" class="slide level2">
 <h2>Logical Equivalence</h2>
 <div class="smaller">
 <p>“Select all the cereals with at least 4 units of protein and no more than 6 units of sugars.”</p>
@@ -325,7 +616,7 @@ the right, then we all read our responses aloud! -->
 <li><p>Gives us mechanism for reasoning!</p></li>
 </ul>
 <aside class="notes">
-<p>q and not p is false. so it’s NOT (q^-p) == ???</p>
+<p>q and not p is false. so it’s NOT (q^-p) == ??? (apply demorgan)</p>
 <p>PL exercises on Logical equivalence involving implication?</p>
 <p>More on implication and logical equivalence in tutorial questions</p>
 <style type="text/css">
@@ -363,10 +654,18 @@ the right, then we all read our responses aloud! -->
       }</style></aside>
 <section id="words-and-ideas" class="slide level2">
 <h2>Words and Ideas</h2>
+<p>Grammar</p>
+<p>Predicate</p>
+<p>Boolean Mask</p>
+<p>Logical Equivalence</p>
+<p>Implication</p>
 
 
+<script type="pyodide-data">
+eyJvcHRpb25zIjp7ImVudiI6eyJQTE9UTFlfUkVOREVSRVIiOiJwbG90bHlfbWltZXR5cGUifSwiaW5kZXhVUkwiOiJodHRwczovL2Nkbi5qc2RlbGl2ci5uZXQvcHlvZGlkZS92MC4yNy4wL2Z1bGwvIn0sInBhY2thZ2VzIjp7InBrZ3MiOlsicHlvZGlkZV9odHRwIiwibWljcm9waXAiLCJpcHl0aG9uIl19fQ==
+</script>
 <script type="ojs-module-contents">
-eyJjb250ZW50cyI6W119
+eyJjb250ZW50cyI6W3siY2VsbE5hbWUiOiJweW9kaWRlLTIiLCJpbmxpbmUiOmZhbHNlLCJtZXRob2ROYW1lIjoiaW50ZXJwcmV0Iiwic291cmNlIjoidmlld29mIF9weW9kaWRlX2VkaXRvcl8yID0ge1xuICBjb25zdCB7IFB5b2RpZGVFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuXG4gIGNvbnN0IHNjcmlwdENvbnRlbnQgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKGBzY3JpcHRbdHlwZT1cXFwicHlvZGlkZS0yLWNvbnRlbnRzXFxcIl1gKS50ZXh0Q29udGVudDtcbiAgY29uc3QgYmxvY2sgPSBKU09OLnBhcnNlKGI2NERlY29kZShzY3JpcHRDb250ZW50KSk7XG5cbiAgLy8gRGVmYXVsdCBleGVyY2lzZSBjb25maWd1cmF0aW9uXG4gIGNvbnN0IG9wdGlvbnMgPSBPYmplY3QuYXNzaWduKFxuICAgIHtcbiAgICAgIGlkOiBcInB5b2RpZGUtMi1jb250ZW50c1wiLFxuICAgICAgZW52aXI6IGBleGVyY2lzZS1lbnYtJHtibG9jay5hdHRyLmV4ZXJjaXNlfWAsXG4gICAgICBlcnJvcjogZmFsc2UsXG4gICAgICBjYXB0aW9uOiAnRXhlcmNpc2UnLFxuICAgIH0sXG4gICAgYmxvY2suYXR0clxuICApO1xuXG4gIGNvbnN0IGVkaXRvciA9IG5ldyBQeW9kaWRlRXhlcmNpc2VFZGl0b3IocHlvZGlkZU9qcy5weW9kaWRlUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG4gIHJldHVybiBlZGl0b3IuY29udGFpbmVyO1xufVxudmlld29mIF9weW9kaWRlX3ZhbHVlXzIgPSBweW9kaWRlT2pzLnByb2Nlc3MoX3B5b2RpZGVfZWRpdG9yXzIsIHt9KTtcbl9weW9kaWRlX2ZlZWRiYWNrXzIgPSB7XG4gIGNvbnN0IHsgUHlvZGlkZUdyYWRlciB9ID0gd2luZG93Ll9leGVyY2lzZV9vanNfcnVudGltZTtcbiAgY29uc3QgZW1wdHlGZWVkYmFjayA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoJ2RpdicpO1xuXG4gIGNvbnN0IGdyYWRlciA9IG5ldyBQeW9kaWRlR3JhZGVyKF9weW9kaWRlX3ZhbHVlXzIuZXZhbHVhdG9yKTtcbiAgY29uc3QgZmVlZGJhY2sgPSBhd2FpdCBncmFkZXIuZ3JhZGVFeGVyY2lzZSgpO1xuICBpZiAoIWZlZWRiYWNrKSByZXR1cm4gZW1wdHlGZWVkYmFjaztcbiAgcmV0dXJuIGZlZWRiYWNrO1xufVxuIn0seyJjZWxsTmFtZSI6InB5b2RpZGUtcHJlbHVkZSIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6InB5b2RpZGVPanMgPSB7XG4gIGNvbnN0IHtcbiAgICBQeW9kaWRlRXZhbHVhdG9yLFxuICAgIFB5b2RpZGVFbnZpcm9ubWVudE1hbmFnZXIsXG4gICAgc2V0dXBQeXRob24sXG4gICAgc3RhcnRQeW9kaWRlV29ya2VyLFxuICAgIGI2NERlY29kZSxcbiAgICBjb2xsYXBzZVBhdGgsXG4gIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuXG4gIGNvbnN0IHN0YXR1c0NvbnRhaW5lciA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKFwiZXhlcmNpc2UtbG9hZGluZy1zdGF0dXNcIik7XG4gIGNvbnN0IGluZGljYXRvckNvbnRhaW5lciA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKFwiZXhlcmNpc2UtbG9hZGluZy1pbmRpY2F0b3JcIik7XG4gIGluZGljYXRvckNvbnRhaW5lci5jbGFzc0xpc3QucmVtb3ZlKFwiZC1ub25lXCIpO1xuXG4gIGxldCBzdGF0dXNUZXh0ID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudChcImRpdlwiKVxuICBzdGF0dXNUZXh0LmNsYXNzTGlzdCA9IFwiZXhlcmNpc2UtbG9hZGluZy1kZXRhaWxzXCI7XG4gIHN0YXR1c1RleHQgPSBzdGF0dXNDb250YWluZXIuYXBwZW5kQ2hpbGQoc3RhdHVzVGV4dCk7XG4gIHN0YXR1c1RleHQudGV4dENvbnRlbnQgPSBgSW5pdGlhbGlzZWA7XG5cbiAgLy8gSG9pc3QgaW5kaWNhdG9yIG91dCBmcm9tIGZpbmFsIHNsaWRlIHdoZW4gcnVubmluZyB1bmRlciByZXZlYWxcbiAgY29uc3QgcmV2ZWFsU3RhdHVzID0gZG9jdW1lbnQucXVlcnlTZWxlY3RvcihcIi5yZXZlYWwgLmV4ZXJjaXNlLWxvYWRpbmctaW5kaWNhdG9yXCIpO1xuICBpZiAocmV2ZWFsU3RhdHVzKSB7XG4gICAgcmV2ZWFsU3RhdHVzLnJlbW92ZSgpO1xuICAgIGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoXCIucmV2ZWFsID4gLnNsaWRlc1wiKS5hcHBlbmRDaGlsZChyZXZlYWxTdGF0dXMpO1xuICB9XG5cbiAgLy8gTWFrZSBhbnkgcmV2ZWFsIHNsaWRlcyB3aXRoIGxpdmUgY2VsbHMgc2Nyb2xsYWJsZVxuICBkb2N1bWVudC5xdWVyeVNlbGVjdG9yQWxsKFwiLnJldmVhbCAuZXhlcmNpc2UtY2VsbFwiKS5mb3JFYWNoKChlbCkgPT4ge1xuICAgIGVsLmNsb3Nlc3QoJ3NlY3Rpb24uc2xpZGUnKS5jbGFzc0xpc3QuYWRkKFwic2Nyb2xsYWJsZVwiKTtcbiAgfSlcblxuICAvLyBQeW9kaWRlIHN1cHBsZW1lbnRhbCBkYXRhIGFuZCBvcHRpb25zXG4gIGNvbnN0IGRhdGFDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcInB5b2RpZGUtZGF0YVxcXCJdYCkudGV4dENvbnRlbnQ7XG4gIGNvbnN0IGRhdGEgPSBKU09OLnBhcnNlKGI2NERlY29kZShkYXRhQ29udGVudCkpO1xuXG4gIC8vIEdyYWIgbGlzdCBvZiByZXNvdXJjZXMgdG8gYmUgZG93bmxvYWRlZFxuICBjb25zdCBmaWxlc0NvbnRlbnQgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKGBzY3JpcHRbdHlwZT1cXFwidmZzLWZpbGVcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBmaWxlcyA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKGZpbGVzQ29udGVudCkpO1xuXG4gIGxldCBweW9kaWRlUHJvbWlzZSA9IChhc3luYyAoKSA9PiB7XG4gICAgc3RhdHVzVGV4dC50ZXh0Q29udGVudCA9IGBEb3dubG9hZGluZyBQeW9kaWRlYDtcbiAgICBjb25zdCBweW9kaWRlID0gYXdhaXQgc3RhcnRQeW9kaWRlV29ya2VyKGRhdGEub3B0aW9ucyk7XG5cbiAgICBzdGF0dXNUZXh0LnRleHRDb250ZW50ID0gYERvd25sb2FkaW5nIHBhY2thZ2U6IG1pY3JvcGlwYDtcbiAgICBhd2FpdCBweW9kaWRlLmxvYWRQYWNrYWdlKFwibWljcm9waXBcIik7XG4gICAgY29uc3QgbWljcm9waXAgPSBhd2FpdCBweW9kaWRlLnB5aW1wb3J0KFwibWljcm9waXBcIik7XG4gICAgYXdhaXQgZGF0YS5wYWNrYWdlcy5wa2dzLm1hcCgocGtnKSA9PiAoKSA9PiB7XG4gICAgICBzdGF0dXNUZXh0LnRleHRDb250ZW50ID0gYERvd25sb2FkaW5nIHBhY2thZ2U6ICR7cGtnfWA7XG4gICAgICByZXR1cm4gbWljcm9waXAuaW5zdGFsbChwa2cpO1xuICAgIH0pLnJlZHVjZSgoY3VyLCBuZXh0KSA9PiBjdXIudGhlbihuZXh0KSwgUHJvbWlzZS5yZXNvbHZlKCkpO1xuICAgIGF3YWl0IG1pY3JvcGlwLmRlc3Ryb3koKTtcblxuICAgIC8vIERvd25sb2FkIGFuZCBpbnN0YWxsIHJlc291cmNlc1xuICAgIGF3YWl0IGZpbGVzLm1hcCgoZmlsZSkgPT4gYXN5bmMgKCkgPT4ge1xuICAgICAgY29uc3QgbmFtZSA9IGZpbGUuc3Vic3RyaW5nKGZpbGUubGFzdEluZGV4T2YoJy8nKSArIDEpO1xuICAgICAgc3RhdHVzVGV4dC50ZXh0Q29udGVudCA9IGBEb3dubG9hZGluZyByZXNvdXJjZTogJHtuYW1lfWA7XG4gICAgICBjb25zdCByZXNwb25zZSA9IGF3YWl0IGZldGNoKGZpbGUpO1xuICAgICAgaWYgKCFyZXNwb25zZS5vaykge1xuICAgICAgICB0aHJvdyBuZXcgRXJyb3IoYENhbid0IGRvd25sb2FkIFxcYCR7ZmlsZX1cXGAuIEVycm9yICR7cmVzcG9uc2Uuc3RhdHVzfTogXCIke3Jlc3BvbnNlLnN0YXR1c1RleHR9XCIuYCk7XG4gICAgICB9XG4gICAgICBjb25zdCBkYXRhID0gYXdhaXQgcmVzcG9uc2UuYXJyYXlCdWZmZXIoKTtcblxuICAgICAgLy8gU3RvcmUgVVJMcyBpbiB0aGUgY3dkIHdpdGhvdXQgYW55IHN1YmRpcmVjdG9yeSBzdHJ1Y3R1cmVcbiAgICAgIGlmIChmaWxlLmluY2x1ZGVzKFwiOi8vXCIpKSB7XG4gICAgICAgIGZpbGUgPSBuYW1lO1xuICAgICAgfVxuXG4gICAgICAvLyBDb2xsYXBzZSBoaWdoZXIgZGlyZWN0b3J5IHN0cnVjdHVyZVxuICAgICAgZmlsZSA9IGNvbGxhcHNlUGF0aChmaWxlKTtcblxuICAgICAgLy8gQ3JlYXRlIGRpcmVjdG9yeSB0cmVlLCBpZ25vcmluZyBcImRpcmVjdG9yeSBleGlzdHNcIiBWRlMgZXJyb3JzXG4gICAgICBjb25zdCBwYXJ0cyA9IGZpbGUuc3BsaXQoJy8nKS5zbGljZSgwLCAtMSk7XG4gICAgICBsZXQgcGF0aCA9ICcnO1xuICAgICAgd2hpbGUgKHBhcnRzLmxlbmd0aCA+IDApIHtcbiAgICAgICAgcGF0aCArPSBwYXJ0cy5zaGlmdCgpICsgJy8nO1xuICAgICAgICB0cnkge1xuICAgICAgICAgIGF3YWl0IHB5b2RpZGUuRlMubWtkaXIocGF0aCk7XG4gICAgICAgIH0gY2F0Y2ggKGUpIHtcbiAgICAgICAgICBpZiAoZS5uYW1lICE9PSBcIkVycm5vRXJyb3JcIikgdGhyb3cgZTtcbiAgICAgICAgICBpZiAoZS5lcnJubyAhPT0gMjApIHtcbiAgICAgICAgICAgIGNvbnN0IGVycm9yVGV4dFB0ciA9IGF3YWl0IHB5b2RpZGUuX21vZHVsZS5fc3RyZXJyb3IoZS5lcnJubyk7XG4gICAgICAgICAgICBjb25zdCBlcnJvclRleHQgPSBhd2FpdCBweW9kaWRlLl9tb2R1bGUuVVRGOFRvU3RyaW5nKGVycm9yVGV4dFB0cik7XG4gICAgICAgICAgICB0aHJvdyBuZXcgRXJyb3IoYEZpbGVzeXN0ZW0gRXJyb3IgJHtlLmVycm5vfSBcIiR7ZXJyb3JUZXh0fVwiLmApO1xuICAgICAgICAgIH1cbiAgICAgICAgfVxuICAgICAgfVxuXG4gICAgICAvLyBXcml0ZSB0aGlzIGZpbGUgdG8gdGhlIFZGU1xuICAgICAgdHJ5IHtcbiAgICAgICAgcmV0dXJuIGF3YWl0IHB5b2RpZGUuRlMud3JpdGVGaWxlKGZpbGUsIG5ldyBVaW50OEFycmF5KGRhdGEpKTtcbiAgICAgIH0gY2F0Y2ggKGUpIHtcbiAgICAgICAgaWYgKGUubmFtZSAhPT0gXCJFcnJub0Vycm9yXCIpIHRocm93IGU7XG4gICAgICAgIGNvbnN0IGVycm9yVGV4dFB0ciA9IGF3YWl0IHB5b2RpZGUuX21vZHVsZS5fc3RyZXJyb3IoZS5lcnJubyk7XG4gICAgICAgIGNvbnN0IGVycm9yVGV4dCA9IGF3YWl0IHB5b2RpZGUuX21vZHVsZS5VVEY4VG9TdHJpbmcoZXJyb3JUZXh0UHRyKTtcbiAgICAgICAgdGhyb3cgbmV3IEVycm9yKGBGaWxlc3lzdGVtIEVycm9yICR7ZS5lcnJub30gXCIke2Vycm9yVGV4dH1cIi5gKTtcbiAgICAgIH1cbiAgICB9KS5yZWR1Y2UoKGN1ciwgbmV4dCkgPT4gY3VyLnRoZW4obmV4dCksIFByb21pc2UucmVzb2x2ZSgpKTtcblxuICAgIHN0YXR1c1RleHQudGV4dENvbnRlbnQgPSBgUHlvZGlkZSBlbnZpcm9ubWVudCBzZXR1cGA7XG4gICAgYXdhaXQgc2V0dXBQeXRob24ocHlvZGlkZSk7XG5cbiAgICBzdGF0dXNUZXh0LnJlbW92ZSgpO1xuICAgIGlmIChzdGF0dXNDb250YWluZXIuY2hpbGRyZW4ubGVuZ3RoID09IDApIHtcbiAgICAgIHN0YXR1c0NvbnRhaW5lci5wYXJlbnROb2RlLnJlbW92ZSgpO1xuICAgIH1cbiAgICByZXR1cm4gcHlvZGlkZTtcbiAgfSkoKS5jYXRjaCgoZXJyKSA9PiB7XG4gICAgc3RhdHVzVGV4dC5zdHlsZS5jb2xvciA9IFwidmFyKC0tZXhlcmNpc2UtZWRpdG9yLWhsLWVyLCAjQUQwMDAwKVwiO1xuICAgIHN0YXR1c1RleHQudGV4dENvbnRlbnQgPSBlcnIubWVzc2FnZTtcbiAgICAvL2luZGljYXRvckNvbnRhaW5lci5xdWVyeVNlbGVjdG9yKFwiLnNwaW5uZXItZ3Jvd1wiKS5jbGFzc0xpc3QuYWRkKFwiZC1ub25lXCIpO1xuICAgIHRocm93IGVycjtcbiAgfSk7XG5cbiAgLy8gS2VlcCB0cmFjayBvZiBpbml0aWFsIE9KUyBibG9jayByZW5kZXJcbiAgY29uc3QgcmVuZGVyZWRPanMgPSB7fTtcblxuICBjb25zdCBwcm9jZXNzID0gYXN5bmMgKGNvbnRleHQsIGlucHV0cykgPT4ge1xuICAgIGNvbnN0IHB5b2RpZGUgPSBhd2FpdCBweW9kaWRlUHJvbWlzZTtcbiAgICBjb25zdCBldmFsdWF0b3IgPSBuZXcgUHlvZGlkZUV2YWx1YXRvcihweW9kaWRlLCBjb250ZXh0KTtcbiAgICBhd2FpdCBldmFsdWF0b3IucHJvY2VzcyhpbnB1dHMpO1xuICAgIHJldHVybiBldmFsdWF0b3IuY29udGFpbmVyO1xuICB9XG5cbiAgcmV0dXJuIHtcbiAgICBweW9kaWRlUHJvbWlzZSxcbiAgICByZW5kZXJlZE9qcyxcbiAgICBwcm9jZXNzLFxuICB9O1xufVxuIn1dfQ==
 </script>
 <div id="exercise-loading-indicator" class="exercise-loading-indicator d-none d-flex align-items-center gap-2">
 <div id="exercise-loading-status" class="d-flex gap-2">
