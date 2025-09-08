@@ -348,7 +348,7 @@
     "href": "slides/02_mon_impl.html#wffs",
     "title": "Discrete Math for Data Science",
     "section": "WFFs",
-    "text": "WFFs\n\n\nRand WFF\n\nApply rule on line: \n\n\n\nRand atom\n\nAtom becomes: \n\n\n&lt;wff&gt; ::= &lt;atom&gt;\n        | ~ &lt;wff&gt;\n        | ( &lt;wff&gt; ∧ &lt;wff&gt; )\n        | ( &lt;wff&gt; ∨ &lt;wff&gt; )\n\n&lt;atom&gt; ::= p | q \nExample derivation:\n&lt;wff&gt;"
+    "text": "WFFs\nRand WFF Apply rule on line: \nRand atom Atom becomes: \n&lt;wff&gt; ::= &lt;atom&gt;\n        | ~ &lt;wff&gt;\n        | ( &lt;wff&gt; ∧ &lt;wff&gt; )\n        | ( &lt;wff&gt; ∨ &lt;wff&gt; )\n\n&lt;atom&gt; ::= p | q \nExample derivation:\n&lt;wff&gt;"
   },
   {
     "objectID": "slides/02_mon_impl.html#wffs-notes",
@@ -362,14 +362,14 @@
     "href": "slides/02_mon_impl.html#wff-puzzle",
     "title": "Discrete Math for Data Science",
     "section": "WFF Puzzle",
-    "text": "WFF Puzzle\nWhich of these are WFFs?\n&lt;wff&gt; ::= &lt;atom&gt;\n        | ~ &lt;wff&gt;\n        | ( &lt;wff&gt; ∧ &lt;wff&gt; )\n        | ( &lt;wff&gt; ∨ &lt;wff&gt; )\n\n&lt;atom&gt; ::= p | q \n\n\n\n\\((\\neg p ∧ (q ∨ r))\\)\n\n\\(((p ∧ q) ∨ (r ∧ \\neg s))\\)\n\\(((\\neg p) ∨ (q ∨ r))\\)\n\n\n\n\\((p ∨ (qr))\\)\n\\(\\neg (p ∨ (q ∧ \\neg r))\\)\n\\(\\neg (p ∨ q))\\)\n\n\n\n  \n    −\n    +\n \n 03:00"
+    "text": "WFF Puzzle\nWhich of these are WFFs?\n&lt;wff&gt; ::= &lt;atom&gt;\n        | ~ &lt;wff&gt;\n        | ( &lt;wff&gt; ∧ &lt;wff&gt; )\n        | ( &lt;wff&gt; ∨ &lt;wff&gt; )\n\n&lt;atom&gt; ::= p | q \n\n\n\n\\((\\neg p ∧ (q ∨ r))\\)\n\\(((p ∧ q) ∨ (r ∧ \\neg s))\\)\n\\(((\\neg p) ∨ (q ∨ r))\\)\n\n\n\n\\((p ∨ (qr))\\)\n\\(\\neg (p ∨ (q ∧ \\neg r))\\)\n\\(\\neg (p ∨ q))\\)\n\n\n\n  \n    −\n    +\n \n 03:00\n \n\nSometimes pq is the same as p^q, p & q, p && q, but our grammar only uses ^. In this course we will vary symbols fluidly, partly because we’re assembling info from many different sources, but also partly because you’ll need to be agile in the future. Note that the same issues exist for other operators."
   },
   {
     "objectID": "slides/02_mon_impl.html#wffs-1",
     "href": "slides/02_mon_impl.html#wffs-1",
     "title": "Discrete Math for Data Science",
     "section": "WFFs",
-    "text": "WFFs\n&lt;wff&gt; ::= &lt;atom&gt;\n        | ~ &lt;wff&gt;\n        | ( &lt;wff&gt; ∧ &lt;wff&gt; )\n        | ( &lt;wff&gt; ∨ &lt;wff&gt; )\n\n&lt;atom&gt; ::= p | q \nTheorem: \\(\\neg (p ∨ q))\\) is not a WFF.\nProof:"
+    "text": "WFFs\n&lt;wff&gt; ::= &lt;atom&gt;\n        | ~ &lt;wff&gt;\n        | ( &lt;wff&gt; ∧ &lt;wff&gt; )\n        | ( &lt;wff&gt; ∨ &lt;wff&gt; )\n\n&lt;atom&gt; ::= p | q \nTheorem: \\(\\neg (p ∨ q))\\) is not a WFF.\nProof:\n\nassume that it is! then ~ must have been the last rule applied, and \\(( p v q))\\) must be a . then (  v  ) must have been the last rule applied, and \\(p\\) and \\(q)\\) must be . take each case separately: \\(q)\\) is not a  because none of the rules apply, so we have both that it must be a wff and it is not a wff – a contradiction, so our assumption is false!\nWe include this as foreshadowing for a proof strategy called “proof by contradition.” Making arguments like this (proofs) is the substance of this course, but don’t worry, we’ll be teaching you how to do it."
   },
   {
     "objectID": "slides/02_mon_impl.html#back-to-propositions",
@@ -397,7 +397,7 @@
     "href": "slides/02_mon_impl.html#logical-equivalence-1",
     "title": "Discrete Math for Data Science",
     "section": "Logical Equivalence",
-    "text": "Logical Equivalence\n\n\nEx: Is it true that \\((p \\lor q) \\equiv (q\\lor p)\\) ?\n\n\nDiscussion points:\n\n\\(\\equiv\\) means logically equivalent\nThe answer had better be _________!!!\nHow can we justify our instinct?"
+    "text": "Logical Equivalence\n\n\nEx: Is it true that \\((p \\lor q) \\equiv (q\\lor p)\\) ?\n\n\nDiscussion points:\n\n\\(\\equiv\\) means logically equivalent\nThe answer had better be _________!!!\nHow can we justify our instinct?\n\n\n\nShow same truth table\nChains of equivalence\n\nSame as saying “write a proof”"
   },
   {
     "objectID": "slides/02_mon_impl.html#logical-equivalence-example",
@@ -411,14 +411,14 @@
     "href": "slides/02_mon_impl.html#boolean-masks",
     "title": "Discrete Math for Data Science",
     "section": "Boolean Masks",
-    "text": "Boolean Masks\nSelect all the cereals with at least 4 units of protein and no more than 6 units of sugars.\n\n\n\n\n\n\n\n\n\n\nChallenge: In pandas, test De Morgan with missing data: create a row with protein = NaN. Show that (~p) & (~q) can differ from ~(p | q) under three-valued logic; propose a fix (.fillna(False) or careful NA handling)."
+    "text": "Boolean Masks\nSelect all the cereals with at least 4 units of protein and no more than 6 units of sugars.\n\n\n\n\n\n\n\n\n\nnote that by doing this filtering, we are defining a predicate instantiated by each row whose truth value is evaluated.\nChallenge: In pandas, test De Morgan with missing data: create a row with protein = NaN. Show that (~p) & (~q) can differ from ~(p | q) under three-valued logic; propose a fix (.fillna(False) or careful NA handling)."
   },
   {
     "objectID": "slides/02_mon_impl.html#logical-equivalence-2",
     "href": "slides/02_mon_impl.html#logical-equivalence-2",
     "title": "Discrete Math for Data Science",
     "section": "Logical Equivalence",
-    "text": "Logical Equivalence\n\n“Select all the cereals with at least 4 units of protein and no more than 6 units of sugars.”\n       \\(p\\): a cereal has less than 4 units of protein\n       \\(q\\): a cereal has more than 6 units of sugars\nWe suspect that \\(\\neg p\\wedge \\neg q \\equiv \\neg( p\\lor q)\\):\n\n\n\n\n\n\n\n\n\\(p\\)\n\\(q\\)\n\\(\\hspace{4em}\\neg p\\wedge \\neg q\\)\n\n\n\n\nF\nF\n\n\n\nF\nT\n\n\n\nT\nF\n\n\n\nT\nT\n\n\n\n\n\n\n\n\n\\(p\\)\n\\(q\\)\n\\(\\hspace{4em}\\neg( p\\lor q)\\)\n\n\n\n\nF\nF\n\n\n\nF\nT\n\n\n\nT\nF\n\n\n\nT\nT"
+    "text": "Logical Equivalence\n“Select all the cereals with at least 4 units of protein and no more than 6 units of sugars.”\n     \\(p\\): a cereal has less than 4 units of protein\n     \\(q\\): a cereal has more than 6 units of sugars\nWe suspect that \\(\\neg p\\wedge \\neg q \\equiv \\neg( p\\lor q)\\):\n\n\n\n\n\n\\(p\\)\n\\(q\\)\n\\(\\hspace{4em}\\neg p\\wedge \\neg q\\)\n\n\n\n\nF\nF\n\n\n\nF\nT\n\n\n\nT\nF\n\n\n\nT\nT\n\n\n\n\n\n\n\n\n\\(p\\)\n\\(q\\)\n\\(\\hspace{4em}\\neg( p\\lor q)\\)\n\n\n\n\nF\nF\n\n\n\nF\nT\n\n\n\nT\nF\n\n\n\nT\nT\n\n\n\n\n\n\nhalf the class complete the TT on the left, the other half on the right, then we all read our responses aloud!"
   },
   {
     "objectID": "slides/02_mon_impl.html#warm-up",

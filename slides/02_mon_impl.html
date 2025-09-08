@@ -198,6 +198,7 @@
   </style>
   <script type="module" src="../site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
   <link href="../site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 <meta property="og:title" content="Discrete Math for Data Science – DSCI 220: Discrete Math for Data Science">
 <meta property="og:description" content="DSCI 220, 2025 W1">
 <meta property="og:site_name" content="DSCI 220: Discrete Math for Data Science">
@@ -225,42 +226,9 @@
 </section>
 <section id="wffs" class="slide level2">
 <h2>WFFs</h2>
-<section>
-<button id="generateButton1">
-Rand WFF
-</button>
-Apply rule on line: <span id="randomNumberDisplay1"></span>
-</section>
-<section>
-<button id="generateButton2">
-Rand atom
-</button>
-Atom becomes: <span id="randomNumberDisplay2"></span>
-</section>
-<script>
-        function generateRandomWFF() {
-            // Generate a random number between 1 and 100 (inclusive)
-            const randomNumber = Math.floor(Math.random() * 4) + 1;
-            document.getElementById('randomNumberDisplay1').innerText = randomNumber;
-        }
-
-        function generateRandomAtom() {
-            // Generate a random number between 1 and 100 (inclusive)
-            const randomNumber = Math.floor(Math.random() * 2) + 1;
-            if (randomNumber == 1)
-                document.getElementById('randomNumberDisplay2').innerText = 'p';
-            else
-                document.getElementById('randomNumberDisplay2').innerText = 'q';
-
-        }
-
-        // Attach the function to the button click event
-        document.getElementById('generateButton1').addEventListener('click', generateRandomWFF);
-
-        document.getElementById('generateButton2').addEventListener('click', generateRandomAtom);
-
-</script>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource {bnf} number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a></a>&lt;wff&gt; ::= &lt;atom&gt;</span>
+<p><span id="generateButton1" class="btn btn-primary" role="button">Rand WFF</span> Apply rule on line: <span id="randomNumberDisplay1"></span></p>
+<p><span id="generateButton2" class="btn btn-primary" role="button">Rand atom</span> Atom becomes: <span id="randomNumberDisplay2"></span></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bnf number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a></a>&lt;wff&gt; ::= &lt;atom&gt;</span>
 <span id="cb1-2"><a></a>        | ~ &lt;wff&gt;</span>
 <span id="cb1-3"><a></a>        | ( &lt;wff&gt; ∧ &lt;wff&gt; )</span>
 <span id="cb1-4"><a></a>        | ( &lt;wff&gt; ∨ &lt;wff&gt; )</span>
@@ -271,7 +239,7 @@ Atom becomes: <span id="randomNumberDisplay2"></span>
 </section>
 <section id="wffs-notes" class="slide level2">
 <h2>WFFs (Notes)</h2>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource {bnf} number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a></a>&lt;wff&gt; ::= &lt;atom&gt;</span>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource bnf number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a></a>&lt;wff&gt; ::= &lt;atom&gt;</span>
 <span id="cb2-2"><a></a>        | ~ &lt;wff&gt;</span>
 <span id="cb2-3"><a></a>        | ( &lt;wff&gt; ∧ &lt;wff&gt; )</span>
 <span id="cb2-4"><a></a>        | ( &lt;wff&gt; ∨ &lt;wff&gt; )</span>
@@ -287,7 +255,7 @@ Atom becomes: <span id="randomNumberDisplay2"></span>
 <section id="wff-puzzle" class="slide level2 activity">
 <h2>WFF Puzzle</h2>
 <p>Which of these are WFFs?</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource {bnf} number-lines code-with-copy"><code class="sourceCode"><span id="cb3-1"><a></a>&lt;wff&gt; ::= &lt;atom&gt;</span>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource bnf number-lines code-with-copy"><code class="sourceCode"><span id="cb3-1"><a></a>&lt;wff&gt; ::= &lt;atom&gt;</span>
 <span id="cb3-2"><a></a>        | ~ &lt;wff&gt;</span>
 <span id="cb3-3"><a></a>        | ( &lt;wff&gt; ∧ &lt;wff&gt; )</span>
 <span id="cb3-4"><a></a>        | ( &lt;wff&gt; ∨ &lt;wff&gt; )</span>
@@ -296,8 +264,7 @@ Atom becomes: <span id="randomNumberDisplay2"></span>
 <div class="columns">
 <div class="column" style="width:50%;">
 <ol type="1">
-<li><span class="math inline">\((\neg p ∧ (q ∨ r))\)</span><br>
-</li>
+<li><span class="math inline">\((\neg p ∧ (q ∨ r))\)</span></li>
 <li><span class="math inline">\(((p ∧ q) ∨ (r ∧ \neg s))\)</span></li>
 <li><span class="math inline">\(((\neg p) ∨ (q ∨ r))\)</span></li>
 </ol>
@@ -308,7 +275,7 @@ Atom becomes: <span id="randomNumberDisplay2"></span>
 <li><span class="math inline">\(\neg (p ∨ q))\)</span></li>
 </ol>
 </div></div>
-<div id="timer_d446a3da99bd812673526566dc4b811a0720c685" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<div id="timer_5361def764a8cad44f8eeb69fff3baab276a3052" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
@@ -316,10 +283,7 @@ Atom becomes: <span id="randomNumberDisplay2"></span>
  <code class="countdown-time"><span class="countdown-digits minutes">03</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
  </div>
 <aside class="notes">
-<!-- notes: sometimes pq is the same as p^q, p & q, p && q, but our grammar only 
-uses ^. In this course we will vary symbols fluidly, partly because we're 
-assembling info from many different sources, but also partly because you'll
-need to be agile in the future. Note that the same issues exist for other operators. -->
+<p>Sometimes pq is the same as p^q, p &amp; q, p &amp;&amp; q, but our grammar only uses ^. In this course we will vary symbols fluidly, partly because we’re assembling info from many different sources, but also partly because you’ll need to be agile in the future. Note that the same issues exist for other operators.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -334,7 +298,7 @@ need to be agile in the future. Note that the same issues exist for other operat
 </section>
 <section id="wffs-1" class="slide level2">
 <h2>WFFs</h2>
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource {bnf} number-lines code-with-copy"><code class="sourceCode"><span id="cb4-1"><a></a>&lt;wff&gt; ::= &lt;atom&gt;</span>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource bnf number-lines code-with-copy"><code class="sourceCode"><span id="cb4-1"><a></a>&lt;wff&gt; ::= &lt;atom&gt;</span>
 <span id="cb4-2"><a></a>        | ~ &lt;wff&gt;</span>
 <span id="cb4-3"><a></a>        | ( &lt;wff&gt; ∧ &lt;wff&gt; )</span>
 <span id="cb4-4"><a></a>        | ( &lt;wff&gt; ∨ &lt;wff&gt; )</span>
@@ -343,16 +307,8 @@ need to be agile in the future. Note that the same issues exist for other operat
 <p>Theorem: <span class="math inline">\(\neg (p ∨ q))\)</span> is not a WFF.</p>
 <p>Proof:</p>
 <aside class="notes">
-<!-- assume that it is! then ~<wff> must have been the last rule applied, 
-and $( p v q))$ must be a <wff>. then ( <wff> v <wff> ) must have been the 
-last rule applied, and $p$ and $q)$ must be <wff>. take each case separately:
-$q)$ is not a <wff> because none of the rules apply, so we have both that it 
-must be a wff and it is not a wff -- a contradiction, so our assumption 
-is false!  
-
-We include this as foreshadowing for a proof strategy called "proof by 
-contradition."" Making arguments like this (proofs) is the substance of this course, 
-but don't worry, we'll be teaching you how to do it. -->
+<p>assume that it is! then ~<wff> must have been the last rule applied, and <span class="math inline">\(( p v q))\)</span> must be a <wff>. then ( <wff> v <wff> ) must have been the last rule applied, and <span class="math inline">\(p\)</span> and <span class="math inline">\(q)\)</span> must be <wff>. take each case separately: <span class="math inline">\(q)\)</span> is not a <wff> because none of the rules apply, so we have both that it must be a wff and it is not a wff – a contradiction, so our assumption is false!</wff></wff></wff></wff></wff></wff></p>
+<p>We include this as foreshadowing for a proof strategy called “proof by contradition.” Making arguments like this (proofs) is the substance of this course, but don’t worry, we’ll be teaching you how to do it.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -426,8 +382,11 @@ but don't worry, we'll be teaching you how to do it. -->
 <li><p>How can we justify our instinct?</p></li>
 </ul>
 <aside class="notes">
-<!-- 1) show same truth table 2) chains of equivalence -->
-<!-- same as saying "write a proof" -->
+<ol type="1">
+<li>Show same truth table</li>
+<li>Chains of equivalence</li>
+</ol>
+<p>Same as saying “write a proof”</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -462,8 +421,7 @@ eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWUsImV4ZXJjaXNlIjoiZXhfY2VyZWFsIn0sImNv
 eyJhdHRyIjp7ImNoZWNrIjp0cnVlLCJlZGl0Ijp0cnVlLCJldmFsIjp0cnVlLCJleGVyY2lzZSI6ImV4X2NlcmVhbCJ9LCJjb2RlIjoiY29ycmVjdF9hbnN3ZXIgPSBjZXJlYWxzWyhjZXJlYWxzWydwcm90ZWluJ10gPj0gNCkgJiAoY2VyZWFsc1snc3VnYXJzJ10gPD0gNildXG5cbm9rID0gKFxuICAgIGxlbihmaWx0ZXJlZF9kZikgPT0gbGVuKGNvcnJlY3RfYW5zd2VyKVxuICAgIGFuZCBmaWx0ZXJlZF9kZi5pbmRleC5lcXVhbHMoY29ycmVjdF9hbnN3ZXIuaW5kZXgpXG4pXG5cbmlmIG9rOlxuICAgIGZlZWRiYWNrID0ge1xuICAgICAgICBcImNvcnJlY3RcIjogVHJ1ZSxcbiAgICAgICAgXCJtZXNzYWdlXCI6IFwiUGVyZmVjdCEgWW91IGNvcnJlY3RseSBmaWx0ZXJlZCBmb3IgaGVhbHRoeSBjZXJlYWwuXCJcbiAgICB9XG5lbHNlOlxuICAgIGZlZWRiYWNrID0ge1xuICAgICAgICBcImNvcnJlY3RcIjogRmFsc2UsXG4gICAgICAgIFwibWVzc2FnZVwiOiBcIk5vdCBxdWl0ZS4gVXNlIGJvdGggY29uZGl0aW9uczogcHJvdGVpbiA+PSA0IGFuZCBzdWdhcnMgPD0gNi5cIlxuICAgIH1cblxuZmVlZGJhY2sgICJ9
 </script>
 <aside class="notes">
-<!-- note that by doing this filtering, we are defining a predicate instantiated by
-each row whose truth value is evaluated. -->
+<p>note that by doing this filtering, we are defining a predicate instantiated by each row whose truth value is evaluated.</p>
 <p>Challenge: In pandas, test De Morgan with missing data: create a row with protein = NaN. Show that (~p) &amp; (~q) can differ from ~(p | q) under three-valued logic; propose a fix (.fillna(False) or careful NA handling).</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -476,22 +434,13 @@ each row whose truth value is evaluated. -->
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
-</section></section>
-<section>
-<section id="implication" class="title-slide slide level1 center">
-<h1>Implication</h1>
-
 </section>
-<section id="logical-equivalence-2" class="slide level2">
+<section id="logical-equivalence-2" class="slide level2 smaller">
 <h2>Logical Equivalence</h2>
-<div class="smaller">
 <p>“Select all the cereals with at least 4 units of protein and no more than 6 units of sugars.”</p>
-<div class="line-block">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(p\)</span>: a cereal has less than 4 units of protein<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(q\)</span>: a cereal has more than 6 units of sugars</div>
+<div class="line-block">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(p\)</span>: a cereal has less than 4 units of protein<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(q\)</span>: a cereal has more than 6 units of sugars</div>
 <p>We suspect that <span class="math inline">\(\neg p\wedge \neg q \equiv \neg( p\lor q)\)</span>:</p>
-<p><br>
-</p>
-</div>
 <div class="columns">
 <div class="column" style="width: 50%; font-size: 80%;">
 <table class="caption-top">
@@ -559,8 +508,7 @@ each row whose truth value is evaluated. -->
 </table>
 </div></div>
 <aside class="notes">
-<!-- half the class complete the TT on the left, the other half on 
-the right, then we all read our responses aloud! -->
+<p>half the class complete the TT on the left, the other half on the right, then we all read our responses aloud!</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -605,6 +553,11 @@ the right, then we all read our responses aloud! -->
 </script>
     
 <p><a href="https://us.prairielearn.com/pl/course_instance/186238/assessment/2562335" class="uri">https://us.prairielearn.com/pl/course_instance/186238/assessment/2562335</a></p>
+</section></section>
+<section>
+<section id="implication" class="title-slide slide level1 center">
+<h1>Implication</h1>
+
 </section>
 <section id="implication-1" class="slide level2">
 <h2>Implication</h2>
@@ -667,7 +620,6 @@ the right, then we all read our responses aloud! -->
           display:block!important;
       }</style></aside>
 </section>
-<aside class="notes">
 <section id="special-logical-equivalences" class="slide level2">
 <h2>Special Logical Equivalences</h2>
 <p>Suppose <span class="math inline">\(p\equiv\)</span> <strong>T</strong> . Then <span class="math inline">\(p\)</span> is a <em>Tautology</em>.</p>
@@ -677,17 +629,6 @@ the right, then we all read our responses aloud! -->
 <h2>Logical Equivalence Practice</h2>
 <p>link to PL question</p>
 </section>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 <section id="words-and-ideas" class="slide level2">
 <h2>Words and Ideas</h2>
 <p>Grammar</p>
@@ -1112,6 +1053,27 @@ W10=
         }
       });
       </script>
+    <script>
+        function generateRandomWFF() {
+           // Generate a random number between 1 and 100 (inclusive)
+           const randomNumber = Math.floor(Math.random() * 4) + 1;
+           document.getElementById('randomNumberDisplay1').innerText = randomNumber;
+        }
+
+        function generateRandomAtom() {
+            // Generate a random number between 1 and 100 (inclusive)
+            const randomNumber = Math.floor(Math.random() * 2) + 1;
+            if (randomNumber == 1)
+                document.getElementById('randomNumberDisplay2').innerText = 'p';
+            else
+                document.getElementById('randomNumberDisplay2').innerText = 'q';
+        }
+
+        // Attach the function to the button click event
+        document.getElementById('generateButton1').addEventListener('click', generateRandomWFF);
+
+        document.getElementById('generateButton2').addEventListener('click', generateRandomAtom);
+    </script>
     
 
 </body></html>
