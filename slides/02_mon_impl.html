@@ -226,8 +226,8 @@
 </section>
 <section id="wffs" class="slide level2">
 <h2>WFFs</h2>
-<p><span id="generateButton1" class="btn btn-primary" role="button">Rand WFF</span> Apply rule on line: <span id="randomNumberDisplay1"></span></p>
-<p><span id="generateButton2" class="btn btn-primary" role="button">Rand atom</span> Atom becomes: <span id="randomNumberDisplay2"></span></p>
+<p><span id="generateButton1" class="btn btn-primary" role="button">Rand WFF</span> Apply rule on line:</p>
+<p><span id="generateButton2" class="btn btn-primary" role="button">Rand atom</span> Atom becomes:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bnf number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a></a>&lt;wff&gt; ::= &lt;atom&gt;</span>
 <span id="cb1-2"><a></a>        | ~ &lt;wff&gt;</span>
 <span id="cb1-3"><a></a>        | ( &lt;wff&gt; ∧ &lt;wff&gt; )</span>
@@ -275,7 +275,7 @@
 <li><span class="math inline">\(\neg (p ∨ q))\)</span></li>
 </ol>
 </div></div>
-<div id="timer_5361def764a8cad44f8eeb69fff3baab276a3052" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<div id="timer_367475b7394a7848b25b61dc98221e263ab08297" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
@@ -435,77 +435,102 @@ eyJhdHRyIjp7ImNoZWNrIjp0cnVlLCJlZGl0Ijp0cnVlLCJldmFsIjp0cnVlLCJleGVyY2lzZSI6ImV4
           display:block!important;
       }</style></aside>
 </section>
-<section id="logical-equivalence-2" class="slide level2 smaller">
+<section id="logical-equivalence-2" class="slide level2">
 <h2>Logical Equivalence</h2>
+<div class="small-font-size">
 <p>“Select all the cereals with at least 4 units of protein and no more than 6 units of sugars.”</p>
-<div class="line-block">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(p\)</span>: a cereal has less than 4 units of protein<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(q\)</span>: a cereal has more than 6 units of sugars</div>
-<p>We suspect that <span class="math inline">\(\neg p\wedge \neg q \equiv \neg( p\lor q)\)</span>:</p>
 <div class="columns">
-<div class="column" style="width: 50%; font-size: 80%;">
+<div class="column" style="width:25%;">
+
+</div><div class="column" style="width:50%;">
+<p><span class="math inline">\(p\)</span>: a cereal has less than 4 units of protein</p>
+<p><span class="math inline">\(q\)</span>: a cereal has more than 6 units of sugars</p>
+</div><div class="column" style="width:25%;">
+
+</div></div>
+<p><br>
+</p>
+<p>We suspect that <span class="math inline">\(\neg p\wedge \neg q \equiv \neg( p\lor q)\)</span>:</p>
+</div>
+<div class="columns">
+<div class="column" style="width:45%;">
 <table class="caption-top">
+<colgroup>
+<col style="width: 15%">
+<col style="width: 15%">
+<col style="width: 70%">
+</colgroup>
 <thead>
 <tr class="header">
 <th><span class="math inline">\(p\)</span></th>
 <th><span class="math inline">\(q\)</span></th>
-<th><span class="math inline">\(\hspace{4em}\neg p\wedge \neg q\)</span></th>
+<th style="text-align: right;"><span class="math inline">\(\neg p\wedge \neg q\)</span></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td>F</td>
 <td>F</td>
-<td></td>
+<td style="text-align: right;"></td>
 </tr>
 <tr class="even">
 <td>F</td>
 <td>T</td>
-<td></td>
+<td style="text-align: right;"></td>
 </tr>
 <tr class="odd">
 <td>T</td>
 <td>F</td>
-<td></td>
+<td style="text-align: right;"></td>
 </tr>
 <tr class="even">
 <td>T</td>
 <td>T</td>
-<td></td>
+<td style="text-align: right;"></td>
 </tr>
 </tbody>
 </table>
-</div><div class="column" style="width: 50%; font-size: 80%;">
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:45%;">
+<div style="float: right;">
 <table class="caption-top">
+<colgroup>
+<col style="width: 15%">
+<col style="width: 15%">
+<col style="width: 70%">
+</colgroup>
 <thead>
 <tr class="header">
 <th><span class="math inline">\(p\)</span></th>
 <th><span class="math inline">\(q\)</span></th>
-<th style="text-align: center;"><span class="math inline">\(\hspace{4em}\neg( p\lor q)\)</span></th>
+<th style="text-align: right;"><span class="math inline">\(\neg( p\lor q)\)</span></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td>F</td>
 <td>F</td>
-<td style="text-align: center;"></td>
+<td style="text-align: right;"></td>
 </tr>
 <tr class="even">
 <td>F</td>
 <td>T</td>
-<td style="text-align: center;"></td>
+<td style="text-align: right;"></td>
 </tr>
 <tr class="odd">
 <td>T</td>
 <td>F</td>
-<td style="text-align: center;"></td>
+<td style="text-align: right;"></td>
 </tr>
 <tr class="even">
 <td>T</td>
 <td>T</td>
-<td style="text-align: center;"></td>
+<td style="text-align: right;"></td>
 </tr>
 </tbody>
 </table>
+</div>
 </div></div>
 <aside class="notes">
 <p>half the class complete the TT on the left, the other half on the right, then we all read our responses aloud!</p>
@@ -523,11 +548,13 @@ eyJhdHRyIjp7ImNoZWNrIjp0cnVlLCJlZGl0Ijp0cnVlLCJldmFsIjp0cnVlLCJleGVyY2lzZSI6ImV4
 </section>
 <section id="warm-up" class="slide level2">
 <h2>Warm Up</h2>
-<p>Last time we discussed Logical Equivalence (LE) and showed an example. The table below illustrates LE that are so important, they have names!</p>
 <div class="columns">
 <div class="column" style="width:50%;">
 <p><a href="https://en.wikipedia.org/wiki/Logical_equivalence"><img data-src="../images/LE.png" alt="logical equivalences"></a></p>
 </div><div class="column" style="width:50%;">
+<div class="small-font-size">
+<p>Last time we discussed Logical Equivalence (LE) and showed an example. The table below illustrates LE that are so important, they have names!</p>
+</div>
 <p>Observations:</p>
 <ul>
 <li></li>

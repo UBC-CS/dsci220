@@ -348,7 +348,7 @@
     "href": "slides/02_mon_impl.html#wffs",
     "title": "Discrete Math for Data Science",
     "section": "WFFs",
-    "text": "WFFs\nRand WFF Apply rule on line: \nRand atom Atom becomes: \n&lt;wff&gt; ::= &lt;atom&gt;\n        | ~ &lt;wff&gt;\n        | ( &lt;wff&gt; ∧ &lt;wff&gt; )\n        | ( &lt;wff&gt; ∨ &lt;wff&gt; )\n\n&lt;atom&gt; ::= p | q \nExample derivation:\n&lt;wff&gt;"
+    "text": "WFFs\nRand WFF Apply rule on line:\nRand atom Atom becomes:\n&lt;wff&gt; ::= &lt;atom&gt;\n        | ~ &lt;wff&gt;\n        | ( &lt;wff&gt; ∧ &lt;wff&gt; )\n        | ( &lt;wff&gt; ∨ &lt;wff&gt; )\n\n&lt;atom&gt; ::= p | q \nExample derivation:\n&lt;wff&gt;"
   },
   {
     "objectID": "slides/02_mon_impl.html#wffs-notes",
@@ -418,14 +418,14 @@
     "href": "slides/02_mon_impl.html#logical-equivalence-2",
     "title": "Discrete Math for Data Science",
     "section": "Logical Equivalence",
-    "text": "Logical Equivalence\n“Select all the cereals with at least 4 units of protein and no more than 6 units of sugars.”\n     \\(p\\): a cereal has less than 4 units of protein\n     \\(q\\): a cereal has more than 6 units of sugars\nWe suspect that \\(\\neg p\\wedge \\neg q \\equiv \\neg( p\\lor q)\\):\n\n\n\n\n\n\\(p\\)\n\\(q\\)\n\\(\\hspace{4em}\\neg p\\wedge \\neg q\\)\n\n\n\n\nF\nF\n\n\n\nF\nT\n\n\n\nT\nF\n\n\n\nT\nT\n\n\n\n\n\n\n\n\n\\(p\\)\n\\(q\\)\n\\(\\hspace{4em}\\neg( p\\lor q)\\)\n\n\n\n\nF\nF\n\n\n\nF\nT\n\n\n\nT\nF\n\n\n\nT\nT\n\n\n\n\n\n\nhalf the class complete the TT on the left, the other half on the right, then we all read our responses aloud!"
+    "text": "Logical Equivalence\n\n“Select all the cereals with at least 4 units of protein and no more than 6 units of sugars.”\n\n\n\n\n\\(p\\): a cereal has less than 4 units of protein\n\\(q\\): a cereal has more than 6 units of sugars\n\n\n\n\n\nWe suspect that \\(\\neg p\\wedge \\neg q \\equiv \\neg( p\\lor q)\\):\n\n\n\n\n\n\n\n\n\n\n\n\\(p\\)\n\\(q\\)\n\\(\\neg p\\wedge \\neg q\\)\n\n\n\n\nF\nF\n\n\n\nF\nT\n\n\n\nT\nF\n\n\n\nT\nT\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\\(p\\)\n\\(q\\)\n\\(\\neg( p\\lor q)\\)\n\n\n\n\nF\nF\n\n\n\nF\nT\n\n\n\nT\nF\n\n\n\nT\nT\n\n\n\n\n\n\n\nhalf the class complete the TT on the left, the other half on the right, then we all read our responses aloud!"
   },
   {
     "objectID": "slides/02_mon_impl.html#warm-up",
     "href": "slides/02_mon_impl.html#warm-up",
     "title": "Discrete Math for Data Science",
     "section": "Warm Up",
-    "text": "Warm Up\nLast time we discussed Logical Equivalence (LE) and showed an example. The table below illustrates LE that are so important, they have names!\n\n\n\n\nObservations:"
+    "text": "Warm Up\n\n\n\n\n\nLast time we discussed Logical Equivalence (LE) and showed an example. The table below illustrates LE that are so important, they have names!\n\nObservations:"
   },
   {
     "objectID": "slides/02_mon_impl.html#logical-equivalence-practice",
