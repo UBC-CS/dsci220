@@ -1,10 +1,31 @@
 ---
-date: 2025-09-05
+date: 2025-09-08
 ---
 
 # Propositions Continued
 
 ## WFFs
+<section>
+        <button id="generateButton">Generate New Number</button>
+        Your random number is: <span id="randomNumberDisplay"></span>
+ </section>
+ <script>
+        function generateRandomNumber() {
+            // Generate a random number between 1 and 100 (inclusive)
+            const randomNumber = Math.floor(Math.random() * 4) + 1;
+            document.getElementById('randomNumberDisplay').innerText = randomNumber;
+        }
+
+        // Attach the function to the button click event
+        document.getElementById('generateButton').addEventListener('click', generateRandomNumber);
+
+        // Optionally, generate a number on slide load
+        Reveal.on('slidechanged', event => {
+            if (event.currentSlide.querySelector('#randomNumberDisplay')) {
+                generateRandomNumber();
+            }
+        });
+</script>
 
 ```{bnf}
 <wff> ::= <atom>
