@@ -348,7 +348,7 @@
     "href": "slides/02_mon_impl.html#wffs",
     "title": "Discrete Math for Data Science",
     "section": "WFFs",
-    "text": "WFFs\n\n\nGenerate New Number\n\nYour random number is: \n\n\n&lt;wff&gt; ::= &lt;atom&gt;\n        | ~ &lt;wff&gt;\n        | ( &lt;wff&gt; ∧ &lt;wff&gt; )\n        | ( &lt;wff&gt; ∨ &lt;wff&gt; )\n\n&lt;atom&gt; ::= p | q \nExample derivation:\n&lt;wff&gt;"
+    "text": "WFFs\n\n\nRand WFF\n\nApply rule on line: \n\n\n\nRand atom\n\nAtom becomes: \n\n\n&lt;wff&gt; ::= &lt;atom&gt;\n        | ~ &lt;wff&gt;\n        | ( &lt;wff&gt; ∧ &lt;wff&gt; )\n        | ( &lt;wff&gt; ∨ &lt;wff&gt; )\n\n&lt;atom&gt; ::= p | q \nExample derivation:\n&lt;wff&gt;"
   },
   {
     "objectID": "slides/02_mon_impl.html#wffs-notes",
@@ -372,18 +372,18 @@
     "text": "WFFs\n&lt;wff&gt; ::= &lt;atom&gt;\n        | ~ &lt;wff&gt;\n        | ( &lt;wff&gt; ∧ &lt;wff&gt; )\n        | ( &lt;wff&gt; ∨ &lt;wff&gt; )\n\n&lt;atom&gt; ::= p | q \nTheorem: \\(\\neg (p ∨ q))\\) is not a WFF.\nProof:"
   },
   {
-    "objectID": "slides/02_mon_impl.html#propositions",
-    "href": "slides/02_mon_impl.html#propositions",
+    "objectID": "slides/02_mon_impl.html#back-to-propositions",
+    "href": "slides/02_mon_impl.html#back-to-propositions",
     "title": "Discrete Math for Data Science",
-    "section": "Propositions",
-    "text": "Propositions\nA proposition is a statement that can be either True or False.\nExamples:\n\n\\(37 &gt; 12\\)\nFewer than 5 people in this room feel sleepy.\nThere are extra-terrestrial life forms.\nThis statement is False.\n\\(\\underline{\\hspace{10em}}\\)"
+    "section": "Back to Propositions",
+    "text": "Back to Propositions\nA proposition is a statement that can be either True or False.\nExamples:\n\n\\(37 &gt; 12\\)\nFewer than 5 people in this room feel sleepy.\nThere are extra-terrestrial life forms.\nThis statement is False.\n\\(\\underline{\\hspace{10em}}\\)"
   },
   {
     "objectID": "slides/02_mon_impl.html#translation",
     "href": "slides/02_mon_impl.html#translation",
     "title": "Discrete Math for Data Science",
     "section": "Translation",
-    "text": "Translation\n\n\n\\(p\\): ___________ ate cereal for breakfast.\n\\(q\\): ___________ brought a backpack to class.\n \n\n\\((p\\lor q)\\)\n\\((p\\wedge q)\\)\n\\(\\neg q\\)"
+    "text": "Translation\nFrom English to logic and back…\n\n\n\\(p\\): ___________ ate cereal for breakfast.\n\\(q\\): ___________ brought a backpack to class.\n \n\n\\((p\\lor q)\\)\n\\((p\\wedge q)\\)\n\\(\\neg q\\)"
   },
   {
     "objectID": "slides/02_mon_impl.html#predicates",

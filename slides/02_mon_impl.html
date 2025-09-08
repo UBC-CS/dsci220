@@ -226,27 +226,39 @@
 <section id="wffs" class="slide level2">
 <h2>WFFs</h2>
 <section>
-<button id="generateButton">
-Generate New Number
+<button id="generateButton1">
+Rand WFF
 </button>
-Your random number is: <span id="randomNumberDisplay"></span>
+Apply rule on line: <span id="randomNumberDisplay1"></span>
+</section>
+<section>
+<button id="generateButton2">
+Rand atom
+</button>
+Atom becomes: <span id="randomNumberDisplay2"></span>
 </section>
 <script>
-        function generateRandomNumber() {
+        function generateRandomWFF() {
             // Generate a random number between 1 and 100 (inclusive)
             const randomNumber = Math.floor(Math.random() * 4) + 1;
-            document.getElementById('randomNumberDisplay').innerText = randomNumber;
+            document.getElementById('randomNumberDisplay1').innerText = randomNumber;
+        }
+
+        function generateRandomAtom() {
+            // Generate a random number between 1 and 100 (inclusive)
+            const randomNumber = Math.floor(Math.random() * 2) + 1;
+            if (randomNumber == 1)
+                document.getElementById('randomNumberDisplay2').innerText = 'p';
+            else
+                document.getElementById('randomNumberDisplay2').innerText = 'q';
+
         }
 
         // Attach the function to the button click event
-        document.getElementById('generateButton').addEventListener('click', generateRandomNumber);
+        document.getElementById('generateButton1').addEventListener('click', generateRandomWFF);
 
-        // Optionally, generate a number on slide load
-        Reveal.on('slidechanged', event => {
-            if (event.currentSlide.querySelector('#randomNumberDisplay')) {
-                generateRandomNumber();
-            }
-        });
+        document.getElementById('generateButton2').addEventListener('click', generateRandomAtom);
+
 </script>
 <div class="sourceCode" id="cb1"><pre class="sourceCode numberSource {bnf} number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a></a>&lt;wff&gt; ::= &lt;atom&gt;</span>
 <span id="cb1-2"><a></a>        | ~ &lt;wff&gt;</span>
@@ -296,7 +308,7 @@ Your random number is: <span id="randomNumberDisplay"></span>
 <li><span class="math inline">\(\neg (p ∨ q))\)</span></li>
 </ol>
 </div></div>
-<div id="timer_87385849c16ebee1ed1b73c0eedb94902e08862d" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<div id="timer_d446a3da99bd812673526566dc4b811a0720c685" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
@@ -353,8 +365,8 @@ but don't worry, we'll be teaching you how to do it. -->
           display:block!important;
       }</style></aside>
 </section>
-<section id="propositions" class="slide level2">
-<h2>Propositions</h2>
+<section id="back-to-propositions" class="slide level2">
+<h2>Back to Propositions</h2>
 <p>A <em>proposition</em> is a statement that can be either <strong>True</strong> or <strong>False</strong>.</p>
 <p>Examples:</p>
 <ul>
@@ -367,6 +379,7 @@ but don't worry, we'll be teaching you how to do it. -->
 </section>
 <section id="translation" class="slide level2">
 <h2>Translation</h2>
+<p>From English to logic and back…</p>
 <p><br>
 </p>
 <p><span class="math inline">\(p\)</span>: ___________ ate cereal for breakfast.</p>
