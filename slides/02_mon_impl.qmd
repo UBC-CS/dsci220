@@ -328,7 +328,7 @@ half the class complete the TT on the left, the other half on the right, then we
 :::: {.column width="50%"}
 ::: small-font-size
 Last time we discussed Logical Equivalence (LE) and showed an example.
-The table below illustrates LE that are so important, they have names!
+The table illustrates LE that are so important, they have names!
 :::
 
 Observations:
