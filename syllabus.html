@@ -392,9 +392,8 @@ ul.task-list li input[type="checkbox"] {
   <ul class="collapse">
   <li><a href="#instructor-information" id="toc-instructor-information" class="nav-link" data-scroll-target="#instructor-information">Instructor information</a></li>
   <li><a href="#course-description-and-learning-objectives" id="toc-course-description-and-learning-objectives" class="nav-link" data-scroll-target="#course-description-and-learning-objectives">Course description and learning objectives</a></li>
-  <li><a href="#lecture-material" id="toc-lecture-material" class="nav-link" data-scroll-target="#lecture-material">Lecture material</a></li>
+  <li><a href="#lecture-material-and-course-content" id="toc-lecture-material-and-course-content" class="nav-link" data-scroll-target="#lecture-material-and-course-content">Lecture material and Course Content</a></li>
   <li><a href="#course-requirements" id="toc-course-requirements" class="nav-link" data-scroll-target="#course-requirements">Course requirements</a></li>
-  <li><a href="#course-content" id="toc-course-content" class="nav-link" data-scroll-target="#course-content">Course content</a></li>
   <li><a href="#grading-and-exam-policies" id="toc-grading-and-exam-policies" class="nav-link" data-scroll-target="#grading-and-exam-policies">Grading and exam policies</a></li>
   <li><a href="#accessibility" id="toc-accessibility" class="nav-link" data-scroll-target="#accessibility">Accessibility</a></li>
   <li><a href="#academic-misconduct" id="toc-academic-misconduct" class="nav-link" data-scroll-target="#academic-misconduct">Academic misconduct</a></li>
@@ -428,30 +427,105 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="introduction" class="level1">
 <h1>Introduction</h1>
-<p>Welcome to CPSC203, where we treat programming as both a puzzle and a playground. In this course, you’ll learn how to use Python to wrangle numbers, words, images—even music—into surprising results. We’ll build simulations, play with graphs and trees, and peek into how computers tackle problems that seem impossibly big. Along the way, you’ll pick up habits of real programmers—like testing your code, keeping track of versions, and breaking big problems into smaller ones. Most importantly, you’ll discover how computational thinking can help you ask and answer questions in your own field of study.</p>
+<p>Welcome to DSCI220! In this course we will use concepts and structures from math as a model for the way we think about data. Among other things, we will explore sets, regular expressions, graphs, and strings. Most importantly, we will learn to reason about these structures and the data they represent.</p>
 <section id="instructor-information" class="level2">
 <h2 class="anchored" data-anchor-id="instructor-information">Instructor information</h2>
+<ul>
+<li><p><strong>Prof: Cinda Heeren</strong><br>
+📧 <a href="mailto:cheeren@cs.ubc.ca">cheeren@cs.ubc.ca</a><br>
+⏰ Mon 2–4pm · 🏢 ICCS 233 · <a href="https://ubc.zoom.us/j/5393867685?pwd=N01ZS2dLbVorQkRzcDRuNTdwQmRYUT09"><img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Zoom_Communications_Logo.svg" alt="Zoom" style="height:20px; vertical-align:middle;"></a></p></li>
+<li><p><strong>TA: Joe Wonsil</strong><br>
+📧 <a href="mailto:jwonsil@cs.ubc.ca">jwonsil@cs.ubc.ca</a><br>
+⏰ Fri 11-12a · 🏢 FORW 317</p></li>
+<li><p><strong>TA: Marko Ciric</strong> 📧 <a href="mailto:mciric01@student.ubc.ca">mciric01@student.ubc.ca</a><br>
+⏰ Tue 1:30-2:30p · 🏢 TBD</p></li>
+</ul>
 </section>
 <section id="course-description-and-learning-objectives" class="level2">
 <h2 class="anchored" data-anchor-id="course-description-and-learning-objectives">Course description and learning objectives</h2>
+<p>By the end of the course, students will be able to:</p>
+<ul>
+<li><p>Characterize data using a wide variety of structural, logical, and mathematical representations.</p></li>
+<li><p>Understand the importance of elegant and efficient data representation.</p></li>
+<li><p>Clearly and precisely communicate data representations to data scientists.</p></li>
+<li><p>Clearly and precisely communicate logical arguments to data scientists.</p></li>
+<li><p>Identify alternate mechanisms for solving or simplifying problems by translating between 1) English statements, 2) formal symbolic representation, and 3) code (where appropriate).</p></li>
+<li><p>Write proofs for simple theorems by translating the theorem into first-order logic, decomposing the statements into symbolic representations, selecting an appropriate strategy (for example, direct proof, or proof by induction), and applying a sequence of logical inferences to make a conclusion.</p></li>
+<li><p>Prove the functional correctness of simple algorithms.</p></li>
+<li><p>Prove the running times of simple algorithms.</p></li>
+</ul>
 </section>
-<section id="lecture-material" class="level2">
-<h2 class="anchored" data-anchor-id="lecture-material">Lecture material</h2>
+<section id="lecture-material-and-course-content" class="level2">
+<h2 class="anchored" data-anchor-id="lecture-material-and-course-content">Lecture material and Course Content</h2>
+<p>The topic list for this course parallels a classic course in discrete math, but with examples and applications from data science. We use the programming language python to connect ideas from the course to programming paradigms – especially those patterns and algorithms relevant to data scientists.</p>
+<p>The course consists of 9 units of study, each approximately 1.5 weeks:</p>
+<ol type="1">
+<li>Logic</li>
+<li>Language and Proof</li>
+<li>Numbers and Functions</li>
+<li>Representation</li>
+<li>Sets</li>
+<li>Strings</li>
+<li>Counting</li>
+<li>Probability</li>
+<li>Graphs</li>
+</ol>
+<p>There is no required textbook for the course. We realize, however, that you may want reference material for some of the topics. I am using “Discrete Mathematics and its Applications,” by Kenneth Rosen. Any edition will do, and older editions are not very expensive. The material we study is classic, and all topics will have robust explanations online, including on Wikipedia.</p>
 </section>
 <section id="course-requirements" class="level2">
 <h2 class="anchored" data-anchor-id="course-requirements">Course requirements</h2>
-</section>
-<section id="course-content" class="level2">
-<h2 class="anchored" data-anchor-id="course-content">Course content</h2>
+<p>Deliverables for the course include the following components:</p>
+<ol type="1">
+<li><p>Classroom Meetings – Class meets M/W/F, 11a-12p, in Frank Forward 317. All sessions are recorded and posted, but we make no guarantees about the quality of the recording, nor do we try very hard to replicate the in-class experience for online participants.</p></li>
+<li><p>Tutorial – The material presented in the 2hr weekly tutorial is more detailed and more applied than the classroom narrative. It is an opportunity for you to make sure you can DO the things we talk about in class. Tutorial sessions will be led by course TAs. There are 10 over the term, beginning in week 3. Tutorial exercises may be completed collaboratively and with online resources.</p></li>
+<li><p>Examlets – Five self-scheduled 50 minute assessments to be completed on PrairieLearn in the Computer Based Testing Facility (CBTF). Rules for the CBTF can be found here: <a href="https://cbtf.ubc.ca/students/">https://cbtf.ubc.ca/students/</a>. You will be given ample practice materials to use in preparation for the examlets.</p></li>
+<li><p>Final Exam – Like the examlets, the final exam will be self-scheduled within the CBTF. The exam window – approximately 5 days – will be posted later in the term.</p></li>
+</ol>
 </section>
 <section id="grading-and-exam-policies" class="level2">
 <h2 class="anchored" data-anchor-id="grading-and-exam-policies">Grading and exam policies</h2>
+<div style="margin-left:0; width:fit-content; text-align:left;">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 57%">
+<col style="width: 42%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Component</th>
+<th>Weight</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span style="background:purple;color:white; padding:2px 6px; border-radius:4px;">🎉</span> Class Meetings</td>
+<td>0%</td>
+</tr>
+<tr class="even">
+<td><span style="background:dodgerblue; color:white; padding:2px 6px; border-radius:4px;">🪄</span> Tutorials</td>
+<td>15%</td>
+</tr>
+<tr class="odd">
+<td><span style="background:seagreen; color:white; padding:2px 6px; border-radius:4px;">🤩</span> Examlets</td>
+<td>55%</td>
+</tr>
+<tr class="even">
+<td><span style="background:gold; color:white; padding:2px 6px; border-radius:4px;">🤩</span> Final Exam</td>
+<td>30%</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>You must pass the final exam (50%) to pass the course.</p>
 </section>
 <section id="accessibility" class="level2">
 <h2 class="anchored" data-anchor-id="accessibility">Accessibility</h2>
+<p>If you have a disability or ongoing medical condition that may require accommodations, please contact the UBC Centre for Accessibility <a href="mailto:accessibility@ubc.ca">accessibility@ubc.ca</a> to determine your eligibility and receive an accommodation letter.</p>
+<p>If you have a specific concern about accessing course materials or if you would like to suggest improvements to the accessibility of this course, please do not hesitate to speak with me.</p>
 </section>
 <section id="academic-misconduct" class="level2">
 <h2 class="anchored" data-anchor-id="academic-misconduct">Academic misconduct</h2>
+<p>All instances of academic misconduct will be handled in a manner consistent with UBC policies. This includes reporting to the Director of Undergraduate Data Science Programs, and Faculty of Science Associate Dean of Students. No credit will be given for any assignment which was completed with inappropriate collaboration.</p>
 </section>
 <section id="land-acknowledgement" class="level2">
 <h2 class="anchored" data-anchor-id="land-acknowledgement">Land Acknowledgement</h2>
