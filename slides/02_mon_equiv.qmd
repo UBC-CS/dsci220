@@ -318,7 +318,7 @@ We suspect that $\neg p\wedge \neg q \equiv \neg( p\lor q)$:
 half the class complete the TT on the left, the other half on the right, then we all read our responses aloud!
 :::
 
-## Warm Up
+## Logical Equivalences
 
 :::::: columns
 ::: {.column width="50%"}
@@ -327,7 +327,7 @@ half the class complete the TT on the left, the other half on the right, then we
 
 :::: {.column width="50%"}
 ::: small-font-size
-Last time we discussed Logical Equivalence (LE) and showed an example.
+We have discussed Logical Equivalence (LE) and explored an example.
 The table illustrates LE that are so important, they have names!
 :::
 
