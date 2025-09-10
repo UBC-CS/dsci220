@@ -2,6 +2,14 @@
 date: 2025-09-10
 ---
 
+## Announcements {.smaller}
+
+* Enroll in PrairieTest here:
+ <https://us.prairietest.com/pt/student/course/12361/enroll/392674810508>
+* Sign up for EX1. Practice materials (on PL) coming soon!
+* We will have class THIS friday, but not thereafter. 
+* Tutorials begin next week.
+
 # Logical Equivalences
 
 ## Logical Equivalences
