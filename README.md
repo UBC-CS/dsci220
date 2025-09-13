@@ -1,4 +1,4 @@
-# CPSC 203
+# DSCI 220
 
 ## Features
 
