@@ -1,0 +1,125 @@
+---
+date: 2025-09-16
+---
+
+## Announcements {.smaller}
+
+* Enroll in PrairieTest here:
+ <https://us.prairietest.com/pt/student/course/12361/enroll/392674810508>
+* Sign up for EX1. Practice materials on PL. 
+* Tutorials begin this week!
+
+# Inference
+
+## Counterexample
+
+Suppose someone says "all comedians are funny," and you disagree, how would you refute the statement?
+
+
+|        $\forall x, C(x)\rightarrow F(x)$ 
+
+Refute by negating:
+
+|        $\neg\forall x, C(x)\rightarrow F(x)$ 
+|      $\equiv\exists x, \neg(C(x)\rightarrow F(x))$ 
+|      $\equiv\exists x, \neg(F(x)\vee\neg C(x))$ 
+|      $\equiv\exists x, \neg F(x)\wedge C(x))$ 
+
+Your immediate response: \_(some unfunny comedian)_\_
+
+This evidence of refutation is called a \_counterexample\_. 
+
+Applies specifically to refuting $\forall$
+
+## Witness
+
+Suppose someone says "there is a funny comedian," and you disagree, how could they justify their statement?
+
+\
+
+|        $\exists x, C(x)\wedge F(x)$ 
+
+\
+
+Their immediate response: \_(a universally funny comedian -- Robin Williams)\_
+
+This evidence of justification is called a \_witness\_. 
+
+Applies specifically to defending an $\exists$
+
+Aside: Why not $\exists x, C(x)\rightarrow F(x)$?
+
+## Code Patterns
+
+```{pyodide}
+#| exercise: quantifiers
+# --- Data ------------------------------------------------------------
+
+# Unary universe: students and simple properties
+students = ["Alex", "Bea", "Chen", "Devon", "Emi", "Farah"]
+
+Breakfast = {"Alex", "Bea", "Emi"}     # R(x): ate breakfast
+OnCampus  = {"Bea", "Devon"}           # L(x): lives on campus
+Bikes     = {"Alex", "Bea", "Devon"}   # B(x)
+Helmet    = {"Alex", "Bea", "Devon"}   # H(x) 
+
+def R(x): return x in Breakfast     
+def L(x): return x in OnCampus
+def B(x): return x in Bikes
+def H(x): return x in Helmet
+
+# --- Quantifiers with LOOPS ------------------
+
+def forall_X_P(X, P):
+    """Return (truth, counterexample_or_None)."""
+    for x in X:
+        if ______:
+            return ______, ______   
+    return ______, ______
+
+def exists_X_P(X, P):
+    """Return (truth, witness_or_None)."""
+    for x in X:
+        if ______:
+            return ______, ______    
+    return ______, ______
+
+
+# --- Demos -------------------------------
+
+
+print("∀x (B(x) → H(x)) ?  Expect True here.")
+P = lambda x: H(x) or (not B(x))
+truth, cx = forall_X_P(students, P)
+print("  result = ", truth, " counterexample = ", cx, "\n")
+
+print("∃x (L(x) ∧ ¬R(x)) ?  Does anyone live on campus and skipped breakfast?")
+P = lambda x: L(x) and not R(x)
+truth, witness = exists_X_P(students, P)
+print("  result = ", truth, " witness = ", witness)
+
+
+```
+
+## Nested Quantifiers
+
+It will not surprise you that we can use multiple quantifiers:
+
+\ 
+
+|      $\forall x, \forall y \text{ Knows}(x,y)$  
+
+\
+
+In pairs, complete the second worksheet. 
+
+## Words and Ideas
+
+Quantifiers -- "For all" and "There exists"
+
+Counterexample and Witness
+
+Negating quantifiers
+
+Nested Quantifiers
+
