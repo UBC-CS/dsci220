@@ -11,115 +11,304 @@ date: 2025-09-16
 
 # Inference
 
-## Counterexample
+<!-- Helper classes -->
+<style>
+.small { font-size: 0.9rem; }
+.tiny { font-size: 0.8rem; }
+.rule { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; }
+.card { border: 2px solid #ddd; border-radius: 12px; padding: 14px 16px; margin: 10px 0; }
+.center { text-align: center; }
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.badge { display:inline-block; padding:2px 8px; border:1px solid #bbb; border-radius:10px; font-size:.8rem; }
+</style>
 
-Suppose someone says "all comedians are funny," and you disagree, how would you refute the statement?
+## 🎉 Spot the Rule, Dodge the Trap
 
+**Goal for today:** treat valid logical arguments like *legal moves* in a game.  
 
-|        $\forall x, C(x)\rightarrow F(x)$ 
-
-Refute by negating:
-
-|        $\neg\forall x, C(x)\rightarrow F(x)$ 
-|      $\equiv\exists x, \neg(C(x)\rightarrow F(x))$ 
-|      $\equiv\exists x, \neg(F(x)\vee\neg C(x))$ 
-|      $\equiv\exists x, \neg F(x)\wedge C(x))$ 
-
-Your immediate response: \_(some unfunny comedian)_\_
-
-This evidence of refutation is called a \_counterexample\_. 
-
-Applies specifically to refuting $\forall$
-
-## Witness
-
-Suppose someone says "there is a funny comedian," and you disagree, how could they justify their statement?
-
-\
-
-|        $\exists x, C(x)\wedge F(x)$ 
-
-\
-
-Their immediate response: \_(a universally funny comedian -- Robin Williams)\_
-
-This evidence of justification is called a \_witness\_. 
-
-Applies specifically to defending an $\exists$
-
-Aside: Why not $\exists x, C(x)\rightarrow F(x)$?
-
-## Code Patterns
-
-```{pyodide}
-#| exercise: quantifiers
-# --- Data ------------------------------------------------------------
-
-# Unary universe: students and simple properties
-students = ["Alex", "Bea", "Chen", "Devon", "Emi", "Farah"]
-
-Breakfast = {"Alex", "Bea", "Emi"}     # R(x): ate breakfast
-OnCampus  = {"Bea", "Devon"}           # L(x): lives on campus
-Bikes     = {"Alex", "Bea", "Devon"}   # B(x)
-Helmet    = {"Alex", "Bea", "Devon"}   # H(x) 
-
-def R(x): return x in Breakfast     
-def L(x): return x in OnCampus
-def B(x): return x in Bikes
-def H(x): return x in Helmet
-
-# --- Quantifiers with LOOPS ------------------
-
-def forall_X_P(X, P):
-    """Return (truth, counterexample_or_None)."""
-    for x in X:
-        if ______:
-            return ______, ______   
-    return ______, ______
-
-def exists_X_P(X, P):
-    """Return (truth, witness_or_None)."""
-    for x in X:
-        if ______:
-            return ______, ______    
-    return ______, ______
+You’ll identify moves, build quick proofs, and design  traps.
 
 
-# --- Demos -------------------------------
+## Warm Up (5 min)
+
+A *valid argument* is a *legal inference*. Content can change; form is what makes it valid.
+
+- If the lab is open, I’ll go. The lab is open. **So I’ll go.** 
+
+- If the exam is today, the forum is quiet. The forum isn’t quiet. **So the exam isn’t today.** 
+
+---
+
+## Micro Rule Cards {.smaller}
+
+Use these all class as a reference.
+
+- **MP**: from `p→q, p` infer `q`  
+- **MT**: from `p→q, ¬q` infer `¬p`  
+- **HS**: from `p→q, q→r` infer `p→r`  
+- **DS**: from `p∨q, ¬p` infer `q`  
+- **∧-Intro**: from `p, q` infer `p∧q`  
+- **∧-Elim**: from `p∧q` infer `p` (or `q`)  
+- **∨-Intro**: from `p` infer `p∨q` (any `q`)  
+- **RES**: from `p∨q, ¬p∨r` infer `q∨r`  
+- **CD**: from `(p→r), (q→s), (p∨q)` infer `r∨s`
+
+**Common traps:**  
+
+- Affirming consequent: `p→q, q ∴ p` ❌  
+
+- Denying antecedent: `p→q, ¬p ∴ ¬q` ❌
+
+---
+
+## Rule Card: Modus Ponens (MP)
+
+<div class="card rule">
+From <code>p→q</code> and <code>p</code>, infer <code>q</code>.
+</div>
+
+**Ex:**  
+If the bus is full, I’ll walk. The bus is full. **So I’ll walk.**
+
+---
+
+## Rule Card: Modus Tollens (MT)
+
+<div class="card rule">
+From <code>p→q</code> and <code>¬q</code>, infer <code>¬p</code>.
+</div>
+
+**Ex:**  
+If office hours moved, Slack has an announcement. No announcement. **So they didn’t move.**
+
+---
+
+## Rule Card: Hypothetical Syllogism (HS)
+
+<div class="card rule">
+From <code>p→q</code> and <code>q→r</code>, infer <code>p→r</code>.
+</div>
+
+**Ex:**  
+If tidy then joins are simpler; if simpler joins then faster viz; **so tidy ⇒ faster viz.**
+
+---
+
+## Rule Card: Disjunctive Syllogism (DS)
+
+<div class="card rule">
+From <code>p∨q</code> and <code>¬p</code>, infer <code>q</code>.
+</div>
+
+**Ex:**  
+Dinner is sushi or tacos. Not sushi. **So tacos.**
+
+---
+
+## Rule Card: Conjunction / Simplification
+
+<div class="two-col">
+<div class="card rule">
+<strong>∧-Intro</strong>: from <code>p, q</code> infer <code>p∧q</code>
+</div>
+<div class="card rule">
+<strong>∧-Elim</strong>: from <code>p∧q</code> infer <code>p</code> (or <code>q</code>)
+</div>
+</div>
+
+---
+
+## Rule Card: ∨-Intro
+
+<div class="card rule">
+From <code>p</code> infer <code>p∨q</code>.
+</div>
+
+**Ex:** I rode my scooter today, **so I either rode my scooter or I'm a unicorn.**
+
+**Note** validity cares about *form*, not plausibility of the added disjunct.
+
+---
+
+## Rule Card: Resolution (RES)
+
+<div class="card rule">
+From <code>p∨q</code> and <code>¬p∨r</code> infer <code>q∨r</code>.
+</div>
+
+**Ex:**  
+Either study or soccer; if study then library. **So soccer or library.**
+
+---
+
+## Rule Card: Constructive Dilemma (CD)
+
+<div class="card rule">
+From <code>(p→r), (q→s), (p∨q)</code> infer <code>r∨s</code>.
+</div>
+
+**Ex:**  
+If sunny then picnic; if rainy then museum; sunny or rainy; **so picnic or museum.**
+
+---
+
+## Fallacy Cards (flash)
+
+<div class="two-col">
+<div class="card rule">
+<strong>Affirming the consequent</strong> ❌  
+<code>from p→q, q infer p</code>
+</div>
+<div class="card rule">
+<strong>Denying the antecedent</strong> ❌  
+<code>from p→q, ¬p infer ¬q</code>
+</div>
+</div>
+
+---
+
+## Validity
+
+**∧-Elim**: $(p\wedge q)\rightarrow p$ is this always true?
 
 
-print("∀x (B(x) → H(x)) ?  Expect True here.")
-P = lambda x: H(x) or (not B(x))
-truth, cx = forall_X_P(students, P)
-print("  result = ", truth, " counterexample = ", cx, "\n")
+## INValidity
 
-print("∃x (L(x) ∧ ¬R(x)) ?  Does anyone live on campus and skipped breakfast?")
-P = lambda x: L(x) and not R(x)
-truth, witness = exists_X_P(students, P)
-print("  result = ", truth, " witness = ", witness)
+**Affirming Consequent**: $((p\rightarrow q)\wedge q)\rightarrow p$ is this always true?
 
 
-```
+| $p$ | $q$ | $p\rightarrow q$ | $(p\rightarrow q)\wedge q$ | $((p\rightarrow q)\wedge q)\rightarrow p$ |
+|---|---|:--------:|:--------:|:--------:|
+| F | F |       |      |      |      
+| F | T |       |       |       |       
+| T | F |       |       |       |       
+| T | T |       |       |       |
 
-## Nested Quantifiers
 
-It will not surprise you that we can use multiple quantifiers:
+---
 
-\ 
+## Spot the Rule or the Trap 
 
-|      $\forall x, \forall y \text{ Knows}(x,y)$  
+**How to play:** post in chat...
 
-\
+**(a)** valid or not, **(b)** if valid, name the rule, **(c)** formal pattern.
 
-In pairs, complete the second worksheet. 
+---
 
-## Words and Ideas
+### Campus
 
-Quantifiers -- "For all" and "There exists"
+If the lecture live-streams, the chat is busy. The chat is busy. **So it live-streams.**
 
-Counterexample and Witness
+<span class="fragment">❌ Fallacy: Affirming the consequent (<code>p→q, q ∴ p</code>)</span>
 
-Negating quantifiers
+---
 
-Nested Quantifiers
+### Sports 
+
+If the Canucks win, downtown is loud. Downtown isn’t loud. **So the Canucks didn’t win.**
+
+<span class="fragment">✅ MT (<code>p→q, ¬q ∴ ¬p</code>)</span>
+
+---
+
+### Food
+
+Dinner is sushi or tacos. Not sushi. **So tacos.**
+
+<span class="fragment">✅ DS (<code>p∨q, ¬p ∴ q</code>)</span>
+
+---
+
+### Travel
+
+If it rains, I’ll bus. If I’m late, I’ll bus. It’s raining or I’m late. **So I’ll bus.**
+
+<span class="fragment">✅ CD with <code>r=s=bus</code></span>
+
+---
+
+### Movies 
+
+If a film is MCU, it has a post-credits scene. This is MCU. **So post-credits.**
+
+<span class="fragment">✅ MP (<code>p→q, p ∴ q</code>)</span>
+
+---
+
+### Music 
+
+Either I practice guitar or code. If coding, then coffee. **So either practice or coffee.**
+
+<span class="fragment">✅ RES: <code>(g ∨ c)</code> and <code>(f v ¬c)</code></span>
+
+---
+
+### Wellness
+
+I stretched **and** hydrated. **So I stretched.**
+
+<span class="fragment">✅ ∧-Elim</span>
+
+---
+
+### Data
+
+If a dataset is tidy then joins are simpler. If joins are simpler then viz faster. **So if tidy then viz faster.**
+
+<span class="fragment">✅ HS</span>
+
+---
+
+## Build a proof 
+
+In the chat, each person adds exactly **one** line using a Rule Card.  
+
+---
+
+### Relay A 
+
+**Premises**  
+1. `D→R` (deadline ⇒ review session)  
+2. `R→C` (review ⇒ crowded café)  
+3. `D`
+
+**Goal**: `C`
+
+---
+
+### Relay B 
+
+**Premises**  
+1. `P∨Q` (pizza or quinoa)  
+2. `¬P∨R` (if pizza then ramen)  
+3. `¬Q` (no quinoa)
+
+**Goal**: `R`
+
+---
+
+## Design a Trap
+
+**Your mission:**  
+- Write one **valid** two-premise argument (any rule).  
+- Write a **look-alike fallacy** with the same topic words.  
+- Bring to class on Wednesday morning!
+
+---
+
+## Quantifier Teaser
+
+- **UI:** `∀x S(x) ⇒ S(Alex)`  (Universal instantiation)
+- **EG:** `S(Alex) ⇒ ∃x S(x)`  (Existential generalization)
+**Analogy:** mixing ∀/∃ incorrectly creates traps like affirming the consequent/denying the antecedent.
+
+---
+
+## Exit Ticket (2 min)
+
+In chat (or poll), complete both:
+
+- **One valid rule I can spot in the wild is** ________.  
+- **One trap I’ll watch for is** ________.
+
 
