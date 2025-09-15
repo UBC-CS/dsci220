@@ -161,67 +161,295 @@
 <section>
 <section id="inference" class="title-slide slide level1 center">
 <h1>Inference</h1>
-
+<!-- Helper classes -->
+<style>
+.small { font-size: 0.9rem; }
+.tiny { font-size: 0.8rem; }
+.rule { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; }
+.card { border: 2px solid #ddd; border-radius: 12px; padding: 14px 16px; margin: 10px 0; }
+.center { text-align: center; }
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.badge { display:inline-block; padding:2px 8px; border:1px solid #bbb; border-radius:10px; font-size:.8rem; }
+</style>
 </section>
-<section id="counterexample" class="slide level2">
-<h2>Counterexample</h2>
-<p>Suppose someone says “all comedians are funny,” and you disagree, how would you refute the statement?</p>
-<div class="line-block">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(\forall x, C(x)\rightarrow F(x)\)</span></div>
-<p>Refute by negating:</p>
-<div class="line-block">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(\neg\forall x, C(x)\rightarrow F(x)\)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(\equiv\exists x, \neg(C(x)\rightarrow F(x))\)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(\equiv\exists x, \neg(F(x)\vee\neg C(x))\)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(\equiv\exists x, \neg F(x)\wedge C(x))\)</span></div>
-<p>Your immediate response: _(some unfunny comedian)__</p>
-<p>This evidence of refutation is called a _counterexample_.</p>
-<p>Applies specifically to refuting <span class="math inline">\(\forall\)</span></p>
+<section id="spot-the-rule-dodge-the-trap" class="slide level2">
+<h2>🎉 Spot the Rule, Dodge the Trap</h2>
+<p><strong>Goal for today:</strong> treat valid logical arguments like <em>legal moves</em> in a game.</p>
+<p>You’ll identify moves, build quick proofs, and design traps.</p>
 </section>
-<section id="witness" class="slide level2">
-<h2>Witness</h2>
-<p>Suppose someone says “there is a funny comedian,” and you disagree, how could they justify their statement?</p>
-<p><br>
-</p>
-<div class="line-block">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(\exists x, C(x)\wedge F(x)\)</span></div>
-<p><br>
-</p>
-<p>Their immediate response: _(a universally funny comedian – Robin Williams)_</p>
-<p>This evidence of justification is called a _witness_.</p>
-<p>Applies specifically to defending an <span class="math inline">\(\exists\)</span></p>
-<p>Aside: Why not <span class="math inline">\(\exists x, C(x)\rightarrow F(x)\)</span>?</p>
+<section id="warm-up-5-min" class="slide level2">
+<h2>Warm Up (5 min)</h2>
+<p>A <em>valid argument</em> is a <em>legal inference</em>. Content can change; form is what makes it valid.</p>
+<ul>
+<li><p>If the lab is open, I’ll go. The lab is open. <strong>So I’ll go.</strong></p></li>
+<li><p>If the exam is today, the forum is quiet. The forum isn’t quiet. <strong>So the exam isn’t today.</strong></p></li>
+</ul>
 </section>
-<section id="code-patterns" class="slide level2">
-<h2>Code Patterns</h2>
-<div>
-<div id="pyodide-1" class="exercise-cell">
-
+<section id="micro-rule-cards" class="slide level2 smaller">
+<h2>Micro Rule Cards</h2>
+<p>Use these all class as a reference.</p>
+<ul>
+<li><strong>MP</strong>: from <code>p→q, p</code> infer <code>q</code><br>
+</li>
+<li><strong>MT</strong>: from <code>p→q, ¬q</code> infer <code>¬p</code><br>
+</li>
+<li><strong>HS</strong>: from <code>p→q, q→r</code> infer <code>p→r</code><br>
+</li>
+<li><strong>DS</strong>: from <code>p∨q, ¬p</code> infer <code>q</code><br>
+</li>
+<li><strong>∧-Intro</strong>: from <code>p, q</code> infer <code>p∧q</code><br>
+</li>
+<li><strong>∧-Elim</strong>: from <code>p∧q</code> infer <code>p</code> (or <code>q</code>)<br>
+</li>
+<li><strong>∨-Intro</strong>: from <code>p</code> infer <code>p∨q</code> (any <code>q</code>)<br>
+</li>
+<li><strong>RES</strong>: from <code>p∨q, ¬p∨r</code> infer <code>q∨r</code><br>
+</li>
+<li><strong>CD</strong>: from <code>(p→r), (q→s), (p∨q)</code> infer <code>r∨s</code></li>
+</ul>
+<p><strong>Common traps:</strong></p>
+<ul>
+<li><p>Affirming consequent: <code>p→q, q ∴ p</code> ❌</p></li>
+<li><p>Denying antecedent: <code>p→q, ¬p ∴ ¬q</code> ❌</p></li>
+</ul>
+</section>
+<section id="rule-card-modus-ponens-mp" class="slide level2">
+<h2>Rule Card: Modus Ponens (MP)</h2>
+<div class="card rule">
+<p>From <code>p→q</code> and <code>p</code>, infer <code>q</code>.</p>
 </div>
-<script type="pyodide-1-contents">
-eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWUsImV4ZXJjaXNlIjoicXVhbnRpZmllcnMifSwiY29kZSI6IiMgLS0tIERhdGEgLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tXG5cbiMgVW5hcnkgdW5pdmVyc2U6IHN0dWRlbnRzIGFuZCBzaW1wbGUgcHJvcGVydGllc1xuc3R1ZGVudHMgPSBbXCJBbGV4XCIsIFwiQmVhXCIsIFwiQ2hlblwiLCBcIkRldm9uXCIsIFwiRW1pXCIsIFwiRmFyYWhcIl1cblxuQnJlYWtmYXN0ID0ge1wiQWxleFwiLCBcIkJlYVwiLCBcIkVtaVwifSAgICAgIyBSKHgpOiBhdGUgYnJlYWtmYXN0XG5PbkNhbXB1cyAgPSB7XCJCZWFcIiwgXCJEZXZvblwifSAgICAgICAgICAgIyBMKHgpOiBsaXZlcyBvbiBjYW1wdXNcbkJpa2VzICAgICA9IHtcIkFsZXhcIiwgXCJCZWFcIiwgXCJEZXZvblwifSAgICMgQih4KVxuSGVsbWV0ICAgID0ge1wiQWxleFwiLCBcIkJlYVwiLCBcIkRldm9uXCJ9ICAgIyBIKHgpIFxuXG5kZWYgUih4KTogcmV0dXJuIHggaW4gQnJlYWtmYXN0ICAgICBcbmRlZiBMKHgpOiByZXR1cm4geCBpbiBPbkNhbXB1c1xuZGVmIEIoeCk6IHJldHVybiB4IGluIEJpa2VzXG5kZWYgSCh4KTogcmV0dXJuIHggaW4gSGVsbWV0XG5cbiMgLS0tIFF1YW50aWZpZXJzIHdpdGggTE9PUFMgLS0tLS0tLS0tLS0tLS0tLS0tXG5cbmRlZiBmb3JhbGxfWF9QKFgsIFApOlxuICAgIFwiXCJcIlJldHVybiAodHJ1dGgsIGNvdW50ZXJleGFtcGxlX29yX05vbmUpLlwiXCJcIlxuICAgIGZvciB4IGluIFg6XG4gICAgICAgIGlmIF9fX19fXzpcbiAgICAgICAgICAgIHJldHVybiBfX19fX18sIF9fX19fXyAgIFxuICAgIHJldHVybiBfX19fX18sIF9fX19fX1xuXG5kZWYgZXhpc3RzX1hfUChYLCBQKTpcbiAgICBcIlwiXCJSZXR1cm4gKHRydXRoLCB3aXRuZXNzX29yX05vbmUpLlwiXCJcIlxuICAgIGZvciB4IGluIFg6XG4gICAgICAgIGlmIF9fX19fXzpcbiAgICAgICAgICAgIHJldHVybiBfX19fX18sIF9fX19fXyAgICBcbiAgICByZXR1cm4gX19fX19fLCBfX19fX19cblxuXG4jIC0tLSBEZW1vcyAtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tXG5cblxucHJpbnQoXCLiiIB4IChCKHgpIOKGkiBIKHgpKSA/ICBFeHBlY3QgVHJ1ZSBoZXJlLlwiKVxuUCA9IGxhbWJkYSB4OiBIKHgpIG9yIChub3QgQih4KSlcbnRydXRoLCBjeCA9IGZvcmFsbF9YX1Aoc3R1ZGVudHMsIFApXG5wcmludChcIiAgcmVzdWx0ID0gXCIsIHRydXRoLCBcIiBjb3VudGVyZXhhbXBsZSA9IFwiLCBjeCwgXCJcXG5cIilcblxucHJpbnQoXCLiiIN4IChMKHgpIOKIpyDCrFIoeCkpID8gIERvZXMgYW55b25lIGxpdmUgb24gY2FtcHVzIGFuZCBza2lwcGVkIGJyZWFrZmFzdD9cIilcblAgPSBsYW1iZGEgeDogTCh4KSBhbmQgbm90IFIoeClcbnRydXRoLCB3aXRuZXNzID0gZXhpc3RzX1hfUChzdHVkZW50cywgUClcbnByaW50KFwiICByZXN1bHQgPSBcIiwgdHJ1dGgsIFwiIHdpdG5lc3MgPSBcIiwgd2l0bmVzcylcbiJ9
-</script>
+<p><strong>Ex:</strong><br>
+If the bus is full, I’ll walk. The bus is full. <strong>So I’ll walk.</strong></p>
+</section>
+<section id="rule-card-modus-tollens-mt" class="slide level2">
+<h2>Rule Card: Modus Tollens (MT)</h2>
+<div class="card rule">
+<p>From <code>p→q</code> and <code>¬q</code>, infer <code>¬p</code>.</p>
+</div>
+<p><strong>Ex:</strong><br>
+If office hours moved, Slack has an announcement. No announcement. <strong>So they didn’t move.</strong></p>
+</section>
+<section id="rule-card-hypothetical-syllogism-hs" class="slide level2">
+<h2>Rule Card: Hypothetical Syllogism (HS)</h2>
+<div class="card rule">
+<p>From <code>p→q</code> and <code>q→r</code>, infer <code>p→r</code>.</p>
+</div>
+<p><strong>Ex:</strong><br>
+If tidy then joins are simpler; if simpler joins then faster viz; <strong>so tidy ⇒ faster viz.</strong></p>
+</section>
+<section id="rule-card-disjunctive-syllogism-ds" class="slide level2">
+<h2>Rule Card: Disjunctive Syllogism (DS)</h2>
+<div class="card rule">
+<p>From <code>p∨q</code> and <code>¬p</code>, infer <code>q</code>.</p>
+</div>
+<p><strong>Ex:</strong><br>
+Dinner is sushi or tacos. Not sushi. <strong>So tacos.</strong></p>
+</section>
+<section id="rule-card-conjunction-simplification" class="slide level2">
+<h2>Rule Card: Conjunction / Simplification</h2>
+<div class="two-col">
+<div class="card rule">
+<p><strong>∧-Intro</strong>: from <code>p, q</code> infer <code>p∧q</code></p>
+</div>
+<div class="card rule">
+<p><strong>∧-Elim</strong>: from <code>p∧q</code> infer <code>p</code> (or <code>q</code>)</p>
+</div>
 </div>
 </section>
-<section id="nested-quantifiers" class="slide level2">
-<h2>Nested Quantifiers</h2>
-<p>It will not surprise you that we can use multiple quantifiers:</p>
-<p>&nbsp;</p>
-<div class="line-block">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(\forall x, \forall y \text{ Knows}(x,y)\)</span></div>
-<p><br>
-</p>
-<p>In pairs, complete the second worksheet.</p>
+<section id="rule-card--intro" class="slide level2">
+<h2>Rule Card: ∨-Intro</h2>
+<div class="card rule">
+<p>From <code>p</code> infer <code>p∨q</code>.</p>
+</div>
+<p><strong>Ex:</strong> I rode my scooter today, <strong>so I either rode my scooter or I’m a unicorn.</strong></p>
+<p><strong>Note</strong> validity cares about <em>form</em>, not plausibility of the added disjunct.</p>
 </section>
-<section id="words-and-ideas" class="slide level2">
-<h2>Words and Ideas</h2>
-<p>Quantifiers – “For all” and “There exists”</p>
-<p>Counterexample and Witness</p>
-<p>Negating quantifiers</p>
-<p>Nested Quantifiers</p>
+<section id="rule-card-resolution-res" class="slide level2">
+<h2>Rule Card: Resolution (RES)</h2>
+<div class="card rule">
+<p>From <code>p∨q</code> and <code>¬p∨r</code> infer <code>q∨r</code>.</p>
+</div>
+<p><strong>Ex:</strong><br>
+Either study or soccer; if study then library. <strong>So soccer or library.</strong></p>
+</section>
+<section id="rule-card-constructive-dilemma-cd" class="slide level2">
+<h2>Rule Card: Constructive Dilemma (CD)</h2>
+<div class="card rule">
+<p>From <code>(p→r), (q→s), (p∨q)</code> infer <code>r∨s</code>.</p>
+</div>
+<p><strong>Ex:</strong><br>
+If sunny then picnic; if rainy then museum; sunny or rainy; <strong>so picnic or museum.</strong></p>
+</section>
+<section id="fallacy-cards-flash" class="slide level2">
+<h2>Fallacy Cards (flash)</h2>
+<div class="two-col">
+<div class="card rule">
+<p><strong>Affirming the consequent</strong> ❌<br>
+<code>from p→q, q infer p</code></p>
+</div>
+<div class="card rule">
+<p><strong>Denying the antecedent</strong> ❌<br>
+<code>from p→q, ¬p infer ¬q</code></p>
+</div>
+</div>
+</section>
+<section id="validity" class="slide level2">
+<h2>Validity</h2>
+<p><strong>∧-Elim</strong>: <span class="math inline">\((p\wedge q)\rightarrow p\)</span> is this always true?</p>
+</section>
+<section id="invalidity" class="slide level2">
+<h2>INValidity</h2>
+<p><strong>Affirming Consequent</strong>: <span class="math inline">\(((p\rightarrow q)\wedge q)\rightarrow p\)</span> is this always true?</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 27%">
+<col style="width: 27%">
+<col style="width: 27%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><span class="math inline">\(p\)</span></th>
+<th><span class="math inline">\(q\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(p\rightarrow q\)</span></th>
+<th style="text-align: center;"><span class="math inline">\((p\rightarrow q)\wedge q\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(((p\rightarrow q)\wedge q)\rightarrow p\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>F</td>
+<td>F</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td>F</td>
+<td>T</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td>T</td>
+<td>F</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td>T</td>
+<td>T</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="spot-the-rule-or-the-trap" class="slide level2">
+<h2>Spot the Rule or the Trap</h2>
+<p><strong>How to play:</strong> post in chat…</p>
+<p><strong>(a)</strong> valid or not, <strong>(b)</strong> if valid, name the rule, <strong>(c)</strong> formal pattern.</p>
+</section>
+<section class="slide level2">
+
+<h3 id="campus">Campus</h3>
+<p>If the lecture live-streams, the chat is busy. The chat is busy. <strong>So it live-streams.</strong></p>
+<p><span class="fragment">❌ Fallacy: Affirming the consequent (<code>p→q, q ∴ p</code>)</span></p>
+</section>
+<section class="slide level2">
+
+<h3 id="sports">Sports</h3>
+<p>If the Canucks win, downtown is loud. Downtown isn’t loud. <strong>So the Canucks didn’t win.</strong></p>
+<p><span class="fragment">✅ MT (<code>p→q, ¬q ∴ ¬p</code>)</span></p>
+</section>
+<section class="slide level2">
+
+<h3 id="food">Food</h3>
+<p>Dinner is sushi or tacos. Not sushi. <strong>So tacos.</strong></p>
+<p><span class="fragment">✅ DS (<code>p∨q, ¬p ∴ q</code>)</span></p>
+</section>
+<section class="slide level2">
+
+<h3 id="travel">Travel</h3>
+<p>If it rains, I’ll bus. If I’m late, I’ll bus. It’s raining or I’m late. <strong>So I’ll bus.</strong></p>
+<p><span class="fragment">✅ CD with <code>r=s=bus</code></span></p>
+</section>
+<section class="slide level2">
+
+<h3 id="movies">Movies</h3>
+<p>If a film is MCU, it has a post-credits scene. This is MCU. <strong>So post-credits.</strong></p>
+<p><span class="fragment">✅ MP (<code>p→q, p ∴ q</code>)</span></p>
+</section>
+<section class="slide level2">
+
+<h3 id="music">Music</h3>
+<p>Either I practice guitar or code. If coding, then coffee. <strong>So either practice or coffee.</strong></p>
+<p><span class="fragment">✅ RES: <code>(g ∨ c)</code> and <code>(f v ¬c)</code></span></p>
+</section>
+<section class="slide level2">
+
+<h3 id="wellness">Wellness</h3>
+<p>I stretched <strong>and</strong> hydrated. <strong>So I stretched.</strong></p>
+<p><span class="fragment">✅ ∧-Elim</span></p>
+</section>
+<section class="slide level2">
+
+<h3 id="data">Data</h3>
+<p>If a dataset is tidy then joins are simpler. If joins are simpler then viz faster. <strong>So if tidy then viz faster.</strong></p>
+<p><span class="fragment">✅ HS</span></p>
+</section>
+<section id="build-a-proof" class="slide level2">
+<h2>Build a proof</h2>
+<p>In the chat, each person adds exactly <strong>one</strong> line using a Rule Card.</p>
+</section>
+<section class="slide level2">
+
+<h3 id="relay-a">Relay A</h3>
+<p><strong>Premises</strong><br>
+1. <code>D→R</code> (deadline ⇒ review session)<br>
+2. <code>R→C</code> (review ⇒ crowded café)<br>
+3. <code>D</code></p>
+<p><strong>Goal</strong>: <code>C</code></p>
+</section>
+<section class="slide level2">
+
+<h3 id="relay-b">Relay B</h3>
+<p><strong>Premises</strong><br>
+1. <code>P∨Q</code> (pizza or quinoa)<br>
+2. <code>¬P∨R</code> (if pizza then ramen)<br>
+3. <code>¬Q</code> (no quinoa)</p>
+<p><strong>Goal</strong>: <code>R</code></p>
+</section>
+<section id="design-a-trap" class="slide level2">
+<h2>Design a Trap</h2>
+<p><strong>Your mission:</strong><br>
+- Write one <strong>valid</strong> two-premise argument (any rule).<br>
+- Write a <strong>look-alike fallacy</strong> with the same topic words.<br>
+- Bring to class on Wednesday morning!</p>
+</section>
+<section id="quantifier-teaser" class="slide level2">
+<h2>Quantifier Teaser</h2>
+<ul>
+<li><strong>UI:</strong> <code>∀x S(x) ⇒ S(Alex)</code> (Universal instantiation)</li>
+<li><strong>EG:</strong> <code>S(Alex) ⇒ ∃x S(x)</code> (Existential generalization) <strong>Analogy:</strong> mixing ∀/∃ incorrectly creates traps like affirming the consequent/denying the antecedent.</li>
+</ul>
+</section>
+<section id="exit-ticket-2-min" class="slide level2">
+<h2>Exit Ticket (2 min)</h2>
+<p>In chat (or poll), complete both:</p>
+<ul>
+<li><strong>One valid rule I can spot in the wild is</strong> ________.<br>
+</li>
+<li><strong>One trap I’ll watch for is</strong> ________.</li>
+</ul>
 
 
-<script type="pyodide-data">
-eyJvcHRpb25zIjp7ImVudiI6eyJQTE9UTFlfUkVOREVSRVIiOiJwbG90bHlfbWltZXR5cGUifSwiaW5kZXhVUkwiOiJodHRwczovL2Nkbi5qc2RlbGl2ci5uZXQvcHlvZGlkZS92MC4yNy4wL2Z1bGwvIn0sInBhY2thZ2VzIjp7InBrZ3MiOlsicHlvZGlkZV9odHRwIiwibWljcm9waXAiLCJpcHl0aG9uIl19fQ==
-</script>
 <script type="ojs-module-contents">
-eyJjb250ZW50cyI6W3siY2VsbE5hbWUiOiJweW9kaWRlLTEiLCJpbmxpbmUiOmZhbHNlLCJtZXRob2ROYW1lIjoiaW50ZXJwcmV0Iiwic291cmNlIjoidmlld29mIF9weW9kaWRlX2VkaXRvcl8xID0ge1xuICBjb25zdCB7IFB5b2RpZGVFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuXG4gIGNvbnN0IHNjcmlwdENvbnRlbnQgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKGBzY3JpcHRbdHlwZT1cXFwicHlvZGlkZS0xLWNvbnRlbnRzXFxcIl1gKS50ZXh0Q29udGVudDtcbiAgY29uc3QgYmxvY2sgPSBKU09OLnBhcnNlKGI2NERlY29kZShzY3JpcHRDb250ZW50KSk7XG5cbiAgLy8gRGVmYXVsdCBleGVyY2lzZSBjb25maWd1cmF0aW9uXG4gIGNvbnN0IG9wdGlvbnMgPSBPYmplY3QuYXNzaWduKFxuICAgIHtcbiAgICAgIGlkOiBcInB5b2RpZGUtMS1jb250ZW50c1wiLFxuICAgICAgZW52aXI6IGBleGVyY2lzZS1lbnYtJHtibG9jay5hdHRyLmV4ZXJjaXNlfWAsXG4gICAgICBlcnJvcjogZmFsc2UsXG4gICAgICBjYXB0aW9uOiAnRXhlcmNpc2UnLFxuICAgIH0sXG4gICAgYmxvY2suYXR0clxuICApO1xuXG4gIGNvbnN0IGVkaXRvciA9IG5ldyBQeW9kaWRlRXhlcmNpc2VFZGl0b3IocHlvZGlkZU9qcy5weW9kaWRlUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG4gIHJldHVybiBlZGl0b3IuY29udGFpbmVyO1xufVxudmlld29mIF9weW9kaWRlX3ZhbHVlXzEgPSBweW9kaWRlT2pzLnByb2Nlc3MoX3B5b2RpZGVfZWRpdG9yXzEsIHt9KTtcbl9weW9kaWRlX2ZlZWRiYWNrXzEgPSB7XG4gIGNvbnN0IHsgUHlvZGlkZUdyYWRlciB9ID0gd2luZG93Ll9leGVyY2lzZV9vanNfcnVudGltZTtcbiAgY29uc3QgZW1wdHlGZWVkYmFjayA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoJ2RpdicpO1xuXG4gIGNvbnN0IGdyYWRlciA9IG5ldyBQeW9kaWRlR3JhZGVyKF9weW9kaWRlX3ZhbHVlXzEuZXZhbHVhdG9yKTtcbiAgY29uc3QgZmVlZGJhY2sgPSBhd2FpdCBncmFkZXIuZ3JhZGVFeGVyY2lzZSgpO1xuICBpZiAoIWZlZWRiYWNrKSByZXR1cm4gZW1wdHlGZWVkYmFjaztcbiAgcmV0dXJuIGZlZWRiYWNrO1xufVxuIn0seyJjZWxsTmFtZSI6InB5b2RpZGUtcHJlbHVkZSIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6InB5b2RpZGVPanMgPSB7XG4gIGNvbnN0IHtcbiAgICBQeW9kaWRlRXZhbHVhdG9yLFxuICAgIFB5b2RpZGVFbnZpcm9ubWVudE1hbmFnZXIsXG4gICAgc2V0dXBQeXRob24sXG4gICAgc3RhcnRQeW9kaWRlV29ya2VyLFxuICAgIGI2NERlY29kZSxcbiAgICBjb2xsYXBzZVBhdGgsXG4gIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuXG4gIGNvbnN0IHN0YXR1c0NvbnRhaW5lciA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKFwiZXhlcmNpc2UtbG9hZGluZy1zdGF0dXNcIik7XG4gIGNvbnN0IGluZGljYXRvckNvbnRhaW5lciA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKFwiZXhlcmNpc2UtbG9hZGluZy1pbmRpY2F0b3JcIik7XG4gIGluZGljYXRvckNvbnRhaW5lci5jbGFzc0xpc3QucmVtb3ZlKFwiZC1ub25lXCIpO1xuXG4gIGxldCBzdGF0dXNUZXh0ID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudChcImRpdlwiKVxuICBzdGF0dXNUZXh0LmNsYXNzTGlzdCA9IFwiZXhlcmNpc2UtbG9hZGluZy1kZXRhaWxzXCI7XG4gIHN0YXR1c1RleHQgPSBzdGF0dXNDb250YWluZXIuYXBwZW5kQ2hpbGQoc3RhdHVzVGV4dCk7XG4gIHN0YXR1c1RleHQudGV4dENvbnRlbnQgPSBgSW5pdGlhbGlzZWA7XG5cbiAgLy8gSG9pc3QgaW5kaWNhdG9yIG91dCBmcm9tIGZpbmFsIHNsaWRlIHdoZW4gcnVubmluZyB1bmRlciByZXZlYWxcbiAgY29uc3QgcmV2ZWFsU3RhdHVzID0gZG9jdW1lbnQucXVlcnlTZWxlY3RvcihcIi5yZXZlYWwgLmV4ZXJjaXNlLWxvYWRpbmctaW5kaWNhdG9yXCIpO1xuICBpZiAocmV2ZWFsU3RhdHVzKSB7XG4gICAgcmV2ZWFsU3RhdHVzLnJlbW92ZSgpO1xuICAgIGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoXCIucmV2ZWFsID4gLnNsaWRlc1wiKS5hcHBlbmRDaGlsZChyZXZlYWxTdGF0dXMpO1xuICB9XG5cbiAgLy8gTWFrZSBhbnkgcmV2ZWFsIHNsaWRlcyB3aXRoIGxpdmUgY2VsbHMgc2Nyb2xsYWJsZVxuICBkb2N1bWVudC5xdWVyeVNlbGVjdG9yQWxsKFwiLnJldmVhbCAuZXhlcmNpc2UtY2VsbFwiKS5mb3JFYWNoKChlbCkgPT4ge1xuICAgIGVsLmNsb3Nlc3QoJ3NlY3Rpb24uc2xpZGUnKS5jbGFzc0xpc3QuYWRkKFwic2Nyb2xsYWJsZVwiKTtcbiAgfSlcblxuICAvLyBQeW9kaWRlIHN1cHBsZW1lbnRhbCBkYXRhIGFuZCBvcHRpb25zXG4gIGNvbnN0IGRhdGFDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcInB5b2RpZGUtZGF0YVxcXCJdYCkudGV4dENvbnRlbnQ7XG4gIGNvbnN0IGRhdGEgPSBKU09OLnBhcnNlKGI2NERlY29kZShkYXRhQ29udGVudCkpO1xuXG4gIC8vIEdyYWIgbGlzdCBvZiByZXNvdXJjZXMgdG8gYmUgZG93bmxvYWRlZFxuICBjb25zdCBmaWxlc0NvbnRlbnQgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKGBzY3JpcHRbdHlwZT1cXFwidmZzLWZpbGVcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBmaWxlcyA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKGZpbGVzQ29udGVudCkpO1xuXG4gIGxldCBweW9kaWRlUHJvbWlzZSA9IChhc3luYyAoKSA9PiB7XG4gICAgc3RhdHVzVGV4dC50ZXh0Q29udGVudCA9IGBEb3dubG9hZGluZyBQeW9kaWRlYDtcbiAgICBjb25zdCBweW9kaWRlID0gYXdhaXQgc3RhcnRQeW9kaWRlV29ya2VyKGRhdGEub3B0aW9ucyk7XG5cbiAgICBzdGF0dXNUZXh0LnRleHRDb250ZW50ID0gYERvd25sb2FkaW5nIHBhY2thZ2U6IG1pY3JvcGlwYDtcbiAgICBhd2FpdCBweW9kaWRlLmxvYWRQYWNrYWdlKFwibWljcm9waXBcIik7XG4gICAgY29uc3QgbWljcm9waXAgPSBhd2FpdCBweW9kaWRlLnB5aW1wb3J0KFwibWljcm9waXBcIik7XG4gICAgYXdhaXQgZGF0YS5wYWNrYWdlcy5wa2dzLm1hcCgocGtnKSA9PiAoKSA9PiB7XG4gICAgICBzdGF0dXNUZXh0LnRleHRDb250ZW50ID0gYERvd25sb2FkaW5nIHBhY2thZ2U6ICR7cGtnfWA7XG4gICAgICByZXR1cm4gbWljcm9waXAuaW5zdGFsbChwa2cpO1xuICAgIH0pLnJlZHVjZSgoY3VyLCBuZXh0KSA9PiBjdXIudGhlbihuZXh0KSwgUHJvbWlzZS5yZXNvbHZlKCkpO1xuICAgIGF3YWl0IG1pY3JvcGlwLmRlc3Ryb3koKTtcblxuICAgIC8vIERvd25sb2FkIGFuZCBpbnN0YWxsIHJlc291cmNlc1xuICAgIGF3YWl0IGZpbGVzLm1hcCgoZmlsZSkgPT4gYXN5bmMgKCkgPT4ge1xuICAgICAgY29uc3QgbmFtZSA9IGZpbGUuc3Vic3RyaW5nKGZpbGUubGFzdEluZGV4T2YoJy8nKSArIDEpO1xuICAgICAgc3RhdHVzVGV4dC50ZXh0Q29udGVudCA9IGBEb3dubG9hZGluZyByZXNvdXJjZTogJHtuYW1lfWA7XG4gICAgICBjb25zdCByZXNwb25zZSA9IGF3YWl0IGZldGNoKGZpbGUpO1xuICAgICAgaWYgKCFyZXNwb25zZS5vaykge1xuICAgICAgICB0aHJvdyBuZXcgRXJyb3IoYENhbid0IGRvd25sb2FkIFxcYCR7ZmlsZX1cXGAuIEVycm9yICR7cmVzcG9uc2Uuc3RhdHVzfTogXCIke3Jlc3BvbnNlLnN0YXR1c1RleHR9XCIuYCk7XG4gICAgICB9XG4gICAgICBjb25zdCBkYXRhID0gYXdhaXQgcmVzcG9uc2UuYXJyYXlCdWZmZXIoKTtcblxuICAgICAgLy8gU3RvcmUgVVJMcyBpbiB0aGUgY3dkIHdpdGhvdXQgYW55IHN1YmRpcmVjdG9yeSBzdHJ1Y3R1cmVcbiAgICAgIGlmIChmaWxlLmluY2x1ZGVzKFwiOi8vXCIpKSB7XG4gICAgICAgIGZpbGUgPSBuYW1lO1xuICAgICAgfVxuXG4gICAgICAvLyBDb2xsYXBzZSBoaWdoZXIgZGlyZWN0b3J5IHN0cnVjdHVyZVxuICAgICAgZmlsZSA9IGNvbGxhcHNlUGF0aChmaWxlKTtcblxuICAgICAgLy8gQ3JlYXRlIGRpcmVjdG9yeSB0cmVlLCBpZ25vcmluZyBcImRpcmVjdG9yeSBleGlzdHNcIiBWRlMgZXJyb3JzXG4gICAgICBjb25zdCBwYXJ0cyA9IGZpbGUuc3BsaXQoJy8nKS5zbGljZSgwLCAtMSk7XG4gICAgICBsZXQgcGF0aCA9ICcnO1xuICAgICAgd2hpbGUgKHBhcnRzLmxlbmd0aCA+IDApIHtcbiAgICAgICAgcGF0aCArPSBwYXJ0cy5zaGlmdCgpICsgJy8nO1xuICAgICAgICB0cnkge1xuICAgICAgICAgIGF3YWl0IHB5b2RpZGUuRlMubWtkaXIocGF0aCk7XG4gICAgICAgIH0gY2F0Y2ggKGUpIHtcbiAgICAgICAgICBpZiAoZS5uYW1lICE9PSBcIkVycm5vRXJyb3JcIikgdGhyb3cgZTtcbiAgICAgICAgICBpZiAoZS5lcnJubyAhPT0gMjApIHtcbiAgICAgICAgICAgIGNvbnN0IGVycm9yVGV4dFB0ciA9IGF3YWl0IHB5b2RpZGUuX21vZHVsZS5fc3RyZXJyb3IoZS5lcnJubyk7XG4gICAgICAgICAgICBjb25zdCBlcnJvclRleHQgPSBhd2FpdCBweW9kaWRlLl9tb2R1bGUuVVRGOFRvU3RyaW5nKGVycm9yVGV4dFB0cik7XG4gICAgICAgICAgICB0aHJvdyBuZXcgRXJyb3IoYEZpbGVzeXN0ZW0gRXJyb3IgJHtlLmVycm5vfSBcIiR7ZXJyb3JUZXh0fVwiLmApO1xuICAgICAgICAgIH1cbiAgICAgICAgfVxuICAgICAgfVxuXG4gICAgICAvLyBXcml0ZSB0aGlzIGZpbGUgdG8gdGhlIFZGU1xuICAgICAgdHJ5IHtcbiAgICAgICAgcmV0dXJuIGF3YWl0IHB5b2RpZGUuRlMud3JpdGVGaWxlKGZpbGUsIG5ldyBVaW50OEFycmF5KGRhdGEpKTtcbiAgICAgIH0gY2F0Y2ggKGUpIHtcbiAgICAgICAgaWYgKGUubmFtZSAhPT0gXCJFcnJub0Vycm9yXCIpIHRocm93IGU7XG4gICAgICAgIGNvbnN0IGVycm9yVGV4dFB0ciA9IGF3YWl0IHB5b2RpZGUuX21vZHVsZS5fc3RyZXJyb3IoZS5lcnJubyk7XG4gICAgICAgIGNvbnN0IGVycm9yVGV4dCA9IGF3YWl0IHB5b2RpZGUuX21vZHVsZS5VVEY4VG9TdHJpbmcoZXJyb3JUZXh0UHRyKTtcbiAgICAgICAgdGhyb3cgbmV3IEVycm9yKGBGaWxlc3lzdGVtIEVycm9yICR7ZS5lcnJub30gXCIke2Vycm9yVGV4dH1cIi5gKTtcbiAgICAgIH1cbiAgICB9KS5yZWR1Y2UoKGN1ciwgbmV4dCkgPT4gY3VyLnRoZW4obmV4dCksIFByb21pc2UucmVzb2x2ZSgpKTtcblxuICAgIHN0YXR1c1RleHQudGV4dENvbnRlbnQgPSBgUHlvZGlkZSBlbnZpcm9ubWVudCBzZXR1cGA7XG4gICAgYXdhaXQgc2V0dXBQeXRob24ocHlvZGlkZSk7XG5cbiAgICBzdGF0dXNUZXh0LnJlbW92ZSgpO1xuICAgIGlmIChzdGF0dXNDb250YWluZXIuY2hpbGRyZW4ubGVuZ3RoID09IDApIHtcbiAgICAgIHN0YXR1c0NvbnRhaW5lci5wYXJlbnROb2RlLnJlbW92ZSgpO1xuICAgIH1cbiAgICByZXR1cm4gcHlvZGlkZTtcbiAgfSkoKS5jYXRjaCgoZXJyKSA9PiB7XG4gICAgc3RhdHVzVGV4dC5zdHlsZS5jb2xvciA9IFwidmFyKC0tZXhlcmNpc2UtZWRpdG9yLWhsLWVyLCAjQUQwMDAwKVwiO1xuICAgIHN0YXR1c1RleHQudGV4dENvbnRlbnQgPSBlcnIubWVzc2FnZTtcbiAgICAvL2luZGljYXRvckNvbnRhaW5lci5xdWVyeVNlbGVjdG9yKFwiLnNwaW5uZXItZ3Jvd1wiKS5jbGFzc0xpc3QuYWRkKFwiZC1ub25lXCIpO1xuICAgIHRocm93IGVycjtcbiAgfSk7XG5cbiAgLy8gS2VlcCB0cmFjayBvZiBpbml0aWFsIE9KUyBibG9jayByZW5kZXJcbiAgY29uc3QgcmVuZGVyZWRPanMgPSB7fTtcblxuICBjb25zdCBwcm9jZXNzID0gYXN5bmMgKGNvbnRleHQsIGlucHV0cykgPT4ge1xuICAgIGNvbnN0IHB5b2RpZGUgPSBhd2FpdCBweW9kaWRlUHJvbWlzZTtcbiAgICBjb25zdCBldmFsdWF0b3IgPSBuZXcgUHlvZGlkZUV2YWx1YXRvcihweW9kaWRlLCBjb250ZXh0KTtcbiAgICBhd2FpdCBldmFsdWF0b3IucHJvY2VzcyhpbnB1dHMpO1xuICAgIHJldHVybiBldmFsdWF0b3IuY29udGFpbmVyO1xuICB9XG5cbiAgcmV0dXJuIHtcbiAgICBweW9kaWRlUHJvbWlzZSxcbiAgICByZW5kZXJlZE9qcyxcbiAgICBwcm9jZXNzLFxuICB9O1xufVxuIn1dfQ==
+eyJjb250ZW50cyI6W119
 </script>
 <div id="exercise-loading-indicator" class="exercise-loading-indicator d-none d-flex align-items-center gap-2">
 <div id="exercise-loading-status" class="d-flex gap-2">

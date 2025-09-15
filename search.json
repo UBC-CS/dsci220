@@ -611,39 +611,137 @@
     "text": "Announcements\n\nEnroll in PrairieTest here: https://us.prairietest.com/pt/student/course/12361/enroll/392674810508\nSign up for EX1. Practice materials on PL.\nTutorials begin this week!"
   },
   {
-    "objectID": "slides/03_tue_inference.html#counterexample",
-    "href": "slides/03_tue_inference.html#counterexample",
+    "objectID": "slides/03_tue_inference.html#spot-the-rule-dodge-the-trap",
+    "href": "slides/03_tue_inference.html#spot-the-rule-dodge-the-trap",
     "title": "Discrete Math for Data Science",
-    "section": "Counterexample",
-    "text": "Counterexample\nSuppose someone says “all comedians are funny,” and you disagree, how would you refute the statement?\n       \\(\\forall x, C(x)\\rightarrow F(x)\\)\nRefute by negating:\n       \\(\\neg\\forall x, C(x)\\rightarrow F(x)\\)\n     \\(\\equiv\\exists x, \\neg(C(x)\\rightarrow F(x))\\)\n     \\(\\equiv\\exists x, \\neg(F(x)\\vee\\neg C(x))\\)\n     \\(\\equiv\\exists x, \\neg F(x)\\wedge C(x))\\)\nYour immediate response: _(some unfunny comedian)__\nThis evidence of refutation is called a _counterexample_.\nApplies specifically to refuting \\(\\forall\\)"
+    "section": "🎉 Spot the Rule, Dodge the Trap",
+    "text": "🎉 Spot the Rule, Dodge the Trap\nGoal for today: treat valid logical arguments like legal moves in a game.\nYou’ll identify moves, build quick proofs, and design traps."
   },
   {
-    "objectID": "slides/03_tue_inference.html#witness",
-    "href": "slides/03_tue_inference.html#witness",
+    "objectID": "slides/03_tue_inference.html#warm-up-5-min",
+    "href": "slides/03_tue_inference.html#warm-up-5-min",
     "title": "Discrete Math for Data Science",
-    "section": "Witness",
-    "text": "Witness\nSuppose someone says “there is a funny comedian,” and you disagree, how could they justify their statement?\n\n\n       \\(\\exists x, C(x)\\wedge F(x)\\)\n\n\nTheir immediate response: _(a universally funny comedian – Robin Williams)_\nThis evidence of justification is called a _witness_.\nApplies specifically to defending an \\(\\exists\\)\nAside: Why not \\(\\exists x, C(x)\\rightarrow F(x)\\)?"
+    "section": "Warm Up (5 min)",
+    "text": "Warm Up (5 min)\nA valid argument is a legal inference. Content can change; form is what makes it valid.\n\nIf the lab is open, I’ll go. The lab is open. So I’ll go.\nIf the exam is today, the forum is quiet. The forum isn’t quiet. So the exam isn’t today."
   },
   {
-    "objectID": "slides/03_tue_inference.html#code-patterns",
-    "href": "slides/03_tue_inference.html#code-patterns",
+    "objectID": "slides/03_tue_inference.html#micro-rule-cards",
+    "href": "slides/03_tue_inference.html#micro-rule-cards",
     "title": "Discrete Math for Data Science",
-    "section": "Code Patterns",
-    "text": "Code Patterns"
+    "section": "Micro Rule Cards",
+    "text": "Micro Rule Cards\nUse these all class as a reference.\n\nMP: from p→q, p infer q\n\nMT: from p→q, ¬q infer ¬p\n\nHS: from p→q, q→r infer p→r\n\nDS: from p∨q, ¬p infer q\n\n∧-Intro: from p, q infer p∧q\n\n∧-Elim: from p∧q infer p (or q)\n\n∨-Intro: from p infer p∨q (any q)\n\nRES: from p∨q, ¬p∨r infer q∨r\n\nCD: from (p→r), (q→s), (p∨q) infer r∨s\n\nCommon traps:\n\nAffirming consequent: p→q, q ∴ p ❌\nDenying antecedent: p→q, ¬p ∴ ¬q ❌"
   },
   {
-    "objectID": "slides/03_tue_inference.html#nested-quantifiers",
-    "href": "slides/03_tue_inference.html#nested-quantifiers",
+    "objectID": "slides/03_tue_inference.html#rule-card-modus-ponens-mp",
+    "href": "slides/03_tue_inference.html#rule-card-modus-ponens-mp",
     "title": "Discrete Math for Data Science",
-    "section": "Nested Quantifiers",
-    "text": "Nested Quantifiers\nIt will not surprise you that we can use multiple quantifiers:\n \n     \\(\\forall x, \\forall y \\text{ Knows}(x,y)\\)\n\n\nIn pairs, complete the second worksheet."
+    "section": "Rule Card: Modus Ponens (MP)",
+    "text": "Rule Card: Modus Ponens (MP)\n\nFrom p→q and p, infer q.\n\nEx:\nIf the bus is full, I’ll walk. The bus is full. So I’ll walk."
   },
   {
-    "objectID": "slides/03_tue_inference.html#words-and-ideas",
-    "href": "slides/03_tue_inference.html#words-and-ideas",
+    "objectID": "slides/03_tue_inference.html#rule-card-modus-tollens-mt",
+    "href": "slides/03_tue_inference.html#rule-card-modus-tollens-mt",
     "title": "Discrete Math for Data Science",
-    "section": "Words and Ideas",
-    "text": "Words and Ideas\nQuantifiers – “For all” and “There exists”\nCounterexample and Witness\nNegating quantifiers\nNested Quantifiers"
+    "section": "Rule Card: Modus Tollens (MT)",
+    "text": "Rule Card: Modus Tollens (MT)\n\nFrom p→q and ¬q, infer ¬p.\n\nEx:\nIf office hours moved, Slack has an announcement. No announcement. So they didn’t move."
+  },
+  {
+    "objectID": "slides/03_tue_inference.html#rule-card-hypothetical-syllogism-hs",
+    "href": "slides/03_tue_inference.html#rule-card-hypothetical-syllogism-hs",
+    "title": "Discrete Math for Data Science",
+    "section": "Rule Card: Hypothetical Syllogism (HS)",
+    "text": "Rule Card: Hypothetical Syllogism (HS)\n\nFrom p→q and q→r, infer p→r.\n\nEx:\nIf tidy then joins are simpler; if simpler joins then faster viz; so tidy ⇒ faster viz."
+  },
+  {
+    "objectID": "slides/03_tue_inference.html#rule-card-disjunctive-syllogism-ds",
+    "href": "slides/03_tue_inference.html#rule-card-disjunctive-syllogism-ds",
+    "title": "Discrete Math for Data Science",
+    "section": "Rule Card: Disjunctive Syllogism (DS)",
+    "text": "Rule Card: Disjunctive Syllogism (DS)\n\nFrom p∨q and ¬p, infer q.\n\nEx:\nDinner is sushi or tacos. Not sushi. So tacos."
+  },
+  {
+    "objectID": "slides/03_tue_inference.html#rule-card-conjunction-simplification",
+    "href": "slides/03_tue_inference.html#rule-card-conjunction-simplification",
+    "title": "Discrete Math for Data Science",
+    "section": "Rule Card: Conjunction / Simplification",
+    "text": "Rule Card: Conjunction / Simplification\n\n\n∧-Intro: from p, q infer p∧q\n\n\n∧-Elim: from p∧q infer p (or q)"
+  },
+  {
+    "objectID": "slides/03_tue_inference.html#rule-card--intro",
+    "href": "slides/03_tue_inference.html#rule-card--intro",
+    "title": "Discrete Math for Data Science",
+    "section": "Rule Card: ∨-Intro",
+    "text": "Rule Card: ∨-Intro\n\nFrom p infer p∨q.\n\nEx: I rode my scooter today, so I either rode my scooter or I’m a unicorn.\nNote validity cares about form, not plausibility of the added disjunct."
+  },
+  {
+    "objectID": "slides/03_tue_inference.html#rule-card-resolution-res",
+    "href": "slides/03_tue_inference.html#rule-card-resolution-res",
+    "title": "Discrete Math for Data Science",
+    "section": "Rule Card: Resolution (RES)",
+    "text": "Rule Card: Resolution (RES)\n\nFrom p∨q and ¬p∨r infer q∨r.\n\nEx:\nEither study or soccer; if study then library. So soccer or library."
+  },
+  {
+    "objectID": "slides/03_tue_inference.html#rule-card-constructive-dilemma-cd",
+    "href": "slides/03_tue_inference.html#rule-card-constructive-dilemma-cd",
+    "title": "Discrete Math for Data Science",
+    "section": "Rule Card: Constructive Dilemma (CD)",
+    "text": "Rule Card: Constructive Dilemma (CD)\n\nFrom (p→r), (q→s), (p∨q) infer r∨s.\n\nEx:\nIf sunny then picnic; if rainy then museum; sunny or rainy; so picnic or museum."
+  },
+  {
+    "objectID": "slides/03_tue_inference.html#fallacy-cards-flash",
+    "href": "slides/03_tue_inference.html#fallacy-cards-flash",
+    "title": "Discrete Math for Data Science",
+    "section": "Fallacy Cards (flash)",
+    "text": "Fallacy Cards (flash)\n\n\nAffirming the consequent ❌\nfrom p→q, q infer p\n\n\nDenying the antecedent ❌\nfrom p→q, ¬p infer ¬q"
+  },
+  {
+    "objectID": "slides/03_tue_inference.html#validity",
+    "href": "slides/03_tue_inference.html#validity",
+    "title": "Discrete Math for Data Science",
+    "section": "Validity",
+    "text": "Validity\n∧-Elim: \\((p\\wedge q)\\rightarrow p\\) is this always true?"
+  },
+  {
+    "objectID": "slides/03_tue_inference.html#invalidity",
+    "href": "slides/03_tue_inference.html#invalidity",
+    "title": "Discrete Math for Data Science",
+    "section": "INValidity",
+    "text": "INValidity\nAffirming Consequent: \\(((p\\rightarrow q)\\wedge q)\\rightarrow p\\) is this always true?\n\n\n\n\n\n\n\n\n\n\n\\(p\\)\n\\(q\\)\n\\(p\\rightarrow q\\)\n\\((p\\rightarrow q)\\wedge q\\)\n\\(((p\\rightarrow q)\\wedge q)\\rightarrow p\\)\n\n\n\n\nF\nF\n\n\n\n\n\nF\nT\n\n\n\n\n\nT\nF\n\n\n\n\n\nT\nT"
+  },
+  {
+    "objectID": "slides/03_tue_inference.html#spot-the-rule-or-the-trap",
+    "href": "slides/03_tue_inference.html#spot-the-rule-or-the-trap",
+    "title": "Discrete Math for Data Science",
+    "section": "Spot the Rule or the Trap",
+    "text": "Spot the Rule or the Trap\nHow to play: post in chat…\n(a) valid or not, (b) if valid, name the rule, (c) formal pattern."
+  },
+  {
+    "objectID": "slides/03_tue_inference.html#build-a-proof",
+    "href": "slides/03_tue_inference.html#build-a-proof",
+    "title": "Discrete Math for Data Science",
+    "section": "Build a proof",
+    "text": "Build a proof\nIn the chat, each person adds exactly one line using a Rule Card."
+  },
+  {
+    "objectID": "slides/03_tue_inference.html#design-a-trap",
+    "href": "slides/03_tue_inference.html#design-a-trap",
+    "title": "Discrete Math for Data Science",
+    "section": "Design a Trap",
+    "text": "Design a Trap\nYour mission:\n- Write one valid two-premise argument (any rule).\n- Write a look-alike fallacy with the same topic words.\n- Bring to class on Wednesday morning!"
+  },
+  {
+    "objectID": "slides/03_tue_inference.html#quantifier-teaser",
+    "href": "slides/03_tue_inference.html#quantifier-teaser",
+    "title": "Discrete Math for Data Science",
+    "section": "Quantifier Teaser",
+    "text": "Quantifier Teaser\n\nUI: ∀x S(x) ⇒ S(Alex) (Universal instantiation)\nEG: S(Alex) ⇒ ∃x S(x) (Existential generalization) Analogy: mixing ∀/∃ incorrectly creates traps like affirming the consequent/denying the antecedent."
+  },
+  {
+    "objectID": "slides/03_tue_inference.html#exit-ticket-2-min",
+    "href": "slides/03_tue_inference.html#exit-ticket-2-min",
+    "title": "Discrete Math for Data Science",
+    "section": "Exit Ticket (2 min)",
+    "text": "Exit Ticket (2 min)\nIn chat (or poll), complete both:\n\nOne valid rule I can spot in the wild is ________.\n\nOne trap I’ll watch for is ________."
   },
   {
     "objectID": "slides/01_wed_intro.html#sages-tricksters",
