@@ -161,449 +161,6 @@
     "text": "Words and Ideas\nQuantifiers – “For all” and “There exists”\nCounterexample and Witness\nNegating quantifiers\nNested Quantifiers"
   },
   {
-    "objectID": "slides/02_fri_quant1.html#announcements",
-    "href": "slides/02_fri_quant1.html#announcements",
-    "title": "Discrete Math for Data Science",
-    "section": "Announcements",
-    "text": "Announcements\n\nEnroll in PrairieTest here: https://us.prairietest.com/pt/student/course/12361/enroll/392674810508\nSign up for EX1. Practice materials (on PL) coming soon!\nTutorials begin next week."
-  },
-  {
-    "objectID": "slides/02_fri_quant1.html#vocabulary",
-    "href": "slides/02_fri_quant1.html#vocabulary",
-    "title": "Discrete Math for Data Science",
-    "section": "Vocabulary",
-    "text": "Vocabulary\nGiven \\(p\\rightarrow q\\), we define the following 3 terms:\n\n________________ is \\(\\neg q\\rightarrow \\neg p\\)\n________________ is \\(q\\rightarrow p\\)\n________________ is \\(\\neg p\\rightarrow \\neg q\\)\n\nDescribe all the logical equivalences among the 4 statements:\n\nwe’ll see if English can help us!"
-  },
-  {
-    "objectID": "slides/02_fri_quant1.html#converses-check-whats-true",
-    "href": "slides/02_fri_quant1.html#converses-check-whats-true",
-    "title": "Discrete Math for Data Science",
-    "section": "Converses — check what’s True",
-    "text": "Converses — check what’s True\n\n\n\n\n\n\n\n\n\n#\nStatement p→q\np→q\nq→p\n\n\n\n\n1\nTo be empty, a string must have length 0.\n☐\n☐\n\n\n2\nPlaying in the NHL entails being a professional hockey player.\n☐\n☐\n\n\n3\nIf an animal is a mammal, then it is a cat.\n☐\n☐\n\n\n4\nRiding the 99 B-Line counts as public transit.\n☐\n☐\n\n\n5\nIf a dish is spicy, then it is Indian cuisine.\n☐\n☐\n\n\n6\nIf it’s a kitten, then it’s a cat.\n☐\n☐\n\n\n7\nNo song appears on the Billboard Hot 100 without reaching #1.\n☐\n☐\n\n\n8\nIf I live in Totem Park residence, then I live in campus housing.\n☐\n☐\n\n\n9\nIf I eat breakfast, then I ace the quiz.\n☐\n☐\n\n\n10\nIf a movie is a superhero film, then it is an MCU movie.\n☐\n☐\n\n\n11\nIf I’m an only child, then I have zero siblings.\n☐\n☐\n\n\n12\nIf I’m in British Columbia, then I’m in Vancouver.\n☐\n☐"
-  },
-  {
-    "objectID": "slides/02_fri_quant1.html#biconditionals",
-    "href": "slides/02_fri_quant1.html#biconditionals",
-    "title": "Discrete Math for Data Science",
-    "section": "Biconditionals",
-    "text": "Biconditionals\nWe have a special operator for those implications whose converses are also True:\n  \\((p\\rightarrow q) \\wedge (q\\rightarrow p)\\equiv p\\leftrightarrow q\\)\nSome phrases describing this relationship:\n\nbiconditional\nif and only if (iff)\nequivalent\n\nWhich of the expressions on the previous page are biconditionals?"
-  },
-  {
-    "objectID": "slides/02_fri_quant1.html#quantified-predicates",
-    "href": "slides/02_fri_quant1.html#quantified-predicates",
-    "title": "Discrete Math for Data Science",
-    "section": "Quantified Predicates",
-    "text": "Quantified Predicates\nConsider the predicate:\n       \\(H(x)\\): \\(x\\) is a Hero\nIs this a proposition? ____. We add a “quantifier”:\n               \\(H(x)\\): \\(x\\) is a Hero\nNow is it a proposition? ____. We scope the variable:\n                       \\(H(x)\\): \\(x\\) is a Hero\n\n\n\nTwo classic quantifiers:\n  \\(\\forall\\): “For every” or “For all”\n  \\(\\exists\\): “There exists” or “There is at least one”"
-  },
-  {
-    "objectID": "slides/02_fri_quant1.html#quantified-predicates-1",
-    "href": "slides/02_fri_quant1.html#quantified-predicates-1",
-    "title": "Discrete Math for Data Science",
-    "section": "Quantified Predicates",
-    "text": "Quantified Predicates\nIn pairs, complete the worksheet!\n \nWhat did you discover about negation?"
-  },
-  {
-    "objectID": "slides/02_fri_quant1.html#counterexample",
-    "href": "slides/02_fri_quant1.html#counterexample",
-    "title": "Discrete Math for Data Science",
-    "section": "Counterexample",
-    "text": "Counterexample\nSuppose someone says “all comedians are funny,” and you disagree, how would you refute the statement?\n\n\n       \\(\\forall x, C(x)\\rightarrow F(x)\\)\n\n\n\n\nYour immediate response: __________\nThis evidence of refutation is called a _______________.\nAnother way:\nApplies specifically to \\(\\neg\\forall\\)"
-  },
-  {
-    "objectID": "slides/02_fri_quant1.html#witness",
-    "href": "slides/02_fri_quant1.html#witness",
-    "title": "Discrete Math for Data Science",
-    "section": "Witness",
-    "text": "Witness\nSuppose someone says “there is a funny comedian,” and you disagree, how could they justify their statement?\n\n\n       \\(\\exists x, C(x)\\wedge F(x)\\)\n\n\nTheir immediate response: __________\nThis evidence of justification is called a _______________.\nApplies specifically to \\(\\exists\\)\nAside: Why not \\(\\exists x, C(x)\\rightarrow F(x)\\)?"
-  },
-  {
-    "objectID": "slides/02_fri_quant1.html#code-patterns",
-    "href": "slides/02_fri_quant1.html#code-patterns",
-    "title": "Discrete Math for Data Science",
-    "section": "Code Patterns",
-    "text": "Code Patterns"
-  },
-  {
-    "objectID": "slides/02_fri_quant1.html#nested-quantifiers",
-    "href": "slides/02_fri_quant1.html#nested-quantifiers",
-    "title": "Discrete Math for Data Science",
-    "section": "Nested Quantifiers",
-    "text": "Nested Quantifiers\nIt will not surprise you that we can use multiple quantifiers:\n \n     \\(\\forall x, \\forall y \\text{ Knows}(x,y)\\)\n\n\nIn pairs, complete the second worksheet."
-  },
-  {
-    "objectID": "slides/02_fri_quant1.html#words-and-ideas",
-    "href": "slides/02_fri_quant1.html#words-and-ideas",
-    "title": "Discrete Math for Data Science",
-    "section": "Words and Ideas",
-    "text": "Words and Ideas\nQuantifiers – “For all” and “There exists”\nCounterexample and Witness\nNegating quantifiers\nNested Quantifiers"
-  },
-  {
-    "objectID": "slides/01_fri_truth.html#communications",
-    "href": "slides/01_fri_truth.html#communications",
-    "title": "Discrete Math for Data Science",
-    "section": "Communications",
-    "text": "Communications\n\n\n📧 Email cheeren@cs.ubc.ca\nChecked daily. Please place “DSCI220” in subject!\n   Piazza piazza.com/ubc.ca/winterterm12025/dsci220\nPost questions for quick response.\n🏫 Office Hours\n\n\n\n\n\n\n\n\n\n\nName\nTime\nLocation & Zoom\n\n\n\n\nCinda\nMon 2–4pm\n🏢 ICCS 233 · \n\n\nJoe\nFri 11-12a\n🏢 FORW 317\n\n\nMarko\nTue 1:30-2:30p\n🏢 TBD"
-  },
-  {
-    "objectID": "slides/01_fri_truth.html#truth",
-    "href": "slides/01_fri_truth.html#truth",
-    "title": "Discrete Math for Data Science",
-    "section": "Truth",
-    "text": "Truth\nMake at least 3 observations about the following table:\n\n\n\n\n\n\\(p\\)\n\\(q\\)\n\\(p \\lor q\\)\n\n\n\n\nF\nF\nF\n\n\nF\nT\nT\n\n\nT\nF\nT\n\n\nT\nT\nT"
-  },
-  {
-    "objectID": "slides/01_fri_truth.html#summary",
-    "href": "slides/01_fri_truth.html#summary",
-    "title": "Discrete Math for Data Science",
-    "section": "Summary",
-    "text": "Summary\nKey observations about the table:\n\n\n\n\n\n\\(p\\)\n\\(q\\)\n\\(p \\lor q\\)\n\n\n\n\nF\nF\nF\n\n\nF\nT\nT\n\n\nT\nF\nT\n\n\nT\nT\nT\n\n\n\n\n\nThe diagram is called a Truth Table\np and q are variables, each of which take on one of two Boolean values, True or False (T/F, 1/0)\n∨ is a binary operator that implements a function (creates output) from the 2 input variables to another Boolean value. It is characterized by its output values.\nThe operator ∨ corresponds to the English word or.\nThe expression p ∨ q is called a proposition."
-  },
-  {
-    "objectID": "slides/01_fri_truth.html#foreshadowing",
-    "href": "slides/01_fri_truth.html#foreshadowing",
-    "title": "Discrete Math for Data Science",
-    "section": "Foreshadowing",
-    "text": "Foreshadowing\n\n\n\n\n\n\\(p\\)\n\\(q\\)\n\\(p \\lor q\\)\n\n\n\n\nF\nF\nF\n\n\nF\nT\nT\n\n\nT\nF\nT\n\n\nT\nT\nT\n\n\n\n\n\nHow many rows for a proposition on 3 variables? \\(k\\) variables?\nGive a good name for an operator that takes 1 variable: __________\nGive a good name for an operator that takes 3 variables: __________\nHow many different binary operators could there be?\n\n\n\n  \n    −\n    +\n \n 06:00\n \n\nchallenge: Of all binary operators, how many are commutative? (Half: 8.)"
-  },
-  {
-    "objectID": "slides/01_fri_truth.html#truth-tables",
-    "href": "slides/01_fri_truth.html#truth-tables",
-    "title": "Discrete Math for Data Science",
-    "section": "Truth Tables",
-    "text": "Truth Tables\nAll graded learning activities in the course will use a tool called PrairieLearn.\nNavigate to today’s activity and complete question 1\nhttps://us.prairielearn.com/pl/course_instance/186238/\n\n  \n    −\n    +\n \n 10:00"
-  },
-  {
-    "objectID": "slides/01_fri_truth.html#beyond-operators",
-    "href": "slides/01_fri_truth.html#beyond-operators",
-    "title": "Discrete Math for Data Science",
-    "section": "Beyond Operators",
-    "text": "Beyond Operators\nPropositions can be more complex than just a single operator!\nExample:\n\n\n\n\\(p\\)\n\\(q\\)\n_____\n\\(\\neg(p \\lor q)\\)\n\n\n\n\nF\nF\n\nT\n\n\nF\nT\n\nF\n\n\nT\nF\n\nF\n\n\nT\nT\n\nF"
-  },
-  {
-    "objectID": "slides/01_fri_truth.html#wffs",
-    "href": "slides/01_fri_truth.html#wffs",
-    "title": "Discrete Math for Data Science",
-    "section": "WFFs",
-    "text": "WFFs\nA well-formed formula is a Boolean statement generated by the following rules:\n&lt;wff&gt; ::= &lt;atom&gt;\n        | ~ &lt;wff&gt;\n        | ( &lt;wff&gt; ∧ &lt;wff&gt; )\n        | ( &lt;wff&gt; ∨ &lt;wff&gt; )\n\n&lt;atom&gt; ::= p | q | r | s | ...\nThis definition is in the form of a Grammar.\n_____________: &lt;wff&gt; and &lt;atom&gt;\n_____________: p, q, r, s …\nIt is our first self-referential or recursive definition."
-  },
-  {
-    "objectID": "slides/01_fri_truth.html#wffs-1",
-    "href": "slides/01_fri_truth.html#wffs-1",
-    "title": "Discrete Math for Data Science",
-    "section": "WFFs",
-    "text": "WFFs\n&lt;wff&gt; ::= &lt;atom&gt;\n        | ~ &lt;wff&gt;\n        | ( &lt;wff&gt; ∧ &lt;wff&gt; )\n        | ( &lt;wff&gt; ∨ &lt;wff&gt; )\n\n&lt;atom&gt; ::= p | q \nExample derivation:\n&lt;wff&gt;"
-  },
-  {
-    "objectID": "slides/01_fri_truth.html#wffs-notes",
-    "href": "slides/01_fri_truth.html#wffs-notes",
-    "title": "Discrete Math for Data Science",
-    "section": "WFFs (Notes)",
-    "text": "WFFs (Notes)\n&lt;wff&gt; ::= &lt;atom&gt;\n        | ~ &lt;wff&gt;\n        | ( &lt;wff&gt; ∧ &lt;wff&gt; )\n        | ( &lt;wff&gt; ∨ &lt;wff&gt; )\n\n&lt;atom&gt; ::= p | q \n\nGrammars can be used to construct many different kinds of sequences.\nWe could have included additional operators \\(\\rightarrow\\), \\(\\leftrightarrow\\), \\(\\oplus\\), \\(\\uparrow\\)\nComputational evaluation of &lt;wff&gt;is covered in DSCI221. For now, we trust Python and focus on logic.\nThe &lt;wff&gt; are propositions."
-  },
-  {
-    "objectID": "slides/01_fri_truth.html#wff-puzzle",
-    "href": "slides/01_fri_truth.html#wff-puzzle",
-    "title": "Discrete Math for Data Science",
-    "section": "WFF Puzzle",
-    "text": "WFF Puzzle\nWhich of these are WFFs?\n&lt;wff&gt; ::= &lt;atom&gt;\n        | ~ &lt;wff&gt;\n        | ( &lt;wff&gt; ∧ &lt;wff&gt; )\n        | ( &lt;wff&gt; ∨ &lt;wff&gt; )\n\n&lt;atom&gt; ::= p | q \n\n\n\n\\((\\neg p ∧ (q ∨ r))\\)\n\n\\(((p ∧ q) ∨ (r ∧ \\neg s))\\)\n\\(((\\neg p) ∨ (q ∨ r))\\)\n\n\n\n\\((p ∨ (qr))\\)\n\\(\\neg (p ∨ (q ∧ \\neg r))\\)\n\\(\\neg (p ∨ q))\\)\n\n\n\n  \n    −\n    +\n \n 03:00"
-  },
-  {
-    "objectID": "slides/01_fri_truth.html#wffs-2",
-    "href": "slides/01_fri_truth.html#wffs-2",
-    "title": "Discrete Math for Data Science",
-    "section": "WFFs",
-    "text": "WFFs\n&lt;wff&gt; ::= &lt;atom&gt;\n        | ~ &lt;wff&gt;\n        | ( &lt;wff&gt; ∧ &lt;wff&gt; )\n        | ( &lt;wff&gt; ∨ &lt;wff&gt; )\n\n&lt;atom&gt; ::= p | q \nTheorem: \\(\\neg (p ∨ q))\\) is not a WFF.\nProof:"
-  },
-  {
-    "objectID": "slides/01_fri_truth.html#propositions",
-    "href": "slides/01_fri_truth.html#propositions",
-    "title": "Discrete Math for Data Science",
-    "section": "Propositions",
-    "text": "Propositions\nA proposition is a statement that can be either True or False.\nExamples:\n\n\\(37 &gt; 12\\)\nFewer than 5 people in this room feel sleepy.\nThere are extra-terrestrial life forms.\nThis statement is False.\n\\(\\underline{\\hspace{10em}}\\)"
-  },
-  {
-    "objectID": "slides/01_fri_truth.html#translation",
-    "href": "slides/01_fri_truth.html#translation",
-    "title": "Discrete Math for Data Science",
-    "section": "Translation",
-    "text": "Translation\n\n\n\\(p\\): ___________ ate cereal for breakfast.\n\\(q\\): ___________ brought a backpack to class.\n \n\n\\((p\\lor q)\\)\n\\((p\\wedge q)\\)\n\\(\\neg q\\)"
-  },
-  {
-    "objectID": "slides/01_fri_truth.html#predicates",
-    "href": "slides/01_fri_truth.html#predicates",
-    "title": "Discrete Math for Data Science",
-    "section": "Predicates",
-    "text": "Predicates\n\n\n\\(p\\): ___________ ate cereal for breakfast.\n\n\nWe may want to apply the statement to many students, in which case we define a Predicate.\n\n\n\n\\(P(x)\\): \\(x\\) ate cereal for breakfast.\n\\(x\\) can be instantiated to be a particular student, or an arbitrary student.\n\\(P(\\underline{\\hspace{2em}} )\\) is a proposition."
-  },
-  {
-    "objectID": "slides/01_fri_truth.html#logical-equivalence",
-    "href": "slides/01_fri_truth.html#logical-equivalence",
-    "title": "Discrete Math for Data Science",
-    "section": "Logical Equivalence",
-    "text": "Logical Equivalence\n\n\nEx: Is it true that \\((p \\lor q) \\equiv (q\\lor p)\\) ?\n\n\nDiscussion points:\n\n\\(\\equiv\\) means logically equivalent\nThe answer had better be _________!!!\nHow can we justify our instinct?"
-  },
-  {
-    "objectID": "slides/01_fri_truth.html#logical-equivalence-example",
-    "href": "slides/01_fri_truth.html#logical-equivalence-example",
-    "title": "Discrete Math for Data Science",
-    "section": "Logical Equivalence example",
-    "text": "Logical Equivalence example"
-  },
-  {
-    "objectID": "slides/01_fri_truth.html#boolean-masks",
-    "href": "slides/01_fri_truth.html#boolean-masks",
-    "title": "Discrete Math for Data Science",
-    "section": "Boolean Masks",
-    "text": "Boolean Masks\nSelect all the cereals with at least 4 units of protein and no more than 6 units of sugars.\n\n\n\n\n\n\n\n\n\n\nChallenge: In pandas, test De Morgan with missing data: create a row with protein = NaN. Show that (~p) & (~q) can differ from ~(p | q) under three-valued logic; propose a fix (.fillna(False) or careful NA handling)."
-  },
-  {
-    "objectID": "slides/01_fri_truth.html#words-and-ideas",
-    "href": "slides/01_fri_truth.html#words-and-ideas",
-    "title": "Discrete Math for Data Science",
-    "section": "Words and Ideas",
-    "text": "Words and Ideas\nTruth Table\nProposition\nGrammar\nPredicate\nBoolean Mask\nLogical Equivalence"
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "DSCI 220 was created by Dr. Cinda Heeren. The website shell was set up in Quarto by Dr. Stephan Koenig.",
-    "crumbs": [
-      "About"
-    ]
-  },
-  {
-    "objectID": "about.html#contributors",
-    "href": "about.html#contributors",
-    "title": "About",
-    "section": "",
-    "text": "DSCI 220 was created by Dr. Cinda Heeren. The website shell was set up in Quarto by Dr. Stephan Koenig.",
-    "crumbs": [
-      "About"
-    ]
-  },
-  {
-    "objectID": "LICENSE.html",
-    "href": "LICENSE.html",
-    "title": "DSCI 220: Discrete Math for Data Science",
-    "section": "",
-    "text": "Attribution-ShareAlike 4.0 International\n=======================================================================\nCreative Commons Corporation (“Creative Commons”) is not a law firm and does not provide legal services or legal advice. Distribution of Creative Commons public licenses does not create a lawyer-client or other relationship. Creative Commons makes its licenses and related information available on an “as-is” basis. Creative Commons gives no warranties regarding its licenses, any material licensed under their terms and conditions, or any related information. Creative Commons disclaims all liability for damages resulting from their use to the fullest extent possible.\nUsing Creative Commons Public Licenses\nCreative Commons public licenses provide a standard set of terms and conditions that creators and other rights holders may use to share original works of authorship and other material subject to copyright and certain other rights specified in the public license below. The following considerations are for informational purposes only, are not exhaustive, and do not form part of our licenses.\n Considerations for licensors: Our public licenses are\n intended for use by those authorized to give the public\n permission to use material in ways otherwise restricted by\n copyright and certain other rights. Our licenses are\n irrevocable. Licensors should read and understand the terms\n and conditions of the license they choose before applying it.\n Licensors should also secure all rights necessary before\n applying our licenses so that the public can reuse the\n material as expected. Licensors should clearly mark any\n material not subject to the license. This includes other CC-\n licensed material, or material used under an exception or\n limitation to copyright. More considerations for licensors:\nwiki.creativecommons.org/Considerations_for_licensors\n\n Considerations for the public: By using one of our public\n licenses, a licensor grants the public permission to use the\n licensed material under specified terms and conditions. If\n the licensor's permission is not necessary for any reason--for\n example, because of any applicable exception or limitation to\n copyright--then that use is not regulated by the license. Our\n licenses grant only permissions under copyright and certain\n other rights that a licensor has authority to grant. Use of\n the licensed material may still be restricted for other\n reasons, including because others have copyright or other\n rights in the material. A licensor may make special requests,\n such as asking that all changes be marked or described.\n Although not required by our licenses, you are encouraged to\n respect those requests where reasonable. More_considerations\n for the public:\nwiki.creativecommons.org/Considerations_for_licensees\n=======================================================================\nCreative Commons Attribution-ShareAlike 4.0 International Public License\nBy exercising the Licensed Rights (defined below), You accept and agree to be bound by the terms and conditions of this Creative Commons Attribution-ShareAlike 4.0 International Public License (“Public License”). To the extent this Public License may be interpreted as a contract, You are granted the Licensed Rights in consideration of Your acceptance of these terms and conditions, and the Licensor grants You such rights in consideration of benefits the Licensor receives from making the Licensed Material available under these terms and conditions.\nSection 1 – Definitions.\n\nAdapted Material means material subject to Copyright and Similar Rights that is derived from or based upon the Licensed Material and in which the Licensed Material is translated, altered, arranged, transformed, or otherwise modified in a manner requiring permission under the Copyright and Similar Rights held by the Licensor. For purposes of this Public License, where the Licensed Material is a musical work, performance, or sound recording, Adapted Material is always produced where the Licensed Material is synched in timed relation with a moving image.\nAdapter’s License means the license You apply to Your Copyright and Similar Rights in Your contributions to Adapted Material in accordance with the terms and conditions of this Public License.\nBY-SA Compatible License means a license listed at creativecommons.org/compatiblelicenses, approved by Creative Commons as essentially the equivalent of this Public License.\nCopyright and Similar Rights means copyright and/or similar rights closely related to copyright including, without limitation, performance, broadcast, sound recording, and Sui Generis Database Rights, without regard to how the rights are labeled or categorized. For purposes of this Public License, the rights specified in Section 2(b)(1)-(2) are not Copyright and Similar Rights.\nEffective Technological Measures means those measures that, in the absence of proper authority, may not be circumvented under laws fulfilling obligations under Article 11 of the WIPO Copyright Treaty adopted on December 20, 1996, and/or similar international agreements.\nExceptions and Limitations means fair use, fair dealing, and/or any other exception or limitation to Copyright and Similar Rights that applies to Your use of the Licensed Material.\nLicense Elements means the license attributes listed in the name of a Creative Commons Public License. The License Elements of this Public License are Attribution and ShareAlike.\nLicensed Material means the artistic or literary work, database, or other material to which the Licensor applied this Public License.\nLicensed Rights means the rights granted to You subject to the terms and conditions of this Public License, which are limited to all Copyright and Similar Rights that apply to Your use of the Licensed Material and that the Licensor has authority to license.\nLicensor means the individual(s) or entity(ies) granting rights under this Public License.\nShare means to provide material to the public by any means or process that requires permission under the Licensed Rights, such as reproduction, public display, public performance, distribution, dissemination, communication, or importation, and to make material available to the public including in ways that members of the public may access the material from a place and at a time individually chosen by them.\nSui Generis Database Rights means rights other than copyright resulting from Directive 96/9/EC of the European Parliament and of the Council of 11 March 1996 on the legal protection of databases, as amended and/or succeeded, as well as other essentially equivalent rights anywhere in the world.\nYou means the individual or entity exercising the Licensed Rights under this Public License. Your has a corresponding meaning.\n\nSection 2 – Scope.\n\nLicense grant.\n\nSubject to the terms and conditions of this Public License, the Licensor hereby grants You a worldwide, royalty-free, non-sublicensable, non-exclusive, irrevocable license to exercise the Licensed Rights in the Licensed Material to:\n\nreproduce and Share the Licensed Material, in whole or in part; and\nproduce, reproduce, and Share Adapted Material.\n\nExceptions and Limitations. For the avoidance of doubt, where Exceptions and Limitations apply to Your use, this Public License does not apply, and You do not need to comply with its terms and conditions.\nTerm. The term of this Public License is specified in Section 6(a).\nMedia and formats; technical modifications allowed. The Licensor authorizes You to exercise the Licensed Rights in all media and formats whether now known or hereafter created, and to make technical modifications necessary to do so. The Licensor waives and/or agrees not to assert any right or authority to forbid You from making technical modifications necessary to exercise the Licensed Rights, including technical modifications necessary to circumvent Effective Technological Measures. For purposes of this Public License, simply making modifications authorized by this Section 2(a)\n\nnever produces Adapted Material.\n\nDownstream recipients.\n\nOffer from the Licensor – Licensed Material. Every recipient of the Licensed Material automatically receives an offer from the Licensor to exercise the Licensed Rights under the terms and conditions of this Public License.\nAdditional offer from the Licensor – Adapted Material. Every recipient of Adapted Material from You automatically receives an offer from the Licensor to exercise the Licensed Rights in the Adapted Material under the conditions of the Adapter’s License You apply.\nNo downstream restrictions. You may not offer or impose any additional or different terms or conditions on, or apply any Effective Technological Measures to, the Licensed Material if doing so restricts exercise of the Licensed Rights by any recipient of the Licensed Material.\n\nNo endorsement. Nothing in this Public License constitutes or may be construed as permission to assert or imply that You are, or that Your use of the Licensed Material is, connected with, or sponsored, endorsed, or granted official status by, the Licensor or others designated to receive attribution as provided in Section 3(a)(1)(A)(i).\n\nOther rights.\n\nMoral rights, such as the right of integrity, are not licensed under this Public License, nor are publicity, privacy, and/or other similar personality rights; however, to the extent possible, the Licensor waives and/or agrees not to assert any such rights held by the Licensor to the limited extent necessary to allow You to exercise the Licensed Rights, but not otherwise.\nPatent and trademark rights are not licensed under this Public License.\nTo the extent possible, the Licensor waives any right to collect royalties from You for the exercise of the Licensed Rights, whether directly or through a collecting society under any voluntary or waivable statutory or compulsory licensing scheme. In all other cases the Licensor expressly reserves any right to collect such royalties.\n\n\nSection 3 – License Conditions.\nYour exercise of the Licensed Rights is expressly made subject to the following conditions.\n\nAttribution.\n\nIf You Share the Licensed Material (including in modified form), You must:\n\nretain the following if it is supplied by the Licensor with the Licensed Material:\n\nidentification of the creator(s) of the Licensed Material and any others designated to receive attribution, in any reasonable manner requested by the Licensor (including by pseudonym if designated);\na copyright notice;\na notice that refers to this Public License;\na notice that refers to the disclaimer of warranties;\na URI or hyperlink to the Licensed Material to the extent reasonably practicable;\n\nindicate if You modified the Licensed Material and retain an indication of any previous modifications; and\nindicate the Licensed Material is licensed under this Public License, and include the text of, or the URI or hyperlink to, this Public License.\n\nYou may satisfy the conditions in Section 3(a)(1) in any reasonable manner based on the medium, means, and context in which You Share the Licensed Material. For example, it may be reasonable to satisfy the conditions by providing a URI or hyperlink to a resource that includes the required information.\nIf requested by the Licensor, You must remove any of the information required by Section 3(a)(1)(A) to the extent reasonably practicable.\n\nShareAlike.\nIn addition to the conditions in Section 3(a), if You Share Adapted Material You produce, the following conditions also apply.\n\nThe Adapter’s License You apply must be a Creative Commons license with the same License Elements, this version or later, or a BY-SA Compatible License.\nYou must include the text of, or the URI or hyperlink to, the Adapter’s License You apply. You may satisfy this condition in any reasonable manner based on the medium, means, and context in which You Share Adapted Material.\nYou may not offer or impose any additional or different terms or conditions on, or apply any Effective Technological Measures to, Adapted Material that restrict exercise of the rights granted under the Adapter’s License You apply.\n\n\nSection 4 – Sui Generis Database Rights.\nWhere the Licensed Rights include Sui Generis Database Rights that apply to Your use of the Licensed Material:\n\nfor the avoidance of doubt, Section 2(a)(1) grants You the right to extract, reuse, reproduce, and Share all or a substantial portion of the contents of the database;\nif You include all or a substantial portion of the database contents in a database in which You have Sui Generis Database Rights, then the database in which You have Sui Generis Database Rights (but not its individual contents) is Adapted Material,\nincluding for purposes of Section 3(b); and\nYou must comply with the conditions in Section 3(a) if You Share all or a substantial portion of the contents of the database.\n\nFor the avoidance of doubt, this Section 4 supplements and does not replace Your obligations under this Public License where the Licensed Rights include other Copyright and Similar Rights.\nSection 5 – Disclaimer of Warranties and Limitation of Liability.\n\nUNLESS OTHERWISE SEPARATELY UNDERTAKEN BY THE LICENSOR, TO THE EXTENT POSSIBLE, THE LICENSOR OFFERS THE LICENSED MATERIAL AS-IS AND AS-AVAILABLE, AND MAKES NO REPRESENTATIONS OR WARRANTIES OF ANY KIND CONCERNING THE LICENSED MATERIAL, WHETHER EXPRESS, IMPLIED, STATUTORY, OR OTHER. THIS INCLUDES, WITHOUT LIMITATION, WARRANTIES OF TITLE, MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, NON-INFRINGEMENT, ABSENCE OF LATENT OR OTHER DEFECTS, ACCURACY, OR THE PRESENCE OR ABSENCE OF ERRORS, WHETHER OR NOT KNOWN OR DISCOVERABLE. WHERE DISCLAIMERS OF WARRANTIES ARE NOT ALLOWED IN FULL OR IN PART, THIS DISCLAIMER MAY NOT APPLY TO YOU.\nTO THE EXTENT POSSIBLE, IN NO EVENT WILL THE LICENSOR BE LIABLE TO YOU ON ANY LEGAL THEORY (INCLUDING, WITHOUT LIMITATION, NEGLIGENCE) OR OTHERWISE FOR ANY DIRECT, SPECIAL, INDIRECT, INCIDENTAL, CONSEQUENTIAL, PUNITIVE, EXEMPLARY, OR OTHER LOSSES, COSTS, EXPENSES, OR DAMAGES ARISING OUT OF THIS PUBLIC LICENSE OR USE OF THE LICENSED MATERIAL, EVEN IF THE LICENSOR HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH LOSSES, COSTS, EXPENSES, OR DAMAGES. WHERE A LIMITATION OF LIABILITY IS NOT ALLOWED IN FULL OR IN PART, THIS LIMITATION MAY NOT APPLY TO YOU.\nThe disclaimer of warranties and limitation of liability provided above shall be interpreted in a manner that, to the extent possible, most closely approximates an absolute disclaimer and waiver of all liability.\n\nSection 6 – Term and Termination.\n\nThis Public License applies for the term of the Copyright and Similar Rights licensed here. However, if You fail to comply with this Public License, then Your rights under this Public License terminate automatically.\nWhere Your right to use the Licensed Material has terminated under Section 6(a), it reinstates:\n\nautomatically as of the date the violation is cured, provided it is cured within 30 days of Your discovery of the violation; or\nupon express reinstatement by the Licensor.\n\nFor the avoidance of doubt, this Section 6(b) does not affect any right the Licensor may have to seek remedies for Your violations of this Public License.\nFor the avoidance of doubt, the Licensor may also offer the Licensed Material under separate terms or conditions or stop distributing the Licensed Material at any time; however, doing so will not terminate this Public License.\nSections 1, 5, 6, 7, and 8 survive termination of this Public License.\n\nSection 7 – Other Terms and Conditions.\n\nThe Licensor shall not be bound by any additional or different terms or conditions communicated by You unless expressly agreed.\nAny arrangements, understandings, or agreements regarding the Licensed Material not stated herein are separate from and independent of the terms and conditions of this Public License.\n\nSection 8 – Interpretation.\n\nFor the avoidance of doubt, this Public License does not, and shall not be interpreted to, reduce, limit, restrict, or impose conditions on any use of the Licensed Material that could lawfully be made without permission under this Public License.\nTo the extent possible, if any provision of this Public License is deemed unenforceable, it shall be automatically reformed to the minimum extent necessary to make it enforceable. If the provision cannot be reformed, it shall be severed from this Public License without affecting the enforceability of the remaining terms and conditions.\nNo term or condition of this Public License will be waived and no failure to comply consented to unless expressly agreed to by the Licensor.\nNothing in this Public License constitutes or may be interpreted as a limitation upon, or waiver of, any privileges and immunities that apply to the Licensor or You, including from the legal processes of any jurisdiction or authority.\n\n=======================================================================\nCreative Commons is not a party to its public licenses. Notwithstanding, Creative Commons may elect to apply one of its public licenses to material it publishes and in those instances will be considered the “Licensor.” The text of the Creative Commons public licenses is dedicated to the public domain under the CC0 Public Domain Dedication. Except for the limited purpose of indicating that material is shared under a Creative Commons public license or as otherwise permitted by the Creative Commons policies published at creativecommons.org/policies, Creative Commons does not authorize the use of the trademark “Creative Commons” or any other trademark or logo of Creative Commons without its prior written consent including, without limitation, in connection with any unauthorized modifications to any of its public licenses or any other arrangements, understandings, or agreements concerning use of licensed material. For the avoidance of doubt, this paragraph does not form part of the public licenses.\nCreative Commons may be contacted at creativecommons.org."
-  },
-  {
-    "objectID": "syllabus.html",
-    "href": "syllabus.html",
-    "title": "Syllabus",
-    "section": "",
-    "text": "Welcome to DSCI220! In this course we will use concepts and structures from math as a model for the way we think about data. Among other things, we will explore sets, regular expressions, graphs, and strings. Most importantly, we will learn to reason about these structures and the data they represent.\n\n\n\nProf: Cinda Heeren\n📧 cheeren@cs.ubc.ca\n⏰ Mon 2–4pm · 🏢 ICCS 233 · \nTA: Joe Wonsil\n📧 jwonsil@cs.ubc.ca\n⏰ Fri 11-12a · 🏢 FORW 317\nTA: Marko Ciric 📧 mciric01@student.ubc.ca\n⏰ Tue 1:30-2:30p · 🏢 TBD\n\n\n\n\nBy the end of the course, students will be able to:\n\nCharacterize data using a wide variety of structural, logical, and mathematical representations.\nUnderstand the importance of elegant and efficient data representation.\nClearly and precisely communicate data representations to data scientists.\nClearly and precisely communicate logical arguments to data scientists.\nIdentify alternate mechanisms for solving or simplifying problems by translating between 1) English statements, 2) formal symbolic representation, and 3) code (where appropriate).\nWrite proofs for simple theorems by translating the theorem into first-order logic, decomposing the statements into symbolic representations, selecting an appropriate strategy (for example, direct proof, or proof by induction), and applying a sequence of logical inferences to make a conclusion.\nProve the functional correctness of simple algorithms.\nProve the running times of simple algorithms.\n\n\n\n\nThe topic list for this course parallels a classic course in discrete math, but with examples and applications from data science. We use the programming language python to connect ideas from the course to programming paradigms – especially those patterns and algorithms relevant to data scientists.\nThe course consists of 9 units of study, each approximately 1.5 weeks:\n\nLogic\nLanguage and Proof\nNumbers and Functions\nRepresentation\nSets\nStrings\nCounting\nProbability\nGraphs\n\nThere is no required textbook for the course. We realize, however, that you may want reference material for some of the topics. I am using “Discrete Mathematics and its Applications,” by Kenneth Rosen. Any edition will do, and older editions are not very expensive. The material we study is classic, and all topics will have robust explanations online, including on Wikipedia.\n\n\n\nDeliverables for the course include the following components:\n\nClassroom Meetings – Class meets M/W/F, 11a-12p, in Frank Forward 317. All sessions are recorded and posted, but we make no guarantees about the quality of the recording, nor do we try very hard to replicate the in-class experience for online participants.\nTutorial – The material presented in the 2hr weekly tutorial is more detailed and more applied than the classroom narrative. It is an opportunity for you to make sure you can DO the things we talk about in class. Tutorial sessions will be led by course TAs. There are 10 over the term, beginning in week 3. Tutorial exercises may be completed collaboratively and with online resources.\nExamlets – Five self-scheduled 50 minute assessments to be completed on PrairieLearn in the Computer Based Testing Facility (CBTF). Rules for the CBTF can be found here: https://cbtf.ubc.ca/students/. You will be given ample practice materials to use in preparation for the examlets.\nFinal Exam – Like the examlets, the final exam will be self-scheduled within the CBTF. The exam window – approximately 5 days – will be posted later in the term.\n\n\n\n\n\n\n\n\n\n\n\n\nComponent\nWeight\n\n\n\n\n🎉 Class Meetings\n0%\n\n\n🪄 Tutorials\n15%\n\n\n🤩 Examlets\n55%\n\n\n🤩 Final Exam\n30%\n\n\n\n\nYou must pass the final exam (50%) to pass the course.\n\n\n\nIf you have a disability or ongoing medical condition that may require accommodations, please contact the UBC Centre for Accessibility accessibility@ubc.ca to determine your eligibility and receive an accommodation letter.\nIf you have a specific concern about accessing course materials or if you would like to suggest improvements to the accessibility of this course, please do not hesitate to speak with me.\n\n\n\nAll instances of academic misconduct will be handled in a manner consistent with UBC policies. This includes reporting to the Director of Undergraduate Data Science Programs, and Faculty of Science Associate Dean of Students. No credit will be given for any assignment which was completed with inappropriate collaboration.\n\n\n\nUBC’s Point Grey Campus is located on the traditional, ancestral, and unceded territory of the xʷməθkʷəy̓əm (Musqueam) people. The land it is situated on has always been a place of learning for the Musqueam people, who for millennia have passed on their culture, history, and traditions from one generation to the next on this site.",
-    "crumbs": [
-      "Course information",
-      "Syllabus"
-    ]
-  },
-  {
-    "objectID": "syllabus.html#instructor-information",
-    "href": "syllabus.html#instructor-information",
-    "title": "Syllabus",
-    "section": "",
-    "text": "Prof: Cinda Heeren\n📧 cheeren@cs.ubc.ca\n⏰ Mon 2–4pm · 🏢 ICCS 233 · \nTA: Joe Wonsil\n📧 jwonsil@cs.ubc.ca\n⏰ Fri 11-12a · 🏢 FORW 317\nTA: Marko Ciric 📧 mciric01@student.ubc.ca\n⏰ Tue 1:30-2:30p · 🏢 TBD",
-    "crumbs": [
-      "Course information",
-      "Syllabus"
-    ]
-  },
-  {
-    "objectID": "syllabus.html#course-description-and-learning-objectives",
-    "href": "syllabus.html#course-description-and-learning-objectives",
-    "title": "Syllabus",
-    "section": "",
-    "text": "By the end of the course, students will be able to:\n\nCharacterize data using a wide variety of structural, logical, and mathematical representations.\nUnderstand the importance of elegant and efficient data representation.\nClearly and precisely communicate data representations to data scientists.\nClearly and precisely communicate logical arguments to data scientists.\nIdentify alternate mechanisms for solving or simplifying problems by translating between 1) English statements, 2) formal symbolic representation, and 3) code (where appropriate).\nWrite proofs for simple theorems by translating the theorem into first-order logic, decomposing the statements into symbolic representations, selecting an appropriate strategy (for example, direct proof, or proof by induction), and applying a sequence of logical inferences to make a conclusion.\nProve the functional correctness of simple algorithms.\nProve the running times of simple algorithms.",
-    "crumbs": [
-      "Course information",
-      "Syllabus"
-    ]
-  },
-  {
-    "objectID": "syllabus.html#lecture-material-and-course-content",
-    "href": "syllabus.html#lecture-material-and-course-content",
-    "title": "Syllabus",
-    "section": "",
-    "text": "The topic list for this course parallels a classic course in discrete math, but with examples and applications from data science. We use the programming language python to connect ideas from the course to programming paradigms – especially those patterns and algorithms relevant to data scientists.\nThe course consists of 9 units of study, each approximately 1.5 weeks:\n\nLogic\nLanguage and Proof\nNumbers and Functions\nRepresentation\nSets\nStrings\nCounting\nProbability\nGraphs\n\nThere is no required textbook for the course. We realize, however, that you may want reference material for some of the topics. I am using “Discrete Mathematics and its Applications,” by Kenneth Rosen. Any edition will do, and older editions are not very expensive. The material we study is classic, and all topics will have robust explanations online, including on Wikipedia.",
-    "crumbs": [
-      "Course information",
-      "Syllabus"
-    ]
-  },
-  {
-    "objectID": "syllabus.html#course-requirements",
-    "href": "syllabus.html#course-requirements",
-    "title": "Syllabus",
-    "section": "",
-    "text": "Deliverables for the course include the following components:\n\nClassroom Meetings – Class meets M/W/F, 11a-12p, in Frank Forward 317. All sessions are recorded and posted, but we make no guarantees about the quality of the recording, nor do we try very hard to replicate the in-class experience for online participants.\nTutorial – The material presented in the 2hr weekly tutorial is more detailed and more applied than the classroom narrative. It is an opportunity for you to make sure you can DO the things we talk about in class. Tutorial sessions will be led by course TAs. There are 10 over the term, beginning in week 3. Tutorial exercises may be completed collaboratively and with online resources.\nExamlets – Five self-scheduled 50 minute assessments to be completed on PrairieLearn in the Computer Based Testing Facility (CBTF). Rules for the CBTF can be found here: https://cbtf.ubc.ca/students/. You will be given ample practice materials to use in preparation for the examlets.\nFinal Exam – Like the examlets, the final exam will be self-scheduled within the CBTF. The exam window – approximately 5 days – will be posted later in the term.",
-    "crumbs": [
-      "Course information",
-      "Syllabus"
-    ]
-  },
-  {
-    "objectID": "syllabus.html#grading-and-exam-policies",
-    "href": "syllabus.html#grading-and-exam-policies",
-    "title": "Syllabus",
-    "section": "",
-    "text": "Component\nWeight\n\n\n\n\n🎉 Class Meetings\n0%\n\n\n🪄 Tutorials\n15%\n\n\n🤩 Examlets\n55%\n\n\n🤩 Final Exam\n30%\n\n\n\n\nYou must pass the final exam (50%) to pass the course.",
-    "crumbs": [
-      "Course information",
-      "Syllabus"
-    ]
-  },
-  {
-    "objectID": "syllabus.html#accessibility",
-    "href": "syllabus.html#accessibility",
-    "title": "Syllabus",
-    "section": "",
-    "text": "If you have a disability or ongoing medical condition that may require accommodations, please contact the UBC Centre for Accessibility accessibility@ubc.ca to determine your eligibility and receive an accommodation letter.\nIf you have a specific concern about accessing course materials or if you would like to suggest improvements to the accessibility of this course, please do not hesitate to speak with me.",
-    "crumbs": [
-      "Course information",
-      "Syllabus"
-    ]
-  },
-  {
-    "objectID": "syllabus.html#academic-misconduct",
-    "href": "syllabus.html#academic-misconduct",
-    "title": "Syllabus",
-    "section": "",
-    "text": "All instances of academic misconduct will be handled in a manner consistent with UBC policies. This includes reporting to the Director of Undergraduate Data Science Programs, and Faculty of Science Associate Dean of Students. No credit will be given for any assignment which was completed with inappropriate collaboration.",
-    "crumbs": [
-      "Course information",
-      "Syllabus"
-    ]
-  },
-  {
-    "objectID": "syllabus.html#land-acknowledgement",
-    "href": "syllabus.html#land-acknowledgement",
-    "title": "Syllabus",
-    "section": "",
-    "text": "UBC’s Point Grey Campus is located on the traditional, ancestral, and unceded territory of the xʷməθkʷəy̓əm (Musqueam) people. The land it is situated on has always been a place of learning for the Musqueam people, who for millennia have passed on their culture, history, and traditions from one generation to the next on this site.",
-    "crumbs": [
-      "Course information",
-      "Syllabus"
-    ]
-  },
-  {
-    "objectID": "formatting.html",
-    "href": "formatting.html",
-    "title": "Formatting",
-    "section": "",
-    "text": "In text paragraphs, code is always formatted with a monospace font and surrounded by a box like this. Longer examples of code will be in a separate box.\nFirst line of code\nSecond line of code\n...\nIn many cases, the output for code in these boxes will be below them.\nReplace any placeholder indicated by angular brackets &lt;placeholder&gt; with your own code.\nPressing a KeyKey on the keyboard is formatted like that."
-  },
-  {
-    "objectID": "announcements.html",
-    "href": "announcements.html",
-    "title": "Announcements",
-    "section": "",
-    "text": "No matching items",
-    "crumbs": [
-      "Course information",
-      "Announcements"
-    ]
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "DSCI 220: Discrete Math for Data Science",
-    "section": "",
-    "text": "Instructor: Dr. Cinda Heeren (She, Her)\n\n\n\nContact\n📧 cheeren@cs.ubc.ca\n⏰ Mon 2–4pm appointment\n🏢 ICCS 233 · \n\nClass\nMon/Wed/Fri 11:00-12:00\n317 Frank Forward Building",
-    "crumbs": [
-      "Course information",
-      "Schedule"
-    ]
-  },
-  {
-    "objectID": "index.html#course-information",
-    "href": "index.html#course-information",
-    "title": "DSCI 220: Discrete Math for Data Science",
-    "section": "",
-    "text": "Instructor: Dr. Cinda Heeren (She, Her)\n\n\n\nContact\n📧 cheeren@cs.ubc.ca\n⏰ Mon 2–4pm appointment\n🏢 ICCS 233 · \n\nClass\nMon/Wed/Fri 11:00-12:00\n317 Frank Forward Building",
-    "crumbs": [
-      "Course information",
-      "Schedule"
-    ]
-  },
-  {
-    "objectID": "index.html#most-recent-announcement",
-    "href": "index.html#most-recent-announcement",
-    "title": "DSCI 220: Discrete Math for Data Science",
-    "section": "Most recent announcement",
-    "text": "Most recent announcement\n\n\n\n\nNo matching items\n\n\n\n\n\n\n  \n    \n      Week\n      Mon\n      \n        Mon\n      \n      \n        Tue\n      \n      \n        Wed\n      \n      Lab\n      POTW\n      \n        Examlet\n      \n    \n    \n      S\n      A\n      V\n      S\n      A\n      V\n      S\n      A\n      V\n      Book\n      Due\n      Practice\n    \n  \n  \n    01\nSep 1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    02\nSep 8\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    03\nSep 15\n\n\n\n\n\n\n\n\n\n\n\nEX1\nSep 20\n\n    04\nSep 22\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    05\nSep 29\n\n\n\n\n\n\n\n\n\n\n\nEX2\nOct 4\n\n    06\nOct 6\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    07\nOct 13\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    08\nOct 20\n\n\n\n\n\n\n\n\n\n\n\nEX3\nOct 25\n\n    09\nOct 27\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    10\nNov 3\n\n\n\n\n\n\n\n\n\n\n\nEX4\nNov 8\n\n    11\nNov 10\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    12\nNov 17\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    13\nNov 24\n\n\n\n\n\n\n\n\n\n\n\nEX5\nNov 29\n\n    14\nDec 1",
-    "crumbs": [
-      "Course information",
-      "Schedule"
-    ]
-  },
-  {
-    "objectID": "slides/02_wed_impl.html#announcements",
-    "href": "slides/02_wed_impl.html#announcements",
-    "title": "Discrete Math for Data Science",
-    "section": "Announcements",
-    "text": "Announcements\n\nEnroll in PrairieTest here: https://us.prairietest.com/pt/student/course/12361/enroll/392674810508\nSign up for EX1. Practice materials (on PL) coming soon!\nWe will have class THIS friday, but not thereafter.\nTutorials begin next week."
-  },
-  {
-    "objectID": "slides/02_wed_impl.html#logical-equivalences-1",
-    "href": "slides/02_wed_impl.html#logical-equivalences-1",
-    "title": "Discrete Math for Data Science",
-    "section": "Logical Equivalences",
-    "text": "Logical Equivalences\n\n\n\n\n\nWe have discussed Logical Equivalence (LE) and explored an example. The table illustrates LE that are so important, they have names!\n\nObservations:"
-  },
-  {
-    "objectID": "slides/02_wed_impl.html#logical-equivalence-practice",
-    "href": "slides/02_wed_impl.html#logical-equivalence-practice",
-    "title": "Discrete Math for Data Science",
-    "section": "Logical Equivalence Practice",
-    "text": "Logical Equivalence Practice\nAll graded learning activities in the course will use PrairieLearn.\nNavigate to Activity 1 and complete question 2. Each of you will receive a different version of the problem. Work together in pairs to solve each person’s version.\nhttps://us.prairielearn.com/pl/course_instance/186238/assessment/2562335\n\n  \n    −\n    +\n \n 07:00"
-  },
-  {
-    "objectID": "slides/02_wed_impl.html#implication-1",
-    "href": "slides/02_wed_impl.html#implication-1",
-    "title": "Discrete Math for Data Science",
-    "section": "Implication",
-    "text": "Implication\nConnect operator \\(\\rightarrow\\) to a logically equivalent expression using only and, or, and not.\n\n\n\n\\(p\\)\n\\(q\\)\n\\(p\\rightarrow q\\)\n\\(\\underline{\\hspace{3em}}\\)\n\n\n\n\nF\nF\nT\n\n\n\nF\nT\nT\n\n\n\nT\nF\nF\n\n\n\nT\nT\nT\n\n\n\n\n\nIs this operator commutative?\nNote: \\(p \\rightarrow q \\equiv\\) _______.\n\\(p \\rightarrow q\\) Corresponds to “if \\(p\\) then \\(q\\)”\nWe’re not promising causation, only a truth condition.\n\\(p \\rightarrow q\\) is False only when \\(p\\) is True and \\(q\\) is False.\nGives us mechanism for reasoning (next week)!\n\n\nq and not p is false. so it’s NOT (q^-p) == ??? (apply demorgan)\nPL exercises on Logical equivalence involving implication?\nMore on implication and logical equivalence in tutorial questions\nSuppose \\(p\\equiv\\) T . Then \\(p\\) is a Tautology.\nSuppose \\(p\\equiv\\) F . Then \\(p\\) is a Contradiction."
-  },
-  {
-    "objectID": "slides/02_wed_impl.html#logical-equivalence-proof",
-    "href": "slides/02_wed_impl.html#logical-equivalence-proof",
-    "title": "Discrete Math for Data Science",
-    "section": "Logical Equivalence Proof",
-    "text": "Logical Equivalence Proof\nProve that \\(p \\rightarrow q \\equiv \\neg q \\rightarrow \\neg p\\):"
-  },
-  {
-    "objectID": "slides/02_wed_impl.html#vocabulary",
-    "href": "slides/02_wed_impl.html#vocabulary",
-    "title": "Discrete Math for Data Science",
-    "section": "Vocabulary",
-    "text": "Vocabulary\nGiven \\(p\\rightarrow q\\), we define the following 3 terms:\n\n________________ is \\(\\neg q\\rightarrow \\neg p\\)\n________________ is \\(q\\rightarrow p\\)\n________________ is \\(\\neg p\\rightarrow \\neg q\\)\n\nDescribe all the logical equivalences among the 4 statements:\n\nwe’ll see if English can help us!"
-  },
-  {
-    "objectID": "slides/02_wed_impl.html#converses-check-whats-true",
-    "href": "slides/02_wed_impl.html#converses-check-whats-true",
-    "title": "Discrete Math for Data Science",
-    "section": "Converses — check what’s True",
-    "text": "Converses — check what’s True\n\n\n\n\n\n\n\n\n\n#\nStatement p→q\np→q\nq→p\n\n\n\n\n1\nTo be empty, a string must have length 0.\n☐\n☐\n\n\n2\nPlaying in the NHL entails being a professional hockey player.\n☐\n☐\n\n\n3\nIf an animal is a mammal, then it is a cat.\n☐\n☐\n\n\n4\nRiding the 99 B-Line counts as public transit.\n☐\n☐\n\n\n5\nIf a dish is spicy, then it is Indian cuisine.\n☐\n☐\n\n\n6\nIf it’s a kitten, then it’s a cat.\n☐\n☐\n\n\n7\nNo song appears on the Billboard Hot 100 without reaching #1.\n☐\n☐\n\n\n8\nIf I live in Totem Park residence, then I live in campus housing.\n☐\n☐\n\n\n9\nIf I eat breakfast, then I ace the quiz.\n☐\n☐\n\n\n10\nIf a movie is a superhero film, then it is an MCU movie.\n☐\n☐\n\n\n11\nIf I’m an only child, then I have zero siblings.\n☐\n☐\n\n\n12\nIf I’m in British Columbia, then I’m in Vancouver.\n☐\n☐"
-  },
-  {
-    "objectID": "slides/02_wed_impl.html#biconditionals",
-    "href": "slides/02_wed_impl.html#biconditionals",
-    "title": "Discrete Math for Data Science",
-    "section": "Biconditionals",
-    "text": "Biconditionals\nWe have a special operator for those implications whose converses are also True:\n  \\((p\\rightarrow q) \\wedge (q\\rightarrow p)\\equiv p\\leftrightarrow q\\)\nSome phrases describing this relationship:\n\nbiconditional\nif and only if (iff)\nequivalent\n\nWhich of the expressions on the previous page are biconditionals?"
-  },
-  {
-    "objectID": "slides/02_wed_impl.html#words-and-ideas",
-    "href": "slides/02_wed_impl.html#words-and-ideas",
-    "title": "Discrete Math for Data Science",
-    "section": "Words and Ideas",
-    "text": "Words and Ideas\nLogical Equivalence\nImplication"
-  },
-  {
     "objectID": "slides/03_tue_inference.html#announcements",
     "href": "slides/03_tue_inference.html#announcements",
     "title": "Discrete Math for Data Science",
@@ -742,6 +299,533 @@
     "title": "Discrete Math for Data Science",
     "section": "Exit Ticket (2 min)",
     "text": "Exit Ticket (2 min)\nIn chat (or poll), complete both:\n\nOne valid rule I can spot in the wild is ________.\n\nOne trap I’ll watch for is ________."
+  },
+  {
+    "objectID": "slides/02_wed_impl.html#announcements",
+    "href": "slides/02_wed_impl.html#announcements",
+    "title": "Discrete Math for Data Science",
+    "section": "Announcements",
+    "text": "Announcements\n\nEnroll in PrairieTest here: https://us.prairietest.com/pt/student/course/12361/enroll/392674810508\nSign up for EX1. Practice materials (on PL) coming soon!\nWe will have class THIS friday, but not thereafter.\nTutorials begin next week."
+  },
+  {
+    "objectID": "slides/02_wed_impl.html#logical-equivalences-1",
+    "href": "slides/02_wed_impl.html#logical-equivalences-1",
+    "title": "Discrete Math for Data Science",
+    "section": "Logical Equivalences",
+    "text": "Logical Equivalences\n\n\n\n\n\nWe have discussed Logical Equivalence (LE) and explored an example. The table illustrates LE that are so important, they have names!\n\nObservations:"
+  },
+  {
+    "objectID": "slides/02_wed_impl.html#logical-equivalence-practice",
+    "href": "slides/02_wed_impl.html#logical-equivalence-practice",
+    "title": "Discrete Math for Data Science",
+    "section": "Logical Equivalence Practice",
+    "text": "Logical Equivalence Practice\nAll graded learning activities in the course will use PrairieLearn.\nNavigate to Activity 1 and complete question 2. Each of you will receive a different version of the problem. Work together in pairs to solve each person’s version.\nhttps://us.prairielearn.com/pl/course_instance/186238/assessment/2562335\n\n  \n    −\n    +\n \n 07:00"
+  },
+  {
+    "objectID": "slides/02_wed_impl.html#implication-1",
+    "href": "slides/02_wed_impl.html#implication-1",
+    "title": "Discrete Math for Data Science",
+    "section": "Implication",
+    "text": "Implication\nConnect operator \\(\\rightarrow\\) to a logically equivalent expression using only and, or, and not.\n\n\n\n\\(p\\)\n\\(q\\)\n\\(p\\rightarrow q\\)\n\\(\\underline{\\hspace{3em}}\\)\n\n\n\n\nF\nF\nT\n\n\n\nF\nT\nT\n\n\n\nT\nF\nF\n\n\n\nT\nT\nT\n\n\n\n\n\nIs this operator commutative?\nNote: \\(p \\rightarrow q \\equiv\\) _______.\n\\(p \\rightarrow q\\) Corresponds to “if \\(p\\) then \\(q\\)”\nWe’re not promising causation, only a truth condition.\n\\(p \\rightarrow q\\) is False only when \\(p\\) is True and \\(q\\) is False.\nGives us mechanism for reasoning (next week)!\n\n\nq and not p is false. so it’s NOT (q^-p) == ??? (apply demorgan)\nPL exercises on Logical equivalence involving implication?\nMore on implication and logical equivalence in tutorial questions\nSuppose \\(p\\equiv\\) T . Then \\(p\\) is a Tautology.\nSuppose \\(p\\equiv\\) F . Then \\(p\\) is a Contradiction."
+  },
+  {
+    "objectID": "slides/02_wed_impl.html#logical-equivalence-proof",
+    "href": "slides/02_wed_impl.html#logical-equivalence-proof",
+    "title": "Discrete Math for Data Science",
+    "section": "Logical Equivalence Proof",
+    "text": "Logical Equivalence Proof\nProve that \\(p \\rightarrow q \\equiv \\neg q \\rightarrow \\neg p\\):"
+  },
+  {
+    "objectID": "slides/02_wed_impl.html#vocabulary",
+    "href": "slides/02_wed_impl.html#vocabulary",
+    "title": "Discrete Math for Data Science",
+    "section": "Vocabulary",
+    "text": "Vocabulary\nGiven \\(p\\rightarrow q\\), we define the following 3 terms:\n\n________________ is \\(\\neg q\\rightarrow \\neg p\\)\n________________ is \\(q\\rightarrow p\\)\n________________ is \\(\\neg p\\rightarrow \\neg q\\)\n\nDescribe all the logical equivalences among the 4 statements:\n\nwe’ll see if English can help us!"
+  },
+  {
+    "objectID": "slides/02_wed_impl.html#converses-check-whats-true",
+    "href": "slides/02_wed_impl.html#converses-check-whats-true",
+    "title": "Discrete Math for Data Science",
+    "section": "Converses — check what’s True",
+    "text": "Converses — check what’s True\n\n\n\n\n\n\n\n\n\n#\nStatement p→q\np→q\nq→p\n\n\n\n\n1\nTo be empty, a string must have length 0.\n☐\n☐\n\n\n2\nPlaying in the NHL entails being a professional hockey player.\n☐\n☐\n\n\n3\nIf an animal is a mammal, then it is a cat.\n☐\n☐\n\n\n4\nRiding the 99 B-Line counts as public transit.\n☐\n☐\n\n\n5\nIf a dish is spicy, then it is Indian cuisine.\n☐\n☐\n\n\n6\nIf it’s a kitten, then it’s a cat.\n☐\n☐\n\n\n7\nNo song appears on the Billboard Hot 100 without reaching #1.\n☐\n☐\n\n\n8\nIf I live in Totem Park residence, then I live in campus housing.\n☐\n☐\n\n\n9\nIf I eat breakfast, then I ace the quiz.\n☐\n☐\n\n\n10\nIf a movie is a superhero film, then it is an MCU movie.\n☐\n☐\n\n\n11\nIf I’m an only child, then I have zero siblings.\n☐\n☐\n\n\n12\nIf I’m in British Columbia, then I’m in Vancouver.\n☐\n☐"
+  },
+  {
+    "objectID": "slides/02_wed_impl.html#biconditionals",
+    "href": "slides/02_wed_impl.html#biconditionals",
+    "title": "Discrete Math for Data Science",
+    "section": "Biconditionals",
+    "text": "Biconditionals\nWe have a special operator for those implications whose converses are also True:\n  \\((p\\rightarrow q) \\wedge (q\\rightarrow p)\\equiv p\\leftrightarrow q\\)\nSome phrases describing this relationship:\n\nbiconditional\nif and only if (iff)\nequivalent\n\nWhich of the expressions on the previous page are biconditionals?"
+  },
+  {
+    "objectID": "slides/02_wed_impl.html#words-and-ideas",
+    "href": "slides/02_wed_impl.html#words-and-ideas",
+    "title": "Discrete Math for Data Science",
+    "section": "Words and Ideas",
+    "text": "Words and Ideas\nLogical Equivalence\nImplication"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "DSCI 220: Discrete Math for Data Science",
+    "section": "",
+    "text": "Instructor: Dr. Cinda Heeren (She, Her)\n\n\n\nContact\n📧 cheeren@cs.ubc.ca\n⏰ Mon 2–4pm appointment\n🏢 ICCS 233 · \n\nClass\nMon/Wed/Fri 11:00-12:00\n317 Frank Forward Building",
+    "crumbs": [
+      "Course information",
+      "Schedule"
+    ]
+  },
+  {
+    "objectID": "index.html#course-information",
+    "href": "index.html#course-information",
+    "title": "DSCI 220: Discrete Math for Data Science",
+    "section": "",
+    "text": "Instructor: Dr. Cinda Heeren (She, Her)\n\n\n\nContact\n📧 cheeren@cs.ubc.ca\n⏰ Mon 2–4pm appointment\n🏢 ICCS 233 · \n\nClass\nMon/Wed/Fri 11:00-12:00\n317 Frank Forward Building",
+    "crumbs": [
+      "Course information",
+      "Schedule"
+    ]
+  },
+  {
+    "objectID": "index.html#most-recent-announcement",
+    "href": "index.html#most-recent-announcement",
+    "title": "DSCI 220: Discrete Math for Data Science",
+    "section": "Most recent announcement",
+    "text": "Most recent announcement\n\n\n\n\nNo matching items\n\n\n\n\n\n\n  \n    \n      Week\n      Mon\n      \n        Mon\n      \n      \n        Tue\n      \n      \n        Wed\n      \n      Lab\n      POTW\n      \n        Examlet\n      \n    \n    \n      S\n      A\n      V\n      S\n      A\n      V\n      S\n      A\n      V\n      Book\n      Due\n      Practice\n    \n  \n  \n    01\nSep 1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    02\nSep 8\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    03\nSep 15\n\n\n\n\n\n\n\n\n\n\n\nEX1\nSep 20\n\n    04\nSep 22\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    05\nSep 29\n\n\n\n\n\n\n\n\n\n\n\nEX2\nOct 4\n\n    06\nOct 6\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    07\nOct 13\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    08\nOct 20\n\n\n\n\n\n\n\n\n\n\n\nEX3\nOct 25\n\n    09\nOct 27\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    10\nNov 3\n\n\n\n\n\n\n\n\n\n\n\nEX4\nNov 8\n\n    11\nNov 10\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    12\nNov 17\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    13\nNov 24\n\n\n\n\n\n\n\n\n\n\n\nEX5\nNov 29\n\n    14\nDec 1",
+    "crumbs": [
+      "Course information",
+      "Schedule"
+    ]
+  },
+  {
+    "objectID": "announcements.html",
+    "href": "announcements.html",
+    "title": "Announcements",
+    "section": "",
+    "text": "No matching items",
+    "crumbs": [
+      "Course information",
+      "Announcements"
+    ]
+  },
+  {
+    "objectID": "formatting.html",
+    "href": "formatting.html",
+    "title": "Formatting",
+    "section": "",
+    "text": "In text paragraphs, code is always formatted with a monospace font and surrounded by a box like this. Longer examples of code will be in a separate box.\nFirst line of code\nSecond line of code\n...\nIn many cases, the output for code in these boxes will be below them.\nReplace any placeholder indicated by angular brackets &lt;placeholder&gt; with your own code.\nPressing a KeyKey on the keyboard is formatted like that."
+  },
+  {
+    "objectID": "syllabus.html",
+    "href": "syllabus.html",
+    "title": "Syllabus",
+    "section": "",
+    "text": "Welcome to DSCI220! In this course we will use concepts and structures from math as a model for the way we think about data. Among other things, we will explore sets, regular expressions, graphs, and strings. Most importantly, we will learn to reason about these structures and the data they represent.\n\n\n\nProf: Cinda Heeren\n📧 cheeren@cs.ubc.ca\n⏰ Mon 2–4pm · 🏢 ICCS 233 · \nTA: Joe Wonsil\n📧 jwonsil@cs.ubc.ca\n⏰ Fri 11-12a · 🏢 FORW 317\nTA: Marko Ciric 📧 mciric01@student.ubc.ca\n⏰ Tue 1:30-2:30p · 🏢 TBD\n\n\n\n\nBy the end of the course, students will be able to:\n\nCharacterize data using a wide variety of structural, logical, and mathematical representations.\nUnderstand the importance of elegant and efficient data representation.\nClearly and precisely communicate data representations to data scientists.\nClearly and precisely communicate logical arguments to data scientists.\nIdentify alternate mechanisms for solving or simplifying problems by translating between 1) English statements, 2) formal symbolic representation, and 3) code (where appropriate).\nWrite proofs for simple theorems by translating the theorem into first-order logic, decomposing the statements into symbolic representations, selecting an appropriate strategy (for example, direct proof, or proof by induction), and applying a sequence of logical inferences to make a conclusion.\nProve the functional correctness of simple algorithms.\nProve the running times of simple algorithms.\n\n\n\n\nThe topic list for this course parallels a classic course in discrete math, but with examples and applications from data science. We use the programming language python to connect ideas from the course to programming paradigms – especially those patterns and algorithms relevant to data scientists.\nThe course consists of 9 units of study, each approximately 1.5 weeks:\n\nLogic\nLanguage and Proof\nNumbers and Functions\nRepresentation\nSets\nStrings\nCounting\nProbability\nGraphs\n\nThere is no required textbook for the course. We realize, however, that you may want reference material for some of the topics. I am using “Discrete Mathematics and its Applications,” by Kenneth Rosen. Any edition will do, and older editions are not very expensive. The material we study is classic, and all topics will have robust explanations online, including on Wikipedia.\n\n\n\nDeliverables for the course include the following components:\n\nClassroom Meetings – Class meets M/W/F, 11a-12p, in Frank Forward 317. All sessions are recorded and posted, but we make no guarantees about the quality of the recording, nor do we try very hard to replicate the in-class experience for online participants.\nTutorial – The material presented in the 2hr weekly tutorial is more detailed and more applied than the classroom narrative. It is an opportunity for you to make sure you can DO the things we talk about in class. Tutorial sessions will be led by course TAs. There are 10 over the term, beginning in week 3. Tutorial exercises may be completed collaboratively and with online resources.\nExamlets – Five self-scheduled 50 minute assessments to be completed on PrairieLearn in the Computer Based Testing Facility (CBTF). Rules for the CBTF can be found here: https://cbtf.ubc.ca/students/. You will be given ample practice materials to use in preparation for the examlets.\nFinal Exam – Like the examlets, the final exam will be self-scheduled within the CBTF. The exam window – approximately 5 days – will be posted later in the term.\n\n\n\n\n\n\n\n\n\n\n\n\nComponent\nWeight\n\n\n\n\n🎉 Class Meetings\n0%\n\n\n🪄 Tutorials\n15%\n\n\n🤩 Examlets\n55%\n\n\n🤩 Final Exam\n30%\n\n\n\n\nYou must pass the final exam (50%) to pass the course.\n\n\n\nIf you have a disability or ongoing medical condition that may require accommodations, please contact the UBC Centre for Accessibility accessibility@ubc.ca to determine your eligibility and receive an accommodation letter.\nIf you have a specific concern about accessing course materials or if you would like to suggest improvements to the accessibility of this course, please do not hesitate to speak with me.\n\n\n\nAll instances of academic misconduct will be handled in a manner consistent with UBC policies. This includes reporting to the Director of Undergraduate Data Science Programs, and Faculty of Science Associate Dean of Students. No credit will be given for any assignment which was completed with inappropriate collaboration.\n\n\n\nUBC’s Point Grey Campus is located on the traditional, ancestral, and unceded territory of the xʷməθkʷəy̓əm (Musqueam) people. The land it is situated on has always been a place of learning for the Musqueam people, who for millennia have passed on their culture, history, and traditions from one generation to the next on this site.",
+    "crumbs": [
+      "Course information",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "syllabus.html#instructor-information",
+    "href": "syllabus.html#instructor-information",
+    "title": "Syllabus",
+    "section": "",
+    "text": "Prof: Cinda Heeren\n📧 cheeren@cs.ubc.ca\n⏰ Mon 2–4pm · 🏢 ICCS 233 · \nTA: Joe Wonsil\n📧 jwonsil@cs.ubc.ca\n⏰ Fri 11-12a · 🏢 FORW 317\nTA: Marko Ciric 📧 mciric01@student.ubc.ca\n⏰ Tue 1:30-2:30p · 🏢 TBD",
+    "crumbs": [
+      "Course information",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "syllabus.html#course-description-and-learning-objectives",
+    "href": "syllabus.html#course-description-and-learning-objectives",
+    "title": "Syllabus",
+    "section": "",
+    "text": "By the end of the course, students will be able to:\n\nCharacterize data using a wide variety of structural, logical, and mathematical representations.\nUnderstand the importance of elegant and efficient data representation.\nClearly and precisely communicate data representations to data scientists.\nClearly and precisely communicate logical arguments to data scientists.\nIdentify alternate mechanisms for solving or simplifying problems by translating between 1) English statements, 2) formal symbolic representation, and 3) code (where appropriate).\nWrite proofs for simple theorems by translating the theorem into first-order logic, decomposing the statements into symbolic representations, selecting an appropriate strategy (for example, direct proof, or proof by induction), and applying a sequence of logical inferences to make a conclusion.\nProve the functional correctness of simple algorithms.\nProve the running times of simple algorithms.",
+    "crumbs": [
+      "Course information",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "syllabus.html#lecture-material-and-course-content",
+    "href": "syllabus.html#lecture-material-and-course-content",
+    "title": "Syllabus",
+    "section": "",
+    "text": "The topic list for this course parallels a classic course in discrete math, but with examples and applications from data science. We use the programming language python to connect ideas from the course to programming paradigms – especially those patterns and algorithms relevant to data scientists.\nThe course consists of 9 units of study, each approximately 1.5 weeks:\n\nLogic\nLanguage and Proof\nNumbers and Functions\nRepresentation\nSets\nStrings\nCounting\nProbability\nGraphs\n\nThere is no required textbook for the course. We realize, however, that you may want reference material for some of the topics. I am using “Discrete Mathematics and its Applications,” by Kenneth Rosen. Any edition will do, and older editions are not very expensive. The material we study is classic, and all topics will have robust explanations online, including on Wikipedia.",
+    "crumbs": [
+      "Course information",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "syllabus.html#course-requirements",
+    "href": "syllabus.html#course-requirements",
+    "title": "Syllabus",
+    "section": "",
+    "text": "Deliverables for the course include the following components:\n\nClassroom Meetings – Class meets M/W/F, 11a-12p, in Frank Forward 317. All sessions are recorded and posted, but we make no guarantees about the quality of the recording, nor do we try very hard to replicate the in-class experience for online participants.\nTutorial – The material presented in the 2hr weekly tutorial is more detailed and more applied than the classroom narrative. It is an opportunity for you to make sure you can DO the things we talk about in class. Tutorial sessions will be led by course TAs. There are 10 over the term, beginning in week 3. Tutorial exercises may be completed collaboratively and with online resources.\nExamlets – Five self-scheduled 50 minute assessments to be completed on PrairieLearn in the Computer Based Testing Facility (CBTF). Rules for the CBTF can be found here: https://cbtf.ubc.ca/students/. You will be given ample practice materials to use in preparation for the examlets.\nFinal Exam – Like the examlets, the final exam will be self-scheduled within the CBTF. The exam window – approximately 5 days – will be posted later in the term.",
+    "crumbs": [
+      "Course information",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "syllabus.html#grading-and-exam-policies",
+    "href": "syllabus.html#grading-and-exam-policies",
+    "title": "Syllabus",
+    "section": "",
+    "text": "Component\nWeight\n\n\n\n\n🎉 Class Meetings\n0%\n\n\n🪄 Tutorials\n15%\n\n\n🤩 Examlets\n55%\n\n\n🤩 Final Exam\n30%\n\n\n\n\nYou must pass the final exam (50%) to pass the course.",
+    "crumbs": [
+      "Course information",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "syllabus.html#accessibility",
+    "href": "syllabus.html#accessibility",
+    "title": "Syllabus",
+    "section": "",
+    "text": "If you have a disability or ongoing medical condition that may require accommodations, please contact the UBC Centre for Accessibility accessibility@ubc.ca to determine your eligibility and receive an accommodation letter.\nIf you have a specific concern about accessing course materials or if you would like to suggest improvements to the accessibility of this course, please do not hesitate to speak with me.",
+    "crumbs": [
+      "Course information",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "syllabus.html#academic-misconduct",
+    "href": "syllabus.html#academic-misconduct",
+    "title": "Syllabus",
+    "section": "",
+    "text": "All instances of academic misconduct will be handled in a manner consistent with UBC policies. This includes reporting to the Director of Undergraduate Data Science Programs, and Faculty of Science Associate Dean of Students. No credit will be given for any assignment which was completed with inappropriate collaboration.",
+    "crumbs": [
+      "Course information",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "syllabus.html#land-acknowledgement",
+    "href": "syllabus.html#land-acknowledgement",
+    "title": "Syllabus",
+    "section": "",
+    "text": "UBC’s Point Grey Campus is located on the traditional, ancestral, and unceded territory of the xʷməθkʷəy̓əm (Musqueam) people. The land it is situated on has always been a place of learning for the Musqueam people, who for millennia have passed on their culture, history, and traditions from one generation to the next on this site.",
+    "crumbs": [
+      "Course information",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "LICENSE.html",
+    "href": "LICENSE.html",
+    "title": "DSCI 220: Discrete Math for Data Science",
+    "section": "",
+    "text": "Attribution-ShareAlike 4.0 International\n=======================================================================\nCreative Commons Corporation (“Creative Commons”) is not a law firm and does not provide legal services or legal advice. Distribution of Creative Commons public licenses does not create a lawyer-client or other relationship. Creative Commons makes its licenses and related information available on an “as-is” basis. Creative Commons gives no warranties regarding its licenses, any material licensed under their terms and conditions, or any related information. Creative Commons disclaims all liability for damages resulting from their use to the fullest extent possible.\nUsing Creative Commons Public Licenses\nCreative Commons public licenses provide a standard set of terms and conditions that creators and other rights holders may use to share original works of authorship and other material subject to copyright and certain other rights specified in the public license below. The following considerations are for informational purposes only, are not exhaustive, and do not form part of our licenses.\n Considerations for licensors: Our public licenses are\n intended for use by those authorized to give the public\n permission to use material in ways otherwise restricted by\n copyright and certain other rights. Our licenses are\n irrevocable. Licensors should read and understand the terms\n and conditions of the license they choose before applying it.\n Licensors should also secure all rights necessary before\n applying our licenses so that the public can reuse the\n material as expected. Licensors should clearly mark any\n material not subject to the license. This includes other CC-\n licensed material, or material used under an exception or\n limitation to copyright. More considerations for licensors:\nwiki.creativecommons.org/Considerations_for_licensors\n\n Considerations for the public: By using one of our public\n licenses, a licensor grants the public permission to use the\n licensed material under specified terms and conditions. If\n the licensor's permission is not necessary for any reason--for\n example, because of any applicable exception or limitation to\n copyright--then that use is not regulated by the license. Our\n licenses grant only permissions under copyright and certain\n other rights that a licensor has authority to grant. Use of\n the licensed material may still be restricted for other\n reasons, including because others have copyright or other\n rights in the material. A licensor may make special requests,\n such as asking that all changes be marked or described.\n Although not required by our licenses, you are encouraged to\n respect those requests where reasonable. More_considerations\n for the public:\nwiki.creativecommons.org/Considerations_for_licensees\n=======================================================================\nCreative Commons Attribution-ShareAlike 4.0 International Public License\nBy exercising the Licensed Rights (defined below), You accept and agree to be bound by the terms and conditions of this Creative Commons Attribution-ShareAlike 4.0 International Public License (“Public License”). To the extent this Public License may be interpreted as a contract, You are granted the Licensed Rights in consideration of Your acceptance of these terms and conditions, and the Licensor grants You such rights in consideration of benefits the Licensor receives from making the Licensed Material available under these terms and conditions.\nSection 1 – Definitions.\n\nAdapted Material means material subject to Copyright and Similar Rights that is derived from or based upon the Licensed Material and in which the Licensed Material is translated, altered, arranged, transformed, or otherwise modified in a manner requiring permission under the Copyright and Similar Rights held by the Licensor. For purposes of this Public License, where the Licensed Material is a musical work, performance, or sound recording, Adapted Material is always produced where the Licensed Material is synched in timed relation with a moving image.\nAdapter’s License means the license You apply to Your Copyright and Similar Rights in Your contributions to Adapted Material in accordance with the terms and conditions of this Public License.\nBY-SA Compatible License means a license listed at creativecommons.org/compatiblelicenses, approved by Creative Commons as essentially the equivalent of this Public License.\nCopyright and Similar Rights means copyright and/or similar rights closely related to copyright including, without limitation, performance, broadcast, sound recording, and Sui Generis Database Rights, without regard to how the rights are labeled or categorized. For purposes of this Public License, the rights specified in Section 2(b)(1)-(2) are not Copyright and Similar Rights.\nEffective Technological Measures means those measures that, in the absence of proper authority, may not be circumvented under laws fulfilling obligations under Article 11 of the WIPO Copyright Treaty adopted on December 20, 1996, and/or similar international agreements.\nExceptions and Limitations means fair use, fair dealing, and/or any other exception or limitation to Copyright and Similar Rights that applies to Your use of the Licensed Material.\nLicense Elements means the license attributes listed in the name of a Creative Commons Public License. The License Elements of this Public License are Attribution and ShareAlike.\nLicensed Material means the artistic or literary work, database, or other material to which the Licensor applied this Public License.\nLicensed Rights means the rights granted to You subject to the terms and conditions of this Public License, which are limited to all Copyright and Similar Rights that apply to Your use of the Licensed Material and that the Licensor has authority to license.\nLicensor means the individual(s) or entity(ies) granting rights under this Public License.\nShare means to provide material to the public by any means or process that requires permission under the Licensed Rights, such as reproduction, public display, public performance, distribution, dissemination, communication, or importation, and to make material available to the public including in ways that members of the public may access the material from a place and at a time individually chosen by them.\nSui Generis Database Rights means rights other than copyright resulting from Directive 96/9/EC of the European Parliament and of the Council of 11 March 1996 on the legal protection of databases, as amended and/or succeeded, as well as other essentially equivalent rights anywhere in the world.\nYou means the individual or entity exercising the Licensed Rights under this Public License. Your has a corresponding meaning.\n\nSection 2 – Scope.\n\nLicense grant.\n\nSubject to the terms and conditions of this Public License, the Licensor hereby grants You a worldwide, royalty-free, non-sublicensable, non-exclusive, irrevocable license to exercise the Licensed Rights in the Licensed Material to:\n\nreproduce and Share the Licensed Material, in whole or in part; and\nproduce, reproduce, and Share Adapted Material.\n\nExceptions and Limitations. For the avoidance of doubt, where Exceptions and Limitations apply to Your use, this Public License does not apply, and You do not need to comply with its terms and conditions.\nTerm. The term of this Public License is specified in Section 6(a).\nMedia and formats; technical modifications allowed. The Licensor authorizes You to exercise the Licensed Rights in all media and formats whether now known or hereafter created, and to make technical modifications necessary to do so. The Licensor waives and/or agrees not to assert any right or authority to forbid You from making technical modifications necessary to exercise the Licensed Rights, including technical modifications necessary to circumvent Effective Technological Measures. For purposes of this Public License, simply making modifications authorized by this Section 2(a)\n\nnever produces Adapted Material.\n\nDownstream recipients.\n\nOffer from the Licensor – Licensed Material. Every recipient of the Licensed Material automatically receives an offer from the Licensor to exercise the Licensed Rights under the terms and conditions of this Public License.\nAdditional offer from the Licensor – Adapted Material. Every recipient of Adapted Material from You automatically receives an offer from the Licensor to exercise the Licensed Rights in the Adapted Material under the conditions of the Adapter’s License You apply.\nNo downstream restrictions. You may not offer or impose any additional or different terms or conditions on, or apply any Effective Technological Measures to, the Licensed Material if doing so restricts exercise of the Licensed Rights by any recipient of the Licensed Material.\n\nNo endorsement. Nothing in this Public License constitutes or may be construed as permission to assert or imply that You are, or that Your use of the Licensed Material is, connected with, or sponsored, endorsed, or granted official status by, the Licensor or others designated to receive attribution as provided in Section 3(a)(1)(A)(i).\n\nOther rights.\n\nMoral rights, such as the right of integrity, are not licensed under this Public License, nor are publicity, privacy, and/or other similar personality rights; however, to the extent possible, the Licensor waives and/or agrees not to assert any such rights held by the Licensor to the limited extent necessary to allow You to exercise the Licensed Rights, but not otherwise.\nPatent and trademark rights are not licensed under this Public License.\nTo the extent possible, the Licensor waives any right to collect royalties from You for the exercise of the Licensed Rights, whether directly or through a collecting society under any voluntary or waivable statutory or compulsory licensing scheme. In all other cases the Licensor expressly reserves any right to collect such royalties.\n\n\nSection 3 – License Conditions.\nYour exercise of the Licensed Rights is expressly made subject to the following conditions.\n\nAttribution.\n\nIf You Share the Licensed Material (including in modified form), You must:\n\nretain the following if it is supplied by the Licensor with the Licensed Material:\n\nidentification of the creator(s) of the Licensed Material and any others designated to receive attribution, in any reasonable manner requested by the Licensor (including by pseudonym if designated);\na copyright notice;\na notice that refers to this Public License;\na notice that refers to the disclaimer of warranties;\na URI or hyperlink to the Licensed Material to the extent reasonably practicable;\n\nindicate if You modified the Licensed Material and retain an indication of any previous modifications; and\nindicate the Licensed Material is licensed under this Public License, and include the text of, or the URI or hyperlink to, this Public License.\n\nYou may satisfy the conditions in Section 3(a)(1) in any reasonable manner based on the medium, means, and context in which You Share the Licensed Material. For example, it may be reasonable to satisfy the conditions by providing a URI or hyperlink to a resource that includes the required information.\nIf requested by the Licensor, You must remove any of the information required by Section 3(a)(1)(A) to the extent reasonably practicable.\n\nShareAlike.\nIn addition to the conditions in Section 3(a), if You Share Adapted Material You produce, the following conditions also apply.\n\nThe Adapter’s License You apply must be a Creative Commons license with the same License Elements, this version or later, or a BY-SA Compatible License.\nYou must include the text of, or the URI or hyperlink to, the Adapter’s License You apply. You may satisfy this condition in any reasonable manner based on the medium, means, and context in which You Share Adapted Material.\nYou may not offer or impose any additional or different terms or conditions on, or apply any Effective Technological Measures to, Adapted Material that restrict exercise of the rights granted under the Adapter’s License You apply.\n\n\nSection 4 – Sui Generis Database Rights.\nWhere the Licensed Rights include Sui Generis Database Rights that apply to Your use of the Licensed Material:\n\nfor the avoidance of doubt, Section 2(a)(1) grants You the right to extract, reuse, reproduce, and Share all or a substantial portion of the contents of the database;\nif You include all or a substantial portion of the database contents in a database in which You have Sui Generis Database Rights, then the database in which You have Sui Generis Database Rights (but not its individual contents) is Adapted Material,\nincluding for purposes of Section 3(b); and\nYou must comply with the conditions in Section 3(a) if You Share all or a substantial portion of the contents of the database.\n\nFor the avoidance of doubt, this Section 4 supplements and does not replace Your obligations under this Public License where the Licensed Rights include other Copyright and Similar Rights.\nSection 5 – Disclaimer of Warranties and Limitation of Liability.\n\nUNLESS OTHERWISE SEPARATELY UNDERTAKEN BY THE LICENSOR, TO THE EXTENT POSSIBLE, THE LICENSOR OFFERS THE LICENSED MATERIAL AS-IS AND AS-AVAILABLE, AND MAKES NO REPRESENTATIONS OR WARRANTIES OF ANY KIND CONCERNING THE LICENSED MATERIAL, WHETHER EXPRESS, IMPLIED, STATUTORY, OR OTHER. THIS INCLUDES, WITHOUT LIMITATION, WARRANTIES OF TITLE, MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, NON-INFRINGEMENT, ABSENCE OF LATENT OR OTHER DEFECTS, ACCURACY, OR THE PRESENCE OR ABSENCE OF ERRORS, WHETHER OR NOT KNOWN OR DISCOVERABLE. WHERE DISCLAIMERS OF WARRANTIES ARE NOT ALLOWED IN FULL OR IN PART, THIS DISCLAIMER MAY NOT APPLY TO YOU.\nTO THE EXTENT POSSIBLE, IN NO EVENT WILL THE LICENSOR BE LIABLE TO YOU ON ANY LEGAL THEORY (INCLUDING, WITHOUT LIMITATION, NEGLIGENCE) OR OTHERWISE FOR ANY DIRECT, SPECIAL, INDIRECT, INCIDENTAL, CONSEQUENTIAL, PUNITIVE, EXEMPLARY, OR OTHER LOSSES, COSTS, EXPENSES, OR DAMAGES ARISING OUT OF THIS PUBLIC LICENSE OR USE OF THE LICENSED MATERIAL, EVEN IF THE LICENSOR HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH LOSSES, COSTS, EXPENSES, OR DAMAGES. WHERE A LIMITATION OF LIABILITY IS NOT ALLOWED IN FULL OR IN PART, THIS LIMITATION MAY NOT APPLY TO YOU.\nThe disclaimer of warranties and limitation of liability provided above shall be interpreted in a manner that, to the extent possible, most closely approximates an absolute disclaimer and waiver of all liability.\n\nSection 6 – Term and Termination.\n\nThis Public License applies for the term of the Copyright and Similar Rights licensed here. However, if You fail to comply with this Public License, then Your rights under this Public License terminate automatically.\nWhere Your right to use the Licensed Material has terminated under Section 6(a), it reinstates:\n\nautomatically as of the date the violation is cured, provided it is cured within 30 days of Your discovery of the violation; or\nupon express reinstatement by the Licensor.\n\nFor the avoidance of doubt, this Section 6(b) does not affect any right the Licensor may have to seek remedies for Your violations of this Public License.\nFor the avoidance of doubt, the Licensor may also offer the Licensed Material under separate terms or conditions or stop distributing the Licensed Material at any time; however, doing so will not terminate this Public License.\nSections 1, 5, 6, 7, and 8 survive termination of this Public License.\n\nSection 7 – Other Terms and Conditions.\n\nThe Licensor shall not be bound by any additional or different terms or conditions communicated by You unless expressly agreed.\nAny arrangements, understandings, or agreements regarding the Licensed Material not stated herein are separate from and independent of the terms and conditions of this Public License.\n\nSection 8 – Interpretation.\n\nFor the avoidance of doubt, this Public License does not, and shall not be interpreted to, reduce, limit, restrict, or impose conditions on any use of the Licensed Material that could lawfully be made without permission under this Public License.\nTo the extent possible, if any provision of this Public License is deemed unenforceable, it shall be automatically reformed to the minimum extent necessary to make it enforceable. If the provision cannot be reformed, it shall be severed from this Public License without affecting the enforceability of the remaining terms and conditions.\nNo term or condition of this Public License will be waived and no failure to comply consented to unless expressly agreed to by the Licensor.\nNothing in this Public License constitutes or may be interpreted as a limitation upon, or waiver of, any privileges and immunities that apply to the Licensor or You, including from the legal processes of any jurisdiction or authority.\n\n=======================================================================\nCreative Commons is not a party to its public licenses. Notwithstanding, Creative Commons may elect to apply one of its public licenses to material it publishes and in those instances will be considered the “Licensor.” The text of the Creative Commons public licenses is dedicated to the public domain under the CC0 Public Domain Dedication. Except for the limited purpose of indicating that material is shared under a Creative Commons public license or as otherwise permitted by the Creative Commons policies published at creativecommons.org/policies, Creative Commons does not authorize the use of the trademark “Creative Commons” or any other trademark or logo of Creative Commons without its prior written consent including, without limitation, in connection with any unauthorized modifications to any of its public licenses or any other arrangements, understandings, or agreements concerning use of licensed material. For the avoidance of doubt, this paragraph does not form part of the public licenses.\nCreative Commons may be contacted at creativecommons.org."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "DSCI 220 was created by Dr. Cinda Heeren. The website shell was set up in Quarto by Dr. Stephan Koenig.",
+    "crumbs": [
+      "About"
+    ]
+  },
+  {
+    "objectID": "about.html#contributors",
+    "href": "about.html#contributors",
+    "title": "About",
+    "section": "",
+    "text": "DSCI 220 was created by Dr. Cinda Heeren. The website shell was set up in Quarto by Dr. Stephan Koenig.",
+    "crumbs": [
+      "About"
+    ]
+  },
+  {
+    "objectID": "slides/01_fri_truth.html#communications",
+    "href": "slides/01_fri_truth.html#communications",
+    "title": "Discrete Math for Data Science",
+    "section": "Communications",
+    "text": "Communications\n\n\n📧 Email cheeren@cs.ubc.ca\nChecked daily. Please place “DSCI220” in subject!\n   Piazza piazza.com/ubc.ca/winterterm12025/dsci220\nPost questions for quick response.\n🏫 Office Hours\n\n\n\n\n\n\n\n\n\n\nName\nTime\nLocation & Zoom\n\n\n\n\nCinda\nMon 2–4pm\n🏢 ICCS 233 · \n\n\nJoe\nFri 11-12a\n🏢 FORW 317\n\n\nMarko\nTue 1:30-2:30p\n🏢 TBD"
+  },
+  {
+    "objectID": "slides/01_fri_truth.html#truth",
+    "href": "slides/01_fri_truth.html#truth",
+    "title": "Discrete Math for Data Science",
+    "section": "Truth",
+    "text": "Truth\nMake at least 3 observations about the following table:\n\n\n\n\n\n\\(p\\)\n\\(q\\)\n\\(p \\lor q\\)\n\n\n\n\nF\nF\nF\n\n\nF\nT\nT\n\n\nT\nF\nT\n\n\nT\nT\nT"
+  },
+  {
+    "objectID": "slides/01_fri_truth.html#summary",
+    "href": "slides/01_fri_truth.html#summary",
+    "title": "Discrete Math for Data Science",
+    "section": "Summary",
+    "text": "Summary\nKey observations about the table:\n\n\n\n\n\n\\(p\\)\n\\(q\\)\n\\(p \\lor q\\)\n\n\n\n\nF\nF\nF\n\n\nF\nT\nT\n\n\nT\nF\nT\n\n\nT\nT\nT\n\n\n\n\n\nThe diagram is called a Truth Table\np and q are variables, each of which take on one of two Boolean values, True or False (T/F, 1/0)\n∨ is a binary operator that implements a function (creates output) from the 2 input variables to another Boolean value. It is characterized by its output values.\nThe operator ∨ corresponds to the English word or.\nThe expression p ∨ q is called a proposition."
+  },
+  {
+    "objectID": "slides/01_fri_truth.html#foreshadowing",
+    "href": "slides/01_fri_truth.html#foreshadowing",
+    "title": "Discrete Math for Data Science",
+    "section": "Foreshadowing",
+    "text": "Foreshadowing\n\n\n\n\n\n\\(p\\)\n\\(q\\)\n\\(p \\lor q\\)\n\n\n\n\nF\nF\nF\n\n\nF\nT\nT\n\n\nT\nF\nT\n\n\nT\nT\nT\n\n\n\n\n\nHow many rows for a proposition on 3 variables? \\(k\\) variables?\nGive a good name for an operator that takes 1 variable: __________\nGive a good name for an operator that takes 3 variables: __________\nHow many different binary operators could there be?\n\n\n\n  \n    −\n    +\n \n 06:00\n \n\nchallenge: Of all binary operators, how many are commutative? (Half: 8.)"
+  },
+  {
+    "objectID": "slides/01_fri_truth.html#truth-tables",
+    "href": "slides/01_fri_truth.html#truth-tables",
+    "title": "Discrete Math for Data Science",
+    "section": "Truth Tables",
+    "text": "Truth Tables\nAll graded learning activities in the course will use a tool called PrairieLearn.\nNavigate to today’s activity and complete question 1\nhttps://us.prairielearn.com/pl/course_instance/186238/\n\n  \n    −\n    +\n \n 10:00"
+  },
+  {
+    "objectID": "slides/01_fri_truth.html#beyond-operators",
+    "href": "slides/01_fri_truth.html#beyond-operators",
+    "title": "Discrete Math for Data Science",
+    "section": "Beyond Operators",
+    "text": "Beyond Operators\nPropositions can be more complex than just a single operator!\nExample:\n\n\n\n\\(p\\)\n\\(q\\)\n_____\n\\(\\neg(p \\lor q)\\)\n\n\n\n\nF\nF\n\nT\n\n\nF\nT\n\nF\n\n\nT\nF\n\nF\n\n\nT\nT\n\nF"
+  },
+  {
+    "objectID": "slides/01_fri_truth.html#wffs",
+    "href": "slides/01_fri_truth.html#wffs",
+    "title": "Discrete Math for Data Science",
+    "section": "WFFs",
+    "text": "WFFs\nA well-formed formula is a Boolean statement generated by the following rules:\n&lt;wff&gt; ::= &lt;atom&gt;\n        | ~ &lt;wff&gt;\n        | ( &lt;wff&gt; ∧ &lt;wff&gt; )\n        | ( &lt;wff&gt; ∨ &lt;wff&gt; )\n\n&lt;atom&gt; ::= p | q | r | s | ...\nThis definition is in the form of a Grammar.\n_____________: &lt;wff&gt; and &lt;atom&gt;\n_____________: p, q, r, s …\nIt is our first self-referential or recursive definition."
+  },
+  {
+    "objectID": "slides/01_fri_truth.html#wffs-1",
+    "href": "slides/01_fri_truth.html#wffs-1",
+    "title": "Discrete Math for Data Science",
+    "section": "WFFs",
+    "text": "WFFs\n&lt;wff&gt; ::= &lt;atom&gt;\n        | ~ &lt;wff&gt;\n        | ( &lt;wff&gt; ∧ &lt;wff&gt; )\n        | ( &lt;wff&gt; ∨ &lt;wff&gt; )\n\n&lt;atom&gt; ::= p | q \nExample derivation:\n&lt;wff&gt;"
+  },
+  {
+    "objectID": "slides/01_fri_truth.html#wffs-notes",
+    "href": "slides/01_fri_truth.html#wffs-notes",
+    "title": "Discrete Math for Data Science",
+    "section": "WFFs (Notes)",
+    "text": "WFFs (Notes)\n&lt;wff&gt; ::= &lt;atom&gt;\n        | ~ &lt;wff&gt;\n        | ( &lt;wff&gt; ∧ &lt;wff&gt; )\n        | ( &lt;wff&gt; ∨ &lt;wff&gt; )\n\n&lt;atom&gt; ::= p | q \n\nGrammars can be used to construct many different kinds of sequences.\nWe could have included additional operators \\(\\rightarrow\\), \\(\\leftrightarrow\\), \\(\\oplus\\), \\(\\uparrow\\)\nComputational evaluation of &lt;wff&gt;is covered in DSCI221. For now, we trust Python and focus on logic.\nThe &lt;wff&gt; are propositions."
+  },
+  {
+    "objectID": "slides/01_fri_truth.html#wff-puzzle",
+    "href": "slides/01_fri_truth.html#wff-puzzle",
+    "title": "Discrete Math for Data Science",
+    "section": "WFF Puzzle",
+    "text": "WFF Puzzle\nWhich of these are WFFs?\n&lt;wff&gt; ::= &lt;atom&gt;\n        | ~ &lt;wff&gt;\n        | ( &lt;wff&gt; ∧ &lt;wff&gt; )\n        | ( &lt;wff&gt; ∨ &lt;wff&gt; )\n\n&lt;atom&gt; ::= p | q \n\n\n\n\\((\\neg p ∧ (q ∨ r))\\)\n\n\\(((p ∧ q) ∨ (r ∧ \\neg s))\\)\n\\(((\\neg p) ∨ (q ∨ r))\\)\n\n\n\n\\((p ∨ (qr))\\)\n\\(\\neg (p ∨ (q ∧ \\neg r))\\)\n\\(\\neg (p ∨ q))\\)\n\n\n\n  \n    −\n    +\n \n 03:00"
+  },
+  {
+    "objectID": "slides/01_fri_truth.html#wffs-2",
+    "href": "slides/01_fri_truth.html#wffs-2",
+    "title": "Discrete Math for Data Science",
+    "section": "WFFs",
+    "text": "WFFs\n&lt;wff&gt; ::= &lt;atom&gt;\n        | ~ &lt;wff&gt;\n        | ( &lt;wff&gt; ∧ &lt;wff&gt; )\n        | ( &lt;wff&gt; ∨ &lt;wff&gt; )\n\n&lt;atom&gt; ::= p | q \nTheorem: \\(\\neg (p ∨ q))\\) is not a WFF.\nProof:"
+  },
+  {
+    "objectID": "slides/01_fri_truth.html#propositions",
+    "href": "slides/01_fri_truth.html#propositions",
+    "title": "Discrete Math for Data Science",
+    "section": "Propositions",
+    "text": "Propositions\nA proposition is a statement that can be either True or False.\nExamples:\n\n\\(37 &gt; 12\\)\nFewer than 5 people in this room feel sleepy.\nThere are extra-terrestrial life forms.\nThis statement is False.\n\\(\\underline{\\hspace{10em}}\\)"
+  },
+  {
+    "objectID": "slides/01_fri_truth.html#translation",
+    "href": "slides/01_fri_truth.html#translation",
+    "title": "Discrete Math for Data Science",
+    "section": "Translation",
+    "text": "Translation\n\n\n\\(p\\): ___________ ate cereal for breakfast.\n\\(q\\): ___________ brought a backpack to class.\n \n\n\\((p\\lor q)\\)\n\\((p\\wedge q)\\)\n\\(\\neg q\\)"
+  },
+  {
+    "objectID": "slides/01_fri_truth.html#predicates",
+    "href": "slides/01_fri_truth.html#predicates",
+    "title": "Discrete Math for Data Science",
+    "section": "Predicates",
+    "text": "Predicates\n\n\n\\(p\\): ___________ ate cereal for breakfast.\n\n\nWe may want to apply the statement to many students, in which case we define a Predicate.\n\n\n\n\\(P(x)\\): \\(x\\) ate cereal for breakfast.\n\\(x\\) can be instantiated to be a particular student, or an arbitrary student.\n\\(P(\\underline{\\hspace{2em}} )\\) is a proposition."
+  },
+  {
+    "objectID": "slides/01_fri_truth.html#logical-equivalence",
+    "href": "slides/01_fri_truth.html#logical-equivalence",
+    "title": "Discrete Math for Data Science",
+    "section": "Logical Equivalence",
+    "text": "Logical Equivalence\n\n\nEx: Is it true that \\((p \\lor q) \\equiv (q\\lor p)\\) ?\n\n\nDiscussion points:\n\n\\(\\equiv\\) means logically equivalent\nThe answer had better be _________!!!\nHow can we justify our instinct?"
+  },
+  {
+    "objectID": "slides/01_fri_truth.html#logical-equivalence-example",
+    "href": "slides/01_fri_truth.html#logical-equivalence-example",
+    "title": "Discrete Math for Data Science",
+    "section": "Logical Equivalence example",
+    "text": "Logical Equivalence example"
+  },
+  {
+    "objectID": "slides/01_fri_truth.html#boolean-masks",
+    "href": "slides/01_fri_truth.html#boolean-masks",
+    "title": "Discrete Math for Data Science",
+    "section": "Boolean Masks",
+    "text": "Boolean Masks\nSelect all the cereals with at least 4 units of protein and no more than 6 units of sugars.\n\n\n\n\n\n\n\n\n\n\nChallenge: In pandas, test De Morgan with missing data: create a row with protein = NaN. Show that (~p) & (~q) can differ from ~(p | q) under three-valued logic; propose a fix (.fillna(False) or careful NA handling)."
+  },
+  {
+    "objectID": "slides/01_fri_truth.html#words-and-ideas",
+    "href": "slides/01_fri_truth.html#words-and-ideas",
+    "title": "Discrete Math for Data Science",
+    "section": "Words and Ideas",
+    "text": "Words and Ideas\nTruth Table\nProposition\nGrammar\nPredicate\nBoolean Mask\nLogical Equivalence"
+  },
+  {
+    "objectID": "slides/02_fri_quant1.html#announcements",
+    "href": "slides/02_fri_quant1.html#announcements",
+    "title": "Discrete Math for Data Science",
+    "section": "Announcements",
+    "text": "Announcements\n\nEnroll in PrairieTest here: https://us.prairietest.com/pt/student/course/12361/enroll/392674810508\nSign up for EX1. Practice materials (on PL) coming soon!\nTutorials begin next week."
+  },
+  {
+    "objectID": "slides/02_fri_quant1.html#vocabulary",
+    "href": "slides/02_fri_quant1.html#vocabulary",
+    "title": "Discrete Math for Data Science",
+    "section": "Vocabulary",
+    "text": "Vocabulary\nGiven \\(p\\rightarrow q\\), we define the following 3 terms:\n\n________________ is \\(\\neg q\\rightarrow \\neg p\\)\n________________ is \\(q\\rightarrow p\\)\n________________ is \\(\\neg p\\rightarrow \\neg q\\)\n\nDescribe all the logical equivalences among the 4 statements:\n\nwe’ll see if English can help us!"
+  },
+  {
+    "objectID": "slides/02_fri_quant1.html#converses-check-whats-true",
+    "href": "slides/02_fri_quant1.html#converses-check-whats-true",
+    "title": "Discrete Math for Data Science",
+    "section": "Converses — check what’s True",
+    "text": "Converses — check what’s True\n\n\n\n\n\n\n\n\n\n#\nStatement p→q\np→q\nq→p\n\n\n\n\n1\nTo be empty, a string must have length 0.\n☐\n☐\n\n\n2\nPlaying in the NHL entails being a professional hockey player.\n☐\n☐\n\n\n3\nIf an animal is a mammal, then it is a cat.\n☐\n☐\n\n\n4\nRiding the 99 B-Line counts as public transit.\n☐\n☐\n\n\n5\nIf a dish is spicy, then it is Indian cuisine.\n☐\n☐\n\n\n6\nIf it’s a kitten, then it’s a cat.\n☐\n☐\n\n\n7\nNo song appears on the Billboard Hot 100 without reaching #1.\n☐\n☐\n\n\n8\nIf I live in Totem Park residence, then I live in campus housing.\n☐\n☐\n\n\n9\nIf I eat breakfast, then I ace the quiz.\n☐\n☐\n\n\n10\nIf a movie is a superhero film, then it is an MCU movie.\n☐\n☐\n\n\n11\nIf I’m an only child, then I have zero siblings.\n☐\n☐\n\n\n12\nIf I’m in British Columbia, then I’m in Vancouver.\n☐\n☐"
+  },
+  {
+    "objectID": "slides/02_fri_quant1.html#biconditionals",
+    "href": "slides/02_fri_quant1.html#biconditionals",
+    "title": "Discrete Math for Data Science",
+    "section": "Biconditionals",
+    "text": "Biconditionals\nWe have a special operator for those implications whose converses are also True:\n  \\((p\\rightarrow q) \\wedge (q\\rightarrow p)\\equiv p\\leftrightarrow q\\)\nSome phrases describing this relationship:\n\nbiconditional\nif and only if (iff)\nequivalent\n\nWhich of the expressions on the previous page are biconditionals?"
+  },
+  {
+    "objectID": "slides/02_fri_quant1.html#quantified-predicates",
+    "href": "slides/02_fri_quant1.html#quantified-predicates",
+    "title": "Discrete Math for Data Science",
+    "section": "Quantified Predicates",
+    "text": "Quantified Predicates\nConsider the predicate:\n       \\(H(x)\\): \\(x\\) is a Hero\nIs this a proposition? ____. We add a “quantifier”:\n               \\(H(x)\\): \\(x\\) is a Hero\nNow is it a proposition? ____. We scope the variable:\n                       \\(H(x)\\): \\(x\\) is a Hero\n\n\n\nTwo classic quantifiers:\n  \\(\\forall\\): “For every” or “For all”\n  \\(\\exists\\): “There exists” or “There is at least one”"
+  },
+  {
+    "objectID": "slides/02_fri_quant1.html#quantified-predicates-1",
+    "href": "slides/02_fri_quant1.html#quantified-predicates-1",
+    "title": "Discrete Math for Data Science",
+    "section": "Quantified Predicates",
+    "text": "Quantified Predicates\nIn pairs, complete the worksheet!\n \nWhat did you discover about negation?"
+  },
+  {
+    "objectID": "slides/02_fri_quant1.html#counterexample",
+    "href": "slides/02_fri_quant1.html#counterexample",
+    "title": "Discrete Math for Data Science",
+    "section": "Counterexample",
+    "text": "Counterexample\nSuppose someone says “all comedians are funny,” and you disagree, how would you refute the statement?\n\n\n       \\(\\forall x, C(x)\\rightarrow F(x)\\)\n\n\n\n\nYour immediate response: __________\nThis evidence of refutation is called a _______________.\nAnother way:\nApplies specifically to \\(\\neg\\forall\\)"
+  },
+  {
+    "objectID": "slides/02_fri_quant1.html#witness",
+    "href": "slides/02_fri_quant1.html#witness",
+    "title": "Discrete Math for Data Science",
+    "section": "Witness",
+    "text": "Witness\nSuppose someone says “there is a funny comedian,” and you disagree, how could they justify their statement?\n\n\n       \\(\\exists x, C(x)\\wedge F(x)\\)\n\n\nTheir immediate response: __________\nThis evidence of justification is called a _______________.\nApplies specifically to \\(\\exists\\)\nAside: Why not \\(\\exists x, C(x)\\rightarrow F(x)\\)?"
+  },
+  {
+    "objectID": "slides/02_fri_quant1.html#code-patterns",
+    "href": "slides/02_fri_quant1.html#code-patterns",
+    "title": "Discrete Math for Data Science",
+    "section": "Code Patterns",
+    "text": "Code Patterns"
+  },
+  {
+    "objectID": "slides/02_fri_quant1.html#nested-quantifiers",
+    "href": "slides/02_fri_quant1.html#nested-quantifiers",
+    "title": "Discrete Math for Data Science",
+    "section": "Nested Quantifiers",
+    "text": "Nested Quantifiers\nIt will not surprise you that we can use multiple quantifiers:\n \n     \\(\\forall x, \\forall y \\text{ Knows}(x,y)\\)\n\n\nIn pairs, complete the second worksheet."
+  },
+  {
+    "objectID": "slides/02_fri_quant1.html#words-and-ideas",
+    "href": "slides/02_fri_quant1.html#words-and-ideas",
+    "title": "Discrete Math for Data Science",
+    "section": "Words and Ideas",
+    "text": "Words and Ideas\nQuantifiers – “For all” and “There exists”\nCounterexample and Witness\nNegating quantifiers\nNested Quantifiers"
+  },
+  {
+    "objectID": "slides/03_wed_reasoning.html#announcements",
+    "href": "slides/03_wed_reasoning.html#announcements",
+    "title": "Discrete Math for Data Science",
+    "section": "Announcements",
+    "text": "Announcements\n\nEnroll in PrairieTest here: https://us.prairietest.com/pt/student/course/12361/enroll/392674810508\nSign up for EX1. Practice materials on PL.\nTutorials begin this week!"
+  },
+  {
+    "objectID": "slides/03_wed_reasoning.html#design-a-trap",
+    "href": "slides/03_wed_reasoning.html#design-a-trap",
+    "title": "Discrete Math for Data Science",
+    "section": "Design a Trap",
+    "text": "Design a Trap\nYour mission:\n- Write one valid two-premise argument (any rule).\n- Write a look-alike fallacy with the same topic words.\n- Bring to class on Wednesday morning!"
+  },
+  {
+    "objectID": "slides/03_wed_reasoning.html#make-proofs-executable",
+    "href": "slides/03_wed_reasoning.html#make-proofs-executable",
+    "title": "Discrete Math for Data Science",
+    "section": "Make proofs executable",
+    "text": "Make proofs executable\n\nYesterday: valid arguments as legal inference\nToday: address facts ⇒ conclusion algorithmically\nMethod: Refutation + Unit propagation\nBig picture: SAT/SMT ideas used in verification, chip design, planning\nWhy now? Logic provides clean specification layer even in a probabilistic world\n\n\nWe’ll mechanize yesterday’s arguments. We’ll encode ‘facts ⇒ conclusion’, flip the goal, and let unit propagation push us to a contradiction if the conclusion really follows. This is the heartbeat of SAT solvers.” “If A,B,C are facts and we add ¬D, what should happen if A∧B∧C→D?”"
+  },
+  {
+    "objectID": "slides/03_wed_reasoning.html#vocabulary",
+    "href": "slides/03_wed_reasoning.html#vocabulary",
+    "title": "Discrete Math for Data Science",
+    "section": "Vocabulary",
+    "text": "Vocabulary\n\nStatement: something that is either true or false.\n\nFact: a statement we already know is true (we’ll draw it as a single-item parenthesis like \\((A)\\)).\n\nRule: “if these are true, then that is true.” Example: “If A and B, then E.”\n\nclause (OR-group): a group joined by “OR”, like \\((\\neg A \\lor \\neg B \\lor E)\\).\n\nCNF (AND of clauses): several OR-groups joined by “AND”.\n\nUnit clause: a clause with just one item, like \\((A)\\) or \\((\\neg D)\\).\n\nUnit propagation: if you know \\((X)\\) is true and you also have \\((\\neg X \\lor Y)\\), you may drop \\(\\neg X\\) and keep \\(Y\\). Now \\(Y\\) must be true!\n\n\nbrownie points for the rule at the end – DS"
+  },
+  {
+    "objectID": "slides/03_wed_reasoning.html#explore-ubc",
+    "href": "slides/03_wed_reasoning.html#explore-ubc",
+    "title": "Discrete Math for Data Science",
+    "section": "Explore UBC",
+    "text": "Explore UBC\n\n\nVariable Definitions\n\n\\(A\\): Clock Tower is lit up\n\\(B\\): Nest is alight\n\\(C\\): Koerner Library is illuminated\n\n\\(E\\): ICCS doors are unlocked\n\n\\(F\\): the Gallery is open\n\n\\(D\\): Main Mall is hopping!\n\n\nRulebook\n\n\\((A\\lor B\\lor C)\\) — At least one of the three landmarks is lit tonight.\n\n\\(A\\to E\\) — If Clock Tower is lit then ICCS is unlocked.\n\\(C\\to E\\) — If Koerner is lit then ICCS is unlocked.\n\\((B\\lor F)\\) — Either the Nest is lit, or the Gallery opens.\n\n\\((E\\land F)\\to D\\) — If ICCS unlocked and Gal opens then Mall hops.\n\\(B\\to D\\) — If the Nest is lit then Mall hops.\n\n\nGoal: Does \\(D\\) follow from the rulebook?"
+  },
+  {
+    "objectID": "slides/03_wed_reasoning.html#a-smaller-example",
+    "href": "slides/03_wed_reasoning.html#a-smaller-example",
+    "title": "Discrete Math for Data Science",
+    "section": "A Smaller Example",
+    "text": "A Smaller Example\n\n\nVariable Definitions\n\n\\(A\\): Lions Gate Bridge is illuminated\n\\(B\\): Science World dome is lit up\n\\(D\\): The Canucks are playing at Rogers Arena\n\n\nRulebook\n\n\\((A\\lor B)\\) — At least one city landmark is lit tonight.\n\\(A\\to D\\) — If Lions Gate is lit, the Canucks are at Rogers.\n\\(B\\to D\\) — If the dome is lit, the Canucks are at Rogers.\n\n\nGoal: Does \\(D\\) follow from the rulebook?"
+  },
+  {
+    "objectID": "slides/03_wed_reasoning.html#making-a-plan",
+    "href": "slides/03_wed_reasoning.html#making-a-plan",
+    "title": "Discrete Math for Data Science",
+    "section": "Making a plan",
+    "text": "Making a plan\nThree ways of thinking about the inference:\n\nApply sequences of rules to conclude \\(D\\).\nShow \\(((A\\lor B)\\land (A\\to D)\\land (B\\to D)) \\to D\\) is a Tautology\nShow \\(\\neg (((A\\lor B)\\land (A\\to D)\\land (B\\to D)) \\to D)\\) is a Contradiction\n\nBelieve it or not, we’re going to do the last one!!"
+  },
+  {
+    "objectID": "slides/03_wed_reasoning.html#reframing-the-goal",
+    "href": "slides/03_wed_reasoning.html#reframing-the-goal",
+    "title": "Discrete Math for Data Science",
+    "section": "Reframing the goal",
+    "text": "Reframing the goal\n\\[\\neg (((A\\lor B)\\land (A\\to D)\\land (B\\to D)) \\to D)\\]\n\n\n \n\n\nConjunctive Normal Form: ____________"
+  },
+  {
+    "objectID": "slides/03_wed_reasoning.html#resolve-away",
+    "href": "slides/03_wed_reasoning.html#resolve-away",
+    "title": "Discrete Math for Data Science",
+    "section": "Resolve Away!",
+    "text": "Resolve Away!\n\\(\\{\\neg D\\}\\)\n\\(\\{A, B\\}\\)\n\\(\\{D, \\neg A\\}\\)\n\\(\\{D, \\neg B\\}\\)"
+  },
+  {
+    "objectID": "slides/03_wed_reasoning.html#main-mall-midnight",
+    "href": "slides/03_wed_reasoning.html#main-mall-midnight",
+    "title": "Discrete Math for Data Science",
+    "section": "Main Mall Midnight",
+    "text": "Main Mall Midnight\n\n\nSetup\n\nLay out the rule cards face up.\nPut the refutation card \\((\\neg D)\\) in a small Unit inbox.\nMake three spots: Clauses (the rule cards), Unit inbox, Finished units.\nAssign roles: Reader, Marker, Checker, Scribe.\n\nRoles\n\nReader: says the current unit aloud (start with \\((\\neg D)\\)).\nMarker: crosses out literals; rewrites reduced clauses.\nChecker: watches for new units and clash.\nScribe: records the sequence of units forced (e.g., \\(\\neg D \\Rightarrow \\neg B \\Rightarrow \\cdots\\)).\n\n\n\nGameplay loop (repeat)\n\nPick the next unit \\((u)\\) from the inbox (start with \\((\\neg D)\\)).\nSweep every clause once (one round):\n\nIf the clause contains \\(u\\): it’s satisfied, remove that card.\nIf the clause contains \\(\\neg u\\): cross out \\(\\neg u\\).\n\nIf nothing remains, \\(\\bot\\) (CLASH) → you win.\nIf one literal remains \\((v)\\), place it in the Unit inbox.\nIf 2+ literals remain, keep the reduced clause on the table.\n\nIf it mentions neither \\(u\\) nor \\(\\neg u\\): leave it as is.\n\nAfter the sweep, move \\(u\\) to Finished units. Go back to step 1.\n\n\n\nWin condition: You produce \\(\\bot\\) (empty clause) or you later pick a unit that contradicts a finished one (e.g., you pick \\((B)\\) but Finished already has \\((\\neg B)\\)).\nIf stuck: The Unit inbox is empty and no clause is a single literal → raise your hand (forward chaining has stalled).\nScribe line (to turn in): \\(\\neg D \\Rightarrow \\ldots \\Rightarrow \\bot\\) (list units in the order you derived them)."
+  },
+  {
+    "objectID": "slides/03_wed_reasoning.html#todays-python",
+    "href": "slides/03_wed_reasoning.html#todays-python",
+    "title": "Discrete Math for Data Science",
+    "section": "today’s python",
+    "text": "today’s python"
+  },
+  {
+    "objectID": "slides/03_wed_reasoning.html#does-this-always-work",
+    "href": "slides/03_wed_reasoning.html#does-this-always-work",
+    "title": "Discrete Math for Data Science",
+    "section": "Does this always work?",
+    "text": "Does this always work?\nWorks great for: rulebooks where each clause has only 1 positive unit (Horn)\nCan stall on: non-Horn, symmetric choice, more complex domains.\nStall example (unsatisfiable, no units): \\[\n(A\\vee B)\\wedge(A\\vee \\neg B)\\wedge(\\neg A\\vee B)\\wedge(\\neg A\\vee \\neg B)\n\\]\n\nNo unit clauses → our method can’t start.\nIt’s actually unsatisfiable but needs a branch to detect. (try (A) or (A)).\n\nTakeaway: Propagation finds what’s locally forced.\nWhen nothing is locally forced, we need case splits or stronger rules."
   },
   {
     "objectID": "slides/01_wed_intro.html#sages-tricksters",
