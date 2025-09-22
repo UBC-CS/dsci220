@@ -2,7 +2,13 @@
 date: 2025-09-22
 ---
 
-## Announcements {.smaller}
+## Announcements 
+
+<https://ubc.ca1.qualtrics.com/jfe/form/SV_3QzmcmE8HZRhwWi>
+
+{{< qrcode https://ubc.ca1.qualtrics.com/jfe/form/SV_3QzmcmE8HZRhwWi >}}
+
+
 
 # Reasoning
 
