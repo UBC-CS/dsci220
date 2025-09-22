@@ -130,9 +130,9 @@ Claim: $n^3 - n$ is divisible by \_\_\_.
 
 Overview: 
 
-## ⊞  Proof Part 1 (Divisible by \_\_\_): 
+## ⊞  Proof Part 1 (Divisible by \_\_\_): {.smaller}
 
-Consider an arbitrary $n$. Then one of the following must be true - 
+Consider an arbitrary $n$. Then one of the following must be true
 
 * Case A: $n=3k$
 
@@ -148,7 +148,7 @@ Consider an arbitrary $n$. Then one of the following must be true -
 
 In all 3 cases, $n^3-n$ is divisible by \_\_\_.
 
-## ⊞  Proof Part 2 (Divisible by \_\_\_): 
+## ⊞  Proof Part 2 (Divisible by \_\_\_): {.smaller}
 
 Consider an arbitrary $n$. Then one of the following must be true - 
 
