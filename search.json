@@ -1,367 +1,465 @@
 [
   {
-    "objectID": "slides/02_mon_equiv.html#wffs",
-    "href": "slides/02_mon_equiv.html#wffs",
-    "title": "Discrete Math for Data Science",
-    "section": "WFFs",
-    "text": "WFFs\nRand WFF Apply rule on line:\nRand atom Atom becomes:\n&lt;wff&gt; ::= &lt;atom&gt;\n        | ~ &lt;wff&gt;\n        | ( &lt;wff&gt; ∧ &lt;wff&gt; )\n        | ( &lt;wff&gt; ∨ &lt;wff&gt; )\n\n&lt;atom&gt; ::= p | q \nExample derivation:\n&lt;wff&gt;"
-  },
-  {
-    "objectID": "slides/02_mon_equiv.html#wffs-notes",
-    "href": "slides/02_mon_equiv.html#wffs-notes",
-    "title": "Discrete Math for Data Science",
-    "section": "WFFs (Notes)",
-    "text": "WFFs (Notes)\n&lt;wff&gt; ::= &lt;atom&gt;\n        | ~ &lt;wff&gt;\n        | ( &lt;wff&gt; ∧ &lt;wff&gt; )\n        | ( &lt;wff&gt; ∨ &lt;wff&gt; )\n\n&lt;atom&gt; ::= p | q \n\nGrammars can be used to construct many different kinds of sequences.\nWe could have included additional operators \\(\\rightarrow\\), \\(\\leftrightarrow\\), \\(\\oplus\\), \\(\\uparrow\\)\nComputational evaluation of &lt;wff&gt;is covered in DSCI221. For now, we trust Python and focus on logic.\nThe &lt;wff&gt; are propositions."
-  },
-  {
-    "objectID": "slides/02_mon_equiv.html#wff-puzzle",
-    "href": "slides/02_mon_equiv.html#wff-puzzle",
-    "title": "Discrete Math for Data Science",
-    "section": "WFF Puzzle",
-    "text": "WFF Puzzle\nWhich of these are WFFs?\n&lt;wff&gt; ::= &lt;atom&gt;\n        | ~ &lt;wff&gt;\n        | ( &lt;wff&gt; ∧ &lt;wff&gt; )\n        | ( &lt;wff&gt; ∨ &lt;wff&gt; )\n\n&lt;atom&gt; ::= p | q \n\n\n\n\\((\\neg p ∧ (q ∨ r))\\)\n\\(((p ∧ q) ∨ (r ∧ \\neg s))\\)\n\\(((\\neg p) ∨ (q ∨ r))\\)\n\n\n\n\\((p ∨ (qr))\\)\n\\(\\neg (p ∨ (q ∧ \\neg r))\\)\n\\(\\neg (p ∨ q))\\)\n\n\n\n  \n    −\n    +\n \n 03:00\n \n\nSometimes pq is the same as p^q, p & q, p && q, but our grammar only uses ^. In this course we will vary symbols fluidly, partly because we’re assembling info from many different sources, but also partly because you’ll need to be agile in the future. Note that the same issues exist for other operators."
-  },
-  {
-    "objectID": "slides/02_mon_equiv.html#wffs-1",
-    "href": "slides/02_mon_equiv.html#wffs-1",
-    "title": "Discrete Math for Data Science",
-    "section": "WFFs",
-    "text": "WFFs\n&lt;wff&gt; ::= &lt;atom&gt;\n        | ~ &lt;wff&gt;\n        | ( &lt;wff&gt; ∧ &lt;wff&gt; )\n        | ( &lt;wff&gt; ∨ &lt;wff&gt; )\n\n&lt;atom&gt; ::= p | q \nTheorem: \\(\\neg (p ∨ q))\\) is not a WFF.\nProof:\n\nassume that it is! then ~ must have been the last rule applied, and \\(( p v q))\\) must be a . then (  v  ) must have been the last rule applied, and \\(p\\) and \\(q)\\) must be . take each case separately: \\(q)\\) is not a  because none of the rules apply, so we have both that it must be a wff and it is not a wff – a contradiction, so our assumption is false!\nWe include this as foreshadowing for a proof strategy called “proof by contradition.” Making arguments like this (proofs) is the substance of this course, but don’t worry, we’ll be teaching you how to do it."
-  },
-  {
-    "objectID": "slides/02_mon_equiv.html#back-to-propositions",
-    "href": "slides/02_mon_equiv.html#back-to-propositions",
-    "title": "Discrete Math for Data Science",
-    "section": "Back to Propositions",
-    "text": "Back to Propositions\nA proposition is a statement that can be either True or False.\nExamples:\n\n\\(37 &gt; 12\\)\nFewer than 5 people in this room feel sleepy.\nThere are extra-terrestrial life forms.\nThis statement is False.\n\\(\\underline{\\hspace{10em}}\\)"
-  },
-  {
-    "objectID": "slides/02_mon_equiv.html#translation",
-    "href": "slides/02_mon_equiv.html#translation",
-    "title": "Discrete Math for Data Science",
-    "section": "Translation",
-    "text": "Translation\nFrom English to logic and back…\n\n\n\\(p\\): ___________ ate cereal for breakfast.\n\\(q\\): ___________ brought a backpack to class.\n \n\n\\((p\\lor q)\\)\n\\((p\\wedge q)\\)\n\\(\\neg q\\)"
-  },
-  {
-    "objectID": "slides/02_mon_equiv.html#predicates",
-    "href": "slides/02_mon_equiv.html#predicates",
-    "title": "Discrete Math for Data Science",
-    "section": "Predicates",
-    "text": "Predicates\n\n\n\\(p\\): ___________ ate cereal for breakfast.\n\n\nWe may want to apply the statement to many students, in which case we define a Predicate.\n\n\n\n\\(P(x)\\): \\(x\\) ate cereal for breakfast.\n\\(x\\) can be instantiated to be a particular student, or an arbitrary student.\n\\(P(\\underline{\\hspace{2em}} )\\) is a proposition."
-  },
-  {
-    "objectID": "slides/02_mon_equiv.html#logical-equivalence-1",
-    "href": "slides/02_mon_equiv.html#logical-equivalence-1",
-    "title": "Discrete Math for Data Science",
-    "section": "Logical Equivalence",
-    "text": "Logical Equivalence\n\n\nEx: Is it true that \\((p \\lor q) \\equiv (q\\lor p)\\) ?\n\n\nDiscussion points:\n\n\\(\\equiv\\) means logically equivalent\nThe answer had better be _________!!!\nHow can we justify our instinct?\n\n\n\nShow same truth table\nChains of equivalence\n\nSame as saying “write a proof”"
-  },
-  {
-    "objectID": "slides/02_mon_equiv.html#logical-equivalence-example",
-    "href": "slides/02_mon_equiv.html#logical-equivalence-example",
-    "title": "Discrete Math for Data Science",
-    "section": "Logical Equivalence example",
-    "text": "Logical Equivalence example"
-  },
-  {
-    "objectID": "slides/02_mon_equiv.html#boolean-masks",
-    "href": "slides/02_mon_equiv.html#boolean-masks",
-    "title": "Discrete Math for Data Science",
-    "section": "Boolean Masks",
-    "text": "Boolean Masks\nSelect all the cereals with at least 4 units of protein and no more than 6 units of sugars.\n\n\n\n\n\n\n\n\n\nnote that by doing this filtering, we are defining a predicate instantiated by each row whose truth value is evaluated.\nChallenge: In pandas, test De Morgan with missing data: create a row with protein = NaN. Show that (~p) & (~q) can differ from ~(p | q) under three-valued logic; propose a fix (.fillna(False) or careful NA handling)."
-  },
-  {
-    "objectID": "slides/02_mon_equiv.html#logical-equivalence-2",
-    "href": "slides/02_mon_equiv.html#logical-equivalence-2",
-    "title": "Discrete Math for Data Science",
-    "section": "Logical Equivalence",
-    "text": "Logical Equivalence\n\n“Select all the cereals with at least 4 units of protein and no more than 6 units of sugars.”\n\n\n\n\n\\(p\\): a cereal has less than 4 units of protein\n\\(q\\): a cereal has more than 6 units of sugars\n\n\n\n\n\nWe suspect that \\(\\neg p\\wedge \\neg q \\equiv \\neg( p\\lor q)\\):\n\n\n\n\n\n\n\n\n\n\n\n\\(p\\)\n\\(q\\)\n\\(\\neg p\\wedge \\neg q\\)\n\n\n\n\nF\nF\n\n\n\nF\nT\n\n\n\nT\nF\n\n\n\nT\nT\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\\(p\\)\n\\(q\\)\n\\(\\neg( p\\lor q)\\)\n\n\n\n\nF\nF\n\n\n\nF\nT\n\n\n\nT\nF\n\n\n\nT\nT\n\n\n\n\n\n\n\nhalf the class complete the TT on the left, the other half on the right, then we all read our responses aloud!"
-  },
-  {
-    "objectID": "slides/02_mon_equiv.html#logical-equivalences",
-    "href": "slides/02_mon_equiv.html#logical-equivalences",
-    "title": "Discrete Math for Data Science",
-    "section": "Logical Equivalences",
-    "text": "Logical Equivalences\n\n\n\n\n\nWe have discussed Logical Equivalence (LE) and explored an example. The table illustrates LE that are so important, they have names!\n\nObservations:"
-  },
-  {
-    "objectID": "slides/02_mon_equiv.html#logical-equivalence-practice",
-    "href": "slides/02_mon_equiv.html#logical-equivalence-practice",
-    "title": "Discrete Math for Data Science",
-    "section": "Logical Equivalence Practice",
-    "text": "Logical Equivalence Practice\nAll graded learning activities in the course will use a tool called PrairieLearn.\nNavigate to Activity 1 and complete question 2. Each of you will receive a different version of the problem. Work together in pairs to solve each person’s version.\n\n\n    \nhttps://us.prairielearn.com/pl/course_instance/186238/assessment/2562335"
-  },
-  {
-    "objectID": "slides/02_mon_equiv.html#implication-1",
-    "href": "slides/02_mon_equiv.html#implication-1",
-    "title": "Discrete Math for Data Science",
-    "section": "Implication",
-    "text": "Implication\nConnect operator \\(\\rightarrow\\) to a logically equivalent expression using only and, or, and not.\n\n\n\n\\(p\\)\n\\(q\\)\n\\(p\\rightarrow q\\)\n\\(\\underline{\\hspace{3em}}\\)\n\n\n\n\nF\nF\nT\n\n\n\nF\nT\nT\n\n\n\nT\nF\nF\n\n\n\nT\nT\nT\n\n\n\n\n\nIs this operator commutative?\nNote: \\(p \\rightarrow q \\equiv\\) _______.\n\\(p \\rightarrow q\\) Corresponds to “if \\(p\\) then \\(q\\)”\nGives us mechanism for reasoning!\n\n\nq and not p is false. so it’s NOT (q^-p) == ??? (apply demorgan)\nPL exercises on Logical equivalence involving implication?\nMore on implication and logical equivalence in tutorial questions"
-  },
-  {
-    "objectID": "slides/02_mon_equiv.html#special-logical-equivalences",
-    "href": "slides/02_mon_equiv.html#special-logical-equivalences",
-    "title": "Discrete Math for Data Science",
-    "section": "Special Logical Equivalences",
-    "text": "Special Logical Equivalences\nSuppose \\(p\\equiv\\) T . Then \\(p\\) is a Tautology.\nSuppose \\(p\\equiv\\) F . Then \\(p\\) is a Contradiction."
-  },
-  {
-    "objectID": "slides/02_mon_equiv.html#logical-equivalence-practice-1",
-    "href": "slides/02_mon_equiv.html#logical-equivalence-practice-1",
-    "title": "Discrete Math for Data Science",
-    "section": "Logical Equivalence Practice",
-    "text": "Logical Equivalence Practice\nlink to PL question"
-  },
-  {
-    "objectID": "slides/02_mon_equiv.html#words-and-ideas",
-    "href": "slides/02_mon_equiv.html#words-and-ideas",
-    "title": "Discrete Math for Data Science",
-    "section": "Words and Ideas",
-    "text": "Words and Ideas\nGrammar\nPredicate\nBoolean Mask\nLogical Equivalence\nImplication"
-  },
-  {
-    "objectID": "slides/03_mon_quant2.html#announcements",
-    "href": "slides/03_mon_quant2.html#announcements",
+    "objectID": "slides/04_mon_argument1.html#announcements",
+    "href": "slides/04_mon_argument1.html#announcements",
     "title": "Discrete Math for Data Science",
     "section": "Announcements",
-    "text": "Announcements\n\nEnroll in PrairieTest here: https://us.prairietest.com/pt/student/course/12361/enroll/392674810508\nSign up for EX1. Practice materials on PL.\nTutorials begin this week."
+    "text": "Announcements"
   },
   {
-    "objectID": "slides/03_mon_quant2.html#counterexample",
-    "href": "slides/03_mon_quant2.html#counterexample",
+    "objectID": "slides/04_mon_argument1.html#explore-ubc",
+    "href": "slides/04_mon_argument1.html#explore-ubc",
     "title": "Discrete Math for Data Science",
-    "section": "Counterexample",
-    "text": "Counterexample\nSuppose someone says “all comedians are funny,” and you disagree, how would you refute the statement?\n       \\(\\forall x, C(x)\\rightarrow F(x)\\)\nRefute by negating:\n       \\(\\neg\\forall x, C(x)\\rightarrow F(x)\\)\n     \\(\\equiv\\exists x, \\neg(C(x)\\rightarrow F(x))\\)\n     \\(\\equiv\\exists x, \\neg(F(x)\\vee\\neg C(x))\\)\n     \\(\\equiv\\exists x, \\neg F(x)\\wedge C(x))\\)\nYour immediate response: _(some unfunny comedian)__\nThis evidence of refutation is called a _counterexample_.\nApplies specifically to refuting \\(\\forall\\)"
+    "section": "Explore UBC",
+    "text": "Explore UBC\n\n\nVariable Definitions\n\n\\(A\\): Clock Tower is lit up\n\\(B\\): Nest is alight\n\\(C\\): Koerner Library is illuminated\n\n\\(E\\): ICCS doors are unlocked\n\n\\(F\\): the Gallery is open\n\n\\(D\\): Main Mall is hopping!\n\n\nRulebook\n\n\\((A\\lor B\\lor C)\\) — At least one of the three landmarks is lit tonight.\n\n\\(A\\to E\\) — If Clock Tower is lit then ICCS is unlocked.\n\\(C\\to E\\) — If Koerner is lit then ICCS is unlocked.\n\\((B\\lor F)\\) — Either the Nest is lit, or the Gallery opens.\n\n\\((E\\land F)\\to D\\) — If ICCS unlocked and Gal opens then Mall hops.\n\\(B\\to D\\) — If the Nest is lit then Mall hops.\n\n\nGoal: Does \\(D\\) follow from the rulebook?\nAnswer: yes, using unit propagation, as illustrated by table activity."
   },
   {
-    "objectID": "slides/03_mon_quant2.html#witness",
-    "href": "slides/03_mon_quant2.html#witness",
+    "objectID": "slides/04_mon_argument1.html#todays-python",
+    "href": "slides/04_mon_argument1.html#todays-python",
     "title": "Discrete Math for Data Science",
-    "section": "Witness",
-    "text": "Witness\nSuppose someone says “there is a funny comedian,” and you disagree, how could they justify their statement?\n\n\n       \\(\\exists x, C(x)\\wedge F(x)\\)\n\n\nTheir immediate response: _(a universally funny comedian – Robin Williams)_\nThis evidence of justification is called a _witness_.\nApplies specifically to defending an \\(\\exists\\)\nAside: Why not \\(\\exists x, C(x)\\rightarrow F(x)\\)?"
+    "section": "today’s python",
+    "text": "today’s python"
   },
   {
-    "objectID": "slides/03_mon_quant2.html#code-patterns",
-    "href": "slides/03_mon_quant2.html#code-patterns",
+    "objectID": "slides/04_mon_argument1.html#does-this-always-work",
+    "href": "slides/04_mon_argument1.html#does-this-always-work",
     "title": "Discrete Math for Data Science",
-    "section": "Code Patterns",
-    "text": "Code Patterns"
+    "section": "Does this always work?",
+    "text": "Does this always work?\nWorks great for: rulebooks where each clause has only 1 positive unit (Horn)\nCan stall on: non-Horn, symmetric choice, more complex domains.\nStalling example: \\[\n(A\\vee B)\\wedge(A\\vee \\neg B)\\wedge(\\neg A\\vee B)\\wedge(\\neg A\\vee \\neg B)\n\\]\n\nNo unit clauses → our method can’t start.\nIt’s actually unsatisfiable but needs a branch to detect. (try \\(A\\) or \\(\\neg A\\))\n\nTakeaway 1: Propagation finds what’s locally forced.\nWhen nothing is locally forced, we need case splits or stronger rules.\nTakeaway 2: The general problem of boolean function “Satisfiability” (SAT) has no known efficient solution, and is a classic “NP-Complete” problem."
   },
   {
-    "objectID": "slides/03_mon_quant2.html#nested-quantifiers",
-    "href": "slides/03_mon_quant2.html#nested-quantifiers",
+    "objectID": "slides/04_mon_argument1.html#todays-goals",
+    "href": "slides/04_mon_argument1.html#todays-goals",
     "title": "Discrete Math for Data Science",
-    "section": "Nested Quantifiers",
-    "text": "Nested Quantifiers\nIt will not surprise you that we can use multiple quantifiers:\n \n     \\(\\forall x, \\forall y \\text{ Knows}(x,y)\\)\n\n\nIn pairs, complete the second worksheet."
+    "section": "Today’s goals",
+    "text": "Today’s goals\n\nRecognize the form of common proof techniques \\(\\to\\), \\(\\leftrightsquigarrow\\), \\(\\bot\\), ⊞\nWrite short proofs using \\(\\to\\), and \\(\\leftrightsquigarrow\\).\n\n\nKeep everything tiny. Focus on first line (assume/goal), the key move, last line (therefore)."
   },
   {
-    "objectID": "slides/03_mon_quant2.html#words-and-ideas",
-    "href": "slides/03_mon_quant2.html#words-and-ideas",
+    "objectID": "slides/04_mon_argument1.html#what-is-a-proof",
+    "href": "slides/04_mon_argument1.html#what-is-a-proof",
     "title": "Discrete Math for Data Science",
-    "section": "Words and Ideas",
-    "text": "Words and Ideas\nQuantifiers – “For all” and “There exists”\nCounterexample and Witness\nNegating quantifiers\nNested Quantifiers"
+    "section": "What is a proof?",
+    "text": "What is a proof?\nA clear, finite chain of statements that:\n\nstarts from assumptions/definitions\nuses valid rules\nends with the claim\n\nWe’ll practice four approaches for \\(P\\to Q\\) (first 2 today, second 2 on video lesson):\n\n\\(\\to\\) Direct: assume the hypothesis, derive the conclusion\n\n\\(\\leftrightsquigarrow\\) Contrapositive: prove \\(\\neg Q\\to\\neg P\\) instead of \\(P\\to Q\\)\n\n\\(\\bot\\) Contradiction: assume \\(P\\) and \\(\\neg Q\\); reach False\n\n⊞ Cases: split into exhaustive cases; prove \\(Q\\) for each"
   },
   {
-    "objectID": "slides/03_tue_inference.html#announcements",
-    "href": "slides/03_tue_inference.html#announcements",
+    "objectID": "slides/04_mon_argument1.html#warm-up",
+    "href": "slides/04_mon_argument1.html#warm-up",
+    "title": "Discrete Math for Data Science",
+    "section": "Warm Up",
+    "text": "Warm Up\nSolve the Sudoku on the worksheet.\nSpeculate on an interesting feature of the corners.\nDo all 4x4 Sudoku puzzles have this feature?\n\n  \n    −\n    +\n \n 05:00"
+  },
+  {
+    "objectID": "slides/04_mon_argument1.html#first-proof",
+    "href": "slides/04_mon_argument1.html#first-proof",
+    "title": "Discrete Math for Data Science",
+    "section": "First Proof",
+    "text": "First Proof\nTheorem: For any integers \\(a\\) and \\(b\\), if \\(ab\\) is even, then \\(a\\) is even or \\(b\\) is even.\n\n\nImportant definition:\n   An integer \\(a\\) is even iff"
+  },
+  {
+    "objectID": "slides/04_mon_argument1.html#technical-rewrite",
+    "href": "slides/04_mon_argument1.html#technical-rewrite",
+    "title": "Discrete Math for Data Science",
+    "section": "Technical Rewrite",
+    "text": "Technical Rewrite\n\n\\(\\forall a,b\\in \\mathbb{Z}\\)\n    \\(( (\\exists k\\in\\mathbb{Z}, ab=2k) \\to ((\\exists j\\in\\mathbb{Z}, a = 2j) \\lor (\\exists j\\in\\mathbb{Z}, b=2j)))\\)\n\n \nUniversal instantiation:\n\ncan’t argue “for all” exhaustively, so we choose an arbitrary representative\nWrite “Proof: Consider arbitrary integers \\(a\\) and \\(b\\) …”"
+  },
+  {
+    "objectID": "slides/04_mon_argument1.html#which-are-valid-arguments",
+    "href": "slides/04_mon_argument1.html#which-are-valid-arguments",
+    "title": "Discrete Math for Data Science",
+    "section": "Which are valid arguments?",
+    "text": "Which are valid arguments?\n\nPf1: Suppose \\(a\\) and \\(b\\) are odd. Then there are integers \\(k\\) and \\(j\\) so \\(a=2k+1\\) and \\(b=2j+1\\). Then \\(ab=(2k+1)(2j+1) = 2(2jk + j + k) +1\\). Since \\(2jk+j+k\\) is an integer, \\(ab\\) is odd.\nPf2: Assume \\(a\\) or \\(b\\) is even. Suppose \\(a\\) is even – the argument is the same if it is \\(b\\). Then \\(ab=2kb\\) for some \\(k\\), and thus \\(ab\\) is even.\nPf3: Suppose that \\(ab\\) is even but \\(a\\) and \\(b\\) are both odd. Namely, \\(ab=2n\\), \\(a=2k+1\\), and \\(b=2j+1\\), for some integers \\(n\\), \\(j\\), and \\(k\\). Then \\(2n=(2k+1)(2j+1)\\) and \\(n = 2jk + k + j + 1/2\\) which is a contradiction.\nPf4: Let \\(ab\\) be an even number, say \\(ab=2n\\), and \\(a\\) be an odd number, say \\(a=2k+1\\). Then \\(2n = (2k+1)b\\) and thus \\(b=2(n-kb)\\) and \\(b\\) is even.\n\n\nexistential instantiation"
+  },
+  {
+    "objectID": "slides/04_mon_argument1.html#proof-skeleton-cards",
+    "href": "slides/04_mon_argument1.html#proof-skeleton-cards",
+    "title": "Discrete Math for Data Science",
+    "section": "Proof Skeleton Cards",
+    "text": "Proof Skeleton Cards\n\n\n\\(\\to\\) Direct Proof of \\(P\\to Q\\)\n\nAssume \\(P\\).\nReason – Unpack definitions / apply given rules to derive needed facts from \\(P\\).\n… Therefore \\(Q\\).\n\n\n\n\\(\\leftrightsquigarrow\\) Contrapositive Proof of \\(P\\to Q\\)\n\nAssume \\(\\neg Q\\)\nUse rules/definitions that match \\(\\neg Q\\) to drive toward \\(\\neg P\\).\n… Therefore \\(\\neg Q\\to\\neg P\\), and thus \\(P\\to Q\\).\n\n\n\n\n\n\\(\\bot\\) Contradiction Proof of \\(P\\to Q\\)\n\nAssume \\(P\\) and \\(\\neg Q\\).\nReason – Unpack definitions / apply given rules to derive needed facts from \\(P\\land \\neg Q\\), watch for contradiction (\\(a\\land\\neg a\\)).\n… Therefore \\(\\bot\\), and our assumption of \\(\\neg Q\\) must be false, so \\(P\\to Q\\).\n\n\n\n⊞ Cases Proof of \\(P\\to Q\\)\n\nPartition \\(P\\) into cases \\(P_1\\), \\(P_2\\), etc. covering all possibilities.\nFor each \\(P_k\\), show that \\(P_k\\to Q\\).\n… Therefore, in each case \\(Q\\), and \\(P\\to Q\\)."
+  },
+  {
+    "objectID": "slides/04_mon_argument1.html#to-example-direct",
+    "href": "slides/04_mon_argument1.html#to-example-direct",
+    "title": "Discrete Math for Data Science",
+    "section": "\\(\\to\\) Example Direct",
+    "text": "\\(\\to\\) Example Direct\nProve that for any solution to the mini sudoku puzzle below, if the solution has a 2 in the top-left square (r1c1), then it will contain a 2 in the bottom-right square (r4c4).\n\nscrutinize form of statement"
+  },
+  {
+    "objectID": "slides/04_mon_argument1.html#to-your-turn-direct",
+    "href": "slides/04_mon_argument1.html#to-your-turn-direct",
+    "title": "Discrete Math for Data Science",
+    "section": "\\(\\to\\) Your Turn Direct",
+    "text": "\\(\\to\\) Your Turn Direct\nLet \\(T_n = \\frac{n(n+1)}{2}\\) be the \\(n\\)th triangular number, \\(T_1=1\\), \\(T_2=3\\), etc.\nA glow number is any integer that can be written as the sum of two consecutive triangular numbers:\n\\[𝑔=𝑇_𝑘+𝑇_{𝑘+1}\\] ​ Theorem: every glow number is a perfect square.\nProof: Consider an arbitrary glow number \\(g\\).\n \n \n \n \n \n \n… therefore \\(g\\) is a perfect square.\n\nis the converse true?"
+  },
+  {
+    "objectID": "slides/04_mon_argument1.html#leftrightsquigarrow-example-contrapositive",
+    "href": "slides/04_mon_argument1.html#leftrightsquigarrow-example-contrapositive",
+    "title": "Discrete Math for Data Science",
+    "section": "\\(\\leftrightsquigarrow\\) Example Contrapositive",
+    "text": "\\(\\leftrightsquigarrow\\) Example Contrapositive\n\n\n\n\nGame rule: each 2x2 box contains one of 1, 2, 3, and 4.\nTheorem: For any valid Sudoku solution, if A and B and C are not 4, then D is 4.\n\nContrapositive:"
+  },
+  {
+    "objectID": "slides/04_mon_argument1.html#leftrightsquigarrow-your-turn-contrapositive",
+    "href": "slides/04_mon_argument1.html#leftrightsquigarrow-your-turn-contrapositive",
+    "title": "Discrete Math for Data Science",
+    "section": "\\(\\leftrightsquigarrow\\) Your Turn Contrapositive",
+    "text": "\\(\\leftrightsquigarrow\\) Your Turn Contrapositive\nDefinitions:\n\nA number \\(n\\) is even if there is an integer \\(k\\) such that \\(n=2k\\).\nA number \\(n\\) is odd if there is an integer \\(k\\) such that \\(n=2k+1\\).\n\nTheorem: If \\(3n+2\\) is odd, then \\(n\\) is odd."
+  },
+  {
+    "objectID": "slides/01_wed_intro.html#sages-tricksters",
+    "href": "slides/01_wed_intro.html#sages-tricksters",
+    "title": "Discrete Math for Data Science",
+    "section": "🎭 Sages & Tricksters",
+    "text": "🎭 Sages & Tricksters\n\n\nHow to Play\n\nEach of you are secretly assigned a role:\n\nSage = always tell the truth (Black)\nTrickster = always lie (Red)\n\nEveryone sees the packet of 6 cards and the fact.\n\nIn rounds, each player may ask yes/no questions about the fact.\n\nWork together: compare answers, spot contradictions.\n\nGoal: Deduce each person’s role!"
+  },
+  {
+    "objectID": "slides/01_wed_intro.html#round-structure",
+    "href": "slides/01_wed_intro.html#round-structure",
+    "title": "Discrete Math for Data Science",
+    "section": "🔄 Round Structure",
+    "text": "🔄 Round Structure\n\n\n1. Two Info Rounds\n\nIn each round, take turns asking one yes/no question about the fact\n\n2. Debate Round\n\nCompare answers\n\nLook for contradictions\n\n3. Conclusion\n\nAgree on everyone’s roles\n\nReveal the cards & roles!"
+  },
+  {
+    "objectID": "slides/01_wed_intro.html#logic-in-action",
+    "href": "slides/01_wed_intro.html#logic-in-action",
+    "title": "Discrete Math for Data Science",
+    "section": "🧩 Logic in Action",
+    "text": "🧩 Logic in Action\n\n\n\nLogic means starting from true facts\n\nAsking the right questions\n\nSpotting contradictions\n\nAnd making valid inferences\n\nIn this course we’ll apply all of this to Data Science!"
+  },
+  {
+    "objectID": "slides/01_wed_intro.html#instructional-team",
+    "href": "slides/01_wed_intro.html#instructional-team",
+    "title": "Discrete Math for Data Science",
+    "section": "Instructional Team:",
+    "text": "Instructional Team:\n\nProf: Cinda Heeren\n📧 cheeren@cs.ubc.ca\n⏰ Mon 2–4pm · 🏢 ICCS 233 · \nTA: Joe Wonsil\n📧 jwonsil@cs.ubc.ca\n⏰ Fri 11-12a · 🏢 FORW 317"
+  },
+  {
+    "objectID": "slides/01_wed_intro.html#term-structure",
+    "href": "slides/01_wed_intro.html#term-structure",
+    "title": "Discrete Math for Data Science",
+    "section": "Term Structure:",
+    "text": "Term Structure:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek\nSunday\nM\nT\nW\nF\nTutorial\nExamlet\n\n\n\n\n1\n8/31/2025\n    \n\n🎉\n🎉\n\n\n\n\n2\n9/7/2025\n🎉\n\n🎉\n🎉\n\n\n\n\n3\n9/14/2025\n🎉\n📺\n🎉\n    \n🪄\n🤩\n\n\n4\n9/21/2025\n🎉\n📺\n🎉\n    \n🪄\n\n\n\n5\n9/28/2025\n🎉\n📺\n🎉\n    \n🪄\n🤩\n\n\n6\n10/5/2025\n🎉\n📺\n🎉\n    \n🪄\n\n\n\n7\n10/12/2025\n    \n\n📺\n📺\n\n\n\n\n8\n10/19/2025\n🎉\n📺\n🎉\n    \n🪄\n🤩\n\n\n9\n10/26/2025\n🎉\n📺\n🎉\n    \n🪄\n\n\n\n10\n11/2/2025\n🎉\n📺\n🎉\n    \n🪄\n🤩\n\n\n11\n11/9/2025\n    \n\n    \n📺\n\n\n\n\n12\n11/16/2025\n🎉\n📺\n🎉\n    \n🪄\n\n\n\n13\n11/23/2025\n🎉\n📺\n🎉\n    \n🪄\n🤩\n\n\n14\n11/30/2025\n🎉\n📺\n🎉\n    \n🪄"
+  },
+  {
+    "objectID": "slides/01_wed_intro.html#grading",
+    "href": "slides/01_wed_intro.html#grading",
+    "title": "Discrete Math for Data Science",
+    "section": "Grading:",
+    "text": "Grading:\n\n\n\n\n\n\n\n\nComponent\nWeight\n\n\n\n\n🎉 Class Meetings\n0%\n\n\n🪄 Tutorials\n15%\n\n\n🤩 Examlets\n55%\n\n\n🤩 Final Exam\n30%"
+  },
+  {
+    "objectID": "slides/01_wed_intro.html#communications",
+    "href": "slides/01_wed_intro.html#communications",
+    "title": "Discrete Math for Data Science",
+    "section": "Communications",
+    "text": "Communications\n\n\n📧 Email cheeren@cs.ubc.ca\nChecked daily. Please place “DSCI220” in subject!\n   Piazza piazza.com/ubc.ca/winterterm12025/dsci220\nPost questions for quick response.\n🏫 Office Hours\n\n\n\n\n\n\n\n\n\n\nName\nTime\nLocation & Zoom\n\n\n\n\nCinda\nMon 2–4pm\n🏢 ICCS 233 · \n\n\nJoe\nFri 11-12a\n🏢 FORW 317\n\n\n\n\n\n🌐 Course Website https://ubc-cs.github.io/dsci220/\nSyllabus, schedule, resources"
+  },
+  {
+    "objectID": "slides/01_wed_intro.html#truth",
+    "href": "slides/01_wed_intro.html#truth",
+    "title": "Discrete Math for Data Science",
+    "section": "Truth",
+    "text": "Truth\nMake at least 3 observations about the following table:\n\n\n\n\n\n\\(p\\)\n\\(q\\)\n\\(p \\lor q\\)\n\n\n\n\nF\nF\nF\n\n\nF\nT\nT\n\n\nT\nF\nT\n\n\nT\nT\nT"
+  },
+  {
+    "objectID": "slides/01_wed_intro.html#summary",
+    "href": "slides/01_wed_intro.html#summary",
+    "title": "Discrete Math for Data Science",
+    "section": "Summary",
+    "text": "Summary\nKey observations about the table:\n\n\n\n\n\n\\(p\\)\n\\(q\\)\n\\(p \\lor q\\)\n\n\n\n\nF\nF\nF\n\n\nF\nT\nT\n\n\nT\nF\nT\n\n\nT\nT\nT\n\n\n\n\n\nThe diagram is called a Truth Table\np and q are variables, each of which take on one of two Boolean values, True or False (T/F, 1/0)\n∨ is a binary operator that implements a function (creates output) from the 2 input variables to another Boolean value. It is characterized by its output values.\nThe operator ∨ corresponds to the English word or.\nThe expression p ∨ q is called a proposition."
+  },
+  {
+    "objectID": "slides/01_wed_intro.html#cool-down",
+    "href": "slides/01_wed_intro.html#cool-down",
+    "title": "Discrete Math for Data Science",
+    "section": "Cool down",
+    "text": "Cool down\n\n\n\n\n\n\\(p\\)\n\\(q\\)\n\\(p \\lor q\\)\n\n\n\n\nF\nF\nF\n\n\nF\nT\nT\n\n\nT\nF\nT\n\n\nT\nT\nT\n\n\n\n\n\nHow many rows for a proposition on 3 variables? \\(k\\) variables?\nGive a good name for an operator that takes 1 variable: __________\nGive a good name for an operator that takes 3 variables: __________\nHow many different binary operators could there be?"
+  },
+  {
+    "objectID": "slides/03_wed_reasoning.html#announcements",
+    "href": "slides/03_wed_reasoning.html#announcements",
     "title": "Discrete Math for Data Science",
     "section": "Announcements",
     "text": "Announcements\n\nEnroll in PrairieTest here: https://us.prairietest.com/pt/student/course/12361/enroll/392674810508\nSign up for EX1. Practice materials on PL.\nTutorials begin this week!"
   },
   {
-    "objectID": "slides/03_tue_inference.html#spot-the-rule-dodge-the-trap",
-    "href": "slides/03_tue_inference.html#spot-the-rule-dodge-the-trap",
-    "title": "Discrete Math for Data Science",
-    "section": "🎉 Spot the Rule, Dodge the Trap",
-    "text": "🎉 Spot the Rule, Dodge the Trap\nGoal for today: treat valid logical arguments like legal moves in a game.\nYou’ll identify moves, build quick proofs, and design traps."
-  },
-  {
-    "objectID": "slides/03_tue_inference.html#warm-up-5-min",
-    "href": "slides/03_tue_inference.html#warm-up-5-min",
-    "title": "Discrete Math for Data Science",
-    "section": "Warm Up (5 min)",
-    "text": "Warm Up (5 min)\nA valid argument is a legal inference. Content can change; form is what makes it valid.\n\nIf the lab is open, I’ll go. The lab is open. So I’ll go.\nIf the exam is today, the forum is quiet. The forum isn’t quiet. So the exam isn’t today."
-  },
-  {
-    "objectID": "slides/03_tue_inference.html#micro-rule-cards",
-    "href": "slides/03_tue_inference.html#micro-rule-cards",
-    "title": "Discrete Math for Data Science",
-    "section": "Micro Rule Cards",
-    "text": "Micro Rule Cards\nUse these all class as a reference.\n\nMP: from p→q, p infer q\n\nMT: from p→q, ¬q infer ¬p\n\nHS: from p→q, q→r infer p→r\n\nDS: from p∨q, ¬p infer q\n\n∧-Intro: from p, q infer p∧q\n\n∧-Elim: from p∧q infer p (or q)\n\n∨-Intro: from p infer p∨q (any q)\n\nRES: from p∨q, ¬p∨r infer q∨r\n\nCD: from (p→r), (q→s), (p∨q) infer r∨s\n\nCommon traps:\n\nAffirming consequent: p→q, q ∴ p ❌\nDenying antecedent: p→q, ¬p ∴ ¬q ❌"
-  },
-  {
-    "objectID": "slides/03_tue_inference.html#rule-card-modus-ponens-mp",
-    "href": "slides/03_tue_inference.html#rule-card-modus-ponens-mp",
-    "title": "Discrete Math for Data Science",
-    "section": "Rule Card: Modus Ponens (MP)",
-    "text": "Rule Card: Modus Ponens (MP)\n\nFrom p→q and p, infer q.\n\nEx:\nIf the bus is full, I’ll walk. The bus is full. So I’ll walk."
-  },
-  {
-    "objectID": "slides/03_tue_inference.html#rule-card-modus-tollens-mt",
-    "href": "slides/03_tue_inference.html#rule-card-modus-tollens-mt",
-    "title": "Discrete Math for Data Science",
-    "section": "Rule Card: Modus Tollens (MT)",
-    "text": "Rule Card: Modus Tollens (MT)\n\nFrom p→q and ¬q, infer ¬p.\n\nEx:\nIf office hours moved, Slack has an announcement. No announcement. So they didn’t move."
-  },
-  {
-    "objectID": "slides/03_tue_inference.html#rule-card-hypothetical-syllogism-hs",
-    "href": "slides/03_tue_inference.html#rule-card-hypothetical-syllogism-hs",
-    "title": "Discrete Math for Data Science",
-    "section": "Rule Card: Hypothetical Syllogism (HS)",
-    "text": "Rule Card: Hypothetical Syllogism (HS)\n\nFrom p→q and q→r, infer p→r.\n\nEx:\nIf tidy then joins are simpler; if simpler joins then faster viz; so tidy ⇒ faster viz."
-  },
-  {
-    "objectID": "slides/03_tue_inference.html#rule-card-disjunctive-syllogism-ds",
-    "href": "slides/03_tue_inference.html#rule-card-disjunctive-syllogism-ds",
-    "title": "Discrete Math for Data Science",
-    "section": "Rule Card: Disjunctive Syllogism (DS)",
-    "text": "Rule Card: Disjunctive Syllogism (DS)\n\nFrom p∨q and ¬p, infer q.\n\nEx:\nDinner is sushi or tacos. Not sushi. So tacos."
-  },
-  {
-    "objectID": "slides/03_tue_inference.html#rule-card-conjunction-simplification",
-    "href": "slides/03_tue_inference.html#rule-card-conjunction-simplification",
-    "title": "Discrete Math for Data Science",
-    "section": "Rule Card: Conjunction / Simplification",
-    "text": "Rule Card: Conjunction / Simplification\n\n\n∧-Intro: from p, q infer p∧q\n\n\n∧-Elim: from p∧q infer p (or q)"
-  },
-  {
-    "objectID": "slides/03_tue_inference.html#rule-card--intro",
-    "href": "slides/03_tue_inference.html#rule-card--intro",
-    "title": "Discrete Math for Data Science",
-    "section": "Rule Card: ∨-Intro",
-    "text": "Rule Card: ∨-Intro\n\nFrom p infer p∨q.\n\nEx: I rode my scooter today, so I either rode my scooter or I’m a unicorn.\nNote validity cares about form, not plausibility of the added disjunct."
-  },
-  {
-    "objectID": "slides/03_tue_inference.html#rule-card-resolution-res",
-    "href": "slides/03_tue_inference.html#rule-card-resolution-res",
-    "title": "Discrete Math for Data Science",
-    "section": "Rule Card: Resolution (RES)",
-    "text": "Rule Card: Resolution (RES)\n\nFrom p∨q and ¬p∨r infer q∨r.\n\nEx:\nEither study or soccer; if study then library. So soccer or library."
-  },
-  {
-    "objectID": "slides/03_tue_inference.html#rule-card-constructive-dilemma-cd",
-    "href": "slides/03_tue_inference.html#rule-card-constructive-dilemma-cd",
-    "title": "Discrete Math for Data Science",
-    "section": "Rule Card: Constructive Dilemma (CD)",
-    "text": "Rule Card: Constructive Dilemma (CD)\n\nFrom (p→r), (q→s), (p∨q) infer r∨s.\n\nEx:\nIf sunny then picnic; if rainy then museum; sunny or rainy; so picnic or museum."
-  },
-  {
-    "objectID": "slides/03_tue_inference.html#fallacy-cards-flash",
-    "href": "slides/03_tue_inference.html#fallacy-cards-flash",
-    "title": "Discrete Math for Data Science",
-    "section": "Fallacy Cards (flash)",
-    "text": "Fallacy Cards (flash)\n\n\nAffirming the consequent ❌\nfrom p→q, q infer p\n\n\nDenying the antecedent ❌\nfrom p→q, ¬p infer ¬q"
-  },
-  {
-    "objectID": "slides/03_tue_inference.html#validity",
-    "href": "slides/03_tue_inference.html#validity",
-    "title": "Discrete Math for Data Science",
-    "section": "Validity",
-    "text": "Validity\n∧-Elim: \\((p\\wedge q)\\rightarrow p\\) is this always true?"
-  },
-  {
-    "objectID": "slides/03_tue_inference.html#invalidity",
-    "href": "slides/03_tue_inference.html#invalidity",
-    "title": "Discrete Math for Data Science",
-    "section": "INValidity",
-    "text": "INValidity\nAffirming Consequent: \\(((p\\rightarrow q)\\wedge q)\\rightarrow p\\) is this always true?\n\n\n\n\n\n\n\n\n\n\n\\(p\\)\n\\(q\\)\n\\(p\\rightarrow q\\)\n\\((p\\rightarrow q)\\wedge q\\)\n\\(((p\\rightarrow q)\\wedge q)\\rightarrow p\\)\n\n\n\n\nF\nF\n\n\n\n\n\nF\nT\n\n\n\n\n\nT\nF\n\n\n\n\n\nT\nT"
-  },
-  {
-    "objectID": "slides/03_tue_inference.html#spot-the-rule-or-the-trap",
-    "href": "slides/03_tue_inference.html#spot-the-rule-or-the-trap",
-    "title": "Discrete Math for Data Science",
-    "section": "Spot the Rule or the Trap",
-    "text": "Spot the Rule or the Trap\nHow to play: post in chat…\n(a) valid or not, (b) if valid, name the rule, (c) formal pattern."
-  },
-  {
-    "objectID": "slides/03_tue_inference.html#build-a-proof",
-    "href": "slides/03_tue_inference.html#build-a-proof",
-    "title": "Discrete Math for Data Science",
-    "section": "Build a proof",
-    "text": "Build a proof\nIn the chat, each person adds exactly one line using a Rule Card."
-  },
-  {
-    "objectID": "slides/03_tue_inference.html#design-a-trap",
-    "href": "slides/03_tue_inference.html#design-a-trap",
+    "objectID": "slides/03_wed_reasoning.html#design-a-trap",
+    "href": "slides/03_wed_reasoning.html#design-a-trap",
     "title": "Discrete Math for Data Science",
     "section": "Design a Trap",
     "text": "Design a Trap\nYour mission:\n- Write one valid two-premise argument (any rule).\n- Write a look-alike fallacy with the same topic words.\n- Bring to class on Wednesday morning!"
   },
   {
-    "objectID": "slides/03_tue_inference.html#quantifier-teaser",
-    "href": "slides/03_tue_inference.html#quantifier-teaser",
+    "objectID": "slides/03_wed_reasoning.html#make-proofs-executable",
+    "href": "slides/03_wed_reasoning.html#make-proofs-executable",
     "title": "Discrete Math for Data Science",
-    "section": "Quantifier Teaser",
-    "text": "Quantifier Teaser\n\nUI: ∀x S(x) ⇒ S(Alex) (Universal instantiation)\nEG: S(Alex) ⇒ ∃x S(x) (Existential generalization) Analogy: mixing ∀/∃ incorrectly creates traps like affirming the consequent/denying the antecedent."
+    "section": "Make proofs executable",
+    "text": "Make proofs executable\n\nYesterday: valid arguments as legal inference\nToday: address facts ⇒ conclusion algorithmically\nMethod: Refutation + Unit propagation\nBig picture: SAT/SMT ideas used in verification, chip design, planning\nWhy now? Logic provides clean specification layer even in a probabilistic world\n\n\nWe’ll mechanize yesterday’s arguments. We’ll encode ‘facts ⇒ conclusion’, flip the goal, and let unit propagation push us to a contradiction if the conclusion really follows. This is the heartbeat of SAT solvers.” “If A,B,C are facts and we add ¬D, what should happen if A∧B∧C→D?”"
   },
   {
-    "objectID": "slides/03_tue_inference.html#exit-ticket-2-min",
-    "href": "slides/03_tue_inference.html#exit-ticket-2-min",
+    "objectID": "slides/03_wed_reasoning.html#vocabulary",
+    "href": "slides/03_wed_reasoning.html#vocabulary",
     "title": "Discrete Math for Data Science",
-    "section": "Exit Ticket (2 min)",
-    "text": "Exit Ticket (2 min)\nIn chat (or poll), complete both:\n\nOne valid rule I can spot in the wild is ________.\n\nOne trap I’ll watch for is ________."
+    "section": "Vocabulary",
+    "text": "Vocabulary\n\nStatement: something that is either true or false.\n\nFact: a statement we already know is true (we’ll draw it as a single-item parenthesis like \\((A)\\)).\n\nRule: “if these are true, then that is true.” Example: “If A and B, then E.”\n\nclause (OR-group): a group joined by “OR”, like \\((\\neg A \\lor \\neg B \\lor E)\\).\n\nCNF (AND of clauses): several OR-groups joined by “AND”.\n\nUnit clause: a clause with just one item, like \\((A)\\) or \\((\\neg D)\\).\n\nUnit propagation: if you know \\((X)\\) is true and you also have \\((\\neg X \\lor Y)\\), you may drop \\(\\neg X\\) and keep \\(Y\\). Now \\(Y\\) must be true!\n\n\nbrownie points for the rule at the end – DS"
   },
   {
-    "objectID": "slides/02_wed_impl.html#announcements",
-    "href": "slides/02_wed_impl.html#announcements",
+    "objectID": "slides/03_wed_reasoning.html#explore-ubc",
+    "href": "slides/03_wed_reasoning.html#explore-ubc",
+    "title": "Discrete Math for Data Science",
+    "section": "Explore UBC",
+    "text": "Explore UBC\n\n\nVariable Definitions\n\n\\(A\\): Clock Tower is lit up\n\\(B\\): Nest is alight\n\\(C\\): Koerner Library is illuminated\n\n\\(E\\): ICCS doors are unlocked\n\n\\(F\\): the Gallery is open\n\n\\(D\\): Main Mall is hopping!\n\n\nRulebook\n\n\\((A\\lor B\\lor C)\\) — At least one of the three landmarks is lit tonight.\n\n\\(A\\to E\\) — If Clock Tower is lit then ICCS is unlocked.\n\\(C\\to E\\) — If Koerner is lit then ICCS is unlocked.\n\\((B\\lor F)\\) — Either the Nest is lit, or the Gallery opens.\n\n\\((E\\land F)\\to D\\) — If ICCS unlocked and Gal opens then Mall hops.\n\\(B\\to D\\) — If the Nest is lit then Mall hops.\n\n\nGoal: Does \\(D\\) follow from the rulebook?"
+  },
+  {
+    "objectID": "slides/03_wed_reasoning.html#a-smaller-example",
+    "href": "slides/03_wed_reasoning.html#a-smaller-example",
+    "title": "Discrete Math for Data Science",
+    "section": "A Smaller Example",
+    "text": "A Smaller Example\n\n\nVariable Definitions\n\n\\(A\\): Lions Gate Bridge is illuminated\n\\(B\\): Science World dome is lit up\n\\(D\\): The Canucks are playing at Rogers Arena\n\n\nRulebook\n\n\\((A\\lor B)\\) — At least one city landmark is lit tonight.\n\\(A\\to D\\) — If Lions Gate is lit, the Canucks are at Rogers.\n\\(B\\to D\\) — If the dome is lit, the Canucks are at Rogers.\n\n\nGoal: Does \\(D\\) follow from the rulebook?"
+  },
+  {
+    "objectID": "slides/03_wed_reasoning.html#making-a-plan",
+    "href": "slides/03_wed_reasoning.html#making-a-plan",
+    "title": "Discrete Math for Data Science",
+    "section": "Making a plan",
+    "text": "Making a plan\nThree ways of thinking about the inference:\n\nApply sequences of rules to conclude \\(D\\).\nShow \\(((A\\lor B)\\land (A\\to D)\\land (B\\to D)) \\to D\\) is a Tautology\nShow \\(\\neg (((A\\lor B)\\land (A\\to D)\\land (B\\to D)) \\to D)\\) is a Contradiction\n\nBelieve it or not, we’re going to do the last one!!"
+  },
+  {
+    "objectID": "slides/03_wed_reasoning.html#reframing-the-goal",
+    "href": "slides/03_wed_reasoning.html#reframing-the-goal",
+    "title": "Discrete Math for Data Science",
+    "section": "Reframing the goal",
+    "text": "Reframing the goal\n\\[\\neg (((A\\lor B)\\land (A\\to D)\\land (B\\to D)) \\to D)\\]\n\n\n \n\n\nConjunctive Normal Form: ____________"
+  },
+  {
+    "objectID": "slides/03_wed_reasoning.html#resolve-away",
+    "href": "slides/03_wed_reasoning.html#resolve-away",
+    "title": "Discrete Math for Data Science",
+    "section": "Resolve Away!",
+    "text": "Resolve Away!\n\\(\\{\\neg D\\}\\)\n\\(\\{A, B\\}\\)\n\\(\\{D, \\neg A\\}\\)\n\\(\\{D, \\neg B\\}\\)"
+  },
+  {
+    "objectID": "slides/03_wed_reasoning.html#main-mall-midnight",
+    "href": "slides/03_wed_reasoning.html#main-mall-midnight",
+    "title": "Discrete Math for Data Science",
+    "section": "Main Mall Midnight",
+    "text": "Main Mall Midnight\n\n\nSetup\n\nLay out the rule cards face up.\nPut the refutation card \\((\\neg D)\\) in a small Unit inbox.\nMake three spots: Clauses (the rule cards), Unit inbox, Finished units.\nAssign roles: Reader, Marker, Checker, Scribe.\n\nRoles\n\nReader: says the current unit aloud (start with \\((\\neg D)\\)).\nMarker: crosses out literals; rewrites reduced clauses.\nChecker: watches for new units and clash.\nScribe: records the sequence of units forced (e.g., \\(\\neg D \\Rightarrow \\neg B \\Rightarrow \\cdots\\)).\n\n\n\nGameplay loop (repeat)\n\nPick the next unit \\((u)\\) from the inbox (start with \\((\\neg D)\\)).\nSweep every clause once (one round):\n\nIf the clause contains \\(u\\): it’s satisfied, remove that card.\nIf the clause contains \\(\\neg u\\): cross out \\(\\neg u\\).\n\nIf nothing remains, \\(\\bot\\) (CLASH) → you win.\nIf one literal remains \\((v)\\), place it in the Unit inbox.\nIf 2+ literals remain, keep the reduced clause on the table.\n\nIf it mentions neither \\(u\\) nor \\(\\neg u\\): leave it as is.\n\nAfter the sweep, move \\(u\\) to Finished units. Go back to step 1.\n\n\n\nWin condition: You produce \\(\\bot\\) (empty clause) or you later pick a unit that contradicts a finished one (e.g., you pick \\((B)\\) but Finished already has \\((\\neg B)\\)).\nIf stuck: The Unit inbox is empty and no clause is a single literal → raise your hand (forward chaining has stalled).\nScribe line (to turn in): \\(\\neg D \\Rightarrow \\ldots \\Rightarrow \\bot\\) (list units in the order you derived them)."
+  },
+  {
+    "objectID": "slides/03_wed_reasoning.html#todays-python",
+    "href": "slides/03_wed_reasoning.html#todays-python",
+    "title": "Discrete Math for Data Science",
+    "section": "today’s python",
+    "text": "today’s python"
+  },
+  {
+    "objectID": "slides/03_wed_reasoning.html#does-this-always-work",
+    "href": "slides/03_wed_reasoning.html#does-this-always-work",
+    "title": "Discrete Math for Data Science",
+    "section": "Does this always work?",
+    "text": "Does this always work?\nWorks great for: rulebooks where each clause has only 1 positive unit (Horn)\nCan stall on: non-Horn, symmetric choice, more complex domains.\nStall example (unsatisfiable, no units): \\[\n(A\\vee B)\\wedge(A\\vee \\neg B)\\wedge(\\neg A\\vee B)\\wedge(\\neg A\\vee \\neg B)\n\\]\n\nNo unit clauses → our method can’t start.\nIt’s actually unsatisfiable but needs a branch to detect. (try (A) or (A)).\n\nTakeaway: Propagation finds what’s locally forced.\nWhen nothing is locally forced, we need case splits or stronger rules."
+  },
+  {
+    "objectID": "slides/02_fri_quant1.html#announcements",
+    "href": "slides/02_fri_quant1.html#announcements",
     "title": "Discrete Math for Data Science",
     "section": "Announcements",
-    "text": "Announcements\n\nEnroll in PrairieTest here: https://us.prairietest.com/pt/student/course/12361/enroll/392674810508\nSign up for EX1. Practice materials (on PL) coming soon!\nWe will have class THIS friday, but not thereafter.\nTutorials begin next week."
+    "text": "Announcements\n\nEnroll in PrairieTest here: https://us.prairietest.com/pt/student/course/12361/enroll/392674810508\nSign up for EX1. Practice materials (on PL) coming soon!\nTutorials begin next week."
   },
   {
-    "objectID": "slides/02_wed_impl.html#logical-equivalences-1",
-    "href": "slides/02_wed_impl.html#logical-equivalences-1",
-    "title": "Discrete Math for Data Science",
-    "section": "Logical Equivalences",
-    "text": "Logical Equivalences\n\n\n\n\n\nWe have discussed Logical Equivalence (LE) and explored an example. The table illustrates LE that are so important, they have names!\n\nObservations:"
-  },
-  {
-    "objectID": "slides/02_wed_impl.html#logical-equivalence-practice",
-    "href": "slides/02_wed_impl.html#logical-equivalence-practice",
-    "title": "Discrete Math for Data Science",
-    "section": "Logical Equivalence Practice",
-    "text": "Logical Equivalence Practice\nAll graded learning activities in the course will use PrairieLearn.\nNavigate to Activity 1 and complete question 2. Each of you will receive a different version of the problem. Work together in pairs to solve each person’s version.\nhttps://us.prairielearn.com/pl/course_instance/186238/assessment/2562335\n\n  \n    −\n    +\n \n 07:00"
-  },
-  {
-    "objectID": "slides/02_wed_impl.html#implication-1",
-    "href": "slides/02_wed_impl.html#implication-1",
-    "title": "Discrete Math for Data Science",
-    "section": "Implication",
-    "text": "Implication\nConnect operator \\(\\rightarrow\\) to a logically equivalent expression using only and, or, and not.\n\n\n\n\\(p\\)\n\\(q\\)\n\\(p\\rightarrow q\\)\n\\(\\underline{\\hspace{3em}}\\)\n\n\n\n\nF\nF\nT\n\n\n\nF\nT\nT\n\n\n\nT\nF\nF\n\n\n\nT\nT\nT\n\n\n\n\n\nIs this operator commutative?\nNote: \\(p \\rightarrow q \\equiv\\) _______.\n\\(p \\rightarrow q\\) Corresponds to “if \\(p\\) then \\(q\\)”\nWe’re not promising causation, only a truth condition.\n\\(p \\rightarrow q\\) is False only when \\(p\\) is True and \\(q\\) is False.\nGives us mechanism for reasoning (next week)!\n\n\nq and not p is false. so it’s NOT (q^-p) == ??? (apply demorgan)\nPL exercises on Logical equivalence involving implication?\nMore on implication and logical equivalence in tutorial questions\nSuppose \\(p\\equiv\\) T . Then \\(p\\) is a Tautology.\nSuppose \\(p\\equiv\\) F . Then \\(p\\) is a Contradiction."
-  },
-  {
-    "objectID": "slides/02_wed_impl.html#logical-equivalence-proof",
-    "href": "slides/02_wed_impl.html#logical-equivalence-proof",
-    "title": "Discrete Math for Data Science",
-    "section": "Logical Equivalence Proof",
-    "text": "Logical Equivalence Proof\nProve that \\(p \\rightarrow q \\equiv \\neg q \\rightarrow \\neg p\\):"
-  },
-  {
-    "objectID": "slides/02_wed_impl.html#vocabulary",
-    "href": "slides/02_wed_impl.html#vocabulary",
+    "objectID": "slides/02_fri_quant1.html#vocabulary",
+    "href": "slides/02_fri_quant1.html#vocabulary",
     "title": "Discrete Math for Data Science",
     "section": "Vocabulary",
     "text": "Vocabulary\nGiven \\(p\\rightarrow q\\), we define the following 3 terms:\n\n________________ is \\(\\neg q\\rightarrow \\neg p\\)\n________________ is \\(q\\rightarrow p\\)\n________________ is \\(\\neg p\\rightarrow \\neg q\\)\n\nDescribe all the logical equivalences among the 4 statements:\n\nwe’ll see if English can help us!"
   },
   {
-    "objectID": "slides/02_wed_impl.html#converses-check-whats-true",
-    "href": "slides/02_wed_impl.html#converses-check-whats-true",
+    "objectID": "slides/02_fri_quant1.html#converses-check-whats-true",
+    "href": "slides/02_fri_quant1.html#converses-check-whats-true",
     "title": "Discrete Math for Data Science",
     "section": "Converses — check what’s True",
     "text": "Converses — check what’s True\n\n\n\n\n\n\n\n\n\n#\nStatement p→q\np→q\nq→p\n\n\n\n\n1\nTo be empty, a string must have length 0.\n☐\n☐\n\n\n2\nPlaying in the NHL entails being a professional hockey player.\n☐\n☐\n\n\n3\nIf an animal is a mammal, then it is a cat.\n☐\n☐\n\n\n4\nRiding the 99 B-Line counts as public transit.\n☐\n☐\n\n\n5\nIf a dish is spicy, then it is Indian cuisine.\n☐\n☐\n\n\n6\nIf it’s a kitten, then it’s a cat.\n☐\n☐\n\n\n7\nNo song appears on the Billboard Hot 100 without reaching #1.\n☐\n☐\n\n\n8\nIf I live in Totem Park residence, then I live in campus housing.\n☐\n☐\n\n\n9\nIf I eat breakfast, then I ace the quiz.\n☐\n☐\n\n\n10\nIf a movie is a superhero film, then it is an MCU movie.\n☐\n☐\n\n\n11\nIf I’m an only child, then I have zero siblings.\n☐\n☐\n\n\n12\nIf I’m in British Columbia, then I’m in Vancouver.\n☐\n☐"
   },
   {
-    "objectID": "slides/02_wed_impl.html#biconditionals",
-    "href": "slides/02_wed_impl.html#biconditionals",
+    "objectID": "slides/02_fri_quant1.html#biconditionals",
+    "href": "slides/02_fri_quant1.html#biconditionals",
     "title": "Discrete Math for Data Science",
     "section": "Biconditionals",
     "text": "Biconditionals\nWe have a special operator for those implications whose converses are also True:\n  \\((p\\rightarrow q) \\wedge (q\\rightarrow p)\\equiv p\\leftrightarrow q\\)\nSome phrases describing this relationship:\n\nbiconditional\nif and only if (iff)\nequivalent\n\nWhich of the expressions on the previous page are biconditionals?"
   },
   {
-    "objectID": "slides/02_wed_impl.html#words-and-ideas",
-    "href": "slides/02_wed_impl.html#words-and-ideas",
+    "objectID": "slides/02_fri_quant1.html#quantified-predicates",
+    "href": "slides/02_fri_quant1.html#quantified-predicates",
+    "title": "Discrete Math for Data Science",
+    "section": "Quantified Predicates",
+    "text": "Quantified Predicates\nConsider the predicate:\n       \\(H(x)\\): \\(x\\) is a Hero\nIs this a proposition? ____. We add a “quantifier”:\n               \\(H(x)\\): \\(x\\) is a Hero\nNow is it a proposition? ____. We scope the variable:\n                       \\(H(x)\\): \\(x\\) is a Hero\n\n\n\nTwo classic quantifiers:\n  \\(\\forall\\): “For every” or “For all”\n  \\(\\exists\\): “There exists” or “There is at least one”"
+  },
+  {
+    "objectID": "slides/02_fri_quant1.html#quantified-predicates-1",
+    "href": "slides/02_fri_quant1.html#quantified-predicates-1",
+    "title": "Discrete Math for Data Science",
+    "section": "Quantified Predicates",
+    "text": "Quantified Predicates\nIn pairs, complete the worksheet!\n \nWhat did you discover about negation?"
+  },
+  {
+    "objectID": "slides/02_fri_quant1.html#counterexample",
+    "href": "slides/02_fri_quant1.html#counterexample",
+    "title": "Discrete Math for Data Science",
+    "section": "Counterexample",
+    "text": "Counterexample\nSuppose someone says “all comedians are funny,” and you disagree, how would you refute the statement?\n\n\n       \\(\\forall x, C(x)\\rightarrow F(x)\\)\n\n\n\n\nYour immediate response: __________\nThis evidence of refutation is called a _______________.\nAnother way:\nApplies specifically to \\(\\neg\\forall\\)"
+  },
+  {
+    "objectID": "slides/02_fri_quant1.html#witness",
+    "href": "slides/02_fri_quant1.html#witness",
+    "title": "Discrete Math for Data Science",
+    "section": "Witness",
+    "text": "Witness\nSuppose someone says “there is a funny comedian,” and you disagree, how could they justify their statement?\n\n\n       \\(\\exists x, C(x)\\wedge F(x)\\)\n\n\nTheir immediate response: __________\nThis evidence of justification is called a _______________.\nApplies specifically to \\(\\exists\\)\nAside: Why not \\(\\exists x, C(x)\\rightarrow F(x)\\)?"
+  },
+  {
+    "objectID": "slides/02_fri_quant1.html#code-patterns",
+    "href": "slides/02_fri_quant1.html#code-patterns",
+    "title": "Discrete Math for Data Science",
+    "section": "Code Patterns",
+    "text": "Code Patterns"
+  },
+  {
+    "objectID": "slides/02_fri_quant1.html#nested-quantifiers",
+    "href": "slides/02_fri_quant1.html#nested-quantifiers",
+    "title": "Discrete Math for Data Science",
+    "section": "Nested Quantifiers",
+    "text": "Nested Quantifiers\nIt will not surprise you that we can use multiple quantifiers:\n \n     \\(\\forall x, \\forall y \\text{ Knows}(x,y)\\)\n\n\nIn pairs, complete the second worksheet."
+  },
+  {
+    "objectID": "slides/02_fri_quant1.html#words-and-ideas",
+    "href": "slides/02_fri_quant1.html#words-and-ideas",
     "title": "Discrete Math for Data Science",
     "section": "Words and Ideas",
-    "text": "Words and Ideas\nLogical Equivalence\nImplication"
+    "text": "Words and Ideas\nQuantifiers – “For all” and “There exists”\nCounterexample and Witness\nNegating quantifiers\nNested Quantifiers"
+  },
+  {
+    "objectID": "slides/01_fri_truth.html#communications",
+    "href": "slides/01_fri_truth.html#communications",
+    "title": "Discrete Math for Data Science",
+    "section": "Communications",
+    "text": "Communications\n\n\n📧 Email cheeren@cs.ubc.ca\nChecked daily. Please place “DSCI220” in subject!\n   Piazza piazza.com/ubc.ca/winterterm12025/dsci220\nPost questions for quick response.\n🏫 Office Hours\n\n\n\n\n\n\n\n\n\n\nName\nTime\nLocation & Zoom\n\n\n\n\nCinda\nMon 2–4pm\n🏢 ICCS 233 · \n\n\nJoe\nFri 11-12a\n🏢 FORW 317\n\n\nMarko\nTue 1:30-2:30p\n🏢 TBD"
+  },
+  {
+    "objectID": "slides/01_fri_truth.html#truth",
+    "href": "slides/01_fri_truth.html#truth",
+    "title": "Discrete Math for Data Science",
+    "section": "Truth",
+    "text": "Truth\nMake at least 3 observations about the following table:\n\n\n\n\n\n\\(p\\)\n\\(q\\)\n\\(p \\lor q\\)\n\n\n\n\nF\nF\nF\n\n\nF\nT\nT\n\n\nT\nF\nT\n\n\nT\nT\nT"
+  },
+  {
+    "objectID": "slides/01_fri_truth.html#summary",
+    "href": "slides/01_fri_truth.html#summary",
+    "title": "Discrete Math for Data Science",
+    "section": "Summary",
+    "text": "Summary\nKey observations about the table:\n\n\n\n\n\n\\(p\\)\n\\(q\\)\n\\(p \\lor q\\)\n\n\n\n\nF\nF\nF\n\n\nF\nT\nT\n\n\nT\nF\nT\n\n\nT\nT\nT\n\n\n\n\n\nThe diagram is called a Truth Table\np and q are variables, each of which take on one of two Boolean values, True or False (T/F, 1/0)\n∨ is a binary operator that implements a function (creates output) from the 2 input variables to another Boolean value. It is characterized by its output values.\nThe operator ∨ corresponds to the English word or.\nThe expression p ∨ q is called a proposition."
+  },
+  {
+    "objectID": "slides/01_fri_truth.html#foreshadowing",
+    "href": "slides/01_fri_truth.html#foreshadowing",
+    "title": "Discrete Math for Data Science",
+    "section": "Foreshadowing",
+    "text": "Foreshadowing\n\n\n\n\n\n\\(p\\)\n\\(q\\)\n\\(p \\lor q\\)\n\n\n\n\nF\nF\nF\n\n\nF\nT\nT\n\n\nT\nF\nT\n\n\nT\nT\nT\n\n\n\n\n\nHow many rows for a proposition on 3 variables? \\(k\\) variables?\nGive a good name for an operator that takes 1 variable: __________\nGive a good name for an operator that takes 3 variables: __________\nHow many different binary operators could there be?\n\n\n\n  \n    −\n    +\n \n 06:00\n \n\nchallenge: Of all binary operators, how many are commutative? (Half: 8.)"
+  },
+  {
+    "objectID": "slides/01_fri_truth.html#truth-tables",
+    "href": "slides/01_fri_truth.html#truth-tables",
+    "title": "Discrete Math for Data Science",
+    "section": "Truth Tables",
+    "text": "Truth Tables\nAll graded learning activities in the course will use a tool called PrairieLearn.\nNavigate to today’s activity and complete question 1\nhttps://us.prairielearn.com/pl/course_instance/186238/\n\n  \n    −\n    +\n \n 10:00"
+  },
+  {
+    "objectID": "slides/01_fri_truth.html#beyond-operators",
+    "href": "slides/01_fri_truth.html#beyond-operators",
+    "title": "Discrete Math for Data Science",
+    "section": "Beyond Operators",
+    "text": "Beyond Operators\nPropositions can be more complex than just a single operator!\nExample:\n\n\n\n\\(p\\)\n\\(q\\)\n_____\n\\(\\neg(p \\lor q)\\)\n\n\n\n\nF\nF\n\nT\n\n\nF\nT\n\nF\n\n\nT\nF\n\nF\n\n\nT\nT\n\nF"
+  },
+  {
+    "objectID": "slides/01_fri_truth.html#wffs",
+    "href": "slides/01_fri_truth.html#wffs",
+    "title": "Discrete Math for Data Science",
+    "section": "WFFs",
+    "text": "WFFs\nA well-formed formula is a Boolean statement generated by the following rules:\n&lt;wff&gt; ::= &lt;atom&gt;\n        | ~ &lt;wff&gt;\n        | ( &lt;wff&gt; ∧ &lt;wff&gt; )\n        | ( &lt;wff&gt; ∨ &lt;wff&gt; )\n\n&lt;atom&gt; ::= p | q | r | s | ...\nThis definition is in the form of a Grammar.\n_____________: &lt;wff&gt; and &lt;atom&gt;\n_____________: p, q, r, s …\nIt is our first self-referential or recursive definition."
+  },
+  {
+    "objectID": "slides/01_fri_truth.html#wffs-1",
+    "href": "slides/01_fri_truth.html#wffs-1",
+    "title": "Discrete Math for Data Science",
+    "section": "WFFs",
+    "text": "WFFs\n&lt;wff&gt; ::= &lt;atom&gt;\n        | ~ &lt;wff&gt;\n        | ( &lt;wff&gt; ∧ &lt;wff&gt; )\n        | ( &lt;wff&gt; ∨ &lt;wff&gt; )\n\n&lt;atom&gt; ::= p | q \nExample derivation:\n&lt;wff&gt;"
+  },
+  {
+    "objectID": "slides/01_fri_truth.html#wffs-notes",
+    "href": "slides/01_fri_truth.html#wffs-notes",
+    "title": "Discrete Math for Data Science",
+    "section": "WFFs (Notes)",
+    "text": "WFFs (Notes)\n&lt;wff&gt; ::= &lt;atom&gt;\n        | ~ &lt;wff&gt;\n        | ( &lt;wff&gt; ∧ &lt;wff&gt; )\n        | ( &lt;wff&gt; ∨ &lt;wff&gt; )\n\n&lt;atom&gt; ::= p | q \n\nGrammars can be used to construct many different kinds of sequences.\nWe could have included additional operators \\(\\rightarrow\\), \\(\\leftrightarrow\\), \\(\\oplus\\), \\(\\uparrow\\)\nComputational evaluation of &lt;wff&gt;is covered in DSCI221. For now, we trust Python and focus on logic.\nThe &lt;wff&gt; are propositions."
+  },
+  {
+    "objectID": "slides/01_fri_truth.html#wff-puzzle",
+    "href": "slides/01_fri_truth.html#wff-puzzle",
+    "title": "Discrete Math for Data Science",
+    "section": "WFF Puzzle",
+    "text": "WFF Puzzle\nWhich of these are WFFs?\n&lt;wff&gt; ::= &lt;atom&gt;\n        | ~ &lt;wff&gt;\n        | ( &lt;wff&gt; ∧ &lt;wff&gt; )\n        | ( &lt;wff&gt; ∨ &lt;wff&gt; )\n\n&lt;atom&gt; ::= p | q \n\n\n\n\\((\\neg p ∧ (q ∨ r))\\)\n\n\\(((p ∧ q) ∨ (r ∧ \\neg s))\\)\n\\(((\\neg p) ∨ (q ∨ r))\\)\n\n\n\n\\((p ∨ (qr))\\)\n\\(\\neg (p ∨ (q ∧ \\neg r))\\)\n\\(\\neg (p ∨ q))\\)\n\n\n\n  \n    −\n    +\n \n 03:00"
+  },
+  {
+    "objectID": "slides/01_fri_truth.html#wffs-2",
+    "href": "slides/01_fri_truth.html#wffs-2",
+    "title": "Discrete Math for Data Science",
+    "section": "WFFs",
+    "text": "WFFs\n&lt;wff&gt; ::= &lt;atom&gt;\n        | ~ &lt;wff&gt;\n        | ( &lt;wff&gt; ∧ &lt;wff&gt; )\n        | ( &lt;wff&gt; ∨ &lt;wff&gt; )\n\n&lt;atom&gt; ::= p | q \nTheorem: \\(\\neg (p ∨ q))\\) is not a WFF.\nProof:"
+  },
+  {
+    "objectID": "slides/01_fri_truth.html#propositions",
+    "href": "slides/01_fri_truth.html#propositions",
+    "title": "Discrete Math for Data Science",
+    "section": "Propositions",
+    "text": "Propositions\nA proposition is a statement that can be either True or False.\nExamples:\n\n\\(37 &gt; 12\\)\nFewer than 5 people in this room feel sleepy.\nThere are extra-terrestrial life forms.\nThis statement is False.\n\\(\\underline{\\hspace{10em}}\\)"
+  },
+  {
+    "objectID": "slides/01_fri_truth.html#translation",
+    "href": "slides/01_fri_truth.html#translation",
+    "title": "Discrete Math for Data Science",
+    "section": "Translation",
+    "text": "Translation\n\n\n\\(p\\): ___________ ate cereal for breakfast.\n\\(q\\): ___________ brought a backpack to class.\n \n\n\\((p\\lor q)\\)\n\\((p\\wedge q)\\)\n\\(\\neg q\\)"
+  },
+  {
+    "objectID": "slides/01_fri_truth.html#predicates",
+    "href": "slides/01_fri_truth.html#predicates",
+    "title": "Discrete Math for Data Science",
+    "section": "Predicates",
+    "text": "Predicates\n\n\n\\(p\\): ___________ ate cereal for breakfast.\n\n\nWe may want to apply the statement to many students, in which case we define a Predicate.\n\n\n\n\\(P(x)\\): \\(x\\) ate cereal for breakfast.\n\\(x\\) can be instantiated to be a particular student, or an arbitrary student.\n\\(P(\\underline{\\hspace{2em}} )\\) is a proposition."
+  },
+  {
+    "objectID": "slides/01_fri_truth.html#logical-equivalence",
+    "href": "slides/01_fri_truth.html#logical-equivalence",
+    "title": "Discrete Math for Data Science",
+    "section": "Logical Equivalence",
+    "text": "Logical Equivalence\n\n\nEx: Is it true that \\((p \\lor q) \\equiv (q\\lor p)\\) ?\n\n\nDiscussion points:\n\n\\(\\equiv\\) means logically equivalent\nThe answer had better be _________!!!\nHow can we justify our instinct?"
+  },
+  {
+    "objectID": "slides/01_fri_truth.html#logical-equivalence-example",
+    "href": "slides/01_fri_truth.html#logical-equivalence-example",
+    "title": "Discrete Math for Data Science",
+    "section": "Logical Equivalence example",
+    "text": "Logical Equivalence example"
+  },
+  {
+    "objectID": "slides/01_fri_truth.html#boolean-masks",
+    "href": "slides/01_fri_truth.html#boolean-masks",
+    "title": "Discrete Math for Data Science",
+    "section": "Boolean Masks",
+    "text": "Boolean Masks\nSelect all the cereals with at least 4 units of protein and no more than 6 units of sugars.\n\n\n\n\n\n\n\n\n\n\nChallenge: In pandas, test De Morgan with missing data: create a row with protein = NaN. Show that (~p) & (~q) can differ from ~(p | q) under three-valued logic; propose a fix (.fillna(False) or careful NA handling)."
+  },
+  {
+    "objectID": "slides/01_fri_truth.html#words-and-ideas",
+    "href": "slides/01_fri_truth.html#words-and-ideas",
+    "title": "Discrete Math for Data Science",
+    "section": "Words and Ideas",
+    "text": "Words and Ideas\nTruth Table\nProposition\nGrammar\nPredicate\nBoolean Mask\nLogical Equivalence"
   },
   {
     "objectID": "index.html",
@@ -541,360 +639,444 @@
     ]
   },
   {
-    "objectID": "slides/01_fri_truth.html#communications",
-    "href": "slides/01_fri_truth.html#communications",
-    "title": "Discrete Math for Data Science",
-    "section": "Communications",
-    "text": "Communications\n\n\n📧 Email cheeren@cs.ubc.ca\nChecked daily. Please place “DSCI220” in subject!\n   Piazza piazza.com/ubc.ca/winterterm12025/dsci220\nPost questions for quick response.\n🏫 Office Hours\n\n\n\n\n\n\n\n\n\n\nName\nTime\nLocation & Zoom\n\n\n\n\nCinda\nMon 2–4pm\n🏢 ICCS 233 · \n\n\nJoe\nFri 11-12a\n🏢 FORW 317\n\n\nMarko\nTue 1:30-2:30p\n🏢 TBD"
-  },
-  {
-    "objectID": "slides/01_fri_truth.html#truth",
-    "href": "slides/01_fri_truth.html#truth",
-    "title": "Discrete Math for Data Science",
-    "section": "Truth",
-    "text": "Truth\nMake at least 3 observations about the following table:\n\n\n\n\n\n\\(p\\)\n\\(q\\)\n\\(p \\lor q\\)\n\n\n\n\nF\nF\nF\n\n\nF\nT\nT\n\n\nT\nF\nT\n\n\nT\nT\nT"
-  },
-  {
-    "objectID": "slides/01_fri_truth.html#summary",
-    "href": "slides/01_fri_truth.html#summary",
-    "title": "Discrete Math for Data Science",
-    "section": "Summary",
-    "text": "Summary\nKey observations about the table:\n\n\n\n\n\n\\(p\\)\n\\(q\\)\n\\(p \\lor q\\)\n\n\n\n\nF\nF\nF\n\n\nF\nT\nT\n\n\nT\nF\nT\n\n\nT\nT\nT\n\n\n\n\n\nThe diagram is called a Truth Table\np and q are variables, each of which take on one of two Boolean values, True or False (T/F, 1/0)\n∨ is a binary operator that implements a function (creates output) from the 2 input variables to another Boolean value. It is characterized by its output values.\nThe operator ∨ corresponds to the English word or.\nThe expression p ∨ q is called a proposition."
-  },
-  {
-    "objectID": "slides/01_fri_truth.html#foreshadowing",
-    "href": "slides/01_fri_truth.html#foreshadowing",
-    "title": "Discrete Math for Data Science",
-    "section": "Foreshadowing",
-    "text": "Foreshadowing\n\n\n\n\n\n\\(p\\)\n\\(q\\)\n\\(p \\lor q\\)\n\n\n\n\nF\nF\nF\n\n\nF\nT\nT\n\n\nT\nF\nT\n\n\nT\nT\nT\n\n\n\n\n\nHow many rows for a proposition on 3 variables? \\(k\\) variables?\nGive a good name for an operator that takes 1 variable: __________\nGive a good name for an operator that takes 3 variables: __________\nHow many different binary operators could there be?\n\n\n\n  \n    −\n    +\n \n 06:00\n \n\nchallenge: Of all binary operators, how many are commutative? (Half: 8.)"
-  },
-  {
-    "objectID": "slides/01_fri_truth.html#truth-tables",
-    "href": "slides/01_fri_truth.html#truth-tables",
-    "title": "Discrete Math for Data Science",
-    "section": "Truth Tables",
-    "text": "Truth Tables\nAll graded learning activities in the course will use a tool called PrairieLearn.\nNavigate to today’s activity and complete question 1\nhttps://us.prairielearn.com/pl/course_instance/186238/\n\n  \n    −\n    +\n \n 10:00"
-  },
-  {
-    "objectID": "slides/01_fri_truth.html#beyond-operators",
-    "href": "slides/01_fri_truth.html#beyond-operators",
-    "title": "Discrete Math for Data Science",
-    "section": "Beyond Operators",
-    "text": "Beyond Operators\nPropositions can be more complex than just a single operator!\nExample:\n\n\n\n\\(p\\)\n\\(q\\)\n_____\n\\(\\neg(p \\lor q)\\)\n\n\n\n\nF\nF\n\nT\n\n\nF\nT\n\nF\n\n\nT\nF\n\nF\n\n\nT\nT\n\nF"
-  },
-  {
-    "objectID": "slides/01_fri_truth.html#wffs",
-    "href": "slides/01_fri_truth.html#wffs",
-    "title": "Discrete Math for Data Science",
-    "section": "WFFs",
-    "text": "WFFs\nA well-formed formula is a Boolean statement generated by the following rules:\n&lt;wff&gt; ::= &lt;atom&gt;\n        | ~ &lt;wff&gt;\n        | ( &lt;wff&gt; ∧ &lt;wff&gt; )\n        | ( &lt;wff&gt; ∨ &lt;wff&gt; )\n\n&lt;atom&gt; ::= p | q | r | s | ...\nThis definition is in the form of a Grammar.\n_____________: &lt;wff&gt; and &lt;atom&gt;\n_____________: p, q, r, s …\nIt is our first self-referential or recursive definition."
-  },
-  {
-    "objectID": "slides/01_fri_truth.html#wffs-1",
-    "href": "slides/01_fri_truth.html#wffs-1",
-    "title": "Discrete Math for Data Science",
-    "section": "WFFs",
-    "text": "WFFs\n&lt;wff&gt; ::= &lt;atom&gt;\n        | ~ &lt;wff&gt;\n        | ( &lt;wff&gt; ∧ &lt;wff&gt; )\n        | ( &lt;wff&gt; ∨ &lt;wff&gt; )\n\n&lt;atom&gt; ::= p | q \nExample derivation:\n&lt;wff&gt;"
-  },
-  {
-    "objectID": "slides/01_fri_truth.html#wffs-notes",
-    "href": "slides/01_fri_truth.html#wffs-notes",
-    "title": "Discrete Math for Data Science",
-    "section": "WFFs (Notes)",
-    "text": "WFFs (Notes)\n&lt;wff&gt; ::= &lt;atom&gt;\n        | ~ &lt;wff&gt;\n        | ( &lt;wff&gt; ∧ &lt;wff&gt; )\n        | ( &lt;wff&gt; ∨ &lt;wff&gt; )\n\n&lt;atom&gt; ::= p | q \n\nGrammars can be used to construct many different kinds of sequences.\nWe could have included additional operators \\(\\rightarrow\\), \\(\\leftrightarrow\\), \\(\\oplus\\), \\(\\uparrow\\)\nComputational evaluation of &lt;wff&gt;is covered in DSCI221. For now, we trust Python and focus on logic.\nThe &lt;wff&gt; are propositions."
-  },
-  {
-    "objectID": "slides/01_fri_truth.html#wff-puzzle",
-    "href": "slides/01_fri_truth.html#wff-puzzle",
-    "title": "Discrete Math for Data Science",
-    "section": "WFF Puzzle",
-    "text": "WFF Puzzle\nWhich of these are WFFs?\n&lt;wff&gt; ::= &lt;atom&gt;\n        | ~ &lt;wff&gt;\n        | ( &lt;wff&gt; ∧ &lt;wff&gt; )\n        | ( &lt;wff&gt; ∨ &lt;wff&gt; )\n\n&lt;atom&gt; ::= p | q \n\n\n\n\\((\\neg p ∧ (q ∨ r))\\)\n\n\\(((p ∧ q) ∨ (r ∧ \\neg s))\\)\n\\(((\\neg p) ∨ (q ∨ r))\\)\n\n\n\n\\((p ∨ (qr))\\)\n\\(\\neg (p ∨ (q ∧ \\neg r))\\)\n\\(\\neg (p ∨ q))\\)\n\n\n\n  \n    −\n    +\n \n 03:00"
-  },
-  {
-    "objectID": "slides/01_fri_truth.html#wffs-2",
-    "href": "slides/01_fri_truth.html#wffs-2",
-    "title": "Discrete Math for Data Science",
-    "section": "WFFs",
-    "text": "WFFs\n&lt;wff&gt; ::= &lt;atom&gt;\n        | ~ &lt;wff&gt;\n        | ( &lt;wff&gt; ∧ &lt;wff&gt; )\n        | ( &lt;wff&gt; ∨ &lt;wff&gt; )\n\n&lt;atom&gt; ::= p | q \nTheorem: \\(\\neg (p ∨ q))\\) is not a WFF.\nProof:"
-  },
-  {
-    "objectID": "slides/01_fri_truth.html#propositions",
-    "href": "slides/01_fri_truth.html#propositions",
-    "title": "Discrete Math for Data Science",
-    "section": "Propositions",
-    "text": "Propositions\nA proposition is a statement that can be either True or False.\nExamples:\n\n\\(37 &gt; 12\\)\nFewer than 5 people in this room feel sleepy.\nThere are extra-terrestrial life forms.\nThis statement is False.\n\\(\\underline{\\hspace{10em}}\\)"
-  },
-  {
-    "objectID": "slides/01_fri_truth.html#translation",
-    "href": "slides/01_fri_truth.html#translation",
-    "title": "Discrete Math for Data Science",
-    "section": "Translation",
-    "text": "Translation\n\n\n\\(p\\): ___________ ate cereal for breakfast.\n\\(q\\): ___________ brought a backpack to class.\n \n\n\\((p\\lor q)\\)\n\\((p\\wedge q)\\)\n\\(\\neg q\\)"
-  },
-  {
-    "objectID": "slides/01_fri_truth.html#predicates",
-    "href": "slides/01_fri_truth.html#predicates",
-    "title": "Discrete Math for Data Science",
-    "section": "Predicates",
-    "text": "Predicates\n\n\n\\(p\\): ___________ ate cereal for breakfast.\n\n\nWe may want to apply the statement to many students, in which case we define a Predicate.\n\n\n\n\\(P(x)\\): \\(x\\) ate cereal for breakfast.\n\\(x\\) can be instantiated to be a particular student, or an arbitrary student.\n\\(P(\\underline{\\hspace{2em}} )\\) is a proposition."
-  },
-  {
-    "objectID": "slides/01_fri_truth.html#logical-equivalence",
-    "href": "slides/01_fri_truth.html#logical-equivalence",
-    "title": "Discrete Math for Data Science",
-    "section": "Logical Equivalence",
-    "text": "Logical Equivalence\n\n\nEx: Is it true that \\((p \\lor q) \\equiv (q\\lor p)\\) ?\n\n\nDiscussion points:\n\n\\(\\equiv\\) means logically equivalent\nThe answer had better be _________!!!\nHow can we justify our instinct?"
-  },
-  {
-    "objectID": "slides/01_fri_truth.html#logical-equivalence-example",
-    "href": "slides/01_fri_truth.html#logical-equivalence-example",
-    "title": "Discrete Math for Data Science",
-    "section": "Logical Equivalence example",
-    "text": "Logical Equivalence example"
-  },
-  {
-    "objectID": "slides/01_fri_truth.html#boolean-masks",
-    "href": "slides/01_fri_truth.html#boolean-masks",
-    "title": "Discrete Math for Data Science",
-    "section": "Boolean Masks",
-    "text": "Boolean Masks\nSelect all the cereals with at least 4 units of protein and no more than 6 units of sugars.\n\n\n\n\n\n\n\n\n\n\nChallenge: In pandas, test De Morgan with missing data: create a row with protein = NaN. Show that (~p) & (~q) can differ from ~(p | q) under three-valued logic; propose a fix (.fillna(False) or careful NA handling)."
-  },
-  {
-    "objectID": "slides/01_fri_truth.html#words-and-ideas",
-    "href": "slides/01_fri_truth.html#words-and-ideas",
-    "title": "Discrete Math for Data Science",
-    "section": "Words and Ideas",
-    "text": "Words and Ideas\nTruth Table\nProposition\nGrammar\nPredicate\nBoolean Mask\nLogical Equivalence"
-  },
-  {
-    "objectID": "slides/02_fri_quant1.html#announcements",
-    "href": "slides/02_fri_quant1.html#announcements",
+    "objectID": "slides/04_tue_argument2.html#announcements",
+    "href": "slides/04_tue_argument2.html#announcements",
     "title": "Discrete Math for Data Science",
     "section": "Announcements",
-    "text": "Announcements\n\nEnroll in PrairieTest here: https://us.prairietest.com/pt/student/course/12361/enroll/392674810508\nSign up for EX1. Practice materials (on PL) coming soon!\nTutorials begin next week."
+    "text": "Announcements"
   },
   {
-    "objectID": "slides/02_fri_quant1.html#vocabulary",
-    "href": "slides/02_fri_quant1.html#vocabulary",
+    "objectID": "slides/04_tue_argument2.html#todays-goals",
+    "href": "slides/04_tue_argument2.html#todays-goals",
+    "title": "Discrete Math for Data Science",
+    "section": "Today’s goals",
+    "text": "Today’s goals\n\nRecognize the form of common proof techniques \\(\\to\\), \\(\\leftrightsquigarrow\\), \\(\\bot\\), ⊞\nWrite short proofs using \\(\\bot\\), and ⊞.\n\n\nKeep everything tiny. Focus on first line (assume/goal), the key move, last line (therefore)."
+  },
+  {
+    "objectID": "slides/04_tue_argument2.html#what-is-a-proof",
+    "href": "slides/04_tue_argument2.html#what-is-a-proof",
+    "title": "Discrete Math for Data Science",
+    "section": "What is a proof?",
+    "text": "What is a proof?\nA clear, finite chain of statements that:\n\nstarts from assumptions/definitions\nuses valid rules\nends with the claim\n\nWe’ll practice four approaches for \\(P\\to Q\\) (first 2 earlier, second 2 now):\n\n\\(\\to\\) Direct: assume the hypothesis, derive the conclusion\n\n\\(\\leftrightsquigarrow\\) Contrapositive: prove \\(\\neg Q\\to\\neg P\\) instead of \\(P\\to Q\\)\n\n\\(\\bot\\) Contradiction: assume \\(P\\) and \\(\\neg Q\\); reach False\n\n⊞ Cases: split into exhaustive cases; prove \\(Q\\) for each"
+  },
+  {
+    "objectID": "slides/04_tue_argument2.html#warm-up-1",
+    "href": "slides/04_tue_argument2.html#warm-up-1",
+    "title": "Discrete Math for Data Science",
+    "section": "Warm Up 1",
+    "text": "Warm Up 1\nClaim: for all integers \\(a\\) and \\(b\\), if \\((a+b)\\) is odd, then \\(a\\) is odd or \\(b\\) is odd.\n\n\\(\\to\\) or \\(\\leftrightsquigarrow\\)?\n\n\n\n\nProof: Consider…"
+  },
+  {
+    "objectID": "slides/04_tue_argument2.html#warm-up-2",
+    "href": "slides/04_tue_argument2.html#warm-up-2",
+    "title": "Discrete Math for Data Science",
+    "section": "Warm Up 2",
+    "text": "Warm Up 2\nClaim: for all integers \\(a\\), if \\(a^2\\) is even, then \\(a\\) is even.\n\n\\(\\to\\) or \\(\\leftrightsquigarrow\\)?\n\n\n\n\nProof: Consider…"
+  },
+  {
+    "objectID": "slides/04_tue_argument2.html#proof-skeleton-cards",
+    "href": "slides/04_tue_argument2.html#proof-skeleton-cards",
+    "title": "Discrete Math for Data Science",
+    "section": "Proof Skeleton Cards",
+    "text": "Proof Skeleton Cards\n\n\n\\(\\to\\) Direct Proof of \\(P\\to Q\\)\n\nAssume \\(P\\).\nReason – Unpack definitions / apply given rules to derive needed facts from \\(P\\).\n… Therefore \\(Q\\).\n\n\n\n\\(\\leftrightsquigarrow\\) Contrapositive Proof of \\(P\\to Q\\)\n\nAssume \\(\\neg Q\\)\nUse rules/definitions that match \\(\\neg Q\\) to drive toward \\(\\neg P\\).\n… Therefore \\(\\neg Q\\to\\neg P\\), and thus \\(P\\to Q\\).\n\n\n\n\n\n\\(\\bot\\) Contradiction Proof of \\(P\\to Q\\)\n\nAssume \\(P\\) and \\(\\neg Q\\).\nReason – Unpack definitions / apply given rules to derive needed facts from \\(P\\land \\neg Q\\), watch for contradiction (\\(a\\land\\neg a\\)).\n… Therefore \\(\\bot\\), and our assumption of \\(\\neg Q\\) must be false, so \\(P\\to Q\\).\n\n\n\n⊞ Cases Proof of \\(P\\to Q\\)\n\nPartition \\(P\\) into cases \\(P_1\\), \\(P_2\\), etc. covering all possibilities.\nFor each \\(P_k\\), show that \\(P_k\\to Q\\).\n… Therefore, in each case \\(Q\\), and \\(P\\to Q\\)."
+  },
+  {
+    "objectID": "slides/04_tue_argument2.html#bot-example-contradiction",
+    "href": "slides/04_tue_argument2.html#bot-example-contradiction",
+    "title": "Discrete Math for Data Science",
+    "section": "\\(\\bot\\) Example Contradiction",
+    "text": "\\(\\bot\\) Example Contradiction\nProve that any solution to the mini sudoku puzzle below must contain a 3 in the top right corner (r1c4).\n\nscrutinize form of statement"
+  },
+  {
+    "objectID": "slides/04_tue_argument2.html#bot-our-turn-contradiction",
+    "href": "slides/04_tue_argument2.html#bot-our-turn-contradiction",
+    "title": "Discrete Math for Data Science",
+    "section": "\\(\\bot\\) Our Turn Contradiction",
+    "text": "\\(\\bot\\) Our Turn Contradiction\nClaim: \\(\\sqrt 2\\) is irrational.\nProof: (CLASSIC) Suppose by way of contradiction that \\(\\sqrt 2\\) is rational. Then…"
+  },
+  {
+    "objectID": "slides/04_tue_argument2.html#example-cases",
+    "href": "slides/04_tue_argument2.html#example-cases",
+    "title": "Discrete Math for Data Science",
+    "section": "⊞ Example Cases",
+    "text": "⊞ Example Cases\nClaim: \\(n^3 - n\\) is divisible by ___.\nOverview:"
+  },
+  {
+    "objectID": "slides/04_tue_argument2.html#proof-part-1-divisible-by-___",
+    "href": "slides/04_tue_argument2.html#proof-part-1-divisible-by-___",
+    "title": "Discrete Math for Data Science",
+    "section": "⊞ Proof Part 1 (Divisible by ___):",
+    "text": "⊞ Proof Part 1 (Divisible by ___):\nConsider an arbitrary \\(n\\). Then one of the following must be true -\n\nCase A: \\(n=3k\\)\n\n\n\n\nCase B: \\(n=3k+1\\)\n\n\n\n\nCase C: \\(n=3k+2\\)\n\n\n\nIn all 3 cases, \\(n^3-n\\) is divisible by ___."
+  },
+  {
+    "objectID": "slides/04_tue_argument2.html#proof-part-2-divisible-by-___",
+    "href": "slides/04_tue_argument2.html#proof-part-2-divisible-by-___",
+    "title": "Discrete Math for Data Science",
+    "section": "⊞ Proof Part 2 (Divisible by ___):",
+    "text": "⊞ Proof Part 2 (Divisible by ___):\nConsider an arbitrary \\(n\\). Then one of the following must be true -\n\nCase A: \\(n=2k\\)\n\n\n\n\nCase B: \\(n=2k+1\\)\n\n\n\nIn all 2 cases, \\(n^3-n\\) is divisible by ___.\nConclusion: 2 and 3 are factors of \\(n^3-n\\) so 6 must be a factor!"
+  },
+  {
+    "objectID": "slides/02_wed_impl.html#announcements",
+    "href": "slides/02_wed_impl.html#announcements",
+    "title": "Discrete Math for Data Science",
+    "section": "Announcements",
+    "text": "Announcements\n\nEnroll in PrairieTest here: https://us.prairietest.com/pt/student/course/12361/enroll/392674810508\nSign up for EX1. Practice materials (on PL) coming soon!\nWe will have class THIS friday, but not thereafter.\nTutorials begin next week."
+  },
+  {
+    "objectID": "slides/02_wed_impl.html#logical-equivalences-1",
+    "href": "slides/02_wed_impl.html#logical-equivalences-1",
+    "title": "Discrete Math for Data Science",
+    "section": "Logical Equivalences",
+    "text": "Logical Equivalences\n\n\n\n\n\nWe have discussed Logical Equivalence (LE) and explored an example. The table illustrates LE that are so important, they have names!\n\nObservations:"
+  },
+  {
+    "objectID": "slides/02_wed_impl.html#logical-equivalence-practice",
+    "href": "slides/02_wed_impl.html#logical-equivalence-practice",
+    "title": "Discrete Math for Data Science",
+    "section": "Logical Equivalence Practice",
+    "text": "Logical Equivalence Practice\nAll graded learning activities in the course will use PrairieLearn.\nNavigate to Activity 1 and complete question 2. Each of you will receive a different version of the problem. Work together in pairs to solve each person’s version.\nhttps://us.prairielearn.com/pl/course_instance/186238/assessment/2562335\n\n  \n    −\n    +\n \n 07:00"
+  },
+  {
+    "objectID": "slides/02_wed_impl.html#implication-1",
+    "href": "slides/02_wed_impl.html#implication-1",
+    "title": "Discrete Math for Data Science",
+    "section": "Implication",
+    "text": "Implication\nConnect operator \\(\\rightarrow\\) to a logically equivalent expression using only and, or, and not.\n\n\n\n\\(p\\)\n\\(q\\)\n\\(p\\rightarrow q\\)\n\\(\\underline{\\hspace{3em}}\\)\n\n\n\n\nF\nF\nT\n\n\n\nF\nT\nT\n\n\n\nT\nF\nF\n\n\n\nT\nT\nT\n\n\n\n\n\nIs this operator commutative?\nNote: \\(p \\rightarrow q \\equiv\\) _______.\n\\(p \\rightarrow q\\) Corresponds to “if \\(p\\) then \\(q\\)”\nWe’re not promising causation, only a truth condition.\n\\(p \\rightarrow q\\) is False only when \\(p\\) is True and \\(q\\) is False.\nGives us mechanism for reasoning (next week)!\n\n\nq and not p is false. so it’s NOT (q^-p) == ??? (apply demorgan)\nPL exercises on Logical equivalence involving implication?\nMore on implication and logical equivalence in tutorial questions\nSuppose \\(p\\equiv\\) T . Then \\(p\\) is a Tautology.\nSuppose \\(p\\equiv\\) F . Then \\(p\\) is a Contradiction."
+  },
+  {
+    "objectID": "slides/02_wed_impl.html#logical-equivalence-proof",
+    "href": "slides/02_wed_impl.html#logical-equivalence-proof",
+    "title": "Discrete Math for Data Science",
+    "section": "Logical Equivalence Proof",
+    "text": "Logical Equivalence Proof\nProve that \\(p \\rightarrow q \\equiv \\neg q \\rightarrow \\neg p\\):"
+  },
+  {
+    "objectID": "slides/02_wed_impl.html#vocabulary",
+    "href": "slides/02_wed_impl.html#vocabulary",
     "title": "Discrete Math for Data Science",
     "section": "Vocabulary",
     "text": "Vocabulary\nGiven \\(p\\rightarrow q\\), we define the following 3 terms:\n\n________________ is \\(\\neg q\\rightarrow \\neg p\\)\n________________ is \\(q\\rightarrow p\\)\n________________ is \\(\\neg p\\rightarrow \\neg q\\)\n\nDescribe all the logical equivalences among the 4 statements:\n\nwe’ll see if English can help us!"
   },
   {
-    "objectID": "slides/02_fri_quant1.html#converses-check-whats-true",
-    "href": "slides/02_fri_quant1.html#converses-check-whats-true",
+    "objectID": "slides/02_wed_impl.html#converses-check-whats-true",
+    "href": "slides/02_wed_impl.html#converses-check-whats-true",
     "title": "Discrete Math for Data Science",
     "section": "Converses — check what’s True",
     "text": "Converses — check what’s True\n\n\n\n\n\n\n\n\n\n#\nStatement p→q\np→q\nq→p\n\n\n\n\n1\nTo be empty, a string must have length 0.\n☐\n☐\n\n\n2\nPlaying in the NHL entails being a professional hockey player.\n☐\n☐\n\n\n3\nIf an animal is a mammal, then it is a cat.\n☐\n☐\n\n\n4\nRiding the 99 B-Line counts as public transit.\n☐\n☐\n\n\n5\nIf a dish is spicy, then it is Indian cuisine.\n☐\n☐\n\n\n6\nIf it’s a kitten, then it’s a cat.\n☐\n☐\n\n\n7\nNo song appears on the Billboard Hot 100 without reaching #1.\n☐\n☐\n\n\n8\nIf I live in Totem Park residence, then I live in campus housing.\n☐\n☐\n\n\n9\nIf I eat breakfast, then I ace the quiz.\n☐\n☐\n\n\n10\nIf a movie is a superhero film, then it is an MCU movie.\n☐\n☐\n\n\n11\nIf I’m an only child, then I have zero siblings.\n☐\n☐\n\n\n12\nIf I’m in British Columbia, then I’m in Vancouver.\n☐\n☐"
   },
   {
-    "objectID": "slides/02_fri_quant1.html#biconditionals",
-    "href": "slides/02_fri_quant1.html#biconditionals",
+    "objectID": "slides/02_wed_impl.html#biconditionals",
+    "href": "slides/02_wed_impl.html#biconditionals",
     "title": "Discrete Math for Data Science",
     "section": "Biconditionals",
     "text": "Biconditionals\nWe have a special operator for those implications whose converses are also True:\n  \\((p\\rightarrow q) \\wedge (q\\rightarrow p)\\equiv p\\leftrightarrow q\\)\nSome phrases describing this relationship:\n\nbiconditional\nif and only if (iff)\nequivalent\n\nWhich of the expressions on the previous page are biconditionals?"
   },
   {
-    "objectID": "slides/02_fri_quant1.html#quantified-predicates",
-    "href": "slides/02_fri_quant1.html#quantified-predicates",
-    "title": "Discrete Math for Data Science",
-    "section": "Quantified Predicates",
-    "text": "Quantified Predicates\nConsider the predicate:\n       \\(H(x)\\): \\(x\\) is a Hero\nIs this a proposition? ____. We add a “quantifier”:\n               \\(H(x)\\): \\(x\\) is a Hero\nNow is it a proposition? ____. We scope the variable:\n                       \\(H(x)\\): \\(x\\) is a Hero\n\n\n\nTwo classic quantifiers:\n  \\(\\forall\\): “For every” or “For all”\n  \\(\\exists\\): “There exists” or “There is at least one”"
-  },
-  {
-    "objectID": "slides/02_fri_quant1.html#quantified-predicates-1",
-    "href": "slides/02_fri_quant1.html#quantified-predicates-1",
-    "title": "Discrete Math for Data Science",
-    "section": "Quantified Predicates",
-    "text": "Quantified Predicates\nIn pairs, complete the worksheet!\n \nWhat did you discover about negation?"
-  },
-  {
-    "objectID": "slides/02_fri_quant1.html#counterexample",
-    "href": "slides/02_fri_quant1.html#counterexample",
-    "title": "Discrete Math for Data Science",
-    "section": "Counterexample",
-    "text": "Counterexample\nSuppose someone says “all comedians are funny,” and you disagree, how would you refute the statement?\n\n\n       \\(\\forall x, C(x)\\rightarrow F(x)\\)\n\n\n\n\nYour immediate response: __________\nThis evidence of refutation is called a _______________.\nAnother way:\nApplies specifically to \\(\\neg\\forall\\)"
-  },
-  {
-    "objectID": "slides/02_fri_quant1.html#witness",
-    "href": "slides/02_fri_quant1.html#witness",
-    "title": "Discrete Math for Data Science",
-    "section": "Witness",
-    "text": "Witness\nSuppose someone says “there is a funny comedian,” and you disagree, how could they justify their statement?\n\n\n       \\(\\exists x, C(x)\\wedge F(x)\\)\n\n\nTheir immediate response: __________\nThis evidence of justification is called a _______________.\nApplies specifically to \\(\\exists\\)\nAside: Why not \\(\\exists x, C(x)\\rightarrow F(x)\\)?"
-  },
-  {
-    "objectID": "slides/02_fri_quant1.html#code-patterns",
-    "href": "slides/02_fri_quant1.html#code-patterns",
-    "title": "Discrete Math for Data Science",
-    "section": "Code Patterns",
-    "text": "Code Patterns"
-  },
-  {
-    "objectID": "slides/02_fri_quant1.html#nested-quantifiers",
-    "href": "slides/02_fri_quant1.html#nested-quantifiers",
-    "title": "Discrete Math for Data Science",
-    "section": "Nested Quantifiers",
-    "text": "Nested Quantifiers\nIt will not surprise you that we can use multiple quantifiers:\n \n     \\(\\forall x, \\forall y \\text{ Knows}(x,y)\\)\n\n\nIn pairs, complete the second worksheet."
-  },
-  {
-    "objectID": "slides/02_fri_quant1.html#words-and-ideas",
-    "href": "slides/02_fri_quant1.html#words-and-ideas",
+    "objectID": "slides/02_wed_impl.html#words-and-ideas",
+    "href": "slides/02_wed_impl.html#words-and-ideas",
     "title": "Discrete Math for Data Science",
     "section": "Words and Ideas",
-    "text": "Words and Ideas\nQuantifiers – “For all” and “There exists”\nCounterexample and Witness\nNegating quantifiers\nNested Quantifiers"
+    "text": "Words and Ideas\nLogical Equivalence\nImplication"
   },
   {
-    "objectID": "slides/03_wed_reasoning.html#announcements",
-    "href": "slides/03_wed_reasoning.html#announcements",
+    "objectID": "slides/03_tue_inference.html#announcements",
+    "href": "slides/03_tue_inference.html#announcements",
     "title": "Discrete Math for Data Science",
     "section": "Announcements",
     "text": "Announcements\n\nEnroll in PrairieTest here: https://us.prairietest.com/pt/student/course/12361/enroll/392674810508\nSign up for EX1. Practice materials on PL.\nTutorials begin this week!"
   },
   {
-    "objectID": "slides/03_wed_reasoning.html#design-a-trap",
-    "href": "slides/03_wed_reasoning.html#design-a-trap",
+    "objectID": "slides/03_tue_inference.html#spot-the-rule-dodge-the-trap",
+    "href": "slides/03_tue_inference.html#spot-the-rule-dodge-the-trap",
+    "title": "Discrete Math for Data Science",
+    "section": "🎉 Spot the Rule, Dodge the Trap",
+    "text": "🎉 Spot the Rule, Dodge the Trap\nGoal for today: treat valid logical arguments like legal moves in a game.\nYou’ll identify moves, build quick proofs, and design traps."
+  },
+  {
+    "objectID": "slides/03_tue_inference.html#warm-up-5-min",
+    "href": "slides/03_tue_inference.html#warm-up-5-min",
+    "title": "Discrete Math for Data Science",
+    "section": "Warm Up (5 min)",
+    "text": "Warm Up (5 min)\nA valid argument is a legal inference. Content can change; form is what makes it valid.\n\nIf the lab is open, I’ll go. The lab is open. So I’ll go.\nIf the exam is today, the forum is quiet. The forum isn’t quiet. So the exam isn’t today."
+  },
+  {
+    "objectID": "slides/03_tue_inference.html#micro-rule-cards",
+    "href": "slides/03_tue_inference.html#micro-rule-cards",
+    "title": "Discrete Math for Data Science",
+    "section": "Micro Rule Cards",
+    "text": "Micro Rule Cards\nUse these all class as a reference.\n\nMP: from p→q, p infer q\n\nMT: from p→q, ¬q infer ¬p\n\nHS: from p→q, q→r infer p→r\n\nDS: from p∨q, ¬p infer q\n\n∧-Intro: from p, q infer p∧q\n\n∧-Elim: from p∧q infer p (or q)\n\n∨-Intro: from p infer p∨q (any q)\n\nRES: from p∨q, ¬p∨r infer q∨r\n\nCD: from (p→r), (q→s), (p∨q) infer r∨s\n\nCommon traps:\n\nAffirming consequent: p→q, q ∴ p ❌\nDenying antecedent: p→q, ¬p ∴ ¬q ❌"
+  },
+  {
+    "objectID": "slides/03_tue_inference.html#rule-card-modus-ponens-mp",
+    "href": "slides/03_tue_inference.html#rule-card-modus-ponens-mp",
+    "title": "Discrete Math for Data Science",
+    "section": "Rule Card: Modus Ponens (MP)",
+    "text": "Rule Card: Modus Ponens (MP)\n\nFrom p→q and p, infer q.\n\nEx:\nIf the bus is full, I’ll walk. The bus is full. So I’ll walk."
+  },
+  {
+    "objectID": "slides/03_tue_inference.html#rule-card-modus-tollens-mt",
+    "href": "slides/03_tue_inference.html#rule-card-modus-tollens-mt",
+    "title": "Discrete Math for Data Science",
+    "section": "Rule Card: Modus Tollens (MT)",
+    "text": "Rule Card: Modus Tollens (MT)\n\nFrom p→q and ¬q, infer ¬p.\n\nEx:\nIf office hours moved, Slack has an announcement. No announcement. So they didn’t move."
+  },
+  {
+    "objectID": "slides/03_tue_inference.html#rule-card-hypothetical-syllogism-hs",
+    "href": "slides/03_tue_inference.html#rule-card-hypothetical-syllogism-hs",
+    "title": "Discrete Math for Data Science",
+    "section": "Rule Card: Hypothetical Syllogism (HS)",
+    "text": "Rule Card: Hypothetical Syllogism (HS)\n\nFrom p→q and q→r, infer p→r.\n\nEx:\nIf tidy then joins are simpler; if simpler joins then faster viz; so tidy ⇒ faster viz."
+  },
+  {
+    "objectID": "slides/03_tue_inference.html#rule-card-disjunctive-syllogism-ds",
+    "href": "slides/03_tue_inference.html#rule-card-disjunctive-syllogism-ds",
+    "title": "Discrete Math for Data Science",
+    "section": "Rule Card: Disjunctive Syllogism (DS)",
+    "text": "Rule Card: Disjunctive Syllogism (DS)\n\nFrom p∨q and ¬p, infer q.\n\nEx:\nDinner is sushi or tacos. Not sushi. So tacos."
+  },
+  {
+    "objectID": "slides/03_tue_inference.html#rule-card-conjunction-simplification",
+    "href": "slides/03_tue_inference.html#rule-card-conjunction-simplification",
+    "title": "Discrete Math for Data Science",
+    "section": "Rule Card: Conjunction / Simplification",
+    "text": "Rule Card: Conjunction / Simplification\n\n\n∧-Intro: from p, q infer p∧q\n\n\n∧-Elim: from p∧q infer p (or q)"
+  },
+  {
+    "objectID": "slides/03_tue_inference.html#rule-card--intro",
+    "href": "slides/03_tue_inference.html#rule-card--intro",
+    "title": "Discrete Math for Data Science",
+    "section": "Rule Card: ∨-Intro",
+    "text": "Rule Card: ∨-Intro\n\nFrom p infer p∨q.\n\nEx: I rode my scooter today, so I either rode my scooter or I’m a unicorn.\nNote validity cares about form, not plausibility of the added disjunct."
+  },
+  {
+    "objectID": "slides/03_tue_inference.html#rule-card-resolution-res",
+    "href": "slides/03_tue_inference.html#rule-card-resolution-res",
+    "title": "Discrete Math for Data Science",
+    "section": "Rule Card: Resolution (RES)",
+    "text": "Rule Card: Resolution (RES)\n\nFrom p∨q and ¬p∨r infer q∨r.\n\nEx:\nEither study or soccer; if study then library. So soccer or library."
+  },
+  {
+    "objectID": "slides/03_tue_inference.html#rule-card-constructive-dilemma-cd",
+    "href": "slides/03_tue_inference.html#rule-card-constructive-dilemma-cd",
+    "title": "Discrete Math for Data Science",
+    "section": "Rule Card: Constructive Dilemma (CD)",
+    "text": "Rule Card: Constructive Dilemma (CD)\n\nFrom (p→r), (q→s), (p∨q) infer r∨s.\n\nEx:\nIf sunny then picnic; if rainy then museum; sunny or rainy; so picnic or museum."
+  },
+  {
+    "objectID": "slides/03_tue_inference.html#fallacy-cards-flash",
+    "href": "slides/03_tue_inference.html#fallacy-cards-flash",
+    "title": "Discrete Math for Data Science",
+    "section": "Fallacy Cards (flash)",
+    "text": "Fallacy Cards (flash)\n\n\nAffirming the consequent ❌\nfrom p→q, q infer p\n\n\nDenying the antecedent ❌\nfrom p→q, ¬p infer ¬q"
+  },
+  {
+    "objectID": "slides/03_tue_inference.html#validity",
+    "href": "slides/03_tue_inference.html#validity",
+    "title": "Discrete Math for Data Science",
+    "section": "Validity",
+    "text": "Validity\n∧-Elim: \\((p\\wedge q)\\rightarrow p\\) is this always true?"
+  },
+  {
+    "objectID": "slides/03_tue_inference.html#invalidity",
+    "href": "slides/03_tue_inference.html#invalidity",
+    "title": "Discrete Math for Data Science",
+    "section": "INValidity",
+    "text": "INValidity\nAffirming Consequent: \\(((p\\rightarrow q)\\wedge q)\\rightarrow p\\) is this always true?\n\n\n\n\n\n\n\n\n\n\n\\(p\\)\n\\(q\\)\n\\(p\\rightarrow q\\)\n\\((p\\rightarrow q)\\wedge q\\)\n\\(((p\\rightarrow q)\\wedge q)\\rightarrow p\\)\n\n\n\n\nF\nF\n\n\n\n\n\nF\nT\n\n\n\n\n\nT\nF\n\n\n\n\n\nT\nT"
+  },
+  {
+    "objectID": "slides/03_tue_inference.html#spot-the-rule-or-the-trap",
+    "href": "slides/03_tue_inference.html#spot-the-rule-or-the-trap",
+    "title": "Discrete Math for Data Science",
+    "section": "Spot the Rule or the Trap",
+    "text": "Spot the Rule or the Trap\nHow to play: post in chat…\n(a) valid or not, (b) if valid, name the rule, (c) formal pattern."
+  },
+  {
+    "objectID": "slides/03_tue_inference.html#build-a-proof",
+    "href": "slides/03_tue_inference.html#build-a-proof",
+    "title": "Discrete Math for Data Science",
+    "section": "Build a proof",
+    "text": "Build a proof\nIn the chat, each person adds exactly one line using a Rule Card."
+  },
+  {
+    "objectID": "slides/03_tue_inference.html#design-a-trap",
+    "href": "slides/03_tue_inference.html#design-a-trap",
     "title": "Discrete Math for Data Science",
     "section": "Design a Trap",
     "text": "Design a Trap\nYour mission:\n- Write one valid two-premise argument (any rule).\n- Write a look-alike fallacy with the same topic words.\n- Bring to class on Wednesday morning!"
   },
   {
-    "objectID": "slides/03_wed_reasoning.html#make-proofs-executable",
-    "href": "slides/03_wed_reasoning.html#make-proofs-executable",
+    "objectID": "slides/03_tue_inference.html#quantifier-teaser",
+    "href": "slides/03_tue_inference.html#quantifier-teaser",
     "title": "Discrete Math for Data Science",
-    "section": "Make proofs executable",
-    "text": "Make proofs executable\n\nYesterday: valid arguments as legal inference\nToday: address facts ⇒ conclusion algorithmically\nMethod: Refutation + Unit propagation\nBig picture: SAT/SMT ideas used in verification, chip design, planning\nWhy now? Logic provides clean specification layer even in a probabilistic world\n\n\nWe’ll mechanize yesterday’s arguments. We’ll encode ‘facts ⇒ conclusion’, flip the goal, and let unit propagation push us to a contradiction if the conclusion really follows. This is the heartbeat of SAT solvers.” “If A,B,C are facts and we add ¬D, what should happen if A∧B∧C→D?”"
+    "section": "Quantifier Teaser",
+    "text": "Quantifier Teaser\n\nUI: ∀x S(x) ⇒ S(Alex) (Universal instantiation)\nEG: S(Alex) ⇒ ∃x S(x) (Existential generalization) Analogy: mixing ∀/∃ incorrectly creates traps like affirming the consequent/denying the antecedent."
   },
   {
-    "objectID": "slides/03_wed_reasoning.html#vocabulary",
-    "href": "slides/03_wed_reasoning.html#vocabulary",
+    "objectID": "slides/03_tue_inference.html#exit-ticket-2-min",
+    "href": "slides/03_tue_inference.html#exit-ticket-2-min",
     "title": "Discrete Math for Data Science",
-    "section": "Vocabulary",
-    "text": "Vocabulary\n\nStatement: something that is either true or false.\n\nFact: a statement we already know is true (we’ll draw it as a single-item parenthesis like \\((A)\\)).\n\nRule: “if these are true, then that is true.” Example: “If A and B, then E.”\n\nclause (OR-group): a group joined by “OR”, like \\((\\neg A \\lor \\neg B \\lor E)\\).\n\nCNF (AND of clauses): several OR-groups joined by “AND”.\n\nUnit clause: a clause with just one item, like \\((A)\\) or \\((\\neg D)\\).\n\nUnit propagation: if you know \\((X)\\) is true and you also have \\((\\neg X \\lor Y)\\), you may drop \\(\\neg X\\) and keep \\(Y\\). Now \\(Y\\) must be true!\n\n\nbrownie points for the rule at the end – DS"
+    "section": "Exit Ticket (2 min)",
+    "text": "Exit Ticket (2 min)\nIn chat (or poll), complete both:\n\nOne valid rule I can spot in the wild is ________.\n\nOne trap I’ll watch for is ________."
   },
   {
-    "objectID": "slides/03_wed_reasoning.html#explore-ubc",
-    "href": "slides/03_wed_reasoning.html#explore-ubc",
+    "objectID": "slides/03_mon_quant2.html#announcements",
+    "href": "slides/03_mon_quant2.html#announcements",
     "title": "Discrete Math for Data Science",
-    "section": "Explore UBC",
-    "text": "Explore UBC\n\n\nVariable Definitions\n\n\\(A\\): Clock Tower is lit up\n\\(B\\): Nest is alight\n\\(C\\): Koerner Library is illuminated\n\n\\(E\\): ICCS doors are unlocked\n\n\\(F\\): the Gallery is open\n\n\\(D\\): Main Mall is hopping!\n\n\nRulebook\n\n\\((A\\lor B\\lor C)\\) — At least one of the three landmarks is lit tonight.\n\n\\(A\\to E\\) — If Clock Tower is lit then ICCS is unlocked.\n\\(C\\to E\\) — If Koerner is lit then ICCS is unlocked.\n\\((B\\lor F)\\) — Either the Nest is lit, or the Gallery opens.\n\n\\((E\\land F)\\to D\\) — If ICCS unlocked and Gal opens then Mall hops.\n\\(B\\to D\\) — If the Nest is lit then Mall hops.\n\n\nGoal: Does \\(D\\) follow from the rulebook?"
+    "section": "Announcements",
+    "text": "Announcements\n\nEnroll in PrairieTest here: https://us.prairietest.com/pt/student/course/12361/enroll/392674810508\nSign up for EX1. Practice materials on PL.\nTutorials begin this week."
   },
   {
-    "objectID": "slides/03_wed_reasoning.html#a-smaller-example",
-    "href": "slides/03_wed_reasoning.html#a-smaller-example",
+    "objectID": "slides/03_mon_quant2.html#counterexample",
+    "href": "slides/03_mon_quant2.html#counterexample",
     "title": "Discrete Math for Data Science",
-    "section": "A Smaller Example",
-    "text": "A Smaller Example\n\n\nVariable Definitions\n\n\\(A\\): Lions Gate Bridge is illuminated\n\\(B\\): Science World dome is lit up\n\\(D\\): The Canucks are playing at Rogers Arena\n\n\nRulebook\n\n\\((A\\lor B)\\) — At least one city landmark is lit tonight.\n\\(A\\to D\\) — If Lions Gate is lit, the Canucks are at Rogers.\n\\(B\\to D\\) — If the dome is lit, the Canucks are at Rogers.\n\n\nGoal: Does \\(D\\) follow from the rulebook?"
+    "section": "Counterexample",
+    "text": "Counterexample\nSuppose someone says “all comedians are funny,” and you disagree, how would you refute the statement?\n       \\(\\forall x, C(x)\\rightarrow F(x)\\)\nRefute by negating:\n       \\(\\neg\\forall x, C(x)\\rightarrow F(x)\\)\n     \\(\\equiv\\exists x, \\neg(C(x)\\rightarrow F(x))\\)\n     \\(\\equiv\\exists x, \\neg(F(x)\\vee\\neg C(x))\\)\n     \\(\\equiv\\exists x, \\neg F(x)\\wedge C(x))\\)\nYour immediate response: _(some unfunny comedian)__\nThis evidence of refutation is called a _counterexample_.\nApplies specifically to refuting \\(\\forall\\)"
   },
   {
-    "objectID": "slides/03_wed_reasoning.html#making-a-plan",
-    "href": "slides/03_wed_reasoning.html#making-a-plan",
+    "objectID": "slides/03_mon_quant2.html#witness",
+    "href": "slides/03_mon_quant2.html#witness",
     "title": "Discrete Math for Data Science",
-    "section": "Making a plan",
-    "text": "Making a plan\nThree ways of thinking about the inference:\n\nApply sequences of rules to conclude \\(D\\).\nShow \\(((A\\lor B)\\land (A\\to D)\\land (B\\to D)) \\to D\\) is a Tautology\nShow \\(\\neg (((A\\lor B)\\land (A\\to D)\\land (B\\to D)) \\to D)\\) is a Contradiction\n\nBelieve it or not, we’re going to do the last one!!"
+    "section": "Witness",
+    "text": "Witness\nSuppose someone says “there is a funny comedian,” and you disagree, how could they justify their statement?\n\n\n       \\(\\exists x, C(x)\\wedge F(x)\\)\n\n\nTheir immediate response: _(a universally funny comedian – Robin Williams)_\nThis evidence of justification is called a _witness_.\nApplies specifically to defending an \\(\\exists\\)\nAside: Why not \\(\\exists x, C(x)\\rightarrow F(x)\\)?"
   },
   {
-    "objectID": "slides/03_wed_reasoning.html#reframing-the-goal",
-    "href": "slides/03_wed_reasoning.html#reframing-the-goal",
+    "objectID": "slides/03_mon_quant2.html#code-patterns",
+    "href": "slides/03_mon_quant2.html#code-patterns",
     "title": "Discrete Math for Data Science",
-    "section": "Reframing the goal",
-    "text": "Reframing the goal\n\\[\\neg (((A\\lor B)\\land (A\\to D)\\land (B\\to D)) \\to D)\\]\n\n\n \n\n\nConjunctive Normal Form: ____________"
+    "section": "Code Patterns",
+    "text": "Code Patterns"
   },
   {
-    "objectID": "slides/03_wed_reasoning.html#resolve-away",
-    "href": "slides/03_wed_reasoning.html#resolve-away",
+    "objectID": "slides/03_mon_quant2.html#nested-quantifiers",
+    "href": "slides/03_mon_quant2.html#nested-quantifiers",
     "title": "Discrete Math for Data Science",
-    "section": "Resolve Away!",
-    "text": "Resolve Away!\n\\(\\{\\neg D\\}\\)\n\\(\\{A, B\\}\\)\n\\(\\{D, \\neg A\\}\\)\n\\(\\{D, \\neg B\\}\\)"
+    "section": "Nested Quantifiers",
+    "text": "Nested Quantifiers\nIt will not surprise you that we can use multiple quantifiers:\n \n     \\(\\forall x, \\forall y \\text{ Knows}(x,y)\\)\n\n\nIn pairs, complete the second worksheet."
   },
   {
-    "objectID": "slides/03_wed_reasoning.html#main-mall-midnight",
-    "href": "slides/03_wed_reasoning.html#main-mall-midnight",
+    "objectID": "slides/03_mon_quant2.html#words-and-ideas",
+    "href": "slides/03_mon_quant2.html#words-and-ideas",
     "title": "Discrete Math for Data Science",
-    "section": "Main Mall Midnight",
-    "text": "Main Mall Midnight\n\n\nSetup\n\nLay out the rule cards face up.\nPut the refutation card \\((\\neg D)\\) in a small Unit inbox.\nMake three spots: Clauses (the rule cards), Unit inbox, Finished units.\nAssign roles: Reader, Marker, Checker, Scribe.\n\nRoles\n\nReader: says the current unit aloud (start with \\((\\neg D)\\)).\nMarker: crosses out literals; rewrites reduced clauses.\nChecker: watches for new units and clash.\nScribe: records the sequence of units forced (e.g., \\(\\neg D \\Rightarrow \\neg B \\Rightarrow \\cdots\\)).\n\n\n\nGameplay loop (repeat)\n\nPick the next unit \\((u)\\) from the inbox (start with \\((\\neg D)\\)).\nSweep every clause once (one round):\n\nIf the clause contains \\(u\\): it’s satisfied, remove that card.\nIf the clause contains \\(\\neg u\\): cross out \\(\\neg u\\).\n\nIf nothing remains, \\(\\bot\\) (CLASH) → you win.\nIf one literal remains \\((v)\\), place it in the Unit inbox.\nIf 2+ literals remain, keep the reduced clause on the table.\n\nIf it mentions neither \\(u\\) nor \\(\\neg u\\): leave it as is.\n\nAfter the sweep, move \\(u\\) to Finished units. Go back to step 1.\n\n\n\nWin condition: You produce \\(\\bot\\) (empty clause) or you later pick a unit that contradicts a finished one (e.g., you pick \\((B)\\) but Finished already has \\((\\neg B)\\)).\nIf stuck: The Unit inbox is empty and no clause is a single literal → raise your hand (forward chaining has stalled).\nScribe line (to turn in): \\(\\neg D \\Rightarrow \\ldots \\Rightarrow \\bot\\) (list units in the order you derived them)."
+    "section": "Words and Ideas",
+    "text": "Words and Ideas\nQuantifiers – “For all” and “There exists”\nCounterexample and Witness\nNegating quantifiers\nNested Quantifiers"
   },
   {
-    "objectID": "slides/03_wed_reasoning.html#todays-python",
-    "href": "slides/03_wed_reasoning.html#todays-python",
+    "objectID": "slides/02_mon_equiv.html#wffs",
+    "href": "slides/02_mon_equiv.html#wffs",
     "title": "Discrete Math for Data Science",
-    "section": "today’s python",
-    "text": "today’s python"
+    "section": "WFFs",
+    "text": "WFFs\nRand WFF Apply rule on line:\nRand atom Atom becomes:\n&lt;wff&gt; ::= &lt;atom&gt;\n        | ~ &lt;wff&gt;\n        | ( &lt;wff&gt; ∧ &lt;wff&gt; )\n        | ( &lt;wff&gt; ∨ &lt;wff&gt; )\n\n&lt;atom&gt; ::= p | q \nExample derivation:\n&lt;wff&gt;"
   },
   {
-    "objectID": "slides/03_wed_reasoning.html#does-this-always-work",
-    "href": "slides/03_wed_reasoning.html#does-this-always-work",
+    "objectID": "slides/02_mon_equiv.html#wffs-notes",
+    "href": "slides/02_mon_equiv.html#wffs-notes",
     "title": "Discrete Math for Data Science",
-    "section": "Does this always work?",
-    "text": "Does this always work?\nWorks great for: rulebooks where each clause has only 1 positive unit (Horn)\nCan stall on: non-Horn, symmetric choice, more complex domains.\nStall example (unsatisfiable, no units): \\[\n(A\\vee B)\\wedge(A\\vee \\neg B)\\wedge(\\neg A\\vee B)\\wedge(\\neg A\\vee \\neg B)\n\\]\n\nNo unit clauses → our method can’t start.\nIt’s actually unsatisfiable but needs a branch to detect. (try (A) or (A)).\n\nTakeaway: Propagation finds what’s locally forced.\nWhen nothing is locally forced, we need case splits or stronger rules."
+    "section": "WFFs (Notes)",
+    "text": "WFFs (Notes)\n&lt;wff&gt; ::= &lt;atom&gt;\n        | ~ &lt;wff&gt;\n        | ( &lt;wff&gt; ∧ &lt;wff&gt; )\n        | ( &lt;wff&gt; ∨ &lt;wff&gt; )\n\n&lt;atom&gt; ::= p | q \n\nGrammars can be used to construct many different kinds of sequences.\nWe could have included additional operators \\(\\rightarrow\\), \\(\\leftrightarrow\\), \\(\\oplus\\), \\(\\uparrow\\)\nComputational evaluation of &lt;wff&gt;is covered in DSCI221. For now, we trust Python and focus on logic.\nThe &lt;wff&gt; are propositions."
   },
   {
-    "objectID": "slides/01_wed_intro.html#sages-tricksters",
-    "href": "slides/01_wed_intro.html#sages-tricksters",
+    "objectID": "slides/02_mon_equiv.html#wff-puzzle",
+    "href": "slides/02_mon_equiv.html#wff-puzzle",
     "title": "Discrete Math for Data Science",
-    "section": "🎭 Sages & Tricksters",
-    "text": "🎭 Sages & Tricksters\n\n\nHow to Play\n\nEach of you are secretly assigned a role:\n\nSage = always tell the truth (Black)\nTrickster = always lie (Red)\n\nEveryone sees the packet of 6 cards and the fact.\n\nIn rounds, each player may ask yes/no questions about the fact.\n\nWork together: compare answers, spot contradictions.\n\nGoal: Deduce each person’s role!"
+    "section": "WFF Puzzle",
+    "text": "WFF Puzzle\nWhich of these are WFFs?\n&lt;wff&gt; ::= &lt;atom&gt;\n        | ~ &lt;wff&gt;\n        | ( &lt;wff&gt; ∧ &lt;wff&gt; )\n        | ( &lt;wff&gt; ∨ &lt;wff&gt; )\n\n&lt;atom&gt; ::= p | q \n\n\n\n\\((\\neg p ∧ (q ∨ r))\\)\n\\(((p ∧ q) ∨ (r ∧ \\neg s))\\)\n\\(((\\neg p) ∨ (q ∨ r))\\)\n\n\n\n\\((p ∨ (qr))\\)\n\\(\\neg (p ∨ (q ∧ \\neg r))\\)\n\\(\\neg (p ∨ q))\\)\n\n\n\n  \n    −\n    +\n \n 03:00\n \n\nSometimes pq is the same as p^q, p & q, p && q, but our grammar only uses ^. In this course we will vary symbols fluidly, partly because we’re assembling info from many different sources, but also partly because you’ll need to be agile in the future. Note that the same issues exist for other operators."
   },
   {
-    "objectID": "slides/01_wed_intro.html#round-structure",
-    "href": "slides/01_wed_intro.html#round-structure",
+    "objectID": "slides/02_mon_equiv.html#wffs-1",
+    "href": "slides/02_mon_equiv.html#wffs-1",
     "title": "Discrete Math for Data Science",
-    "section": "🔄 Round Structure",
-    "text": "🔄 Round Structure\n\n\n1. Two Info Rounds\n\nIn each round, take turns asking one yes/no question about the fact\n\n2. Debate Round\n\nCompare answers\n\nLook for contradictions\n\n3. Conclusion\n\nAgree on everyone’s roles\n\nReveal the cards & roles!"
+    "section": "WFFs",
+    "text": "WFFs\n&lt;wff&gt; ::= &lt;atom&gt;\n        | ~ &lt;wff&gt;\n        | ( &lt;wff&gt; ∧ &lt;wff&gt; )\n        | ( &lt;wff&gt; ∨ &lt;wff&gt; )\n\n&lt;atom&gt; ::= p | q \nTheorem: \\(\\neg (p ∨ q))\\) is not a WFF.\nProof:\n\nassume that it is! then ~ must have been the last rule applied, and \\(( p v q))\\) must be a . then (  v  ) must have been the last rule applied, and \\(p\\) and \\(q)\\) must be . take each case separately: \\(q)\\) is not a  because none of the rules apply, so we have both that it must be a wff and it is not a wff – a contradiction, so our assumption is false!\nWe include this as foreshadowing for a proof strategy called “proof by contradition.” Making arguments like this (proofs) is the substance of this course, but don’t worry, we’ll be teaching you how to do it."
   },
   {
-    "objectID": "slides/01_wed_intro.html#logic-in-action",
-    "href": "slides/01_wed_intro.html#logic-in-action",
+    "objectID": "slides/02_mon_equiv.html#back-to-propositions",
+    "href": "slides/02_mon_equiv.html#back-to-propositions",
     "title": "Discrete Math for Data Science",
-    "section": "🧩 Logic in Action",
-    "text": "🧩 Logic in Action\n\n\n\nLogic means starting from true facts\n\nAsking the right questions\n\nSpotting contradictions\n\nAnd making valid inferences\n\nIn this course we’ll apply all of this to Data Science!"
+    "section": "Back to Propositions",
+    "text": "Back to Propositions\nA proposition is a statement that can be either True or False.\nExamples:\n\n\\(37 &gt; 12\\)\nFewer than 5 people in this room feel sleepy.\nThere are extra-terrestrial life forms.\nThis statement is False.\n\\(\\underline{\\hspace{10em}}\\)"
   },
   {
-    "objectID": "slides/01_wed_intro.html#instructional-team",
-    "href": "slides/01_wed_intro.html#instructional-team",
+    "objectID": "slides/02_mon_equiv.html#translation",
+    "href": "slides/02_mon_equiv.html#translation",
     "title": "Discrete Math for Data Science",
-    "section": "Instructional Team:",
-    "text": "Instructional Team:\n\nProf: Cinda Heeren\n📧 cheeren@cs.ubc.ca\n⏰ Mon 2–4pm · 🏢 ICCS 233 · \nTA: Joe Wonsil\n📧 jwonsil@cs.ubc.ca\n⏰ Fri 11-12a · 🏢 FORW 317"
+    "section": "Translation",
+    "text": "Translation\nFrom English to logic and back…\n\n\n\\(p\\): ___________ ate cereal for breakfast.\n\\(q\\): ___________ brought a backpack to class.\n \n\n\\((p\\lor q)\\)\n\\((p\\wedge q)\\)\n\\(\\neg q\\)"
   },
   {
-    "objectID": "slides/01_wed_intro.html#term-structure",
-    "href": "slides/01_wed_intro.html#term-structure",
+    "objectID": "slides/02_mon_equiv.html#predicates",
+    "href": "slides/02_mon_equiv.html#predicates",
     "title": "Discrete Math for Data Science",
-    "section": "Term Structure:",
-    "text": "Term Structure:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek\nSunday\nM\nT\nW\nF\nTutorial\nExamlet\n\n\n\n\n1\n8/31/2025\n    \n\n🎉\n🎉\n\n\n\n\n2\n9/7/2025\n🎉\n\n🎉\n🎉\n\n\n\n\n3\n9/14/2025\n🎉\n📺\n🎉\n    \n🪄\n🤩\n\n\n4\n9/21/2025\n🎉\n📺\n🎉\n    \n🪄\n\n\n\n5\n9/28/2025\n🎉\n📺\n🎉\n    \n🪄\n🤩\n\n\n6\n10/5/2025\n🎉\n📺\n🎉\n    \n🪄\n\n\n\n7\n10/12/2025\n    \n\n📺\n📺\n\n\n\n\n8\n10/19/2025\n🎉\n📺\n🎉\n    \n🪄\n🤩\n\n\n9\n10/26/2025\n🎉\n📺\n🎉\n    \n🪄\n\n\n\n10\n11/2/2025\n🎉\n📺\n🎉\n    \n🪄\n🤩\n\n\n11\n11/9/2025\n    \n\n    \n📺\n\n\n\n\n12\n11/16/2025\n🎉\n📺\n🎉\n    \n🪄\n\n\n\n13\n11/23/2025\n🎉\n📺\n🎉\n    \n🪄\n🤩\n\n\n14\n11/30/2025\n🎉\n📺\n🎉\n    \n🪄"
+    "section": "Predicates",
+    "text": "Predicates\n\n\n\\(p\\): ___________ ate cereal for breakfast.\n\n\nWe may want to apply the statement to many students, in which case we define a Predicate.\n\n\n\n\\(P(x)\\): \\(x\\) ate cereal for breakfast.\n\\(x\\) can be instantiated to be a particular student, or an arbitrary student.\n\\(P(\\underline{\\hspace{2em}} )\\) is a proposition."
   },
   {
-    "objectID": "slides/01_wed_intro.html#grading",
-    "href": "slides/01_wed_intro.html#grading",
+    "objectID": "slides/02_mon_equiv.html#logical-equivalence-1",
+    "href": "slides/02_mon_equiv.html#logical-equivalence-1",
     "title": "Discrete Math for Data Science",
-    "section": "Grading:",
-    "text": "Grading:\n\n\n\n\n\n\n\n\nComponent\nWeight\n\n\n\n\n🎉 Class Meetings\n0%\n\n\n🪄 Tutorials\n15%\n\n\n🤩 Examlets\n55%\n\n\n🤩 Final Exam\n30%"
+    "section": "Logical Equivalence",
+    "text": "Logical Equivalence\n\n\nEx: Is it true that \\((p \\lor q) \\equiv (q\\lor p)\\) ?\n\n\nDiscussion points:\n\n\\(\\equiv\\) means logically equivalent\nThe answer had better be _________!!!\nHow can we justify our instinct?\n\n\n\nShow same truth table\nChains of equivalence\n\nSame as saying “write a proof”"
   },
   {
-    "objectID": "slides/01_wed_intro.html#communications",
-    "href": "slides/01_wed_intro.html#communications",
+    "objectID": "slides/02_mon_equiv.html#logical-equivalence-example",
+    "href": "slides/02_mon_equiv.html#logical-equivalence-example",
     "title": "Discrete Math for Data Science",
-    "section": "Communications",
-    "text": "Communications\n\n\n📧 Email cheeren@cs.ubc.ca\nChecked daily. Please place “DSCI220” in subject!\n   Piazza piazza.com/ubc.ca/winterterm12025/dsci220\nPost questions for quick response.\n🏫 Office Hours\n\n\n\n\n\n\n\n\n\n\nName\nTime\nLocation & Zoom\n\n\n\n\nCinda\nMon 2–4pm\n🏢 ICCS 233 · \n\n\nJoe\nFri 11-12a\n🏢 FORW 317\n\n\n\n\n\n🌐 Course Website https://ubc-cs.github.io/dsci220/\nSyllabus, schedule, resources"
+    "section": "Logical Equivalence example",
+    "text": "Logical Equivalence example"
   },
   {
-    "objectID": "slides/01_wed_intro.html#truth",
-    "href": "slides/01_wed_intro.html#truth",
+    "objectID": "slides/02_mon_equiv.html#boolean-masks",
+    "href": "slides/02_mon_equiv.html#boolean-masks",
     "title": "Discrete Math for Data Science",
-    "section": "Truth",
-    "text": "Truth\nMake at least 3 observations about the following table:\n\n\n\n\n\n\\(p\\)\n\\(q\\)\n\\(p \\lor q\\)\n\n\n\n\nF\nF\nF\n\n\nF\nT\nT\n\n\nT\nF\nT\n\n\nT\nT\nT"
+    "section": "Boolean Masks",
+    "text": "Boolean Masks\nSelect all the cereals with at least 4 units of protein and no more than 6 units of sugars.\n\n\n\n\n\n\n\n\n\nnote that by doing this filtering, we are defining a predicate instantiated by each row whose truth value is evaluated.\nChallenge: In pandas, test De Morgan with missing data: create a row with protein = NaN. Show that (~p) & (~q) can differ from ~(p | q) under three-valued logic; propose a fix (.fillna(False) or careful NA handling)."
   },
   {
-    "objectID": "slides/01_wed_intro.html#summary",
-    "href": "slides/01_wed_intro.html#summary",
+    "objectID": "slides/02_mon_equiv.html#logical-equivalence-2",
+    "href": "slides/02_mon_equiv.html#logical-equivalence-2",
     "title": "Discrete Math for Data Science",
-    "section": "Summary",
-    "text": "Summary\nKey observations about the table:\n\n\n\n\n\n\\(p\\)\n\\(q\\)\n\\(p \\lor q\\)\n\n\n\n\nF\nF\nF\n\n\nF\nT\nT\n\n\nT\nF\nT\n\n\nT\nT\nT\n\n\n\n\n\nThe diagram is called a Truth Table\np and q are variables, each of which take on one of two Boolean values, True or False (T/F, 1/0)\n∨ is a binary operator that implements a function (creates output) from the 2 input variables to another Boolean value. It is characterized by its output values.\nThe operator ∨ corresponds to the English word or.\nThe expression p ∨ q is called a proposition."
+    "section": "Logical Equivalence",
+    "text": "Logical Equivalence\n\n“Select all the cereals with at least 4 units of protein and no more than 6 units of sugars.”\n\n\n\n\n\\(p\\): a cereal has less than 4 units of protein\n\\(q\\): a cereal has more than 6 units of sugars\n\n\n\n\n\nWe suspect that \\(\\neg p\\wedge \\neg q \\equiv \\neg( p\\lor q)\\):\n\n\n\n\n\n\n\n\n\n\n\n\\(p\\)\n\\(q\\)\n\\(\\neg p\\wedge \\neg q\\)\n\n\n\n\nF\nF\n\n\n\nF\nT\n\n\n\nT\nF\n\n\n\nT\nT\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\\(p\\)\n\\(q\\)\n\\(\\neg( p\\lor q)\\)\n\n\n\n\nF\nF\n\n\n\nF\nT\n\n\n\nT\nF\n\n\n\nT\nT\n\n\n\n\n\n\n\nhalf the class complete the TT on the left, the other half on the right, then we all read our responses aloud!"
   },
   {
-    "objectID": "slides/01_wed_intro.html#cool-down",
-    "href": "slides/01_wed_intro.html#cool-down",
+    "objectID": "slides/02_mon_equiv.html#logical-equivalences",
+    "href": "slides/02_mon_equiv.html#logical-equivalences",
     "title": "Discrete Math for Data Science",
-    "section": "Cool down",
-    "text": "Cool down\n\n\n\n\n\n\\(p\\)\n\\(q\\)\n\\(p \\lor q\\)\n\n\n\n\nF\nF\nF\n\n\nF\nT\nT\n\n\nT\nF\nT\n\n\nT\nT\nT\n\n\n\n\n\nHow many rows for a proposition on 3 variables? \\(k\\) variables?\nGive a good name for an operator that takes 1 variable: __________\nGive a good name for an operator that takes 3 variables: __________\nHow many different binary operators could there be?"
+    "section": "Logical Equivalences",
+    "text": "Logical Equivalences\n\n\n\n\n\nWe have discussed Logical Equivalence (LE) and explored an example. The table illustrates LE that are so important, they have names!\n\nObservations:"
+  },
+  {
+    "objectID": "slides/02_mon_equiv.html#logical-equivalence-practice",
+    "href": "slides/02_mon_equiv.html#logical-equivalence-practice",
+    "title": "Discrete Math for Data Science",
+    "section": "Logical Equivalence Practice",
+    "text": "Logical Equivalence Practice\nAll graded learning activities in the course will use a tool called PrairieLearn.\nNavigate to Activity 1 and complete question 2. Each of you will receive a different version of the problem. Work together in pairs to solve each person’s version.\n\n\n    \nhttps://us.prairielearn.com/pl/course_instance/186238/assessment/2562335"
+  },
+  {
+    "objectID": "slides/02_mon_equiv.html#implication-1",
+    "href": "slides/02_mon_equiv.html#implication-1",
+    "title": "Discrete Math for Data Science",
+    "section": "Implication",
+    "text": "Implication\nConnect operator \\(\\rightarrow\\) to a logically equivalent expression using only and, or, and not.\n\n\n\n\\(p\\)\n\\(q\\)\n\\(p\\rightarrow q\\)\n\\(\\underline{\\hspace{3em}}\\)\n\n\n\n\nF\nF\nT\n\n\n\nF\nT\nT\n\n\n\nT\nF\nF\n\n\n\nT\nT\nT\n\n\n\n\n\nIs this operator commutative?\nNote: \\(p \\rightarrow q \\equiv\\) _______.\n\\(p \\rightarrow q\\) Corresponds to “if \\(p\\) then \\(q\\)”\nGives us mechanism for reasoning!\n\n\nq and not p is false. so it’s NOT (q^-p) == ??? (apply demorgan)\nPL exercises on Logical equivalence involving implication?\nMore on implication and logical equivalence in tutorial questions"
+  },
+  {
+    "objectID": "slides/02_mon_equiv.html#special-logical-equivalences",
+    "href": "slides/02_mon_equiv.html#special-logical-equivalences",
+    "title": "Discrete Math for Data Science",
+    "section": "Special Logical Equivalences",
+    "text": "Special Logical Equivalences\nSuppose \\(p\\equiv\\) T . Then \\(p\\) is a Tautology.\nSuppose \\(p\\equiv\\) F . Then \\(p\\) is a Contradiction."
+  },
+  {
+    "objectID": "slides/02_mon_equiv.html#logical-equivalence-practice-1",
+    "href": "slides/02_mon_equiv.html#logical-equivalence-practice-1",
+    "title": "Discrete Math for Data Science",
+    "section": "Logical Equivalence Practice",
+    "text": "Logical Equivalence Practice\nlink to PL question"
+  },
+  {
+    "objectID": "slides/02_mon_equiv.html#words-and-ideas",
+    "href": "slides/02_mon_equiv.html#words-and-ideas",
+    "title": "Discrete Math for Data Science",
+    "section": "Words and Ideas",
+    "text": "Words and Ideas\nGrammar\nPredicate\nBoolean Mask\nLogical Equivalence\nImplication"
   }
 ]
