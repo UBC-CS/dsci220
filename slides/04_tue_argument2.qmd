@@ -1,0 +1,165 @@
+---
+date: 2025-09-23
+---
+
+## Announcements {.smaller}
+
+# Proofs
+
+<style>
+.small { font-size: 0.9rem; }
+.tiny { font-size: 0.8rem; }
+.rule { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; }
+.card { border: 2px solid #ddd; border-radius: 12px; padding: 14px 16px; margin: 10px 0; }
+.center { text-align: center; }
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.badge { display:inline-block; padding:2px 8px; border:1px solid #bbb; border-radius:10px; font-size:.8rem; }
+</style>
+
+## Today’s goals
+
+- Recognize the **form** of common proof techniques $\to$, $\leftrightsquigarrow$, $\bot$, ⊞ 
+- Write short proofs using $\bot$, and ⊞.
+
+::: notes
+Keep everything tiny. Focus on first line (assume/goal), the key move, last line (therefore).
+:::
+
+## What is a proof? {.smaller}
+
+A clear, finite chain of statements that:
+
+- starts from **assumptions/definitions**
+- uses **valid rules**
+- ends with the **claim**
+
+We’ll practice four approaches for $P\to Q$ (first 2 earlier, second 2 now):
+
+- **$\to$ Direct:** assume the hypothesis, derive the conclusion  
+- **$\leftrightsquigarrow$ Contrapositive:** prove $\neg Q\to\neg P$ instead of $P\to Q$  
+- **$\bot$ Contradiction:** assume $P$ and $\neg Q$; reach False  
+- **⊞ Cases:** split into exhaustive cases; prove $Q$ for each
+
+## Warm Up 1
+
+Claim: for all integers $a$ and $b$, if $(a+b)$ is odd, then 
+$a$ is odd or $b$ is odd.
+
+* $\to$ or $\leftrightsquigarrow$?
+
+\
+
+* Proof: Consider...
+
+## Warm Up 2
+
+Claim: for all integers $a$, if $a^2$ is even, then 
+$a$ is even.
+
+* $\to$ or $\leftrightsquigarrow$?
+
+\
+
+* Proof: Consider...
+
+## Proof Skeleton Cards
+
+<div class="two-col">
+<div class="card small">
+
+$\to$ Direct Proof of $P\to Q$
+
+1. Assume $P$.
+2. Reason -- Unpack definitions / apply given rules to derive needed facts from $P$.
+3. ... Therefore $Q$.
+
+</div>
+<div class="card small">
+
+$\leftrightsquigarrow$ Contrapositive Proof of $P\to Q$ 
+
+1. Assume $\neg Q$
+2. Use rules/definitions that match $\neg Q$ to drive toward $\neg P$.
+3. ... Therefore $\neg Q\to\neg P$, and thus $P\to Q$.
+
+</div>
+</div>
+
+<div class="two-col">
+<div class="card small">
+
+$\bot$ Contradiction Proof of $P\to Q$
+
+1. Assume $P$ and $\neg Q$.
+2. Reason -- Unpack definitions / apply given rules to derive needed facts from $P\land \neg Q$, watch for contradiction ($a\land\neg a$). 
+3. ... Therefore $\bot$, and our assumption of $\neg Q$ must be false, so $P\to Q$.
+
+</div>
+<div class="card small">
+
+⊞ Cases Proof of $P\to Q$ 
+
+1. Partition $P$ into cases $P_1$, $P_2$, etc. covering all possibilities.
+2. For each $P_k$, show that $P_k\to Q$.
+3. ... Therefore, in each case $Q$, and $P\to Q$.
+
+</div>
+</div>
+
+
+## $\bot$ Example Contradiction
+
+Prove that any solution to the mini sudoku puzzle below must contain a 3 in the top right corner (r1c4).
+
+::: notes
+scrutinize form of statement
+:::
+
+![](/images/04_tue_argument21.jpg)
+
+## $\bot$ Our Turn Contradiction 
+
+Claim: $\sqrt 2$ is irrational.
+
+Proof: (CLASSIC) Suppose by way of contradiction that $\sqrt 2$ is rational. Then...
+
+
+## ⊞  Example Cases
+
+Claim: $n^3 - n$ is divisible by \_\_\_. 
+
+Overview: 
+
+## ⊞  Proof Part 1 (Divisible by \_\_\_): 
+
+Consider an arbitrary $n$. Then one of the following must be true - 
+
+* Case A: $n=3k$
+
+\
+
+* Case B: $n=3k+1$
+
+\
+
+* Case C: $n=3k+2$ 
+
+\
+
+In all 3 cases, $n^3-n$ is divisible by \_\_\_.
+
+## ⊞  Proof Part 2 (Divisible by \_\_\_): 
+
+Consider an arbitrary $n$. Then one of the following must be true - 
+
+* Case A: $n=2k$
+
+\
+
+* Case B: $n=2k+1$
+
+\
+
+In all 2 cases, $n^3-n$ is divisible by \_\_\_.
+
+Conclusion: 2 and 3 are factors of $n^3-n$ so 6 must be a factor!
