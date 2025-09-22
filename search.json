@@ -706,7 +706,7 @@
     "href": "slides/04_tue_argument2.html#proof-part-1-divisible-by-___",
     "title": "Discrete Math for Data Science",
     "section": "⊞ Proof Part 1 (Divisible by ___):",
-    "text": "⊞ Proof Part 1 (Divisible by ___):\nConsider an arbitrary \\(n\\). Then one of the following must be true -\n\nCase A: \\(n=3k\\)\n\n\n\n\nCase B: \\(n=3k+1\\)\n\n\n\n\nCase C: \\(n=3k+2\\)\n\n\n\nIn all 3 cases, \\(n^3-n\\) is divisible by ___."
+    "text": "⊞ Proof Part 1 (Divisible by ___):\nConsider an arbitrary \\(n\\). Then one of the following must be true\n\nCase A: \\(n=3k\\)\n\n\n\n\nCase B: \\(n=3k+1\\)\n\n\n\n\nCase C: \\(n=3k+2\\)\n\n\n\nIn all 3 cases, \\(n^3-n\\) is divisible by ___."
   },
   {
     "objectID": "slides/04_tue_argument2.html#proof-part-2-divisible-by-___",
