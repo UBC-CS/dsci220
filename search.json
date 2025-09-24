@@ -298,7 +298,7 @@
     "href": "slides/04_wed_induction.html#inductive-proof-skeleton-card",
     "title": "Discrete Math for Data Science",
     "section": "Inductive Proof Skeleton Card",
-    "text": "Inductive Proof Skeleton Card\n\nProof by Induction of \\(\\forall x, P(x)\\)\n\nFirst line: “Consider an arbitrary x.”\nSecond line: “Assume \\(\\forall j &lt; n, P(j)\\).”\nDetermine exhaustive cases for \\(n\\), including one or more base cases and usually one inductive case.\nProve each case, base and inductive, independently. Base case is typically direct, and inductive case will require use of IH."
+    "text": "Inductive Proof Skeleton Card\n\nProof by Induction of \\(\\forall x, P(x)\\)\n\nFirst line: “Consider an arbitrary x.”\nSecond line (IH): “Assume \\(\\forall j &lt; n, P(j)\\).”\nDetermine exhaustive cases for \\(n\\), including one or more base cases and usually one inductive case.\nProve each case, base and inductive, independently. Base case is typically direct, and inductive case will require use of IH."
   },
   {
     "objectID": "slides/04_wed_induction.html#your-turn",
