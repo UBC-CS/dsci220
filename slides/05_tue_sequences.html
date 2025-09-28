@@ -9,12 +9,10 @@
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/quarto-contrib/live-runtime/live-runtime.js" type="module"></script>
 <link href="../site_libs/quarto-contrib/live-runtime/live-runtime.css" rel="stylesheet">
-<script src="../site_libs/quarto-contrib/countdown-0.5.0/countdown.js"></script>
-<link href="../site_libs/quarto-contrib/countdown-0.5.0/countdown.css" rel="stylesheet">
 <script src="../site_libs/quarto-contrib/iconify-3.0.0/iconify-icon.min.js"></script><meta charset="utf-8">
   <meta name="generator" content="quarto-1.8.24">
 
-  <meta name="dcterms.date" content="2025-09-24">
+  <meta name="dcterms.date" content="2025-09-30">
   <title>DSCI 220: Discrete Math for Data Science – Discrete Math for Data Science</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -150,123 +148,15 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">September 24, 2025</p>
+  <p class="date">September 30, 2025</p>
 </section>
 <section id="announcements" class="slide level2">
 <h2>Announcements</h2>
 </section>
 <section>
-<section id="proof-by-induction" class="title-slide slide level1 center">
-<h1>Proof by Induction</h1>
-<style>
-.small { font-size: 0.9rem; }
-.tiny { font-size: 0.8rem; }
-.rule { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; }
-.card { border: 2px solid #ddd; border-radius: 12px; padding: 14px 16px; margin: 10px 0; }
-.center { text-align: center; }
-.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-.badge { display:inline-block; padding:2px 8px; border:1px solid #bbb; border-radius:10px; font-size:.8rem; }
-</style>
-</section>
-<section id="todays-goals" class="slide level2">
-<h2>Today’s goals</h2>
-<ul>
-<li>Understand role of components of an inductive proof.</li>
-<li>Write short inductive proofs.</li>
-</ul>
-</section>
-<section id="warm-up" class="slide level2 activity">
-<h2>Warm Up</h2>
-<p>A <em>Tower</em> is built by stacking 5m red panels, and 7m blue panels.</p>
-<p>What tower heights are possible?</p>
-<div id="timer_221b580562471b59f32e8d4bec67ecf08f8206d5" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
-  <div class="countdown-controls">
-    <button class="countdown-bump-down">−</button>
-    <button class="countdown-bump-up">+</button>
- </div>
- <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
- </div>
-<aside class="notes">
-<p>End up with a clear claim: For all n &gt; 23, we can build a tower of height n using only 5m red and 7m blue panels.</p>
-<p>Say “claim holds for smaller values”</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="warm-up-continued" class="slide level2 smaller">
-<h2>Warm Up Continued</h2>
-<p>Claim: for all integers <span class="math inline">\(n &gt; 23\)</span>, we can build a tower of height <span class="math inline">\(n\)</span> using only 5m red and 7m blue panels.</p>
-<p><br>
-</p>
-<p>24:</p>
-<p><br>
-</p>
-<p>25:</p>
-<p><br>
-</p>
-<p>26:</p>
-<aside class="notes">
-<p>point out universal quantifier, and also least value.</p>
-<p>Also point out which values follow easily from these… sequences, covering integers.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="proof-by-induction-1" class="slide level2 smaller">
-<h2>Proof by Induction</h2>
-<p>Claim: For any integer <span class="math inline">\(n &gt; 0\)</span>, <span class="math inline">\(\sum\limits_{k=1}^{n} k^2 = \frac{n(n+1)(2n+1)}{6}\)</span>.</p>
-<p><br>
-</p>
-<p>Proof: Consider an arbitrary integer <span class="math inline">\(n &gt; 0\)</span>.</p>
-<p><br>
-</p>
-<p>IH: Assume inductively that for any <span class="math inline">\(j&lt;n\)</span>, <span class="math inline">\(\sum\limits_{k=1}^{j} k^2 = \frac{j(j+1)(2j+1)}{6}\)</span>.</p>
-<p><br>
-</p>
-<p>Either <span class="math inline">\(n=1\)</span>, or <span class="math inline">\(n&gt;1\)</span>.</p>
-<p>Case 1 <span class="math inline">\((n=1)\)</span>:</p>
-<p><br>
-</p>
-<p>Case 2 <span class="math inline">\((n&gt;1)\)</span>:</p>
-</section>
-<section id="inductive-proof-skeleton-card" class="slide level2">
-<h2>Inductive Proof Skeleton Card</h2>
-<div class="card">
-<p>Proof by Induction of <span class="math inline">\(\forall x, P(x)\)</span></p>
-<ol type="1">
-<li>First line: “Consider an arbitrary x.”</li>
-<li>Second line (IH): “Assume <span class="math inline">\(\forall j &lt; n, P(j)\)</span>.”</li>
-<li>Determine exhaustive cases for <span class="math inline">\(n\)</span>, including one or more base cases and usually one inductive case.</li>
-<li>Prove each case, base and inductive, independently. Base case is typically direct, and inductive case will require use of IH.</li>
-</ol>
-</div>
-</section>
-<section id="your-turn" class="slide level2 activity">
-<h2>Your turn!</h2>
-<p>Claim: For any <span class="math inline">\(n&gt;0\)</span>, <span class="math inline">\(\sum\limits_{k=1}^n \frac{1}{(2k-1)(2k+1)} = \frac{n}{2n+1}\)</span>.</p>
-<div id="timer_221b580562471b59f32e8d4bec67ecf08f8206d5" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
-  <div class="countdown-controls">
-    <button class="countdown-bump-down">−</button>
-    <button class="countdown-bump-up">+</button>
- </div>
- <code class="countdown-time"><span class="countdown-digits minutes">10</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
- </div>
+<section id="induction" class="title-slide slide level1 center">
+<h1>Induction</h1>
+
 </section>
 <section id="last-demo" class="slide level2">
 <h2>Last Demo</h2>
@@ -298,6 +188,23 @@
 <svg viewbox="0 0 400 400" width="480" height="480" role="img" aria-label="16 by 16 grid with one black square at row 4, column 12">
 <defs> <pattern id="grid25" width="25" height="25" patternunits="userSpaceOnUse"> <path d="M25 0H0V25" fill="none" stroke="#bbb" stroke-width="1"></path> </pattern> </defs> <rect x="0" y="0" width="400" height="400" fill="white" stroke="#333" stroke-width="2"></rect> <rect x="0" y="0" width="400" height="400" fill="url(#grid25)"></rect> <rect x="300" y="150" width="25" height="25" fill="black"></rect>
 </svg>
+</section></section>
+<section>
+<section id="sequences" class="title-slide slide level1 center">
+<h1>Sequences</h1>
+
+</section>
+<section id="hexagons" class="slide level2">
+<h2>Hexagons</h2>
+</section>
+<section id="t" class="slide level2">
+<h2>T</h2>
+</section>
+<section id="matches" class="slide level2">
+<h2>Matches</h2>
+</section>
+<section id="buds" class="slide level2">
+<h2>Buds</h2>
 
 
 <script type="ojs-module-contents">

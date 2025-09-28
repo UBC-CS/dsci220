@@ -9,12 +9,10 @@
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/quarto-contrib/live-runtime/live-runtime.js" type="module"></script>
 <link href="../site_libs/quarto-contrib/live-runtime/live-runtime.css" rel="stylesheet">
-<script src="../site_libs/quarto-contrib/countdown-0.5.0/countdown.js"></script>
-<link href="../site_libs/quarto-contrib/countdown-0.5.0/countdown.css" rel="stylesheet">
 <script src="../site_libs/quarto-contrib/iconify-3.0.0/iconify-icon.min.js"></script><meta charset="utf-8">
   <meta name="generator" content="quarto-1.8.24">
 
-  <meta name="dcterms.date" content="2025-09-24">
+  <meta name="dcterms.date" content="2025-09-29">
   <title>DSCI 220: Discrete Math for Data Science – Discrete Math for Data Science</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -150,45 +148,68 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">September 24, 2025</p>
+  <p class="date">September 29, 2025</p>
 </section>
 <section id="announcements" class="slide level2">
 <h2>Announcements</h2>
 </section>
 <section>
-<section id="proof-by-induction" class="title-slide slide level1 center">
-<h1>Proof by Induction</h1>
-<style>
-.small { font-size: 0.9rem; }
-.tiny { font-size: 0.8rem; }
-.rule { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; }
-.card { border: 2px solid #ddd; border-radius: 12px; padding: 14px 16px; margin: 10px 0; }
-.center { text-align: center; }
-.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-.badge { display:inline-block; padding:2px 8px; border:1px solid #bbb; border-radius:10px; font-size:.8rem; }
-</style>
+<section id="summations" class="title-slide slide level1 center">
+<h1>Summations</h1>
+
 </section>
-<section id="todays-goals" class="slide level2">
-<h2>Today’s goals</h2>
+<section id="trick-0-warm-up-handshakes" class="slide level2">
+<h2>Trick 0: Warm Up Handshakes</h2>
+<p><strong>Story.</strong> If each of us (<span class="math inline">\(n\)</span>) were to shake hands w everyone else, how many handshakes would there be?</p>
+<p><strong>Problem.</strong></p>
+<p><span class="math inline">\(S(n) = \sum\limits_{k=1}^{n} k\)</span></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>We’ll need this, and we’ll also need:</p>
+<p><span class="math inline">\(S(n)=\sum\limits_{k=1}^{n} k^2 = \frac{n(n+1)(2n+1)}{6}\)</span></p>
+</section>
+<section id="trick-1-linearity" class="slide level2">
+<h2>Trick 1: Linearity</h2>
+<p>&nbsp;</p>
+<p><strong>Story.</strong> Processing <code>n</code> data rows:</p>
 <ul>
-<li>Understand role of components of an inductive proof.</li>
-<li>Write short inductive proofs.</li>
+<li>each row has a constant overhead of 7 units,<br>
+</li>
+<li>plus 3 units per column, with column count = row index.</li>
 </ul>
+<p><strong>Problem.</strong></p>
+<p><span class="math inline">\(S(n)=\sum\limits_{i=1}^{n} (7 + 3i)\)</span></p>
 </section>
-<section id="warm-up" class="slide level2 activity">
-<h2>Warm Up</h2>
-<p>A <em>Tower</em> is built by stacking 5m red panels, and 7m blue panels.</p>
-<p>What tower heights are possible?</p>
-<div id="timer_221b580562471b59f32e8d4bec67ecf08f8206d5" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
-  <div class="countdown-controls">
-    <button class="countdown-bump-down">−</button>
-    <button class="countdown-bump-up">+</button>
- </div>
- <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
- </div>
+<section id="trick-2-telescoping" class="slide level2">
+<h2>Trick 2: Telescoping</h2>
+<p><br>
+</p>
+<p><strong>Story.</strong> Model accuracy at epoch <span class="math inline">\(i\)</span>:</p>
+<ul>
+<li>improvement = <span class="math inline">\(\ln(i+1) - \ln(i)\)</span>.</li>
+</ul>
+<p><strong>Problem.</strong><br>
+<span class="math inline">\(S(n)=\sum_{i=1}^{n} \big(\ln(i+1)-\ln(i)\big)\)</span></p>
+</section>
+<section id="trick-3-shifting" class="slide level2">
+<h2>Trick 3: Shifting</h2>
+<p>&nbsp;</p>
+<p><strong>Story.</strong> Each day your batch size <strong>doubles</strong> (like a viral share),<br>
+but the <strong>annotation time per item</strong> grows linearly with the day index. What’s the total work after <span class="math inline">\(n\)</span> days?</p>
+<p><strong>Problem.</strong><br>
+<span class="math inline">\(S_n =\sum_{k=1}^{n} k\,2^{k}\)</span></p>
+</section>
+<section id="trick-4-variable-substitution" class="slide level2">
+<h2>Trick 4: Variable Substitution</h2>
+<p>&nbsp;</p>
+<p><strong>Story.</strong> Each item <span class="math inline">\(j\)</span> has effort that depends both on its index and how many remain.</p>
+<p><strong>Problem.</strong><br>
+<span class="math inline">\(S = \sum_{j=1}^{n} \big(7 + 3(n-j+1)\big)\)</span></p>
 <aside class="notes">
-<p>End up with a clear claim: For all n &gt; 23, we can build a tower of height n using only 5m red and 7m blue panels.</p>
-<p>Say “claim holds for smaller values”</p>
+<p><strong>Hint for later reveal:</strong><br>
+Substitute <span class="math inline">\(i = n-j+1\)</span>. The sum becomes<br>
+$_{i=1}^{n} (7 + 3i) $ — exactly the <strong>Linearity</strong> example.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -201,103 +222,23 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="warm-up-continued" class="slide level2 smaller">
-<h2>Warm Up Continued</h2>
-<p>Claim: for all integers <span class="math inline">\(n &gt; 23\)</span>, we can build a tower of height <span class="math inline">\(n\)</span> using only 5m red and 7m blue panels.</p>
-<p><br>
-</p>
-<p>24:</p>
-<p><br>
-</p>
-<p>25:</p>
-<p><br>
-</p>
-<p>26:</p>
-<aside class="notes">
-<p>point out universal quantifier, and also least value.</p>
-<p>Also point out which values follow easily from these… sequences, covering integers.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="proof-by-induction-1" class="slide level2 smaller">
-<h2>Proof by Induction</h2>
-<p>Claim: For any integer <span class="math inline">\(n &gt; 0\)</span>, <span class="math inline">\(\sum\limits_{k=1}^{n} k^2 = \frac{n(n+1)(2n+1)}{6}\)</span>.</p>
-<p><br>
-</p>
-<p>Proof: Consider an arbitrary integer <span class="math inline">\(n &gt; 0\)</span>.</p>
-<p><br>
-</p>
-<p>IH: Assume inductively that for any <span class="math inline">\(j&lt;n\)</span>, <span class="math inline">\(\sum\limits_{k=1}^{j} k^2 = \frac{j(j+1)(2j+1)}{6}\)</span>.</p>
-<p><br>
-</p>
-<p>Either <span class="math inline">\(n=1\)</span>, or <span class="math inline">\(n&gt;1\)</span>.</p>
-<p>Case 1 <span class="math inline">\((n=1)\)</span>:</p>
-<p><br>
-</p>
-<p>Case 2 <span class="math inline">\((n&gt;1)\)</span>:</p>
-</section>
-<section id="inductive-proof-skeleton-card" class="slide level2">
-<h2>Inductive Proof Skeleton Card</h2>
-<div class="card">
-<p>Proof by Induction of <span class="math inline">\(\forall x, P(x)\)</span></p>
-<ol type="1">
-<li>First line: “Consider an arbitrary x.”</li>
-<li>Second line (IH): “Assume <span class="math inline">\(\forall j &lt; n, P(j)\)</span>.”</li>
-<li>Determine exhaustive cases for <span class="math inline">\(n\)</span>, including one or more base cases and usually one inductive case.</li>
-<li>Prove each case, base and inductive, independently. Base case is typically direct, and inductive case will require use of IH.</li>
-</ol>
-</div>
-</section>
-<section id="your-turn" class="slide level2 activity">
-<h2>Your turn!</h2>
-<p>Claim: For any <span class="math inline">\(n&gt;0\)</span>, <span class="math inline">\(\sum\limits_{k=1}^n \frac{1}{(2k-1)(2k+1)} = \frac{n}{2n+1}\)</span>.</p>
-<div id="timer_221b580562471b59f32e8d4bec67ecf08f8206d5" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
-  <div class="countdown-controls">
-    <button class="countdown-bump-down">−</button>
-    <button class="countdown-bump-up">+</button>
- </div>
- <code class="countdown-time"><span class="countdown-digits minutes">10</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
- </div>
-</section>
-<section id="last-demo" class="slide level2">
-<h2>Last Demo</h2>
-<p>This is a tromino: <svg viewbox="0 0 48 48" width="48" height="48" fill="currentColor" role="img" aria-label="L tromino"> <rect x="0" y="24" width="23" height="23" rx="3"></rect> <rect x="24" y="24" width="23" height="23" rx="3"></rect> <rect x="0" y="0" width="23" height="23" rx="3"></rect> </svg></p>
-<p>This is a <span class="math inline">\(n\)</span> by <span class="math inline">\(n\)</span> deficient grid:</p>
-<svg viewbox="0 0 200 200" width="240" height="240" role="img" aria-label="10 by 10 grid with one black square at row 6, column 6">
-<defs> <pattern id="grid20" width="20" height="20" patternunits="userSpaceOnUse"> <path d="M20 0H0V20" fill="none" stroke="#bbb" stroke-width="1"></path> </pattern> </defs> <rect x="0" y="0" width="200" height="200" fill="white" stroke="#333" stroke-width="2"></rect> <rect x="0" y="0" width="200" height="200" fill="url(#grid20)"></rect> <rect x="100" y="100" width="20" height="20" fill="black"></rect>
-</svg>
-<p><br>
-</p>
-<p>Claim: Every <span class="math inline">\(2^n\)</span> by <span class="math inline">\(2^n\)</span> deficient grid can be tiled with trominos.</p>
-</section>
-<section id="tile-work" class="slide level2">
-<h2>Tile Work</h2>
-<p>Claim: Every <span class="math inline">\(2^n\)</span> by <span class="math inline">\(2^n\)</span> deficient grid can be tiled with trominos.</p>
+<section id="trick-5-reindexing" class="slide level2">
+<h2>Trick 5: Reindexing</h2>
 <p>&nbsp;</p>
-<p>Proof: Line 1:</p>
-<p><br>
-</p>
-<p>Line 2:</p>
-<p>&nbsp;</p>
-<p>Small case(s):</p>
+<p><strong>Story.</strong> You only log every 3rd data point (rows 3, 6, 9, …).<br>
+The cost for row <span class="math inline">\(i\)</span> is <span class="math inline">\(2i+1\)</span>.</p>
+<p><strong>Question.</strong> What is the total cost up to row <span class="math inline">\(n\)</span>?</p>
 </section>
-<section id="tile-work-1" class="slide level2 smaller">
-<h2>Tile Work</h2>
-<p>Claim: Every <span class="math inline">\(2^n\)</span> by <span class="math inline">\(2^n\)</span> deficient grid can be tiled with trominos.</p>
-<p>&nbsp;</p>
-<p>Proof continued… Inductive case:</p>
-<svg viewbox="0 0 400 400" width="480" height="480" role="img" aria-label="16 by 16 grid with one black square at row 4, column 12">
-<defs> <pattern id="grid25" width="25" height="25" patternunits="userSpaceOnUse"> <path d="M25 0H0V25" fill="none" stroke="#bbb" stroke-width="1"></path> </pattern> </defs> <rect x="0" y="0" width="400" height="400" fill="white" stroke="#333" stroke-width="2"></rect> <rect x="0" y="0" width="400" height="400" fill="url(#grid25)"></rect> <rect x="300" y="150" width="25" height="25" fill="black"></rect>
-</svg>
+<section id="trick-6-double-sum" class="slide level2">
+<h2>Trick 6: Double Sum</h2>
+<p><strong>Story.</strong> Each item <span class="math inline">\(i\)</span> must be compared with all <em>later</em> items <span class="math inline">\(j\ge i\)</span>. The pairwise cost is <span class="math inline">\(c_j = 4j+1\)</span> (depends only on the later index).</p>
+<div class="columns">
+<div class="column">
+<p><strong>Problem.</strong><br>
+<span class="math inline">\(T = \displaystyle \sum_{i=1}^{n}\;\sum_{j=i}^{n}\,(4j+1)\)</span></p>
+</div><div class="column">
+<p><img data-src="../images/grid12.png"></p>
+</div></div>
 
 
 <script type="ojs-module-contents">
