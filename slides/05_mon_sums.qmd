@@ -4,6 +4,8 @@ date: 2025-09-29
 
 ## Announcements 
 
+Examlet this week. 
+
 # Summations
 
 ## Trick 0: Warm Up Handshakes  
