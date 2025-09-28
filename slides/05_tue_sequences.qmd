@@ -1,0 +1,84 @@
+---
+date: 2025-09-30
+---
+
+## Announcements 
+
+# Induction
+
+## Last Demo
+
+This is a tromino: 
+<svg viewBox="0 0 48 48" width="48" height="48" fill="currentColor" role="img" aria-label="L tromino">
+  <rect x="0"  y="24" width="23" height="23" rx="3" />
+  <rect x="24" y="24" width="23" height="23" rx="3" />
+  <rect x="0"  y="0"  width="23" height="23" rx="3" />
+</svg>
+
+This is a $n$ by $n$ deficient grid: 
+
+<svg viewBox="0 0 200 200" width="240" height="240" role="img"
+     aria-label="10 by 10 grid with one black square at row 6, column 6">
+  <defs>
+    <pattern id="grid20" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M20 0H0V20" fill="none" stroke="#bbb" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect x="0" y="0" width="200" height="200" fill="white" stroke="#333" stroke-width="2"/>
+  <rect x="0" y="0" width="200" height="200" fill="url(#grid20)"/>
+  <rect x="100" y="100" width="20" height="20" fill="black"/>
+</svg>
+
+\
+
+Claim: Every $2^n$ by $2^n$ deficient grid can be tiled with trominos.
+
+## Tile Work
+
+Claim: Every $2^n$ by $2^n$ deficient grid can be tiled with trominos.
+
+\ 
+
+Proof: 
+Line 1:
+
+\
+
+Line 2: 
+
+\ 
+
+Small case(s):
+
+
+## Tile Work {.smaller}
+
+Claim: Every $2^n$ by $2^n$ deficient grid can be tiled with trominos.
+
+\ 
+
+Proof continued...
+Inductive case:
+
+<svg viewBox="0 0 400 400" width="480" height="480" role="img"
+     aria-label="16 by 16 grid with one black square at row 4, column 12">
+  <defs>
+    <pattern id="grid25" width="25" height="25" patternUnits="userSpaceOnUse">
+      <path d="M25 0H0V25" fill="none" stroke="#bbb" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect x="0" y="0" width="400" height="400" fill="white" stroke="#333" stroke-width="2"/>
+  <rect x="0" y="0" width="400" height="400" fill="url(#grid25)"/>
+  <rect x="300" y="150" width="25" height="25" fill="black"/>
+</svg>
+
+# Sequences
+
+## Hexagons
+
+## T
+
+## Matches
+
+## Buds
+
