@@ -6,6 +6,12 @@ date: 2025-09-29
 
 Examlet this week. 
 
+Truth and reconciliation tomorrow -- Tue lab will not meet.
+
+Reminder: Joe's office hour is Fri 11-12, in this room!
+
+We are shooting video this afternoon, 4p via zoom. You are all welcome!
+
 # Summations
 
 ## Trick 0: Warm Up Handshakes  
@@ -61,6 +67,8 @@ but the **annotation time per item** grows linearly with the day index.  What’
 
 **Problem.**  
 $S_n =\sum_{k=1}^{n} k\,2^{k}$
+
+## Trick 3: Shifting 
 
 ## Trick 4: Variable Substitution 
 
