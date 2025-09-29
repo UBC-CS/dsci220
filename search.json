@@ -29,7 +29,7 @@
     "href": "slides/05_mon_sums.html#trick-0-warm-up-handshakes",
     "title": "Discrete Math for Data Science",
     "section": "Trick 0: Warm Up Handshakes",
-    "text": "Trick 0: Warm Up Handshakes\nStory. If each of us (\\(n\\)) were to shake hands w everyone else, how many handshakes would there be?\nProblem.\n\\(S(n) = \\sum\\limits_{k=1}^{n} k\\)\n \n \n \nWe’ll need this, and we’ll also need:\n\\(S(n)=\\sum\\limits_{k=1}^{n} k^2 = \\frac{n(n+1)(2n+1)}{6}\\)"
+    "text": "Trick 0: Warm Up Handshakes\nStory. If each of us (\\(n+1\\)) were to shake hands w everyone else, how many handshakes would there be?\nProblem.\n\\(S(n) = \\sum\\limits_{k=1}^{n} k\\)\n \n \n \nWe’ll need this, and we’ll also need:\n\\(S(n)=\\sum\\limits_{k=1}^{n} k^2 = \\frac{n(n+1)(2n+1)}{6}\\)"
   },
   {
     "objectID": "slides/05_mon_sums.html#trick-1-linearity",
@@ -894,7 +894,7 @@
     "href": "slides/04_wed_induction.html#inductive-proof-skeleton-card",
     "title": "Discrete Math for Data Science",
     "section": "Inductive Proof Skeleton Card",
-    "text": "Inductive Proof Skeleton Card\n\nProof by Induction of \\(\\forall x, P(x)\\)\n\nFirst line: “Consider an arbitrary x.”\nSecond line (IH): “Assume \\(\\forall j &lt; n, P(j)\\).”\nDetermine exhaustive cases for \\(n\\), including one or more base cases and usually one inductive case.\nProve each case, base and inductive, independently. Base case is typically direct, and inductive case will require use of IH."
+    "text": "Inductive Proof Skeleton Card\n\nProof by Induction of \\(\\forall n, P(n)\\)\n\nFirst line: “Consider an arbitrary n.”\nSecond line (IH): “Assume \\(\\forall j &lt; n, P(j)\\).”\nDetermine exhaustive cases for \\(n\\), including one or more base cases and usually one inductive case.\nProve each case, base and inductive, independently. Base case is typically direct, and inductive case will require use of IH."
   },
   {
     "objectID": "slides/04_wed_induction.html#your-turn",
@@ -1135,25 +1135,53 @@
     "text": "Tile Work\nClaim: Every \\(2^n\\) by \\(2^n\\) deficient grid can be tiled with trominos.\n \nProof continued… Inductive case:"
   },
   {
-    "objectID": "slides/05_tue_sequences.html#hexagons",
-    "href": "slides/05_tue_sequences.html#hexagons",
+    "objectID": "slides/05_tue_sequences.html#hex-flowers",
+    "href": "slides/05_tue_sequences.html#hex-flowers",
     "title": "Discrete Math for Data Science",
-    "section": "Hexagons",
-    "text": "Hexagons"
+    "section": "Hex Flowers",
+    "text": "Hex Flowers\nConsider the sequence of images below. How many cells are in image \\(n\\)? (Call it \\(C_n\\))\n\n\\(C_0 =\\)\n\\(C_1 =\\)\n\\(C_2 =\\)\n\\(\\ldots\\)\n\\(C_n =\\)"
+  },
+  {
+    "objectID": "slides/05_tue_sequences.html#hex-flowers-1",
+    "href": "slides/05_tue_sequences.html#hex-flowers-1",
+    "title": "Discrete Math for Data Science",
+    "section": "Hex Flowers",
+    "text": "Hex Flowers\n\\(C_0 = 1\\), and \\(C_n = C_{n-1} + 6n, \\forall n &gt; 0\\)\nBut what does this function mean? We need a closed form!!"
+  },
+  {
+    "objectID": "slides/05_tue_sequences.html#solving-recurrences",
+    "href": "slides/05_tue_sequences.html#solving-recurrences",
+    "title": "Discrete Math for Data Science",
+    "section": "Solving Recurrences",
+    "text": "Solving Recurrences\n\n\n“unroll” the recurrence by substituting previous expressions.\nSee a pattern, and generalize it using \\(k\\).\nSet the generalized term equal to the base case term.\nSubstitute base case and solve sums.\n\n\n\ngo back and put these numbers onto the solution"
   },
   {
     "objectID": "slides/05_tue_sequences.html#t",
     "href": "slides/05_tue_sequences.html#t",
     "title": "Discrete Math for Data Science",
     "section": "T",
-    "text": "T"
+    "text": "T\nConsider the sequence of images below. How many dots are in image \\(n\\)? (Call it \\(T_n\\))\n\n\\(T_0 =\\)\n\\(T_1 =\\)\n\\(T_2 =\\)\n\\(\\ldots\\)\n\\(T_n =\\)"
   },
   {
-    "objectID": "slides/05_tue_sequences.html#matches",
-    "href": "slides/05_tue_sequences.html#matches",
+    "objectID": "slides/05_tue_sequences.html#t-1",
+    "href": "slides/05_tue_sequences.html#t-1",
     "title": "Discrete Math for Data Science",
-    "section": "Matches",
-    "text": "Matches"
+    "section": "T",
+    "text": "T\n\\(T_0 = 2\\), and \\(T_n = T_{n-1} + 3, \\forall n &gt; 0\\)\nBut what does this function mean? We need a closed form!!"
+  },
+  {
+    "objectID": "slides/05_tue_sequences.html#t-2",
+    "href": "slides/05_tue_sequences.html#t-2",
+    "title": "Discrete Math for Data Science",
+    "section": "T",
+    "text": "T\nBut how can we be sure our closed form is correct?\nClaim: The closed form solution to the recurrence \\(T_0 = 2\\) and \\(T_n = T_{n-1} + 3, \\forall n &gt; 0\\) is \\(T_n = 2 + 3n\\)\n\nConsider an arbitrary \\(n\\) and the given recurrence.\nIH: Assume \\(\\forall j &lt; n, T_j = 2 + 3j\\).\nNote that either \\(n = 0\\) (base case) or \\(n &gt; 0\\) inductive case.\nCase 1: \\((n=0)\\) The recurrence gives \\(T_0 = 2\\), and the closed form gives \\(T_0 = 3\\cdot 0 + 2 = 2\\)\nCase 2: \\((n &gt; 0)\\) The recurrence gives \\(T_n = T_{n-1} + 3\\). But from the IH, we know \\(T_{n-1} = 3(n-1) + 2\\). We substitute to get \\(T_n= [3(n-1) + 2] + 3 = 3n+2\\)."
+  },
+  {
+    "objectID": "slides/05_tue_sequences.html#toothpicks",
+    "href": "slides/05_tue_sequences.html#toothpicks",
+    "title": "Discrete Math for Data Science",
+    "section": "Toothpicks",
+    "text": "Toothpicks\nHow many toothpicks in an \\(n\\cross n\\) grid made of toothpicks?\n\n\nDraw the sequence:\n \nFind the recurrence:\n \nSolve the closed form for the recurrence:"
   },
   {
     "objectID": "slides/05_tue_sequences.html#buds",
