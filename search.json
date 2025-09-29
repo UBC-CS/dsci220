@@ -22,7 +22,7 @@
     "href": "slides/05_mon_sums.html#announcements",
     "title": "Discrete Math for Data Science",
     "section": "Announcements",
-    "text": "Announcements\nExamlet this week."
+    "text": "Announcements\nExamlet this week.\nTruth and reconciliation tomorrow – Tue lab will not meet.\nReminder: Joe’s office hour is Fri 11-12, in this room!\nWe are shooting video this afternoon, 4p via zoom. You are all welcome!"
   },
   {
     "objectID": "slides/05_mon_sums.html#trick-0-warm-up-handshakes",
@@ -51,6 +51,13 @@
     "title": "Discrete Math for Data Science",
     "section": "Trick 3: Shifting",
     "text": "Trick 3: Shifting\n \nStory. Each day your batch size doubles (like a viral share),\nbut the annotation time per item grows linearly with the day index. What’s the total work after \\(n\\) days?\nProblem.\n\\(S_n =\\sum_{k=1}^{n} k\\,2^{k}\\)"
+  },
+  {
+    "objectID": "slides/05_mon_sums.html#trick-3-shifting-1",
+    "href": "slides/05_mon_sums.html#trick-3-shifting-1",
+    "title": "Discrete Math for Data Science",
+    "section": "Trick 3: Shifting",
+    "text": "Trick 3: Shifting"
   },
   {
     "objectID": "slides/05_mon_sums.html#trick-4-variable-substitution",
