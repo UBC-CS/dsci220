@@ -1142,6 +1142,20 @@
     "text": "Tile Work\nClaim: Every \\(2^n\\) by \\(2^n\\) deficient grid can be tiled with trominos.\n \nProof continued… Inductive case:"
   },
   {
+    "objectID": "slides/05_tue_sequences.html#trick-5-reindexing",
+    "href": "slides/05_tue_sequences.html#trick-5-reindexing",
+    "title": "Discrete Math for Data Science",
+    "section": "Trick 5: Reindexing",
+    "text": "Trick 5: Reindexing\n \nStory. You only log every 3rd data point (rows 3, 6, 9, …).\nThe cost for row \\(i\\) is \\(2i+1\\).\nQuestion. What is the total cost up to row \\(n\\)?"
+  },
+  {
+    "objectID": "slides/05_tue_sequences.html#trick-6-double-sum",
+    "href": "slides/05_tue_sequences.html#trick-6-double-sum",
+    "title": "Discrete Math for Data Science",
+    "section": "Trick 6: Double Sum",
+    "text": "Trick 6: Double Sum\nStory. Each item \\(i\\) must be compared with all later items \\(j\\ge i\\). The pairwise cost is \\(c_j = 4j+1\\) (depends only on the later index).\n\n\nProblem.\n\\(T = \\displaystyle \\sum_{i=1}^{n}\\;\\sum_{j=i}^{n}\\,(4j+1)\\)"
+  },
+  {
     "objectID": "slides/05_tue_sequences.html#hex-flowers",
     "href": "slides/05_tue_sequences.html#hex-flowers",
     "title": "Discrete Math for Data Science",

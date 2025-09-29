@@ -199,6 +199,29 @@
 </svg>
 </section></section>
 <section>
+<section id="summations" class="title-slide slide level1 center">
+<h1>Summations</h1>
+
+</section>
+<section id="trick-5-reindexing" class="slide level2">
+<h2>Trick 5: Reindexing</h2>
+<p>&nbsp;</p>
+<p><strong>Story.</strong> You only log every 3rd data point (rows 3, 6, 9, …).<br>
+The cost for row <span class="math inline">\(i\)</span> is <span class="math inline">\(2i+1\)</span>.</p>
+<p><strong>Question.</strong> What is the total cost up to row <span class="math inline">\(n\)</span>?</p>
+</section>
+<section id="trick-6-double-sum" class="slide level2">
+<h2>Trick 6: Double Sum</h2>
+<p><strong>Story.</strong> Each item <span class="math inline">\(i\)</span> must be compared with all <em>later</em> items <span class="math inline">\(j\ge i\)</span>. The pairwise cost is <span class="math inline">\(c_j = 4j+1\)</span> (depends only on the later index).</p>
+<div class="columns">
+<div class="column">
+<p><strong>Problem.</strong><br>
+<span class="math inline">\(T = \displaystyle \sum_{i=1}^{n}\;\sum_{j=i}^{n}\,(4j+1)\)</span></p>
+</div><div class="column">
+<p><img data-src="../images/grid12.png"></p>
+</div></div>
+</section></section>
+<section>
 <section id="sequences" class="title-slide slide level1 center">
 <h1>Sequences</h1>
 
