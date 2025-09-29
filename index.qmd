@@ -90,7 +90,7 @@ schedule |>
     ),
     # Remove any resources from future weeks
     across(
-      starts_with(c("mon", "wed", "fri", "lab", "potw")),
+      starts_with(c("mon", "tue", "wed", "lab", "potw")),
       \(column) if_else(date <= monday_of_current_week, column, NA)
     )
   ) |>
