@@ -82,6 +82,32 @@ Inductive case:
   <rect x="300" y="150" width="25" height="25" fill="black"/>
 </svg>
 
+# Summations
+
+## Trick 5: Reindexing 
+
+\ 
+
+**Story.** You only log every 3rd data point (rows 3, 6, 9, …).  
+The cost for row $i$ is $2i+1$.  
+
+**Question.** What is the total cost up to row $n$?
+
+## Trick 6: Double Sum 
+
+**Story.** Each item $i$ must be compared with all *later* items $j\ge i$.  The pairwise cost is $c_j = 4j+1$ (depends only on the later index).
+
+::::: columns
+::: {.column}
+**Problem.**  
+$T = \displaystyle \sum_{i=1}^{n}\;\sum_{j=i}^{n}\,(4j+1)$
+:::
+::: {.column}
+![](/images/grid12.png)
+:::
+::::: 
+
+
 # Sequences
 
 ## Hex Flowers
