@@ -10,7 +10,7 @@ Examlet this week.
 
 ## Trick 0: Warm Up Handshakes  
 
-**Story.** If each of us ($n$) were to shake hands w everyone else, how many 
+**Story.** If each of us ($n+1$) were to shake hands w everyone else, how many 
 handshakes would there be? 
 
 **Problem.**  

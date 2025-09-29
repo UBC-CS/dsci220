@@ -94,9 +94,9 @@ Case 2 $(n>1)$:
 
 <div class="card">
 
-Proof by Induction of $\forall x, P(x)$
+Proof by Induction of $\forall n, P(n)$
 
-1. First line: "Consider an arbitrary x." 
+1. First line: "Consider an arbitrary n." 
 2. Second line (IH): "Assume $\forall j < n, P(j)$."
 3. Determine exhaustive cases for $n$, including one or more base cases and usually one inductive case.
 4. Prove each case, base and inductive, independently. Base case is typically direct, and inductive case will require use of IH.
