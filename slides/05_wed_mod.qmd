@@ -1,0 +1,205 @@
+---
+date: 2025-10-01
+---
+
+## Announcements 
+
+<style>
+.small { font-size: 0.9rem; }
+.tiny { font-size: 0.8rem; }
+.rule { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; }
+.card { border: 2px solid #ddd; border-radius: 12px; padding: 14px 16px; margin: 10px 0; }
+.center { text-align: center; }
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.badge { display:inline-block; padding:2px 8px; border:1px solid #bbb; border-radius:10px; font-size:.8rem; }
+</style>
+
+# Modular Arithmetic
+
+## Goals
+
+* Read and use $a\equiv b\pmod m$ as “$m$ divides $a-b$.”
+
+* Compute and reason with $\bmod$ for $+$, $-$, $\times$, and exponents.
+
+* Find/recognize modular inverses and solve a linear congruence.
+
+* Explore a 2-dial puzzle.
+
+## Warm Up {.activity}
+
+What's the rightmost digit of $7^{2025}$?
+
+\ 
+
+
+
+\ 
+
+\ 
+
+\ 
+
+::: notes
+Data Science Note: Rightmost digit problems are $\pmod {10}$ — exactly 
+the arithmetic behind simple checksums, used to 
+assure data integrity, and hash buckets which we'll study next week!
+:::
+
+{{< countdown minutes=5 >}}
+
+## Congruence $\bmod m$
+
+\ 
+
+**Definition:** $a\equiv b\pmod m \iff m\mid(a-b)$.
+
+\ 
+
+**Quick checks:**  
+
+\ 
+
+* $29\equiv \underline{~~~~~}\quad \pmod 7$  
+
+\
+
+* $-11\equiv \underline{~~~~~}\quad\pmod 6$
+
+
+
+::: notes
+Timing: ~3–4 min. Answers: (a) $1$; (b) $1$.
+:::
+
+## Operators $\bmod m$ 
+
+\ 
+
+Work $\bmod 7$: 
+
+\ 
+
+(a) $(29+12)\bmod 7 \equiv \underline{~~~~~}\quad\bmod 7$
+(b) $(5\cdot 9)\bmod 7\equiv \underline{~~~~~}\quad\bmod 7$  
+(c) $(4-18)\bmod 7\equiv \underline{~~~~~}\quad\bmod 7$  
+(d) $2^{5}\bmod 7\equiv \underline{~~~~~}\quad\bmod 7$
+
+\ 
+
+What are the rules?
+
+::: notes
+Timing: ~3 min. Answers: $6,3,0,4$.
+Key properties: addition/multiplication compatible with $\pmod m$. d is interesting... 2^3 = 1. hint to warm up!
+:::
+
+## Modular Arithmetic {.smaller}
+
+<div class="card">
+
+**Definition:**  $a \equiv b \pmod m \iff m \mid (a-b)$
+
+**If** $a \equiv b \pmod m$ **and** $c \equiv d \pmod m$, **then:**
+
+- **Addition:**        $a + c \equiv b + d \pmod m$
+- **Subtraction:**     $a - c \equiv b - d \pmod m$ 
+- **Multiplication:**  $ac \equiv bd \pmod m$
+- **Exponentiation:**  for any integer $n \ge 0$,  $a^{n} \equiv b^{n} \pmod m$ 
+
+**Reduce anytime:** reduce intermediate results mod $m$ at any step.  
+
+**Caution (division):** “Division” is only valid when a modular inverse exists.  
+$\gcd(a,m)=1\Rightarrow a^{-1}$ exists, and $ax \equiv b \pmod m \Rightarrow x \equiv a^{-1}b \pmod m$.
+
+**Caution (exponents):** From $a\equiv b \pmod m$ you may raise the **bases**: $a^n\equiv b^n$, but in general $c^{a}\not\equiv c^{b}\pmod m$.
+
+</div>
+
+## Proof 1: Multiplication
+
+**Claim:** If $a\equiv b\pmod m$, and $c\equiv d\pmod m$ then  $ac\equiv bd\pmod m$.
+
+**Proof:**
+
+## Proof 2: Exponentiation
+
+**Claim:** If $a\equiv b\pmod m$, then for all $n\ge1$, $a^n\equiv b^n\pmod m$.
+
+**Proof:** Consider arbitrary integers $a$, $b$, $m$ so that $a\equiv b\pmod m$, and an arbitrary integer $n\ge1$. 
+
+(IH) Assume that for any $j < n$, $a^j\equiv b^j\pmod m$.
+
+Case 1 $(n=1)$:
+
+\ 
+
+Case 2 $(n>1)$:
+
+
+## Discovery: Inverses $\bmod$ a Prime
+
+**Task $\pmod 7$:** Fill this table and find inverses of $1,2,3,4$.
+
+| $\times$ | $1$ | $2$ | $3$ | $4$ |
+|---|---:|---:|---:|---:|
+| $1$ |   |   |   |
+| $2$ |   |   |   |
+| $3$ |   |   |   |
+| $4$ |   |   |   |
+
+Then answer: $1^{-1},\,2^{-1},\,3^{-1},\,4^{-1}\ \pmod 7$.
+
+::: notes
+Timing: ~6–7 min.
+Answers: $1^{-1}\equiv1,\ 2^{-1}\equiv4,\ 3^{-1}\equiv5\ (\bmod 7)$.
+Takeaway: all nonzero residues mod prime $p$ have inverses.
+:::
+
+## Linear Congruences
+
+\ 
+
+**Solve:** 
+
+* $9x\equiv 1\pmod{26}$ 
+
+\ 
+
+\ 
+
+* $9x\equiv 5\pmod{26}$ 
+
+
+## Big Powers Fast {.activity}
+
+\ 
+
+Pick one:
+
+* $2^{1000}\pmod 7$  
+* $3^{12345}\pmod{10}$  
+* $5^{2024}\pmod{13}$
+
+
+::: notes
+Timing: ~6–8 min.
+1) $2^{3}\equiv1\Rightarrow 2^{1000}\equiv 2$.
+2) Period $4$ mod $10$; $12345\equiv1\Rightarrow 3$.
+3) $5^2\equiv-1\Rightarrow 5^4\equiv1$; $2024\equiv0\pmod4\Rightarrow 1$.
+
+_Data-science tie:_ “Cycle detection helps compute modular hashes fast in streaming.”
+:::
+
+## Two Dials {.activity}
+
+Find $x\pmod {15}$ such that  
+$x\equiv 2\pmod 3$ and $x\equiv 1\pmod 5$.
+
+{{< countdown minutes=5 >}}
+
+::: notes
+Timing: ~6–8 min.
+Numbers $\equiv1\pmod5$: $1,6,11,\dots$; mod $3$ these are $1,0,2,\dots$ → pick $11$. Unique mod $15$.
+:::
+

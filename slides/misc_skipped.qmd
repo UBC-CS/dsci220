@@ -1,0 +1,166 @@
+---
+date: 2025-10-01
+---
+
+## Announcements 
+
+<style>
+.small { font-size: 0.9rem; }
+.tiny { font-size: 0.8rem; }
+.rule { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; }
+.card { border: 2px solid #ddd; border-radius: 12px; padding: 14px 16px; margin: 10px 0; }
+.center { text-align: center; }
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.badge { display:inline-block; padding:2px 8px; border:1px solid #bbb; border-radius:10px; font-size:.8rem; }
+</style>
+
+# Induction
+
+## Last Demo
+
+This is a tromino: 
+<svg viewBox="0 0 48 48" width="48" height="48" fill="currentColor" role="img" aria-label="L tromino">
+  <rect x="0"  y="24" width="23" height="23" rx="3" />
+  <rect x="24" y="24" width="23" height="23" rx="3" />
+  <rect x="0"  y="0"  width="23" height="23" rx="3" />
+</svg>
+
+This is a $n$ by $n$ deficient grid: 
+
+<svg viewBox="0 0 200 200" width="240" height="240" role="img"
+     aria-label="10 by 10 grid with one black square at row 6, column 6">
+  <defs>
+    <pattern id="grid20" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M20 0H0V20" fill="none" stroke="#bbb" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect x="0" y="0" width="200" height="200" fill="white" stroke="#333" stroke-width="2"/>
+  <rect x="0" y="0" width="200" height="200" fill="url(#grid20)"/>
+  <rect x="100" y="100" width="20" height="20" fill="black"/>
+</svg>
+
+\
+
+Claim: Every $2^n$ by $2^n$ deficient grid can be tiled with trominos.
+
+## Tile Work
+
+Claim: Every $2^n$ by $2^n$ deficient grid can be tiled with trominos.
+
+\ 
+
+Proof: 
+Line 1:
+
+\
+
+Line 2: 
+
+\ 
+
+Small case(s):
+
+
+## Tile Work {.smaller}
+
+Claim: Every $2^n$ by $2^n$ deficient grid can be tiled with trominos.
+
+\ 
+
+Proof continued...
+Inductive case:
+
+<svg viewBox="0 0 400 400" width="480" height="480" role="img"
+     aria-label="16 by 16 grid with one black square at row 4, column 12">
+  <defs>
+    <pattern id="grid25" width="25" height="25" patternUnits="userSpaceOnUse">
+      <path d="M25 0H0V25" fill="none" stroke="#bbb" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect x="0" y="0" width="400" height="400" fill="white" stroke="#333" stroke-width="2"/>
+  <rect x="0" y="0" width="400" height="400" fill="url(#grid25)"/>
+  <rect x="300" y="150" width="25" height="25" fill="black"/>
+</svg>
+
+# Summations
+
+## Toothpicks {.activity}
+
+How many toothpicks in an $n\cross n$ grid made of toothpicks?
+
+\
+
+Draw the sequence:
+
+\ 
+
+Find the recurrence:
+
+\ 
+
+Solve the closed form for the recurrence:
+
+## Buds
+
+## Affine Cipher (explicit encode/decode)
+
+**Alphabet.** Map letters $A\!\to\!0,\ B\!\to\!1,\ \dots,\ Z\!\to\!25$ (ignore spaces/punctuation).
+
+**Key.** Choose $a=9,\ b=5,\ m=26$. Since $\gcd(9,26)=1$, $a^{-1}\equiv 3\pmod{26}$.
+
+**Encrypt.** $E(x)\equiv (9x+5)\bmod 26$  
+**Decrypt.** $D(y)\equiv a^{-1}(y-b)\equiv 3(y-5)\bmod 26$
+
+**Example (plaintext):** `DATA SCIENCE`
+
+- Numbers: $D\,A\,T\,A\,S\,C\,I\,E\,N\,C\,E\ \to\ 3,0,19,0,18,2,8,4,13,2,4$
+- Encrypt via $9x+5$ (mod $26$):
+  $$
+  3\!\to\!6,\ 0\!\to\!5,\ 19\!\to\!20,\ 0\!\to\!5,\ 18\!\to\!11,\ 2\!\to\!23,\ 8\!\to\!25,\ 4\!\to\!15,\ 13\!\to\!18,\ 2\!\to\!23,\ 4\!\to\!15
+  $$
+- Back to letters: $6,5,20,5,11,23,25,15,18,23,15\ \to\ \texttt{GFUF LXZPSXP}$
+
+**Quick decode check.** $G(6)\ \mapsto\ D(3)$ because $D(6)=3(6-5)\equiv 3\pmod{26}$;  
+$X(23)\ \mapsto\ C(2)$ since $D(23)=3(23-5)=54\equiv 2\pmod{26}$.
+
+_Data-science tie:_ solving $ax\equiv b\pmod{26}$ is the same modular-inverse algebra behind simple substitution ciphers and modular encodings.
+
+## CRT as "Two Dials"
+
+**Picture.** Two clock faces:
+- Dial A: mod $m_1$ (ticks $0,\dots,m_1-1$)
+- Dial B: mod $m_2$ (ticks $0,\dots,m_2-1$)
+
+Advance **one tick** of absolute time $\Rightarrow$ both hands advance by $+1$ (wrapping around).
+Solving $x\equiv a\pmod{m_1},\ x\equiv b\pmod{m_2}$ means:
+> Find the absolute tick $x$ where Dial A reads $a$ **and** Dial B reads $b$ simultaneously.
+
+*Why it works:* If $\gcd(m_1,m_2)=1$, the pair of readings cycles through **every** $(r_1,r_2)$ exactly once in $0,\dots,m_1m_2-1$.
+
+## Two Dials — Worked Example
+
+**Puzzle.** Find $x$ with $x\equiv 2\pmod 3$ and $x\equiv 1\pmod 5$.
+
+**Dial states (absolute tick $\to$ readings):**
+
+$0\!\to\!(0,0),\ 1\!\to\!(1,1),\ 2\!\to\!(2,2),\ 3\!\to\!(0,3),\ 4\!\to\!(1,4),\ 5\!\to\!(2,0),\ 6\!\to\!(0,1),\ 7\!\to\!(1,2),\ 8\!\to\!(2,3),\ 9\!\to\!(0,4),\ 10\!\to\!(1,0),\ 11\!\to\!(2,1),\ 12\!\to\!(0,2),\ 13\!\to\!(1,3),\ 14\!\to\!(2,4)$
+
+We need $(2,1)$ $\Rightarrow$ occurs at **tick $11$**.  
+**Answer:** $x\equiv 11\pmod{15}$.
+
+## Two Dials — Algebra Behind the Picture
+
+Given $x\equiv a\pmod{m_1},\ x\equiv b\pmod{m_2}$ with $\gcd(m_1,m_2)=1$:
+
+1) Write $x=a+m_1t$.  
+2) Plug in: $a+m_1t\equiv b\pmod{m_2}\ \Rightarrow\ m_1 t\equiv b-a\pmod{m_2}$.  
+3) Since $\gcd(m_1,m_2)=1$, $m_1$ has an inverse $(m_1)^{-1}\pmod{m_2}$, so  
+   $t\equiv (b-a)\,(m_1)^{-1}\pmod{m_2}$.  
+4) Substitute back: $x=a+m_1 t$ and reduce $\bmod\ m_1m_2$.
+
+**Example recap (3 & 5).**  
+$x=2+3t$, and $3t\equiv 1-2\equiv -1\equiv 4\ (\bmod 5)$.  
+$3^{-1}\equiv 2\ (\bmod 5)$, so $t\equiv 4\cdot2\equiv 8\equiv 3\ (\bmod 5)$.  
+Thus $x=2+3\cdot 3=11\ (\bmod 15)$.
+
+
