@@ -354,67 +354,151 @@
     "text": "Does this always work?\nWorks great for: rulebooks where each clause has only 1 positive unit (Horn)\nCan stall on: non-Horn, symmetric choice, more complex domains.\nStall example (unsatisfiable, no units): \\[\n(A\\vee B)\\wedge(A\\vee \\neg B)\\wedge(\\neg A\\vee B)\\wedge(\\neg A\\vee \\neg B)\n\\]\n\nNo unit clauses → our method can’t start.\nIt’s actually unsatisfiable but needs a branch to detect. (try (A) or (A)).\n\nTakeaway: Propagation finds what’s locally forced.\nWhen nothing is locally forced, we need case splits or stronger rules."
   },
   {
-    "objectID": "slides/02_wed_impl.html#announcements",
-    "href": "slides/02_wed_impl.html#announcements",
+    "objectID": "slides/02_fri_quant1.html#announcements",
+    "href": "slides/02_fri_quant1.html#announcements",
     "title": "Discrete Math for Data Science",
     "section": "Announcements",
-    "text": "Announcements\n\nEnroll in PrairieTest here: https://us.prairietest.com/pt/student/course/12361/enroll/392674810508\nSign up for EX1. Practice materials (on PL) coming soon!\nWe will have class THIS friday, but not thereafter.\nTutorials begin next week."
+    "text": "Announcements\n\nEnroll in PrairieTest here: https://us.prairietest.com/pt/student/course/12361/enroll/392674810508\nSign up for EX1. Practice materials (on PL) coming soon!\nTutorials begin next week."
   },
   {
-    "objectID": "slides/02_wed_impl.html#logical-equivalences-1",
-    "href": "slides/02_wed_impl.html#logical-equivalences-1",
-    "title": "Discrete Math for Data Science",
-    "section": "Logical Equivalences",
-    "text": "Logical Equivalences\n\n\n\n\n\nWe have discussed Logical Equivalence (LE) and explored an example. The table illustrates LE that are so important, they have names!\n\nObservations:"
-  },
-  {
-    "objectID": "slides/02_wed_impl.html#logical-equivalence-practice",
-    "href": "slides/02_wed_impl.html#logical-equivalence-practice",
-    "title": "Discrete Math for Data Science",
-    "section": "Logical Equivalence Practice",
-    "text": "Logical Equivalence Practice\nAll graded learning activities in the course will use PrairieLearn.\nNavigate to Activity 1 and complete question 2. Each of you will receive a different version of the problem. Work together in pairs to solve each person’s version.\nhttps://us.prairielearn.com/pl/course_instance/186238/assessment/2562335\n\n  \n    −\n    +\n \n 07:00"
-  },
-  {
-    "objectID": "slides/02_wed_impl.html#implication-1",
-    "href": "slides/02_wed_impl.html#implication-1",
-    "title": "Discrete Math for Data Science",
-    "section": "Implication",
-    "text": "Implication\nConnect operator \\(\\rightarrow\\) to a logically equivalent expression using only and, or, and not.\n\n\n\n\\(p\\)\n\\(q\\)\n\\(p\\rightarrow q\\)\n\\(\\underline{\\hspace{3em}}\\)\n\n\n\n\nF\nF\nT\n\n\n\nF\nT\nT\n\n\n\nT\nF\nF\n\n\n\nT\nT\nT\n\n\n\n\n\nIs this operator commutative?\nNote: \\(p \\rightarrow q \\equiv\\) _______.\n\\(p \\rightarrow q\\) Corresponds to “if \\(p\\) then \\(q\\)”\nWe’re not promising causation, only a truth condition.\n\\(p \\rightarrow q\\) is False only when \\(p\\) is True and \\(q\\) is False.\nGives us mechanism for reasoning (next week)!\n\n\nq and not p is false. so it’s NOT (q^-p) == ??? (apply demorgan)\nPL exercises on Logical equivalence involving implication?\nMore on implication and logical equivalence in tutorial questions\nSuppose \\(p\\equiv\\) T . Then \\(p\\) is a Tautology.\nSuppose \\(p\\equiv\\) F . Then \\(p\\) is a Contradiction."
-  },
-  {
-    "objectID": "slides/02_wed_impl.html#logical-equivalence-proof",
-    "href": "slides/02_wed_impl.html#logical-equivalence-proof",
-    "title": "Discrete Math for Data Science",
-    "section": "Logical Equivalence Proof",
-    "text": "Logical Equivalence Proof\nProve that \\(p \\rightarrow q \\equiv \\neg q \\rightarrow \\neg p\\):"
-  },
-  {
-    "objectID": "slides/02_wed_impl.html#vocabulary",
-    "href": "slides/02_wed_impl.html#vocabulary",
+    "objectID": "slides/02_fri_quant1.html#vocabulary",
+    "href": "slides/02_fri_quant1.html#vocabulary",
     "title": "Discrete Math for Data Science",
     "section": "Vocabulary",
     "text": "Vocabulary\nGiven \\(p\\rightarrow q\\), we define the following 3 terms:\n\n________________ is \\(\\neg q\\rightarrow \\neg p\\)\n________________ is \\(q\\rightarrow p\\)\n________________ is \\(\\neg p\\rightarrow \\neg q\\)\n\nDescribe all the logical equivalences among the 4 statements:\n\nwe’ll see if English can help us!"
   },
   {
-    "objectID": "slides/02_wed_impl.html#converses-check-whats-true",
-    "href": "slides/02_wed_impl.html#converses-check-whats-true",
+    "objectID": "slides/02_fri_quant1.html#converses-check-whats-true",
+    "href": "slides/02_fri_quant1.html#converses-check-whats-true",
     "title": "Discrete Math for Data Science",
     "section": "Converses — check what’s True",
     "text": "Converses — check what’s True\n\n\n\n\n\n\n\n\n\n#\nStatement p→q\np→q\nq→p\n\n\n\n\n1\nTo be empty, a string must have length 0.\n☐\n☐\n\n\n2\nPlaying in the NHL entails being a professional hockey player.\n☐\n☐\n\n\n3\nIf an animal is a mammal, then it is a cat.\n☐\n☐\n\n\n4\nRiding the 99 B-Line counts as public transit.\n☐\n☐\n\n\n5\nIf a dish is spicy, then it is Indian cuisine.\n☐\n☐\n\n\n6\nIf it’s a kitten, then it’s a cat.\n☐\n☐\n\n\n7\nNo song appears on the Billboard Hot 100 without reaching #1.\n☐\n☐\n\n\n8\nIf I live in Totem Park residence, then I live in campus housing.\n☐\n☐\n\n\n9\nIf I eat breakfast, then I ace the quiz.\n☐\n☐\n\n\n10\nIf a movie is a superhero film, then it is an MCU movie.\n☐\n☐\n\n\n11\nIf I’m an only child, then I have zero siblings.\n☐\n☐\n\n\n12\nIf I’m in British Columbia, then I’m in Vancouver.\n☐\n☐"
   },
   {
-    "objectID": "slides/02_wed_impl.html#biconditionals",
-    "href": "slides/02_wed_impl.html#biconditionals",
+    "objectID": "slides/02_fri_quant1.html#biconditionals",
+    "href": "slides/02_fri_quant1.html#biconditionals",
     "title": "Discrete Math for Data Science",
     "section": "Biconditionals",
     "text": "Biconditionals\nWe have a special operator for those implications whose converses are also True:\n  \\((p\\rightarrow q) \\wedge (q\\rightarrow p)\\equiv p\\leftrightarrow q\\)\nSome phrases describing this relationship:\n\nbiconditional\nif and only if (iff)\nequivalent\n\nWhich of the expressions on the previous page are biconditionals?"
   },
   {
-    "objectID": "slides/02_wed_impl.html#words-and-ideas",
-    "href": "slides/02_wed_impl.html#words-and-ideas",
+    "objectID": "slides/02_fri_quant1.html#quantified-predicates",
+    "href": "slides/02_fri_quant1.html#quantified-predicates",
+    "title": "Discrete Math for Data Science",
+    "section": "Quantified Predicates",
+    "text": "Quantified Predicates\nConsider the predicate:\n       \\(H(x)\\): \\(x\\) is a Hero\nIs this a proposition? ____. We add a “quantifier”:\n               \\(H(x)\\): \\(x\\) is a Hero\nNow is it a proposition? ____. We scope the variable:\n                       \\(H(x)\\): \\(x\\) is a Hero\n\n\n\nTwo classic quantifiers:\n  \\(\\forall\\): “For every” or “For all”\n  \\(\\exists\\): “There exists” or “There is at least one”"
+  },
+  {
+    "objectID": "slides/02_fri_quant1.html#quantified-predicates-1",
+    "href": "slides/02_fri_quant1.html#quantified-predicates-1",
+    "title": "Discrete Math for Data Science",
+    "section": "Quantified Predicates",
+    "text": "Quantified Predicates\nIn pairs, complete the worksheet!\n \nWhat did you discover about negation?"
+  },
+  {
+    "objectID": "slides/02_fri_quant1.html#counterexample",
+    "href": "slides/02_fri_quant1.html#counterexample",
+    "title": "Discrete Math for Data Science",
+    "section": "Counterexample",
+    "text": "Counterexample\nSuppose someone says “all comedians are funny,” and you disagree, how would you refute the statement?\n\n\n       \\(\\forall x, C(x)\\rightarrow F(x)\\)\n\n\n\n\nYour immediate response: __________\nThis evidence of refutation is called a _______________.\nAnother way:\nApplies specifically to \\(\\neg\\forall\\)"
+  },
+  {
+    "objectID": "slides/02_fri_quant1.html#witness",
+    "href": "slides/02_fri_quant1.html#witness",
+    "title": "Discrete Math for Data Science",
+    "section": "Witness",
+    "text": "Witness\nSuppose someone says “there is a funny comedian,” and you disagree, how could they justify their statement?\n\n\n       \\(\\exists x, C(x)\\wedge F(x)\\)\n\n\nTheir immediate response: __________\nThis evidence of justification is called a _______________.\nApplies specifically to \\(\\exists\\)\nAside: Why not \\(\\exists x, C(x)\\rightarrow F(x)\\)?"
+  },
+  {
+    "objectID": "slides/02_fri_quant1.html#code-patterns",
+    "href": "slides/02_fri_quant1.html#code-patterns",
+    "title": "Discrete Math for Data Science",
+    "section": "Code Patterns",
+    "text": "Code Patterns"
+  },
+  {
+    "objectID": "slides/02_fri_quant1.html#nested-quantifiers",
+    "href": "slides/02_fri_quant1.html#nested-quantifiers",
+    "title": "Discrete Math for Data Science",
+    "section": "Nested Quantifiers",
+    "text": "Nested Quantifiers\nIt will not surprise you that we can use multiple quantifiers:\n \n     \\(\\forall x, \\forall y \\text{ Knows}(x,y)\\)\n\n\nIn pairs, complete the second worksheet."
+  },
+  {
+    "objectID": "slides/02_fri_quant1.html#words-and-ideas",
+    "href": "slides/02_fri_quant1.html#words-and-ideas",
     "title": "Discrete Math for Data Science",
     "section": "Words and Ideas",
-    "text": "Words and Ideas\nLogical Equivalence\nImplication"
+    "text": "Words and Ideas\nQuantifiers – “For all” and “There exists”\nCounterexample and Witness\nNegating quantifiers\nNested Quantifiers"
+  },
+  {
+    "objectID": "slides/misc_skipped.html#announcements",
+    "href": "slides/misc_skipped.html#announcements",
+    "title": "Discrete Math for Data Science",
+    "section": "Announcements",
+    "text": "Announcements"
+  },
+  {
+    "objectID": "slides/misc_skipped.html#last-demo",
+    "href": "slides/misc_skipped.html#last-demo",
+    "title": "Discrete Math for Data Science",
+    "section": "Last Demo",
+    "text": "Last Demo\nThis is a tromino:     \nThis is a \\(n\\) by \\(n\\) deficient grid:\n\n       \n\n\n\nClaim: Every \\(2^n\\) by \\(2^n\\) deficient grid can be tiled with trominos."
+  },
+  {
+    "objectID": "slides/misc_skipped.html#tile-work",
+    "href": "slides/misc_skipped.html#tile-work",
+    "title": "Discrete Math for Data Science",
+    "section": "Tile Work",
+    "text": "Tile Work\nClaim: Every \\(2^n\\) by \\(2^n\\) deficient grid can be tiled with trominos.\n \nProof: Line 1:\n\n\nLine 2:\n \nSmall case(s):"
+  },
+  {
+    "objectID": "slides/misc_skipped.html#tile-work-1",
+    "href": "slides/misc_skipped.html#tile-work-1",
+    "title": "Discrete Math for Data Science",
+    "section": "Tile Work",
+    "text": "Tile Work\nClaim: Every \\(2^n\\) by \\(2^n\\) deficient grid can be tiled with trominos.\n \nProof continued… Inductive case:"
+  },
+  {
+    "objectID": "slides/misc_skipped.html#toothpicks",
+    "href": "slides/misc_skipped.html#toothpicks",
+    "title": "Discrete Math for Data Science",
+    "section": "Toothpicks",
+    "text": "Toothpicks\nHow many toothpicks in an \\(n\\cross n\\) grid made of toothpicks?\n\n\nDraw the sequence:\n \nFind the recurrence:\n \nSolve the closed form for the recurrence:"
+  },
+  {
+    "objectID": "slides/misc_skipped.html#buds",
+    "href": "slides/misc_skipped.html#buds",
+    "title": "Discrete Math for Data Science",
+    "section": "Buds",
+    "text": "Buds"
+  },
+  {
+    "objectID": "slides/misc_skipped.html#affine-cipher-explicit-encodedecode",
+    "href": "slides/misc_skipped.html#affine-cipher-explicit-encodedecode",
+    "title": "Discrete Math for Data Science",
+    "section": "Affine Cipher (explicit encode/decode)",
+    "text": "Affine Cipher (explicit encode/decode)\nAlphabet. Map letters \\(A\\!\\to\\!0,\\ B\\!\\to\\!1,\\ \\dots,\\ Z\\!\\to\\!25\\) (ignore spaces/punctuation).\nKey. Choose \\(a=9,\\ b=5,\\ m=26\\). Since \\(\\gcd(9,26)=1\\), \\(a^{-1}\\equiv 3\\pmod{26}\\).\nEncrypt. \\(E(x)\\equiv (9x+5)\\bmod 26\\)\nDecrypt. \\(D(y)\\equiv a^{-1}(y-b)\\equiv 3(y-5)\\bmod 26\\)\nExample (plaintext): DATA SCIENCE\n\nNumbers: \\(D\\,A\\,T\\,A\\,S\\,C\\,I\\,E\\,N\\,C\\,E\\ \\to\\ 3,0,19,0,18,2,8,4,13,2,4\\)\nEncrypt via \\(9x+5\\) (mod \\(26\\)): \\[\n3\\!\\to\\!6,\\ 0\\!\\to\\!5,\\ 19\\!\\to\\!20,\\ 0\\!\\to\\!5,\\ 18\\!\\to\\!11,\\ 2\\!\\to\\!23,\\ 8\\!\\to\\!25,\\ 4\\!\\to\\!15,\\ 13\\!\\to\\!18,\\ 2\\!\\to\\!23,\\ 4\\!\\to\\!15\n\\]\nBack to letters: \\(6,5,20,5,11,23,25,15,18,23,15\\ \\to\\ \\texttt{GFUF LXZPSXP}\\)\n\nQuick decode check. \\(G(6)\\ \\mapsto\\ D(3)\\) because \\(D(6)=3(6-5)\\equiv 3\\pmod{26}\\);\n\\(X(23)\\ \\mapsto\\ C(2)\\) since \\(D(23)=3(23-5)=54\\equiv 2\\pmod{26}\\).\nData-science tie: solving \\(ax\\equiv b\\pmod{26}\\) is the same modular-inverse algebra behind simple substitution ciphers and modular encodings."
+  },
+  {
+    "objectID": "slides/misc_skipped.html#crt-as-two-dials",
+    "href": "slides/misc_skipped.html#crt-as-two-dials",
+    "title": "Discrete Math for Data Science",
+    "section": "CRT as “Two Dials”",
+    "text": "CRT as “Two Dials”\nPicture. Two clock faces: - Dial A: mod \\(m_1\\) (ticks \\(0,\\dots,m_1-1\\)) - Dial B: mod \\(m_2\\) (ticks \\(0,\\dots,m_2-1\\))\nAdvance one tick of absolute time \\(\\Rightarrow\\) both hands advance by \\(+1\\) (wrapping around). Solving \\(x\\equiv a\\pmod{m_1},\\ x\\equiv b\\pmod{m_2}\\) means: &gt; Find the absolute tick \\(x\\) where Dial A reads \\(a\\) and Dial B reads \\(b\\) simultaneously.\nWhy it works: If \\(\\gcd(m_1,m_2)=1\\), the pair of readings cycles through every \\((r_1,r_2)\\) exactly once in \\(0,\\dots,m_1m_2-1\\)."
+  },
+  {
+    "objectID": "slides/misc_skipped.html#two-dials-worked-example",
+    "href": "slides/misc_skipped.html#two-dials-worked-example",
+    "title": "Discrete Math for Data Science",
+    "section": "Two Dials — Worked Example",
+    "text": "Two Dials — Worked Example\nPuzzle. Find \\(x\\) with \\(x\\equiv 2\\pmod 3\\) and \\(x\\equiv 1\\pmod 5\\).\nDial states (absolute tick \\(\\to\\) readings):\n\\(0\\!\\to\\!(0,0),\\ 1\\!\\to\\!(1,1),\\ 2\\!\\to\\!(2,2),\\ 3\\!\\to\\!(0,3),\\ 4\\!\\to\\!(1,4),\\ 5\\!\\to\\!(2,0),\\ 6\\!\\to\\!(0,1),\\ 7\\!\\to\\!(1,2),\\ 8\\!\\to\\!(2,3),\\ 9\\!\\to\\!(0,4),\\ 10\\!\\to\\!(1,0),\\ 11\\!\\to\\!(2,1),\\ 12\\!\\to\\!(0,2),\\ 13\\!\\to\\!(1,3),\\ 14\\!\\to\\!(2,4)\\)\nWe need \\((2,1)\\) \\(\\Rightarrow\\) occurs at tick \\(11\\).\nAnswer: \\(x\\equiv 11\\pmod{15}\\)."
+  },
+  {
+    "objectID": "slides/misc_skipped.html#two-dials-algebra-behind-the-picture",
+    "href": "slides/misc_skipped.html#two-dials-algebra-behind-the-picture",
+    "title": "Discrete Math for Data Science",
+    "section": "Two Dials — Algebra Behind the Picture",
+    "text": "Two Dials — Algebra Behind the Picture\nGiven \\(x\\equiv a\\pmod{m_1},\\ x\\equiv b\\pmod{m_2}\\) with \\(\\gcd(m_1,m_2)=1\\):\n\nWrite \\(x=a+m_1t\\).\n\nPlug in: \\(a+m_1t\\equiv b\\pmod{m_2}\\ \\Rightarrow\\ m_1 t\\equiv b-a\\pmod{m_2}\\).\n\nSince \\(\\gcd(m_1,m_2)=1\\), \\(m_1\\) has an inverse \\((m_1)^{-1}\\pmod{m_2}\\), so\n\\(t\\equiv (b-a)\\,(m_1)^{-1}\\pmod{m_2}\\).\n\nSubstitute back: \\(x=a+m_1 t\\) and reduce \\(\\bmod\\ m_1m_2\\).\n\nExample recap (3 & 5).\n\\(x=2+3t\\), and \\(3t\\equiv 1-2\\equiv -1\\equiv 4\\ (\\bmod 5)\\).\n\\(3^{-1}\\equiv 2\\ (\\bmod 5)\\), so \\(t\\equiv 4\\cdot2\\equiv 8\\equiv 3\\ (\\bmod 5)\\).\nThus \\(x=2+3\\cdot 3=11\\ (\\bmod 15)\\)."
   },
   {
     "objectID": "slides/01_fri_truth.html#communications",
@@ -785,81 +869,151 @@
     "text": "Words and Ideas\nQuantifiers – “For all” and “There exists”\nCounterexample and Witness\nNegating quantifiers\nNested Quantifiers"
   },
   {
-    "objectID": "slides/02_fri_quant1.html#announcements",
-    "href": "slides/02_fri_quant1.html#announcements",
+    "objectID": "slides/02_wed_impl.html#announcements",
+    "href": "slides/02_wed_impl.html#announcements",
     "title": "Discrete Math for Data Science",
     "section": "Announcements",
-    "text": "Announcements\n\nEnroll in PrairieTest here: https://us.prairietest.com/pt/student/course/12361/enroll/392674810508\nSign up for EX1. Practice materials (on PL) coming soon!\nTutorials begin next week."
+    "text": "Announcements\n\nEnroll in PrairieTest here: https://us.prairietest.com/pt/student/course/12361/enroll/392674810508\nSign up for EX1. Practice materials (on PL) coming soon!\nWe will have class THIS friday, but not thereafter.\nTutorials begin next week."
   },
   {
-    "objectID": "slides/02_fri_quant1.html#vocabulary",
-    "href": "slides/02_fri_quant1.html#vocabulary",
+    "objectID": "slides/02_wed_impl.html#logical-equivalences-1",
+    "href": "slides/02_wed_impl.html#logical-equivalences-1",
+    "title": "Discrete Math for Data Science",
+    "section": "Logical Equivalences",
+    "text": "Logical Equivalences\n\n\n\n\n\nWe have discussed Logical Equivalence (LE) and explored an example. The table illustrates LE that are so important, they have names!\n\nObservations:"
+  },
+  {
+    "objectID": "slides/02_wed_impl.html#logical-equivalence-practice",
+    "href": "slides/02_wed_impl.html#logical-equivalence-practice",
+    "title": "Discrete Math for Data Science",
+    "section": "Logical Equivalence Practice",
+    "text": "Logical Equivalence Practice\nAll graded learning activities in the course will use PrairieLearn.\nNavigate to Activity 1 and complete question 2. Each of you will receive a different version of the problem. Work together in pairs to solve each person’s version.\nhttps://us.prairielearn.com/pl/course_instance/186238/assessment/2562335\n\n  \n    −\n    +\n \n 07:00"
+  },
+  {
+    "objectID": "slides/02_wed_impl.html#implication-1",
+    "href": "slides/02_wed_impl.html#implication-1",
+    "title": "Discrete Math for Data Science",
+    "section": "Implication",
+    "text": "Implication\nConnect operator \\(\\rightarrow\\) to a logically equivalent expression using only and, or, and not.\n\n\n\n\\(p\\)\n\\(q\\)\n\\(p\\rightarrow q\\)\n\\(\\underline{\\hspace{3em}}\\)\n\n\n\n\nF\nF\nT\n\n\n\nF\nT\nT\n\n\n\nT\nF\nF\n\n\n\nT\nT\nT\n\n\n\n\n\nIs this operator commutative?\nNote: \\(p \\rightarrow q \\equiv\\) _______.\n\\(p \\rightarrow q\\) Corresponds to “if \\(p\\) then \\(q\\)”\nWe’re not promising causation, only a truth condition.\n\\(p \\rightarrow q\\) is False only when \\(p\\) is True and \\(q\\) is False.\nGives us mechanism for reasoning (next week)!\n\n\nq and not p is false. so it’s NOT (q^-p) == ??? (apply demorgan)\nPL exercises on Logical equivalence involving implication?\nMore on implication and logical equivalence in tutorial questions\nSuppose \\(p\\equiv\\) T . Then \\(p\\) is a Tautology.\nSuppose \\(p\\equiv\\) F . Then \\(p\\) is a Contradiction."
+  },
+  {
+    "objectID": "slides/02_wed_impl.html#logical-equivalence-proof",
+    "href": "slides/02_wed_impl.html#logical-equivalence-proof",
+    "title": "Discrete Math for Data Science",
+    "section": "Logical Equivalence Proof",
+    "text": "Logical Equivalence Proof\nProve that \\(p \\rightarrow q \\equiv \\neg q \\rightarrow \\neg p\\):"
+  },
+  {
+    "objectID": "slides/02_wed_impl.html#vocabulary",
+    "href": "slides/02_wed_impl.html#vocabulary",
     "title": "Discrete Math for Data Science",
     "section": "Vocabulary",
     "text": "Vocabulary\nGiven \\(p\\rightarrow q\\), we define the following 3 terms:\n\n________________ is \\(\\neg q\\rightarrow \\neg p\\)\n________________ is \\(q\\rightarrow p\\)\n________________ is \\(\\neg p\\rightarrow \\neg q\\)\n\nDescribe all the logical equivalences among the 4 statements:\n\nwe’ll see if English can help us!"
   },
   {
-    "objectID": "slides/02_fri_quant1.html#converses-check-whats-true",
-    "href": "slides/02_fri_quant1.html#converses-check-whats-true",
+    "objectID": "slides/02_wed_impl.html#converses-check-whats-true",
+    "href": "slides/02_wed_impl.html#converses-check-whats-true",
     "title": "Discrete Math for Data Science",
     "section": "Converses — check what’s True",
     "text": "Converses — check what’s True\n\n\n\n\n\n\n\n\n\n#\nStatement p→q\np→q\nq→p\n\n\n\n\n1\nTo be empty, a string must have length 0.\n☐\n☐\n\n\n2\nPlaying in the NHL entails being a professional hockey player.\n☐\n☐\n\n\n3\nIf an animal is a mammal, then it is a cat.\n☐\n☐\n\n\n4\nRiding the 99 B-Line counts as public transit.\n☐\n☐\n\n\n5\nIf a dish is spicy, then it is Indian cuisine.\n☐\n☐\n\n\n6\nIf it’s a kitten, then it’s a cat.\n☐\n☐\n\n\n7\nNo song appears on the Billboard Hot 100 without reaching #1.\n☐\n☐\n\n\n8\nIf I live in Totem Park residence, then I live in campus housing.\n☐\n☐\n\n\n9\nIf I eat breakfast, then I ace the quiz.\n☐\n☐\n\n\n10\nIf a movie is a superhero film, then it is an MCU movie.\n☐\n☐\n\n\n11\nIf I’m an only child, then I have zero siblings.\n☐\n☐\n\n\n12\nIf I’m in British Columbia, then I’m in Vancouver.\n☐\n☐"
   },
   {
-    "objectID": "slides/02_fri_quant1.html#biconditionals",
-    "href": "slides/02_fri_quant1.html#biconditionals",
+    "objectID": "slides/02_wed_impl.html#biconditionals",
+    "href": "slides/02_wed_impl.html#biconditionals",
     "title": "Discrete Math for Data Science",
     "section": "Biconditionals",
     "text": "Biconditionals\nWe have a special operator for those implications whose converses are also True:\n  \\((p\\rightarrow q) \\wedge (q\\rightarrow p)\\equiv p\\leftrightarrow q\\)\nSome phrases describing this relationship:\n\nbiconditional\nif and only if (iff)\nequivalent\n\nWhich of the expressions on the previous page are biconditionals?"
   },
   {
-    "objectID": "slides/02_fri_quant1.html#quantified-predicates",
-    "href": "slides/02_fri_quant1.html#quantified-predicates",
-    "title": "Discrete Math for Data Science",
-    "section": "Quantified Predicates",
-    "text": "Quantified Predicates\nConsider the predicate:\n       \\(H(x)\\): \\(x\\) is a Hero\nIs this a proposition? ____. We add a “quantifier”:\n               \\(H(x)\\): \\(x\\) is a Hero\nNow is it a proposition? ____. We scope the variable:\n                       \\(H(x)\\): \\(x\\) is a Hero\n\n\n\nTwo classic quantifiers:\n  \\(\\forall\\): “For every” or “For all”\n  \\(\\exists\\): “There exists” or “There is at least one”"
-  },
-  {
-    "objectID": "slides/02_fri_quant1.html#quantified-predicates-1",
-    "href": "slides/02_fri_quant1.html#quantified-predicates-1",
-    "title": "Discrete Math for Data Science",
-    "section": "Quantified Predicates",
-    "text": "Quantified Predicates\nIn pairs, complete the worksheet!\n \nWhat did you discover about negation?"
-  },
-  {
-    "objectID": "slides/02_fri_quant1.html#counterexample",
-    "href": "slides/02_fri_quant1.html#counterexample",
-    "title": "Discrete Math for Data Science",
-    "section": "Counterexample",
-    "text": "Counterexample\nSuppose someone says “all comedians are funny,” and you disagree, how would you refute the statement?\n\n\n       \\(\\forall x, C(x)\\rightarrow F(x)\\)\n\n\n\n\nYour immediate response: __________\nThis evidence of refutation is called a _______________.\nAnother way:\nApplies specifically to \\(\\neg\\forall\\)"
-  },
-  {
-    "objectID": "slides/02_fri_quant1.html#witness",
-    "href": "slides/02_fri_quant1.html#witness",
-    "title": "Discrete Math for Data Science",
-    "section": "Witness",
-    "text": "Witness\nSuppose someone says “there is a funny comedian,” and you disagree, how could they justify their statement?\n\n\n       \\(\\exists x, C(x)\\wedge F(x)\\)\n\n\nTheir immediate response: __________\nThis evidence of justification is called a _______________.\nApplies specifically to \\(\\exists\\)\nAside: Why not \\(\\exists x, C(x)\\rightarrow F(x)\\)?"
-  },
-  {
-    "objectID": "slides/02_fri_quant1.html#code-patterns",
-    "href": "slides/02_fri_quant1.html#code-patterns",
-    "title": "Discrete Math for Data Science",
-    "section": "Code Patterns",
-    "text": "Code Patterns"
-  },
-  {
-    "objectID": "slides/02_fri_quant1.html#nested-quantifiers",
-    "href": "slides/02_fri_quant1.html#nested-quantifiers",
-    "title": "Discrete Math for Data Science",
-    "section": "Nested Quantifiers",
-    "text": "Nested Quantifiers\nIt will not surprise you that we can use multiple quantifiers:\n \n     \\(\\forall x, \\forall y \\text{ Knows}(x,y)\\)\n\n\nIn pairs, complete the second worksheet."
-  },
-  {
-    "objectID": "slides/02_fri_quant1.html#words-and-ideas",
-    "href": "slides/02_fri_quant1.html#words-and-ideas",
+    "objectID": "slides/02_wed_impl.html#words-and-ideas",
+    "href": "slides/02_wed_impl.html#words-and-ideas",
     "title": "Discrete Math for Data Science",
     "section": "Words and Ideas",
-    "text": "Words and Ideas\nQuantifiers – “For all” and “There exists”\nCounterexample and Witness\nNegating quantifiers\nNested Quantifiers"
+    "text": "Words and Ideas\nLogical Equivalence\nImplication"
+  },
+  {
+    "objectID": "slides/05_wed_mod.html#announcements",
+    "href": "slides/05_wed_mod.html#announcements",
+    "title": "Discrete Math for Data Science",
+    "section": "Announcements",
+    "text": "Announcements"
+  },
+  {
+    "objectID": "slides/05_wed_mod.html#goals",
+    "href": "slides/05_wed_mod.html#goals",
+    "title": "Discrete Math for Data Science",
+    "section": "Goals",
+    "text": "Goals\n\nRead and use \\(a\\equiv b\\pmod m\\) as “\\(m\\) divides \\(a-b\\).”\nCompute and reason with \\(\\bmod\\) for \\(+\\), \\(-\\), \\(\\times\\), and exponents.\nFind/recognize modular inverses and solve a linear congruence.\nExplore a 2-dial puzzle."
+  },
+  {
+    "objectID": "slides/05_wed_mod.html#warm-up",
+    "href": "slides/05_wed_mod.html#warm-up",
+    "title": "Discrete Math for Data Science",
+    "section": "Warm Up",
+    "text": "Warm Up\nWhat’s the rightmost digit of \\(7^{2025}\\)?\n \n \n \n \n\nData Science Note: Rightmost digit problems are \\(\\pmod {10}\\) — exactly the arithmetic behind simple checksums, used to assure data integrity, and hash buckets which we’ll study next week!\n\n\n  \n    −\n    +\n \n 05:00"
+  },
+  {
+    "objectID": "slides/05_wed_mod.html#congruence-bmod-m",
+    "href": "slides/05_wed_mod.html#congruence-bmod-m",
+    "title": "Discrete Math for Data Science",
+    "section": "Congruence \\(\\bmod m\\)",
+    "text": "Congruence \\(\\bmod m\\)\n \nDefinition: \\(a\\equiv b\\pmod m \\iff m\\mid(a-b)\\).\n \nQuick checks:\n \n\n\\(29\\equiv \\underline{~~~~~}\\quad \\pmod 7\\)\n\n\n\n\n\\(-11\\equiv \\underline{~~~~~}\\quad\\pmod 6\\)\n\n\nTiming: ~3–4 min. Answers: (a) \\(1\\); (b) \\(1\\)."
+  },
+  {
+    "objectID": "slides/05_wed_mod.html#operators-bmod-m",
+    "href": "slides/05_wed_mod.html#operators-bmod-m",
+    "title": "Discrete Math for Data Science",
+    "section": "Operators \\(\\bmod m\\)",
+    "text": "Operators \\(\\bmod m\\)\n \nWork \\(\\bmod 7\\):\n \n\n\\((29+12)\\bmod 7 \\equiv \\underline{~~~~~}\\quad\\bmod 7\\)\n\\((5\\cdot 9)\\bmod 7\\equiv \\underline{~~~~~}\\quad\\bmod 7\\)\n\n\\((4-18)\\bmod 7\\equiv \\underline{~~~~~}\\quad\\bmod 7\\)\n\n\\(2^{5}\\bmod 7\\equiv \\underline{~~~~~}\\quad\\bmod 7\\)\n\n \nWhat are the rules?\n\nTiming: ~3 min. Answers: \\(6,3,0,4\\). Key properties: addition/multiplication compatible with \\(\\pmod m\\). d is interesting… 2^3 = 1. hint to warm up!"
+  },
+  {
+    "objectID": "slides/05_wed_mod.html#modular-arithmetic-1",
+    "href": "slides/05_wed_mod.html#modular-arithmetic-1",
+    "title": "Discrete Math for Data Science",
+    "section": "Modular Arithmetic",
+    "text": "Modular Arithmetic\n\nDefinition: \\(a \\equiv b \\pmod m \\iff m \\mid (a-b)\\)\nIf \\(a \\equiv b \\pmod m\\) and \\(c \\equiv d \\pmod m\\), then:\n\nAddition: \\(a + c \\equiv b + d \\pmod m\\)\nSubtraction: \\(a - c \\equiv b - d \\pmod m\\)\nMultiplication: \\(ac \\equiv bd \\pmod m\\)\nExponentiation: for any integer \\(n \\ge 0\\), \\(a^{n} \\equiv b^{n} \\pmod m\\)\n\nReduce anytime: reduce intermediate results mod \\(m\\) at any step.\nCaution (division): “Division” is only valid when a modular inverse exists.\n\\(\\gcd(a,m)=1\\Rightarrow a^{-1}\\) exists, and \\(ax \\equiv b \\pmod m \\Rightarrow x \\equiv a^{-1}b \\pmod m\\).\nCaution (exponents): From \\(a\\equiv b \\pmod m\\) you may raise the bases: \\(a^n\\equiv b^n\\), but in general \\(c^{a}\\not\\equiv c^{b}\\pmod m\\)."
+  },
+  {
+    "objectID": "slides/05_wed_mod.html#proof-1-multiplication",
+    "href": "slides/05_wed_mod.html#proof-1-multiplication",
+    "title": "Discrete Math for Data Science",
+    "section": "Proof 1: Multiplication",
+    "text": "Proof 1: Multiplication\nClaim: If \\(a\\equiv b\\pmod m\\), and \\(c\\equiv d\\pmod m\\) then \\(ac\\equiv bd\\pmod m\\).\nProof:"
+  },
+  {
+    "objectID": "slides/05_wed_mod.html#proof-2-exponentiation",
+    "href": "slides/05_wed_mod.html#proof-2-exponentiation",
+    "title": "Discrete Math for Data Science",
+    "section": "Proof 2: Exponentiation",
+    "text": "Proof 2: Exponentiation\nClaim: If \\(a\\equiv b\\pmod m\\), then for all \\(n\\ge1\\), \\(a^n\\equiv b^n\\pmod m\\).\nProof: Consider arbitrary integers \\(a\\), \\(b\\), \\(m\\) so that \\(a\\equiv b\\pmod m\\), and an arbitrary integer \\(n\\ge1\\).\n(IH) Assume that for any \\(j &lt; n\\), \\(a^j\\equiv b^j\\pmod m\\).\nCase 1 \\((n=1)\\):\n \nCase 2 \\((n&gt;1)\\):"
+  },
+  {
+    "objectID": "slides/05_wed_mod.html#discovery-inverses-bmod-a-prime",
+    "href": "slides/05_wed_mod.html#discovery-inverses-bmod-a-prime",
+    "title": "Discrete Math for Data Science",
+    "section": "Discovery: Inverses \\(\\bmod\\) a Prime",
+    "text": "Discovery: Inverses \\(\\bmod\\) a Prime\nTask \\(\\pmod 7\\): Fill this table and find inverses of \\(1,2,3,4\\).\n\n\n\n\\(\\times\\)\n\\(1\\)\n\\(2\\)\n\\(3\\)\n\\(4\\)\n\n\n\n\n\\(1\\)\n\n\n\n\n\n\n\\(2\\)\n\n\n\n\n\n\n\\(3\\)\n\n\n\n\n\n\n\\(4\\)\n\n\n\n\n\n\n\nThen answer: \\(1^{-1},\\,2^{-1},\\,3^{-1},\\,4^{-1}\\ \\pmod 7\\).\n\nTiming: ~6–7 min. Answers: \\(1^{-1}\\equiv1,\\ 2^{-1}\\equiv4,\\ 3^{-1}\\equiv5\\ (\\bmod 7)\\). Takeaway: all nonzero residues mod prime \\(p\\) have inverses."
+  },
+  {
+    "objectID": "slides/05_wed_mod.html#linear-congruences",
+    "href": "slides/05_wed_mod.html#linear-congruences",
+    "title": "Discrete Math for Data Science",
+    "section": "Linear Congruences",
+    "text": "Linear Congruences\n \nSolve:\n\n\\(9x\\equiv 1\\pmod{26}\\)\n\n \n \n\n\\(9x\\equiv 5\\pmod{26}\\)"
+  },
+  {
+    "objectID": "slides/05_wed_mod.html#big-powers-fast",
+    "href": "slides/05_wed_mod.html#big-powers-fast",
+    "title": "Discrete Math for Data Science",
+    "section": "Big Powers Fast",
+    "text": "Big Powers Fast\n \nPick one:\n\n\\(2^{1000}\\pmod 7\\)\n\n\\(3^{12345}\\pmod{10}\\)\n\n\\(5^{2024}\\pmod{13}\\)\n\n\nTiming: ~6–8 min. 1) \\(2^{3}\\equiv1\\Rightarrow 2^{1000}\\equiv 2\\). 2) Period \\(4\\) mod \\(10\\); \\(12345\\equiv1\\Rightarrow 3\\). 3) \\(5^2\\equiv-1\\Rightarrow 5^4\\equiv1\\); \\(2024\\equiv0\\pmod4\\Rightarrow 1\\).\nData-science tie: “Cycle detection helps compute modular hashes fast in streaming.”"
+  },
+  {
+    "objectID": "slides/05_wed_mod.html#two-dials",
+    "href": "slides/05_wed_mod.html#two-dials",
+    "title": "Discrete Math for Data Science",
+    "section": "Two Dials",
+    "text": "Two Dials\nFind \\(x\\pmod {15}\\) such that\n\\(x\\equiv 2\\pmod 3\\) and \\(x\\equiv 1\\pmod 5\\).\n\n  \n    −\n    +\n \n 05:00\n \n\nTiming: ~6–8 min. Numbers \\(\\equiv1\\pmod5\\): \\(1,6,11,\\dots\\); mod \\(3\\) these are \\(1,0,2,\\dots\\) → pick \\(11\\). Unique mod \\(15\\)."
   },
   {
     "objectID": "slides/04_wed_induction.html#announcements",
