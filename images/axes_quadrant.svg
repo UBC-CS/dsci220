@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300" role="img" aria-label="Positive x and y axes, first quadrant">
+  <!-- Axes origin at (40,260) -->
+  <line x1="40" y1="260" x2="380" y2="260" stroke="#111" stroke-width="3" stroke-linecap="round"/>
+  <line x1="40" y1="260" x2="40" y2="20"  stroke="#111" stroke-width="3" stroke-linecap="round"/>
+  <!-- Arrowheads -->
+  <polygon points="380,260 366,254 366,266" fill="#111"/>
+  <polygon points="40,20 34,34 46,34" fill="#111"/>
+</svg>

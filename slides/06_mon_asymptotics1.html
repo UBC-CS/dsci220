@@ -14,7 +14,7 @@
 <script src="../site_libs/quarto-contrib/iconify-3.0.0/iconify-icon.min.js"></script><meta charset="utf-8">
   <meta name="generator" content="quarto-1.8.25">
 
-  <meta name="dcterms.date" content="2025-09-10">
+  <meta name="dcterms.date" content="2025-10-06">
   <title>DSCI 220: Discrete Math for Data Science – Discrete Math for Data Science</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -150,112 +150,136 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">September 10, 2025</p>
+  <p class="date">October 6, 2025</p>
 </section>
-<section id="announcements" class="slide level2 smaller">
+<section id="announcements" class="slide level2">
 <h2>Announcements</h2>
-<ul>
-<li>Enroll in PrairieTest here: <a href="https://us.prairietest.com/pt/student/course/12361/enroll/392674810508" class="uri">https://us.prairietest.com/pt/student/course/12361/enroll/392674810508</a></li>
-<li>Sign up for EX1. Practice materials (on PL) coming soon!</li>
-<li>We will have class THIS friday, but not thereafter.</li>
-<li>Tutorials begin next week.</li>
-</ul>
+<style>
+.small { font-size: 0.9rem; }
+.tiny { font-size: 0.8rem; }
+.rule { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; }
+.card { border: 2px solid #ddd; border-radius: 12px; padding: 14px 16px; margin: 10px 0; }
+.center { text-align: center; }
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.badge { display:inline-block; padding:2px 8px; border:1px solid #bbb; border-radius:10px; font-size:.8rem; }
+</style>
 </section>
 <section>
-<section id="logical-equivalences" class="title-slide slide level1 center">
-<h1>Logical Equivalences</h1>
+<section id="modular-arithmetic" class="title-slide slide level1 center">
+<h1>Modular Arithmetic</h1>
 
 </section>
-<section id="logical-equivalences-1" class="slide level2">
-<h2>Logical Equivalences</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p><a href="https://en.wikipedia.org/wiki/Logical_equivalence"><img data-src="../images/LE.png" alt="logical equivalences"></a></p>
-</div><div class="column" style="width:50%;">
-<div class="small-font-size">
-<p>We have discussed Logical Equivalence (LE) and explored an example. The table illustrates LE that are so important, they have names!</p>
-</div>
-<p>Observations:</p>
+<section id="modular-arithmetic-1" class="slide level2 smaller">
+<h2>Modular Arithmetic</h2>
+<div class="card">
+<p><strong>Definition:</strong> <span class="math inline">\(a \equiv b \pmod m \iff m \mid (a-b)\)</span></p>
+<p><strong>If</strong> <span class="math inline">\(a \equiv b \pmod m\)</span> <strong>and</strong> <span class="math inline">\(c \equiv d \pmod m\)</span>, <strong>then:</strong></p>
 <ul>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
+<li><strong>Addition:</strong> <span class="math inline">\(a + c \equiv b + d \pmod m\)</span></li>
+<li><strong>Subtraction:</strong> <span class="math inline">\(a - c \equiv b - d \pmod m\)</span></li>
+<li><strong>Multiplication:</strong> <span class="math inline">\(ac \equiv bd \pmod m\)</span></li>
+<li><strong>Exponentiation:</strong> for any integer <span class="math inline">\(n \ge 0\)</span>, <span class="math inline">\(a^{n} \equiv b^{n} \pmod m\)</span></li>
 </ul>
-</div></div>
+<p><strong>Reduce anytime:</strong> reduce intermediate results mod <span class="math inline">\(m\)</span> at any step.</p>
+<p><strong>Caution (division):</strong> “Division” is only valid when a modular inverse exists.<br>
+<span class="math inline">\(\gcd(a,m)=1\Rightarrow a^{-1}\)</span> exists, and <span class="math inline">\(ax \equiv b \pmod m \Rightarrow x \equiv a^{-1}b \pmod m\)</span>.</p>
+<p><strong>Caution (exponents):</strong> From <span class="math inline">\(a\equiv b \pmod m\)</span> you may raise the <strong>bases</strong>: <span class="math inline">\(a^n\equiv b^n\)</span>, but in general <span class="math inline">\(c^{a}\not\equiv c^{b}\pmod m\)</span>.</p>
+</div>
 </section>
-<section id="logical-equivalence-practice" class="slide level2 activity">
-<h2>Logical Equivalence Practice</h2>
-<p>All graded learning activities in the course will use <em>PrairieLearn</em>.</p>
-<p>Navigate to Activity 1 and complete question 2. Each of you will receive a different version of the problem. Work together in pairs to solve each person’s version.</p>
-<p><a href="https://us.prairielearn.com/pl/course_instance/186238/assessment/2562335" class="uri">https://us.prairielearn.com/pl/course_instance/186238/assessment/2562335</a></p>
-<div id="timer_5a400b5c12641d1d3d24681346c4734374e7f873" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<section id="inverse-bmod-m" class="slide level2">
+<h2>Inverse <span class="math inline">\(\bmod m\)</span></h2>
+<p>When does a number <span class="math inline">\(a\)</span> <em>not</em> have an inverse <span class="math inline">\(\bmod m\)</span>?</p>
+<p>Consider <span class="math inline">\(5x \bmod 12\)</span>:</p>
+<center>
+<img src="../images/watchface.png" width="30%" height="30%"><img src="../images/watchface.png" width="30%" height="30%">
+</center>
+<p>Consider <span class="math inline">\(9x \bmod 12\)</span>:</p>
+<p>&nbsp;</p>
+<p>A number <span class="math inline">\(a\)</span> has an inverse <span class="math inline">\(\bmod m\)</span> iff <span class="math inline">\(\gcd(a,m)= 1\)</span>.</p>
+</section>
+<section id="linear-congruences" class="slide level2">
+<h2>Linear Congruences</h2>
+<p>&nbsp;</p>
+<p><strong>Solve:</strong></p>
+<ul>
+<li><span class="math inline">\(9x\equiv 1\pmod{26}\)</span></li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<ul>
+<li><span class="math inline">\(9x\equiv 5\pmod{26}\)</span></li>
+</ul>
+</section>
+<section id="big-powers-fast" class="slide level2 activity">
+<h2>Big Powers Fast</h2>
+<p>&nbsp;</p>
+<p>Pick one:</p>
+<ul>
+<li><span class="math inline">\(2^{1000}\pmod 7\)</span><br>
+</li>
+<li><span class="math inline">\(3^{12345}\pmod{10}\)</span><br>
+</li>
+<li><span class="math inline">\(5^{2024}\pmod{13}\)</span></li>
+</ul>
+<aside class="notes">
+<p>Timing: ~6–8 min. 1) <span class="math inline">\(2^{3}\equiv1\Rightarrow 2^{1000}\equiv 2\)</span>. 2) Period <span class="math inline">\(4\)</span> mod <span class="math inline">\(10\)</span>; <span class="math inline">\(12345\equiv1\Rightarrow 3\)</span>. 3) <span class="math inline">\(5^2\equiv-1\Rightarrow 5^4\equiv1\)</span>; <span class="math inline">\(2024\equiv0\pmod4\Rightarrow 1\)</span>.</p>
+<p><em>Data-science tie:</em> “Cycle detection helps compute modular hashes fast in streaming.”</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="two-dials" class="slide level2 activity">
+<h2>Two Dials</h2>
+<p>Find <span class="math inline">\(t\pmod {15}\)</span> such that<br>
+<span class="math inline">\(t\equiv 2\pmod 3\)</span> and <span class="math inline">\(t\equiv 1\pmod 5\)</span>.</p>
+<center>
+<img src="../images/watch_face_3nums_deco.svg" width="30%" height="30%"><img src="../images/watch_face_5nums_deco.svg" width="30%" height="30%">
+</center>
+<div id="timer_59610aa28489cc81dbba6e5988bbea4aa1bfb539" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
  </div>
- <code class="countdown-time"><span class="countdown-digits minutes">07</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+ <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
  </div>
+<aside class="notes">
+<p>Timing: ~6–8 min. Numbers <span class="math inline">\(\equiv1\pmod5\)</span>: <span class="math inline">\(1,6,11,\dots\)</span>; mod <span class="math inline">\(3\)</span> these are <span class="math inline">\(2, 5, 8, 11\dots\)</span> → pick <span class="math inline">\(11\)</span>. Unique mod <span class="math inline">\(15\)</span>.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section></section>
 <section>
-<section id="implication" class="title-slide slide level1 center">
-<h1>Implication</h1>
+<section id="asymptotics" class="title-slide slide level1 center">
+<h1>Asymptotics</h1>
 
 </section>
-<section id="implication-1" class="slide level2 smaller">
-<h2>Implication</h2>
-<p>Connect operator <span class="math inline">\(\rightarrow\)</span> to a logically equivalent expression using only <em>and</em>, <em>or</em>, and <em>not</em>.</p>
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th><span class="math inline">\(p\)</span></th>
-<th><span class="math inline">\(q\)</span></th>
-<th style="text-align: center;"><span class="math inline">\(p\rightarrow q\)</span></th>
-<th style="text-align: center;"><span class="math inline">\(\underline{\hspace{3em}}\)</span></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>F</td>
-<td>F</td>
-<td style="text-align: center;">T</td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="even">
-<td>F</td>
-<td>T</td>
-<td style="text-align: center;">T</td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="odd">
-<td>T</td>
-<td>F</td>
-<td style="text-align: center;">F</td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="even">
-<td>T</td>
-<td>T</td>
-<td style="text-align: center;">T</td>
-<td style="text-align: center;"></td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li><p>Is this operator commutative?</p></li>
-<li><p>Note: <span class="math inline">\(p \rightarrow q \equiv\)</span> _______.</p></li>
-<li><p><span class="math inline">\(p \rightarrow q\)</span> Corresponds to “if <span class="math inline">\(p\)</span> then <span class="math inline">\(q\)</span>”</p></li>
-<li><p>We’re not promising causation, only a truth condition.</p></li>
-<li><p><span class="math inline">\(p \rightarrow q\)</span> is <code>False</code> <strong>only</strong> when <span class="math inline">\(p\)</span> is <code>True</code> and <span class="math inline">\(q\)</span> is <code>False</code>.</p></li>
-<li><p>Gives us mechanism for reasoning (next week)!</p></li>
-</ul>
+<section id="functions" class="slide level2">
+<h2>Functions</h2>
+<p><strong>Math:</strong> a function is a mechanism for translating items from one collection to another.</p>
+<p>&nbsp;</p>
+<p><span class="math inline">\(f: A\to B\)</span></p>
+<p><br>
+</p>
+<p>Our current interest is quantifying the way that functions grow.</p>
 <aside class="notes">
-<p>q and not p is false. so it’s NOT (q^-p) == ??? (apply demorgan)</p>
-<p>PL exercises on Logical equivalence involving implication?</p>
-<p>More on implication and logical equivalence in tutorial questions</p>
-<p>Suppose <span class="math inline">\(p\equiv\)</span> <strong>T</strong> . Then <span class="math inline">\(p\)</span> is a <em>Tautology</em>.</p>
-<p>Suppose <span class="math inline">\(p\equiv\)</span> <strong>F</strong> . Then <span class="math inline">\(p\)</span> is a <em>Contradiction</em>.</p>
+<p>there are many different ways we can talk about functions… may do so later. In the course of <em>this</em> discussion I’ll mention some other relevant features, but they will not be our focus.</p>
+<p>Things I WILL mention: domain, co-domain (range), every element from domain is mapped exactly once to some element from co-domain.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -268,142 +292,57 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="logical-equivalence-proof" class="slide level2">
-<h2>Logical Equivalence Proof</h2>
-<p>Prove that <span class="math inline">\(p \rightarrow q \equiv \neg q \rightarrow \neg p\)</span>:</p>
+<section id="functions-for-data-science" class="slide level2">
+<h2>Functions for Data Science</h2>
+<p>&nbsp;</p>
+<p><strong>Functions as costs:</strong></p>
+<ol type="1">
+<li><p>generally non-negative.</p></li>
+<li><p>generally non-decreasing with size of input.</p></li>
+</ol>
+<p><strong>Sketch:</strong></p>
+<p><img data-src="../images/axes_quadrant.svg"> <img data-src="../images/axes_quadrant.svg"></p>
 </section>
-<section id="vocabulary" class="slide level2 smaller">
-<h2>Vocabulary</h2>
-<p>Given <span class="math inline">\(p\rightarrow q\)</span>, we define the following 3 terms:</p>
-<ul>
-<li><p>________________ is <span class="math inline">\(\neg q\rightarrow \neg p\)</span></p></li>
-<li><p>________________ is <span class="math inline">\(q\rightarrow p\)</span></p></li>
-<li><p>________________ is <span class="math inline">\(\neg p\rightarrow \neg q\)</span></p></li>
-</ul>
-<p>Describe all the logical equivalences among the 4 statements:</p>
-<aside class="notes">
-<p>we’ll see if English can help us!</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
+<section id="asymptotic-upper-bounds" class="slide level2">
+<h2>Asymptotic Upper Bounds</h2>
+<p>A function <span class="math inline">\(f(n) = O(g(n))\)</span> iff there are positive constants <span class="math inline">\(c\)</span> and <span class="math inline">\(n_0\)</span> such that <span class="math inline">\(f(n)\leq
+c\cdot g(n)\)</span> for any <span class="math inline">\(n\geq n_0\)</span>.</p>
+<p>&nbsp;</p>
+<center>
+<img src="../images/axes_quadrant.svg" width="50%" height="50%">
+</center>
 </section>
-<section id="converses-check-whats-true" class="slide level2 smaller">
-<h2>Converses — check what’s <code>True</code></h2>
-<table class="caption-top">
-<colgroup>
-<col style="width: 5%">
-<col style="width: 81%">
-<col style="width: 7%">
-<col style="width: 7%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: center;">#</th>
-<th>Statement p→q</th>
-<th style="text-align: center;">p→q</th>
-<th style="text-align: center;">q→p</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">1</td>
-<td>To be empty, a string must have length 0.</td>
-<td style="text-align: center;">☐</td>
-<td style="text-align: center;">☐</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">2</td>
-<td>Playing in the NHL entails being a professional hockey player.</td>
-<td style="text-align: center;">☐</td>
-<td style="text-align: center;">☐</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">3</td>
-<td>If an animal is a mammal, then it is a cat.</td>
-<td style="text-align: center;">☐</td>
-<td style="text-align: center;">☐</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">4</td>
-<td>Riding the 99 B-Line counts as public transit.</td>
-<td style="text-align: center;">☐</td>
-<td style="text-align: center;">☐</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">5</td>
-<td>If a dish is spicy, then it is Indian cuisine.</td>
-<td style="text-align: center;">☐</td>
-<td style="text-align: center;">☐</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">6</td>
-<td>If it’s a kitten, then it’s a cat.</td>
-<td style="text-align: center;">☐</td>
-<td style="text-align: center;">☐</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">7</td>
-<td>No song appears on the Billboard Hot 100 without reaching #1.</td>
-<td style="text-align: center;">☐</td>
-<td style="text-align: center;">☐</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">8</td>
-<td>If I live in Totem Park residence, then I live in campus housing.</td>
-<td style="text-align: center;">☐</td>
-<td style="text-align: center;">☐</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">9</td>
-<td>If I eat breakfast, then I ace the quiz.</td>
-<td style="text-align: center;">☐</td>
-<td style="text-align: center;">☐</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">10</td>
-<td>If a movie is a superhero film, then it is an MCU movie.</td>
-<td style="text-align: center;">☐</td>
-<td style="text-align: center;">☐</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">11</td>
-<td>If I’m an only child, then I have zero siblings.</td>
-<td style="text-align: center;">☐</td>
-<td style="text-align: center;">☐</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">12</td>
-<td>If I’m in British Columbia, then I’m in Vancouver.</td>
-<td style="text-align: center;">☐</td>
-<td style="text-align: center;">☐</td>
-</tr>
-</tbody>
-</table>
+<section id="big-o-proof" class="slide level2">
+<h2>Big O Proof</h2>
+<p>Prove that <span class="math inline">\(3n^2 + 7n + 2 = O(n^2)\)</span>.</p>
+<p><br>
+</p>
+<p>Defn: … there are positive constants <span class="math inline">\(c\)</span> and <span class="math inline">\(n_0\)</span> such that <span class="math inline">\(f(n)\leq
+c\cdot g(n)\)</span> for any <span class="math inline">\(n\geq n_0\)</span>.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Therefore, <span class="math inline">\(c=\)</span>____ and <span class="math inline">\(n_0=\)</span>____ witness the claim.</p>
 </section>
-<section id="biconditionals" class="slide level2">
-<h2>Biconditionals</h2>
-<p>We have a special operator for those implications whose converses are also <code>True</code>:</p>
-<div class="line-block">&nbsp;&nbsp;<span class="math inline">\((p\rightarrow q) \wedge (q\rightarrow p)\equiv p\leftrightarrow q\)</span></div>
-<p>Some phrases describing this relationship:</p>
-<ul>
-<li>biconditional</li>
-<li>if and only if (iff)</li>
-<li>equivalent</li>
-</ul>
-<p>Which of the expressions on the previous page are biconditionals?</p>
-</section>
-<section id="words-and-ideas" class="slide level2">
-<h2>Words and Ideas</h2>
-<p>Logical Equivalence</p>
-<p>Implication</p>
+<section id="big-o-strategy" class="slide level2 smaller">
+<h2>Big O Strategy</h2>
+<div class="card">
+<p><strong>Goal.</strong> To prove <span class="math inline">\(f(n)=O(g(n))\)</span>, show there exist constants <span class="math inline">\(c&gt;0\)</span> and <span class="math inline">\(n_0\)</span> such that<br>
+for all <span class="math inline">\(n\ge n_0\)</span>, <span class="math inline">\(f(n)\le c\,g(n)\)</span>.</p>
+<ol type="1">
+<li><p><strong>Pick your region.</strong><br>
+Choose <span class="math inline">\(n_0\)</span> where simple comparisons are true (e.g., for <span class="math inline">\(n\ge 1\)</span>, <span class="math inline">\(n^2\ge n\)</span>; for <span class="math inline">\(n\ge e\)</span>, <span class="math inline">\(\log n\ge 1\)</span>).</p></li>
+<li><p><strong>Dominate each term by <span class="math inline">\(g(n)\)</span>.</strong><br>
+On <span class="math inline">\(n\ge n_0\)</span>, bound every term of <span class="math inline">\(f\)</span> by a constant multiple of <span class="math inline">\(g\)</span>:<br>
+<span class="math inline">\(f(n)=\text{(term}_1)+\dots+\text{(term}_k)\ \le\ a_1 g(n)+\dots+a_k g(n)\)</span>.</p></li>
+<li><p><strong>Add and name the constant.</strong><br>
+Sum the multipliers: <span class="math inline">\(f(n)\le (a_1+\cdots+a_k)\,g(n)\)</span>.<br>
+Set <span class="math inline">\(c=a_1+\cdots+a_k\)</span>.</p></li>
+<li><p><strong>State the line that matters.</strong><br>
+“For all <span class="math inline">\(n\ge n_0\)</span>, <span class="math inline">\(f(n)\le c\,g(n)\)</span>. Therefore <span class="math inline">\(f(n)=O(g(n))\)</span>.”</p></li>
+</ol>
+</div>
 
 
 <script type="ojs-module-contents">
