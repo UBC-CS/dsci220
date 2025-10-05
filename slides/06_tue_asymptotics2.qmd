@@ -1,0 +1,94 @@
+---
+date: 2025-10-07
+---
+
+## Announcements 
+
+<style>
+.small { font-size: 0.9rem; }
+.tiny { font-size: 0.8rem; }
+.rule { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; }
+.card { border: 2px solid #ddd; border-radius: 12px; padding: 14px 16px; margin: 10px 0; }
+.center { text-align: center; }
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.badge { display:inline-block; padding:2px 8px; border:1px solid #bbb; border-radius:10px; font-size:.8rem; }
+</style>
+
+## Big O Strategy {.smaller}
+
+<div class="card">
+
+**Goal.** To prove $f(n)=O(g(n))$, show there exist constants $c>0$ and $n_0$ such that  
+for all $n\ge n_0$, $f(n)\le c\,g(n)$.
+
+1) **Pick your region.**  
+   Choose $n_0$ where simple comparisons are true (e.g., for $n\ge 1$, $n^2\ge n$; for $n\ge e$, $\log n\ge 1$).
+
+2) **Dominate each term by $g(n)$.**  
+   On $n\ge n_0$, bound every term of $f$ by a constant multiple of $g$:  
+   $f(n)=\text{(term}_1)+\dots+\text{(term}_k)\ \le\ a_1 g(n)+\dots+a_k g(n)$.
+
+3) **Add and name the constant.**  
+   Sum the multipliers: $f(n)\le (a_1+\cdots+a_k)\,g(n)$.  
+   Set $c=a_1+\cdots+a_k$.
+
+4) **State the line that matters.**  
+   “For all $n\ge n_0$, $f(n)\le c\,g(n)$. Therefore $f(n)=O(g(n))$.”
+
+</div>
+
+## Prove an Asymptotic Upper Bound
+
+**Claim:** $n^3+100n^2\log n=O(n^3)$
+
+**Proof:**
+
+## Big-O Game
+
+Fill in the blanks with an appropriate response:
+
+* $5n^4+2n^3+7 = O($\_\_\_\_\_\_$)$
+
+\ 
+
+* $20n+4\sqrt n = O($\_\_\_\_\_\_$)$
+
+\ 
+
+* $37\log n^2 = O($\_\_\_\_\_\_$)$
+
+## Big-O Hot Takes
+
+* To find a simple asymptotic upper bound of $f(n)$, ignore lower order terms.
+
+* and ignore constant coefficients.
+
+* A *tight* bound is most useful, but *looser* bounds fit the definition.
+
+* There is an equivalent definition
+for an asymptotic *lower* bound, called "big-Omega" ($\Omega$).
+
+* And finally, if functions are both $\leq$ (big-O) and $\geq$ (big-Omega) then they are said to be "big-Theta" of one another ($\Theta). This is "asymptotic equality." 
+
+## Disproving Big-O
+
+Suppose someone claims 
+
+$$n^2\log n = O(n^2).$$
+
+Are they correct? \_\_\_\_\_
+
+How can you disprove? 
+
+## Reinforcing Intuition {.activity}
+
+\ 
+
+[PrairieLearn Activity](https://us.prairielearn.com/pl/course_instance/186238/assessment/2595797)
+
+
+
+
+
+
+
