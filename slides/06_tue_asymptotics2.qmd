@@ -68,7 +68,7 @@ Fill in the blanks with an appropriate response:
 * There is an equivalent definition
 for an asymptotic *lower* bound, called "big-Omega" ($\Omega$).
 
-* And finally, if functions are both $\leq$ (big-O) and $\geq$ (big-Omega) then they are said to be "big-Theta" of one another ($\Theta). This is "asymptotic equality." 
+* And finally, if functions are both $\leq$ (big-O) and $\geq$ (big-Omega) then they are said to be "big-Theta" of one another ($\Theta$). This is "asymptotic equality." 
 
 ## Disproving Big-O
 
