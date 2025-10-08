@@ -19,6 +19,8 @@ title: "Representation as Encoding — Day 1: Binary & Size"
 * Prove: $b$ bits result in $2^b$ codes, with max value $2^b-1$.  
 * Overflow.
 
+**DON'T FORGET THE MAGIC TRICK!**
+
 ## Place Value
 
 \ 
@@ -40,6 +42,8 @@ How many unique values can we store in $n$ bits?
 
 \ 
 
+\ 
+
 How many bits to represent $m$ values?
 
 
@@ -54,7 +58,6 @@ Emphasize *size grows like $\log_2$*. Show a quick table for $2^b$.
 
 How many codes with...
 
-\ 
 
 * 8 bits?  
 * 12 bits?  
@@ -63,7 +66,6 @@ How many codes with...
 
 How many bits to count to...
 
-\ 
 
 * $500$? 
 * $5000$?
@@ -121,8 +123,12 @@ With $b$ fixed bits, adding wraps $\bmod 2^b$.
 
 \ 
 
+\
+
+\ 
+
 Punchline: Overflow occurs when the number you 
-want to represent no longer fits into the
+want to represent is too big to fit into the
 space you've reserved for it. 
 
 ## Signed Integers
@@ -131,12 +137,16 @@ space you've reserved for it.
 
 Unsigned integers are represented by their encodings as discussed above.
 
+\
+
 $b$ bits typically represent values $[0..2^b-1]$. 
 
 \
 
-Signed integers have a different encoding, that we won't discuss, 
+Signed integers have a different encoding (that we won't discuss) 
 but we can still guess the values that can be encoded:
+
+\
 
 $b$ bits typically represent values \_\_\_\_\_\_\_\_\_\_\_\_.
 
@@ -155,4 +165,6 @@ For each, compute **bits needed** or **max value**:
 :::
 
 ## Exit Ticket
+
 In words: what does $\lceil\log_2 N\rceil$ tell you?
+
