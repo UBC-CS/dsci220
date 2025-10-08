@@ -971,7 +971,7 @@
     "href": "slides/06_tue_asymptotics2.html#big-o-hot-takes",
     "title": "Discrete Math for Data Science",
     "section": "Big-O Hot Takes",
-    "text": "Big-O Hot Takes\n\nTo find a simple asymptotic upper bound of \\(f(n)\\), ignore lower order terms.\nand ignore constant coefficients.\nA tight bound is most useful, but looser bounds fit the definition.\nThere is an equivalent definition for an asymptotic lower bound, called “big-Omega” (\\(\\Omega\\)).\nAnd finally, if functions are both \\(\\leq\\) (big-O) and \\(\\geq\\) (big-Omega) then they are said to be “big-Theta” of one another ($). This is “asymptotic equality.”"
+    "text": "Big-O Hot Takes\n\nTo find a simple asymptotic upper bound of \\(f(n)\\), ignore lower order terms.\nand ignore constant coefficients.\nA tight bound is most useful, but looser bounds fit the definition.\nThere is an equivalent definition for an asymptotic lower bound, called “big-Omega” (\\(\\Omega\\)).\nAnd finally, if functions are both \\(\\leq\\) (big-O) and \\(\\geq\\) (big-Omega) then they are said to be “big-Theta” of one another (\\(\\Theta\\)). This is “asymptotic equality.”"
   },
   {
     "objectID": "slides/06_tue_asymptotics2.html#disproving-big-o",
