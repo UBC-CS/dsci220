@@ -887,7 +887,7 @@
     "href": "slides/06_wed_binary.html#goals",
     "title": "Representation as Encoding — Day 1: Binary & Size",
     "section": "Goals",
-    "text": "Goals\n\nRead/write binary.\nReason about bit length and capacity.\n\nProve: \\(b\\) bits result in \\(2^b\\) codes, with max value \\(2^b-1\\).\n\nOverflow."
+    "text": "Goals\n\nRead/write binary.\nReason about bit length and capacity.\n\nProve: \\(b\\) bits result in \\(2^b\\) codes, with max value \\(2^b-1\\).\n\nOverflow.\n\nDON’T FORGET THE MAGIC TRICK!"
   },
   {
     "objectID": "slides/06_wed_binary.html#place-value",
@@ -901,14 +901,14 @@
     "href": "slides/06_wed_binary.html#quantify-the-length",
     "title": "Representation as Encoding — Day 1: Binary & Size",
     "section": "Quantify the Length",
-    "text": "Quantify the Length\n \nHow many unique values can we store in \\(n\\) bits?\n \nHow many bits to represent \\(m\\) values?\n\nBit length: \\(L(n)=\\lfloor \\log_2 n\\rfloor+1\\) for \\(n\\ge1\\). Emphasize size grows like \\(\\log_2\\). Show a quick table for \\(2^b\\)."
+    "text": "Quantify the Length\n \nHow many unique values can we store in \\(n\\) bits?\n \n \nHow many bits to represent \\(m\\) values?\n\nBit length: \\(L(n)=\\lfloor \\log_2 n\\rfloor+1\\) for \\(n\\ge1\\). Emphasize size grows like \\(\\log_2\\). Show a quick table for \\(2^b\\)."
   },
   {
     "objectID": "slides/06_wed_binary.html#capacity-quickies",
     "href": "slides/06_wed_binary.html#capacity-quickies",
     "title": "Representation as Encoding — Day 1: Binary & Size",
     "section": "Capacity Quickies",
-    "text": "Capacity Quickies\n \nHow many codes with…\n \n\n8 bits?\n\n12 bits?\n\n \nHow many bits to count to…\n \n\n\\(500\\)?\n\\(5000\\)?\n\\(1000000\\)?\n\n\nAnswers: \\(2^8=256\\), \\(2^{12}=4096\\), \\(\\lceil\\log_2 500\\rceil=9\\)."
+    "text": "Capacity Quickies\n \nHow many codes with…\n\n8 bits?\n\n12 bits?\n\n \nHow many bits to count to…\n\n\\(500\\)?\n\\(5000\\)?\n\\(1000000\\)?\n\n\nAnswers: \\(2^8=256\\), \\(2^{12}=4096\\), \\(\\lceil\\log_2 500\\rceil=9\\)."
   },
   {
     "objectID": "slides/06_wed_binary.html#proof-moment",
@@ -929,14 +929,14 @@
     "href": "slides/06_wed_binary.html#overflow",
     "title": "Representation as Encoding — Day 1: Binary & Size",
     "section": "Overflow",
-    "text": "Overflow\nConsider addition, with 4 bits:\n\nannotate 1101_2 + 110_2 and ask students to speculate on 1) how addition works, and how they would describe the overflow. (they’ll say it’s like mod 2^4) With \\(b\\) fixed bits, adding wraps \\(\\bmod 2^b\\).\n\n\n\n \nPunchline: Overflow occurs when the number you want to represent no longer fits into the space you’ve reserved for it."
+    "text": "Overflow\nConsider addition, with 4 bits:\n\nannotate 1101_2 + 110_2 and ask students to speculate on 1) how addition works, and how they would describe the overflow. (they’ll say it’s like mod 2^4) With \\(b\\) fixed bits, adding wraps \\(\\bmod 2^b\\).\n\n\n\n \n\n\n \nPunchline: Overflow occurs when the number you want to represent is too big to fit into the space you’ve reserved for it."
   },
   {
     "objectID": "slides/06_wed_binary.html#signed-integers",
     "href": "slides/06_wed_binary.html#signed-integers",
     "title": "Representation as Encoding — Day 1: Binary & Size",
     "section": "Signed Integers",
-    "text": "Signed Integers\n\n\nUnsigned integers are represented by their encodings as discussed above.\n\\(b\\) bits typically represent values \\([0..2^b-1]\\).\n\n\nSigned integers have a different encoding, that we won’t discuss, but we can still guess the values that can be encoded:\n\\(b\\) bits typically represent values ____________."
+    "text": "Signed Integers\n\n\nUnsigned integers are represented by their encodings as discussed above.\n\n\n\\(b\\) bits typically represent values \\([0..2^b-1]\\).\n\n\nSigned integers have a different encoding (that we won’t discuss) but we can still guess the values that can be encoded:\n\n\n\\(b\\) bits typically represent values ____________."
   },
   {
     "objectID": "slides/06_wed_binary.html#activity",
