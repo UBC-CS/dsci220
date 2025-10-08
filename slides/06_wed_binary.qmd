@@ -81,7 +81,7 @@ Claim: With $b$ bits we can represent $2^b$ values.
 
 
 
-## Technical Aside
+## Technical Aside {.smaller}
 
 * **`int` (pure Python):** arbitrary precision (variable width) 
 
