@@ -1,0 +1,49 @@
+---
+date: 2025-10-08
+title: "Representation as Encoding — Day 4: Normalization & a Haar Teaser"
+---
+
+## Announcements 
+
+<style>
+.small { font-size: .9rem; }
+.tiny { font-size: .8rem; }
+.card { border: 2px solid #ddd; border-radius: 12px; padding: 14px 16px; margin: 10px 0; }
+</style>
+
+# Scale, Similarity, & Invertible Encodings
+
+## Goals
+- Compare **min–max**, **z-score**, **$\ell_2$ normalization**.  
+- Effects on distances and **cosine**.  
+- Do one step of **Haar wavelet** (invertible encoding).
+
+## Three Normalizations
+- Min–max: $x'=\dfrac{x-\min}{\max-\min}$ (per feature).  
+- Z-score: $x'=\dfrac{x-\mu}{\sigma}$ (per feature).  
+- $\ell_2$ vector normalize: $v'=\dfrac{v}{\|v\|_2}$.
+
+**Facts.**  
+Cosine is scale-invariant: if $v'=\lambda v$, $\cos(v',w)=\cos(v,w)$.  
+Euclidean distances scale by $|\lambda|$.
+
+## Tiny Proof (cosine invariance)
+$\displaystyle \cos(v',w)=\frac{\langle \lambda v,w\rangle}{\|\lambda v\|\,\|w\|}=\frac{\lambda\langle v,w\rangle}{|\lambda|\,\|v\|\,\|w\|}=\cos(v,w).$
+
+## Activity: Normalize & Decide
+Dataset with two features (different units).  
+1) 1-NN of a query before vs after **z-score**—did the neighbor change? why?  
+2) Try $\ell_2$ normalization; check cosine similarity ordering.
+
+## Haar Wavelet (length-8, one step)
+For pairs $(x_{2i},x_{2i+1})$:  
+**Averages** $a_i=\dfrac{x_{2i}+x_{2i+1}}{2}$, **details** $d_i=\dfrac{x_{2i}-x_{2i+1}}{2}$.
+
+Example input: $(4,8,6,2,3,5,7,1)$  
+Averages: $(6,4,4,4)$; Details: $(-2,2,-2,6)$.
+
+**Invertible:** recover by $x_{2i}=a_i+d_i$, $x_{2i+1}=a_i-d_i$.
+
+## Exit Ticket
+Pick a task (kNN, cosine text similarity, gradient descent).  
+Which normalization would you choose, and why?

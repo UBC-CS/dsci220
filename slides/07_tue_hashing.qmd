@@ -1,0 +1,52 @@
+---
+date: 2025-10-08
+title: "Representation as Encoding — Day 2: Hashing"
+---
+
+## Announcements 
+
+<style>
+.small { font-size: .9rem; }
+.tiny { font-size: .8rem; }
+.card { border: 2px solid #ddd; border-radius: 12px; padding: 14px 16px; margin: 10px 0; }
+</style>
+
+# Hashing = Encoding into Slots
+
+## Goals
+- See hashing as key $\to \{0,\dots,m-1\}$.  
+- Use pigeonhole principle to argue **collisions**.  
+- Reason with **load factor** $\alpha=n/m$.
+
+## Hash Table Picture
+Array of size $m$; hash $h(k)$ gives a slot.  
+Common $h(k)=(a k + b)\bmod m$.
+
+**Load factor:** $\alpha=n/m$ (expected chain length under uniform hashing).
+
+## Pigeonhole: Collisions are Inevitable
+If $n>m$, then some pair $k\ne k'$ have $h(k)=h(k')$.
+
+::: notes
+One-liner proof: $n$ items, $m$ boxes; more items than boxes ⇒ a box with $\ge2$.
+:::
+
+## Expected Cost (chain hashing)
+Under uniform hashing, expected chain length $\approx \alpha$,  
+so expected successful lookup is $O(1)$ when $\alpha=O(1)$.
+
+## Design Choices (mini-debate)
+- Why pick **prime $m$**?  
+- Why avoid $m$ that shares factors with patterns in keys?
+
+## Activity: Design & Break
+1) With $m=10$, $h(k)=k\bmod 10$: find 3 collisions for your 5 sample keys.  
+2) Propose a better $m$ for your keys; test spread.  
+3) (Birthday bound) Approximate $\Pr[\text{collision}] \approx 1-\exp\!\big(-\frac{n(n-1)}{2m}\big)$ for $n=40$, $m=365$.
+
+::: notes
+3) $\approx 0.89$. Have one group present intuition: “crowded buckets.”
+:::
+
+## Exit Ticket
+State one reason a prime $m$ can help dispersion.
