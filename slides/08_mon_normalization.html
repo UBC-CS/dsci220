@@ -9,13 +9,11 @@
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/quarto-contrib/live-runtime/live-runtime.js" type="module"></script>
 <link href="../site_libs/quarto-contrib/live-runtime/live-runtime.css" rel="stylesheet">
-<script src="../site_libs/quarto-contrib/countdown-0.5.0/countdown.js"></script>
-<link href="../site_libs/quarto-contrib/countdown-0.5.0/countdown.css" rel="stylesheet">
 <script src="../site_libs/quarto-contrib/iconify-3.0.0/iconify-icon.min.js"></script><meta charset="utf-8">
   <meta name="generator" content="quarto-1.8.25">
 
-  <meta name="dcterms.date" content="2025-10-01">
-  <title>DSCI 220: Discrete Math for Data Science – Discrete Math for Data Science</title>
+  <meta name="dcterms.date" content="2025-10-08">
+  <title>DSCI 220: Discrete Math for Data Science – Representation as Encoding — Day 4: Normalization &amp; a Haar Teaser</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -132,10 +130,10 @@
   <script type="module" src="../site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
   <link href="../site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-<meta property="og:title" content="Discrete Math for Data Science – DSCI 220: Discrete Math for Data Science">
+<meta property="og:title" content="Representation as Encoding — Day 4: Normalization &amp; a Haar Teaser – DSCI 220: Discrete Math for Data Science">
 <meta property="og:description" content="DSCI 220, 2025 W1">
 <meta property="og:site_name" content="DSCI 220: Discrete Math for Data Science">
-<meta name="twitter:title" content="Discrete Math for Data Science – DSCI 220: Discrete Math for Data Science">
+<meta name="twitter:title" content="Representation as Encoding — Day 4: Normalization &amp; a Haar Teaser – DSCI 220: Discrete Math for Data Science">
 <meta name="twitter:description" content="DSCI 220, 2025 W1">
 <meta name="twitter:card" content="summary">
 </head>
@@ -144,279 +142,72 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Discrete Math for Data Science</h1>
+  <h1 class="title">Representation as Encoding — Day 4: Normalization &amp; a Haar Teaser</h1>
   <p class="subtitle">DSCI 220, 2025 W1</p>
 
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">October 1, 2025</p>
+  <p class="date">October 8, 2025</p>
 </section>
 <section id="announcements" class="slide level2">
 <h2>Announcements</h2>
 <style>
-.small { font-size: 0.9rem; }
-.tiny { font-size: 0.8rem; }
-.rule { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; }
+.small { font-size: .9rem; }
+.tiny { font-size: .8rem; }
 .card { border: 2px solid #ddd; border-radius: 12px; padding: 14px 16px; margin: 10px 0; }
-.center { text-align: center; }
-.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-.badge { display:inline-block; padding:2px 8px; border:1px solid #bbb; border-radius:10px; font-size:.8rem; }
 </style>
 </section>
 <section>
-<section id="modular-arithmetic" class="title-slide slide level1 center">
-<h1>Modular Arithmetic</h1>
+<section id="scale-similarity-invertible-encodings" class="title-slide slide level1 center">
+<h1>Scale, Similarity, &amp; Invertible Encodings</h1>
 
 </section>
 <section id="goals" class="slide level2">
 <h2>Goals</h2>
 <ul>
-<li><p>Read and use <span class="math inline">\(a\equiv b\pmod m\)</span> as “<span class="math inline">\(m\)</span> divides <span class="math inline">\(a-b\)</span>.”</p></li>
-<li><p>Compute and reason with <span class="math inline">\(\bmod\)</span> for <span class="math inline">\(+\)</span>, <span class="math inline">\(-\)</span>, <span class="math inline">\(\times\)</span>, and exponents.</p></li>
-<li><p>Find/recognize modular inverses and solve a linear congruence.</p></li>
-<li><p>Explore a 2-dial puzzle.</p></li>
-</ul>
-</section>
-<section id="warm-up" class="slide level2 activity">
-<h2>Warm Up</h2>
-<p>What’s the rightmost digit of <span class="math inline">\(7^{2025}\)</span>?</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<aside class="notes">
-<p>Data Science Note: Rightmost digit problems are <span class="math inline">\(\pmod {10}\)</span> — exactly the arithmetic behind simple checksums, used to assure data integrity, and hash buckets which we’ll study next week!</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-<div id="timer_7ec297d9c7c8b171f030eab2282bd6784f637c09" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
-  <div class="countdown-controls">
-    <button class="countdown-bump-down">−</button>
-    <button class="countdown-bump-up">+</button>
- </div>
- <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
- </div>
-</section>
-<section id="congruence-bmod-m" class="slide level2">
-<h2>Congruence <span class="math inline">\(\bmod m\)</span></h2>
-<p>&nbsp;</p>
-<p><strong>Definition:</strong> <span class="math inline">\(a\equiv b\pmod m \iff m\mid(a-b)\)</span>.</p>
-<p>&nbsp;</p>
-<p><strong>Quick checks:</strong></p>
-<p>&nbsp;</p>
-<ul>
-<li><span class="math inline">\(29\equiv \underline{~~~~~}\quad \pmod 7\)</span></li>
-</ul>
-<p><br>
-</p>
-<ul>
-<li><span class="math inline">\(-11\equiv \underline{~~~~~}\quad\pmod 6\)</span></li>
-</ul>
-<aside class="notes">
-<p>Timing: ~3–4 min. Answers: (a) <span class="math inline">\(1\)</span>; (b) <span class="math inline">\(1\)</span>.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="operators-bmod-m" class="slide level2">
-<h2>Operators <span class="math inline">\(\bmod m\)</span></h2>
-<p>&nbsp;</p>
-<p>Work <span class="math inline">\(\bmod 7\)</span>:</p>
-<p>&nbsp;</p>
-<ol type="a">
-<li><span class="math inline">\((29+12)\bmod 7 \equiv \underline{~~~~~}\quad\bmod 7\)</span></li>
-<li><span class="math inline">\((5\cdot 9)\bmod 7\equiv \underline{~~~~~}\quad\bmod 7\)</span><br>
+<li>Compare <strong>min–max</strong>, <strong>z-score</strong>, <strong><span class="math inline">\(\ell_2\)</span> normalization</strong>.<br>
 </li>
-<li><span class="math inline">\((4-18)\bmod 7\equiv \underline{~~~~~}\quad\bmod 7\)</span><br>
+<li>Effects on distances and <strong>cosine</strong>.<br>
 </li>
-<li><span class="math inline">\(2^{5}\bmod 7\equiv \underline{~~~~~}\quad\bmod 7\)</span></li>
-</ol>
-<p>&nbsp;</p>
-<p>What are the rules?</p>
-<aside class="notes">
-<p>Timing: ~3 min. Answers: <span class="math inline">\(6,3,0,4\)</span>. Key properties: addition/multiplication compatible with <span class="math inline">\(\pmod m\)</span>. d is interesting… 2^3 = 1. hint to warm up!</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="modular-arithmetic-1" class="slide level2 smaller">
-<h2>Modular Arithmetic</h2>
-<div class="card">
-<p><strong>Definition:</strong> <span class="math inline">\(a \equiv b \pmod m \iff m \mid (a-b)\)</span></p>
-<p><strong>If</strong> <span class="math inline">\(a \equiv b \pmod m\)</span> <strong>and</strong> <span class="math inline">\(c \equiv d \pmod m\)</span>, <strong>then:</strong></p>
-<ul>
-<li><strong>Addition:</strong> <span class="math inline">\(a + c \equiv b + d \pmod m\)</span></li>
-<li><strong>Subtraction:</strong> <span class="math inline">\(a - c \equiv b - d \pmod m\)</span></li>
-<li><strong>Multiplication:</strong> <span class="math inline">\(ac \equiv bd \pmod m\)</span></li>
-<li><strong>Exponentiation:</strong> for any integer <span class="math inline">\(n \ge 0\)</span>, <span class="math inline">\(a^{n} \equiv b^{n} \pmod m\)</span></li>
-</ul>
-<p><strong>Reduce anytime:</strong> reduce intermediate results mod <span class="math inline">\(m\)</span> at any step.</p>
-<p><strong>Caution (division):</strong> “Division” is only valid when a modular inverse exists.<br>
-<span class="math inline">\(\gcd(a,m)=1\Rightarrow a^{-1}\)</span> exists, and <span class="math inline">\(ax \equiv b \pmod m \Rightarrow x \equiv a^{-1}b \pmod m\)</span>.</p>
-<p><strong>Caution (exponents):</strong> From <span class="math inline">\(a\equiv b \pmod m\)</span> you may raise the <strong>bases</strong>: <span class="math inline">\(a^n\equiv b^n\)</span>, but in general <span class="math inline">\(c^{a}\not\equiv c^{b}\pmod m\)</span>.</p>
-</div>
-</section>
-<section id="proof-1-multiplication" class="slide level2">
-<h2>Proof 1: Multiplication</h2>
-<p><strong>Claim:</strong> If <span class="math inline">\(a\equiv b\pmod m\)</span>, and <span class="math inline">\(c\equiv d\pmod m\)</span> then <span class="math inline">\(ac\equiv bd\pmod m\)</span>.</p>
-<p><strong>Proof:</strong></p>
-</section>
-<section id="proof-2-exponentiation" class="slide level2">
-<h2>Proof 2: Exponentiation</h2>
-<p><strong>Claim:</strong> If <span class="math inline">\(a\equiv b\pmod m\)</span>, then for all <span class="math inline">\(n\ge1\)</span>, <span class="math inline">\(a^n\equiv b^n\pmod m\)</span>.</p>
-<p><strong>Proof:</strong> Consider arbitrary integers <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span>, <span class="math inline">\(m\)</span> so that <span class="math inline">\(a\equiv b\pmod m\)</span>, and an arbitrary integer <span class="math inline">\(n\ge1\)</span>.</p>
-<p>(IH) Assume that for any <span class="math inline">\(j &lt; n\)</span>, <span class="math inline">\(a^j\equiv b^j\pmod m\)</span>.</p>
-<p>Case 1 <span class="math inline">\((n=1)\)</span>:</p>
-<p>&nbsp;</p>
-<p>Case 2 <span class="math inline">\((n&gt;1)\)</span>:</p>
-</section>
-<section id="discovery-inverses-bmod-a-prime" class="slide level2">
-<h2>Discovery: Inverses <span class="math inline">\(\bmod\)</span> a Prime</h2>
-<p><strong>Task <span class="math inline">\(\pmod 7\)</span>:</strong> Fill this table and find inverses of <span class="math inline">\(1,2,3,4\)</span>.</p>
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th><span class="math inline">\(\times\)</span></th>
-<th style="text-align: right;"><span class="math inline">\(1\)</span></th>
-<th style="text-align: right;"><span class="math inline">\(2\)</span></th>
-<th style="text-align: right;"><span class="math inline">\(3\)</span></th>
-<th style="text-align: right;"><span class="math inline">\(4\)</span></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span class="math inline">\(1\)</span></td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"></td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(2\)</span></td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"></td>
-</tr>
-<tr class="odd">
-<td><span class="math inline">\(3\)</span></td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"></td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(4\)</span></td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"></td>
-</tr>
-</tbody>
-</table>
-<p>Then answer: <span class="math inline">\(1^{-1},\,2^{-1},\,3^{-1},\,4^{-1}\ \pmod 7\)</span>.</p>
-<aside class="notes">
-<p>Timing: ~6–7 min. Answers: <span class="math inline">\(1^{-1}\equiv1,\ 2^{-1}\equiv4,\ 3^{-1}\equiv5\ (\bmod 7)\)</span>. Takeaway: all nonzero residues mod prime <span class="math inline">\(p\)</span> have inverses.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="linear-congruences" class="slide level2">
-<h2>Linear Congruences</h2>
-<p>&nbsp;</p>
-<p><strong>Solve:</strong></p>
-<ul>
-<li><span class="math inline">\(9x\equiv 1\pmod{26}\)</span></li>
-</ul>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<ul>
-<li><span class="math inline">\(9x\equiv 5\pmod{26}\)</span></li>
+<li>Do one step of <strong>Haar wavelet</strong> (invertible encoding).</li>
 </ul>
 </section>
-<section id="big-powers-fast" class="slide level2 activity">
-<h2>Big Powers Fast</h2>
-<p>&nbsp;</p>
-<p>Pick one:</p>
+<section id="three-normalizations" class="slide level2">
+<h2>Three Normalizations</h2>
 <ul>
-<li><span class="math inline">\(2^{1000}\pmod 7\)</span><br>
+<li>Min–max: <span class="math inline">\(x'=\dfrac{x-\min}{\max-\min}\)</span> (per feature).<br>
 </li>
-<li><span class="math inline">\(3^{12345}\pmod{10}\)</span><br>
+<li>Z-score: <span class="math inline">\(x'=\dfrac{x-\mu}{\sigma}\)</span> (per feature).<br>
 </li>
-<li><span class="math inline">\(5^{2024}\pmod{13}\)</span></li>
+<li><span class="math inline">\(\ell_2\)</span> vector normalize: <span class="math inline">\(v'=\dfrac{v}{\|v\|_2}\)</span>.</li>
 </ul>
-<aside class="notes">
-<p>Timing: ~6–8 min. 1) <span class="math inline">\(2^{3}\equiv1\Rightarrow 2^{1000}\equiv 2\)</span>. 2) Period <span class="math inline">\(4\)</span> mod <span class="math inline">\(10\)</span>; <span class="math inline">\(12345\equiv1\Rightarrow 3\)</span>. 3) <span class="math inline">\(5^2\equiv-1\Rightarrow 5^4\equiv1\)</span>; <span class="math inline">\(2024\equiv0\pmod4\Rightarrow 1\)</span>.</p>
-<p><em>Data-science tie:</em> “Cycle detection helps compute modular hashes fast in streaming.”</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
+<p><strong>Facts.</strong><br>
+Cosine is scale-invariant: if <span class="math inline">\(v'=\lambda v\)</span>, <span class="math inline">\(\cos(v',w)=\cos(v,w)\)</span>.<br>
+Euclidean distances scale by <span class="math inline">\(|\lambda|\)</span>.</p>
 </section>
-<section id="two-dials" class="slide level2 activity">
-<h2>Two Dials</h2>
-<p>Find <span class="math inline">\(x\pmod {15}\)</span> such that<br>
-<span class="math inline">\(x\equiv 2\pmod 3\)</span> and <span class="math inline">\(x\equiv 1\pmod 5\)</span>.</p>
-<div id="timer_7ec297d9c7c8b171f030eab2282bd6784f637c09" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
-  <div class="countdown-controls">
-    <button class="countdown-bump-down">−</button>
-    <button class="countdown-bump-up">+</button>
- </div>
- <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
- </div>
-<aside class="notes">
-<p>Timing: ~6–8 min. Numbers <span class="math inline">\(\equiv1\pmod5\)</span>: <span class="math inline">\(1,6,11,\dots\)</span>; mod <span class="math inline">\(3\)</span> these are <span class="math inline">\(1,0,2,\dots\)</span> → pick <span class="math inline">\(11\)</span>. Unique mod <span class="math inline">\(15\)</span>.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
+<section id="tiny-proof-cosine-invariance" class="slide level2">
+<h2>Tiny Proof (cosine invariance)</h2>
+<p><span class="math inline">\(\displaystyle \cos(v',w)=\frac{\langle \lambda v,w\rangle}{\|\lambda v\|\,\|w\|}=\frac{\lambda\langle v,w\rangle}{|\lambda|\,\|v\|\,\|w\|}=\cos(v,w).\)</span></p>
+</section>
+<section id="activity-normalize-decide" class="slide level2">
+<h2>Activity: Normalize &amp; Decide</h2>
+<p>Dataset with two features (different units).<br>
+1) 1-NN of a query before vs after <strong>z-score</strong>—did the neighbor change? why?<br>
+2) Try <span class="math inline">\(\ell_2\)</span> normalization; check cosine similarity ordering.</p>
+</section>
+<section id="haar-wavelet-length-8-one-step" class="slide level2">
+<h2>Haar Wavelet (length-8, one step)</h2>
+<p>For pairs <span class="math inline">\((x_{2i},x_{2i+1})\)</span>:<br>
+<strong>Averages</strong> <span class="math inline">\(a_i=\dfrac{x_{2i}+x_{2i+1}}{2}\)</span>, <strong>details</strong> <span class="math inline">\(d_i=\dfrac{x_{2i}-x_{2i+1}}{2}\)</span>.</p>
+<p>Example input: <span class="math inline">\((4,8,6,2,3,5,7,1)\)</span><br>
+Averages: <span class="math inline">\((6,4,4,4)\)</span>; Details: <span class="math inline">\((-2,2,-2,6)\)</span>.</p>
+<p><strong>Invertible:</strong> recover by <span class="math inline">\(x_{2i}=a_i+d_i\)</span>, <span class="math inline">\(x_{2i+1}=a_i-d_i\)</span>.</p>
+</section>
+<section id="exit-ticket" class="slide level2">
+<h2>Exit Ticket</h2>
+<p>Pick a task (kNN, cosine text similarity, gradient descent).<br>
+Which normalization would you choose, and why?</p>
 
 
 <script type="ojs-module-contents">
