@@ -1,5 +1,5 @@
 ---
-date: 2025-10-08
+date: 2025-10-016
 title: "Representation as Encoding — Day 2: Hashing"
 ---
 
