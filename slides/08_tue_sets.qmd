@@ -1,0 +1,179 @@
+---
+date: 2025-10-20
+---
+
+## Announcements
+
+<style>
+.small { font-size: .9rem; }
+.tiny { font-size: .8rem; }
+.card { border: 2px solid #ddd; border-radius: 12px; padding: 14px 16px; margin: 10px 0; }
+.center { text-align:center; }
+.rule { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+</style>
+
+# Sets, Power Sets, & Cross Products
+
+## Goals
+
+- Explore the Empty Set.
+- Distinguish **element** ($\in$) vs **subset** ($\subseteq$).
+- Define the **power set** $\mathcal{P}(S)$ and its **cardinality**.
+- Define **Cartesian product** $A\times B$.
+
+## The Empty Set ($\varnothing$) {.smaller}
+
+**Definition:** $\varnothing$ (a.k.a. $\{\}$) is the **unique set with no elements**.
+
+- **Cardinality:** $|\varnothing|=0$.
+- **Universal subset fact:** For any set $A$, $\varnothing\subseteq A$.
+- **But membership is different:** $\varnothing\in A$ only if $A$ literally contains the empty set as an element.
+
+**Examples**
+
+- If $S=\{a,b\}$:  $\varnothing\subseteq S$, but NOT $\varnothing\in S$.  
+- If $T=\{\varnothing,\{a\}\}$:  $\varnothing\in T$.
+
+
+
+## Operations with $\varnothing$  {.smaller}
+
+For any set $A$:
+
+- **Union:** $A\cup\varnothing = A$
+- **Intersection:** $A\cap\varnothing = \varnothing$
+- **Difference:** $A - \varnothing = A$,  $\ \varnothing\setminus A = \varnothing$
+- **Complement (in $U$):** $U - \varnothing = U$
+- **Cardinalities:** $|A\cup\varnothing|=|A|$, $|A\cap\varnothing|=0$
+
+::: notes
+Quick demo with a tiny set on the board or in code; emphasize “subset vs element.”
+:::
+
+
+## DataFrame/Mask view of $\varnothing$ {.smaller}
+
+Think: **empty mask** = all `False` (selects **no rows**).
+
+```{pyodide}
+
+import pandas as pd
+df = pd.read_csv('https://raw.githubusercontent.com/UBC-CS/dsci220/refs/heads/main/data/cafe_orders.csv')
+
+# Example masks (from cafe dataset)
+A = df['is_iced']     # some True/False
+EMPTY = (df['order_id'] < 0)          # always False thus empty set
+A_or_empty  = (A | EMPTY)
+A_and_empty = (A & EMPTY)
+len(df[A_or_empty]), len(df[A_and_empty])
+
+```
+
+
+## Element vs Subset
+
+- $x\in S$ means **$x$ is one item** in $S$.
+- $A\subseteq S$ means **every element of $A$** is in $S$.
+
+**Examples (watch the braces!)**
+
+- If $S=\{a,b\}$ then:
+  - $a\in S$ is **true**; $\{a\}\in S$ is **false**; $\{a\}\subseteq S$ is **true**.
+  - $\emptyset \in S$ is **false**; $\emptyset \subseteq S$ is **true**.
+- If $T=\{\emptyset,\{a\}\}$ then:
+  - $\emptyset \in T$ is **true**; $\{\emptyset\}\subseteq T$ is **true**.
+
+::: notes
+Say aloud: “Curly braces change the *type* of thing. Elements vs sets of elements.”
+:::
+
+## Quick Checks 
+
+Let $S=\{\texttt{tea},\texttt{coffee},\texttt{juice}\}$.
+
+1. $\texttt{tea}\in S$  ____  
+2. $\{\texttt{tea}\}\in S$  ____  
+3. $\{\texttt{tea}\}\subseteq S$  ____  
+4. $\emptyset \subseteq S$  ____  
+5. $\{\texttt{water}\}\subseteq S$  ____
+
+::: notes
+Answers: 1✓, 2✗, 3✓, 4✓, 5✗.
+:::
+
+
+## Power Set 
+
+**Definition:** $\mathcal{P}(S)$ = the set of **all subsets** of $S$.
+
+\
+
+Example: 
+
+If $S=\{a,b\}$,
+$\ \mathcal{P}(S)=$ \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+\ 
+
+**Cardinality:** 
+
+If $|S|=n$, then $|\mathcal{P}(S)|=$ \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+## Why $2^n$? 
+
+**Bitstring encoding:**  
+Consider $S=\{s_1,\dots,s_n\}$. For each subset $T\subseteq S$ define an indicator of membership:
+$$(b_1,\dots,b_n)\ \text{where } b_i=\begin{cases}1,& s_i\in T\\ 0,& s_i\notin T\end{cases}.$$
+
+How many subsets of a set of size $n$?
+
+::: notes
+Connect to yesterday’s “$b$ bits $\Rightarrow 2^b$ codes.” Subsets $\leftrightarrow$ $n$-bit strings.
+:::
+
+## Quick Check: 
+
+Let $S=\{A,B,C\}$.
+
+- Bitstring $101$ corresponds to subset $\{\_\_\_\_\}$.
+- Subset $\{B\}$ corresponds to bitstring $\_\_\_\_\_\_$.
+
+
+## Empty Sets and Power Sets
+
+
+- $\varnothing\in \mathcal{P}(A)$ (since $\varnothing\subseteq A$)  
+- $\mathcal{P}(\varnothing)=\{\varnothing\}$ and $|\mathcal{P}(\varnothing)|=1$
+
+
+
+## Cartesian Product $A\times B$ 
+
+**Definition:** $A\times B=\{(a,b)\mid a\in A,\ b\in B\}$ 
+
+**Cardinality:** $|A\times B|=|A|\cdot|B|$.
+
+**Example:** $A=\{\texttt{iced},\texttt{hot}\}$, $B=\{\texttt{Latte},\texttt{Tea},\texttt{Mocha}\}$.
+
+\ 
+
+Then
+$$A\times B=
+\{(\texttt{iced},\texttt{Latte}),(\texttt{iced},\texttt{Tea}),(\texttt{iced},\texttt{Mocha}),$$
+$$(\texttt{hot},\texttt{Latte}),(\texttt{hot},\texttt{Tea}),(\texttt{hot},\texttt{Mocha})\},$$
+
+and $|A\times B|=2\cdot 3=6$.
+
+
+## Code
+
+```{pyodide}
+
+import itertools
+A = ['iced','hot']
+B = ['Latte','Tea','Mocha']
+list(itertools.product(A,B))
+
+```
+
+

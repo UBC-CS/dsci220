@@ -34,6 +34,13 @@ Let $U$ be **all rows** of a dataframe `df`.
 Say: “We’ll reason with three parallel languages: math sets, logical predicates, and dataframe masks. They’re equivalent.”
 :::
 
+## From subsets to dataframe masks 
+
+A Boolean **mask** over rows is an indicator vector $\in\{0,1\}^{|U|}$.
+
+- Choosing rows is the same as selecting a **subset** of the universe $U$.
+- $|$mask$|$ (sum of Trues) = cardinality of that subset.
+
 ## Math ⇄ Predicate ⇄ Mask {.smaller}
 
 Let $U$ be all rows in `df`.
