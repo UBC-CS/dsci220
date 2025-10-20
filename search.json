@@ -893,7 +893,7 @@
     "href": "slides/08_mon_sets.html#operations-three-ways-to-say-the-same-thing",
     "title": "Discrete Math for Data Science",
     "section": "Operations: Three Ways to Say the Same Thing",
-    "text": "Operations: Three Ways to Say the Same Thing\nLet \\(A,B\\subseteq U\\).\n\n\n\n\n\n\n\n\n\nOperation\nMath (set)\nPredicate (logic)\nDataframe (mask)\n\n\n\n\nUnion\n\\(A\\cup B\\)\n\\(\\{x: P_A(x)\\lor P_B(x)\\}\\)\n(A | B)\n\n\nIntersection\n\\(A\\cap B\\)\n\\(\\{x: P_A(x)\\land P_B(x)\\}\\)\n(A & B)\n\n\nDifference\n\\(A\\setminus B\\)\n\\(\\{x: P_A(x)\\land \\neg P_B(x)\\}\\)\n(A & ~B)\n\n\nComplement\n\\(U\\setminus A\\)\n\\(\\{x: \\neg P_A(x)\\}\\)\n~A\n\n\nSymm. diff.\n\\(A\\triangle B\\)\n\\(\\{x:(P_A\\lor P_B)\\land \\neg(P_A\\land P_B)\\}\\)\nA ^ B\n\n\n\nPrecedence note: use &, |, ~ with parentheses: (A & B) | (~C)."
+    "text": "Operations: Three Ways to Say the Same Thing\nLet \\(A,B\\subseteq U\\).\n\n\n\n\n\n\n\n\n\nOperation\nMath (set)\nPredicate (logic)\nDataframe (mask)\n\n\n\n\nUnion\n\\(A\\cup B\\)\n\\(\\{x: P_A(x)\\lor P_B(x)\\}\\)\n(A | B)\n\n\nIntersection\n\\(A\\cap B\\)\n\\(\\{x: P_A(x)\\land P_B(x)\\}\\)\n(A & B)\n\n\nDifference\n\\(A-B\\)\n\\(\\{x: P_A(x)\\land \\neg P_B(x)\\}\\)\n(A & ~B)\n\n\nComplement\n\\(A^c\\)\n\\(\\{x: \\neg P_A(x)\\}\\)\n~A\n\n\nSymm. diff.\n\\(A\\triangle B\\)\n\\(\\{x:(P_A\\lor P_B)\\land \\neg(P_A\\land P_B)\\}\\)\nA ^ B\n\n\n\nPrecedence note: use &, |, ~ with parentheses: (A & B) | (~C)."
   },
   {
     "objectID": "slides/08_mon_sets.html#union-example",
@@ -903,11 +903,60 @@
     "text": "Union Example\nLet\n\\(A=\\{x\\mid x.\\mathrm{is\\_iced}\\}\\) and\n\\(B=\\{x\\mid x.\\mathrm{milk}\\in\\{\\text{Oat, Almond}\\}\\}\\).\n\nMath: \\(A\\cup B\\)\n\nPredicate: \\(\\{\\,x\\in U \\mid x.\\mathrm{is\\_iced}\\ \\lor\\ x.\\mathrm{milk}\\in\\{\\text{Oat, Almond}\\}\\,\\}\\)\n\nMask: (df['is_iced']) | (df['milk'].str.strip().isin(['Oat','Almond']))"
   },
   {
-    "objectID": "slides/08_mon_sets.html#café-orders-mini",
-    "href": "slides/08_mon_sets.html#café-orders-mini",
+    "objectID": "slides/08_mon_sets.html#café-orders",
+    "href": "slides/08_mon_sets.html#café-orders",
     "title": "Discrete Math for Data Science",
-    "section": "Café Orders Mini",
-    "text": "Café Orders Mini"
+    "section": "Café Orders",
+    "text": "Café Orders"
+  },
+  {
+    "objectID": "slides/08_mon_sets.html#cardinality",
+    "href": "slides/08_mon_sets.html#cardinality",
+    "title": "Discrete Math for Data Science",
+    "section": "Cardinality",
+    "text": "Cardinality"
+  },
+  {
+    "objectID": "slides/08_mon_sets.html#identity",
+    "href": "slides/08_mon_sets.html#identity",
+    "title": "Discrete Math for Data Science",
+    "section": "Identity",
+    "text": "Identity\nExperiment using the code below, and then complete the observation:\nFor any sets \\(A\\), and \\(B\\): ___________ = ___________"
+  },
+  {
+    "objectID": "slides/08_mon_sets.html#inclusion-exclusion",
+    "href": "slides/08_mon_sets.html#inclusion-exclusion",
+    "title": "Discrete Math for Data Science",
+    "section": "Inclusion-Exclusion",
+    "text": "Inclusion-Exclusion\nExperiment using the code below, and then complete the observation:\nFor any sets \\(A\\) and \\(B\\): \\(|A\\cup B| =\\) _____________"
+  },
+  {
+    "objectID": "slides/08_mon_sets.html#equality",
+    "href": "slides/08_mon_sets.html#equality",
+    "title": "Discrete Math for Data Science",
+    "section": "Equality?",
+    "text": "Equality?\nTwo sets are equal if they contain exactly the same elements. Think of a way to test set equality using set operations.\nAre sets \\(X\\) and \\(Y\\) equal?"
+  },
+  {
+    "objectID": "slides/08_mon_sets.html#subsets",
+    "href": "slides/08_mon_sets.html#subsets",
+    "title": "Discrete Math for Data Science",
+    "section": "Subsets",
+    "text": "Subsets\n\\(A\\subseteq B \\iff \\forall x, P_A(x)\\Rightarrow P_B(x)\\iff\\) ((A & ~B).sum()==0)\nAre any of our sets \\(A\\), \\(B\\), \\(C\\), or \\(D\\) subsets of one another?"
+  },
+  {
+    "objectID": "slides/08_mon_sets.html#a-venn-puzzle",
+    "href": "slides/08_mon_sets.html#a-venn-puzzle",
+    "title": "Discrete Math for Data Science",
+    "section": "A Venn Puzzle",
+    "text": "A Venn Puzzle\nFill in the Venn Diagram using the values for \\(|U|\\), \\(|A|\\), \\(|B|\\), \\(|A\\cup B|\\). Verify your counts are correct by finding \\(|A-B|\\), \\(|A\\cap B|\\), \\(|B-A|\\), and \\(|U-(A\\cup B)|\\), via code.\n\n U A B   A - B A ∩ B B - A U - (A ∪ B)"
+  },
+  {
+    "objectID": "slides/08_mon_sets.html#bounds-on-acap-b",
+    "href": "slides/08_mon_sets.html#bounds-on-acap-b",
+    "title": "Discrete Math for Data Science",
+    "section": "Bounds on \\(|A\\cap B|\\)",
+    "text": "Bounds on \\(|A\\cap B|\\)\nGive upper and lower bounds on \\(|A\\cap B|\\) for any \\(A,B\\subseteq U\\).\n \n__________________ \\(\\leq |A\\cap B|\\leq\\) __________________\n \n\n\n U A B   A - B A ∩ B B - A U - (A ∪ B)"
   },
   {
     "objectID": "index.html",
