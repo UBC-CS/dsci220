@@ -1,0 +1,98 @@
+---
+date: 2025-10-19
+---
+
+## Announcements
+
+<style>
+.small { font-size: .9rem; }
+.tiny { font-size: .8rem; }
+.card { border: 2px solid #ddd; border-radius: 12px; padding: 14px 16px; margin: 10px 0; }
+.center { text-align:center; }
+</style>
+
+# Sets 
+
+## Sets = Filters on Rows {.smaller}
+
+\ 
+
+Let $U$ be **all rows** of a dataframe `df`.
+
+- A **set** $A\subseteq U$ selects rows by a **predicate** $P_A(x)$.
+- In code, a set is a **Boolean mask**: `A_mask = P_A(row)`.
+
+\ 
+
+**Key Ideas**
+
+- **Membership:** $x\in A \iff P_A(x)\iff$  row mask on $x$ is `True`
+- **Cardinality:** $|A| = \sum_{x\in U} \mathbf{1}_A(x)\iff$ `A_mask.sum()`
+- **Subset:** $A\subseteq B \iff \forall x, P_A(x)\Rightarrow P_B(x)\iff$ `((A & ~B).sum()==0)`
+
+::: notes
+Say: “We’ll reason with three parallel languages: math sets, logical predicates, and dataframe masks. They’re equivalent.”
+:::
+
+## Math ⇄ Predicate ⇄ Mask {.smaller}
+
+Let $U$ be all rows in `df`.
+
+- **Math (set):** a subset $A\subseteq U$  
+- **Predicate:** $A=\{\,x\in U \mid P_A(x)\,\}$  
+- **Dataframe:** `A_mask = P_A(row)` then `A_df = df[A_mask]`
+
+**We’ll use these café predicates:**
+
+- $A=$ “Iced drinks”  
+  $A=\{x\in U \mid x.\mathrm{is\_iced}=\text{True}\}$  
+  `A = df['is_iced']`
+
+- $B=$ “Non-dairy milk (Oat or Almond)”  
+  $B=\{x\in U \mid x.\mathrm{milk}\in\{\text{'Oat','Almond'}\}\}$  
+  `B = df['milk'].str.strip().isin(['Oat','Almond'])`
+
+- $C=$ “High caffeine (≥150 mg)”  
+  $C=\{x\in U \mid x.\mathrm{caffeine\_mg}\ge 150\}$  
+  `C = df['caffeine_mg'] >= 150`
+
+- $D=$ “Low calorie (≤150 cal)”  
+  $D=\{x\in U \mid x.\mathrm{calories} \le 150\}$  
+  `D = df['calories'] <= 150`
+
+## Operations: Three Ways to Say the Same Thing {.smaller}
+
+Let $A,B\subseteq U$.
+
+| Operation | Math (set) | Predicate (logic) | Dataframe (mask) |
+|---|---|---|---|
+| **Union** | $A\cup B$ | $\{x: P_A(x)\lor P_B(x)\}$ | `(A | B)` |
+| **Intersection** | $A\cap B$ | $\{x: P_A(x)\land P_B(x)\}$ | `(A & B)` |
+| **Difference** | $A\setminus B$ | $\{x: P_A(x)\land \neg P_B(x)\}$ | `(A & ~B)` |
+| **Complement** | $U\setminus A$ | $\{x: \neg P_A(x)\}$ | `~A` |
+| **Symm. diff.** | $A\triangle B$ | $\{x:(P_A\lor P_B)\land \neg(P_A\land P_B)\}$ | `A ^ B` |
+
+**Precedence note:** use `&`, `|`, `~` with **parentheses**: `(A & B) | (~C)`.
+
+## Union Example {.smaller}
+
+Let  
+$A=\{x\mid x.\mathrm{is\_iced}\}$ and  
+$B=\{x\mid x.\mathrm{milk}\in\{\text{Oat, Almond}\}\}$.
+
+- **Math:** $A\cup B$  
+- **Predicate:** $\{\,x\in U \mid x.\mathrm{is\_iced}\ \lor\ x.\mathrm{milk}\in\{\text{Oat, Almond}\}\,\}$  
+- **Mask:** `(df['is_iced']) | (df['milk'].str.strip().isin(['Oat','Almond']))`
+
+## Café Orders Mini {.smaller}
+
+```{pyodide}
+import pandas as pd
+df = pd.read_csv('https://raw.githubusercontent.com/UBC-CS/dsci220/refs/heads/main/data/cafe_orders.csv')
+
+A = df['is_iced']
+B = df['milk'].str.strip().isin(['Oat','Almond'])
+C = df['caffeine_mg'] >= 150
+D = df['calories'] <= 150
+```
+
