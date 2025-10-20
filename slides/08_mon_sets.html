@@ -193,6 +193,14 @@
           display:block!important;
       }</style></aside>
 </section>
+<section id="from-subsets-to-dataframe-masks" class="slide level2">
+<h2>From subsets to dataframe masks</h2>
+<p>A Boolean <strong>mask</strong> over rows is an indicator vector <span class="math inline">\(\in\{0,1\}^{|U|}\)</span>.</p>
+<ul>
+<li>Choosing rows is the same as selecting a <strong>subset</strong> of the universe <span class="math inline">\(U\)</span>.</li>
+<li><span class="math inline">\(|\)</span>mask<span class="math inline">\(|\)</span> (sum of Trues) = cardinality of that subset.</li>
+</ul>
+</section>
 <section id="math-predicate-mask" class="slide level2 smaller">
 <h2>Math ⇄ Predicate ⇄ Mask</h2>
 <p>Let <span class="math inline">\(U\)</span> be all rows in <code>df</code>.</p>
