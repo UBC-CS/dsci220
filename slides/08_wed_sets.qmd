@@ -1,0 +1,250 @@
+---
+date: 2025-10-22
+---
+
+## Announcements
+
+<style>
+.small { font-size: .9rem; }
+.tiny { font-size: .8rem; }
+.card { border: 2px solid #ddd; border-radius: 12px; padding: 14px 16px; margin: 10px 0; }
+.center { text-align:center; }
+.rule { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+</style>
+
+# Sets Continued
+
+## Goals
+
+- Gallery through proofs
+
+## Warm Up {.activity}
+
+Suppose $A = \{1, \{2\}\}$
+
+::::: columns 
+::: {.column}
+1. Is $1\in A$?
+2. Is $\{1\} \subseteq A$?
+3. Is $1 \subseteq A$?
+4. Is $\{1\} \in A$?
+5. Is $2\in A$?
+:::
+::: {.column}
+6. Is $\{2\} \subseteq A$?
+7. Is $2 \subseteq A$?
+8. Is $\{2\} \in A$?
+9. Is $\emptyset \in A$?
+10. Is $\emptyset \subseteq A$?
+:::
+:::::
+
+# Set Proofs
+
+## Setup {.smaller}
+
+**We’ll use these café sets:**
+
+$I$ = "iced orders" ( `df['is_iced']`)
+
+$N$ = "non-dairy milk" (`df['milk']=='Oat' | df['milk'] == 'Almond'`)
+
+$O$ = "oat-milk orders" (`df['milk'] == 'Oat'`)
+
+$A$ = "almond-milk orders" (`df['milk'] == 'Almond'`)
+
+$H$ = "high-caffeine" (`df['caffeine_mg'] >= 150`)
+
+$L$ = "low-calorie" (`df['calories'] <= 150`)
+
+```{pyodide}
+import pandas as pd
+df = pd.read_csv('https://raw.githubusercontent.com/UBC-CS/dsci220/refs/heads/main/data/cafe_orders.csv')
+
+I = df['is_iced']
+N = df['milk'].str.strip().isin(['Oat','Almond'])
+O = df['milk'].str.strip().eq('Oat')
+H = df['caffeine_mg'] >= 150
+```
+
+## DeMorgan for Sets {.smaller}
+
+By observation, you discovered that $(I\cup N)^c = I^c\cap N^c$. But is this
+_always_ true?
+
+\ 
+
+Claim: For any sets $A$ and $B$, $(A\cup B)^c = A^c\cap B^c$. 
+
+\ 
+
+Observations, before we begin:
+
+* universally quantified statement requires arbitrary instantiation of variables.
+* set equality $A=B$ actually requires 2 proofs: $A\subseteq B$ and $B\subseteq A$. 
+* to prove $A\subseteq B$ we rely on the definition: For any $x$, $x\in A\rightarrow x\in B$. 
+* following the form of the definition, we consider an arbitrary $x$, assume $x\in A$ and show $x\in B$. 
+
+## DeMorgan for Sets Proof {.smaller}
+
+Claim: For any sets $A$ and $B$, $(A\cup B)^c = A^c\cap B^c$. 
+
+_Proof_: Consider arbitrary sets $A$ and $B$. We must show both $(A\cup B)^c\subseteq A^c\cap B^c$, and $A^c\cap B^c\subseteq (A\cup B)^c$.
+
+1. Proof of $(A\cup B)^c\subseteq A^c\cap B^c$
+
+|        Consider an arbitrary $x\in$ \_\_\_\_\_\_\_\_\_\_\_\_. 
+
+\ 
+
+|        Then, $x$ is _not_ in \_\_\_\_\_\_\_\_\_\_\_\_. 
+
+\ 
+
+|        Hence, $x$ is not in \_\_\_\_\_\_\_\_ and $x$ is not in \_\_\_\_\_\_\_\_. 
+
+\ 
+
+|        Since $x$ is not in $A$, \_\_\_\_\_\_\_\_, and similarly, since $x$ is not in $B$, \_\_\_\_\_\_\_\_. 
+
+\ 
+
+|        It follows that $x\in$ \_\_\_\_\_\_\_\_\_\_\_\_ by definition of \_\_\_\_\_\_\_\_\_\_\_\_. 
+
+## DeMorgan for Sets Proof {.smaller}
+
+Claim: For any sets $A$ and $B$, $(A\cup B)^c = A^c\cap B^c$.
+
+_Proof_: Consider arbitrary sets $A$ and $B$. We must show both $(A\cup B)^c\subseteq A^c\cap B^c$, and $A^c\cap B^c\subseteq (A\cup B)^c$.
+
+
+2. Proof of $A^c\cap B^c\subseteq (A\cup B)^c$
+
+## Intersection Narrows {.smaller}
+
+**Story:** "Iced **and** high-caffeine" can’t include non-iced drinks.
+
+**Theorem:** $I\cap H \subseteq I$.
+
+**Proof:** 
+
+\ 
+
+\ 
+
+**Apply:** 
+
+* $|I\cap H|\le |I|$ 
+* every row in $I\cap H$ has `df['is_iced'] == True`.
+
+```{pyodide}
+
+((I & H) & ~I).sum()  # should be 0
+```
+
+## Union Widens {.smaller}
+
+**Story:** Broadening a filter to "non-dairy **or** iced" can’t lose non-dairy orders.
+
+**Theorem:** $N \subseteq N\cup I$.
+
+**Proof:** 
+
+\ 
+
+\ 
+
+**Apply:** 
+
+* $|N|\le |N\cup I|$ 
+* every non-dairy row still passes the broader filter.
+
+```{pyodide}
+
+(N & ~(N | I)).sum()   # should be 0 if N ⊆ (N ∪ I)
+```
+
+
+
+## Union is Monotone {.smaller}
+
+**Story:** Every **oat** drink is **non-dairy**. Then "oat **or** high-caffeine" is contained in "non-dairy **or** high-caffeine".
+
+**Theorem:** If $O\subseteq N$, then $O\cup H \subseteq N\cup H$.
+
+**Proof:** Let $x\in O\cup H$. Then
+$x\in H$ or $x\in O$.
+
+* If $x\in H$, then $x\in N\cup H$.  
+* If $x\in O$, then $x\in N$ (since $O\subseteq N$), so $x\in N\cup H$. 
+
+**Apply:** Replacing a condition by a **superset** inside an OR cannot shrink results.
+
+```{pyodide}
+# O = df['milk'].str.strip().eq('Oat')
+# H = df['caffeine_mg'] >= 150
+subset_OK = ((O & ~N).sum() == 0)          # sanity: O ⊆ N
+violations = ((O | H) & ~(N | H)).sum()    # should be 0
+subset_OK, violations
+```
+
+## Complement Flips the Order {.smaller}
+
+**Story:** Since **oat** $\subseteq$ **non-dairy**, anyone **not non-dairy** is certainly **not oat**.
+
+**Theorem:** If $O\subseteq N$, then $N^{c}\subseteq O^{c}$.
+
+**Proof:** 
+
+\
+
+\ 
+
+\ 
+
+**Apply:** Negating a broader class yields a subset in the **reverse** direction.
+
+```{pyodide}
+(~N & O).sum()   # should be 0 if N^c ⊆ O^c (equivalently, no row is ~N AND O)
+```
+
+::: notes
+Take $x\in N^c$ so $x\notin N$. If $x\in O$ then (because $O\subseteq N$) we’d have $x\in N$—contradiction. Hence $x\notin O$, i.e., $x\in O^c$. $\square$
+:::
+
+
+## Partition Identity {.smaller}
+
+**Story:** Split **iced** orders by whether they’re **non-dairy** ($N$) or **not** ($N^c$). We should neither lose nor double-count any iced orders.
+
+**Theorem:** For any sets $I$ and $N$,
+$$
+(I\cap N)\ \cup\ (I\cap N^{c}) \;=\; I
+\quad\text{and}\quad
+(I\cap N)\ \cap\ (I\cap N^{c}) \;=\; \varnothing.
+$$
+
+**Apply:**  
+
+* Because the union is "disjoint",
+$|I| \;=\; |I\cap N| \;+\; |I\cap N^c|$
+* This is the basis for the "Law of Total Probability," which you will see someday!
+
+```{pyodide}
+# Sanity check on your data:
+left  = (I & N).sum() + (I & ~N).sum()
+right = I.sum()
+disjoint = ((I & N) & (I & ~N)).sum()
+left, right, disjoint, (left == right)  
+```
+
+## Partition Identity Proof {.smaller}
+
+**Theorem:** For any sets $I$ and $N$,
+$$
+(I\cap N)\ \cup\ (I\cap N^{c}) \;=\; I
+\quad\text{and}\quad
+(I\cap N)\ \cap\ (I\cap N^{c}) \;=\; \varnothing.
+$$
+
+**Proof:**  
