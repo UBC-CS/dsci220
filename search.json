@@ -123,361 +123,529 @@
     "text": "Trick 6: Double Sum\nStory. Each item \\(i\\) must be compared with all later items \\(j\\ge i\\). The pairwise cost is \\(c_j = 4j+1\\) (depends only on the later index).\n\n\nProblem.\n\\(T = \\displaystyle \\sum_{i=1}^{n}\\;\\sum_{j=i}^{n}\\,(4j+1)\\)"
   },
   {
-    "objectID": "slides/07_tue_binary2.html#announcements",
-    "href": "slides/07_tue_binary2.html#announcements",
-    "title": "Representation as Encoding — Day 2: Binary & Size",
+    "objectID": "slides/XX_mon_normalization.html#announcements",
+    "href": "slides/XX_mon_normalization.html#announcements",
+    "title": "Representation as Encoding — Day 4: Normalization & a Haar Teaser",
     "section": "Announcements",
     "text": "Announcements"
   },
   {
-    "objectID": "slides/07_tue_binary2.html#goals",
-    "href": "slides/07_tue_binary2.html#goals",
-    "title": "Representation as Encoding — Day 2: Binary & Size",
+    "objectID": "slides/XX_mon_normalization.html#goals",
+    "href": "slides/XX_mon_normalization.html#goals",
+    "title": "Representation as Encoding — Day 4: Normalization & a Haar Teaser",
     "section": "Goals",
-    "text": "Goals\n\nProve: \\(b\\) bits result in \\(2^b\\) codes, with max value \\(2^b-1\\).\n\nOverflow.\n\nDON’T FORGET TO EXPLAIN THE MAGIC TRICK!"
+    "text": "Goals\n\nCompare min–max, z-score, \\(\\ell_2\\) normalization.\n\nEffects on distances and cosine.\n\nDo one step of Haar wavelet (invertible encoding)."
   },
   {
-    "objectID": "slides/07_tue_binary2.html#place-value",
-    "href": "slides/07_tue_binary2.html#place-value",
-    "title": "Representation as Encoding — Day 2: Binary & Size",
-    "section": "Place Value",
-    "text": "Place Value\n  Consider an encoding into binary:\n\\[(b_{k-1}\\dots b_1 b_0)_2=\\sum_{i=0}^{k-1} b_i 2^i,\\quad b_i\\in\\{0,1\\}\\]"
+    "objectID": "slides/XX_mon_normalization.html#three-normalizations",
+    "href": "slides/XX_mon_normalization.html#three-normalizations",
+    "title": "Representation as Encoding — Day 4: Normalization & a Haar Teaser",
+    "section": "Three Normalizations",
+    "text": "Three Normalizations\n\nMin–max: \\(x'=\\dfrac{x-\\min}{\\max-\\min}\\) (per feature).\n\nZ-score: \\(x'=\\dfrac{x-\\mu}{\\sigma}\\) (per feature).\n\n\\(\\ell_2\\) vector normalize: \\(v'=\\dfrac{v}{\\|v\\|_2}\\).\n\nFacts.\nCosine is scale-invariant: if \\(v'=\\lambda v\\), \\(\\cos(v',w)=\\cos(v,w)\\).\nEuclidean distances scale by \\(|\\lambda|\\)."
   },
   {
-    "objectID": "slides/07_tue_binary2.html#proof-moment",
-    "href": "slides/07_tue_binary2.html#proof-moment",
-    "title": "Representation as Encoding — Day 2: Binary & Size",
-    "section": "Proof Moment",
-    "text": "Proof Moment\nClaim: With \\(b\\) bits we can represent \\(2^b\\) values."
+    "objectID": "slides/XX_mon_normalization.html#tiny-proof-cosine-invariance",
+    "href": "slides/XX_mon_normalization.html#tiny-proof-cosine-invariance",
+    "title": "Representation as Encoding — Day 4: Normalization & a Haar Teaser",
+    "section": "Tiny Proof (cosine invariance)",
+    "text": "Tiny Proof (cosine invariance)\n\\(\\displaystyle \\cos(v',w)=\\frac{\\langle \\lambda v,w\\rangle}{\\|\\lambda v\\|\\,\\|w\\|}=\\frac{\\lambda\\langle v,w\\rangle}{|\\lambda|\\,\\|v\\|\\,\\|w\\|}=\\cos(v,w).\\)"
   },
   {
-    "objectID": "slides/07_tue_binary2.html#technical-aside",
-    "href": "slides/07_tue_binary2.html#technical-aside",
-    "title": "Representation as Encoding — Day 2: Binary & Size",
-    "section": "Technical Aside",
-    "text": "Technical Aside\n\nint (pure Python): arbitrary precision (variable width)\nNumPy / Pandas arrays: fixed-width datatypes (int8, int32, int64, uint64, …)\n\n\n\nSigned range: \\([-2^{b-1},\\,2^{b-1}-1]\\); Unsigned range: \\([0,\\,2^b-1]\\).\nTakeaway: the container chooses the encoding (width & signedness).\n\n\nDemo:"
+    "objectID": "slides/XX_mon_normalization.html#activity-normalize-decide",
+    "href": "slides/XX_mon_normalization.html#activity-normalize-decide",
+    "title": "Representation as Encoding — Day 4: Normalization & a Haar Teaser",
+    "section": "Activity: Normalize & Decide",
+    "text": "Activity: Normalize & Decide\nDataset with two features (different units).\n1) 1-NN of a query before vs after z-score—did the neighbor change? why?\n2) Try \\(\\ell_2\\) normalization; check cosine similarity ordering."
   },
   {
-    "objectID": "slides/07_tue_binary2.html#overflow",
-    "href": "slides/07_tue_binary2.html#overflow",
-    "title": "Representation as Encoding — Day 2: Binary & Size",
-    "section": "Overflow",
-    "text": "Overflow\nConsider addition, with 4 bits:\n\nannotate 1101_2 + 110_2 and ask students to speculate on 1) how addition works, and how they would describe the overflow. (they’ll say it’s like mod 2^4) With \\(b\\) fixed bits, adding wraps \\(\\bmod 2^b\\).\n\n\n\n \n\n\n \nPunchline: Overflow occurs when the number you want to represent is too big to fit into the space you’ve reserved for it."
+    "objectID": "slides/XX_mon_normalization.html#haar-wavelet-length-8-one-step",
+    "href": "slides/XX_mon_normalization.html#haar-wavelet-length-8-one-step",
+    "title": "Representation as Encoding — Day 4: Normalization & a Haar Teaser",
+    "section": "Haar Wavelet (length-8, one step)",
+    "text": "Haar Wavelet (length-8, one step)\nFor pairs \\((x_{2i},x_{2i+1})\\):\nAverages \\(a_i=\\dfrac{x_{2i}+x_{2i+1}}{2}\\), details \\(d_i=\\dfrac{x_{2i}-x_{2i+1}}{2}\\).\nExample input: \\((4,8,6,2,3,5,7,1)\\)\nAverages: \\((6,4,4,4)\\); Details: \\((-2,2,-2,6)\\).\nInvertible: recover by \\(x_{2i}=a_i+d_i\\), \\(x_{2i+1}=a_i-d_i\\)."
   },
   {
-    "objectID": "slides/07_tue_binary2.html#signed-integers",
-    "href": "slides/07_tue_binary2.html#signed-integers",
-    "title": "Representation as Encoding — Day 2: Binary & Size",
-    "section": "Signed Integers",
-    "text": "Signed Integers\n\n\nUnsigned integers are represented by their encodings as discussed above.\n\n\n\\(b\\) bits typically represent values \\([0..2^b-1]\\).\n\n\nSigned integers have a different encoding (that we won’t discuss) but we can still guess the values that can be encoded:\n\n\n\\(b\\) bits typically represent values ____________."
-  },
-  {
-    "objectID": "slides/07_tue_binary2.html#activity",
-    "href": "slides/07_tue_binary2.html#activity",
-    "title": "Representation as Encoding — Day 2: Binary & Size",
-    "section": "Activity",
-    "text": "Activity\nFor each, compute bits needed or max value:\n\nSeats in a 500-seat hall.\n\n12-bit unsigned max.\n\nWorld pop (\\(\\approx 8\\cdot10^9\\) people) bits for unique IDs.\n\nTimestamps for next \\(100\\) years at 1-second resolution.\n\n\n\n9; (2) 4095; (3) \\(\\lceil\\log_2(8e9)\\rceil=33\\); (4) seconds \\(\\approx 3.15e9\\) 32 bits."
-  },
-  {
-    "objectID": "slides/07_tue_binary2.html#exit-ticket",
-    "href": "slides/07_tue_binary2.html#exit-ticket",
-    "title": "Representation as Encoding — Day 2: Binary & Size",
+    "objectID": "slides/XX_mon_normalization.html#exit-ticket",
+    "href": "slides/XX_mon_normalization.html#exit-ticket",
+    "title": "Representation as Encoding — Day 4: Normalization & a Haar Teaser",
     "section": "Exit Ticket",
-    "text": "Exit Ticket\nIn words: what does \\(\\lceil\\log_2 N\\rceil\\) tell you?"
+    "text": "Exit Ticket\nPick a task (kNN, cosine text similarity, gradient descent).\nWhich normalization would you choose, and why?"
   },
   {
-    "objectID": "slides/01_wed_intro.html#sages-tricksters",
-    "href": "slides/01_wed_intro.html#sages-tricksters",
-    "title": "Discrete Math for Data Science",
-    "section": "🎭 Sages & Tricksters",
-    "text": "🎭 Sages & Tricksters\n\n\nHow to Play\n\nEach of you are secretly assigned a role:\n\nSage = always tell the truth (Black)\nTrickster = always lie (Red)\n\nEveryone sees the packet of 6 cards and the fact.\n\nIn rounds, each player may ask yes/no questions about the fact.\n\nWork together: compare answers, spot contradictions.\n\nGoal: Deduce each person’s role!"
-  },
-  {
-    "objectID": "slides/01_wed_intro.html#round-structure",
-    "href": "slides/01_wed_intro.html#round-structure",
-    "title": "Discrete Math for Data Science",
-    "section": "🔄 Round Structure",
-    "text": "🔄 Round Structure\n\n\n1. Two Info Rounds\n\nIn each round, take turns asking one yes/no question about the fact\n\n2. Debate Round\n\nCompare answers\n\nLook for contradictions\n\n3. Conclusion\n\nAgree on everyone’s roles\n\nReveal the cards & roles!"
-  },
-  {
-    "objectID": "slides/01_wed_intro.html#logic-in-action",
-    "href": "slides/01_wed_intro.html#logic-in-action",
-    "title": "Discrete Math for Data Science",
-    "section": "🧩 Logic in Action",
-    "text": "🧩 Logic in Action\n\n\n\nLogic means starting from true facts\n\nAsking the right questions\n\nSpotting contradictions\n\nAnd making valid inferences\n\nIn this course we’ll apply all of this to Data Science!"
-  },
-  {
-    "objectID": "slides/01_wed_intro.html#instructional-team",
-    "href": "slides/01_wed_intro.html#instructional-team",
-    "title": "Discrete Math for Data Science",
-    "section": "Instructional Team:",
-    "text": "Instructional Team:\n\nProf: Cinda Heeren\n📧 cheeren@cs.ubc.ca\n⏰ Mon 2–4pm · 🏢 ICCS 233 · \nTA: Joe Wonsil\n📧 jwonsil@cs.ubc.ca\n⏰ Fri 11-12a · 🏢 FORW 317"
-  },
-  {
-    "objectID": "slides/01_wed_intro.html#term-structure",
-    "href": "slides/01_wed_intro.html#term-structure",
-    "title": "Discrete Math for Data Science",
-    "section": "Term Structure:",
-    "text": "Term Structure:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek\nSunday\nM\nT\nW\nF\nTutorial\nExamlet\n\n\n\n\n1\n8/31/2025\n    \n\n🎉\n🎉\n\n\n\n\n2\n9/7/2025\n🎉\n\n🎉\n🎉\n\n\n\n\n3\n9/14/2025\n🎉\n📺\n🎉\n    \n🪄\n🤩\n\n\n4\n9/21/2025\n🎉\n📺\n🎉\n    \n🪄\n\n\n\n5\n9/28/2025\n🎉\n📺\n🎉\n    \n🪄\n🤩\n\n\n6\n10/5/2025\n🎉\n📺\n🎉\n    \n🪄\n\n\n\n7\n10/12/2025\n    \n\n📺\n📺\n\n\n\n\n8\n10/19/2025\n🎉\n📺\n🎉\n    \n🪄\n🤩\n\n\n9\n10/26/2025\n🎉\n📺\n🎉\n    \n🪄\n\n\n\n10\n11/2/2025\n🎉\n📺\n🎉\n    \n🪄\n🤩\n\n\n11\n11/9/2025\n    \n\n    \n📺\n\n\n\n\n12\n11/16/2025\n🎉\n📺\n🎉\n    \n🪄\n\n\n\n13\n11/23/2025\n🎉\n📺\n🎉\n    \n🪄\n🤩\n\n\n14\n11/30/2025\n🎉\n📺\n🎉\n    \n🪄"
-  },
-  {
-    "objectID": "slides/01_wed_intro.html#grading",
-    "href": "slides/01_wed_intro.html#grading",
-    "title": "Discrete Math for Data Science",
-    "section": "Grading:",
-    "text": "Grading:\n\n\n\n\n\n\n\n\nComponent\nWeight\n\n\n\n\n🎉 Class Meetings\n0%\n\n\n🪄 Tutorials\n15%\n\n\n🤩 Examlets\n55%\n\n\n🤩 Final Exam\n30%"
-  },
-  {
-    "objectID": "slides/01_wed_intro.html#communications",
-    "href": "slides/01_wed_intro.html#communications",
-    "title": "Discrete Math for Data Science",
-    "section": "Communications",
-    "text": "Communications\n\n\n📧 Email cheeren@cs.ubc.ca\nChecked daily. Please place “DSCI220” in subject!\n   Piazza piazza.com/ubc.ca/winterterm12025/dsci220\nPost questions for quick response.\n🏫 Office Hours\n\n\n\n\n\n\n\n\n\n\nName\nTime\nLocation & Zoom\n\n\n\n\nCinda\nMon 2–4pm\n🏢 ICCS 233 · \n\n\nJoe\nFri 11-12a\n🏢 FORW 317\n\n\n\n\n\n🌐 Course Website https://ubc-cs.github.io/dsci220/\nSyllabus, schedule, resources"
-  },
-  {
-    "objectID": "slides/01_wed_intro.html#truth",
-    "href": "slides/01_wed_intro.html#truth",
-    "title": "Discrete Math for Data Science",
-    "section": "Truth",
-    "text": "Truth\nMake at least 3 observations about the following table:\n\n\n\n\n\n\\(p\\)\n\\(q\\)\n\\(p \\lor q\\)\n\n\n\n\nF\nF\nF\n\n\nF\nT\nT\n\n\nT\nF\nT\n\n\nT\nT\nT"
-  },
-  {
-    "objectID": "slides/01_wed_intro.html#summary",
-    "href": "slides/01_wed_intro.html#summary",
-    "title": "Discrete Math for Data Science",
-    "section": "Summary",
-    "text": "Summary\nKey observations about the table:\n\n\n\n\n\n\\(p\\)\n\\(q\\)\n\\(p \\lor q\\)\n\n\n\n\nF\nF\nF\n\n\nF\nT\nT\n\n\nT\nF\nT\n\n\nT\nT\nT\n\n\n\n\n\nThe diagram is called a Truth Table\np and q are variables, each of which take on one of two Boolean values, True or False (T/F, 1/0)\n∨ is a binary operator that implements a function (creates output) from the 2 input variables to another Boolean value. It is characterized by its output values.\nThe operator ∨ corresponds to the English word or.\nThe expression p ∨ q is called a proposition."
-  },
-  {
-    "objectID": "slides/01_wed_intro.html#cool-down",
-    "href": "slides/01_wed_intro.html#cool-down",
-    "title": "Discrete Math for Data Science",
-    "section": "Cool down",
-    "text": "Cool down\n\n\n\n\n\n\\(p\\)\n\\(q\\)\n\\(p \\lor q\\)\n\n\n\n\nF\nF\nF\n\n\nF\nT\nT\n\n\nT\nF\nT\n\n\nT\nT\nT\n\n\n\n\n\nHow many rows for a proposition on 3 variables? \\(k\\) variables?\nGive a good name for an operator that takes 1 variable: __________\nGive a good name for an operator that takes 3 variables: __________\nHow many different binary operators could there be?"
-  },
-  {
-    "objectID": "slides/XX_tue_hashing.html#announcements",
-    "href": "slides/XX_tue_hashing.html#announcements",
-    "title": "Representation as Encoding — Day 2: Hashing",
-    "section": "Announcements",
-    "text": "Announcements"
-  },
-  {
-    "objectID": "slides/XX_tue_hashing.html#goals",
-    "href": "slides/XX_tue_hashing.html#goals",
-    "title": "Representation as Encoding — Day 2: Hashing",
-    "section": "Goals",
-    "text": "Goals\n\nSee hashing as key \\(\\to \\{0,\\dots,m-1\\}\\).\n\nUse pigeonhole principle to argue collisions.\n\nReason with load factor \\(\\alpha=n/m\\)."
-  },
-  {
-    "objectID": "slides/XX_tue_hashing.html#hash-table-picture",
-    "href": "slides/XX_tue_hashing.html#hash-table-picture",
-    "title": "Representation as Encoding — Day 2: Hashing",
-    "section": "Hash Table Picture",
-    "text": "Hash Table Picture\nArray of size \\(m\\); hash \\(h(k)\\) gives a slot.\nCommon \\(h(k)=(a k + b)\\bmod m\\).\nLoad factor: \\(\\alpha=n/m\\) (expected chain length under uniform hashing)."
-  },
-  {
-    "objectID": "slides/XX_tue_hashing.html#pigeonhole-collisions-are-inevitable",
-    "href": "slides/XX_tue_hashing.html#pigeonhole-collisions-are-inevitable",
-    "title": "Representation as Encoding — Day 2: Hashing",
-    "section": "Pigeonhole: Collisions are Inevitable",
-    "text": "Pigeonhole: Collisions are Inevitable\nIf \\(n&gt;m\\), then some pair \\(k\\ne k'\\) have \\(h(k)=h(k')\\).\n\nOne-liner proof: \\(n\\) items, \\(m\\) boxes; more items than boxes ⇒ a box with \\(\\ge2\\)."
-  },
-  {
-    "objectID": "slides/XX_tue_hashing.html#expected-cost-chain-hashing",
-    "href": "slides/XX_tue_hashing.html#expected-cost-chain-hashing",
-    "title": "Representation as Encoding — Day 2: Hashing",
-    "section": "Expected Cost (chain hashing)",
-    "text": "Expected Cost (chain hashing)\nUnder uniform hashing, expected chain length \\(\\approx \\alpha\\),\nso expected successful lookup is \\(O(1)\\) when \\(\\alpha=O(1)\\)."
-  },
-  {
-    "objectID": "slides/XX_tue_hashing.html#design-choices-mini-debate",
-    "href": "slides/XX_tue_hashing.html#design-choices-mini-debate",
-    "title": "Representation as Encoding — Day 2: Hashing",
-    "section": "Design Choices (mini-debate)",
-    "text": "Design Choices (mini-debate)\n\nWhy pick prime \\(m\\)?\n\nWhy avoid \\(m\\) that shares factors with patterns in keys?"
-  },
-  {
-    "objectID": "slides/XX_tue_hashing.html#activity-design-break",
-    "href": "slides/XX_tue_hashing.html#activity-design-break",
-    "title": "Representation as Encoding — Day 2: Hashing",
-    "section": "Activity: Design & Break",
-    "text": "Activity: Design & Break\n\nWith \\(m=10\\), \\(h(k)=k\\bmod 10\\): find 3 collisions for your 5 sample keys.\n\nPropose a better \\(m\\) for your keys; test spread.\n\n(Birthday bound) Approximate \\(\\Pr[\\text{collision}] \\approx 1-\\exp\\!\\big(-\\frac{n(n-1)}{2m}\\big)\\) for \\(n=40\\), \\(m=365\\).\n\n\n\n\\(\\approx 0.89\\). Have one group present intuition: “crowded buckets.”"
-  },
-  {
-    "objectID": "slides/XX_tue_hashing.html#exit-ticket",
-    "href": "slides/XX_tue_hashing.html#exit-ticket",
-    "title": "Representation as Encoding — Day 2: Hashing",
-    "section": "Exit Ticket",
-    "text": "Exit Ticket\nState one reason a prime \\(m\\) can help dispersion."
-  },
-  {
-    "objectID": "slides/08_mon_sets.html#announcements",
-    "href": "slides/08_mon_sets.html#announcements",
+    "objectID": "slides/04_tue_argument2.html#announcements",
+    "href": "slides/04_tue_argument2.html#announcements",
     "title": "Discrete Math for Data Science",
     "section": "Announcements",
     "text": "Announcements"
   },
   {
-    "objectID": "slides/08_mon_sets.html#sets-filters-on-rows",
-    "href": "slides/08_mon_sets.html#sets-filters-on-rows",
-    "title": "Discrete Math for Data Science",
-    "section": "Sets = Filters on Rows",
-    "text": "Sets = Filters on Rows\n \nLet \\(U\\) be all rows of a dataframe df.\n\nA set \\(A\\subseteq U\\) selects rows by a predicate \\(P_A(x)\\).\nIn code, a set is a Boolean mask: A_mask = P_A(row).\n\n \nKey Ideas\n\nMembership: \\(x\\in A \\iff P_A(x)\\iff\\) row mask on \\(x\\) is True\nCardinality: \\(|A| = \\sum_{x\\in U} \\mathbf{1}_A(x)\\iff\\) A_mask.sum()\nSubset: \\(A\\subseteq B \\iff \\forall x, P_A(x)\\Rightarrow P_B(x)\\iff\\) ((A & ~B).sum()==0)\n\n\nSay: “We’ll reason with three parallel languages: math sets, logical predicates, and dataframe masks. They’re equivalent.”"
-  },
-  {
-    "objectID": "slides/08_mon_sets.html#from-subsets-to-dataframe-masks",
-    "href": "slides/08_mon_sets.html#from-subsets-to-dataframe-masks",
-    "title": "Discrete Math for Data Science",
-    "section": "From subsets to dataframe masks",
-    "text": "From subsets to dataframe masks\nA Boolean mask over rows is an indicator vector \\(\\in\\{0,1\\}^{|U|}\\).\n\nChoosing rows is the same as selecting a subset of the universe \\(U\\).\n\\(|\\)mask\\(|\\) (sum of Trues) = cardinality of that subset."
-  },
-  {
-    "objectID": "slides/08_mon_sets.html#math-predicate-mask",
-    "href": "slides/08_mon_sets.html#math-predicate-mask",
-    "title": "Discrete Math for Data Science",
-    "section": "Math ⇄ Predicate ⇄ Mask",
-    "text": "Math ⇄ Predicate ⇄ Mask\nLet \\(U\\) be all rows in df.\n\nMath (set): a subset \\(A\\subseteq U\\)\n\nPredicate: \\(A=\\{\\,x\\in U \\mid P_A(x)\\,\\}\\)\n\nDataframe: A_mask = P_A(row) then A_df = df[A_mask]\n\nWe’ll use these café predicates:\n\n\\(A=\\) “Iced drinks”\n\\(A=\\{x\\in U \\mid x.\\mathrm{is\\_iced}=\\text{True}\\}\\)\nA = df['is_iced']\n\\(B=\\) “Non-dairy milk (Oat or Almond)”\n\\(B=\\{x\\in U \\mid x.\\mathrm{milk}\\in\\{\\text{'Oat','Almond'}\\}\\}\\)\nB = df['milk'].str.strip().isin(['Oat','Almond'])\n\\(C=\\) “High caffeine (≥150 mg)”\n\\(C=\\{x\\in U \\mid x.\\mathrm{caffeine\\_mg}\\ge 150\\}\\)\nC = df['caffeine_mg'] &gt;= 150\n\\(D=\\) “Low calorie (≤150 cal)”\n\\(D=\\{x\\in U \\mid x.\\mathrm{calories} \\le 150\\}\\)\nD = df['calories'] &lt;= 150"
-  },
-  {
-    "objectID": "slides/08_mon_sets.html#operations-three-ways-to-say-the-same-thing",
-    "href": "slides/08_mon_sets.html#operations-three-ways-to-say-the-same-thing",
-    "title": "Discrete Math for Data Science",
-    "section": "Operations: Three Ways to Say the Same Thing",
-    "text": "Operations: Three Ways to Say the Same Thing\nLet \\(A,B\\subseteq U\\).\n\n\n\n\n\n\n\n\n\nOperation\nMath (set)\nPredicate (logic)\nDataframe (mask)\n\n\n\n\nUnion\n\\(A\\cup B\\)\n\\(\\{x: P_A(x)\\lor P_B(x)\\}\\)\n(A | B)\n\n\nIntersection\n\\(A\\cap B\\)\n\\(\\{x: P_A(x)\\land P_B(x)\\}\\)\n(A & B)\n\n\nDifference\n\\(A-B\\)\n\\(\\{x: P_A(x)\\land \\neg P_B(x)\\}\\)\n(A & ~B)\n\n\nComplement\n\\(A^c\\)\n\\(\\{x: \\neg P_A(x)\\}\\)\n~A\n\n\nSymm. diff.\n\\(A\\triangle B\\)\n\\(\\{x:(P_A\\lor P_B)\\land \\neg(P_A\\land P_B)\\}\\)\nA ^ B\n\n\n\nPrecedence note: use &, |, ~ with parentheses: (A & B) | (~C)."
-  },
-  {
-    "objectID": "slides/08_mon_sets.html#union-example",
-    "href": "slides/08_mon_sets.html#union-example",
-    "title": "Discrete Math for Data Science",
-    "section": "Union Example",
-    "text": "Union Example\nLet\n\\(A=\\{x\\mid x.\\mathrm{is\\_iced}\\}\\) and\n\\(B=\\{x\\mid x.\\mathrm{milk}\\in\\{\\text{Oat, Almond}\\}\\}\\).\n\nMath: \\(A\\cup B\\)\n\nPredicate: \\(\\{\\,x\\in U \\mid x.\\mathrm{is\\_iced}\\ \\lor\\ x.\\mathrm{milk}\\in\\{\\text{Oat, Almond}\\}\\,\\}\\)\n\nMask: (df['is_iced']) | (df['milk'].str.strip().isin(['Oat','Almond']))"
-  },
-  {
-    "objectID": "slides/08_mon_sets.html#café-orders",
-    "href": "slides/08_mon_sets.html#café-orders",
-    "title": "Discrete Math for Data Science",
-    "section": "Café Orders",
-    "text": "Café Orders"
-  },
-  {
-    "objectID": "slides/08_mon_sets.html#cardinality",
-    "href": "slides/08_mon_sets.html#cardinality",
-    "title": "Discrete Math for Data Science",
-    "section": "Cardinality",
-    "text": "Cardinality"
-  },
-  {
-    "objectID": "slides/08_mon_sets.html#identity",
-    "href": "slides/08_mon_sets.html#identity",
-    "title": "Discrete Math for Data Science",
-    "section": "Identity",
-    "text": "Identity\nExperiment using the code below, and then complete the observation:\nFor any sets \\(A\\), and \\(B\\): ___________ = ___________"
-  },
-  {
-    "objectID": "slides/08_mon_sets.html#inclusion-exclusion",
-    "href": "slides/08_mon_sets.html#inclusion-exclusion",
-    "title": "Discrete Math for Data Science",
-    "section": "Inclusion-Exclusion",
-    "text": "Inclusion-Exclusion\nExperiment using the code below, and then complete the observation:\nFor any sets \\(A\\) and \\(B\\): \\(|A\\cup B| =\\) _____________"
-  },
-  {
-    "objectID": "slides/08_mon_sets.html#equality",
-    "href": "slides/08_mon_sets.html#equality",
-    "title": "Discrete Math for Data Science",
-    "section": "Equality?",
-    "text": "Equality?\nTwo sets are equal if they contain exactly the same elements. Think of a way to test set equality using set operations.\nAre sets \\(X\\) and \\(Y\\) equal?"
-  },
-  {
-    "objectID": "slides/08_mon_sets.html#subsets",
-    "href": "slides/08_mon_sets.html#subsets",
-    "title": "Discrete Math for Data Science",
-    "section": "Subsets",
-    "text": "Subsets\n\\(A\\subseteq B \\iff \\forall x, P_A(x)\\Rightarrow P_B(x)\\iff\\) ((A & ~B).sum()==0)\nAre any of our sets \\(A\\), \\(B\\), \\(C\\), or \\(D\\) subsets of one another?"
-  },
-  {
-    "objectID": "slides/08_mon_sets.html#a-venn-puzzle",
-    "href": "slides/08_mon_sets.html#a-venn-puzzle",
-    "title": "Discrete Math for Data Science",
-    "section": "A Venn Puzzle",
-    "text": "A Venn Puzzle\nFill in the Venn Diagram using the values for \\(|U|\\), \\(|A|\\), \\(|B|\\), \\(|A\\cup B|\\). Verify your counts are correct by finding \\(|A-B|\\), \\(|A\\cap B|\\), \\(|B-A|\\), and \\(|U-(A\\cup B)|\\), via code.\n\n U A B   A - B A ∩ B B - A U - (A ∪ B)"
-  },
-  {
-    "objectID": "slides/08_mon_sets.html#bounds-on-acap-b",
-    "href": "slides/08_mon_sets.html#bounds-on-acap-b",
-    "title": "Discrete Math for Data Science",
-    "section": "Bounds on \\(|A\\cap B|\\)",
-    "text": "Bounds on \\(|A\\cap B|\\)\nGive upper and lower bounds on \\(|A\\cap B|\\) for any \\(A,B\\subseteq U\\).\n \n__________________ \\(\\leq |A\\cap B|\\leq\\) __________________\n \n\n\n U A B   A - B A ∩ B B - A U - (A ∪ B)"
-  },
-  {
-    "objectID": "slides/04_wed_induction.html#announcements",
-    "href": "slides/04_wed_induction.html#announcements",
-    "title": "Discrete Math for Data Science",
-    "section": "Announcements",
-    "text": "Announcements"
-  },
-  {
-    "objectID": "slides/04_wed_induction.html#todays-goals",
-    "href": "slides/04_wed_induction.html#todays-goals",
+    "objectID": "slides/04_tue_argument2.html#todays-goals",
+    "href": "slides/04_tue_argument2.html#todays-goals",
     "title": "Discrete Math for Data Science",
     "section": "Today’s goals",
-    "text": "Today’s goals\n\nUnderstand role of components of an inductive proof.\nWrite short inductive proofs."
+    "text": "Today’s goals\n\nRecognize the form of common proof techniques \\(\\to\\), \\(\\leftrightsquigarrow\\), \\(\\bot\\), ⊞\nWrite short proofs using \\(\\bot\\), and ⊞.\n\n\nKeep everything tiny. Focus on first line (assume/goal), the key move, last line (therefore)."
   },
   {
-    "objectID": "slides/04_wed_induction.html#warm-up",
-    "href": "slides/04_wed_induction.html#warm-up",
+    "objectID": "slides/04_tue_argument2.html#what-is-a-proof",
+    "href": "slides/04_tue_argument2.html#what-is-a-proof",
+    "title": "Discrete Math for Data Science",
+    "section": "What is a proof?",
+    "text": "What is a proof?\nA clear, finite chain of statements that:\n\nstarts from assumptions/definitions\nuses valid rules\nends with the claim\n\nWe’ll practice four approaches for \\(P\\to Q\\) (first 2 earlier, second 2 now):\n\n\\(\\to\\) Direct: assume the hypothesis, derive the conclusion\n\n\\(\\leftrightsquigarrow\\) Contrapositive: prove \\(\\neg Q\\to\\neg P\\) instead of \\(P\\to Q\\)\n\n\\(\\bot\\) Contradiction: assume \\(P\\) and \\(\\neg Q\\); reach False\n\n⊞ Cases: split into exhaustive cases; prove \\(Q\\) for each"
+  },
+  {
+    "objectID": "slides/04_tue_argument2.html#warm-up-1",
+    "href": "slides/04_tue_argument2.html#warm-up-1",
+    "title": "Discrete Math for Data Science",
+    "section": "Warm Up 1",
+    "text": "Warm Up 1\nClaim: for all integers \\(a\\) and \\(b\\), if \\((a+b)\\) is odd, then \\(a\\) is odd or \\(b\\) is odd.\n\n\\(\\to\\) or \\(\\leftrightsquigarrow\\)?\n\n\n\n\nProof: Consider…"
+  },
+  {
+    "objectID": "slides/04_tue_argument2.html#warm-up-2",
+    "href": "slides/04_tue_argument2.html#warm-up-2",
+    "title": "Discrete Math for Data Science",
+    "section": "Warm Up 2",
+    "text": "Warm Up 2\nClaim: for all integers \\(a\\), if \\(a^2\\) is even, then \\(a\\) is even.\n\n\\(\\to\\) or \\(\\leftrightsquigarrow\\)?\n\n\n\n\nProof: Consider…"
+  },
+  {
+    "objectID": "slides/04_tue_argument2.html#proof-skeleton-cards",
+    "href": "slides/04_tue_argument2.html#proof-skeleton-cards",
+    "title": "Discrete Math for Data Science",
+    "section": "Proof Skeleton Cards",
+    "text": "Proof Skeleton Cards\n\n\n\\(\\to\\) Direct Proof of \\(P\\to Q\\)\n\nAssume \\(P\\).\nReason – Unpack definitions / apply given rules to derive needed facts from \\(P\\).\n… Therefore \\(Q\\).\n\n\n\n\\(\\leftrightsquigarrow\\) Contrapositive Proof of \\(P\\to Q\\)\n\nAssume \\(\\neg Q\\)\nUse rules/definitions that match \\(\\neg Q\\) to drive toward \\(\\neg P\\).\n… Therefore \\(\\neg Q\\to\\neg P\\), and thus \\(P\\to Q\\).\n\n\n\n\n\n\\(\\bot\\) Contradiction Proof of \\(P\\to Q\\)\n\nAssume \\(P\\) and \\(\\neg Q\\).\nReason – Unpack definitions / apply given rules to derive needed facts from \\(P\\land \\neg Q\\), watch for contradiction (\\(a\\land\\neg a\\)).\n… Therefore \\(\\bot\\), and our assumption of \\(\\neg Q\\) must be false, so \\(P\\to Q\\).\n\n\n\n⊞ Cases Proof of \\(P\\to Q\\)\n\nPartition \\(P\\) into cases \\(P_1\\), \\(P_2\\), etc. covering all possibilities.\nFor each \\(P_k\\), show that \\(P_k\\to Q\\).\n… Therefore, in each case \\(Q\\), and \\(P\\to Q\\)."
+  },
+  {
+    "objectID": "slides/04_tue_argument2.html#bot-example-contradiction",
+    "href": "slides/04_tue_argument2.html#bot-example-contradiction",
+    "title": "Discrete Math for Data Science",
+    "section": "\\(\\bot\\) Example Contradiction",
+    "text": "\\(\\bot\\) Example Contradiction\nProve that any solution to the mini sudoku puzzle below must contain a 3 in the top right corner (r1c4).\n\nscrutinize form of statement"
+  },
+  {
+    "objectID": "slides/04_tue_argument2.html#bot-our-turn-contradiction",
+    "href": "slides/04_tue_argument2.html#bot-our-turn-contradiction",
+    "title": "Discrete Math for Data Science",
+    "section": "\\(\\bot\\) Our Turn Contradiction",
+    "text": "\\(\\bot\\) Our Turn Contradiction\nClaim: \\(\\sqrt 2\\) is irrational.\nProof: (CLASSIC) Suppose by way of contradiction that \\(\\sqrt 2\\) is rational. Then…"
+  },
+  {
+    "objectID": "slides/04_tue_argument2.html#example-cases",
+    "href": "slides/04_tue_argument2.html#example-cases",
+    "title": "Discrete Math for Data Science",
+    "section": "⊞ Example Cases",
+    "text": "⊞ Example Cases\nClaim: \\(n^3 - n\\) is divisible by ___.\nOverview:"
+  },
+  {
+    "objectID": "slides/04_tue_argument2.html#proof-part-1-divisible-by-___",
+    "href": "slides/04_tue_argument2.html#proof-part-1-divisible-by-___",
+    "title": "Discrete Math for Data Science",
+    "section": "⊞ Proof Part 1 (Divisible by ___):",
+    "text": "⊞ Proof Part 1 (Divisible by ___):\nConsider an arbitrary \\(n\\). Then one of the following must be true\n\nCase A: \\(n=3k\\)\n\n\n\n\nCase B: \\(n=3k+1\\)\n\n\n\n\nCase C: \\(n=3k+2\\)\n\n\n\nIn all 3 cases, \\(n^3-n\\) is divisible by ___."
+  },
+  {
+    "objectID": "slides/04_tue_argument2.html#proof-part-2-divisible-by-___",
+    "href": "slides/04_tue_argument2.html#proof-part-2-divisible-by-___",
+    "title": "Discrete Math for Data Science",
+    "section": "⊞ Proof Part 2 (Divisible by ___):",
+    "text": "⊞ Proof Part 2 (Divisible by ___):\nConsider an arbitrary \\(n\\). Then one of the following must be true\n\nCase A: \\(n=2k\\)\n\n\n\n\nCase B: \\(n=2k+1\\)\n\n\n\nIn all 2 cases, \\(n^3-n\\) is divisible by ___.\nConclusion: 2 and 3 are factors of \\(n^3-n\\) so 6 must be a factor!"
+  },
+  {
+    "objectID": "slides/08_tue_sets.html#announcements",
+    "href": "slides/08_tue_sets.html#announcements",
+    "title": "Discrete Math for Data Science",
+    "section": "Announcements",
+    "text": "Announcements"
+  },
+  {
+    "objectID": "slides/08_tue_sets.html#goals",
+    "href": "slides/08_tue_sets.html#goals",
+    "title": "Discrete Math for Data Science",
+    "section": "Goals",
+    "text": "Goals\n\nExplore the Empty Set.\nDistinguish element (\\(\\in\\)) vs subset (\\(\\subseteq\\)).\nDefine the power set \\(\\mathcal{P}(S)\\) and its cardinality.\nDefine Cartesian product \\(A\\times B\\)."
+  },
+  {
+    "objectID": "slides/08_tue_sets.html#the-empty-set-varnothing",
+    "href": "slides/08_tue_sets.html#the-empty-set-varnothing",
+    "title": "Discrete Math for Data Science",
+    "section": "The Empty Set (\\(\\varnothing\\))",
+    "text": "The Empty Set (\\(\\varnothing\\))\nDefinition: \\(\\varnothing\\) (a.k.a. \\(\\{\\}\\)) is the unique set with no elements.\n\nCardinality: \\(|\\varnothing|=0\\).\nUniversal subset fact: For any set \\(A\\), \\(\\varnothing\\subseteq A\\).\nBut membership is different: \\(\\varnothing\\in A\\) only if \\(A\\) literally contains the empty set as an element.\n\nExamples\n\nIf \\(S=\\{a,b\\}\\): \\(\\varnothing\\subseteq S\\), but NOT \\(\\varnothing\\in S\\).\n\nIf \\(T=\\{\\varnothing,\\{a\\}\\}\\): \\(\\varnothing\\in T\\)."
+  },
+  {
+    "objectID": "slides/08_tue_sets.html#operations-with-varnothing",
+    "href": "slides/08_tue_sets.html#operations-with-varnothing",
+    "title": "Discrete Math for Data Science",
+    "section": "Operations with \\(\\varnothing\\)",
+    "text": "Operations with \\(\\varnothing\\)\nFor any set \\(A\\):\n\nUnion: \\(A\\cup\\varnothing = A\\)\nIntersection: \\(A\\cap\\varnothing = \\varnothing\\)\nDifference: \\(A - \\varnothing = A\\), \\(\\ \\varnothing\\setminus A = \\varnothing\\)\nComplement (in \\(U\\)): \\(U - \\varnothing = U\\)\nCardinalities: \\(|A\\cup\\varnothing|=|A|\\), \\(|A\\cap\\varnothing|=0\\)\n\n\nQuick demo with a tiny set on the board or in code; emphasize “subset vs element.”"
+  },
+  {
+    "objectID": "slides/08_tue_sets.html#dataframemask-view-of-varnothing",
+    "href": "slides/08_tue_sets.html#dataframemask-view-of-varnothing",
+    "title": "Discrete Math for Data Science",
+    "section": "DataFrame/Mask view of \\(\\varnothing\\)",
+    "text": "DataFrame/Mask view of \\(\\varnothing\\)\nThink: empty mask = all False (selects no rows)."
+  },
+  {
+    "objectID": "slides/08_tue_sets.html#element-vs-subset",
+    "href": "slides/08_tue_sets.html#element-vs-subset",
+    "title": "Discrete Math for Data Science",
+    "section": "Element vs Subset",
+    "text": "Element vs Subset\n\n\\(x\\in S\\) means \\(x\\) is one item in \\(S\\).\n\\(A\\subseteq S\\) means every element of \\(A\\) is in \\(S\\).\n\nExamples (watch the braces!)\n\nIf \\(S=\\{a,b\\}\\) then:\n\n\\(a\\in S\\) is true; \\(\\{a\\}\\in S\\) is false; \\(\\{a\\}\\subseteq S\\) is true.\n\\(\\emptyset \\in S\\) is false; \\(\\emptyset \\subseteq S\\) is true.\n\nIf \\(T=\\{\\emptyset,\\{a\\}\\}\\) then:\n\n\\(\\emptyset \\in T\\) is true; \\(\\{\\emptyset\\}\\subseteq T\\) is true.\n\n\n\nSay aloud: “Curly braces change the type of thing. Elements vs sets of elements.”"
+  },
+  {
+    "objectID": "slides/08_tue_sets.html#quick-checks",
+    "href": "slides/08_tue_sets.html#quick-checks",
+    "title": "Discrete Math for Data Science",
+    "section": "Quick Checks",
+    "text": "Quick Checks\nLet \\(S=\\{\\texttt{tea},\\texttt{coffee},\\texttt{juice}\\}\\).\n\n\\(\\texttt{tea}\\in S\\) ____\n\n\\(\\{\\texttt{tea}\\}\\in S\\) ____\n\n\\(\\{\\texttt{tea}\\}\\subseteq S\\) ____\n\n\\(\\emptyset \\subseteq S\\) ____\n\n\\(\\{\\texttt{water}\\}\\subseteq S\\) ____\n\n\nAnswers: 1✓, 2✗, 3✓, 4✓, 5✗."
+  },
+  {
+    "objectID": "slides/08_tue_sets.html#power-set",
+    "href": "slides/08_tue_sets.html#power-set",
+    "title": "Discrete Math for Data Science",
+    "section": "Power Set",
+    "text": "Power Set\nDefinition: \\(\\mathcal{P}(S)\\) = the set of all subsets of \\(S\\).\n\n\nExample:\nIf \\(S=\\{a,b\\}\\), \\(\\ \\mathcal{P}(S)=\\) ________________________\n \nCardinality:\nIf \\(|S|=n\\), then \\(|\\mathcal{P}(S)|=\\) ________________________"
+  },
+  {
+    "objectID": "slides/08_tue_sets.html#why-2n",
+    "href": "slides/08_tue_sets.html#why-2n",
+    "title": "Discrete Math for Data Science",
+    "section": "Why \\(2^n\\)?",
+    "text": "Why \\(2^n\\)?\nBitstring encoding:\nConsider \\(S=\\{s_1,\\dots,s_n\\}\\). For each subset \\(T\\subseteq S\\) define an indicator of membership: \\[(b_1,\\dots,b_n)\\ \\text{where } b_i=\\begin{cases}1,& s_i\\in T\\\\ 0,& s_i\\notin T\\end{cases}.\\]\nHow many subsets of a set of size \\(n\\)?\n\nConnect to yesterday’s “\\(b\\) bits \\(\\Rightarrow 2^b\\) codes.” Subsets \\(\\leftrightarrow\\) \\(n\\)-bit strings."
+  },
+  {
+    "objectID": "slides/08_tue_sets.html#quick-check",
+    "href": "slides/08_tue_sets.html#quick-check",
+    "title": "Discrete Math for Data Science",
+    "section": "Quick Check:",
+    "text": "Quick Check:\nLet \\(S=\\{A,B,C\\}\\).\n\nBitstring \\(101\\) corresponds to subset \\(\\{\\_\\_\\_\\_\\}\\).\nSubset \\(\\{B\\}\\) corresponds to bitstring \\(\\_\\_\\_\\_\\_\\_\\)."
+  },
+  {
+    "objectID": "slides/08_tue_sets.html#empty-sets-and-power-sets",
+    "href": "slides/08_tue_sets.html#empty-sets-and-power-sets",
+    "title": "Discrete Math for Data Science",
+    "section": "Empty Sets and Power Sets",
+    "text": "Empty Sets and Power Sets\n\n\\(\\varnothing\\in \\mathcal{P}(A)\\) (since \\(\\varnothing\\subseteq A\\))\n\n\\(\\mathcal{P}(\\varnothing)=\\{\\varnothing\\}\\) and \\(|\\mathcal{P}(\\varnothing)|=1\\)"
+  },
+  {
+    "objectID": "slides/08_tue_sets.html#cartesian-product-atimes-b",
+    "href": "slides/08_tue_sets.html#cartesian-product-atimes-b",
+    "title": "Discrete Math for Data Science",
+    "section": "Cartesian Product \\(A\\times B\\)",
+    "text": "Cartesian Product \\(A\\times B\\)\nDefinition: \\(A\\times B=\\{(a,b)\\mid a\\in A,\\ b\\in B\\}\\)\nCardinality: \\(|A\\times B|=|A|\\cdot|B|\\).\nExample: \\(A=\\{\\texttt{iced},\\texttt{hot}\\}\\), \\(B=\\{\\texttt{Latte},\\texttt{Tea},\\texttt{Mocha}\\}\\).\n \nThen \\[A\\times B=\n\\{(\\texttt{iced},\\texttt{Latte}),(\\texttt{iced},\\texttt{Tea}),(\\texttt{iced},\\texttt{Mocha}),\\] \\[(\\texttt{hot},\\texttt{Latte}),(\\texttt{hot},\\texttt{Tea}),(\\texttt{hot},\\texttt{Mocha})\\},\\]\nand \\(|A\\times B|=2\\cdot 3=6\\)."
+  },
+  {
+    "objectID": "slides/08_tue_sets.html#code",
+    "href": "slides/08_tue_sets.html#code",
+    "title": "Discrete Math for Data Science",
+    "section": "Code",
+    "text": "Code"
+  },
+  {
+    "objectID": "slides/04_mon_argument1.html#announcements",
+    "href": "slides/04_mon_argument1.html#announcements",
+    "title": "Discrete Math for Data Science",
+    "section": "Announcements",
+    "text": "Announcements\nhttps://ubc.ca1.qualtrics.com/jfe/form/SV_3QzmcmE8HZRhwWi"
+  },
+  {
+    "objectID": "slides/04_mon_argument1.html#explore-ubc",
+    "href": "slides/04_mon_argument1.html#explore-ubc",
+    "title": "Discrete Math for Data Science",
+    "section": "Explore UBC",
+    "text": "Explore UBC\n\n\nVariable Definitions\n\n\\(A\\): Clock Tower is lit up\n\\(B\\): Nest is alight\n\\(C\\): Koerner Library is illuminated\n\n\\(E\\): ICCS doors are unlocked\n\n\\(F\\): the Gallery is open\n\n\\(D\\): Main Mall is hopping!\n\n\nRulebook\n\n\\((A\\lor B\\lor C)\\) — At least one of the three landmarks is lit tonight.\n\n\\(A\\to E\\) — If Clock Tower is lit then ICCS is unlocked.\n\\(C\\to E\\) — If Koerner is lit then ICCS is unlocked.\n\\((B\\lor F)\\) — Either the Nest is lit, or the Gallery opens.\n\n\\((E\\land F)\\to D\\) — If ICCS unlocked and Gal opens then Mall hops.\n\\(B\\to D\\) — If the Nest is lit then Mall hops.\n\n\nGoal: Does \\(D\\) follow from the rulebook?\nAnswer: yes, using unit propagation, as illustrated by table activity."
+  },
+  {
+    "objectID": "slides/04_mon_argument1.html#todays-python",
+    "href": "slides/04_mon_argument1.html#todays-python",
+    "title": "Discrete Math for Data Science",
+    "section": "today’s python",
+    "text": "today’s python"
+  },
+  {
+    "objectID": "slides/04_mon_argument1.html#does-this-always-work",
+    "href": "slides/04_mon_argument1.html#does-this-always-work",
+    "title": "Discrete Math for Data Science",
+    "section": "Does this always work?",
+    "text": "Does this always work?\nWorks great for: rulebooks where each clause has only 1 positive unit (Horn)\nCan stall on: non-Horn, symmetric choice, more complex domains.\nStalling example: \\[\n(A\\vee B)\\wedge(A\\vee \\neg B)\\wedge(\\neg A\\vee B)\\wedge(\\neg A\\vee \\neg B)\n\\]\n\nNo unit clauses → our method can’t start.\nIt’s actually unsatisfiable but needs a branch to detect. (try \\(A\\) or \\(\\neg A\\))\n\nTakeaway 1: Propagation finds what’s locally forced.\nWhen nothing is locally forced, we need case splits or stronger rules.\nTakeaway 2: The general problem of boolean function “Satisfiability” (SAT) has no known efficient solution, and is a classic “NP-Complete” problem."
+  },
+  {
+    "objectID": "slides/04_mon_argument1.html#todays-goals",
+    "href": "slides/04_mon_argument1.html#todays-goals",
+    "title": "Discrete Math for Data Science",
+    "section": "Today’s goals",
+    "text": "Today’s goals\n\nRecognize the form of common proof techniques \\(\\to\\), \\(\\leftrightsquigarrow\\), \\(\\bot\\), ⊞\nWrite short proofs using \\(\\to\\), and \\(\\leftrightsquigarrow\\).\n\n\nKeep everything tiny. Focus on first line (assume/goal), the key move, last line (therefore)."
+  },
+  {
+    "objectID": "slides/04_mon_argument1.html#what-is-a-proof",
+    "href": "slides/04_mon_argument1.html#what-is-a-proof",
+    "title": "Discrete Math for Data Science",
+    "section": "What is a proof?",
+    "text": "What is a proof?\nA clear, finite chain of statements that:\n\nstarts from assumptions/definitions\nuses valid rules\nends with the claim\n\nWe’ll practice four approaches for \\(P\\to Q\\) (first 2 today, second 2 on video lesson):\n\n\\(\\to\\) Direct: assume the hypothesis, derive the conclusion\n\n\\(\\leftrightsquigarrow\\) Contrapositive: prove \\(\\neg Q\\to\\neg P\\) instead of \\(P\\to Q\\)\n\n\\(\\bot\\) Contradiction: assume \\(P\\) and \\(\\neg Q\\); reach False\n\n⊞ Cases: split into exhaustive cases; prove \\(Q\\) for each"
+  },
+  {
+    "objectID": "slides/04_mon_argument1.html#warm-up",
+    "href": "slides/04_mon_argument1.html#warm-up",
     "title": "Discrete Math for Data Science",
     "section": "Warm Up",
-    "text": "Warm Up\nA Tower is built by stacking 5m red panels, and 7m blue panels.\nWhat tower heights are possible?\n\n  \n    −\n    +\n \n 05:00\n \n\nEnd up with a clear claim: For all n &gt; 23, we can build a tower of height n using only 5m red and 7m blue panels.\nSay “claim holds for smaller values”"
+    "text": "Warm Up\nSolve the Sudoku on the worksheet.\nSpeculate on an interesting feature of the corners.\nDo all 4x4 Sudoku puzzles have this feature?\n\n  \n    −\n    +\n \n 05:00"
   },
   {
-    "objectID": "slides/04_wed_induction.html#warm-up-continued",
-    "href": "slides/04_wed_induction.html#warm-up-continued",
+    "objectID": "slides/04_mon_argument1.html#first-proof",
+    "href": "slides/04_mon_argument1.html#first-proof",
     "title": "Discrete Math for Data Science",
-    "section": "Warm Up Continued",
-    "text": "Warm Up Continued\nClaim: for all integers \\(n &gt; 23\\), we can build a tower of height \\(n\\) using only 5m red and 7m blue panels.\n\n\n24:\n\n\n25:\n\n\n26:\n\npoint out universal quantifier, and also least value.\nAlso point out which values follow easily from these… sequences, covering integers."
+    "section": "First Proof",
+    "text": "First Proof\nTheorem: For any integers \\(a\\) and \\(b\\), if \\(ab\\) is even, then \\(a\\) is even or \\(b\\) is even.\n\n\nImportant definition:\n   An integer \\(a\\) is even iff"
   },
   {
-    "objectID": "slides/04_wed_induction.html#proof-by-induction-1",
-    "href": "slides/04_wed_induction.html#proof-by-induction-1",
+    "objectID": "slides/04_mon_argument1.html#technical-rewrite",
+    "href": "slides/04_mon_argument1.html#technical-rewrite",
     "title": "Discrete Math for Data Science",
-    "section": "Proof by Induction",
-    "text": "Proof by Induction\nClaim: For any integer \\(n &gt; 0\\), \\(\\sum\\limits_{k=1}^{n} k^2 = \\frac{n(n+1)(2n+1)}{6}\\).\n\n\nProof: Consider an arbitrary integer \\(n &gt; 0\\).\n\n\nIH: Assume inductively that for any \\(j&lt;n\\), \\(\\sum\\limits_{k=1}^{j} k^2 = \\frac{j(j+1)(2j+1)}{6}\\).\n\n\nEither \\(n=1\\), or \\(n&gt;1\\).\nCase 1 \\((n=1)\\):\n\n\nCase 2 \\((n&gt;1)\\):"
+    "section": "Technical Rewrite",
+    "text": "Technical Rewrite\n\n\\(\\forall a,b\\in \\mathbb{Z}\\)\n    \\(( (\\exists k\\in\\mathbb{Z}, ab=2k) \\to ((\\exists j\\in\\mathbb{Z}, a = 2j) \\lor (\\exists j\\in\\mathbb{Z}, b=2j)))\\)\n\n \nUniversal instantiation:\n\ncan’t argue “for all” exhaustively, so we choose an arbitrary representative\nWrite “Proof: Consider arbitrary integers \\(a\\) and \\(b\\) …”"
   },
   {
-    "objectID": "slides/04_wed_induction.html#inductive-proof-skeleton-card",
-    "href": "slides/04_wed_induction.html#inductive-proof-skeleton-card",
+    "objectID": "slides/04_mon_argument1.html#which-are-valid-arguments",
+    "href": "slides/04_mon_argument1.html#which-are-valid-arguments",
     "title": "Discrete Math for Data Science",
-    "section": "Inductive Proof Skeleton Card",
-    "text": "Inductive Proof Skeleton Card\n\nProof by Induction of \\(\\forall n, P(n)\\)\n\nFirst line: “Consider an arbitrary n.”\nSecond line (IH): “Assume \\(\\forall j &lt; n, P(j)\\).”\nDetermine exhaustive cases for \\(n\\), including one or more base cases and usually one inductive case.\nProve each case, base and inductive, independently. Base case is typically direct, and inductive case will require use of IH."
+    "section": "Which are valid arguments?",
+    "text": "Which are valid arguments?\n\nPf1: Suppose \\(a\\) and \\(b\\) are odd. Then there are integers \\(k\\) and \\(j\\) so \\(a=2k+1\\) and \\(b=2j+1\\). Then \\(ab=(2k+1)(2j+1) = 2(2jk + j + k) +1\\). Since \\(2jk+j+k\\) is an integer, \\(ab\\) is odd.\nPf2: Assume \\(a\\) or \\(b\\) is even. Suppose \\(a\\) is even – the argument is the same if it is \\(b\\). Then \\(ab=2kb\\) for some \\(k\\), and thus \\(ab\\) is even.\nPf3: Suppose that \\(ab\\) is even but \\(a\\) and \\(b\\) are both odd. Namely, \\(ab=2n\\), \\(a=2k+1\\), and \\(b=2j+1\\), for some integers \\(n\\), \\(j\\), and \\(k\\). Then \\(2n=(2k+1)(2j+1)\\) and \\(n = 2jk + k + j + 1/2\\) which is a contradiction.\nPf4: Let \\(ab\\) be an even number, say \\(ab=2n\\), and \\(a\\) be an odd number, say \\(a=2k+1\\). Then \\(2n = (2k+1)b\\) and thus \\(b=2(n-kb)\\) and \\(b\\) is even.\n\n\nexistential instantiation"
   },
   {
-    "objectID": "slides/04_wed_induction.html#your-turn",
-    "href": "slides/04_wed_induction.html#your-turn",
+    "objectID": "slides/04_mon_argument1.html#proof-skeleton-cards",
+    "href": "slides/04_mon_argument1.html#proof-skeleton-cards",
     "title": "Discrete Math for Data Science",
-    "section": "Your turn!",
-    "text": "Your turn!\nClaim: For any \\(n&gt;0\\), \\(\\sum\\limits_{k=1}^n \\frac{1}{(2k-1)(2k+1)} = \\frac{n}{2n+1}\\).\n\n  \n    −\n    +\n \n 10:00"
+    "section": "Proof Skeleton Cards",
+    "text": "Proof Skeleton Cards\n\n\n\\(\\to\\) Direct Proof of \\(P\\to Q\\)\n\nAssume \\(P\\).\nReason – Unpack definitions / apply given rules to derive needed facts from \\(P\\).\n… Therefore \\(Q\\).\n\n\n\n\\(\\leftrightsquigarrow\\) Contrapositive Proof of \\(P\\to Q\\)\n\nAssume \\(\\neg Q\\)\nUse rules/definitions that match \\(\\neg Q\\) to drive toward \\(\\neg P\\).\n… Therefore \\(\\neg Q\\to\\neg P\\), and thus \\(P\\to Q\\).\n\n\n\n\n\n\\(\\bot\\) Contradiction Proof of \\(P\\to Q\\)\n\nAssume \\(P\\) and \\(\\neg Q\\).\nReason – Unpack definitions / apply given rules to derive needed facts from \\(P\\land \\neg Q\\), watch for contradiction (\\(a\\land\\neg a\\)).\n… Therefore \\(\\bot\\), and our assumption of \\(\\neg Q\\) must be false, so \\(P\\to Q\\).\n\n\n\n⊞ Cases Proof of \\(P\\to Q\\)\n\nPartition \\(P\\) into cases \\(P_1\\), \\(P_2\\), etc. covering all possibilities.\nFor each \\(P_k\\), show that \\(P_k\\to Q\\).\n… Therefore, in each case \\(Q\\), and \\(P\\to Q\\)."
   },
   {
-    "objectID": "slides/04_wed_induction.html#last-demo",
-    "href": "slides/04_wed_induction.html#last-demo",
+    "objectID": "slides/04_mon_argument1.html#to-example-direct",
+    "href": "slides/04_mon_argument1.html#to-example-direct",
     "title": "Discrete Math for Data Science",
-    "section": "Last Demo",
-    "text": "Last Demo\nThis is a tromino:     \nThis is a \\(n\\) by \\(n\\) deficient grid:\n\n       \n\n\n\nClaim: Every \\(2^n\\) by \\(2^n\\) deficient grid can be tiled with trominos."
+    "section": "\\(\\to\\) Example Direct",
+    "text": "\\(\\to\\) Example Direct\nProve that for any solution to the mini sudoku puzzle below, if the solution has a 2 in the top-left square (r1c1), then it will contain a 2 in the bottom-right square (r4c4).\n\nscrutinize form of statement"
   },
   {
-    "objectID": "slides/04_wed_induction.html#tile-work",
-    "href": "slides/04_wed_induction.html#tile-work",
+    "objectID": "slides/04_mon_argument1.html#to-your-turn-direct",
+    "href": "slides/04_mon_argument1.html#to-your-turn-direct",
     "title": "Discrete Math for Data Science",
-    "section": "Tile Work",
-    "text": "Tile Work\nClaim: Every \\(2^n\\) by \\(2^n\\) deficient grid can be tiled with trominos.\n \nProof: Line 1:\n\n\nLine 2:\n \nSmall case(s):"
+    "section": "\\(\\to\\) Your Turn Direct",
+    "text": "\\(\\to\\) Your Turn Direct\nLet \\(T_n = \\frac{n(n+1)}{2}\\) be the \\(n\\)th triangular number, \\(T_1=1\\), \\(T_2=3\\), etc.\nA glow number is any integer that can be written as the sum of two consecutive triangular numbers:\n\\[𝑔=𝑇_𝑘+𝑇_{𝑘+1}\\] ​ Theorem: every glow number is a perfect square.\nProof: Consider an arbitrary glow number \\(g\\).\n \n \n \n \n \n \n… therefore \\(g\\) is a perfect square.\n\nis the converse true?"
   },
   {
-    "objectID": "slides/04_wed_induction.html#tile-work-1",
-    "href": "slides/04_wed_induction.html#tile-work-1",
+    "objectID": "slides/04_mon_argument1.html#leftrightsquigarrow-example-contrapositive",
+    "href": "slides/04_mon_argument1.html#leftrightsquigarrow-example-contrapositive",
     "title": "Discrete Math for Data Science",
-    "section": "Tile Work",
-    "text": "Tile Work\nClaim: Every \\(2^n\\) by \\(2^n\\) deficient grid can be tiled with trominos.\n \nProof continued… Inductive case:"
+    "section": "\\(\\leftrightsquigarrow\\) Example Contrapositive",
+    "text": "\\(\\leftrightsquigarrow\\) Example Contrapositive\n\n\n\n\nGame rule: each 2x2 box contains one of 1, 2, 3, and 4.\nTheorem: For any valid Sudoku solution, if A and B and C are not 4, then D is 4.\n\nContrapositive:"
+  },
+  {
+    "objectID": "slides/04_mon_argument1.html#leftrightsquigarrow-your-turn-contrapositive",
+    "href": "slides/04_mon_argument1.html#leftrightsquigarrow-your-turn-contrapositive",
+    "title": "Discrete Math for Data Science",
+    "section": "\\(\\leftrightsquigarrow\\) Your Turn Contrapositive",
+    "text": "\\(\\leftrightsquigarrow\\) Your Turn Contrapositive\nDefinitions:\n\nA number \\(n\\) is even if there is an integer \\(k\\) such that \\(n=2k\\).\nA number \\(n\\) is odd if there is an integer \\(k\\) such that \\(n=2k+1\\).\n\nTheorem: If \\(3n+2\\) is odd, then \\(n\\) is odd."
+  },
+  {
+    "objectID": "slides/02_mon_equiv.html#wffs",
+    "href": "slides/02_mon_equiv.html#wffs",
+    "title": "Discrete Math for Data Science",
+    "section": "WFFs",
+    "text": "WFFs\nRand WFF Apply rule on line:\nRand atom Atom becomes:\n&lt;wff&gt; ::= &lt;atom&gt;\n        | ~ &lt;wff&gt;\n        | ( &lt;wff&gt; ∧ &lt;wff&gt; )\n        | ( &lt;wff&gt; ∨ &lt;wff&gt; )\n\n&lt;atom&gt; ::= p | q \nExample derivation:\n&lt;wff&gt;"
+  },
+  {
+    "objectID": "slides/02_mon_equiv.html#wffs-notes",
+    "href": "slides/02_mon_equiv.html#wffs-notes",
+    "title": "Discrete Math for Data Science",
+    "section": "WFFs (Notes)",
+    "text": "WFFs (Notes)\n&lt;wff&gt; ::= &lt;atom&gt;\n        | ~ &lt;wff&gt;\n        | ( &lt;wff&gt; ∧ &lt;wff&gt; )\n        | ( &lt;wff&gt; ∨ &lt;wff&gt; )\n\n&lt;atom&gt; ::= p | q \n\nGrammars can be used to construct many different kinds of sequences.\nWe could have included additional operators \\(\\rightarrow\\), \\(\\leftrightarrow\\), \\(\\oplus\\), \\(\\uparrow\\)\nComputational evaluation of &lt;wff&gt;is covered in DSCI221. For now, we trust Python and focus on logic.\nThe &lt;wff&gt; are propositions."
+  },
+  {
+    "objectID": "slides/02_mon_equiv.html#wff-puzzle",
+    "href": "slides/02_mon_equiv.html#wff-puzzle",
+    "title": "Discrete Math for Data Science",
+    "section": "WFF Puzzle",
+    "text": "WFF Puzzle\nWhich of these are WFFs?\n&lt;wff&gt; ::= &lt;atom&gt;\n        | ~ &lt;wff&gt;\n        | ( &lt;wff&gt; ∧ &lt;wff&gt; )\n        | ( &lt;wff&gt; ∨ &lt;wff&gt; )\n\n&lt;atom&gt; ::= p | q \n\n\n\n\\((\\neg p ∧ (q ∨ r))\\)\n\\(((p ∧ q) ∨ (r ∧ \\neg s))\\)\n\\(((\\neg p) ∨ (q ∨ r))\\)\n\n\n\n\\((p ∨ (qr))\\)\n\\(\\neg (p ∨ (q ∧ \\neg r))\\)\n\\(\\neg (p ∨ q))\\)\n\n\n\n  \n    −\n    +\n \n 03:00\n \n\nSometimes pq is the same as p^q, p & q, p && q, but our grammar only uses ^. In this course we will vary symbols fluidly, partly because we’re assembling info from many different sources, but also partly because you’ll need to be agile in the future. Note that the same issues exist for other operators."
+  },
+  {
+    "objectID": "slides/02_mon_equiv.html#wffs-1",
+    "href": "slides/02_mon_equiv.html#wffs-1",
+    "title": "Discrete Math for Data Science",
+    "section": "WFFs",
+    "text": "WFFs\n&lt;wff&gt; ::= &lt;atom&gt;\n        | ~ &lt;wff&gt;\n        | ( &lt;wff&gt; ∧ &lt;wff&gt; )\n        | ( &lt;wff&gt; ∨ &lt;wff&gt; )\n\n&lt;atom&gt; ::= p | q \nTheorem: \\(\\neg (p ∨ q))\\) is not a WFF.\nProof:\n\nassume that it is! then ~ must have been the last rule applied, and \\(( p v q))\\) must be a . then (  v  ) must have been the last rule applied, and \\(p\\) and \\(q)\\) must be . take each case separately: \\(q)\\) is not a  because none of the rules apply, so we have both that it must be a wff and it is not a wff – a contradiction, so our assumption is false!\nWe include this as foreshadowing for a proof strategy called “proof by contradition.” Making arguments like this (proofs) is the substance of this course, but don’t worry, we’ll be teaching you how to do it."
+  },
+  {
+    "objectID": "slides/02_mon_equiv.html#back-to-propositions",
+    "href": "slides/02_mon_equiv.html#back-to-propositions",
+    "title": "Discrete Math for Data Science",
+    "section": "Back to Propositions",
+    "text": "Back to Propositions\nA proposition is a statement that can be either True or False.\nExamples:\n\n\\(37 &gt; 12\\)\nFewer than 5 people in this room feel sleepy.\nThere are extra-terrestrial life forms.\nThis statement is False.\n\\(\\underline{\\hspace{10em}}\\)"
+  },
+  {
+    "objectID": "slides/02_mon_equiv.html#translation",
+    "href": "slides/02_mon_equiv.html#translation",
+    "title": "Discrete Math for Data Science",
+    "section": "Translation",
+    "text": "Translation\nFrom English to logic and back…\n\n\n\\(p\\): ___________ ate cereal for breakfast.\n\\(q\\): ___________ brought a backpack to class.\n \n\n\\((p\\lor q)\\)\n\\((p\\wedge q)\\)\n\\(\\neg q\\)"
+  },
+  {
+    "objectID": "slides/02_mon_equiv.html#predicates",
+    "href": "slides/02_mon_equiv.html#predicates",
+    "title": "Discrete Math for Data Science",
+    "section": "Predicates",
+    "text": "Predicates\n\n\n\\(p\\): ___________ ate cereal for breakfast.\n\n\nWe may want to apply the statement to many students, in which case we define a Predicate.\n\n\n\n\\(P(x)\\): \\(x\\) ate cereal for breakfast.\n\\(x\\) can be instantiated to be a particular student, or an arbitrary student.\n\\(P(\\underline{\\hspace{2em}} )\\) is a proposition."
+  },
+  {
+    "objectID": "slides/02_mon_equiv.html#logical-equivalence-1",
+    "href": "slides/02_mon_equiv.html#logical-equivalence-1",
+    "title": "Discrete Math for Data Science",
+    "section": "Logical Equivalence",
+    "text": "Logical Equivalence\n\n\nEx: Is it true that \\((p \\lor q) \\equiv (q\\lor p)\\) ?\n\n\nDiscussion points:\n\n\\(\\equiv\\) means logically equivalent\nThe answer had better be _________!!!\nHow can we justify our instinct?\n\n\n\nShow same truth table\nChains of equivalence\n\nSame as saying “write a proof”"
+  },
+  {
+    "objectID": "slides/02_mon_equiv.html#logical-equivalence-example",
+    "href": "slides/02_mon_equiv.html#logical-equivalence-example",
+    "title": "Discrete Math for Data Science",
+    "section": "Logical Equivalence example",
+    "text": "Logical Equivalence example"
+  },
+  {
+    "objectID": "slides/02_mon_equiv.html#boolean-masks",
+    "href": "slides/02_mon_equiv.html#boolean-masks",
+    "title": "Discrete Math for Data Science",
+    "section": "Boolean Masks",
+    "text": "Boolean Masks\nSelect all the cereals with at least 4 units of protein and no more than 6 units of sugars.\n\n\n\n\n\n\n\n\n\nnote that by doing this filtering, we are defining a predicate instantiated by each row whose truth value is evaluated.\nChallenge: In pandas, test De Morgan with missing data: create a row with protein = NaN. Show that (~p) & (~q) can differ from ~(p | q) under three-valued logic; propose a fix (.fillna(False) or careful NA handling)."
+  },
+  {
+    "objectID": "slides/02_mon_equiv.html#logical-equivalence-2",
+    "href": "slides/02_mon_equiv.html#logical-equivalence-2",
+    "title": "Discrete Math for Data Science",
+    "section": "Logical Equivalence",
+    "text": "Logical Equivalence\n\n“Select all the cereals with at least 4 units of protein and no more than 6 units of sugars.”\n\n\n\n\n\\(p\\): a cereal has less than 4 units of protein\n\\(q\\): a cereal has more than 6 units of sugars\n\n\n\n\n\nWe suspect that \\(\\neg p\\wedge \\neg q \\equiv \\neg( p\\lor q)\\):\n\n\n\n\n\n\n\n\n\n\n\n\\(p\\)\n\\(q\\)\n\\(\\neg p\\wedge \\neg q\\)\n\n\n\n\nF\nF\n\n\n\nF\nT\n\n\n\nT\nF\n\n\n\nT\nT\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\\(p\\)\n\\(q\\)\n\\(\\neg( p\\lor q)\\)\n\n\n\n\nF\nF\n\n\n\nF\nT\n\n\n\nT\nF\n\n\n\nT\nT\n\n\n\n\n\n\n\nhalf the class complete the TT on the left, the other half on the right, then we all read our responses aloud!"
+  },
+  {
+    "objectID": "slides/02_mon_equiv.html#logical-equivalences",
+    "href": "slides/02_mon_equiv.html#logical-equivalences",
+    "title": "Discrete Math for Data Science",
+    "section": "Logical Equivalences",
+    "text": "Logical Equivalences\n\n\n\n\n\nWe have discussed Logical Equivalence (LE) and explored an example. The table illustrates LE that are so important, they have names!\n\nObservations:"
+  },
+  {
+    "objectID": "slides/02_mon_equiv.html#logical-equivalence-practice",
+    "href": "slides/02_mon_equiv.html#logical-equivalence-practice",
+    "title": "Discrete Math for Data Science",
+    "section": "Logical Equivalence Practice",
+    "text": "Logical Equivalence Practice\nAll graded learning activities in the course will use a tool called PrairieLearn.\nNavigate to Activity 1 and complete question 2. Each of you will receive a different version of the problem. Work together in pairs to solve each person’s version.\n\n\n    \nhttps://us.prairielearn.com/pl/course_instance/186238/assessment/2562335"
+  },
+  {
+    "objectID": "slides/02_mon_equiv.html#implication-1",
+    "href": "slides/02_mon_equiv.html#implication-1",
+    "title": "Discrete Math for Data Science",
+    "section": "Implication",
+    "text": "Implication\nConnect operator \\(\\rightarrow\\) to a logically equivalent expression using only and, or, and not.\n\n\n\n\\(p\\)\n\\(q\\)\n\\(p\\rightarrow q\\)\n\\(\\underline{\\hspace{3em}}\\)\n\n\n\n\nF\nF\nT\n\n\n\nF\nT\nT\n\n\n\nT\nF\nF\n\n\n\nT\nT\nT\n\n\n\n\n\nIs this operator commutative?\nNote: \\(p \\rightarrow q \\equiv\\) _______.\n\\(p \\rightarrow q\\) Corresponds to “if \\(p\\) then \\(q\\)”\nGives us mechanism for reasoning!\n\n\nq and not p is false. so it’s NOT (q^-p) == ??? (apply demorgan)\nPL exercises on Logical equivalence involving implication?\nMore on implication and logical equivalence in tutorial questions"
+  },
+  {
+    "objectID": "slides/02_mon_equiv.html#special-logical-equivalences",
+    "href": "slides/02_mon_equiv.html#special-logical-equivalences",
+    "title": "Discrete Math for Data Science",
+    "section": "Special Logical Equivalences",
+    "text": "Special Logical Equivalences\nSuppose \\(p\\equiv\\) T . Then \\(p\\) is a Tautology.\nSuppose \\(p\\equiv\\) F . Then \\(p\\) is a Contradiction."
+  },
+  {
+    "objectID": "slides/02_mon_equiv.html#logical-equivalence-practice-1",
+    "href": "slides/02_mon_equiv.html#logical-equivalence-practice-1",
+    "title": "Discrete Math for Data Science",
+    "section": "Logical Equivalence Practice",
+    "text": "Logical Equivalence Practice\nlink to PL question"
+  },
+  {
+    "objectID": "slides/02_mon_equiv.html#words-and-ideas",
+    "href": "slides/02_mon_equiv.html#words-and-ideas",
+    "title": "Discrete Math for Data Science",
+    "section": "Words and Ideas",
+    "text": "Words and Ideas\nGrammar\nPredicate\nBoolean Mask\nLogical Equivalence\nImplication"
+  },
+  {
+    "objectID": "slides/03_wed_reasoning.html#announcements",
+    "href": "slides/03_wed_reasoning.html#announcements",
+    "title": "Discrete Math for Data Science",
+    "section": "Announcements",
+    "text": "Announcements\n\nEnroll in PrairieTest here: https://us.prairietest.com/pt/student/course/12361/enroll/392674810508\nSign up for EX1. Practice materials on PL.\nTutorials begin this week!"
+  },
+  {
+    "objectID": "slides/03_wed_reasoning.html#design-a-trap",
+    "href": "slides/03_wed_reasoning.html#design-a-trap",
+    "title": "Discrete Math for Data Science",
+    "section": "Design a Trap",
+    "text": "Design a Trap\nYour mission:\n- Write one valid two-premise argument (any rule).\n- Write a look-alike fallacy with the same topic words.\n- Bring to class on Wednesday morning!"
+  },
+  {
+    "objectID": "slides/03_wed_reasoning.html#make-proofs-executable",
+    "href": "slides/03_wed_reasoning.html#make-proofs-executable",
+    "title": "Discrete Math for Data Science",
+    "section": "Make proofs executable",
+    "text": "Make proofs executable\n\nYesterday: valid arguments as legal inference\nToday: address facts ⇒ conclusion algorithmically\nMethod: Refutation + Unit propagation\nBig picture: SAT/SMT ideas used in verification, chip design, planning\nWhy now? Logic provides clean specification layer even in a probabilistic world\n\n\nWe’ll mechanize yesterday’s arguments. We’ll encode ‘facts ⇒ conclusion’, flip the goal, and let unit propagation push us to a contradiction if the conclusion really follows. This is the heartbeat of SAT solvers.” “If A,B,C are facts and we add ¬D, what should happen if A∧B∧C→D?”"
+  },
+  {
+    "objectID": "slides/03_wed_reasoning.html#vocabulary",
+    "href": "slides/03_wed_reasoning.html#vocabulary",
+    "title": "Discrete Math for Data Science",
+    "section": "Vocabulary",
+    "text": "Vocabulary\n\nStatement: something that is either true or false.\n\nFact: a statement we already know is true (we’ll draw it as a single-item parenthesis like \\((A)\\)).\n\nRule: “if these are true, then that is true.” Example: “If A and B, then E.”\n\nclause (OR-group): a group joined by “OR”, like \\((\\neg A \\lor \\neg B \\lor E)\\).\n\nCNF (AND of clauses): several OR-groups joined by “AND”.\n\nUnit clause: a clause with just one item, like \\((A)\\) or \\((\\neg D)\\).\n\nUnit propagation: if you know \\((X)\\) is true and you also have \\((\\neg X \\lor Y)\\), you may drop \\(\\neg X\\) and keep \\(Y\\). Now \\(Y\\) must be true!\n\n\nbrownie points for the rule at the end – DS"
+  },
+  {
+    "objectID": "slides/03_wed_reasoning.html#explore-ubc",
+    "href": "slides/03_wed_reasoning.html#explore-ubc",
+    "title": "Discrete Math for Data Science",
+    "section": "Explore UBC",
+    "text": "Explore UBC\n\n\nVariable Definitions\n\n\\(A\\): Clock Tower is lit up\n\\(B\\): Nest is alight\n\\(C\\): Koerner Library is illuminated\n\n\\(E\\): ICCS doors are unlocked\n\n\\(F\\): the Gallery is open\n\n\\(D\\): Main Mall is hopping!\n\n\nRulebook\n\n\\((A\\lor B\\lor C)\\) — At least one of the three landmarks is lit tonight.\n\n\\(A\\to E\\) — If Clock Tower is lit then ICCS is unlocked.\n\\(C\\to E\\) — If Koerner is lit then ICCS is unlocked.\n\\((B\\lor F)\\) — Either the Nest is lit, or the Gallery opens.\n\n\\((E\\land F)\\to D\\) — If ICCS unlocked and Gal opens then Mall hops.\n\\(B\\to D\\) — If the Nest is lit then Mall hops.\n\n\nGoal: Does \\(D\\) follow from the rulebook?"
+  },
+  {
+    "objectID": "slides/03_wed_reasoning.html#a-smaller-example",
+    "href": "slides/03_wed_reasoning.html#a-smaller-example",
+    "title": "Discrete Math for Data Science",
+    "section": "A Smaller Example",
+    "text": "A Smaller Example\n\n\nVariable Definitions\n\n\\(A\\): Lions Gate Bridge is illuminated\n\\(B\\): Science World dome is lit up\n\\(D\\): The Canucks are playing at Rogers Arena\n\n\nRulebook\n\n\\((A\\lor B)\\) — At least one city landmark is lit tonight.\n\\(A\\to D\\) — If Lions Gate is lit, the Canucks are at Rogers.\n\\(B\\to D\\) — If the dome is lit, the Canucks are at Rogers.\n\n\nGoal: Does \\(D\\) follow from the rulebook?"
+  },
+  {
+    "objectID": "slides/03_wed_reasoning.html#making-a-plan",
+    "href": "slides/03_wed_reasoning.html#making-a-plan",
+    "title": "Discrete Math for Data Science",
+    "section": "Making a plan",
+    "text": "Making a plan\nThree ways of thinking about the inference:\n\nApply sequences of rules to conclude \\(D\\).\nShow \\(((A\\lor B)\\land (A\\to D)\\land (B\\to D)) \\to D\\) is a Tautology\nShow \\(\\neg (((A\\lor B)\\land (A\\to D)\\land (B\\to D)) \\to D)\\) is a Contradiction\n\nBelieve it or not, we’re going to do the last one!!"
+  },
+  {
+    "objectID": "slides/03_wed_reasoning.html#reframing-the-goal",
+    "href": "slides/03_wed_reasoning.html#reframing-the-goal",
+    "title": "Discrete Math for Data Science",
+    "section": "Reframing the goal",
+    "text": "Reframing the goal\n\\[\\neg (((A\\lor B)\\land (A\\to D)\\land (B\\to D)) \\to D)\\]\n\n\n \n\n\nConjunctive Normal Form: ____________"
+  },
+  {
+    "objectID": "slides/03_wed_reasoning.html#resolve-away",
+    "href": "slides/03_wed_reasoning.html#resolve-away",
+    "title": "Discrete Math for Data Science",
+    "section": "Resolve Away!",
+    "text": "Resolve Away!\n\\(\\{\\neg D\\}\\)\n\\(\\{A, B\\}\\)\n\\(\\{D, \\neg A\\}\\)\n\\(\\{D, \\neg B\\}\\)"
+  },
+  {
+    "objectID": "slides/03_wed_reasoning.html#main-mall-midnight",
+    "href": "slides/03_wed_reasoning.html#main-mall-midnight",
+    "title": "Discrete Math for Data Science",
+    "section": "Main Mall Midnight",
+    "text": "Main Mall Midnight\n\n\nSetup\n\nLay out the rule cards face up.\nPut the refutation card \\((\\neg D)\\) in a small Unit inbox.\nMake three spots: Clauses (the rule cards), Unit inbox, Finished units.\nAssign roles: Reader, Marker, Checker, Scribe.\n\nRoles\n\nReader: says the current unit aloud (start with \\((\\neg D)\\)).\nMarker: crosses out literals; rewrites reduced clauses.\nChecker: watches for new units and clash.\nScribe: records the sequence of units forced (e.g., \\(\\neg D \\Rightarrow \\neg B \\Rightarrow \\cdots\\)).\n\n\n\nGameplay loop (repeat)\n\nPick the next unit \\((u)\\) from the inbox (start with \\((\\neg D)\\)).\nSweep every clause once (one round):\n\nIf the clause contains \\(u\\): it’s satisfied, remove that card.\nIf the clause contains \\(\\neg u\\): cross out \\(\\neg u\\).\n\nIf nothing remains, \\(\\bot\\) (CLASH) → you win.\nIf one literal remains \\((v)\\), place it in the Unit inbox.\nIf 2+ literals remain, keep the reduced clause on the table.\n\nIf it mentions neither \\(u\\) nor \\(\\neg u\\): leave it as is.\n\nAfter the sweep, move \\(u\\) to Finished units. Go back to step 1.\n\n\n\nWin condition: You produce \\(\\bot\\) (empty clause) or you later pick a unit that contradicts a finished one (e.g., you pick \\((B)\\) but Finished already has \\((\\neg B)\\)).\nIf stuck: The Unit inbox is empty and no clause is a single literal → raise your hand (forward chaining has stalled).\nScribe line (to turn in): \\(\\neg D \\Rightarrow \\ldots \\Rightarrow \\bot\\) (list units in the order you derived them)."
+  },
+  {
+    "objectID": "slides/03_wed_reasoning.html#todays-python",
+    "href": "slides/03_wed_reasoning.html#todays-python",
+    "title": "Discrete Math for Data Science",
+    "section": "today’s python",
+    "text": "today’s python"
+  },
+  {
+    "objectID": "slides/03_wed_reasoning.html#does-this-always-work",
+    "href": "slides/03_wed_reasoning.html#does-this-always-work",
+    "title": "Discrete Math for Data Science",
+    "section": "Does this always work?",
+    "text": "Does this always work?\nWorks great for: rulebooks where each clause has only 1 positive unit (Horn)\nCan stall on: non-Horn, symmetric choice, more complex domains.\nStall example (unsatisfiable, no units): \\[\n(A\\vee B)\\wedge(A\\vee \\neg B)\\wedge(\\neg A\\vee B)\\wedge(\\neg A\\vee \\neg B)\n\\]\n\nNo unit clauses → our method can’t start.\nIt’s actually unsatisfiable but needs a branch to detect. (try (A) or (A)).\n\nTakeaway: Propagation finds what’s locally forced.\nWhen nothing is locally forced, we need case splits or stronger rules."
   },
   {
     "objectID": "slides/06_mon_asymptotics1.html#announcements",
@@ -1345,529 +1513,522 @@
     "text": "Two Dials\nFind \\(x\\pmod {15}\\) such that\n\\(x\\equiv 2\\pmod 3\\) and \\(x\\equiv 1\\pmod 5\\).\n\n  \n    −\n    +\n \n 05:00\n \n\nTiming: ~6–8 min. Numbers \\(\\equiv1\\pmod5\\): \\(1,6,11,\\dots\\); mod \\(3\\) these are \\(1,0,2,\\dots\\) → pick \\(11\\). Unique mod \\(15\\)."
   },
   {
-    "objectID": "slides/03_wed_reasoning.html#announcements",
-    "href": "slides/03_wed_reasoning.html#announcements",
+    "objectID": "slides/09_mon_sets.html#announcements",
+    "href": "slides/09_mon_sets.html#announcements",
     "title": "Discrete Math for Data Science",
     "section": "Announcements",
-    "text": "Announcements\n\nEnroll in PrairieTest here: https://us.prairietest.com/pt/student/course/12361/enroll/392674810508\nSign up for EX1. Practice materials on PL.\nTutorials begin this week!"
+    "text": "Announcements"
   },
   {
-    "objectID": "slides/03_wed_reasoning.html#design-a-trap",
-    "href": "slides/03_wed_reasoning.html#design-a-trap",
+    "objectID": "slides/09_mon_sets.html#goals",
+    "href": "slides/09_mon_sets.html#goals",
     "title": "Discrete Math for Data Science",
-    "section": "Design a Trap",
-    "text": "Design a Trap\nYour mission:\n- Write one valid two-premise argument (any rule).\n- Write a look-alike fallacy with the same topic words.\n- Bring to class on Wednesday morning!"
+    "section": "Goals",
+    "text": "Goals\n\nGallery through proofs"
   },
   {
-    "objectID": "slides/03_wed_reasoning.html#make-proofs-executable",
-    "href": "slides/03_wed_reasoning.html#make-proofs-executable",
-    "title": "Discrete Math for Data Science",
-    "section": "Make proofs executable",
-    "text": "Make proofs executable\n\nYesterday: valid arguments as legal inference\nToday: address facts ⇒ conclusion algorithmically\nMethod: Refutation + Unit propagation\nBig picture: SAT/SMT ideas used in verification, chip design, planning\nWhy now? Logic provides clean specification layer even in a probabilistic world\n\n\nWe’ll mechanize yesterday’s arguments. We’ll encode ‘facts ⇒ conclusion’, flip the goal, and let unit propagation push us to a contradiction if the conclusion really follows. This is the heartbeat of SAT solvers.” “If A,B,C are facts and we add ¬D, what should happen if A∧B∧C→D?”"
-  },
-  {
-    "objectID": "slides/03_wed_reasoning.html#vocabulary",
-    "href": "slides/03_wed_reasoning.html#vocabulary",
-    "title": "Discrete Math for Data Science",
-    "section": "Vocabulary",
-    "text": "Vocabulary\n\nStatement: something that is either true or false.\n\nFact: a statement we already know is true (we’ll draw it as a single-item parenthesis like \\((A)\\)).\n\nRule: “if these are true, then that is true.” Example: “If A and B, then E.”\n\nclause (OR-group): a group joined by “OR”, like \\((\\neg A \\lor \\neg B \\lor E)\\).\n\nCNF (AND of clauses): several OR-groups joined by “AND”.\n\nUnit clause: a clause with just one item, like \\((A)\\) or \\((\\neg D)\\).\n\nUnit propagation: if you know \\((X)\\) is true and you also have \\((\\neg X \\lor Y)\\), you may drop \\(\\neg X\\) and keep \\(Y\\). Now \\(Y\\) must be true!\n\n\nbrownie points for the rule at the end – DS"
-  },
-  {
-    "objectID": "slides/03_wed_reasoning.html#explore-ubc",
-    "href": "slides/03_wed_reasoning.html#explore-ubc",
-    "title": "Discrete Math for Data Science",
-    "section": "Explore UBC",
-    "text": "Explore UBC\n\n\nVariable Definitions\n\n\\(A\\): Clock Tower is lit up\n\\(B\\): Nest is alight\n\\(C\\): Koerner Library is illuminated\n\n\\(E\\): ICCS doors are unlocked\n\n\\(F\\): the Gallery is open\n\n\\(D\\): Main Mall is hopping!\n\n\nRulebook\n\n\\((A\\lor B\\lor C)\\) — At least one of the three landmarks is lit tonight.\n\n\\(A\\to E\\) — If Clock Tower is lit then ICCS is unlocked.\n\\(C\\to E\\) — If Koerner is lit then ICCS is unlocked.\n\\((B\\lor F)\\) — Either the Nest is lit, or the Gallery opens.\n\n\\((E\\land F)\\to D\\) — If ICCS unlocked and Gal opens then Mall hops.\n\\(B\\to D\\) — If the Nest is lit then Mall hops.\n\n\nGoal: Does \\(D\\) follow from the rulebook?"
-  },
-  {
-    "objectID": "slides/03_wed_reasoning.html#a-smaller-example",
-    "href": "slides/03_wed_reasoning.html#a-smaller-example",
-    "title": "Discrete Math for Data Science",
-    "section": "A Smaller Example",
-    "text": "A Smaller Example\n\n\nVariable Definitions\n\n\\(A\\): Lions Gate Bridge is illuminated\n\\(B\\): Science World dome is lit up\n\\(D\\): The Canucks are playing at Rogers Arena\n\n\nRulebook\n\n\\((A\\lor B)\\) — At least one city landmark is lit tonight.\n\\(A\\to D\\) — If Lions Gate is lit, the Canucks are at Rogers.\n\\(B\\to D\\) — If the dome is lit, the Canucks are at Rogers.\n\n\nGoal: Does \\(D\\) follow from the rulebook?"
-  },
-  {
-    "objectID": "slides/03_wed_reasoning.html#making-a-plan",
-    "href": "slides/03_wed_reasoning.html#making-a-plan",
-    "title": "Discrete Math for Data Science",
-    "section": "Making a plan",
-    "text": "Making a plan\nThree ways of thinking about the inference:\n\nApply sequences of rules to conclude \\(D\\).\nShow \\(((A\\lor B)\\land (A\\to D)\\land (B\\to D)) \\to D\\) is a Tautology\nShow \\(\\neg (((A\\lor B)\\land (A\\to D)\\land (B\\to D)) \\to D)\\) is a Contradiction\n\nBelieve it or not, we’re going to do the last one!!"
-  },
-  {
-    "objectID": "slides/03_wed_reasoning.html#reframing-the-goal",
-    "href": "slides/03_wed_reasoning.html#reframing-the-goal",
-    "title": "Discrete Math for Data Science",
-    "section": "Reframing the goal",
-    "text": "Reframing the goal\n\\[\\neg (((A\\lor B)\\land (A\\to D)\\land (B\\to D)) \\to D)\\]\n\n\n \n\n\nConjunctive Normal Form: ____________"
-  },
-  {
-    "objectID": "slides/03_wed_reasoning.html#resolve-away",
-    "href": "slides/03_wed_reasoning.html#resolve-away",
-    "title": "Discrete Math for Data Science",
-    "section": "Resolve Away!",
-    "text": "Resolve Away!\n\\(\\{\\neg D\\}\\)\n\\(\\{A, B\\}\\)\n\\(\\{D, \\neg A\\}\\)\n\\(\\{D, \\neg B\\}\\)"
-  },
-  {
-    "objectID": "slides/03_wed_reasoning.html#main-mall-midnight",
-    "href": "slides/03_wed_reasoning.html#main-mall-midnight",
-    "title": "Discrete Math for Data Science",
-    "section": "Main Mall Midnight",
-    "text": "Main Mall Midnight\n\n\nSetup\n\nLay out the rule cards face up.\nPut the refutation card \\((\\neg D)\\) in a small Unit inbox.\nMake three spots: Clauses (the rule cards), Unit inbox, Finished units.\nAssign roles: Reader, Marker, Checker, Scribe.\n\nRoles\n\nReader: says the current unit aloud (start with \\((\\neg D)\\)).\nMarker: crosses out literals; rewrites reduced clauses.\nChecker: watches for new units and clash.\nScribe: records the sequence of units forced (e.g., \\(\\neg D \\Rightarrow \\neg B \\Rightarrow \\cdots\\)).\n\n\n\nGameplay loop (repeat)\n\nPick the next unit \\((u)\\) from the inbox (start with \\((\\neg D)\\)).\nSweep every clause once (one round):\n\nIf the clause contains \\(u\\): it’s satisfied, remove that card.\nIf the clause contains \\(\\neg u\\): cross out \\(\\neg u\\).\n\nIf nothing remains, \\(\\bot\\) (CLASH) → you win.\nIf one literal remains \\((v)\\), place it in the Unit inbox.\nIf 2+ literals remain, keep the reduced clause on the table.\n\nIf it mentions neither \\(u\\) nor \\(\\neg u\\): leave it as is.\n\nAfter the sweep, move \\(u\\) to Finished units. Go back to step 1.\n\n\n\nWin condition: You produce \\(\\bot\\) (empty clause) or you later pick a unit that contradicts a finished one (e.g., you pick \\((B)\\) but Finished already has \\((\\neg B)\\)).\nIf stuck: The Unit inbox is empty and no clause is a single literal → raise your hand (forward chaining has stalled).\nScribe line (to turn in): \\(\\neg D \\Rightarrow \\ldots \\Rightarrow \\bot\\) (list units in the order you derived them)."
-  },
-  {
-    "objectID": "slides/03_wed_reasoning.html#todays-python",
-    "href": "slides/03_wed_reasoning.html#todays-python",
-    "title": "Discrete Math for Data Science",
-    "section": "today’s python",
-    "text": "today’s python"
-  },
-  {
-    "objectID": "slides/03_wed_reasoning.html#does-this-always-work",
-    "href": "slides/03_wed_reasoning.html#does-this-always-work",
-    "title": "Discrete Math for Data Science",
-    "section": "Does this always work?",
-    "text": "Does this always work?\nWorks great for: rulebooks where each clause has only 1 positive unit (Horn)\nCan stall on: non-Horn, symmetric choice, more complex domains.\nStall example (unsatisfiable, no units): \\[\n(A\\vee B)\\wedge(A\\vee \\neg B)\\wedge(\\neg A\\vee B)\\wedge(\\neg A\\vee \\neg B)\n\\]\n\nNo unit clauses → our method can’t start.\nIt’s actually unsatisfiable but needs a branch to detect. (try (A) or (A)).\n\nTakeaway: Propagation finds what’s locally forced.\nWhen nothing is locally forced, we need case splits or stronger rules."
-  },
-  {
-    "objectID": "slides/02_mon_equiv.html#wffs",
-    "href": "slides/02_mon_equiv.html#wffs",
-    "title": "Discrete Math for Data Science",
-    "section": "WFFs",
-    "text": "WFFs\nRand WFF Apply rule on line:\nRand atom Atom becomes:\n&lt;wff&gt; ::= &lt;atom&gt;\n        | ~ &lt;wff&gt;\n        | ( &lt;wff&gt; ∧ &lt;wff&gt; )\n        | ( &lt;wff&gt; ∨ &lt;wff&gt; )\n\n&lt;atom&gt; ::= p | q \nExample derivation:\n&lt;wff&gt;"
-  },
-  {
-    "objectID": "slides/02_mon_equiv.html#wffs-notes",
-    "href": "slides/02_mon_equiv.html#wffs-notes",
-    "title": "Discrete Math for Data Science",
-    "section": "WFFs (Notes)",
-    "text": "WFFs (Notes)\n&lt;wff&gt; ::= &lt;atom&gt;\n        | ~ &lt;wff&gt;\n        | ( &lt;wff&gt; ∧ &lt;wff&gt; )\n        | ( &lt;wff&gt; ∨ &lt;wff&gt; )\n\n&lt;atom&gt; ::= p | q \n\nGrammars can be used to construct many different kinds of sequences.\nWe could have included additional operators \\(\\rightarrow\\), \\(\\leftrightarrow\\), \\(\\oplus\\), \\(\\uparrow\\)\nComputational evaluation of &lt;wff&gt;is covered in DSCI221. For now, we trust Python and focus on logic.\nThe &lt;wff&gt; are propositions."
-  },
-  {
-    "objectID": "slides/02_mon_equiv.html#wff-puzzle",
-    "href": "slides/02_mon_equiv.html#wff-puzzle",
-    "title": "Discrete Math for Data Science",
-    "section": "WFF Puzzle",
-    "text": "WFF Puzzle\nWhich of these are WFFs?\n&lt;wff&gt; ::= &lt;atom&gt;\n        | ~ &lt;wff&gt;\n        | ( &lt;wff&gt; ∧ &lt;wff&gt; )\n        | ( &lt;wff&gt; ∨ &lt;wff&gt; )\n\n&lt;atom&gt; ::= p | q \n\n\n\n\\((\\neg p ∧ (q ∨ r))\\)\n\\(((p ∧ q) ∨ (r ∧ \\neg s))\\)\n\\(((\\neg p) ∨ (q ∨ r))\\)\n\n\n\n\\((p ∨ (qr))\\)\n\\(\\neg (p ∨ (q ∧ \\neg r))\\)\n\\(\\neg (p ∨ q))\\)\n\n\n\n  \n    −\n    +\n \n 03:00\n \n\nSometimes pq is the same as p^q, p & q, p && q, but our grammar only uses ^. In this course we will vary symbols fluidly, partly because we’re assembling info from many different sources, but also partly because you’ll need to be agile in the future. Note that the same issues exist for other operators."
-  },
-  {
-    "objectID": "slides/02_mon_equiv.html#wffs-1",
-    "href": "slides/02_mon_equiv.html#wffs-1",
-    "title": "Discrete Math for Data Science",
-    "section": "WFFs",
-    "text": "WFFs\n&lt;wff&gt; ::= &lt;atom&gt;\n        | ~ &lt;wff&gt;\n        | ( &lt;wff&gt; ∧ &lt;wff&gt; )\n        | ( &lt;wff&gt; ∨ &lt;wff&gt; )\n\n&lt;atom&gt; ::= p | q \nTheorem: \\(\\neg (p ∨ q))\\) is not a WFF.\nProof:\n\nassume that it is! then ~ must have been the last rule applied, and \\(( p v q))\\) must be a . then (  v  ) must have been the last rule applied, and \\(p\\) and \\(q)\\) must be . take each case separately: \\(q)\\) is not a  because none of the rules apply, so we have both that it must be a wff and it is not a wff – a contradiction, so our assumption is false!\nWe include this as foreshadowing for a proof strategy called “proof by contradition.” Making arguments like this (proofs) is the substance of this course, but don’t worry, we’ll be teaching you how to do it."
-  },
-  {
-    "objectID": "slides/02_mon_equiv.html#back-to-propositions",
-    "href": "slides/02_mon_equiv.html#back-to-propositions",
-    "title": "Discrete Math for Data Science",
-    "section": "Back to Propositions",
-    "text": "Back to Propositions\nA proposition is a statement that can be either True or False.\nExamples:\n\n\\(37 &gt; 12\\)\nFewer than 5 people in this room feel sleepy.\nThere are extra-terrestrial life forms.\nThis statement is False.\n\\(\\underline{\\hspace{10em}}\\)"
-  },
-  {
-    "objectID": "slides/02_mon_equiv.html#translation",
-    "href": "slides/02_mon_equiv.html#translation",
-    "title": "Discrete Math for Data Science",
-    "section": "Translation",
-    "text": "Translation\nFrom English to logic and back…\n\n\n\\(p\\): ___________ ate cereal for breakfast.\n\\(q\\): ___________ brought a backpack to class.\n \n\n\\((p\\lor q)\\)\n\\((p\\wedge q)\\)\n\\(\\neg q\\)"
-  },
-  {
-    "objectID": "slides/02_mon_equiv.html#predicates",
-    "href": "slides/02_mon_equiv.html#predicates",
-    "title": "Discrete Math for Data Science",
-    "section": "Predicates",
-    "text": "Predicates\n\n\n\\(p\\): ___________ ate cereal for breakfast.\n\n\nWe may want to apply the statement to many students, in which case we define a Predicate.\n\n\n\n\\(P(x)\\): \\(x\\) ate cereal for breakfast.\n\\(x\\) can be instantiated to be a particular student, or an arbitrary student.\n\\(P(\\underline{\\hspace{2em}} )\\) is a proposition."
-  },
-  {
-    "objectID": "slides/02_mon_equiv.html#logical-equivalence-1",
-    "href": "slides/02_mon_equiv.html#logical-equivalence-1",
-    "title": "Discrete Math for Data Science",
-    "section": "Logical Equivalence",
-    "text": "Logical Equivalence\n\n\nEx: Is it true that \\((p \\lor q) \\equiv (q\\lor p)\\) ?\n\n\nDiscussion points:\n\n\\(\\equiv\\) means logically equivalent\nThe answer had better be _________!!!\nHow can we justify our instinct?\n\n\n\nShow same truth table\nChains of equivalence\n\nSame as saying “write a proof”"
-  },
-  {
-    "objectID": "slides/02_mon_equiv.html#logical-equivalence-example",
-    "href": "slides/02_mon_equiv.html#logical-equivalence-example",
-    "title": "Discrete Math for Data Science",
-    "section": "Logical Equivalence example",
-    "text": "Logical Equivalence example"
-  },
-  {
-    "objectID": "slides/02_mon_equiv.html#boolean-masks",
-    "href": "slides/02_mon_equiv.html#boolean-masks",
-    "title": "Discrete Math for Data Science",
-    "section": "Boolean Masks",
-    "text": "Boolean Masks\nSelect all the cereals with at least 4 units of protein and no more than 6 units of sugars.\n\n\n\n\n\n\n\n\n\nnote that by doing this filtering, we are defining a predicate instantiated by each row whose truth value is evaluated.\nChallenge: In pandas, test De Morgan with missing data: create a row with protein = NaN. Show that (~p) & (~q) can differ from ~(p | q) under three-valued logic; propose a fix (.fillna(False) or careful NA handling)."
-  },
-  {
-    "objectID": "slides/02_mon_equiv.html#logical-equivalence-2",
-    "href": "slides/02_mon_equiv.html#logical-equivalence-2",
-    "title": "Discrete Math for Data Science",
-    "section": "Logical Equivalence",
-    "text": "Logical Equivalence\n\n“Select all the cereals with at least 4 units of protein and no more than 6 units of sugars.”\n\n\n\n\n\\(p\\): a cereal has less than 4 units of protein\n\\(q\\): a cereal has more than 6 units of sugars\n\n\n\n\n\nWe suspect that \\(\\neg p\\wedge \\neg q \\equiv \\neg( p\\lor q)\\):\n\n\n\n\n\n\n\n\n\n\n\n\\(p\\)\n\\(q\\)\n\\(\\neg p\\wedge \\neg q\\)\n\n\n\n\nF\nF\n\n\n\nF\nT\n\n\n\nT\nF\n\n\n\nT\nT\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\\(p\\)\n\\(q\\)\n\\(\\neg( p\\lor q)\\)\n\n\n\n\nF\nF\n\n\n\nF\nT\n\n\n\nT\nF\n\n\n\nT\nT\n\n\n\n\n\n\n\nhalf the class complete the TT on the left, the other half on the right, then we all read our responses aloud!"
-  },
-  {
-    "objectID": "slides/02_mon_equiv.html#logical-equivalences",
-    "href": "slides/02_mon_equiv.html#logical-equivalences",
-    "title": "Discrete Math for Data Science",
-    "section": "Logical Equivalences",
-    "text": "Logical Equivalences\n\n\n\n\n\nWe have discussed Logical Equivalence (LE) and explored an example. The table illustrates LE that are so important, they have names!\n\nObservations:"
-  },
-  {
-    "objectID": "slides/02_mon_equiv.html#logical-equivalence-practice",
-    "href": "slides/02_mon_equiv.html#logical-equivalence-practice",
-    "title": "Discrete Math for Data Science",
-    "section": "Logical Equivalence Practice",
-    "text": "Logical Equivalence Practice\nAll graded learning activities in the course will use a tool called PrairieLearn.\nNavigate to Activity 1 and complete question 2. Each of you will receive a different version of the problem. Work together in pairs to solve each person’s version.\n\n\n    \nhttps://us.prairielearn.com/pl/course_instance/186238/assessment/2562335"
-  },
-  {
-    "objectID": "slides/02_mon_equiv.html#implication-1",
-    "href": "slides/02_mon_equiv.html#implication-1",
-    "title": "Discrete Math for Data Science",
-    "section": "Implication",
-    "text": "Implication\nConnect operator \\(\\rightarrow\\) to a logically equivalent expression using only and, or, and not.\n\n\n\n\\(p\\)\n\\(q\\)\n\\(p\\rightarrow q\\)\n\\(\\underline{\\hspace{3em}}\\)\n\n\n\n\nF\nF\nT\n\n\n\nF\nT\nT\n\n\n\nT\nF\nF\n\n\n\nT\nT\nT\n\n\n\n\n\nIs this operator commutative?\nNote: \\(p \\rightarrow q \\equiv\\) _______.\n\\(p \\rightarrow q\\) Corresponds to “if \\(p\\) then \\(q\\)”\nGives us mechanism for reasoning!\n\n\nq and not p is false. so it’s NOT (q^-p) == ??? (apply demorgan)\nPL exercises on Logical equivalence involving implication?\nMore on implication and logical equivalence in tutorial questions"
-  },
-  {
-    "objectID": "slides/02_mon_equiv.html#special-logical-equivalences",
-    "href": "slides/02_mon_equiv.html#special-logical-equivalences",
-    "title": "Discrete Math for Data Science",
-    "section": "Special Logical Equivalences",
-    "text": "Special Logical Equivalences\nSuppose \\(p\\equiv\\) T . Then \\(p\\) is a Tautology.\nSuppose \\(p\\equiv\\) F . Then \\(p\\) is a Contradiction."
-  },
-  {
-    "objectID": "slides/02_mon_equiv.html#logical-equivalence-practice-1",
-    "href": "slides/02_mon_equiv.html#logical-equivalence-practice-1",
-    "title": "Discrete Math for Data Science",
-    "section": "Logical Equivalence Practice",
-    "text": "Logical Equivalence Practice\nlink to PL question"
-  },
-  {
-    "objectID": "slides/02_mon_equiv.html#words-and-ideas",
-    "href": "slides/02_mon_equiv.html#words-and-ideas",
-    "title": "Discrete Math for Data Science",
-    "section": "Words and Ideas",
-    "text": "Words and Ideas\nGrammar\nPredicate\nBoolean Mask\nLogical Equivalence\nImplication"
-  },
-  {
-    "objectID": "slides/04_mon_argument1.html#announcements",
-    "href": "slides/04_mon_argument1.html#announcements",
-    "title": "Discrete Math for Data Science",
-    "section": "Announcements",
-    "text": "Announcements\nhttps://ubc.ca1.qualtrics.com/jfe/form/SV_3QzmcmE8HZRhwWi"
-  },
-  {
-    "objectID": "slides/04_mon_argument1.html#explore-ubc",
-    "href": "slides/04_mon_argument1.html#explore-ubc",
-    "title": "Discrete Math for Data Science",
-    "section": "Explore UBC",
-    "text": "Explore UBC\n\n\nVariable Definitions\n\n\\(A\\): Clock Tower is lit up\n\\(B\\): Nest is alight\n\\(C\\): Koerner Library is illuminated\n\n\\(E\\): ICCS doors are unlocked\n\n\\(F\\): the Gallery is open\n\n\\(D\\): Main Mall is hopping!\n\n\nRulebook\n\n\\((A\\lor B\\lor C)\\) — At least one of the three landmarks is lit tonight.\n\n\\(A\\to E\\) — If Clock Tower is lit then ICCS is unlocked.\n\\(C\\to E\\) — If Koerner is lit then ICCS is unlocked.\n\\((B\\lor F)\\) — Either the Nest is lit, or the Gallery opens.\n\n\\((E\\land F)\\to D\\) — If ICCS unlocked and Gal opens then Mall hops.\n\\(B\\to D\\) — If the Nest is lit then Mall hops.\n\n\nGoal: Does \\(D\\) follow from the rulebook?\nAnswer: yes, using unit propagation, as illustrated by table activity."
-  },
-  {
-    "objectID": "slides/04_mon_argument1.html#todays-python",
-    "href": "slides/04_mon_argument1.html#todays-python",
-    "title": "Discrete Math for Data Science",
-    "section": "today’s python",
-    "text": "today’s python"
-  },
-  {
-    "objectID": "slides/04_mon_argument1.html#does-this-always-work",
-    "href": "slides/04_mon_argument1.html#does-this-always-work",
-    "title": "Discrete Math for Data Science",
-    "section": "Does this always work?",
-    "text": "Does this always work?\nWorks great for: rulebooks where each clause has only 1 positive unit (Horn)\nCan stall on: non-Horn, symmetric choice, more complex domains.\nStalling example: \\[\n(A\\vee B)\\wedge(A\\vee \\neg B)\\wedge(\\neg A\\vee B)\\wedge(\\neg A\\vee \\neg B)\n\\]\n\nNo unit clauses → our method can’t start.\nIt’s actually unsatisfiable but needs a branch to detect. (try \\(A\\) or \\(\\neg A\\))\n\nTakeaway 1: Propagation finds what’s locally forced.\nWhen nothing is locally forced, we need case splits or stronger rules.\nTakeaway 2: The general problem of boolean function “Satisfiability” (SAT) has no known efficient solution, and is a classic “NP-Complete” problem."
-  },
-  {
-    "objectID": "slides/04_mon_argument1.html#todays-goals",
-    "href": "slides/04_mon_argument1.html#todays-goals",
-    "title": "Discrete Math for Data Science",
-    "section": "Today’s goals",
-    "text": "Today’s goals\n\nRecognize the form of common proof techniques \\(\\to\\), \\(\\leftrightsquigarrow\\), \\(\\bot\\), ⊞\nWrite short proofs using \\(\\to\\), and \\(\\leftrightsquigarrow\\).\n\n\nKeep everything tiny. Focus on first line (assume/goal), the key move, last line (therefore)."
-  },
-  {
-    "objectID": "slides/04_mon_argument1.html#what-is-a-proof",
-    "href": "slides/04_mon_argument1.html#what-is-a-proof",
-    "title": "Discrete Math for Data Science",
-    "section": "What is a proof?",
-    "text": "What is a proof?\nA clear, finite chain of statements that:\n\nstarts from assumptions/definitions\nuses valid rules\nends with the claim\n\nWe’ll practice four approaches for \\(P\\to Q\\) (first 2 today, second 2 on video lesson):\n\n\\(\\to\\) Direct: assume the hypothesis, derive the conclusion\n\n\\(\\leftrightsquigarrow\\) Contrapositive: prove \\(\\neg Q\\to\\neg P\\) instead of \\(P\\to Q\\)\n\n\\(\\bot\\) Contradiction: assume \\(P\\) and \\(\\neg Q\\); reach False\n\n⊞ Cases: split into exhaustive cases; prove \\(Q\\) for each"
-  },
-  {
-    "objectID": "slides/04_mon_argument1.html#warm-up",
-    "href": "slides/04_mon_argument1.html#warm-up",
+    "objectID": "slides/09_mon_sets.html#warm-up",
+    "href": "slides/09_mon_sets.html#warm-up",
     "title": "Discrete Math for Data Science",
     "section": "Warm Up",
-    "text": "Warm Up\nSolve the Sudoku on the worksheet.\nSpeculate on an interesting feature of the corners.\nDo all 4x4 Sudoku puzzles have this feature?\n\n  \n    −\n    +\n \n 05:00"
+    "text": "Warm Up\nSuppose \\(A = \\{1, \\{2\\}\\}\\)\n\n\n\nIs \\(1\\in A\\)?\nIs \\(\\{1\\} \\subseteq A\\)?\nIs \\(1 \\subseteq A\\)?\nIs \\(\\{1\\} \\in A\\)?\nIs \\(2\\in A\\)?\n\n\n\nIs \\(\\{2\\} \\subseteq A\\)?\nIs \\(2 \\subseteq A\\)?\nIs \\(\\{2\\} \\in A\\)?\nIs \\(\\emptyset \\in A\\)?\nIs \\(\\emptyset \\subseteq A\\)?"
   },
   {
-    "objectID": "slides/04_mon_argument1.html#first-proof",
-    "href": "slides/04_mon_argument1.html#first-proof",
+    "objectID": "slides/09_mon_sets.html#setup",
+    "href": "slides/09_mon_sets.html#setup",
     "title": "Discrete Math for Data Science",
-    "section": "First Proof",
-    "text": "First Proof\nTheorem: For any integers \\(a\\) and \\(b\\), if \\(ab\\) is even, then \\(a\\) is even or \\(b\\) is even.\n\n\nImportant definition:\n   An integer \\(a\\) is even iff"
+    "section": "Setup",
+    "text": "Setup\nWe’ll use these café sets:\n\\(I\\) = “iced orders” ( df['is_iced'])\n\\(N\\) = “non-dairy milk” (df['milk']=='Oat' | df['milk'] == 'Almond')\n\\(O\\) = “oat-milk orders” (df['milk'] == 'Oat')\n\\(A\\) = “almond-milk orders” (df['milk'] == 'Almond')\n\\(H\\) = “high-caffeine” (df['caffeine_mg'] &gt;= 150)\n\\(L\\) = “low-calorie” (df['calories'] &lt;= 150)"
   },
   {
-    "objectID": "slides/04_mon_argument1.html#technical-rewrite",
-    "href": "slides/04_mon_argument1.html#technical-rewrite",
+    "objectID": "slides/09_mon_sets.html#demorgan-for-sets",
+    "href": "slides/09_mon_sets.html#demorgan-for-sets",
     "title": "Discrete Math for Data Science",
-    "section": "Technical Rewrite",
-    "text": "Technical Rewrite\n\n\\(\\forall a,b\\in \\mathbb{Z}\\)\n    \\(( (\\exists k\\in\\mathbb{Z}, ab=2k) \\to ((\\exists j\\in\\mathbb{Z}, a = 2j) \\lor (\\exists j\\in\\mathbb{Z}, b=2j)))\\)\n\n \nUniversal instantiation:\n\ncan’t argue “for all” exhaustively, so we choose an arbitrary representative\nWrite “Proof: Consider arbitrary integers \\(a\\) and \\(b\\) …”"
+    "section": "DeMorgan for Sets",
+    "text": "DeMorgan for Sets\nBy observation, you discovered that \\((I\\cup N)^c = I^c\\cap N^c\\). But is this always true?\n \nClaim: For any sets \\(A\\) and \\(B\\), \\((A\\cup B)^c = A^c\\cap B^c\\).\n \nObservations, before we begin:\n\nuniversally quantified statement requires arbitrary instantiation of variables.\nset equality \\(A=B\\) actually requires 2 proofs: \\(A\\subseteq B\\) and \\(B\\subseteq A\\).\nto prove \\(A\\subseteq B\\) we rely on the definition: For any \\(x\\), \\(x\\in A\\rightarrow x\\in B\\).\nfollowing the form of the definition, we consider an arbitrary \\(x\\), assume \\(x\\in A\\) and show \\(x\\in B\\)."
   },
   {
-    "objectID": "slides/04_mon_argument1.html#which-are-valid-arguments",
-    "href": "slides/04_mon_argument1.html#which-are-valid-arguments",
+    "objectID": "slides/09_mon_sets.html#union-widens",
+    "href": "slides/09_mon_sets.html#union-widens",
     "title": "Discrete Math for Data Science",
-    "section": "Which are valid arguments?",
-    "text": "Which are valid arguments?\n\nPf1: Suppose \\(a\\) and \\(b\\) are odd. Then there are integers \\(k\\) and \\(j\\) so \\(a=2k+1\\) and \\(b=2j+1\\). Then \\(ab=(2k+1)(2j+1) = 2(2jk + j + k) +1\\). Since \\(2jk+j+k\\) is an integer, \\(ab\\) is odd.\nPf2: Assume \\(a\\) or \\(b\\) is even. Suppose \\(a\\) is even – the argument is the same if it is \\(b\\). Then \\(ab=2kb\\) for some \\(k\\), and thus \\(ab\\) is even.\nPf3: Suppose that \\(ab\\) is even but \\(a\\) and \\(b\\) are both odd. Namely, \\(ab=2n\\), \\(a=2k+1\\), and \\(b=2j+1\\), for some integers \\(n\\), \\(j\\), and \\(k\\). Then \\(2n=(2k+1)(2j+1)\\) and \\(n = 2jk + k + j + 1/2\\) which is a contradiction.\nPf4: Let \\(ab\\) be an even number, say \\(ab=2n\\), and \\(a\\) be an odd number, say \\(a=2k+1\\). Then \\(2n = (2k+1)b\\) and thus \\(b=2(n-kb)\\) and \\(b\\) is even.\n\n\nexistential instantiation"
+    "section": "Union Widens",
+    "text": "Union Widens\nStory: Broadening a filter to “non-dairy or iced” can’t lose non-dairy orders.\nTheorem: \\(N \\subseteq N\\cup I\\).\nProof:\n \n \nApply:\n\n\\(|N|\\le |N\\cup I|\\)\nevery non-dairy row still passes the broader filter."
   },
   {
-    "objectID": "slides/04_mon_argument1.html#proof-skeleton-cards",
-    "href": "slides/04_mon_argument1.html#proof-skeleton-cards",
+    "objectID": "slides/09_mon_sets.html#union-is-monotone",
+    "href": "slides/09_mon_sets.html#union-is-monotone",
     "title": "Discrete Math for Data Science",
-    "section": "Proof Skeleton Cards",
-    "text": "Proof Skeleton Cards\n\n\n\\(\\to\\) Direct Proof of \\(P\\to Q\\)\n\nAssume \\(P\\).\nReason – Unpack definitions / apply given rules to derive needed facts from \\(P\\).\n… Therefore \\(Q\\).\n\n\n\n\\(\\leftrightsquigarrow\\) Contrapositive Proof of \\(P\\to Q\\)\n\nAssume \\(\\neg Q\\)\nUse rules/definitions that match \\(\\neg Q\\) to drive toward \\(\\neg P\\).\n… Therefore \\(\\neg Q\\to\\neg P\\), and thus \\(P\\to Q\\).\n\n\n\n\n\n\\(\\bot\\) Contradiction Proof of \\(P\\to Q\\)\n\nAssume \\(P\\) and \\(\\neg Q\\).\nReason – Unpack definitions / apply given rules to derive needed facts from \\(P\\land \\neg Q\\), watch for contradiction (\\(a\\land\\neg a\\)).\n… Therefore \\(\\bot\\), and our assumption of \\(\\neg Q\\) must be false, so \\(P\\to Q\\).\n\n\n\n⊞ Cases Proof of \\(P\\to Q\\)\n\nPartition \\(P\\) into cases \\(P_1\\), \\(P_2\\), etc. covering all possibilities.\nFor each \\(P_k\\), show that \\(P_k\\to Q\\).\n… Therefore, in each case \\(Q\\), and \\(P\\to Q\\)."
+    "section": "Union is Monotone",
+    "text": "Union is Monotone\nStory: Every oat drink is non-dairy. Then “oat or high-caffeine” is contained in “non-dairy or high-caffeine”.\nTheorem: If \\(O\\subseteq N\\), then \\(O\\cup H \\subseteq N\\cup H\\).\nProof: Let \\(x\\in O\\cup H\\). Then \\(x\\in H\\) or \\(x\\in O\\).\n\nIf \\(x\\in H\\), then \\(x\\in N\\cup H\\).\n\nIf \\(x\\in O\\), then \\(x\\in N\\) (since \\(O\\subseteq N\\)), so \\(x\\in N\\cup H\\).\n\nApply: Replacing a condition by a superset inside an OR cannot shrink results."
   },
   {
-    "objectID": "slides/04_mon_argument1.html#to-example-direct",
-    "href": "slides/04_mon_argument1.html#to-example-direct",
+    "objectID": "slides/09_mon_sets.html#complement-flips-the-order",
+    "href": "slides/09_mon_sets.html#complement-flips-the-order",
     "title": "Discrete Math for Data Science",
-    "section": "\\(\\to\\) Example Direct",
-    "text": "\\(\\to\\) Example Direct\nProve that for any solution to the mini sudoku puzzle below, if the solution has a 2 in the top-left square (r1c1), then it will contain a 2 in the bottom-right square (r4c4).\n\nscrutinize form of statement"
+    "section": "Complement Flips the Order",
+    "text": "Complement Flips the Order\nStory: Since oat \\(\\subseteq\\) non-dairy, anyone not non-dairy is certainly not oat.\nTheorem: If \\(O\\subseteq N\\), then \\(N^{c}\\subseteq O^{c}\\).\nProof:\n\n\n \n \nApply: Negating a broader class yields a subset in the reverse direction.\n\n\n\n\n\n\n\nTake \\(x\\in N^c\\) so \\(x\\notin N\\). If \\(x\\in O\\) then (because \\(O\\subseteq N\\)) we’d have \\(x\\in N\\)—contradiction. Hence \\(x\\notin O\\), i.e., \\(x\\in O^c\\). \\(\\square\\)"
   },
   {
-    "objectID": "slides/04_mon_argument1.html#to-your-turn-direct",
-    "href": "slides/04_mon_argument1.html#to-your-turn-direct",
+    "objectID": "slides/09_mon_sets.html#partition-identity",
+    "href": "slides/09_mon_sets.html#partition-identity",
     "title": "Discrete Math for Data Science",
-    "section": "\\(\\to\\) Your Turn Direct",
-    "text": "\\(\\to\\) Your Turn Direct\nLet \\(T_n = \\frac{n(n+1)}{2}\\) be the \\(n\\)th triangular number, \\(T_1=1\\), \\(T_2=3\\), etc.\nA glow number is any integer that can be written as the sum of two consecutive triangular numbers:\n\\[𝑔=𝑇_𝑘+𝑇_{𝑘+1}\\] ​ Theorem: every glow number is a perfect square.\nProof: Consider an arbitrary glow number \\(g\\).\n \n \n \n \n \n \n… therefore \\(g\\) is a perfect square.\n\nis the converse true?"
+    "section": "Partition Identity",
+    "text": "Partition Identity\nStory: Split iced orders by whether they’re non-dairy (\\(N\\)) or not (\\(N^c\\)). We should neither lose nor double-count any iced orders.\nTheorem: For any sets \\(I\\) and \\(N\\), \\[\n(I\\cap N)\\ \\cup\\ (I\\cap N^{c}) \\;=\\; I\n\\quad\\text{and}\\quad\n(I\\cap N)\\ \\cap\\ (I\\cap N^{c}) \\;=\\; \\varnothing.\n\\]\nApply:\n\nBecause the union is “disjoint”, \\(|I| \\;=\\; |I\\cap N| \\;+\\; |I\\cap N^c|\\)\nThis is the basis for the “Law of Total Probability,” which you will see someday!"
   },
   {
-    "objectID": "slides/04_mon_argument1.html#leftrightsquigarrow-example-contrapositive",
-    "href": "slides/04_mon_argument1.html#leftrightsquigarrow-example-contrapositive",
+    "objectID": "slides/09_mon_sets.html#partition-identity-proof",
+    "href": "slides/09_mon_sets.html#partition-identity-proof",
     "title": "Discrete Math for Data Science",
-    "section": "\\(\\leftrightsquigarrow\\) Example Contrapositive",
-    "text": "\\(\\leftrightsquigarrow\\) Example Contrapositive\n\n\n\n\nGame rule: each 2x2 box contains one of 1, 2, 3, and 4.\nTheorem: For any valid Sudoku solution, if A and B and C are not 4, then D is 4.\n\nContrapositive:"
+    "section": "Partition Identity Proof",
+    "text": "Partition Identity Proof\nTheorem: For any sets \\(I\\) and \\(N\\), \\[\n(I\\cap N)\\ \\cup\\ (I\\cap N^{c}) \\;=\\; I\n\\quad\\text{and}\\quad\n(I\\cap N)\\ \\cap\\ (I\\cap N^{c}) \\;=\\; \\varnothing.\n\\]\nProof:"
   },
   {
-    "objectID": "slides/04_mon_argument1.html#leftrightsquigarrow-your-turn-contrapositive",
-    "href": "slides/04_mon_argument1.html#leftrightsquigarrow-your-turn-contrapositive",
-    "title": "Discrete Math for Data Science",
-    "section": "\\(\\leftrightsquigarrow\\) Your Turn Contrapositive",
-    "text": "\\(\\leftrightsquigarrow\\) Your Turn Contrapositive\nDefinitions:\n\nA number \\(n\\) is even if there is an integer \\(k\\) such that \\(n=2k\\).\nA number \\(n\\) is odd if there is an integer \\(k\\) such that \\(n=2k+1\\).\n\nTheorem: If \\(3n+2\\) is odd, then \\(n\\) is odd."
-  },
-  {
-    "objectID": "slides/08_tue_sets.html#announcements",
-    "href": "slides/08_tue_sets.html#announcements",
+    "objectID": "slides/04_wed_induction.html#announcements",
+    "href": "slides/04_wed_induction.html#announcements",
     "title": "Discrete Math for Data Science",
     "section": "Announcements",
     "text": "Announcements"
   },
   {
-    "objectID": "slides/08_tue_sets.html#goals",
-    "href": "slides/08_tue_sets.html#goals",
-    "title": "Discrete Math for Data Science",
-    "section": "Goals",
-    "text": "Goals\n\nExplore the Empty Set.\nDistinguish element (\\(\\in\\)) vs subset (\\(\\subseteq\\)).\nDefine the power set \\(\\mathcal{P}(S)\\) and its cardinality.\nDefine Cartesian product \\(A\\times B\\)."
-  },
-  {
-    "objectID": "slides/08_tue_sets.html#the-empty-set-varnothing",
-    "href": "slides/08_tue_sets.html#the-empty-set-varnothing",
-    "title": "Discrete Math for Data Science",
-    "section": "The Empty Set (\\(\\varnothing\\))",
-    "text": "The Empty Set (\\(\\varnothing\\))\nDefinition: \\(\\varnothing\\) (a.k.a. \\(\\{\\}\\)) is the unique set with no elements.\n\nCardinality: \\(|\\varnothing|=0\\).\nUniversal subset fact: For any set \\(A\\), \\(\\varnothing\\subseteq A\\).\nBut membership is different: \\(\\varnothing\\in A\\) only if \\(A\\) literally contains the empty set as an element.\n\nExamples\n\nIf \\(S=\\{a,b\\}\\): \\(\\varnothing\\subseteq S\\), but NOT \\(\\varnothing\\in S\\).\n\nIf \\(T=\\{\\varnothing,\\{a\\}\\}\\): \\(\\varnothing\\in T\\)."
-  },
-  {
-    "objectID": "slides/08_tue_sets.html#operations-with-varnothing",
-    "href": "slides/08_tue_sets.html#operations-with-varnothing",
-    "title": "Discrete Math for Data Science",
-    "section": "Operations with \\(\\varnothing\\)",
-    "text": "Operations with \\(\\varnothing\\)\nFor any set \\(A\\):\n\nUnion: \\(A\\cup\\varnothing = A\\)\nIntersection: \\(A\\cap\\varnothing = \\varnothing\\)\nDifference: \\(A - \\varnothing = A\\), \\(\\ \\varnothing\\setminus A = \\varnothing\\)\nComplement (in \\(U\\)): \\(U - \\varnothing = U\\)\nCardinalities: \\(|A\\cup\\varnothing|=|A|\\), \\(|A\\cap\\varnothing|=0\\)\n\n\nQuick demo with a tiny set on the board or in code; emphasize “subset vs element.”"
-  },
-  {
-    "objectID": "slides/08_tue_sets.html#dataframemask-view-of-varnothing",
-    "href": "slides/08_tue_sets.html#dataframemask-view-of-varnothing",
-    "title": "Discrete Math for Data Science",
-    "section": "DataFrame/Mask view of \\(\\varnothing\\)",
-    "text": "DataFrame/Mask view of \\(\\varnothing\\)\nThink: empty mask = all False (selects no rows)."
-  },
-  {
-    "objectID": "slides/08_tue_sets.html#element-vs-subset",
-    "href": "slides/08_tue_sets.html#element-vs-subset",
-    "title": "Discrete Math for Data Science",
-    "section": "Element vs Subset",
-    "text": "Element vs Subset\n\n\\(x\\in S\\) means \\(x\\) is one item in \\(S\\).\n\\(A\\subseteq S\\) means every element of \\(A\\) is in \\(S\\).\n\nExamples (watch the braces!)\n\nIf \\(S=\\{a,b\\}\\) then:\n\n\\(a\\in S\\) is true; \\(\\{a\\}\\in S\\) is false; \\(\\{a\\}\\subseteq S\\) is true.\n\\(\\emptyset \\in S\\) is false; \\(\\emptyset \\subseteq S\\) is true.\n\nIf \\(T=\\{\\emptyset,\\{a\\}\\}\\) then:\n\n\\(\\emptyset \\in T\\) is true; \\(\\{\\emptyset\\}\\subseteq T\\) is true.\n\n\n\nSay aloud: “Curly braces change the type of thing. Elements vs sets of elements.”"
-  },
-  {
-    "objectID": "slides/08_tue_sets.html#quick-checks",
-    "href": "slides/08_tue_sets.html#quick-checks",
-    "title": "Discrete Math for Data Science",
-    "section": "Quick Checks",
-    "text": "Quick Checks\nLet \\(S=\\{\\texttt{tea},\\texttt{coffee},\\texttt{juice}\\}\\).\n\n\\(\\texttt{tea}\\in S\\) ____\n\n\\(\\{\\texttt{tea}\\}\\in S\\) ____\n\n\\(\\{\\texttt{tea}\\}\\subseteq S\\) ____\n\n\\(\\emptyset \\subseteq S\\) ____\n\n\\(\\{\\texttt{water}\\}\\subseteq S\\) ____\n\n\nAnswers: 1✓, 2✗, 3✓, 4✓, 5✗."
-  },
-  {
-    "objectID": "slides/08_tue_sets.html#power-set",
-    "href": "slides/08_tue_sets.html#power-set",
-    "title": "Discrete Math for Data Science",
-    "section": "Power Set",
-    "text": "Power Set\nDefinition: \\(\\mathcal{P}(S)\\) = the set of all subsets of \\(S\\).\n\n\nExample:\nIf \\(S=\\{a,b\\}\\), \\(\\ \\mathcal{P}(S)=\\) ________________________\n \nCardinality:\nIf \\(|S|=n\\), then \\(|\\mathcal{P}(S)|=\\) ________________________"
-  },
-  {
-    "objectID": "slides/08_tue_sets.html#why-2n",
-    "href": "slides/08_tue_sets.html#why-2n",
-    "title": "Discrete Math for Data Science",
-    "section": "Why \\(2^n\\)?",
-    "text": "Why \\(2^n\\)?\nBitstring encoding:\nConsider \\(S=\\{s_1,\\dots,s_n\\}\\). For each subset \\(T\\subseteq S\\) define an indicator of membership: \\[(b_1,\\dots,b_n)\\ \\text{where } b_i=\\begin{cases}1,& s_i\\in T\\\\ 0,& s_i\\notin T\\end{cases}.\\]\nHow many subsets of a set of size \\(n\\)?\n\nConnect to yesterday’s “\\(b\\) bits \\(\\Rightarrow 2^b\\) codes.” Subsets \\(\\leftrightarrow\\) \\(n\\)-bit strings."
-  },
-  {
-    "objectID": "slides/08_tue_sets.html#quick-check",
-    "href": "slides/08_tue_sets.html#quick-check",
-    "title": "Discrete Math for Data Science",
-    "section": "Quick Check:",
-    "text": "Quick Check:\nLet \\(S=\\{A,B,C\\}\\).\n\nBitstring \\(101\\) corresponds to subset \\(\\{\\_\\_\\_\\_\\}\\).\nSubset \\(\\{B\\}\\) corresponds to bitstring \\(\\_\\_\\_\\_\\_\\_\\)."
-  },
-  {
-    "objectID": "slides/08_tue_sets.html#empty-sets-and-power-sets",
-    "href": "slides/08_tue_sets.html#empty-sets-and-power-sets",
-    "title": "Discrete Math for Data Science",
-    "section": "Empty Sets and Power Sets",
-    "text": "Empty Sets and Power Sets\n\n\\(\\varnothing\\in \\mathcal{P}(A)\\) (since \\(\\varnothing\\subseteq A\\))\n\n\\(\\mathcal{P}(\\varnothing)=\\{\\varnothing\\}\\) and \\(|\\mathcal{P}(\\varnothing)|=1\\)"
-  },
-  {
-    "objectID": "slides/08_tue_sets.html#cartesian-product-atimes-b",
-    "href": "slides/08_tue_sets.html#cartesian-product-atimes-b",
-    "title": "Discrete Math for Data Science",
-    "section": "Cartesian Product \\(A\\times B\\)",
-    "text": "Cartesian Product \\(A\\times B\\)\nDefinition: \\(A\\times B=\\{(a,b)\\mid a\\in A,\\ b\\in B\\}\\)\nCardinality: \\(|A\\times B|=|A|\\cdot|B|\\).\nExample: \\(A=\\{\\texttt{iced},\\texttt{hot}\\}\\), \\(B=\\{\\texttt{Latte},\\texttt{Tea},\\texttt{Mocha}\\}\\).\n \nThen \\[A\\times B=\n\\{(\\texttt{iced},\\texttt{Latte}),(\\texttt{iced},\\texttt{Tea}),(\\texttt{iced},\\texttt{Mocha}),\\] \\[(\\texttt{hot},\\texttt{Latte}),(\\texttt{hot},\\texttt{Tea}),(\\texttt{hot},\\texttt{Mocha})\\},\\]\nand \\(|A\\times B|=2\\cdot 3=6\\)."
-  },
-  {
-    "objectID": "slides/08_tue_sets.html#code",
-    "href": "slides/08_tue_sets.html#code",
-    "title": "Discrete Math for Data Science",
-    "section": "Code",
-    "text": "Code"
-  },
-  {
-    "objectID": "slides/04_tue_argument2.html#announcements",
-    "href": "slides/04_tue_argument2.html#announcements",
-    "title": "Discrete Math for Data Science",
-    "section": "Announcements",
-    "text": "Announcements"
-  },
-  {
-    "objectID": "slides/04_tue_argument2.html#todays-goals",
-    "href": "slides/04_tue_argument2.html#todays-goals",
+    "objectID": "slides/04_wed_induction.html#todays-goals",
+    "href": "slides/04_wed_induction.html#todays-goals",
     "title": "Discrete Math for Data Science",
     "section": "Today’s goals",
-    "text": "Today’s goals\n\nRecognize the form of common proof techniques \\(\\to\\), \\(\\leftrightsquigarrow\\), \\(\\bot\\), ⊞\nWrite short proofs using \\(\\bot\\), and ⊞.\n\n\nKeep everything tiny. Focus on first line (assume/goal), the key move, last line (therefore)."
+    "text": "Today’s goals\n\nUnderstand role of components of an inductive proof.\nWrite short inductive proofs."
   },
   {
-    "objectID": "slides/04_tue_argument2.html#what-is-a-proof",
-    "href": "slides/04_tue_argument2.html#what-is-a-proof",
+    "objectID": "slides/04_wed_induction.html#warm-up",
+    "href": "slides/04_wed_induction.html#warm-up",
     "title": "Discrete Math for Data Science",
-    "section": "What is a proof?",
-    "text": "What is a proof?\nA clear, finite chain of statements that:\n\nstarts from assumptions/definitions\nuses valid rules\nends with the claim\n\nWe’ll practice four approaches for \\(P\\to Q\\) (first 2 earlier, second 2 now):\n\n\\(\\to\\) Direct: assume the hypothesis, derive the conclusion\n\n\\(\\leftrightsquigarrow\\) Contrapositive: prove \\(\\neg Q\\to\\neg P\\) instead of \\(P\\to Q\\)\n\n\\(\\bot\\) Contradiction: assume \\(P\\) and \\(\\neg Q\\); reach False\n\n⊞ Cases: split into exhaustive cases; prove \\(Q\\) for each"
+    "section": "Warm Up",
+    "text": "Warm Up\nA Tower is built by stacking 5m red panels, and 7m blue panels.\nWhat tower heights are possible?\n\n  \n    −\n    +\n \n 05:00\n \n\nEnd up with a clear claim: For all n &gt; 23, we can build a tower of height n using only 5m red and 7m blue panels.\nSay “claim holds for smaller values”"
   },
   {
-    "objectID": "slides/04_tue_argument2.html#warm-up-1",
-    "href": "slides/04_tue_argument2.html#warm-up-1",
+    "objectID": "slides/04_wed_induction.html#warm-up-continued",
+    "href": "slides/04_wed_induction.html#warm-up-continued",
     "title": "Discrete Math for Data Science",
-    "section": "Warm Up 1",
-    "text": "Warm Up 1\nClaim: for all integers \\(a\\) and \\(b\\), if \\((a+b)\\) is odd, then \\(a\\) is odd or \\(b\\) is odd.\n\n\\(\\to\\) or \\(\\leftrightsquigarrow\\)?\n\n\n\n\nProof: Consider…"
+    "section": "Warm Up Continued",
+    "text": "Warm Up Continued\nClaim: for all integers \\(n &gt; 23\\), we can build a tower of height \\(n\\) using only 5m red and 7m blue panels.\n\n\n24:\n\n\n25:\n\n\n26:\n\npoint out universal quantifier, and also least value.\nAlso point out which values follow easily from these… sequences, covering integers."
   },
   {
-    "objectID": "slides/04_tue_argument2.html#warm-up-2",
-    "href": "slides/04_tue_argument2.html#warm-up-2",
+    "objectID": "slides/04_wed_induction.html#proof-by-induction-1",
+    "href": "slides/04_wed_induction.html#proof-by-induction-1",
     "title": "Discrete Math for Data Science",
-    "section": "Warm Up 2",
-    "text": "Warm Up 2\nClaim: for all integers \\(a\\), if \\(a^2\\) is even, then \\(a\\) is even.\n\n\\(\\to\\) or \\(\\leftrightsquigarrow\\)?\n\n\n\n\nProof: Consider…"
+    "section": "Proof by Induction",
+    "text": "Proof by Induction\nClaim: For any integer \\(n &gt; 0\\), \\(\\sum\\limits_{k=1}^{n} k^2 = \\frac{n(n+1)(2n+1)}{6}\\).\n\n\nProof: Consider an arbitrary integer \\(n &gt; 0\\).\n\n\nIH: Assume inductively that for any \\(j&lt;n\\), \\(\\sum\\limits_{k=1}^{j} k^2 = \\frac{j(j+1)(2j+1)}{6}\\).\n\n\nEither \\(n=1\\), or \\(n&gt;1\\).\nCase 1 \\((n=1)\\):\n\n\nCase 2 \\((n&gt;1)\\):"
   },
   {
-    "objectID": "slides/04_tue_argument2.html#proof-skeleton-cards",
-    "href": "slides/04_tue_argument2.html#proof-skeleton-cards",
+    "objectID": "slides/04_wed_induction.html#inductive-proof-skeleton-card",
+    "href": "slides/04_wed_induction.html#inductive-proof-skeleton-card",
     "title": "Discrete Math for Data Science",
-    "section": "Proof Skeleton Cards",
-    "text": "Proof Skeleton Cards\n\n\n\\(\\to\\) Direct Proof of \\(P\\to Q\\)\n\nAssume \\(P\\).\nReason – Unpack definitions / apply given rules to derive needed facts from \\(P\\).\n… Therefore \\(Q\\).\n\n\n\n\\(\\leftrightsquigarrow\\) Contrapositive Proof of \\(P\\to Q\\)\n\nAssume \\(\\neg Q\\)\nUse rules/definitions that match \\(\\neg Q\\) to drive toward \\(\\neg P\\).\n… Therefore \\(\\neg Q\\to\\neg P\\), and thus \\(P\\to Q\\).\n\n\n\n\n\n\\(\\bot\\) Contradiction Proof of \\(P\\to Q\\)\n\nAssume \\(P\\) and \\(\\neg Q\\).\nReason – Unpack definitions / apply given rules to derive needed facts from \\(P\\land \\neg Q\\), watch for contradiction (\\(a\\land\\neg a\\)).\n… Therefore \\(\\bot\\), and our assumption of \\(\\neg Q\\) must be false, so \\(P\\to Q\\).\n\n\n\n⊞ Cases Proof of \\(P\\to Q\\)\n\nPartition \\(P\\) into cases \\(P_1\\), \\(P_2\\), etc. covering all possibilities.\nFor each \\(P_k\\), show that \\(P_k\\to Q\\).\n… Therefore, in each case \\(Q\\), and \\(P\\to Q\\)."
+    "section": "Inductive Proof Skeleton Card",
+    "text": "Inductive Proof Skeleton Card\n\nProof by Induction of \\(\\forall n, P(n)\\)\n\nFirst line: “Consider an arbitrary n.”\nSecond line (IH): “Assume \\(\\forall j &lt; n, P(j)\\).”\nDetermine exhaustive cases for \\(n\\), including one or more base cases and usually one inductive case.\nProve each case, base and inductive, independently. Base case is typically direct, and inductive case will require use of IH."
   },
   {
-    "objectID": "slides/04_tue_argument2.html#bot-example-contradiction",
-    "href": "slides/04_tue_argument2.html#bot-example-contradiction",
+    "objectID": "slides/04_wed_induction.html#your-turn",
+    "href": "slides/04_wed_induction.html#your-turn",
     "title": "Discrete Math for Data Science",
-    "section": "\\(\\bot\\) Example Contradiction",
-    "text": "\\(\\bot\\) Example Contradiction\nProve that any solution to the mini sudoku puzzle below must contain a 3 in the top right corner (r1c4).\n\nscrutinize form of statement"
+    "section": "Your turn!",
+    "text": "Your turn!\nClaim: For any \\(n&gt;0\\), \\(\\sum\\limits_{k=1}^n \\frac{1}{(2k-1)(2k+1)} = \\frac{n}{2n+1}\\).\n\n  \n    −\n    +\n \n 10:00"
   },
   {
-    "objectID": "slides/04_tue_argument2.html#bot-our-turn-contradiction",
-    "href": "slides/04_tue_argument2.html#bot-our-turn-contradiction",
+    "objectID": "slides/04_wed_induction.html#last-demo",
+    "href": "slides/04_wed_induction.html#last-demo",
     "title": "Discrete Math for Data Science",
-    "section": "\\(\\bot\\) Our Turn Contradiction",
-    "text": "\\(\\bot\\) Our Turn Contradiction\nClaim: \\(\\sqrt 2\\) is irrational.\nProof: (CLASSIC) Suppose by way of contradiction that \\(\\sqrt 2\\) is rational. Then…"
+    "section": "Last Demo",
+    "text": "Last Demo\nThis is a tromino:     \nThis is a \\(n\\) by \\(n\\) deficient grid:\n\n       \n\n\n\nClaim: Every \\(2^n\\) by \\(2^n\\) deficient grid can be tiled with trominos."
   },
   {
-    "objectID": "slides/04_tue_argument2.html#example-cases",
-    "href": "slides/04_tue_argument2.html#example-cases",
+    "objectID": "slides/04_wed_induction.html#tile-work",
+    "href": "slides/04_wed_induction.html#tile-work",
     "title": "Discrete Math for Data Science",
-    "section": "⊞ Example Cases",
-    "text": "⊞ Example Cases\nClaim: \\(n^3 - n\\) is divisible by ___.\nOverview:"
+    "section": "Tile Work",
+    "text": "Tile Work\nClaim: Every \\(2^n\\) by \\(2^n\\) deficient grid can be tiled with trominos.\n \nProof: Line 1:\n\n\nLine 2:\n \nSmall case(s):"
   },
   {
-    "objectID": "slides/04_tue_argument2.html#proof-part-1-divisible-by-___",
-    "href": "slides/04_tue_argument2.html#proof-part-1-divisible-by-___",
+    "objectID": "slides/04_wed_induction.html#tile-work-1",
+    "href": "slides/04_wed_induction.html#tile-work-1",
     "title": "Discrete Math for Data Science",
-    "section": "⊞ Proof Part 1 (Divisible by ___):",
-    "text": "⊞ Proof Part 1 (Divisible by ___):\nConsider an arbitrary \\(n\\). Then one of the following must be true\n\nCase A: \\(n=3k\\)\n\n\n\n\nCase B: \\(n=3k+1\\)\n\n\n\n\nCase C: \\(n=3k+2\\)\n\n\n\nIn all 3 cases, \\(n^3-n\\) is divisible by ___."
+    "section": "Tile Work",
+    "text": "Tile Work\nClaim: Every \\(2^n\\) by \\(2^n\\) deficient grid can be tiled with trominos.\n \nProof continued… Inductive case:"
   },
   {
-    "objectID": "slides/04_tue_argument2.html#proof-part-2-divisible-by-___",
-    "href": "slides/04_tue_argument2.html#proof-part-2-divisible-by-___",
+    "objectID": "slides/08_mon_sets.html#announcements",
+    "href": "slides/08_mon_sets.html#announcements",
     "title": "Discrete Math for Data Science",
-    "section": "⊞ Proof Part 2 (Divisible by ___):",
-    "text": "⊞ Proof Part 2 (Divisible by ___):\nConsider an arbitrary \\(n\\). Then one of the following must be true\n\nCase A: \\(n=2k\\)\n\n\n\n\nCase B: \\(n=2k+1\\)\n\n\n\nIn all 2 cases, \\(n^3-n\\) is divisible by ___.\nConclusion: 2 and 3 are factors of \\(n^3-n\\) so 6 must be a factor!"
-  },
-  {
-    "objectID": "slides/XX_mon_normalization.html#announcements",
-    "href": "slides/XX_mon_normalization.html#announcements",
-    "title": "Representation as Encoding — Day 4: Normalization & a Haar Teaser",
     "section": "Announcements",
     "text": "Announcements"
   },
   {
-    "objectID": "slides/XX_mon_normalization.html#goals",
-    "href": "slides/XX_mon_normalization.html#goals",
-    "title": "Representation as Encoding — Day 4: Normalization & a Haar Teaser",
+    "objectID": "slides/08_mon_sets.html#sets-filters-on-rows",
+    "href": "slides/08_mon_sets.html#sets-filters-on-rows",
+    "title": "Discrete Math for Data Science",
+    "section": "Sets = Filters on Rows",
+    "text": "Sets = Filters on Rows\n \nLet \\(U\\) be all rows of a dataframe df.\n\nA set \\(A\\subseteq U\\) selects rows by a predicate \\(P_A(x)\\).\nIn code, a set is a Boolean mask: A_mask = P_A(row).\n\n \nKey Ideas\n\nMembership: \\(x\\in A \\iff P_A(x)\\iff\\) row mask on \\(x\\) is True\nCardinality: \\(|A| = \\sum_{x\\in U} \\mathbf{1}_A(x)\\iff\\) A_mask.sum()\nSubset: \\(A\\subseteq B \\iff \\forall x, P_A(x)\\Rightarrow P_B(x)\\iff\\) ((A & ~B).sum()==0)\n\n\nSay: “We’ll reason with three parallel languages: math sets, logical predicates, and dataframe masks. They’re equivalent.”"
+  },
+  {
+    "objectID": "slides/08_mon_sets.html#from-subsets-to-dataframe-masks",
+    "href": "slides/08_mon_sets.html#from-subsets-to-dataframe-masks",
+    "title": "Discrete Math for Data Science",
+    "section": "From subsets to dataframe masks",
+    "text": "From subsets to dataframe masks\nA Boolean mask over rows is an indicator vector \\(\\in\\{0,1\\}^{|U|}\\).\n\nChoosing rows is the same as selecting a subset of the universe \\(U\\).\n\\(|\\)mask\\(|\\) (sum of Trues) = cardinality of that subset."
+  },
+  {
+    "objectID": "slides/08_mon_sets.html#math-predicate-mask",
+    "href": "slides/08_mon_sets.html#math-predicate-mask",
+    "title": "Discrete Math for Data Science",
+    "section": "Math ⇄ Predicate ⇄ Mask",
+    "text": "Math ⇄ Predicate ⇄ Mask\nLet \\(U\\) be all rows in df.\n\nMath (set): a subset \\(A\\subseteq U\\)\n\nPredicate: \\(A=\\{\\,x\\in U \\mid P_A(x)\\,\\}\\)\n\nDataframe: A_mask = P_A(row) then A_df = df[A_mask]\n\nWe’ll use these café predicates:\n\n\\(A=\\) “Iced drinks”\n\\(A=\\{x\\in U \\mid x.\\mathrm{is\\_iced}=\\text{True}\\}\\)\nA = df['is_iced']\n\\(B=\\) “Non-dairy milk (Oat or Almond)”\n\\(B=\\{x\\in U \\mid x.\\mathrm{milk}\\in\\{\\text{'Oat','Almond'}\\}\\}\\)\nB = df['milk'].str.strip().isin(['Oat','Almond'])\n\\(C=\\) “High caffeine (≥150 mg)”\n\\(C=\\{x\\in U \\mid x.\\mathrm{caffeine\\_mg}\\ge 150\\}\\)\nC = df['caffeine_mg'] &gt;= 150\n\\(D=\\) “Low calorie (≤150 cal)”\n\\(D=\\{x\\in U \\mid x.\\mathrm{calories} \\le 150\\}\\)\nD = df['calories'] &lt;= 150"
+  },
+  {
+    "objectID": "slides/08_mon_sets.html#operations-three-ways-to-say-the-same-thing",
+    "href": "slides/08_mon_sets.html#operations-three-ways-to-say-the-same-thing",
+    "title": "Discrete Math for Data Science",
+    "section": "Operations: Three Ways to Say the Same Thing",
+    "text": "Operations: Three Ways to Say the Same Thing\nLet \\(A,B\\subseteq U\\).\n\n\n\n\n\n\n\n\n\nOperation\nMath (set)\nPredicate (logic)\nDataframe (mask)\n\n\n\n\nUnion\n\\(A\\cup B\\)\n\\(\\{x: P_A(x)\\lor P_B(x)\\}\\)\n(A | B)\n\n\nIntersection\n\\(A\\cap B\\)\n\\(\\{x: P_A(x)\\land P_B(x)\\}\\)\n(A & B)\n\n\nDifference\n\\(A-B\\)\n\\(\\{x: P_A(x)\\land \\neg P_B(x)\\}\\)\n(A & ~B)\n\n\nComplement\n\\(A^c\\)\n\\(\\{x: \\neg P_A(x)\\}\\)\n~A\n\n\nSymm. diff.\n\\(A\\triangle B\\)\n\\(\\{x:(P_A\\lor P_B)\\land \\neg(P_A\\land P_B)\\}\\)\nA ^ B\n\n\n\nPrecedence note: use &, |, ~ with parentheses: (A & B) | (~C)."
+  },
+  {
+    "objectID": "slides/08_mon_sets.html#union-example",
+    "href": "slides/08_mon_sets.html#union-example",
+    "title": "Discrete Math for Data Science",
+    "section": "Union Example",
+    "text": "Union Example\nLet\n\\(A=\\{x\\mid x.\\mathrm{is\\_iced}\\}\\) and\n\\(B=\\{x\\mid x.\\mathrm{milk}\\in\\{\\text{Oat, Almond}\\}\\}\\).\n\nMath: \\(A\\cup B\\)\n\nPredicate: \\(\\{\\,x\\in U \\mid x.\\mathrm{is\\_iced}\\ \\lor\\ x.\\mathrm{milk}\\in\\{\\text{Oat, Almond}\\}\\,\\}\\)\n\nMask: (df['is_iced']) | (df['milk'].str.strip().isin(['Oat','Almond']))"
+  },
+  {
+    "objectID": "slides/08_mon_sets.html#café-orders",
+    "href": "slides/08_mon_sets.html#café-orders",
+    "title": "Discrete Math for Data Science",
+    "section": "Café Orders",
+    "text": "Café Orders"
+  },
+  {
+    "objectID": "slides/08_mon_sets.html#cardinality",
+    "href": "slides/08_mon_sets.html#cardinality",
+    "title": "Discrete Math for Data Science",
+    "section": "Cardinality",
+    "text": "Cardinality"
+  },
+  {
+    "objectID": "slides/08_mon_sets.html#identity",
+    "href": "slides/08_mon_sets.html#identity",
+    "title": "Discrete Math for Data Science",
+    "section": "Identity",
+    "text": "Identity\nExperiment using the code below, and then complete the observation:\nFor any sets \\(A\\), and \\(B\\): ___________ = ___________"
+  },
+  {
+    "objectID": "slides/08_mon_sets.html#inclusion-exclusion",
+    "href": "slides/08_mon_sets.html#inclusion-exclusion",
+    "title": "Discrete Math for Data Science",
+    "section": "Inclusion-Exclusion",
+    "text": "Inclusion-Exclusion\nExperiment using the code below, and then complete the observation:\nFor any sets \\(A\\) and \\(B\\): \\(|A\\cup B| =\\) _____________"
+  },
+  {
+    "objectID": "slides/08_mon_sets.html#equality",
+    "href": "slides/08_mon_sets.html#equality",
+    "title": "Discrete Math for Data Science",
+    "section": "Equality?",
+    "text": "Equality?\nTwo sets are equal if they contain exactly the same elements. Think of a way to test set equality using set operations.\nAre sets \\(X\\) and \\(Y\\) equal?"
+  },
+  {
+    "objectID": "slides/08_mon_sets.html#subsets",
+    "href": "slides/08_mon_sets.html#subsets",
+    "title": "Discrete Math for Data Science",
+    "section": "Subsets",
+    "text": "Subsets\n\\(A\\subseteq B \\iff \\forall x, P_A(x)\\Rightarrow P_B(x)\\iff\\) ((A & ~B).sum()==0)\nAre any of our sets \\(A\\), \\(B\\), \\(C\\), or \\(D\\) subsets of one another?"
+  },
+  {
+    "objectID": "slides/08_mon_sets.html#a-venn-puzzle",
+    "href": "slides/08_mon_sets.html#a-venn-puzzle",
+    "title": "Discrete Math for Data Science",
+    "section": "A Venn Puzzle",
+    "text": "A Venn Puzzle\nFill in the Venn Diagram using the values for \\(|U|\\), \\(|A|\\), \\(|B|\\), \\(|A\\cup B|\\). Verify your counts are correct by finding \\(|A-B|\\), \\(|A\\cap B|\\), \\(|B-A|\\), and \\(|U-(A\\cup B)|\\), via code.\n\n U A B   A - B A ∩ B B - A U - (A ∪ B)"
+  },
+  {
+    "objectID": "slides/08_mon_sets.html#bounds-on-acap-b",
+    "href": "slides/08_mon_sets.html#bounds-on-acap-b",
+    "title": "Discrete Math for Data Science",
+    "section": "Bounds on \\(|A\\cap B|\\)",
+    "text": "Bounds on \\(|A\\cap B|\\)\nGive upper and lower bounds on \\(|A\\cap B|\\) for any \\(A,B\\subseteq U\\).\n \n__________________ \\(\\leq |A\\cap B|\\leq\\) __________________\n \n\n\n U A B   A - B A ∩ B B - A U - (A ∪ B)"
+  },
+  {
+    "objectID": "slides/XX_tue_hashing.html#announcements",
+    "href": "slides/XX_tue_hashing.html#announcements",
+    "title": "Representation as Encoding — Day 2: Hashing",
+    "section": "Announcements",
+    "text": "Announcements"
+  },
+  {
+    "objectID": "slides/XX_tue_hashing.html#goals",
+    "href": "slides/XX_tue_hashing.html#goals",
+    "title": "Representation as Encoding — Day 2: Hashing",
     "section": "Goals",
-    "text": "Goals\n\nCompare min–max, z-score, \\(\\ell_2\\) normalization.\n\nEffects on distances and cosine.\n\nDo one step of Haar wavelet (invertible encoding)."
+    "text": "Goals\n\nSee hashing as key \\(\\to \\{0,\\dots,m-1\\}\\).\n\nUse pigeonhole principle to argue collisions.\n\nReason with load factor \\(\\alpha=n/m\\)."
   },
   {
-    "objectID": "slides/XX_mon_normalization.html#three-normalizations",
-    "href": "slides/XX_mon_normalization.html#three-normalizations",
-    "title": "Representation as Encoding — Day 4: Normalization & a Haar Teaser",
-    "section": "Three Normalizations",
-    "text": "Three Normalizations\n\nMin–max: \\(x'=\\dfrac{x-\\min}{\\max-\\min}\\) (per feature).\n\nZ-score: \\(x'=\\dfrac{x-\\mu}{\\sigma}\\) (per feature).\n\n\\(\\ell_2\\) vector normalize: \\(v'=\\dfrac{v}{\\|v\\|_2}\\).\n\nFacts.\nCosine is scale-invariant: if \\(v'=\\lambda v\\), \\(\\cos(v',w)=\\cos(v,w)\\).\nEuclidean distances scale by \\(|\\lambda|\\)."
+    "objectID": "slides/XX_tue_hashing.html#hash-table-picture",
+    "href": "slides/XX_tue_hashing.html#hash-table-picture",
+    "title": "Representation as Encoding — Day 2: Hashing",
+    "section": "Hash Table Picture",
+    "text": "Hash Table Picture\nArray of size \\(m\\); hash \\(h(k)\\) gives a slot.\nCommon \\(h(k)=(a k + b)\\bmod m\\).\nLoad factor: \\(\\alpha=n/m\\) (expected chain length under uniform hashing)."
   },
   {
-    "objectID": "slides/XX_mon_normalization.html#tiny-proof-cosine-invariance",
-    "href": "slides/XX_mon_normalization.html#tiny-proof-cosine-invariance",
-    "title": "Representation as Encoding — Day 4: Normalization & a Haar Teaser",
-    "section": "Tiny Proof (cosine invariance)",
-    "text": "Tiny Proof (cosine invariance)\n\\(\\displaystyle \\cos(v',w)=\\frac{\\langle \\lambda v,w\\rangle}{\\|\\lambda v\\|\\,\\|w\\|}=\\frac{\\lambda\\langle v,w\\rangle}{|\\lambda|\\,\\|v\\|\\,\\|w\\|}=\\cos(v,w).\\)"
+    "objectID": "slides/XX_tue_hashing.html#pigeonhole-collisions-are-inevitable",
+    "href": "slides/XX_tue_hashing.html#pigeonhole-collisions-are-inevitable",
+    "title": "Representation as Encoding — Day 2: Hashing",
+    "section": "Pigeonhole: Collisions are Inevitable",
+    "text": "Pigeonhole: Collisions are Inevitable\nIf \\(n&gt;m\\), then some pair \\(k\\ne k'\\) have \\(h(k)=h(k')\\).\n\nOne-liner proof: \\(n\\) items, \\(m\\) boxes; more items than boxes ⇒ a box with \\(\\ge2\\)."
   },
   {
-    "objectID": "slides/XX_mon_normalization.html#activity-normalize-decide",
-    "href": "slides/XX_mon_normalization.html#activity-normalize-decide",
-    "title": "Representation as Encoding — Day 4: Normalization & a Haar Teaser",
-    "section": "Activity: Normalize & Decide",
-    "text": "Activity: Normalize & Decide\nDataset with two features (different units).\n1) 1-NN of a query before vs after z-score—did the neighbor change? why?\n2) Try \\(\\ell_2\\) normalization; check cosine similarity ordering."
+    "objectID": "slides/XX_tue_hashing.html#expected-cost-chain-hashing",
+    "href": "slides/XX_tue_hashing.html#expected-cost-chain-hashing",
+    "title": "Representation as Encoding — Day 2: Hashing",
+    "section": "Expected Cost (chain hashing)",
+    "text": "Expected Cost (chain hashing)\nUnder uniform hashing, expected chain length \\(\\approx \\alpha\\),\nso expected successful lookup is \\(O(1)\\) when \\(\\alpha=O(1)\\)."
   },
   {
-    "objectID": "slides/XX_mon_normalization.html#haar-wavelet-length-8-one-step",
-    "href": "slides/XX_mon_normalization.html#haar-wavelet-length-8-one-step",
-    "title": "Representation as Encoding — Day 4: Normalization & a Haar Teaser",
-    "section": "Haar Wavelet (length-8, one step)",
-    "text": "Haar Wavelet (length-8, one step)\nFor pairs \\((x_{2i},x_{2i+1})\\):\nAverages \\(a_i=\\dfrac{x_{2i}+x_{2i+1}}{2}\\), details \\(d_i=\\dfrac{x_{2i}-x_{2i+1}}{2}\\).\nExample input: \\((4,8,6,2,3,5,7,1)\\)\nAverages: \\((6,4,4,4)\\); Details: \\((-2,2,-2,6)\\).\nInvertible: recover by \\(x_{2i}=a_i+d_i\\), \\(x_{2i+1}=a_i-d_i\\)."
+    "objectID": "slides/XX_tue_hashing.html#design-choices-mini-debate",
+    "href": "slides/XX_tue_hashing.html#design-choices-mini-debate",
+    "title": "Representation as Encoding — Day 2: Hashing",
+    "section": "Design Choices (mini-debate)",
+    "text": "Design Choices (mini-debate)\n\nWhy pick prime \\(m\\)?\n\nWhy avoid \\(m\\) that shares factors with patterns in keys?"
   },
   {
-    "objectID": "slides/XX_mon_normalization.html#exit-ticket",
-    "href": "slides/XX_mon_normalization.html#exit-ticket",
-    "title": "Representation as Encoding — Day 4: Normalization & a Haar Teaser",
+    "objectID": "slides/XX_tue_hashing.html#activity-design-break",
+    "href": "slides/XX_tue_hashing.html#activity-design-break",
+    "title": "Representation as Encoding — Day 2: Hashing",
+    "section": "Activity: Design & Break",
+    "text": "Activity: Design & Break\n\nWith \\(m=10\\), \\(h(k)=k\\bmod 10\\): find 3 collisions for your 5 sample keys.\n\nPropose a better \\(m\\) for your keys; test spread.\n\n(Birthday bound) Approximate \\(\\Pr[\\text{collision}] \\approx 1-\\exp\\!\\big(-\\frac{n(n-1)}{2m}\\big)\\) for \\(n=40\\), \\(m=365\\).\n\n\n\n\\(\\approx 0.89\\). Have one group present intuition: “crowded buckets.”"
+  },
+  {
+    "objectID": "slides/XX_tue_hashing.html#exit-ticket",
+    "href": "slides/XX_tue_hashing.html#exit-ticket",
+    "title": "Representation as Encoding — Day 2: Hashing",
     "section": "Exit Ticket",
-    "text": "Exit Ticket\nPick a task (kNN, cosine text similarity, gradient descent).\nWhich normalization would you choose, and why?"
+    "text": "Exit Ticket\nState one reason a prime \\(m\\) can help dispersion."
+  },
+  {
+    "objectID": "slides/01_wed_intro.html#sages-tricksters",
+    "href": "slides/01_wed_intro.html#sages-tricksters",
+    "title": "Discrete Math for Data Science",
+    "section": "🎭 Sages & Tricksters",
+    "text": "🎭 Sages & Tricksters\n\n\nHow to Play\n\nEach of you are secretly assigned a role:\n\nSage = always tell the truth (Black)\nTrickster = always lie (Red)\n\nEveryone sees the packet of 6 cards and the fact.\n\nIn rounds, each player may ask yes/no questions about the fact.\n\nWork together: compare answers, spot contradictions.\n\nGoal: Deduce each person’s role!"
+  },
+  {
+    "objectID": "slides/01_wed_intro.html#round-structure",
+    "href": "slides/01_wed_intro.html#round-structure",
+    "title": "Discrete Math for Data Science",
+    "section": "🔄 Round Structure",
+    "text": "🔄 Round Structure\n\n\n1. Two Info Rounds\n\nIn each round, take turns asking one yes/no question about the fact\n\n2. Debate Round\n\nCompare answers\n\nLook for contradictions\n\n3. Conclusion\n\nAgree on everyone’s roles\n\nReveal the cards & roles!"
+  },
+  {
+    "objectID": "slides/01_wed_intro.html#logic-in-action",
+    "href": "slides/01_wed_intro.html#logic-in-action",
+    "title": "Discrete Math for Data Science",
+    "section": "🧩 Logic in Action",
+    "text": "🧩 Logic in Action\n\n\n\nLogic means starting from true facts\n\nAsking the right questions\n\nSpotting contradictions\n\nAnd making valid inferences\n\nIn this course we’ll apply all of this to Data Science!"
+  },
+  {
+    "objectID": "slides/01_wed_intro.html#instructional-team",
+    "href": "slides/01_wed_intro.html#instructional-team",
+    "title": "Discrete Math for Data Science",
+    "section": "Instructional Team:",
+    "text": "Instructional Team:\n\nProf: Cinda Heeren\n📧 cheeren@cs.ubc.ca\n⏰ Mon 2–4pm · 🏢 ICCS 233 · \nTA: Joe Wonsil\n📧 jwonsil@cs.ubc.ca\n⏰ Fri 11-12a · 🏢 FORW 317"
+  },
+  {
+    "objectID": "slides/01_wed_intro.html#term-structure",
+    "href": "slides/01_wed_intro.html#term-structure",
+    "title": "Discrete Math for Data Science",
+    "section": "Term Structure:",
+    "text": "Term Structure:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek\nSunday\nM\nT\nW\nF\nTutorial\nExamlet\n\n\n\n\n1\n8/31/2025\n    \n\n🎉\n🎉\n\n\n\n\n2\n9/7/2025\n🎉\n\n🎉\n🎉\n\n\n\n\n3\n9/14/2025\n🎉\n📺\n🎉\n    \n🪄\n🤩\n\n\n4\n9/21/2025\n🎉\n📺\n🎉\n    \n🪄\n\n\n\n5\n9/28/2025\n🎉\n📺\n🎉\n    \n🪄\n🤩\n\n\n6\n10/5/2025\n🎉\n📺\n🎉\n    \n🪄\n\n\n\n7\n10/12/2025\n    \n\n📺\n📺\n\n\n\n\n8\n10/19/2025\n🎉\n📺\n🎉\n    \n🪄\n🤩\n\n\n9\n10/26/2025\n🎉\n📺\n🎉\n    \n🪄\n\n\n\n10\n11/2/2025\n🎉\n📺\n🎉\n    \n🪄\n🤩\n\n\n11\n11/9/2025\n    \n\n    \n📺\n\n\n\n\n12\n11/16/2025\n🎉\n📺\n🎉\n    \n🪄\n\n\n\n13\n11/23/2025\n🎉\n📺\n🎉\n    \n🪄\n🤩\n\n\n14\n11/30/2025\n🎉\n📺\n🎉\n    \n🪄"
+  },
+  {
+    "objectID": "slides/01_wed_intro.html#grading",
+    "href": "slides/01_wed_intro.html#grading",
+    "title": "Discrete Math for Data Science",
+    "section": "Grading:",
+    "text": "Grading:\n\n\n\n\n\n\n\n\nComponent\nWeight\n\n\n\n\n🎉 Class Meetings\n0%\n\n\n🪄 Tutorials\n15%\n\n\n🤩 Examlets\n55%\n\n\n🤩 Final Exam\n30%"
+  },
+  {
+    "objectID": "slides/01_wed_intro.html#communications",
+    "href": "slides/01_wed_intro.html#communications",
+    "title": "Discrete Math for Data Science",
+    "section": "Communications",
+    "text": "Communications\n\n\n📧 Email cheeren@cs.ubc.ca\nChecked daily. Please place “DSCI220” in subject!\n   Piazza piazza.com/ubc.ca/winterterm12025/dsci220\nPost questions for quick response.\n🏫 Office Hours\n\n\n\n\n\n\n\n\n\n\nName\nTime\nLocation & Zoom\n\n\n\n\nCinda\nMon 2–4pm\n🏢 ICCS 233 · \n\n\nJoe\nFri 11-12a\n🏢 FORW 317\n\n\n\n\n\n🌐 Course Website https://ubc-cs.github.io/dsci220/\nSyllabus, schedule, resources"
+  },
+  {
+    "objectID": "slides/01_wed_intro.html#truth",
+    "href": "slides/01_wed_intro.html#truth",
+    "title": "Discrete Math for Data Science",
+    "section": "Truth",
+    "text": "Truth\nMake at least 3 observations about the following table:\n\n\n\n\n\n\\(p\\)\n\\(q\\)\n\\(p \\lor q\\)\n\n\n\n\nF\nF\nF\n\n\nF\nT\nT\n\n\nT\nF\nT\n\n\nT\nT\nT"
+  },
+  {
+    "objectID": "slides/01_wed_intro.html#summary",
+    "href": "slides/01_wed_intro.html#summary",
+    "title": "Discrete Math for Data Science",
+    "section": "Summary",
+    "text": "Summary\nKey observations about the table:\n\n\n\n\n\n\\(p\\)\n\\(q\\)\n\\(p \\lor q\\)\n\n\n\n\nF\nF\nF\n\n\nF\nT\nT\n\n\nT\nF\nT\n\n\nT\nT\nT\n\n\n\n\n\nThe diagram is called a Truth Table\np and q are variables, each of which take on one of two Boolean values, True or False (T/F, 1/0)\n∨ is a binary operator that implements a function (creates output) from the 2 input variables to another Boolean value. It is characterized by its output values.\nThe operator ∨ corresponds to the English word or.\nThe expression p ∨ q is called a proposition."
+  },
+  {
+    "objectID": "slides/01_wed_intro.html#cool-down",
+    "href": "slides/01_wed_intro.html#cool-down",
+    "title": "Discrete Math for Data Science",
+    "section": "Cool down",
+    "text": "Cool down\n\n\n\n\n\n\\(p\\)\n\\(q\\)\n\\(p \\lor q\\)\n\n\n\n\nF\nF\nF\n\n\nF\nT\nT\n\n\nT\nF\nT\n\n\nT\nT\nT\n\n\n\n\n\nHow many rows for a proposition on 3 variables? \\(k\\) variables?\nGive a good name for an operator that takes 1 variable: __________\nGive a good name for an operator that takes 3 variables: __________\nHow many different binary operators could there be?"
+  },
+  {
+    "objectID": "slides/07_tue_binary2.html#announcements",
+    "href": "slides/07_tue_binary2.html#announcements",
+    "title": "Representation as Encoding — Day 2: Binary & Size",
+    "section": "Announcements",
+    "text": "Announcements"
+  },
+  {
+    "objectID": "slides/07_tue_binary2.html#goals",
+    "href": "slides/07_tue_binary2.html#goals",
+    "title": "Representation as Encoding — Day 2: Binary & Size",
+    "section": "Goals",
+    "text": "Goals\n\nProve: \\(b\\) bits result in \\(2^b\\) codes, with max value \\(2^b-1\\).\n\nOverflow.\n\nDON’T FORGET TO EXPLAIN THE MAGIC TRICK!"
+  },
+  {
+    "objectID": "slides/07_tue_binary2.html#place-value",
+    "href": "slides/07_tue_binary2.html#place-value",
+    "title": "Representation as Encoding — Day 2: Binary & Size",
+    "section": "Place Value",
+    "text": "Place Value\n  Consider an encoding into binary:\n\\[(b_{k-1}\\dots b_1 b_0)_2=\\sum_{i=0}^{k-1} b_i 2^i,\\quad b_i\\in\\{0,1\\}\\]"
+  },
+  {
+    "objectID": "slides/07_tue_binary2.html#proof-moment",
+    "href": "slides/07_tue_binary2.html#proof-moment",
+    "title": "Representation as Encoding — Day 2: Binary & Size",
+    "section": "Proof Moment",
+    "text": "Proof Moment\nClaim: With \\(b\\) bits we can represent \\(2^b\\) values."
+  },
+  {
+    "objectID": "slides/07_tue_binary2.html#technical-aside",
+    "href": "slides/07_tue_binary2.html#technical-aside",
+    "title": "Representation as Encoding — Day 2: Binary & Size",
+    "section": "Technical Aside",
+    "text": "Technical Aside\n\nint (pure Python): arbitrary precision (variable width)\nNumPy / Pandas arrays: fixed-width datatypes (int8, int32, int64, uint64, …)\n\n\n\nSigned range: \\([-2^{b-1},\\,2^{b-1}-1]\\); Unsigned range: \\([0,\\,2^b-1]\\).\nTakeaway: the container chooses the encoding (width & signedness).\n\n\nDemo:"
+  },
+  {
+    "objectID": "slides/07_tue_binary2.html#overflow",
+    "href": "slides/07_tue_binary2.html#overflow",
+    "title": "Representation as Encoding — Day 2: Binary & Size",
+    "section": "Overflow",
+    "text": "Overflow\nConsider addition, with 4 bits:\n\nannotate 1101_2 + 110_2 and ask students to speculate on 1) how addition works, and how they would describe the overflow. (they’ll say it’s like mod 2^4) With \\(b\\) fixed bits, adding wraps \\(\\bmod 2^b\\).\n\n\n\n \n\n\n \nPunchline: Overflow occurs when the number you want to represent is too big to fit into the space you’ve reserved for it."
+  },
+  {
+    "objectID": "slides/07_tue_binary2.html#signed-integers",
+    "href": "slides/07_tue_binary2.html#signed-integers",
+    "title": "Representation as Encoding — Day 2: Binary & Size",
+    "section": "Signed Integers",
+    "text": "Signed Integers\n\n\nUnsigned integers are represented by their encodings as discussed above.\n\n\n\\(b\\) bits typically represent values \\([0..2^b-1]\\).\n\n\nSigned integers have a different encoding (that we won’t discuss) but we can still guess the values that can be encoded:\n\n\n\\(b\\) bits typically represent values ____________."
+  },
+  {
+    "objectID": "slides/07_tue_binary2.html#activity",
+    "href": "slides/07_tue_binary2.html#activity",
+    "title": "Representation as Encoding — Day 2: Binary & Size",
+    "section": "Activity",
+    "text": "Activity\nFor each, compute bits needed or max value:\n\nSeats in a 500-seat hall.\n\n12-bit unsigned max.\n\nWorld pop (\\(\\approx 8\\cdot10^9\\) people) bits for unique IDs.\n\nTimestamps for next \\(100\\) years at 1-second resolution.\n\n\n\n9; (2) 4095; (3) \\(\\lceil\\log_2(8e9)\\rceil=33\\); (4) seconds \\(\\approx 3.15e9\\) 32 bits."
+  },
+  {
+    "objectID": "slides/07_tue_binary2.html#exit-ticket",
+    "href": "slides/07_tue_binary2.html#exit-ticket",
+    "title": "Representation as Encoding — Day 2: Binary & Size",
+    "section": "Exit Ticket",
+    "text": "Exit Ticket\nIn words: what does \\(\\lceil\\log_2 N\\rceil\\) tell you?"
+  },
+  {
+    "objectID": "slides/09_tue_regex.html#announcements",
+    "href": "slides/09_tue_regex.html#announcements",
+    "title": "Discrete Math for Data Science",
+    "section": "Announcements",
+    "text": "Announcements"
+  },
+  {
+    "objectID": "slides/09_tue_regex.html#regular-expressions-as-string-filters",
+    "href": "slides/09_tue_regex.html#regular-expressions-as-string-filters",
+    "title": "Discrete Math for Data Science",
+    "section": "Regular Expressions as String Filters",
+    "text": "Regular Expressions as String Filters\nGoals:\n\nUse regex to filter strings (and rows in a DataFrame).\nRead/write the core regex operators.\nSee a regex as a set descriptor (a language over an alphabet).\nBuild boolean masks: df['col'].str.contains(pattern).\n\n\nBridge from sets: a subset is just a predicate. Regex gives us predicates on strings."
+  },
+  {
+    "objectID": "slides/09_tue_regex.html#from-sets-to-strings",
+    "href": "slides/09_tue_regex.html#from-sets-to-strings",
+    "title": "Discrete Math for Data Science",
+    "section": "From Sets to Strings",
+    "text": "From Sets to Strings\nSets:\n\nMath: \\(A=\\{x\\in U: P(x)\\}\\)\nStrings: \\(L=\\{w\\in\\Sigma^*: \\texttt{matches}(w,\\text{pattern})\\}\\)\n\nKey idea: A regular expression specifies membership in a set of strings using patterns of characters.\nWe treat regex as both filters and as languages."
+  },
+  {
+    "objectID": "slides/09_tue_regex.html#warm-up-in-or-out",
+    "href": "slides/09_tue_regex.html#warm-up-in-or-out",
+    "title": "Discrete Math for Data Science",
+    "section": "Warm-Up: In or Out?",
+    "text": "Warm-Up: In or Out?\npattern = ^[A-Z]{2}\\d{3}$ \\(L=\\{w\\in\\Sigma^*: \\texttt{matches}(w,\\) pattern\\()\\}\\)\n \nWhich strings are in the set \\(L\\)?\n \nCS110\nab123\nDS2200\nMA101\n\n\n\nThis pattern says: start, 2 capital letters, 3 digits, end."
+  },
+  {
+    "objectID": "slides/09_tue_regex.html#standard-operators",
+    "href": "slides/09_tue_regex.html#standard-operators",
+    "title": "Discrete Math for Data Science",
+    "section": "Standard Operators",
+    "text": "Standard Operators\nLiterals: cat\nDot: . any char (except newline)\nClass: [aeiou] or ranges like [A-Z0-9]\nNegated class: [^,] anything but comma\nAlternation: (cat|dog)\nQuantifiers: a* 0 or more, a+ or more, a? 0 or 1, {m,n} range\nAnchors: ^ start, $ end\nEscapes: \\. literal dot\nGroups: (  ) captures, (?:  ) non-capturing"
+  },
+  {
+    "objectID": "slides/09_tue_regex.html#regex-vs.-language",
+    "href": "slides/09_tue_regex.html#regex-vs.-language",
+    "title": "Discrete Math for Data Science",
+    "section": "Regex vs. Language",
+    "text": "Regex vs. Language\nFix an alphabet of characters, \\(\\Sigma\\).\nThen a language \\(L=\\{w\\in\\Sigma^*: \\texttt{matches}(w,\\) pattern\\()\\}\\)\n\nif a pattern matches nothing, \\(L=\\varnothing\\)\n^$ matches only empty string ⇒ \\(L=\\{\\varepsilon\\}\\)\npattern a means \\(L=\\{\\)a\\(\\}\\)\nConcatenated patterns AB means \\(L(A)L(B)={xy:x\\in L(A),y\\in L(B)}\\)\nUnion of patterns: A|B means \\(L(A)\\cup L(B)\\)\nKleene Star: A* means all finite concatenations from \\(L(A)\\) (incl. \\(\\varepsilon\\))\n\n\nSame spirit as set algebra: union / product / closure."
+  },
+  {
+    "objectID": "slides/09_tue_regex.html#say-the-set",
+    "href": "slides/09_tue_regex.html#say-the-set",
+    "title": "Discrete Math for Data Science",
+    "section": "Say the Set",
+    "text": "Say the Set\n \n^(ab|ba)*$: strings over {a,b} that are concatenations of ab or ba.\n \n^(0|1)*11(0|1)*$: all binary strings containing 11 as a substring.\n \n^1(01|10)*0$: binary strings that start with 1, end with 0, and are filled with {0,1} pairs that flip from 1 to 0 or vice versa."
+  },
+  {
+    "objectID": "slides/09_tue_regex.html#back-to-the-cafe",
+    "href": "slides/09_tue_regex.html#back-to-the-cafe",
+    "title": "Discrete Math for Data Science",
+    "section": "Back to the Cafe",
+    "text": "Back to the Cafe\nSuppose a column drink has values like: “Iced Latte”, “Drip Coffee”, “Americano”, “Matcha Tea”, “Espresso”\n \nGoals:\n\nKeep espresso-style drinks: “espresso”, “americano”, “latte”, or “cappuccino”\n“Iced” appears as a whole word\nDrinks that end with “Tea”"
+  },
+  {
+    "objectID": "slides/09_tue_regex.html#cafe-continued",
+    "href": "slides/09_tue_regex.html#cafe-continued",
+    "title": "Discrete Math for Data Science",
+    "section": "Cafe continued",
+    "text": "Cafe continued"
+  },
+  {
+    "objectID": "slides/09_tue_regex.html#typical-patterns",
+    "href": "slides/09_tue_regex.html#typical-patterns",
+    "title": "Discrete Math for Data Science",
+    "section": "Typical Patterns",
+    "text": "Typical Patterns\nWhole word: r’\\biced\\b’\nStarts with: r’^Iced’\nEnds with: r’Tea$’\nOptional word: r’^(Iced )?Latte$’\nOne of set (case-insensitive):\n\n r’(?i)\\b(espresso|americano|latte|cappuccino)\\b’"
+  },
+  {
+    "objectID": "slides/09_tue_regex.html#your-turn",
+    "href": "slides/09_tue_regex.html#your-turn",
+    "title": "Discrete Math for Data Science",
+    "section": "Your Turn",
+    "text": "Your Turn\nFilter for:\n\nDrinks exactly “Iced Latte” (any case)\nDrinks containing either “Americano” or “Espresso” (whole words, any case)\nDrinks that do not contain “Iced” but end with “Tea” (hint: ________________)"
+  },
+  {
+    "objectID": "slides/09_tue_regex.html#your-turn-1",
+    "href": "slides/09_tue_regex.html#your-turn-1",
+    "title": "Discrete Math for Data Science",
+    "section": "Your Turn",
+    "text": "Your Turn"
+  },
+  {
+    "objectID": "slides/09_tue_regex.html#reminder-from-filter-to-language",
+    "href": "slides/09_tue_regex.html#reminder-from-filter-to-language",
+    "title": "Discrete Math for Data Science",
+    "section": "Reminder: From Filter to Language",
+    "text": "Reminder: From Filter to Language\nLet \\(\\Sigma\\) = letters, numbers, and spaces.\nPattern ^(?i)espresso|americano|latte|cappuccino)$ denotes a language \\(L\\subseteq \\Sigma^*\\).\nThis parallels:\nSet: \\(L=\\{,w\\in\\Sigma^*: \\text{pattern matches},\\}\\)\nPredicate: \\(P(w)=\\texttt{matches}(w,\\text{pattern})\\)\nMask: df[‘drink’].str.match(pattern)\nYou’ve been doing language membership tests all class, with filters."
   },
   {
     "objectID": "slides/05_tue_sequences.html#announcements",
