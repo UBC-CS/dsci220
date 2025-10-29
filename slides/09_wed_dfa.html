@@ -173,6 +173,35 @@
 <li>Use closure tricks (∪, ∩, complement) to combine DFAs.</li>
 </ul>
 </section>
+<section id="two-views-on-regular-expressions" class="slide level2 smaller">
+<h2>Two views on Regular Expressions</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Meaning</th>
+<th>In Python/Pandas</th>
+<th>Anchors</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Full-string match</td>
+<td><code>re.fullmatch(r'(bb+|c[ac]*|b?)', s)</code><br><code>df['col'].str.fullmatch(r'(bb+|c[ac]*|b?)')</code></td>
+<td>Use <code>^</code> and <code>$</code>: <code>r'^(...)$'</code></td>
+</tr>
+<tr class="even">
+<td>Substring search</td>
+<td><code>re.search(r'(bb+|c[ac]*|b?)', s)</code><br><code>df['col'].str.contains(r'(bb+|c[ac]*|b?)')</code></td>
+<td>none</td>
+</tr>
+</tbody>
+</table>
+</section>
 <section id="warm-up" class="slide level2 activity">
 <h2>Warm-Up</h2>
 <p>Pattern: <code>^(0|1)*11(0|1)*$</code></p>
@@ -224,13 +253,14 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="dfa-idea" class="slide level2">
-<h2>DFA Idea</h2>
-<p><strong>State</strong>: what the prefix tells me so far.</p>
-<p><strong>Accept</strong> iff we finish in an accepting state.</p>
+<section id="dfa-ideas" class="slide level2">
+<h2>DFA Ideas</h2>
+<p>Process a string from left to right, one character at a time.</p>
 <ul>
-<li>Deterministic: exactly one transition per symbol from every state.</li>
-<li>Total: every state has a transition on every symbol.</li>
+<li><p><strong>State</strong>: what the prefix tells us so far.</p></li>
+<li><p><strong>Accept</strong> iff we finish in an accepting state.</p></li>
+<li><p><strong>Deterministic</strong>: at most one transition per symbol from every state.</p></li>
+<li><p><strong>Total</strong>: every state has a transition on every symbol.</p></li>
 </ul>
 </section>
 <section id="dfa-definition" class="slide level2">
@@ -311,7 +341,7 @@ States are pairs <code>(p,q)</code>
 <p>Build a DFA for the <strong>union</strong> of:</p>
 <ul>
 <li><code>L1</code>: contains <code>11</code> (use the machine we built)</li>
-<li><code>L2</code>: ends with <code>00</code> (three states: <code>Sε, S0, S00</code>)</li>
+<li><code>L2</code>: ends with <code>00</code> (three states: <code>Tε, T0, T00</code>)</li>
 </ul>
 <p><strong>Hint:</strong> sketch product states <code>(S_i, T_j)</code> and mark <code>accept</code> pairs for union.</p>
 </section>

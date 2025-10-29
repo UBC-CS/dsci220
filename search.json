@@ -816,6 +816,13 @@
     "text": "Goals\n\nRecall a regex is a set of strings (a language).\nBuild small DFAs that recognize those sets.\nUse closure tricks (∪, ∩, complement) to combine DFAs."
   },
   {
+    "objectID": "slides/09_wed_dfa.html#two-views-on-regular-expressions",
+    "href": "slides/09_wed_dfa.html#two-views-on-regular-expressions",
+    "title": "Discrete Math for Data Science",
+    "section": "Two views on Regular Expressions",
+    "text": "Two views on Regular Expressions\n\n\n\n\n\n\n\n\nMeaning\nIn Python/Pandas\nAnchors\n\n\n\n\nFull-string match\nre.fullmatch(r'(bb+|c[ac]*|b?)', s)df['col'].str.fullmatch(r'(bb+|c[ac]*|b?)')\nUse ^ and $: r'^(...)$'\n\n\nSubstring search\nre.search(r'(bb+|c[ac]*|b?)', s)df['col'].str.contains(r'(bb+|c[ac]*|b?)')\nnone"
+  },
+  {
     "objectID": "slides/09_wed_dfa.html#warm-up",
     "href": "slides/09_wed_dfa.html#warm-up",
     "title": "Discrete Math for Data Science",
@@ -830,11 +837,11 @@
     "text": "Contains 11\nAlphabet: {0,1}\nStates:\n\nS0: have seen no 1s (start)\nS1: just saw a 1\nS2: saw substring 11 (accepting)\n\nDFA Sketch:\n\nRun a couple examples on the board: 101101 (accept), 101010 (reject). key elements: 0) input alphabet 1) set of states. 2) start state, 3) transition function, 4) set of accept states."
   },
   {
-    "objectID": "slides/09_wed_dfa.html#dfa-idea",
-    "href": "slides/09_wed_dfa.html#dfa-idea",
+    "objectID": "slides/09_wed_dfa.html#dfa-ideas",
+    "href": "slides/09_wed_dfa.html#dfa-ideas",
     "title": "Discrete Math for Data Science",
-    "section": "DFA Idea",
-    "text": "DFA Idea\nState: what the prefix tells me so far.\nAccept iff we finish in an accepting state.\n\nDeterministic: exactly one transition per symbol from every state.\nTotal: every state has a transition on every symbol."
+    "section": "DFA Ideas",
+    "text": "DFA Ideas\nProcess a string from left to right, one character at a time.\n\nState: what the prefix tells us so far.\nAccept iff we finish in an accepting state.\nDeterministic: at most one transition per symbol from every state.\nTotal: every state has a transition on every symbol."
   },
   {
     "objectID": "slides/09_wed_dfa.html#dfa-definition",
@@ -883,7 +890,7 @@
     "href": "slides/09_wed_dfa.html#mini-exercise",
     "title": "Discrete Math for Data Science",
     "section": "Mini-Exercise",
-    "text": "Mini-Exercise\nBuild a DFA for the union of:\n\nL1: contains 11 (use the machine we built)\nL2: ends with 00 (three states: Sε, S0, S00)\n\nHint: sketch product states (S_i, T_j) and mark accept pairs for union."
+    "text": "Mini-Exercise\nBuild a DFA for the union of:\n\nL1: contains 11 (use the machine we built)\nL2: ends with 00 (three states: Tε, T0, T00)\n\nHint: sketch product states (S_i, T_j) and mark accept pairs for union."
   },
   {
     "objectID": "slides/09_wed_dfa.html#parity-demo",
