@@ -20,7 +20,14 @@ date: 2025-10-28
 - Build small DFAs that **recognize** those sets.
 - Use closure tricks (∪, ∩, complement) to combine DFAs.
 
----
+
+## Two views on Regular Expressions {.smaller}
+
+| Meaning  | In Python/Pandas | Anchors |
+|---|---|---|
+| Full-string match | `re.fullmatch(r'(bb+|c[ac]*|b?)', s)`<br>`df['col'].str.fullmatch(r'(bb+|c[ac]*|b?)')` | Use `^` and `$`: `r'^(...)$'` |
+| Substring search | `re.search(r'(bb+|c[ac]*|b?)', s)`<br>`df['col'].str.contains(r'(bb+|c[ac]*|b?)')` | none |
+
 
 ## Warm-Up {.activity}
 
@@ -57,14 +64,17 @@ Run a couple examples on the board: `101101` (accept), `101010` (reject).
 key elements: 0) input alphabet 1) set of states. 2) start state, 3) transition function, 4) set of accept states.
 :::
 
-## DFA Idea 
+## DFA Ideas
 
-**State**: what the prefix tells me so far.
+Process a string from left to right, one character at a time.
 
-**Accept** iff we finish in an accepting state.
+- **State**: what the prefix tells us so far.
 
-- Deterministic: exactly one transition per symbol from every state.
-- Total: every state has a transition on every symbol.
+- **Accept** iff we finish in an accepting state.
+
+- **Deterministic**: at most one transition per symbol from every state.
+
+- **Total**: every state has a transition on every symbol.
 
 ## DFA Definition
 
@@ -127,7 +137,7 @@ This mirrors set algebra directly; great place to reinforce recent set lessons.
 Build a DFA for the **union** of:
 
 - `L1`: contains `11` (use the machine we built)
-- `L2`: ends with `00` (three states: `Sε, S0, S00`)
+- `L2`: ends with `00` (three states: `Tε, T0, T00`)
 
 **Hint:** sketch product states `(S_i, T_j)` and mark `accept` pairs for union.
 
