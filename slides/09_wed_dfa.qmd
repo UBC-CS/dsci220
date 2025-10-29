@@ -1,0 +1,143 @@
+---
+date: 2025-10-28
+---
+
+
+## Announcements
+
+<style>
+.small { font-size: .9rem; }
+.tiny { font-size: .8rem; }
+.card { border: 2px solid #ddd; border-radius: 12px; padding: 14px 16px; margin: 10px 0; }
+.center { text-align:center; }
+.rule { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+</style>
+
+# Regular Expressions and DFAs
+
+## Goals
+- Recall a regex is a *set* of strings (a language).
+- Build small DFAs that **recognize** those sets.
+- Use closure tricks (∪, ∩, complement) to combine DFAs.
+
+---
+
+## Warm-Up {.activity}
+
+Pattern: ``^(0|1)*11(0|1)*$``
+
+Which strings are in the set?
+
+- `10101`  
+- `11010`  
+- `10001`  
+- `10110`
+
+::: notes
+Answer: `11010`, `10110`.
+emphasize that we are reading the string from left to right.
+:::
+
+## Contains 11 {.smaller}
+
+Alphabet: `{0,1}`
+
+States:
+
+- `S0`: have seen no `1`s (start)
+- `S1`: just saw a `1`
+- `S2`: saw substring `11` (accepting)
+
+DFA Sketch:
+
+
+
+::: notes
+Run a couple examples on the board: `101101` (accept), `101010` (reject).
+key elements: 0) input alphabet 1) set of states. 2) start state, 3) transition function, 4) set of accept states.
+:::
+
+## DFA Idea 
+
+**State**: what the prefix tells me so far.
+
+**Accept** iff we finish in an accepting state.
+
+- Deterministic: exactly one transition per symbol from every state.
+- Total: every state has a transition on every symbol.
+
+## DFA Definition
+
+A *Deterministic Finite Automaton* consists of the following:
+
+1. a set of states $S$
+2. a finite alphabet $\Sigma$
+3. a transition function $f$ that assigns a next state to each $(s, i)$ pair, $s\in S$ and $i\in \Sigma$.
+4. a start state $s_0$
+5. a set of accepting states $F\subseteq S$
+
+## Regex = DFA
+
+A language is regular if and only if it is recognized by some DFA. 
+
+## You Try: “Ends with Tea”
+
+Target: strings that end with `tea`
+
+
+::: notes
+alphabet is lower case letters, here, just to keep it simple.
+
+We'll use this when we do unions, later.
+:::
+
+## Prefix Example: “Starts with Iced” 
+
+Plan:
+
+- Chain prefix states; before success, any mismatch → `SINK`.
+- After success, loop on **any** character in `ACC`.
+
+Diagram:
+
+
+## One Last Example
+
+Build the DFA corresponding to `^0(1*|0*)1$`
+
+
+
+## Closure Tricks
+
+What's _closure_? 
+
+- **Complement**: make the DFA **total** (add SINK if needed), then flip accept to non-accept, and vice-versa.
+- **Union / Intersection**:  
+  States are pairs `(p,q)`
+  - Union accepts if `p ∈ F1` **or** `q ∈ F2`
+  - Intersection accepts if `p ∈ F1` **and** `q ∈ F2`
+- **Difference**: `L1 - L2 = ` $L1\cap L2^c$
+
+::: notes
+This mirrors set algebra directly; great place to reinforce recent set lessons.
+:::
+
+## Mini-Exercise 
+
+Build a DFA for the **union** of:
+
+- `L1`: contains `11` (use the machine we built)
+- `L2`: ends with `00` (three states: `Sε, S0, S00`)
+
+**Hint:** sketch product states `(S_i, T_j)` and mark `accept` pairs for union.
+
+
+## Parity Demo 
+
+Language: even number of `1`s over `{0,1}`.
+
+- `EVEN` (start, accept), `ODD`  
+- on `1`: toggle; on `0`: stay
+
+Try: which strings of length $\leq$ 4 accept?
+
