@@ -9,12 +9,10 @@
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/quarto-contrib/live-runtime/live-runtime.js" type="module"></script>
 <link href="../site_libs/quarto-contrib/live-runtime/live-runtime.css" rel="stylesheet">
-<script src="../site_libs/quarto-contrib/countdown-0.5.0/countdown.js"></script>
-<link href="../site_libs/quarto-contrib/countdown-0.5.0/countdown.css" rel="stylesheet">
 <script src="../site_libs/quarto-contrib/iconify-3.0.0/iconify-icon.min.js"></script><meta charset="utf-8">
   <meta name="generator" content="quarto-1.8.25">
 
-  <meta name="dcterms.date" content="2025-10-06">
+  <meta name="dcterms.date" content="2025-11-03">
   <title>DSCI 220: Discrete Math for Data Science – Discrete Math for Data Science</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -150,80 +148,91 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">October 6, 2025</p>
+  <p class="date">November 3, 2025</p>
 </section>
 <section id="announcements" class="slide level2">
 <h2>Announcements</h2>
 <style>
-.small { font-size: 0.9rem; }
-.tiny { font-size: 0.8rem; }
-.rule { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; }
+.small { font-size: .9rem; }
+.tiny { font-size: .8rem; }
 .card { border: 2px solid #ddd; border-radius: 12px; padding: 14px 16px; margin: 10px 0; }
-.center { text-align: center; }
-.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-.badge { display:inline-block; padding:2px 8px; border:1px solid #bbb; border-radius:10px; font-size:.8rem; }
+.center { text-align:center; }
+.rule { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
 </style>
 </section>
 <section>
-<section id="modular-arithmetic" class="title-slide slide level1 center">
-<h1>Modular Arithmetic</h1>
+<section id="regular-expressions-and-dfas" class="title-slide slide level1 center">
+<h1>Regular Expressions and DFAs</h1>
 
 </section>
-<section id="modular-arithmetic-1" class="slide level2 smaller">
-<h2>Modular Arithmetic</h2>
-<div class="card">
-<p><strong>Definition:</strong> <span class="math inline">\(a \equiv b \pmod m \iff m \mid (a-b)\)</span></p>
-<p><strong>If</strong> <span class="math inline">\(a \equiv b \pmod m\)</span> <strong>and</strong> <span class="math inline">\(c \equiv d \pmod m\)</span>, <strong>then:</strong></p>
+<section id="goals" class="slide level2">
+<h2>Goals</h2>
 <ul>
-<li><strong>Addition:</strong> <span class="math inline">\(a + c \equiv b + d \pmod m\)</span></li>
-<li><strong>Subtraction:</strong> <span class="math inline">\(a - c \equiv b - d \pmod m\)</span></li>
-<li><strong>Multiplication:</strong> <span class="math inline">\(ac \equiv bd \pmod m\)</span></li>
-<li><strong>Exponentiation:</strong> for any integer <span class="math inline">\(n \ge 0\)</span>, <span class="math inline">\(a^{n} \equiv b^{n} \pmod m\)</span></li>
-</ul>
-<p><strong>Reduce anytime:</strong> reduce intermediate results mod <span class="math inline">\(m\)</span> at any step.</p>
-<p><strong>Caution (division):</strong> “Division” is only valid when a modular inverse exists.<br>
-<span class="math inline">\(\gcd(a,m)=1\Rightarrow a^{-1}\)</span> exists, and <span class="math inline">\(ax \equiv b \pmod m \Rightarrow x \equiv a^{-1}b \pmod m\)</span>.</p>
-<p><strong>Caution (exponents):</strong> From <span class="math inline">\(a\equiv b \pmod m\)</span> you may raise the <strong>bases</strong>: <span class="math inline">\(a^n\equiv b^n\)</span>, but in general <span class="math inline">\(c^{a}\not\equiv c^{b}\pmod m\)</span>.</p>
-</div>
-</section>
-<section id="inverse-bmod-m" class="slide level2">
-<h2>Inverse <span class="math inline">\(\bmod m\)</span></h2>
-<p>When does a number <span class="math inline">\(a\)</span> <em>not</em> have an inverse <span class="math inline">\(\bmod m\)</span>?</p>
-<p>Consider <span class="math inline">\(5x \bmod 12\)</span>:</p>
-<center>
-<img src="../images/watchface.png" width="30%" height="30%"><img src="../images/watchface.png" width="30%" height="30%">
-</center>
-<p>Consider <span class="math inline">\(9x \bmod 12\)</span>:</p>
-<p>&nbsp;</p>
-<p>A number <span class="math inline">\(a\)</span> has an inverse <span class="math inline">\(\bmod m\)</span> iff <span class="math inline">\(\gcd(a,m)= 1\)</span>.</p>
-</section>
-<section id="linear-congruences" class="slide level2">
-<h2>Linear Congruences</h2>
-<p>&nbsp;</p>
-<p><strong>Solve:</strong></p>
-<ul>
-<li><span class="math inline">\(9x\equiv 1\pmod{26}\)</span></li>
-</ul>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<ul>
-<li><span class="math inline">\(9x\equiv 5\pmod{26}\)</span></li>
+<li>Use closure tricks (∪, ∩, complement) to combine DFAs.</li>
 </ul>
 </section>
-<section id="big-powers-fast" class="slide level2 activity">
-<h2>Big Powers Fast</h2>
-<p>&nbsp;</p>
-<p>Pick one:</p>
+<section id="warm-up" class="slide level2 activity">
+<h2>Warm-Up</h2>
+<p>Prefix Example: Starts with <code>iced</code></p>
+<p>Plan:</p>
 <ul>
-<li><span class="math inline">\(2^{1000}\pmod 7\)</span><br>
+<li>Chain prefix states; before success, any mismatch goes to <code>SINK</code>.</li>
+<li>After success, loop on <strong>any</strong> character in <code>ACC</code>.</li>
+</ul>
+<p>Diagram:</p>
+</section>
+<section id="one-last-example" class="slide level2">
+<h2>One Last Example</h2>
+<p>Build the DFA corresponding to <code>^0(1*|0*)1$</code></p>
+</section>
+<section id="closure-tricks" class="slide level2">
+<h2>Closure Tricks</h2>
+<p>What’s <em>closure</em>?</p>
+<ul>
+<li><strong>Complement</strong>: make the DFA <strong>total</strong> (add SINK if needed), then flip accept to non-accept, and vice-versa.</li>
+<li><strong>Union / Intersection</strong>:<br>
+States are pairs <code>(p,q)</code>
+<ul>
+<li>Union accepts if <code>p ∈ F1</code> <strong>or</strong> <code>q ∈ F2</code></li>
+<li>Intersection accepts if <code>p ∈ F1</code> <strong>and</strong> <code>q ∈ F2</code></li>
+</ul></li>
+<li><strong>Difference</strong>: <code>L1 - L2 =</code> <span class="math inline">\(L1\cap L2^c\)</span></li>
+</ul>
+</section>
+<section id="exercise" class="slide level2">
+<h2>Exercise</h2>
+<p>Build a DFA for the <strong>union</strong> of:</p>
+<ul>
+<li><code>L1</code>: contains <code>11</code> (use the machine we built)</li>
+<li><code>L2</code>: ends with <code>00</code> (three states: <code>T, T0, T00</code>)</li>
+</ul>
+<p><strong>Hint:</strong> sketch product states <code>(S_i, T_j)</code> and mark <code>accept</code> pairs for union (or).</p>
+</section>
+<section id="parity-demo" class="slide level2">
+<h2>Parity Demo</h2>
+<p>Language: even number of <code>1</code>s over alphabet <span class="math inline">\(\{0,1\}\)</span>.</p>
+<ul>
+<li><code>EVEN</code> (start, accept), <code>ODD</code><br>
 </li>
-<li><span class="math inline">\(3^{12345}\pmod{10}\)</span><br>
-</li>
-<li><span class="math inline">\(5^{2024}\pmod{13}\)</span></li>
+<li>on <code>1</code>: toggle; on <code>0</code>: stay</li>
 </ul>
+<p>Which strings of length <span class="math inline">\(\leq\)</span> 4 accept?</p>
+</section></section>
+<section>
+<section id="non-deterministic-fa" class="title-slide slide level1 center">
+<h1>Non-deterministic FA</h1>
+
+</section>
+<section id="nfas" class="slide level2">
+<h2>NFAs</h2>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><strong>DFA:</strong> exactly one transition for each input symbol in each state.<br>
+<strong>NFA:</strong> may have <strong>multiple</strong> choices on a symbol and <strong><span class="math inline">\(\varepsilon\)</span>-moves</strong> (move without consuming input).</p>
+<p><strong>Acceptance:</strong> a string is accepted if <strong>there exists</strong> a path that reads all characters and lands in an accept state.</p>
 <aside class="notes">
-<p>Timing: ~6–8 min. 1) <span class="math inline">\(2^{3}\equiv1\Rightarrow 2^{1000}\equiv 2\)</span>. 2) Period <span class="math inline">\(4\)</span> mod <span class="math inline">\(10\)</span>; <span class="math inline">\(12345\equiv1\Rightarrow 3\)</span>. 3) <span class="math inline">\(5^2\equiv-1\Rightarrow 5^4\equiv1\)</span>; <span class="math inline">\(2024\equiv0\pmod4\Rightarrow 1\)</span>.</p>
-<p><em>Data-science tie:</em> “Cycle detection helps compute modular hashes fast in streaming.”</p>
+<p>Say: “NFA is a modeling convenience. We’ll lean on that for regex to NFA construction.”</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -236,22 +245,200 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="two-dials" class="slide level2 activity">
-<h2>Two Dials</h2>
-<p>Find <span class="math inline">\(t\pmod {15}\)</span> such that<br>
-<span class="math inline">\(t\equiv 2\pmod 3\)</span> and <span class="math inline">\(t\equiv 1\pmod 5\)</span>.</p>
-<center>
-<img src="../images/watch_face_3nums_deco.svg" width="30%" height="30%"><img src="../images/watch_face_5nums_deco.svg" width="30%" height="30%">
-</center>
-<div id="timer_19fc16ae2cb11b43e0ace0827bff10086bf9fee9" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
-  <div class="countdown-controls">
-    <button class="countdown-bump-down">−</button>
-    <button class="countdown-bump-up">+</button>
- </div>
- <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
- </div>
+<section id="notes-on-nfas" class="slide level2">
+<h2>Notes on NFAs</h2>
+<ul>
+<li><p><strong>Direct from a regex:</strong> Translate patterns piece-by-piece without tricky state discovery.</p></li>
+<li><p><strong>Local “gadgets”:</strong> Build tiny NFAs for <strong>literal</strong>, <strong>union</strong> (<span class="math inline">\(|\)</span>), <strong>concatenation</strong>, <strong>Kleene star</strong> (<span class="math inline">\(^*\)</span>) and wire together with <span class="math inline">\(\varepsilon\)</span>.</p></li>
+<li><p><strong>NFAs and DFAs have the same power!!</strong> (Kleene’s Theorem)</p></li>
+<li><p><strong>Build a DFA from NFA</strong> algorithmically if you need one.</p></li>
+</ul>
 <aside class="notes">
-<p>Timing: ~6–8 min. Numbers <span class="math inline">\(\equiv1\pmod5\)</span>: <span class="math inline">\(1,6,11,\dots\)</span>; mod <span class="math inline">\(3\)</span> these are <span class="math inline">\(2, 5, 8, 11\dots\)</span> → pick <span class="math inline">\(11\)</span>. Unique mod <span class="math inline">\(15\)</span>.</p>
+<p>Message: “We model the branching in the regex directly; acceptance means at least one successful path.”</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="regex-to-nfa-gadgets" class="slide level2 smaller">
+<h2>Regex to NFA Gadgets</h2>
+<div class="card">
+<div class="columns">
+<div class="column" style="width:50%;">
+<ol type="1">
+<li>Literal ‘a’</li>
+</ol>
+<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 420 140" width="90%" role="img" aria-label="Literal a NFA gadget">
+<defs> <marker id="arrow-lit" markerwidth="12" markerheight="12" refx="10" refy="6" orient="auto"> <path d="M0,0 L12,6 L0,12 Z" fill="#222"></path> </marker>
+<style>
+      .state { fill:#fff; stroke:#222; stroke-width:2.5; }
+      .accept { fill:none; stroke:#222; stroke-width:2.5; }
+      .accept2{ fill:none; stroke:#222; stroke-width:2.5; }
+      .label { font: 600 16px ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial; fill:#111; }
+      .wire { stroke:#222; stroke-width:2.5; fill:none; }
+    </style>
+</defs> <circle cx="80" cy="70" r="22" class="state"></circle> <circle cx="340" cy="70" r="22" class="accept"></circle> <circle cx="340" cy="70" r="16" class="accept2"></circle> <path d="M 102 70 H 318" class="wire" marker-end="url(#arrow-lit)"></path> <text x="210" y="55" class="label">a</text> <text x="80" y="110" class="label">s</text> <text x="340" y="110" class="label">f</text>
+</svg>
+<ol start="2" type="1">
+<li>Union: R | S</li>
+</ol>
+<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 720 240" width="90%" role="img" aria-label="Union NFA gadget for R or S">
+<defs> <marker id="arrow-un" markerwidth="12" markerheight="12" refx="10" refy="6" orient="auto"> <path d="M0,0 L12,6 L0,12 Z" fill="#222"></path> </marker>
+<style>
+      .state { fill:#fff; stroke:#222; stroke-width:2.5; }
+      .accept{ fill:none; stroke:#222; stroke-width:2.5; }
+      .accept2{ fill:none; stroke:#222; stroke-width:2.5; }
+      .box   { fill:#f8fbff; stroke:#2b4ea2; stroke-width:2.5; rx:12; ry:12; }
+      .port  { fill:#fff; stroke:#2b4ea2; stroke-width:2; }
+      .wire  { stroke:#222; stroke-width:2.5; fill:none; }
+      .label { font: 600 15px ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial; fill:#111; }
+      .litev { font: 600 14px ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial; fill:#444; }
+    </style>
+</defs> <circle cx="80" cy="120" r="22" class="state"></circle> <circle cx="640" cy="120" r="22" class="accept"></circle> <circle cx="640" cy="120" r="16" class="accept2"></circle> <text x="80" y="210" class="label">s</text> <text x="640" y="210" class="label">f</text> <rect x="270" y="35" width="160" height="70" class="box"></rect> <text x="350" y="78" text-anchor="middle" class="label">[ R ]</text> <circle cx="270" cy="70" r="6" class="port"></circle> <circle cx="430" cy="70" r="6" class="port"></circle> <rect x="270" y="135" width="160" height="70" class="box"></rect> <text x="350" y="178" text-anchor="middle" class="label">[ S ]</text> <circle cx="270" cy="170" r="6" class="port"></circle> <circle cx="430" cy="170" r="6" class="port"></circle> <path d="M 102 120 C 170 120, 200 90, 264 74" class="wire" marker-end="url(#arrow-un)"></path> <path d="M 102 120 C 170 120, 200 150, 264 166" class="wire" marker-end="url(#arrow-un)"></path> <text x="190" y="95" class="litev">ε</text> <text x="190" y="158" class="litev">ε</text> <path d="M 436 70 C 510 70, 560 100, 620 114" class="wire" marker-end="url(#arrow-un)"></path> <path d="M 436 170 C 510 170, 560 140, 620 126" class="wire" marker-end="url(#arrow-un)"></path> <text x="530" y="62" class="litev">ε</text> <text x="530" y="186" class="litev">ε</text>
+</svg>
+</div><div class="column" style="width:50%;">
+<ol start="3" type="1">
+<li>Concatenation: RS</li>
+</ol>
+<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 720 180" width="90%" role="img" aria-label="Concatenation NFA gadget for R followed by S">
+<defs> <marker id="arrow-con" markerwidth="12" markerheight="12" refx="10" refy="6" orient="auto"> <path d="M0,0 L12,6 L0,12 Z" fill="#222"></path> </marker>
+<style>
+      .state { fill:#fff; stroke:#222; stroke-width:2.5; }
+      .accept{ fill:none; stroke:#222; stroke-width:2.5; }
+      .accept2{ fill:none; stroke:#222; stroke-width:2.5; }
+      .box   { fill:#f8fbff; stroke:#2b4ea2; stroke-width:2.5; rx:12; ry:12; }
+      .port  { fill:#fff; stroke:#2b4ea2; stroke-width:2; }
+      .wire  { stroke:#222; stroke-width:2.5; fill:none; }
+      .label { font: 600 15px ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial; fill:#111; }
+      .litev { font: 600 14px ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial; fill:#444; }
+    </style>
+</defs> <circle cx="80" cy="90" r="22" class="state"></circle> <circle cx="640" cy="90" r="22" class="accept"></circle> <circle cx="640" cy="90" r="16" class="accept2"></circle> <text x="80" y="160" class="label">s</text> <text x="640" y="160" class="label">f</text> <rect x="160" y="50" width="180" height="80" class="box"></rect> <text x="250" y="98" text-anchor="middle" class="label">[ R ]</text> <circle cx="160" cy="90" r="6" class="port"></circle> <circle cx="340" cy="90" r="6" class="port"></circle> <rect x="360" y="50" width="180" height="80" class="box"></rect> <text x="450" y="98" text-anchor="middle" class="label">[ S ]</text> <circle cx="360" cy="90" r="6" class="port"></circle> <circle cx="540" cy="90" r="6" class="port"></circle> <path d="M 102 90 H 154" class="wire" marker-end="url(#arrow-con)"></path> <path d="M 546 90 H 618" class="wire" marker-end="url(#arrow-con)"></path> <path d="M 346 90 H 354" class="wire" marker-end="url(#arrow-con)"></path> <text x="350" y="75" class="litev">ε</text>
+</svg>
+<ol start="4" type="1">
+<li>Kleene star: R*</li>
+</ol>
+<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 780 260" width="90%" role="img" aria-label="Kleene star NFA gadget for R*">
+<defs> <marker id="arrow-star" markerwidth="12" markerheight="12" refx="10" refy="6" orient="auto"> <path d="M0,0 L12,6 L0,12 Z" fill="#222"></path> </marker>
+<style>
+      .state { fill:#fff; stroke:#222; stroke-width:2.5; }
+      .accept{ fill:none; stroke:#222; stroke-width:2.5; }
+      .accept2{ fill:none; stroke:#222; stroke-width:2.5; }
+      .box   { fill:#f8fbff; stroke:#2b4ea2; stroke-width:2.5; rx:12; ry:12; }
+      .port  { fill:#fff; stroke:#2b4ea2; stroke-width:2; }
+      .wire  { stroke:#222; stroke-width:2.5; fill:none; }
+      .label { font: 600 15px ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial; fill:#111; }
+      .litev { font: 600 14px ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial; fill:#444; }
+    </style>
+</defs> <circle cx="80" cy="130" r="22" class="state"></circle> <circle cx="700" cy="130" r="22" class="accept"></circle> <circle cx="700" cy="130" r="16" class="accept2"></circle> <text x="80" y="220" class="label">s</text> <text x="700" y="220" class="label">f</text> <rect x="320" y="90" width="160" height="80" class="box"></rect> <text x="400" y="132" text-anchor="middle" class="label">[ R ]</text> <circle cx="320" cy="130" r="6" class="port"></circle> <circle cx="480" cy="130" r="6" class="port"></circle> <path d="M 102 130 C 180 70, 600 70, 682 122" class="wire" marker-end="url(#arrow-star)"></path> <text x="390" y="70" class="litev">ε (empty)</text> <path d="M 102 130 C 170 130, 240 130, 312 130" class="wire" marker-end="url(#arrow-star)"></path> <text x="210" y="118" class="litev">ε</text> <path d="M 486 130 C 560 130, 620 130, 682 130" class="wire" marker-end="url(#arrow-star)"></path> <text x="585" y="118" class="litev">ε</text> <path d="M 478 126 C 540 80, 540 40, 400 40 C 260 40, 260 80, 322 126" class="wire" marker-end="url(#arrow-star)"></path> <text x="400" y="28" class="litev">ε</text>
+</svg>
+</div></div>
+</div>
+</section>
+<section id="example-1" class="slide level2">
+<h2>Example 1</h2>
+<p><code>^(ab|ba)*$</code></p>
+</section>
+<section id="example-2" class="slide level2">
+<h2>Example 2</h2>
+<p><code>^(0|1)*11(0|1)*$</code></p>
+</section>
+<section id="example-3" class="slide level2 activity">
+<h2>Example 3</h2>
+<p><strong>Task:</strong> Sketch an NFA for <code>^1(01|10)*0$</code> using only the four gadgets.</p>
+<p><strong>Plan:</strong> literal <code>1</code> … union(<code>01</code>,<code>10</code>) … star … literal <code>0</code>.</p>
+</section>
+<section id="last-puzzle" class="slide level2">
+<h2>Last Puzzle:</h2>
+<p><span class="math inline">\(0^n1^n\)</span></p>
+</section></section>
+<section>
+<section id="beyond-regular-context-free-grammars" class="title-slide slide level1 center">
+<h1>Beyond Regular: Context Free Grammars</h1>
+
+</section>
+<section id="why-regexdfas-cant-do-0n1n" class="slide level2">
+<h2>Why Regex/DFAs Can’t Do <span class="math inline">\(0^n1^n\)</span></h2>
+<p><strong>Language:</strong> <span class="math inline">\(\{\,0^n1^n : n\ge 0\,\}\)</span> (equal 0s followed by equal 1s)</p>
+<p><strong>Finite-state limitation:</strong></p>
+<p>Assume a DFA exists that accepts <span class="math inline">\(0^n1^n\)</span>, and let <span class="math inline">\(k\)</span> denote its number of states.</p>
+<p>Among the <span class="math inline">\(k+1\)</span> prefixes <span class="math inline">\(0^0, 0^1, \dots, 0^k\)</span> two must land in the <strong>same</strong> state.</p>
+<p>From those two prefixes, feed the <strong>same</strong> number of 1s. One string should accept, and the other should not.</p>
+<aside class="notes">
+<p>Not all languages are regular! No Pumping Lemma needed; it’s a pigeonhole/“can’t count unboundedly” story.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="cfg-review" class="slide level2">
+<h2>CFG Review</h2>
+<p>A <strong>context-free grammar (CFG)</strong> has:</p>
+<ul>
+<li><strong>Terminals</strong> (alphabet),</li>
+<li><strong>Nonterminals</strong> (variables),</li>
+<li><strong>Start symbol</strong>,</li>
+<li><strong>Productions</strong> like <span class="math inline">\(S \to 0S1 \mid \varepsilon\)</span>.</li>
+</ul>
+<p>Notes:</p>
+<ul>
+<li>A <strong>derivation</strong> rewrites nonterminals to produce a string.</li>
+<li>A <strong>parse tree</strong> is evidence of how a string was generated.</li>
+<li>The class of Regular Languages <span class="math inline">\(\subset\)</span> the class of Context-Free Languages</li>
+</ul>
+<aside class="notes">
+<p>Connect to your earlier WFF grammar: “That was a CFG all along.”</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="grammar-for-0n1n" class="slide level2">
+<h2>Grammar for <span class="math inline">\(0^n1^n\)</span> ?</h2>
+<p><strong>Grammar:</strong><br>
+<span class="math inline">\(S \to 0S1 \ \mid\ \varepsilon\)</span></p>
+<p><strong>Derivations:</strong></p>
+<ul>
+<li>For <code>01</code>: <span class="math display">\[
+S \Rightarrow 0S1 \Rightarrow 01
+\]</span></li>
+<li>For <code>000111</code>: <span class="math display">\[
+S \Rightarrow 0S1 \Rightarrow 00S11 \Rightarrow 000S111 \Rightarrow 000111
+\]</span></li>
+</ul>
+<p><strong>Parse tree shape for <code>0011</code>:</strong></p>
+</section>
+<section id="closure-facts" class="slide level2">
+<h2>Closure Facts</h2>
+<p>If <span class="math inline">\(L_1, L_2\)</span> are context-free:</p>
+<ul>
+<li><strong>Union:</strong> context-free via new start <span class="math inline">\(S \to S_1 \mid S_2\)</span></li>
+<li><strong>Concatenation:</strong> context-free via <span class="math inline">\(S \to S_1 S_2\)</span></li>
+<li><strong>Kleene star:</strong> context-free via <span class="math inline">\(S \to SS \mid \varepsilon\)</span></li>
+</ul>
+<p><em>(Intersection with regular languages is CF; general intersection/complement are not.)</em></p>
+<aside class="notes">
+<p>Tie back to set algebra &amp; your earlier closures with DFAs.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -265,21 +452,30 @@
       }</style></aside>
 </section></section>
 <section>
-<section id="asymptotics" class="title-slide slide level1 center">
-<h1>Asymptotics</h1>
+<section id="json-as-a-grammar" class="title-slide slide level1 center">
+<h1>JSON as a Grammar</h1>
 
 </section>
-<section id="functions" class="slide level2">
-<h2>Functions</h2>
-<p><strong>Math:</strong> a function is a mechanism for translating items from one collection to another.</p>
-<p>&nbsp;</p>
-<p><span class="math inline">\(f: A\to B\)</span></p>
-<p><br>
-</p>
-<p>Our current interest is quantifying the way that functions grow.</p>
+<section id="a-basic-json-cfg" class="slide level2 smaller">
+<h2>A Basic JSON CFG</h2>
+<p><a href="https://www.json.org/json-en.html" class="uri">https://www.json.org/json-en.html</a></p>
+<p>We ignore lexical details and focus on <strong>structure</strong>.</p>
+<ul>
+<li>Value → Object | Array | String | Number | <code>true</code> | <code>false</code> | <code>null</code><br>
+</li>
+<li>Object → <code>{</code> Members <code>}</code> | <code>{}</code><br>
+</li>
+<li>Members → Pair | Pair <code>,</code> Members<br>
+</li>
+<li>Pair → String <code>:</code> Value<br>
+</li>
+<li>Array → <code>[</code> Elements <code>]</code> | <code>[]</code><br>
+</li>
+<li>Elements → Value | Value <code>,</code> Elements</li>
+</ul>
+<p><strong>Example:</strong> Is <code>{"a":[1,2,{"b":null}]}</code> in the language?</p>
 <aside class="notes">
-<p>there are many different ways we can talk about functions… may do so later. In the course of <em>this</em> discussion I’ll mention some other relevant features, but they will not be our focus.</p>
-<p>Things I WILL mention: domain, co-domain (range), every element from domain is mapped exactly once to some element from co-domain.</p>
+<p>Point: regex can’t enforce <strong>balanced, nested</strong> delimiters; CFGs can.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -291,58 +487,6 @@
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
-</section>
-<section id="functions-for-data-science" class="slide level2">
-<h2>Functions for Data Science</h2>
-<p>&nbsp;</p>
-<p><strong>Functions as costs:</strong></p>
-<ol type="1">
-<li><p>generally non-negative.</p></li>
-<li><p>generally non-decreasing with size of input.</p></li>
-</ol>
-<p><strong>Sketch:</strong></p>
-<p><img data-src="../images/axes_quadrant.svg"> <img data-src="../images/axes_quadrant.svg"></p>
-</section>
-<section id="asymptotic-upper-bounds" class="slide level2">
-<h2>Asymptotic Upper Bounds</h2>
-<p>A function <span class="math inline">\(f(n) = O(g(n))\)</span> iff there are positive constants <span class="math inline">\(c\)</span> and <span class="math inline">\(n_0\)</span> such that <span class="math inline">\(f(n)\leq
-c\cdot g(n)\)</span> for any <span class="math inline">\(n\geq n_0\)</span>.</p>
-<p>&nbsp;</p>
-<center>
-<img src="../images/axes_quadrant.svg" width="50%" height="50%">
-</center>
-</section>
-<section id="big-o-proof" class="slide level2">
-<h2>Big O Proof</h2>
-<p>Prove that <span class="math inline">\(3n^2 + 7n + 2 = O(n^2)\)</span>.</p>
-<p><br>
-</p>
-<p>Defn: … there are positive constants <span class="math inline">\(c\)</span> and <span class="math inline">\(n_0\)</span> such that <span class="math inline">\(f(n)\leq
-c\cdot g(n)\)</span> for any <span class="math inline">\(n\geq n_0\)</span>.</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>Therefore, <span class="math inline">\(c=\)</span>____ and <span class="math inline">\(n_0=\)</span>____ witness the claim.</p>
-</section>
-<section id="big-o-strategy" class="slide level2 smaller">
-<h2>Big O Strategy</h2>
-<div class="card">
-<p><strong>Goal.</strong> To prove <span class="math inline">\(f(n)=O(g(n))\)</span>, show there exist constants <span class="math inline">\(c&gt;0\)</span> and <span class="math inline">\(n_0\)</span> such that<br>
-for all <span class="math inline">\(n\ge n_0\)</span>, <span class="math inline">\(f(n)\le c\,g(n)\)</span>.</p>
-<ol type="1">
-<li><p><strong>Pick your region.</strong><br>
-Choose <span class="math inline">\(n_0\)</span> where simple comparisons are true (e.g., for <span class="math inline">\(n\ge 1\)</span>, <span class="math inline">\(n^2\ge n\)</span>; for <span class="math inline">\(n\ge e\)</span>, <span class="math inline">\(\log n\ge 1\)</span>).</p></li>
-<li><p><strong>Dominate each term by <span class="math inline">\(g(n)\)</span>.</strong><br>
-On <span class="math inline">\(n\ge n_0\)</span>, bound every term of <span class="math inline">\(f\)</span> by a constant multiple of <span class="math inline">\(g\)</span>:<br>
-<span class="math inline">\(f(n)=\text{(term}_1)+\dots+\text{(term}_k)\ \le\ a_1 g(n)+\dots+a_k g(n)\)</span>.</p></li>
-<li><p><strong>Add and name the constant.</strong><br>
-Sum the multipliers: <span class="math inline">\(f(n)\le (a_1+\cdots+a_k)\,g(n)\)</span>.<br>
-Set <span class="math inline">\(c=a_1+\cdots+a_k\)</span>.</p></li>
-<li><p><strong>State the line that matters.</strong><br>
-“For all <span class="math inline">\(n\ge n_0\)</span>, <span class="math inline">\(f(n)\le c\,g(n)\)</span>. Therefore <span class="math inline">\(f(n)=O(g(n))\)</span>.”</p></li>
-</ol>
-</div>
 
 
 <script type="ojs-module-contents">
