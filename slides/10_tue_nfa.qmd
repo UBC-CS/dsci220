@@ -1,0 +1,346 @@
+---
+date: 2025-11-04
+---
+
+
+## Announcements
+
+<style>
+.small { font-size: .9rem; }
+.tiny { font-size: .8rem; }
+.card { border: 2px solid #ddd; border-radius: 12px; padding: 14px 16px; margin: 10px 0; }
+.center { text-align:center; }
+.rule { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+</style>
+
+# Regular Expressions and DFAs
+
+## Closure Tricks
+
+What's _closure_? 
+
+- **Complement**: make the DFA **total** (add SINK if needed), then flip accept to non-accept, and vice-versa.
+- **Union / Intersection**:  
+  States are pairs `(p,q)`
+  - Union accepts if `p ∈ F1` **or** `q ∈ F2`
+  - Intersection accepts if `p ∈ F1` **and** `q ∈ F2`
+- **Difference**: `L1 - L2 = ` $L1\cap L2^c$
+
+
+## Exercise 
+
+Build a DFA for the **union** of:
+
+- `L1`: contains `11` (use the machine we built)
+- `L2`: ends with `00` (three states: `T, T0, T00`)
+
+**Hint:** sketch product states `(S_i, T_j)` and mark `accept` pairs for union (or).
+
+
+
+
+
+# Non-deterministic FA
+
+## NFAs 
+
+\ 
+
+\ 
+
+\ 
+
+**DFA:** exactly one transition for each input symbol in each state.  
+**NFA:** may have **multiple** choices on a symbol and **$\varepsilon$-moves** (move without consuming input).
+
+**Acceptance:** a string is accepted if **there exists** a path that reads all characters and lands in an accept state.
+
+
+::: notes
+Say: “NFA is a modeling convenience. We’ll lean on that for regex to NFA construction.”
+:::
+
+## Notes on NFAs
+
+- **Direct from a regex:** Translate patterns piece-by-piece without tricky state discovery.
+
+- **Local "gadgets":** Build tiny NFAs for **literal**, **union** ($|$), **concatenation**, **Kleene star** ($^*$) and wire together with $\varepsilon$.
+- **NFAs and DFAs have the same power!!** (Kleene's Theorem)
+- **Build a DFA from NFA** algorithmically if you need one.
+
+::: notes
+Message: “We model the branching in the regex directly; acceptance means at least one successful path.”
+:::
+
+
+## Regex to NFA Gadgets {.smaller}
+
+<div class="card">
+
+::::: {.columns}
+::: {.column width="50%"}
+1. Literal 'a'
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 140" width="90%" role="img" aria-label="Literal a NFA gadget">
+  <defs>
+    <marker id="arrow-lit" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M0,0 L12,6 L0,12 Z" fill="#222"/>
+    </marker>
+    <style>
+      .state { fill:#fff; stroke:#222; stroke-width:2.5; }
+      .accept { fill:none; stroke:#222; stroke-width:2.5; }
+      .accept2{ fill:none; stroke:#222; stroke-width:2.5; }
+      .label { font: 600 16px ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial; fill:#111; }
+      .wire { stroke:#222; stroke-width:2.5; fill:none; }
+    </style>
+  </defs>
+  <circle cx="80" cy="70" r="22" class="state"/>
+  <circle cx="340" cy="70" r="22" class="accept"/>
+  <circle cx="340" cy="70" r="16" class="accept2"/>
+  <path d="M 102 70 H 318" class="wire" marker-end="url(#arrow-lit)"/>
+  <text x="210" y="55" class="label">a</text>
+  <text x="80" y="110" class="label">s</text>
+  <text x="340" y="110" class="label">f</text>
+</svg>
+
+
+2. Union: R | S
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 240" width="90%" role="img" aria-label="Union NFA gadget for R or S">
+  <defs>
+    <marker id="arrow-un" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M0,0 L12,6 L0,12 Z" fill="#222"/>
+    </marker>
+    <style>
+      .state { fill:#fff; stroke:#222; stroke-width:2.5; }
+      .accept{ fill:none; stroke:#222; stroke-width:2.5; }
+      .accept2{ fill:none; stroke:#222; stroke-width:2.5; }
+      .box   { fill:#f8fbff; stroke:#2b4ea2; stroke-width:2.5; rx:12; ry:12; }
+      .port  { fill:#fff; stroke:#2b4ea2; stroke-width:2; }
+      .wire  { stroke:#222; stroke-width:2.5; fill:none; }
+      .label { font: 600 15px ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial; fill:#111; }
+      .litev { font: 600 14px ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial; fill:#444; }
+    </style>
+  </defs>
+  <circle cx="80" cy="120" r="22" class="state"/>
+  <circle cx="640" cy="120" r="22" class="accept"/>
+  <circle cx="640" cy="120" r="16" class="accept2"/>
+  <text x="80" y="210" class="label">s</text>
+  <text x="640" y="210" class="label">f</text>
+  <rect x="270" y="35" width="160" height="70" class="box"/>
+  <text x="350" y="78" text-anchor="middle" class="label">[ R ]</text>
+  <circle cx="270" cy="70" r="6" class="port"/>
+  <circle cx="430" cy="70" r="6" class="port"/>
+  <rect x="270" y="135" width="160" height="70" class="box"/>
+  <text x="350" y="178" text-anchor="middle" class="label">[ S ]</text>
+  <circle cx="270" cy="170" r="6" class="port"/>
+  <circle cx="430" cy="170" r="6" class="port"/>
+  <path d="M 102 120 C 170 120, 200 90, 264 74" class="wire" marker-end="url(#arrow-un)"/>
+  <path d="M 102 120 C 170 120, 200 150, 264 166" class="wire" marker-end="url(#arrow-un)"/>
+  <text x="190" y="95" class="litev">ε</text>
+  <text x="190" y="158" class="litev">ε</text>
+  <path d="M 436 70 C 510 70, 560 100, 620 114" class="wire" marker-end="url(#arrow-un)"/>
+  <path d="M 436 170 C 510 170, 560 140, 620 126" class="wire" marker-end="url(#arrow-un)"/>
+  <text x="530" y="62" class="litev">ε</text>
+  <text x="530" y="186" class="litev">ε</text>
+</svg>
+
+:::
+::: {.column width="50%"}
+
+
+3. Concatenation: RS 
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 180" width="90%" role="img" aria-label="Concatenation NFA gadget for R followed by S">
+  <defs>
+    <marker id="arrow-con" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M0,0 L12,6 L0,12 Z" fill="#222"/>
+    </marker>
+    <style>
+      .state { fill:#fff; stroke:#222; stroke-width:2.5; }
+      .accept{ fill:none; stroke:#222; stroke-width:2.5; }
+      .accept2{ fill:none; stroke:#222; stroke-width:2.5; }
+      .box   { fill:#f8fbff; stroke:#2b4ea2; stroke-width:2.5; rx:12; ry:12; }
+      .port  { fill:#fff; stroke:#2b4ea2; stroke-width:2; }
+      .wire  { stroke:#222; stroke-width:2.5; fill:none; }
+      .label { font: 600 15px ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial; fill:#111; }
+      .litev { font: 600 14px ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial; fill:#444; }
+    </style>
+  </defs>
+  <circle cx="80" cy="90" r="22" class="state"/>
+  <circle cx="640" cy="90" r="22" class="accept"/>
+  <circle cx="640" cy="90" r="16" class="accept2"/>
+  <text x="80" y="160" class="label">s</text>
+  <text x="640" y="160" class="label">f</text>
+  <rect x="160" y="50" width="180" height="80" class="box"/>
+  <text x="250" y="98" text-anchor="middle" class="label">[ R ]</text>
+  <circle cx="160" cy="90" r="6" class="port"/>
+  <circle cx="340" cy="90" r="6" class="port"/>
+  <rect x="360" y="50" width="180" height="80" class="box"/>
+  <text x="450" y="98" text-anchor="middle" class="label">[ S ]</text>
+  <circle cx="360" cy="90" r="6" class="port"/>
+  <circle cx="540" cy="90" r="6" class="port"/>
+  <path d="M 102 90 H 154" class="wire" marker-end="url(#arrow-con)"/>
+  <path d="M 546 90 H 618" class="wire" marker-end="url(#arrow-con)"/>
+  <path d="M 346 90 H 354" class="wire" marker-end="url(#arrow-con)"/>
+  <text x="350" y="75" class="litev">ε</text>
+</svg>
+
+
+4. Kleene star: R*
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 260" width="90%" role="img" aria-label="Kleene star NFA gadget for R*">
+  <defs>
+    <marker id="arrow-star" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M0,0 L12,6 L0,12 Z" fill="#222"/>
+    </marker>
+    <style>
+      .state { fill:#fff; stroke:#222; stroke-width:2.5; }
+      .accept{ fill:none; stroke:#222; stroke-width:2.5; }
+      .accept2{ fill:none; stroke:#222; stroke-width:2.5; }
+      .box   { fill:#f8fbff; stroke:#2b4ea2; stroke-width:2.5; rx:12; ry:12; }
+      .port  { fill:#fff; stroke:#2b4ea2; stroke-width:2; }
+      .wire  { stroke:#222; stroke-width:2.5; fill:none; }
+      .label { font: 600 15px ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial; fill:#111; }
+      .litev { font: 600 14px ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial; fill:#444; }
+    </style>
+  </defs>
+  <circle cx="80" cy="130" r="22" class="state"/>
+  <circle cx="700" cy="130" r="22" class="accept"/>
+  <circle cx="700" cy="130" r="16" class="accept2"/>
+  <text x="80" y="220" class="label">s</text>
+  <text x="700" y="220" class="label">f</text>
+  <rect x="320" y="90" width="160" height="80" class="box"/>
+  <text x="400" y="132" text-anchor="middle" class="label">[ R ]</text>
+  <circle cx="320" cy="130" r="6" class="port"/>
+  <circle cx="480" cy="130" r="6" class="port"/>
+  <path d="M 102 130 C 180 70, 600 70, 682 122" class="wire" marker-end="url(#arrow-star)"/>
+  <text x="390" y="70" class="litev">ε (empty)</text>
+  <path d="M 102 130 C 170 130, 240 130, 312 130" class="wire" marker-end="url(#arrow-star)"/>
+  <text x="210" y="118" class="litev">ε</text>
+  <path d="M 486 130 C 560 130, 620 130, 682 130" class="wire" marker-end="url(#arrow-star)"/>
+  <text x="585" y="118" class="litev">ε</text>
+  <path d="M 478 126 C 540 80, 540 40, 400 40 C 260 40, 260 80, 322 126" class="wire" marker-end="url(#arrow-star)"/>
+  <text x="400" y="28" class="litev">ε</text>
+</svg>
+
+
+:::
+:::::
+
+
+
+</div>
+
+
+## Example 1
+
+`^(ab|ba)*$`  
+
+## Example 2
+
+`^(0|1)*11(0|1)*$`
+
+
+## Example 3 {.activity}
+
+**Task:** Sketch an NFA for `^1(01|10)*0$` using only the four gadgets.
+
+**Plan:** literal `1` ... union(`01`,`10`) ... star ... literal `0`.
+
+## Last Puzzle:
+
+$0^n1^n$
+
+# Beyond Regular: Context Free Grammars
+
+## Why Regex/DFAs Can’t Do $0^n1^n$
+
+**Language:** $\{\,0^n1^n : n\ge 0\,\}$ (equal 0s followed by equal 1s)
+
+**Finite-state limitation:**  
+
+Assume a DFA exists that accepts $0^n1^n$, and let $k$ denote its number of states.
+
+Among the $k+1$ prefixes $0^0, 0^1, \dots, 0^k$ two must land in the **same** state.  
+
+From those two prefixes, feed the **same** number of 1s. One string should accept, and the other should not.
+
+
+::: notes
+Not all languages are regular!
+No Pumping Lemma needed; it’s a pigeonhole/“can’t count unboundedly” story.
+:::
+
+## CFG Review 
+
+A **context-free grammar (CFG)** has:
+
+- **Terminals** (alphabet), 
+- **Nonterminals** (variables), 
+- **Start symbol**, 
+- **Productions** like $S \to 0S1 \mid \varepsilon$.
+
+Notes:
+
+- A **derivation** rewrites nonterminals to produce a string.
+- A **parse tree** is evidence of how a string was generated.
+- The class of Regular Languages $\subset$ the class of Context-Free Languages
+
+::: notes
+Connect to your earlier WFF grammar: “That was a CFG all along.”
+:::
+
+## Grammar for $0^n1^n$ ?
+
+**Grammar:**  
+$S \to 0S1 \ \mid\ \varepsilon$
+
+**Derivations:**
+
+- For `01`:
+  $$
+  S \Rightarrow 0S1 \Rightarrow 01
+  $$
+- For `000111`:
+  $$
+  S \Rightarrow 0S1 \Rightarrow 00S11 \Rightarrow 000S111 \Rightarrow 000111
+  $$
+
+**Parse tree shape for `0011`:**
+
+## Closure Facts
+
+If $L_1, L_2$ are context-free:
+
+- **Union:** context-free via new start $S \to S_1 \mid S_2$
+- **Concatenation:** context-free via $S \to S_1 S_2$
+- **Kleene star:** context-free via $S \to SS \mid \varepsilon$
+
+*(Intersection with regular languages is CF; general intersection/complement are not.)*
+
+::: notes
+Tie back to set algebra & your earlier closures with DFAs.
+:::
+
+# JSON as a Grammar
+
+## A Basic JSON CFG {.smaller}
+
+<https://www.json.org/json-en.html>
+
+We ignore lexical details and focus on **structure**.
+
+- Value → Object \| Array \| String \| Number \| `true` \| `false` \| `null`  
+- Object → `{` Members `}` \| `{}`  
+- Members → Pair \| Pair `,` Members  
+- Pair → String `:` Value  
+- Array → `[` Elements `]` \| `[]`  
+- Elements → Value \| Value `,` Elements
+
+**Example:** Is `{"a":[1,2,{"b":null}]}` in the language?  
+
+
+::: notes
+Point: regex can’t enforce **balanced, nested** delimiters; CFGs can.
+:::
