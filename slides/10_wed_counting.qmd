@@ -1,0 +1,347 @@
+---
+date: 2025-11-04
+---
+
+
+## Announcements
+
+<style>
+.small { font-size: .9rem; }
+.tiny { font-size: .8rem; }
+.card { border: 2px solid #ddd; border-radius: 12px; padding: 14px 16px; margin: 10px 0; }
+.center { text-align:center; }
+.rule { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+</style>
+
+# Context Free Grammars
+
+## Warm Up {.smaller}
+
+Start with `<T>` and roll a die to choose which rule to apply.
+
+``` {bnf}
+      <T> ::= <CORE> | <CORE> <FEAT>
+
+   <FEAT> ::= "feat." <ARTIST>
+
+ <ARTIST> ::= "Taylor Swift" | "Sabrina Carpenter" | "Olivia" <LN> | "Chappell Roan"
+
+     <LN> ::= "Rodrigo" | "Dean"
+
+   <CORE> ::= <NP> | <NP> <PREP> <NP>
+
+     <NP> ::= <DET> <ADJLIST> <NOUN>
+
+    <DET> ::= "the" | "my" | "your" | "our"
+
+<ADJLIST> ::= <ADJ> <ADJ> | <ADJ> | ε
+
+    <ADJ> ::= "midnight" | "lonely" | "wild" | "broken" | "golden" | "electric"
+
+   <NOUN> ::= "heart" | "city" | "dreams" | "summer" | "memories" | "night"
+
+   <PREP> ::= "in" | "of" | "for" | "at"
+
+``` 
+
+
+## Demo
+
+```{pyodide}
+
+import random
+
+grammar = {
+    "T":      [["CORE"], ["CORE", "FEAT"]],
+    "FEAT":   [["feat.", "ARTIST"]],
+    "ARTIST": [["Taylor Swift"],
+               ["Sabrina Carpenter"],
+               ["Olivia", "LN"],
+               ["Chappell Roan"]],
+    "LN":     [["Rodrigo"], ["Dean"]],
+    "CORE":   [["NP"], ["NP", "PREP", "NP"]],
+    "NP":     [["DET", "ADJLIST", "NOUN"]],
+    "DET":    [["the"], ["my"], ["your"], ["our"]],
+    "ADJLIST":[["ADJ", "ADJ"],
+               ["ADJ"],
+               ["ε"]],   # epsilon (empty) option
+    "ADJ":    [["midnight"], ["lonely"], ["wild"],
+               ["broken"], ["golden"], ["electric"]],
+    "NOUN":   [["heart"], ["city"], ["dreams"],
+               ["summer"], ["memories"], ["night"]],
+    "PREP":   [["in"], ["of"], ["for"], ["at"]],
+}
+
+def expand(symbol):
+
+    if symbol not in grammar:
+        return [symbol]
+    
+    production = random.choice(grammar[symbol])
+    
+    words = []
+    for sym in production:
+        if not sym == "ε":     # skip epsilon
+            words.extend(expand(sym))      
+    return words
+
+def generate_title():
+    words = expand("T")
+    return " ".join(words).strip() # flatten 
+
+# Generate a few sample titles
+for _ in range(5):
+    print(generate_title())
+
+```
+## A Basic JSON CFG 
+
+<https://www.json.org/json-en.html>
+
+We ignore lexical details and focus on **structure**.
+
+``` {bnf}
+   <Value> ::=  <Object> | <Array> | <String> | <Number> 
+             | `true` | `false` | `null`  
+  <Object> ::= `{` <Members> `}` | `{}`  
+ <Members> ::= <Pair> | <Pair> `,` <Members> 
+    <Pair> ::= <String> `:` <Value>  
+   <Array> ::=  `[` <Elements> `]` | `[]`  
+<Elements> ::= <Value> | <Value> `,` <Elements>
+```
+
+**Example:** Is `{"a":[1,2,{"b":null}]}` in the language?  
+
+
+::: notes
+Point: regex can’t enforce **balanced, nested** delimiters; CFGs can.
+:::
+
+## Your Turn
+
+Create a Grammar for $L = \{a^nb^nc^n, n\geq 0\}$
+
+## Chomsky Hierarchy (for Data Science) {.smaller}
+
+**Regular languages**
+
+* Described by regular expressions, recognized by DFAs/NFAs
+* Limited “memory”: patterns like “contains 11”, “ends with tea”, [A-Z]{4}[0-9]{3}
+* In DSci: log filters, simple validators, tokenizing text, cleaning CSV-ish formats
+
+**Context-free languages**
+
+* Described by context-free grammars (CFGs)
+* Handle nested or balanced structure: parentheses, HTML/XML tags, JSON
+* In DSci: parsing JSON/YAML, understanding code/configs, defining schemas for nested data
+
+## Chomsky Hierarchy (for Data Science) {.smaller}
+
+**Context-sensitive languages**
+
+* More powerful; can express things like $a^n b^n c^n$ 
+* Capture some agreement constraints in natural language, complex dependencies
+* Rarely used explicitly; usually enforced with custom code, type systems, or constraint solvers
+
+**Recursively enumerable languages**
+
+* Everything a *Turing machine* can recognize
+* “All computable languages” — but no guarantee we can always decide membership in finite time
+
+::: notes
+
+Data-science takeaway
+
+Most text / logs / simple formats: regular level (regex & DFAs)
+
+Most structured nested data (JSON, XML, code): context-free level (CFGs & parsers)
+
+Rich cross-field / counting constraints go beyond CFGs, handled by full programming languages, SQL engines, or specialized tools
+:::
+
+
+# Counting
+
+## Warm-Up: How Many Outfits? {.activity}
+
+**Question:** How many different outfits do you have in your closet?
+
+\ 
+
+No rules, just count.
+
+- What even *counts* as an outfit?
+- Do shoes matter?
+- Do seasons/colors matter?
+- Are some combos invalid?
+
+Write down how you’d **start** to count, not just an answer.
+
+{{< countdown minutes=5 >}}
+
+
+## What Did You Count?
+
+- What *categories* did you use?  
+
+- What *rules* did you impose?  
+
+**Key Idea:**  
+How we **model** outfits (what’s allowed, what’s ignored) changes the counting.
+
+
+## A Simplified Closet Model {.smaller}
+
+Define a wardrobe for the rest of this lesson:
+
+- $k$ pairs of shoes
+- $j$ pairs of pants
+- $m$ skirts
+- $n$ shirts
+- $p$ dresses
+
+We’ll **choose a model**:
+
+- An outfit is either:
+  1. **shirt + bottom + shoes**, where  
+     bottom is either pants or a skirt
+  2. or a **dress + shoes**
+
+- No color/style rules: everything in these categories is compatible.
+
+
+## Turn It Into Sets {.smaller}
+
+Define sets of items:
+
+- $S =$ set of shoes, $|S| = k$
+- $P =$ set of pants, $|P| = j$
+- $K =$ set of skirts, $|K| = m$
+- $T =$ set of shirts, $|T| = n$
+- $D =$ set of dresses, $|D| = p$
+
+A bottom is either pants or a skirt:
+
+$$
+B = P \cup K
+$$
+
+Assuming no overlap between pants and skirts:
+
+$$
+|B| = |P \cup K| = |P| + |K| = j + m
+$$
+
+
+## Outfits of Type 1 {.smaller}
+
+Type 1 outfit: **shirt + bottom + shoes**
+
+As a set of combinations:
+
+$$
+\text{Type1} = S \times B \times T
+$$
+
+Each outfit is a triple:
+
+$$
+(\text{shoe}, \text{bottom}, \text{shirt}) \in S \times B \times T
+$$
+
+So the number of Type 1 outfits is:
+
+$$
+|\text{Type1}| = |S||B||T| = k(j + m)n
+$$
+
+
+## Outfits of Type 2 {.smaller}
+
+Type 2 outfit: **dress + shoes**
+
+As a set of combinations:
+
+$$
+\text{Type2} = S \times D
+$$
+
+Each outfit is a pair:
+
+$$
+(\text{shoe}, \text{dress}) \in S \times D
+$$
+
+So the number of Type 2 outfits is:
+
+$$
+|\text{Type2}| = |S||D| = kp
+$$
+
+
+## Total Number of Outfits {.smaller}
+
+We’ve partitioned outfits into two disjoint types:
+
+- Type 1: shirt + bottom + shoes
+- Type 2: dress + shoes
+
+Total number of outfits in our model:
+
+$$
+\begin{aligned}
+\#\text{outfits} 
+&= |\text{Type1}| + |\text{Type2}| \\
+&= k(j + m)n + kp \\
+&= k\big((j + m)n + p\big).
+\end{aligned}
+$$
+
+This matches the informal idea:
+
+- “For each pair of shoes, you can choose any (bottom, shirt) combo **or** any dress.”
+
+
+## The Product Rule  {.smaller}
+
+Fundamental counting fact:
+
+> If $A$ and $B$ are finite sets, then  
+> $$
+> |A \times B| = |A|\cdot|B|.
+> $$
+
+Generalizing:
+
+> For sets $A_1, A_2, \dots, A_k$:
+> $$
+> |A_1 \times A_2 \times \dots \times A_k| = |A_1| \cdot |A_2| \cdot \dots \cdot |A_k|.
+> $$
+
+Interpretation:
+
+- A **choice procedure**:
+  - choose one element from $A_1$,
+  - then one from $A_2$, $\ldots$
+  - then one from $A_k$,
+- Every distinct chain of choices is a distinct element of the product set.
+
+
+## Wrap Up 
+
+The *combinatorics* lesson:
+
+> Once you’ve decided what "counts," express the valid items as a product of simpler choices.
+
+This pattern will be used for:
+
+- passwords,
+- playlists,
+- committee selection,
+- sampling from datasets,
+- and more.
+
+
+
+
+
