@@ -12,8 +12,8 @@
 <script src="../site_libs/quarto-contrib/iconify-3.0.0/iconify-icon.min.js"></script><meta charset="utf-8">
   <meta name="generator" content="quarto-1.8.26">
 
-  <meta name="dcterms.date" content="2025-10-14">
-  <title>DSCI 220: Discrete Math for Data Science – Representation as Encoding — Day 2: Binary &amp; Size</title>
+  <meta name="dcterms.date" content="2025-11-17">
+  <title>DSCI 220: Discrete Math for Data Science – Discrete Math for Data Science</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -130,10 +130,10 @@
   <script type="module" src="../site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
   <link href="../site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-<meta property="og:title" content="Representation as Encoding — Day 2: Binary &amp; Size – DSCI 220: Discrete Math for Data Science">
+<meta property="og:title" content="Discrete Math for Data Science – DSCI 220: Discrete Math for Data Science">
 <meta property="og:description" content="DSCI 220, 2025 W1">
 <meta property="og:site_name" content="DSCI 220: Discrete Math for Data Science">
-<meta name="twitter:title" content="Representation as Encoding — Day 2: Binary &amp; Size – DSCI 220: Discrete Math for Data Science">
+<meta name="twitter:title" content="Discrete Math for Data Science – DSCI 220: Discrete Math for Data Science">
 <meta name="twitter:description" content="DSCI 220, 2025 W1">
 <meta name="twitter:card" content="summary">
 </head>
@@ -142,13 +142,13 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Representation as Encoding — Day 2: Binary &amp; Size</h1>
+  <h1 class="title">Discrete Math for Data Science</h1>
   <p class="subtitle">DSCI 220, 2025 W1</p>
 
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">October 14, 2025</p>
+  <p class="date">November 17, 2025</p>
 </section>
 <section id="announcements" class="slide level2">
 <h2>Announcements</h2>
@@ -156,122 +156,33 @@
 .small { font-size: .9rem; }
 .tiny { font-size: .8rem; }
 .card { border: 2px solid #ddd; border-radius: 12px; padding: 14px 16px; margin: 10px 0; }
+.center { text-align:center; }
+.rule { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
 </style>
 </section>
-<section>
-<section id="binary-numbers" class="title-slide slide level1 center">
-<h1>Binary Numbers</h1>
-
-</section>
-<section id="goals" class="slide level2">
-<h2>Goals</h2>
-<ul>
-<li>Prove: <span class="math inline">\(b\)</span> bits result in <span class="math inline">\(2^b\)</span> codes, with max value <span class="math inline">\(2^b-1\)</span>.<br>
-</li>
-<li>Overflow.</li>
-</ul>
-<p><strong>DON’T FORGET TO EXPLAIN THE MAGIC TRICK!</strong></p>
-</section>
-<section id="place-value" class="slide level2">
-<h2>Place Value</h2>
-<p>&nbsp; Consider an encoding into <em>binary</em>:</p>
-<p><span class="math display">\[(b_{k-1}\dots b_1 b_0)_2=\sum_{i=0}^{k-1} b_i 2^i,\quad b_i\in\{0,1\}\]</span></p>
-<p>&nbsp;</p>
-<p><br>
-</p>
-<p><span class="hexagon-blue"></span><span class="hexagon-green"></span><span class="hexagon-yellow"></span><span class="hexagon-orange"></span><span class="hexagon-red"></span></p>
-</section>
-<section id="proof-moment" class="slide level2">
-<h2>Proof Moment</h2>
-<p>Claim: With <span class="math inline">\(b\)</span> bits we can represent <span class="math inline">\(2^b\)</span> values.</p>
-</section>
-<section id="technical-aside" class="slide level2 smaller">
-<h2>Technical Aside</h2>
-<ul>
-<li><p><strong><code>int</code> (pure Python):</strong> arbitrary precision (variable width)</p></li>
-<li><p><strong>NumPy / Pandas arrays:</strong> fixed-width datatypes (<code>int8</code>, <code>int32</code>, <code>int64</code>, <code>uint64</code>, …)</p></li>
-</ul>
-<aside class="notes">
-<ul>
-<li>Signed range: <span class="math inline">\([-2^{b-1},\,2^{b-1}-1]\)</span>; Unsigned range: <span class="math inline">\([0,\,2^b-1]\)</span>.</li>
-<li><strong>Takeaway:</strong> the <strong>container</strong> chooses the encoding (width &amp; signedness).</li>
-</ul>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-<p><strong>Demo:</strong></p>
+<section id="warm-up-multiplication-rule" class="slide level2 smaller">
+<h2>Warm-Up: Multiplication Rule</h2>
+<p><strong>Question:</strong><br>
+What happens to the number of rows in a DataFrame when we use <code>pandas.melt()</code>?</p>
 <div>
 <div id="pyodide-1" class="exercise-cell">
 
 </div>
 <script type="pyodide-1-contents">
-eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiXG4jIFB1cmUgUHl0aG9uIGludCAoZ3Jvd3MgdG8gZml0KVxuZnJvbSBtYXRoIGltcG9ydCBsb2cyLCBjZWlsXG5uID0gKDEgPDwgMTAwKSArIDdcbnByaW50KFwiYml0X2xlbmd0aDpcIiwgbi5iaXRfbGVuZ3RoKCkpICBcblxuIyBGaXhlZC13aWR0aCBpbnRlZ2VycyBvdmVyZmxvdyAoTnVtUHkpXG5pbXBvcnQgbnVtcHkgYXMgbnBcbnByaW50KFwidWludDggd3JhcDpcIiwgbnAudWludDgoMjU1KSArIDEpICBcbnByaW50KFwiaW50OCB3cmFwOlwiLCAgbnAuaW50OCgxMjcpICsgMSkgICAifQ==
+eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiaW1wb3J0IHBhbmRhcyBhcyBwZFxuXG5kZiA9IHBkLkRhdGFGcmFtZSh7XG4gICAgXCJPYmplY3RcIjogW1wiSWNlIENyZWFtXCIsIFwiQ2FuZGxlXCIsIFwiQ2hvY29sYXRlXCIsIFwiV2lja2VkIFdpdGNoXCJdLFxuICAgIFwiQ29sZFwiOiBbXCJzb2xpZFwiLCBcInNvbGlkXCIsIFwic29saWRcIiwgXCJmaW5lXCJdLFxuICAgIFwiV2FybVwiOiBbXCJld1wiLCBcInNvbGlkXCIsIFwic29mdFwiLCBcImRyaXBweVwiXSxcbiAgICBcIkhvdFwiOiBbXCJwdWRkbGVcIiwgXCJsaXF1aWRcIiwgXCJnb29cIiwgXCJnb25lP1wiXVxufSlcblxucHJpbnQoZGYuc2hhcGUpICAgIyAoNCwgNClcblxubWVsdGVkID0gZGYubWVsdChpZF92YXJzPVwiT2JqZWN0XCIsIHZhcl9uYW1lPVwiVGVtcGVyYXR1cmVcIiwgdmFsdWVfbmFtZT1cIlN0YXRlXCIpXG5wcmludChtZWx0ZWQuc2hhcGUpICAjICgxMiwgMykifQ==
 </script>
 </div>
-</section>
-<section id="overflow" class="slide level2">
-<h2>Overflow</h2>
-<p>Consider addition, with 4 bits:</p>
 <aside class="notes">
-<p>annotate 1101_2 + 110_2 and ask students to speculate on 1) how addition works, and how they would describe the overflow. (they’ll say it’s like mod 2^4) With <span class="math inline">\(b\)</span> fixed bits, adding wraps <span class="math inline">\(\bmod 2^b\)</span>.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-<p><br>
-</p>
-<p>&nbsp;</p>
-<p><br>
-</p>
-<p>&nbsp;</p>
-<p>Punchline: Overflow occurs when the number you want to represent is too big to fit into the space you’ve reserved for it.</p>
-</section>
-<section id="signed-integers" class="slide level2 smaller">
-<h2>Signed Integers</h2>
-<p><br>
-</p>
-<p>Unsigned integers are represented by their encodings as discussed above.</p>
-<p><br>
-</p>
-<p><span class="math inline">\(b\)</span> bits typically represent values <span class="math inline">\([0..2^b-1]\)</span>.</p>
-<p><br>
-</p>
-<p>Signed integers have a different encoding (that we won’t discuss) but we can still guess the values that can be encoded:</p>
-<p><br>
-</p>
-<p><span class="math inline">\(b\)</span> bits typically represent values ____________.</p>
-</section>
-<section id="activity" class="slide level2">
-<h2>Activity</h2>
-<p>For each, compute <strong>bits needed</strong> or <strong>max value</strong>:</p>
-<ol type="1">
-<li>Seats in a 500-seat hall.<br>
-</li>
-<li>12-bit unsigned max.<br>
-</li>
-<li>World pop (<span class="math inline">\(\approx 8\cdot10^9\)</span> people) bits for unique IDs.<br>
-</li>
-<li>Timestamps for next <span class="math inline">\(100\)</span> years at 1-second resolution.</li>
-</ol>
-<aside class="notes">
-<ol type="1">
-<li>9; (2) 4095; (3) <span class="math inline">\(\lceil\log_2(8e9)\rceil=33\)</span>; (4) seconds <span class="math inline">\(\approx 3.15e9\)</span> 32 bits.</li>
-</ol>
+<p>This is a <em>data-science version</em> of the <strong>multiplication rule</strong>:<br>
+when we consider every possible combination of two attributes, the number of possibilities multiplies.</p>
+<p>➡️ We’ll use the same reasoning today — but with <em>people</em> and <em>chairs</em> instead of rows and columns.</p>
+<blockquote>
+<p><strong>Notes:</strong><br>
+Use this to remind students that the multiplication rule already appears in data contexts they know.<br>
+Encourage them to connect this to the idea of enumerating combinations of attributes.<br>
+Keep the demo under 4 minutes — it’s just a bridge to the main activity.</p>
+<p>⏱️ <em>Timing:</em> 3–4 minutes warm-up discussion.</p>
+</blockquote>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -284,9 +195,588 @@ eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiXG4jIFB1cmUgUHl0aG9uIGlu
           display:block!important;
       }</style></aside>
 </section>
-<section id="exit-ticket" class="slide level2">
-<h2>Exit Ticket</h2>
-<p>In words: what does <span class="math inline">\(\lceil\log_2 N\rceil\)</span> tell you?</p>
+<section id="visualizing-wide-to-long" class="slide level2 smaller">
+<h2>Visualizing Wide to Long</h2>
+<p><strong>Before melting (wide format):</strong></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><strong>After melting (long format):</strong></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><br>
+</p>
+<ul>
+<li>Each wide row expands into three long rows — one for each temperature.<br>
+</li>
+<li>Each pair (Object, Temperature) is one <strong>combination</strong>—just like the outfits we counted last time.<br>
+</li>
+<li>The total number of rows = 4 objects × 3 temperatures = <strong>12 outcomes.</strong></li>
+</ul>
+<aside class="notes">
+<blockquote>
+<p><strong>Notes:</strong><br>
+Use this visual to anchor the idea that melting enumerates combinations explicitly.<br>
+Optional ask: “Where do we see repetition here? What does that tell us about memory use?”</p>
+<p>⏱️ <em>Timing:</em> 3 minutes (interpretation and discussion)</p>
+</blockquote>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="visualizing-the-mapping-change" class="slide level2 smaller">
+<h2>Visualizing the Mapping Change</h2>
+<p><strong>Before melting:</strong></p>
+<p>We have a function that maps each <strong>Object</strong> to a <em>tuple of states</em> across temperatures:</p>
+<p><span class="math display">\[ f:\ \text{Object} \to (\text{Cold},\ \text{Warm},\ \text{Hot}) \]</span></p>
+<p>Example: <span class="math display">\[ f( \text{Wicked Witch}) = ( \text{fine}, \text{dripping}, \text{gone?}) \]</span></p>
+<p><strong>After melting:</strong></p>
+<p>We redefine the function so that the <em>pair</em> (Object, Temperature) is the input:</p>
+<p><span class="math display">\[ g: ( \text{Object}, \text{Temperature}) \to \text{State} \]</span></p>
+<p>Example: <span class="math display">\[g( \text{Wicked Witch}, \text{Warm}) = \text{dripping} \]</span></p>
+<p>The input domain has expanded from <strong>Objects</strong> to <strong>Objects × Temperatures</strong>. Each input now produces a single scalar output instead of a vector.</p>
+<p>This is why the melted data get longer — we’ve made all combinations explicit.</p>
+<aside class="notes">
+<blockquote>
+<p><strong>Notes:</strong> Emphasize the structural change: multivariate output → single-valued function on a larger domain. This perspective connects directly to <strong>Cartesian products</strong> and the <strong>multiplication rule</strong>.</p>
+<p>⏱️ <em>Timing:</em> 3 minutes for explanation + brief class recap.</p>
+</blockquote>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="how-melting-affects-data-size" class="slide level2 smaller">
+<h2>How Melting Affects Data Size</h2>
+<p>When we <strong>melt</strong> data, we don’t add new information — we just make existing information longer and more explicit.</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 30%">
+<col style="width: 26%">
+<col style="width: 43%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Format</th>
+<th>Shape</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Wide</strong></td>
+<td>(4, 4)</td>
+<td>One row per object; columns for Cold, Warm, Hot</td>
+</tr>
+<tr class="even">
+<td><strong>Long (Melted)</strong></td>
+<td>(12, 3)</td>
+<td>One row for each (Object, Temperature) pair</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Effect:</strong> The number of rows increases by a <em>factor</em> equal to the number of melted columns.<br>
+Each object’s name and each temperature label are now repeated multiple times.</p>
+<p><em>Memory tradeoff</em>: Long data are larger in memory but easier to work with for grouping and plotting.</p>
+<aside class="notes">
+<blockquote>
+<p><strong>Prompt:</strong> Why would we use a representation that takes more space?<br>
+What’s the parallel to our counting models — when do we <em>expand</em> possibilities to make reasoning easier?</p>
+</blockquote>
+<blockquote>
+<p><strong>Notes:</strong><br>
+Emphasize the connection to the multiplication rule: 4 objects × 3 temperatures = 12 outcomes.<br>
+Use this as a conceptual bridge — from data transformation to counting combinations in the upcoming seating activity.</p>
+<p>⏱️ <em>Timing:</em> 3 minutes for explanation + 1 minute discussion.</p>
+</blockquote>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="a-new-counting-challenge" class="slide level2 activity">
+<h2>A New Counting Challenge</h2>
+<p>&nbsp;</p>
+<p>Arrange 4 people around a table.</p>
+<p><strong>Question:</strong><br>
+How many different ways can the people be seated?</p>
+<p><strong>Discuss:</strong></p>
+<ul>
+<li>What counts as a <em>different</em> arrangement?<br>
+</li>
+<li>What information defines one arrangement?</li>
+</ul>
+<aside class="notes">
+<blockquote>
+<p><strong>Notes:</strong><br>
+Begin open-ended — let students debate what counts as a unique arrangement.<br>
+The goal is for them to <em>build a model</em> of the outcomes before applying counting rules.<br>
+Encourage language like “distinct arrangements,” “rotations,” and “mirror images.”<br>
+This primes them for the concepts of <strong>permutations</strong> (order matters) and <strong>combinations</strong> (order doesn’t).</p>
+<p>⏱️ <em>Timing:</em> 4–5 minutes of pair discussion + 1 minute group debrief. TODO: make “tables with seat numbers” on cardstock</p>
+</blockquote>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="observing-the-structure" class="slide level2 smaller">
+<h2>Observing the Structure</h2>
+<p>Let’s agree on a model for our table:</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: center;">Seat 1</th>
+<th style="text-align: center;">Seat 2</th>
+<th style="text-align: center;">Seat 3</th>
+<th style="text-align: center;">Seat 4</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">?</td>
+<td style="text-align: center;">?</td>
+<td style="text-align: center;">?</td>
+<td style="text-align: center;">?</td>
+</tr>
+</tbody>
+</table>
+Each arrangement can be described as a <strong>4-tuple</strong>:<br>
+
+<center>
+(Who’s in seat 1, Who’s in seat 2, Who’s in seat 3, Who’s in seat 4)
+</center>
+<p>&nbsp;</p>
+<p>Our <em>model</em> is the set of <strong>all possible 4-tuples with no repeats.</strong></p>
+<aside class="notes">
+<blockquote>
+<p><strong>Notes:</strong><br>
+Link this back to the <strong>closet model</strong> from last time: both are built from describing all possible outcomes.<br>
+Here, though, the choices are <em>dependent</em>—once a person is seated, they can’t be chosen again.<br>
+Introduce the term <strong>permutation</strong>: each arrangement of distinct objects where order matters.</p>
+<p>⏱️ <em>Timing:</em> 3 minutes setup + 2 minutes partner explanation.</p>
+</blockquote>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="building-an-arrangement" class="slide level2 smaller">
+<h2>Building an Arrangement</h2>
+<p>How many choices do we have for each chair?</p>
+<ol type="1">
+<li>Seat 1: 4 choices<br>
+</li>
+<li>Seat 2: 3 remaining<br>
+</li>
+<li>Seat 3: 2 remaining<br>
+</li>
+<li>Seat 4: 1 remaining</li>
+</ol>
+<p><span class="math inline">\(\text{Total} = 4 \times 3 \times 2 \times 1 = 24\)</span> <strong>arrangements</strong></p>
+<p>That’s the <strong>multiplication rule</strong> — just like outfits, but now the choices <em>depend</em> on previous ones.</p>
+<aside class="notes">
+<blockquote>
+<p><strong>Notes:</strong><br>
+Highlight that we’re applying the same reasoning pattern as before: define the structure → count each step → multiply.<br>
+Emphasize how dependency reduces the count.<br>
+Reinforce vocabulary: these 24 ordered arrangements are <strong>permutations</strong> of 4 distinct items.</p>
+<p>⏱️ <em>Timing:</em> 4 minutes walkthrough + 2 minutes reflection.</p>
+</blockquote>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="permutations" class="slide level2 smaller">
+<h2>Permutations</h2>
+<p>A <strong>permutation</strong> is an <strong>arrangement</strong> of <span class="math inline">\(n\)</span> distinct objects <strong>in a specific order</strong>.</p>
+<ul>
+<li>Order matters — changing the order creates a new permutation.<br>
+</li>
+<li>Each permutation corresponds to a unique <em>sequence of choices</em> from the set.</li>
+</ul>
+<p>If there are <span class="math inline">\(n\)</span> distinct objects, then the number of permutations is:</p>
+<p><span class="math display">\[
+P(n) = n! = n \times (n-1) \times (n-2) \times \dots \times 1
+\]</span></p>
+<p><strong>Example:</strong> Four people can sit in a row in</p>
+<p><span class="math display">\[
+P(4) = 4! = 24
+\]</span></p>
+<p>different ways.</p>
+</section>
+<section id="counting-under-rotation" class="slide level2 smaller">
+<h2>Counting under rotation</h2>
+<p>Embrace the fact that the table is <strong>round</strong>.</p>
+<p>&nbsp;</p>
+<p>For any rotation, the group of people is sitting in the <em>same relative order.</em></p>
+<p><em>For each</em> arrangement there are 4 equivalent. Thus we ______________ the total by ______________.</p>
+<p>&nbsp;</p>
+<p><strong>Alternatively</strong> we can <strong>fix one person’s seat</strong>.<br>
+Then the remaining 3 can be arranged freely around the table.</p>
+<p>&nbsp;</p>
+<p>Total distinct circular seatings: <span class="math inline">\((4 − 1)! = 6\)</span>.</p>
+<aside class="notes">
+<blockquote>
+<p><strong>Notes:</strong><br>
+Have students physically fix one card to visualize duplicate rotations.<br>
+Use the term <strong>circular permutation</strong>: order still matters, but rotations count as the same.<br>
+Ask: “Why does fixing one position remove all rotations?”</p>
+<p>⏱️ <em>Timing:</em> 5–6 minutes including demonstration.</p>
+</blockquote>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="friendship-bracelets" class="slide level2 activity">
+<h2>Friendship Bracelets</h2>
+<p>&nbsp;</p>
+<p>Given: <strong>20 beads</strong>, each a <strong>different color</strong>. Make a <strong>circular bracelet</strong> by threading all 20 beads.</p>
+<svg width="200" height="200" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+<title>
+20-bead bracelet
+</title>
+<desc>Twenty differently colored beads arranged in a circle.</desc> <circle cx="100" cy="100" r="60" fill="none" stroke="#cccccc" stroke-width="1"></circle> <circle cx="100" cy="40" r="8" transform="rotate(0 100 100)" fill="red" stroke="#333" stroke-width="1"></circle> <circle cx="100" cy="40" r="8" transform="rotate(18 100 100)" fill="orange" stroke="#333" stroke-width="1"></circle> <circle cx="100" cy="40" r="8" transform="rotate(36 100 100)" fill="gold" stroke="#333" stroke-width="1"></circle> <circle cx="100" cy="40" r="8" transform="rotate(54 100 100)" fill="yellowgreen" stroke="#333" stroke-width="1"></circle> <circle cx="100" cy="40" r="8" transform="rotate(72 100 100)" fill="green" stroke="#333" stroke-width="1"></circle> <circle cx="100" cy="40" r="8" transform="rotate(90 100 100)" fill="teal" stroke="#333" stroke-width="1"></circle> <circle cx="100" cy="40" r="8" transform="rotate(108 100 100)" fill="turquoise" stroke="#333" stroke-width="1"></circle> <circle cx="100" cy="40" r="8" transform="rotate(126 100 100)" fill="skyblue" stroke="#333" stroke-width="1"></circle> <circle cx="100" cy="40" r="8" transform="rotate(144 100 100)" fill="dodgerblue" stroke="#333" stroke-width="1"></circle> <circle cx="100" cy="40" r="8" transform="rotate(162 100 100)" fill="blue" stroke="#333" stroke-width="1"></circle> <circle cx="100" cy="40" r="8" transform="rotate(180 100 100)" fill="indigo" stroke="#333" stroke-width="1"></circle> <circle cx="100" cy="40" r="8" transform="rotate(198 100 100)" fill="purple" stroke="#333" stroke-width="1"></circle> <circle cx="100" cy="40" r="8" transform="rotate(216 100 100)" fill="magenta" stroke="#333" stroke-width="1"></circle> <circle cx="100" cy="40" r="8" transform="rotate(234 100 100)" fill="deeppink" stroke="#333" stroke-width="1"></circle> <circle cx="100" cy="40" r="8" transform="rotate(252 100 100)" fill="hotpink" stroke="#333" stroke-width="1"></circle> <circle cx="100" cy="40" r="8" transform="rotate(270 100 100)" fill="salmon" stroke="#333" stroke-width="1"></circle> <circle cx="100" cy="40" r="8" transform="rotate(288 100 100)" fill="peru" stroke="#333" stroke-width="1"></circle> <circle cx="100" cy="40" r="8" transform="rotate(306 100 100)" fill="sienna" stroke="#333" stroke-width="1"></circle> <circle cx="100" cy="40" r="8" transform="rotate(324 100 100)" fill="chocolate" stroke="#333" stroke-width="1"></circle> <circle cx="100" cy="40" r="8" transform="rotate(342 100 100)" fill="olive" stroke="#333" stroke-width="1"></circle>
+</svg>
+<p><strong>Question:</strong><br>
+How many <em>different</em> bracelets can be made?</p>
+<aside class="notes">
+<p>🧶 <em>Think first:</em><br>
+- Does rotating the bracelet create something new?<br>
+- What about flipping it over (reflection)?</p>
+<p>💭 <em>Discuss with a partner:</em><br>
+1. How does this relate to our “round table” reasoning?<br>
+2. What changes when reflections (mirror images) count as the same?<br>
+3. How could we generalize our earlier counting model?</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<aside class="notes">
+<blockquote>
+<p><strong>Notes:</strong><br>
+This parallels circular permutations, but now students must reason about <strong>rotations and reflections</strong> together (dihedral symmetry).<br>
+Encourage qualitative reasoning before formulas — the goal is generalization, not numeric computation.</p>
+<p>⏱️ <em>Timing:</em> 5 minutes total (2 think, 2 pair, 1 share).</p>
+</blockquote>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="choosing-a-committee" class="slide level2 activity">
+<h2>Choosing a Committee</h2>
+<p><strong>Goal:</strong> From 8 people, form a <strong>3-person committee</strong>.</p>
+<p>&nbsp;</p>
+<p><strong>Question:</strong><br>
+How many different committees could we form?</p>
+<p>&nbsp;</p>
+<p><strong>Discuss:</strong></p>
+<ol type="1">
+<li>Consider it a <strong>sequence of 3 choices</strong><br>
+</li>
+<li>Which of those describe the <strong>same</strong> committee?<br>
+</li>
+<li>How can we apply what we learned about rotations?</li>
+</ol>
+<aside class="notes">
+<p>💭 <em>Hint:</em> In this model, <strong>order doesn’t matter</strong> —<br>
+it’s who’s <em>in</em> the committee, not who was <em>picked first.</em></p>
+<blockquote>
+<p><strong>Notes:</strong><br>
+This builds on the rotational symmetry reasoning: we’re collapsing multiple ordered arrangements into a single unordered outcome.<br>
+Students should reason qualitatively that each distinct committee corresponds to several ordered sequences — and we divide by that number.</p>
+<p>⏱️ <em>Timing:</em> 5 minutes total (2 think, 2 pair, 1 share).</p>
+</blockquote>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="from-choices-to-combinations" class="slide level2 smaller">
+<h2>From Choices to Combinations</h2>
+<p>Model our 3-person committee.</p>
+<p>If we make choices one at a time:</p>
+<p><span class="math display">\[
+8 \times 7 \times 6 = 336
+\]</span></p>
+<p>That counts <strong>every possible order</strong> of picking 3 people.</p>
+<p>But a committee doesn’t have an order — each group of 3 appears <span class="math inline">\(3! = 6\)</span> times, once for every possible order.</p>
+<p>So the number of <strong>distinct committees</strong> is:</p>
+<p><span class="math display">\[
+\frac{8 \times 7 \times 6}{3!} = 56
+\]</span></p>
+<aside class="notes">
+<p>💡 <em>Model:</em><br>
+Each unordered committee corresponds to 3! ordered sequences.</p>
+<blockquote>
+<p><strong>Notes:</strong><br>
+- Connect explicitly to the “rotations” reasoning — we’re dividing out symmetry again, this time the <em>order symmetry</em> of identical choices.<br>
+- Encourage students to verbalize what makes two outcomes “the same.”<br>
+- Use this moment to name the new idea: <strong>combinations</strong>.</p>
+<p>⏱️ <em>Timing:</em> 4 minutes walkthrough + 1 minute class check-in.</p>
+</blockquote>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="combinations" class="slide level2 smaller">
+<h2>Combinations</h2>
+<p>A <strong>combination</strong> is a <strong>selection</strong> of <span class="math inline">\(k\)</span> objects from <span class="math inline">\(n\)</span> where <strong>order does not matter</strong>.</p>
+<ul>
+<li>The group <span class="math inline">\(\{A, B, C\}\)</span> is the same as <span class="math inline">\(\{B, A, C\}\)</span>.<br>
+</li>
+<li>Each combination represents a unique <em>set</em> of choices.</li>
+</ul>
+<p>If there are <span class="math inline">\(n\)</span> objects and we choose <span class="math inline">\(k\)</span> of them, the number of distinct combinations is:</p>
+<p><span class="math display">\[
+C(n, k) = \binom{n}{k} = \frac{n!}{k!(n-k)!}
+\]</span></p>
+<p><strong>Example:</strong> Choosing a 3-person committee from 8 people:</p>
+<p><span class="math display">\[
+C(8, 3) = \frac{8!}{3!5!} = 56
+\]</span></p>
+<p><strong>Note:</strong> Each committee is a <strong>subset</strong> of the 8 people — we ignore order, only membership matters.</p>
+<aside class="notes">
+<blockquote>
+<p><strong>Notes:</strong><br>
+- Use this to formalize what students discovered in the activity: dividing by the number of equivalent orders.<br>
+- Emphasize the contrast with <strong>permutations</strong>: same domain, different notion of sameness.<br>
+- Optionally end with: “Next time we’ll see how these appear in binomial coefficients and counting problems.”</p>
+</blockquote>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="reflection" class="slide level2 smaller">
+<h2>Reflection</h2>
+<p>Compare the models:</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 31%">
+<col style="width: 22%">
+<col style="width: 45%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Scenario</th>
+<th>Model</th>
+<th>Outcome Count</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Outfits</td>
+<td>(shoe, pant, shirt)</td>
+<td><span class="math inline">\(|S|\times|P|\times|H|\)</span></td>
+</tr>
+<tr class="even">
+<td>Seating</td>
+<td>(seat 1, seat 2, seat 3, seat 4)</td>
+<td><span class="math inline">\(4\times 3\times 2\times 1\)</span></td>
+</tr>
+<tr class="odd">
+<td>Circular Seating</td>
+<td>(fix one person)</td>
+<td><span class="math inline">\((4 − 1)! = 6\)</span></td>
+</tr>
+<tr class="even">
+<td>Choosing Guests</td>
+<td>{subset of guests}</td>
+<td><span class="math inline">\(\binom{4}{k}\)</span></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>All start by <strong>modeling the outcomes</strong> carefully before counting.<br>
+</li>
+<li>The model determines whether order matters.</li>
+</ul>
+<aside class="notes">
+<blockquote>
+<p><strong>Notes:</strong><br>
+Pause for synthesis: have students summarize in their own words how the model affects the formula.<br>
+Reinforce the difference between <strong>permutations (ordered)</strong> and <strong>combinations (unordered)</strong>.</p>
+<p>⏱️ <em>Timing:</em> 4–5 minutes for class synthesis.</p>
+</blockquote>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="challenge-putting-it-all-together" class="slide level2 activity">
+<h2>Challenge: Putting It All Together</h2>
+<p>There are 8 people, and 4 seats at the round table.</p>
+<p><strong>Question:</strong> How many distinct arrangements are possible if <strong>rotations and reflections</strong> count as the same?</p>
+<p><strong>Communicate:</strong> Explain each step of your reasoning.</p>
+<p><strong>Generalize:</strong> What if there are <span class="math inline">\(n\)</span> people and <span class="math inline">\(k\)</span> seats?</p>
+<aside class="notes">
+<p>💭 Think first. Then compare reasoning with a neighbor.<br>
+We’ll build the model together and find the count at the end.</p>
+<blockquote>
+<p><strong>Notes:</strong><br>
+Encourage modeling before computation.<br>
+Ask: “How can we anchor the rotations and reflections?”<br>
+Extend gently to <strong>dihedral symmetry</strong> ideas: we’re dividing out both rotation and flip equivalences.<br>
+End with applause for reasoning, not the number.</p>
+<p>⏱️ <em>Timing:</em> 6–8 minutes (think–pair–share + group wrap).</p>
+</blockquote>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="summary" class="slide level2 smaller">
+<h2>Summary</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Concept</th>
+<th>Order Matters?</th>
+<th>Model</th>
+<th>Ex Count</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Permutation</strong></td>
+<td>Yes</td>
+<td>Ordered arrangement</td>
+<td>4! = 24</td>
+</tr>
+<tr class="even">
+<td><strong>Combination</strong></td>
+<td>No</td>
+<td>Unordered selection</td>
+<td><span class="math inline">\(\binom{4}{2} = 6\)</span></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Punchline:</strong><br>
+Counting always starts with <strong>modeling the outcomes</strong>.<br>
+Once we know what counts as “different,” the computation follows.</p>
+<aside class="notes">
+<blockquote>
+<p><strong>Notes:</strong><br>
+End with reflection: “What do we gain by naming these ideas?”<br>
+Encourage them to see <strong>permutation</strong> and <strong>combination</strong> as families of counting models, not just formulas.<br>
+Optional: connect to data sampling — rows (ordered) vs.&nbsp;groups (unordered).</p>
+<p>⏱️ <em>Timing:</em> 3–4 minutes as a closing summary.</p>
+</blockquote>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 
 
 <script type="pyodide-data">
@@ -306,7 +796,7 @@ eyJjb250ZW50cyI6W3siY2VsbE5hbWUiOiJweW9kaWRlLTEiLCJpbmxpbmUiOmZhbHNlLCJtZXRob2RO
 <script type="vfs-file">
 W10=
 </script>
-</section></section>
+</section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">

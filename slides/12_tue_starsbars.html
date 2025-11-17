@@ -12,7 +12,7 @@
 <script src="../site_libs/quarto-contrib/iconify-3.0.0/iconify-icon.min.js"></script><meta charset="utf-8">
   <meta name="generator" content="quarto-1.8.26">
 
-  <meta name="dcterms.date" content="2025-10-01">
+  <meta name="dcterms.date" content="2025-11-18">
   <title>DSCI 220: Discrete Math for Data Science – Discrete Math for Data Science</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -148,124 +148,325 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">October 1, 2025</p>
+  <p class="date">November 18, 2025</p>
 </section>
 <section id="announcements" class="slide level2">
 <h2>Announcements</h2>
 <style>
-.small { font-size: 0.9rem; }
-.tiny { font-size: 0.8rem; }
-.rule { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; }
+.small { font-size: .9rem; }
+.tiny { font-size: .8rem; }
 .card { border: 2px solid #ddd; border-radius: 12px; padding: 14px 16px; margin: 10px 0; }
-.center { text-align: center; }
-.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-.badge { display:inline-block; padding:2px 8px; border:1px solid #bbb; border-radius:10px; font-size:.8rem; }
+.center { text-align:center; }
+.rule { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
 </style>
 </section>
 <section>
-<section id="induction" class="title-slide slide level1 center">
-<h1>Induction</h1>
+<section id="exploration-1-partitions" class="title-slide slide level1 center">
+<h1>Exploration 1: Partitions</h1>
 
 </section>
-<section id="last-demo" class="slide level2">
-<h2>Last Demo</h2>
-<p>This is a tromino: <svg viewbox="0 0 48 48" width="48" height="48" fill="currentColor" role="img" aria-label="L tromino"> <rect x="0" y="24" width="23" height="23" rx="3"></rect> <rect x="24" y="24" width="23" height="23" rx="3"></rect> <rect x="0" y="0" width="23" height="23" rx="3"></rect> </svg></p>
-<p>This is a <span class="math inline">\(n\)</span> by <span class="math inline">\(n\)</span> deficient grid:</p>
-<svg viewbox="0 0 200 200" width="240" height="240" role="img" aria-label="10 by 10 grid with one black square at row 6, column 6">
-<defs> <pattern id="grid20" width="20" height="20" patternunits="userSpaceOnUse"> <path d="M20 0H0V20" fill="none" stroke="#bbb" stroke-width="1"></path> </pattern> </defs> <rect x="0" y="0" width="200" height="200" fill="white" stroke="#333" stroke-width="2"></rect> <rect x="0" y="0" width="200" height="200" fill="url(#grid20)"></rect> <rect x="100" y="100" width="20" height="20" fill="black"></rect>
-</svg>
-<p><br>
-</p>
-<p>Claim: Every <span class="math inline">\(2^n\)</span> by <span class="math inline">\(2^n\)</span> deficient grid can be tiled with trominos.</p>
+<section id="cookie-counter-1" class="slide level2 smaller">
+<h2>Cookie Counter 1</h2>
+<p>You have <strong>5 cookies</strong> 🍪 and <strong>3 friends</strong> 👩‍🦱🧑‍🦰🧑‍🦱. Each friend can get <strong>any number</strong> of cookies.</p>
+<p><strong>Question:</strong> How many different ways can you share the cookies?</p>
+<div style="position: relative; width: 100%; height: 500px; background-image: linear-gradient(#aaa 1px, transparent 1px), linear-gradient(90deg, #aaa 1px, transparent 1px); background-size: 50px 80px; border-radius: 10px; margin-top: 1em;">
+
+</div>
 </section>
-<section id="tile-work" class="slide level2">
-<h2>Tile Work</h2>
-<p>Claim: Every <span class="math inline">\(2^n\)</span> by <span class="math inline">\(2^n\)</span> deficient grid can be tiled with trominos.</p>
+<section id="summary" class="slide level2">
+<h2>Summary</h2>
+<p>Each way of sharing is one arrangement of 5 stars and 2 bars.</p>
+<p>Or equivalently:</p>
 <p>&nbsp;</p>
-<p>Proof: Line 1:</p>
-<p><br>
-</p>
-<p>Line 2:</p>
-<p>&nbsp;</p>
-<p>Small case(s):</p>
+<p><span class="math display">\[
+\text{# ways} = \binom{5 + 3 - 1}{3 - 1} = \binom{7}{2} = 21
+\]</span></p>
 </section>
-<section id="tile-work-1" class="slide level2 smaller">
-<h2>Tile Work</h2>
-<p>Claim: Every <span class="math inline">\(2^n\)</span> by <span class="math inline">\(2^n\)</span> deficient grid can be tiled with trominos.</p>
+<section id="cookie-counter-2" class="slide level2 smaller">
+<h2>Cookie Counter 2</h2>
+<p>You need to buy <strong>5 boxes</strong> of GG 🍪, and there are <strong>3 flavours</strong>.</p>
+<p><strong>Question:</strong> How many different ways can you buy the boxes of cookies?</p>
+<div style="position: relative; width: 100%; height: 500px; background-image: linear-gradient(#aaa 1px, transparent 1px), linear-gradient(90deg, #aaa 1px, transparent 1px); background-size: 50px 80px; border-radius: 10px; margin-top: 1em;">
+
+</div>
+</section>
+<section id="counting-partitions" class="slide level2 smaller">
+<h2>Counting Partitions</h2>
+<div style="position: relative; width: 100%; height: 100px; background-image: linear-gradient(#aaa 1px, transparent 1px), linear-gradient(90deg, #aaa 1px, transparent 1px); background-size: 50px 80px; border-radius: 10px; margin-top: 1em;">
+
+</div>
+<table class="caption-top">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 29%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Scenario</th>
+<th>Interpretation</th>
+<th>What’s being partitioned?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>🍪 <strong>Cookie Counter</strong></td>
+<td>Distributing identical items among labeled friends</td>
+<td><em>Items → People</em></td>
+</tr>
+<tr class="even">
+<td>🎁 <strong>Girl Guide Boxes</strong></td>
+<td>Counting totals of each labelled flavour</td>
+<td><em>boxes → Flavours</em></td>
+</tr>
+</tbody>
+</table>
+<p>Each arrangement of stars and bars corresponds to a unique configuration:</p>
+<p><span class="math display">\[
+\text{# ways} = \binom{j + k - 1}{k - 1}
+\]</span></p>
+<aside class="notes">
+<blockquote>
+<p><strong>Notes:</strong><br>
+- Reinforces that “stars and bars” generalizes both <strong>partitions</strong> and <strong>categorizations</strong>.<br>
+- Encourage students to restate the model aloud: “stars are identical; bars create groups.”<br>
+- Use this slide to help them abstract from examples toward the general combinatorial pattern.</p>
+</blockquote>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="knights-of-the-round-table" class="slide level2 smaller">
+<h2>Knights of the Round Table</h2>
 <p>&nbsp;</p>
-<p>Proof continued… Inductive case:</p>
-<svg viewbox="0 0 400 400" width="480" height="480" role="img" aria-label="16 by 16 grid with one black square at row 4, column 12">
-<defs> <pattern id="grid25" width="25" height="25" patternunits="userSpaceOnUse"> <path d="M25 0H0V25" fill="none" stroke="#bbb" stroke-width="1"></path> </pattern> </defs> <rect x="0" y="0" width="400" height="400" fill="white" stroke="#333" stroke-width="2"></rect> <rect x="0" y="0" width="400" height="400" fill="url(#grid25)"></rect> <rect x="300" y="150" width="25" height="25" fill="black"></rect>
-</svg>
+<p>After King Arthur’s death, <strong>Guenevere</strong> always sits in the same seat. The <strong>100 knights</strong> are arranged <strong>clockwise in increasing order of honor</strong> using <strong>5 ranks</strong>. Knights of the <strong>same rank are indistinguishable</strong>, and <strong>each rank sits together</strong> (one contiguous block).</p>
+<p>&nbsp;</p>
+<p><strong>Question:</strong><br>
+How many different seating configurations are possible?</p>
+<p>&nbsp;</p>
+<p><strong>Discussion:</strong></p>
+<ul>
+<li>are you counting permutations?</li>
+<li>are you counting combinations?</li>
+<li>are you counting partitions?</li>
+</ul>
+<aside class="notes">
+<p>what’s being partitioned?</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="back-to-cookies" class="slide level2">
+<h2>Back to Cookies</h2>
+<p>Suppose you have 10 cookies and 3 friends, and each friend must receive at least one cookie.</p>
+<ul>
+<li>How many different ways are there to partition the cookies among your friends?</li>
+</ul>
+<p>&nbsp;</p>
+<ul>
+<li>How does your answer change if Alex doesn’t care if they get any cookies, and Casey must have at least 3.</li>
+</ul>
+</section>
+<section id="constrained-partitions" class="slide level2 smaller">
+<h2>Constrained Partitions</h2>
+<p>Suppose a set of <span class="math inline">\(n\)</span> items is to be partitioned among <span class="math inline">\(k\)</span> categories, <span class="math inline">\(C_1, \ldots, C_k\)</span>.<br>
+Also, suppose category <span class="math inline">\(C_i\)</span> <strong>requires</strong> <span class="math inline">\(x_i\)</span> items.</p>
+<p>Then the number of partitions is:</p>
+<p><span class="math display">\[
+\binom{n - \sum_{i=1}^{k} x_i + k - 1}{k - 1}
+\]</span></p>
+<p><strong>Reasoning:</strong></p>
+<ol type="1">
+<li>Start with <span class="math inline">\(n\)</span> identical items (stars).<br>
+</li>
+<li>Pre-allocate the required <span class="math inline">\(x_i\)</span> to each category <span class="math inline">\(C_i\)</span>. After this, <span class="math inline">\(n' = n - (x_1 + x_2 + \dots + x_k)\)</span> remain unassigned.<br>
+</li>
+<li>Distribute these remaining <span class="math inline">\(n'\)</span> items freely (possibly zero) among the <span class="math inline">\(k\)</span> labeled categories — a <strong>stars and bars</strong> situation.</li>
+</ol>
 </section></section>
 <section>
-<section id="summations" class="title-slide slide level1 center">
-<h1>Summations</h1>
+<section id="exploration-2-binomial-coefficients" class="title-slide slide level1 center">
+<h1>Exploration 2: Binomial Coefficients</h1>
 
 </section>
-<section id="toothpicks" class="slide level2 activity">
-<h2>Toothpicks</h2>
-<p>How many toothpicks in an <span class="math inline">\(n\cross n\)</span> grid made of toothpicks?</p>
-<p><br>
-</p>
-<p>Draw the sequence:</p>
+<section id="counting-all-groupings" class="slide level2 smaller">
+<h2>Counting All Groupings</h2>
+<p>Among <strong>10 students</strong>, each will choose either <strong>AI</strong> or <strong>Data Science</strong> for a class project.</p>
+<div class="columns">
+<div class="column" style="width:30%;">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: center;">Student</th>
+<th style="text-align: center;">Choice</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">🤖📊</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">🤖📊</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">⋮</td>
+<td style="text-align: center;">⋮</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">🤖📊</td>
+</tr>
+</tbody>
+</table>
+</div><div class="column" style="width:30%;">
 <p>&nbsp;</p>
-<p>Find the recurrence:</p>
-<p>&nbsp;</p>
-<p>Solve the closed form for the recurrence:</p>
+<p><span class="math display">\[
+\Rightarrow 2^{10} \text{ unique groups }
+\]</span></p>
+</div></div>
+<p>But notice that each of those choices has some number, <span class="math inline">\(k\)</span>, of DSci. How many ways are there to choose <span class="math inline">\(k\)</span> students for DSci, from among the 10?</p>
+<p>This is true for any <span class="math inline">\(k\)</span>, so we must have:</p>
+<p><span class="math display">\[
+\binom{10}{0} + \binom{10}{1} + \cdots + \binom{10}{10} = 2^{10}.
+\]</span></p>
+<p>This is the <strong>sum of binomial coefficients</strong> identity — each term counts the groupings with <em>exactly</em> <span class="math inline">\(k\)</span> DSci projects, and the sum counts <strong>all possible configurations</strong>.</p>
+</section></section>
+<section>
+<section id="exploration-3-multinomials" class="title-slide slide level1 center">
+<h1>Exploration 3: Multinomials</h1>
+
 </section>
-<section id="buds" class="slide level2">
-<h2>Buds</h2>
-</section>
-<section id="affine-cipher-explicit-encodedecode" class="slide level2">
-<h2>Affine Cipher (explicit encode/decode)</h2>
-<p><strong>Alphabet.</strong> Map letters <span class="math inline">\(A\!\to\!0,\ B\!\to\!1,\ \dots,\ Z\!\to\!25\)</span> (ignore spaces/punctuation).</p>
-<p><strong>Key.</strong> Choose <span class="math inline">\(a=9,\ b=5,\ m=26\)</span>. Since <span class="math inline">\(\gcd(9,26)=1\)</span>, <span class="math inline">\(a^{-1}\equiv 3\pmod{26}\)</span>.</p>
-<p><strong>Encrypt.</strong> <span class="math inline">\(E(x)\equiv (9x+5)\bmod 26\)</span><br>
-<strong>Decrypt.</strong> <span class="math inline">\(D(y)\equiv a^{-1}(y-b)\equiv 3(y-5)\bmod 26\)</span></p>
-<p><strong>Example (plaintext):</strong> <code>DATA SCIENCE</code></p>
-<ul>
-<li>Numbers: <span class="math inline">\(D\,A\,T\,A\,S\,C\,I\,E\,N\,C\,E\ \to\ 3,0,19,0,18,2,8,4,13,2,4\)</span></li>
-<li>Encrypt via <span class="math inline">\(9x+5\)</span> (mod <span class="math inline">\(26\)</span>): <span class="math display">\[
-3\!\to\!6,\ 0\!\to\!5,\ 19\!\to\!20,\ 0\!\to\!5,\ 18\!\to\!11,\ 2\!\to\!23,\ 8\!\to\!25,\ 4\!\to\!15,\ 13\!\to\!18,\ 2\!\to\!23,\ 4\!\to\!15
-\]</span></li>
-<li>Back to letters: <span class="math inline">\(6,5,20,5,11,23,25,15,18,23,15\ \to\ \texttt{GFUF LXZPSXP}\)</span></li>
-</ul>
-<p><strong>Quick decode check.</strong> <span class="math inline">\(G(6)\ \mapsto\ D(3)\)</span> because <span class="math inline">\(D(6)=3(6-5)\equiv 3\pmod{26}\)</span>;<br>
-<span class="math inline">\(X(23)\ \mapsto\ C(2)\)</span> since <span class="math inline">\(D(23)=3(23-5)=54\equiv 2\pmod{26}\)</span>.</p>
-<p><em>Data-science tie:</em> solving <span class="math inline">\(ax\equiv b\pmod{26}\)</span> is the same modular-inverse algebra behind simple substitution ciphers and modular encodings.</p>
-</section>
-<section id="crt-as-two-dials" class="slide level2">
-<h2>CRT as “Two Dials”</h2>
-<p><strong>Picture.</strong> Two clock faces: - Dial A: mod <span class="math inline">\(m_1\)</span> (ticks <span class="math inline">\(0,\dots,m_1-1\)</span>) - Dial B: mod <span class="math inline">\(m_2\)</span> (ticks <span class="math inline">\(0,\dots,m_2-1\)</span>)</p>
-<p>Advance <strong>one tick</strong> of absolute time <span class="math inline">\(\Rightarrow\)</span> both hands advance by <span class="math inline">\(+1\)</span> (wrapping around). Solving <span class="math inline">\(x\equiv a\pmod{m_1},\ x\equiv b\pmod{m_2}\)</span> means: &gt; Find the absolute tick <span class="math inline">\(x\)</span> where Dial A reads <span class="math inline">\(a\)</span> <strong>and</strong> Dial B reads <span class="math inline">\(b\)</span> simultaneously.</p>
-<p><em>Why it works:</em> If <span class="math inline">\(\gcd(m_1,m_2)=1\)</span>, the pair of readings cycles through <strong>every</strong> <span class="math inline">\((r_1,r_2)\)</span> exactly once in <span class="math inline">\(0,\dots,m_1m_2-1\)</span>.</p>
-</section>
-<section id="two-dials-worked-example" class="slide level2">
-<h2>Two Dials — Worked Example</h2>
-<p><strong>Puzzle.</strong> Find <span class="math inline">\(x\)</span> with <span class="math inline">\(x\equiv 2\pmod 3\)</span> and <span class="math inline">\(x\equiv 1\pmod 5\)</span>.</p>
-<p><strong>Dial states (absolute tick <span class="math inline">\(\to\)</span> readings):</strong></p>
-<p><span class="math inline">\(0\!\to\!(0,0),\ 1\!\to\!(1,1),\ 2\!\to\!(2,2),\ 3\!\to\!(0,3),\ 4\!\to\!(1,4),\ 5\!\to\!(2,0),\ 6\!\to\!(0,1),\ 7\!\to\!(1,2),\ 8\!\to\!(2,3),\ 9\!\to\!(0,4),\ 10\!\to\!(1,0),\ 11\!\to\!(2,1),\ 12\!\to\!(0,2),\ 13\!\to\!(1,3),\ 14\!\to\!(2,4)\)</span></p>
-<p>We need <span class="math inline">\((2,1)\)</span> <span class="math inline">\(\Rightarrow\)</span> occurs at <strong>tick <span class="math inline">\(11\)</span></strong>.<br>
-<strong>Answer:</strong> <span class="math inline">\(x\equiv 11\pmod{15}\)</span>.</p>
-</section>
-<section id="two-dials-algebra-behind-the-picture" class="slide level2">
-<h2>Two Dials — Algebra Behind the Picture</h2>
-<p>Given <span class="math inline">\(x\equiv a\pmod{m_1},\ x\equiv b\pmod{m_2}\)</span> with <span class="math inline">\(\gcd(m_1,m_2)=1\)</span>:</p>
+<section id="adding-a-third-choice" class="slide level2 smaller">
+<h2>Adding a Third Choice 🤖📊📈</h2>
+<p>Our 10 students can now choose a project in <strong>AI</strong>, <strong>Data Science</strong>, or <strong>Statistics</strong>.</p>
+<p><strong>Question:</strong><br>
+How many different ways can the class’s choices be distributed?</p>
+<div class="columns">
+<div class="column" style="width:40%;">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Category</th>
+<th style="text-align: center;">Symbol</th>
+<th style="text-align: center;">Count</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>AI</td>
+<td style="text-align: center;">🤖</td>
+<td style="text-align: center;"><span class="math inline">\(x_1\)</span></td>
+</tr>
+<tr class="even">
+<td>DSci</td>
+<td style="text-align: center;">📊</td>
+<td style="text-align: center;"><span class="math inline">\(x_2\)</span></td>
+</tr>
+<tr class="odd">
+<td>Stat</td>
+<td style="text-align: center;">📈</td>
+<td style="text-align: center;"><span class="math inline">\(x_3\)</span></td>
+</tr>
+</tbody>
+</table>
+</div><div class="column" style="width:30%;">
+<p>Each student picks exactly one category, so:</p>
+<p><span class="math display">\[
+x_1 + x_2 + x_3 = 10
+\]</span></p>
+</div></div>
+<p><strong>Count as a sequence of combination steps:</strong></p>
 <ol type="1">
-<li>Write <span class="math inline">\(x=a+m_1t\)</span>.<br>
+<li>Choose <span class="math inline">\(x_1\)</span> students for AI: <span class="math inline">\(\binom{10}{x_1}\)</span><br>
 </li>
-<li>Plug in: <span class="math inline">\(a+m_1t\equiv b\pmod{m_2}\ \Rightarrow\ m_1 t\equiv b-a\pmod{m_2}\)</span>.<br>
+<li>From the remaining <span class="math inline">\(10 - x_1\)</span>, choose <span class="math inline">\(x_2\)</span> for DSci: <span class="math inline">\(\binom{10 - x_1}{x_2}\)</span><br>
 </li>
-<li>Since <span class="math inline">\(\gcd(m_1,m_2)=1\)</span>, <span class="math inline">\(m_1\)</span> has an inverse <span class="math inline">\((m_1)^{-1}\pmod{m_2}\)</span>, so<br>
-<span class="math inline">\(t\equiv (b-a)\,(m_1)^{-1}\pmod{m_2}\)</span>.<br>
-</li>
-<li>Substitute back: <span class="math inline">\(x=a+m_1 t\)</span> and reduce <span class="math inline">\(\bmod\ m_1m_2\)</span>.</li>
+<li>The rest automatically do Stat.</li>
 </ol>
-<p><strong>Example recap (3 &amp; 5).</strong><br>
-<span class="math inline">\(x=2+3t\)</span>, and <span class="math inline">\(3t\equiv 1-2\equiv -1\equiv 4\ (\bmod 5)\)</span>.<br>
-<span class="math inline">\(3^{-1}\equiv 2\ (\bmod 5)\)</span>, so <span class="math inline">\(t\equiv 4\cdot2\equiv 8\equiv 3\ (\bmod 5)\)</span>.<br>
-Thus <span class="math inline">\(x=2+3\cdot 3=11\ (\bmod 15)\)</span>.</p>
+</section>
+<section id="continued" class="slide level2 smaller">
+<h2>🤖📊📈 continued</h2>
+<p>For each of the <span class="math inline">\(\binom{10}{x_1}\)</span> choices of AI, there are <span class="math inline">\(\binom{10 - x_1}{x_2}\)</span> choices of DSCI, and the rest are Stat.</p>
+<p><span class="math display">\[
+\text{Total} =
+\binom{10}{x_1} \binom{10 - x_1}{x_2}
+= \frac{10!}{x_1!x_2!(10 - x_1 - x_2)!}
+\]</span></p>
+<p><strong>Generalizing to <span class="math inline">\(k\)</span> categories:</strong></p>
+<p>If <span class="math inline">\(n\)</span> students choose among <span class="math inline">\(k\)</span> labeled categories with counts <span class="math inline">\(x_1,\dots,x_k\)</span>:</p>
+<p><span class="math display">\[
+\binom{n}{x_1,x_2,\ldots,x_k} = \frac{n!}{x_1!x_2!\cdots x_k!}
+\]</span></p>
+</section>
+<section id="counting-all-multinomial-outcomes" class="slide level2 smaller">
+<h2>Counting All Multinomial Outcomes</h2>
+<p>We’ve seen how <strong>two categories</strong> led to:</p>
+<p><span class="math display">\[
+\sum_{k=0}^{n} \binom{n}{k} = 2^n
+\]</span></p>
+<p>Now each student chooses <strong>one of three</strong> project types: 🤖 <strong>AI</strong>, 📊 <strong>Data Science</strong>, or 📈 <strong>Statistics</strong></p>
+<p>For each possible triple <span class="math inline">\((x_1, x_2, x_3)\)</span> with <span class="math inline">\(x_1 + x_2 + x_3 = n\)</span>, the number of ways to assign projects is:</p>
+<p><span class="math display">\[
+\binom{n}{x_1, x_2, x_3} = \frac{n!}{x_1!x_2!x_3!}
+\]</span></p>
+<p>If we add them all up — over every valid triple:</p>
+<p><span class="math display">\[
+\sum_{x_1+x_2+x_3=n}
+\binom{n}{x_1, x_2, x_3}
+= 3^n
+\]</span></p>
+</section>
+<section id="multinomials-in-general" class="slide level2 smaller">
+<h2>Multinomials in General</h2>
+<p>What is the result if there are <span class="math inline">\(k\)</span> choices?</p>
+<ul>
+<li>Each student independently chooses one of <strong><span class="math inline">\(k\)</span></strong> categories for <span class="math inline">\(k^n\)</span> outcomes.<br>
+</li>
+<li>Each <strong>multinomial coefficient</strong> counts <em>how many outcomes share the same totals</em> <span class="math inline">\((x_1,x_2,\ldots x_k)\)</span>.<br>
+</li>
+<li>Summing across all possible totals reconstructs all outcomes.</li>
+</ul>
+<p><span class="math display">\[
+\sum_{x_1+x_2+\ldots x_k=n}
+\binom{n}{x_1, x_2, \ldots x_k}
+= k^n
+\]</span></p>
+<aside class="notes">
+<blockquote>
+<p><strong>Notes:</strong><br>
+- This is the natural generalization of the binomial identity.<br>
+- You can phrase it as: “Combinations classify a two-way choice; multinomials classify a multi-way choice.”<br>
+- The pattern will reappear when you expand ((x_1 + x_2 + x_3)^n).</p>
+</blockquote>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 
 
 <script type="ojs-module-contents">

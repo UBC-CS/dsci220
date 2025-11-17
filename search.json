@@ -970,232 +970,298 @@
     "text": "Words and Ideas\nLogical Equivalence\nImplication"
   },
   {
-    "objectID": "slides/06_tue_asymptotics2.html#announcements",
-    "href": "slides/06_tue_asymptotics2.html#announcements",
+    "objectID": "slides/09_wed_dfa.html#announcements",
+    "href": "slides/09_wed_dfa.html#announcements",
     "title": "Discrete Math for Data Science",
     "section": "Announcements",
     "text": "Announcements"
   },
   {
-    "objectID": "slides/06_tue_asymptotics2.html#big-o-strategy",
-    "href": "slides/06_tue_asymptotics2.html#big-o-strategy",
+    "objectID": "slides/09_wed_dfa.html#goals",
+    "href": "slides/09_wed_dfa.html#goals",
     "title": "Discrete Math for Data Science",
-    "section": "Big O Strategy",
-    "text": "Big O Strategy\n\nGoal. To prove \\(f(n)=O(g(n))\\), show there exist constants \\(c&gt;0\\) and \\(n_0\\) such that\nfor all \\(n\\ge n_0\\), \\(f(n)\\le c\\,g(n)\\).\n\nPick your region.\nChoose \\(n_0\\) where simple comparisons are true (e.g., for \\(n\\ge 1\\), \\(n^2\\ge n\\); for \\(n\\ge e\\), \\(\\log n\\ge 1\\)).\nDominate each term by \\(g(n)\\).\nOn \\(n\\ge n_0\\), bound every term of \\(f\\) by a constant multiple of \\(g\\):\n\\(f(n)=\\text{(term}_1)+\\dots+\\text{(term}_k)\\ \\le\\ a_1 g(n)+\\dots+a_k g(n)\\).\nAdd and name the constant.\nSum the multipliers: \\(f(n)\\le (a_1+\\cdots+a_k)\\,g(n)\\).\nSet \\(c=a_1+\\cdots+a_k\\).\nState the line that matters.\n“For all \\(n\\ge n_0\\), \\(f(n)\\le c\\,g(n)\\). Therefore \\(f(n)=O(g(n))\\).”"
+    "section": "Goals",
+    "text": "Goals\n\nRecall a regex is a set of strings (a language).\nBuild small DFAs that recognize those sets.\nUse closure tricks (∪, ∩, complement) to combine DFAs."
   },
   {
-    "objectID": "slides/06_tue_asymptotics2.html#prove-an-asymptotic-upper-bound",
-    "href": "slides/06_tue_asymptotics2.html#prove-an-asymptotic-upper-bound",
+    "objectID": "slides/09_wed_dfa.html#two-views-on-regular-expressions",
+    "href": "slides/09_wed_dfa.html#two-views-on-regular-expressions",
     "title": "Discrete Math for Data Science",
-    "section": "Prove an Asymptotic Upper Bound",
-    "text": "Prove an Asymptotic Upper Bound\nClaim: \\(n^3+100n^2\\log n=O(n^3)\\)\nProof:"
+    "section": "Two views on Regular Expressions",
+    "text": "Two views on Regular Expressions\n\n\n\n\n\n\n\n\nMeaning\nIn Python/Pandas\nAnchors\n\n\n\n\nFull-string match\nre.fullmatch(r'(bb+|c[ac]*|b?)', s)df['col'].str.fullmatch(r'(bb+|c[ac]*|b?)')\nUse ^ and $: r'^(...)$'\n\n\nSubstring search\nre.search(r'(bb+|c[ac]*|b?)', s)df['col'].str.contains(r'(bb+|c[ac]*|b?)')\nnone"
   },
   {
-    "objectID": "slides/06_tue_asymptotics2.html#big-o-game",
-    "href": "slides/06_tue_asymptotics2.html#big-o-game",
+    "objectID": "slides/09_wed_dfa.html#warm-up",
+    "href": "slides/09_wed_dfa.html#warm-up",
     "title": "Discrete Math for Data Science",
-    "section": "Big-O Game",
-    "text": "Big-O Game\nFill in the blanks with an appropriate response:\n\n\\(5n^4+2n^3+7 = O(\\)______\\()\\)\n\n \n\n\\(20n+4\\sqrt n = O(\\)______\\()\\)\n\n \n\n\\(37\\log n^2 = O(\\)______\\()\\)"
+    "section": "Warm-Up",
+    "text": "Warm-Up\nPattern: ^(0|1)*11(0|1)*$\nWhich strings are in the set?\n\n10101\n\n11010\n\n10001\n\n10110\n\n\nAnswer: 11010, 10110. emphasize that we are reading the string from left to right."
   },
   {
-    "objectID": "slides/06_tue_asymptotics2.html#big-o-hot-takes",
-    "href": "slides/06_tue_asymptotics2.html#big-o-hot-takes",
+    "objectID": "slides/09_wed_dfa.html#contains-11",
+    "href": "slides/09_wed_dfa.html#contains-11",
     "title": "Discrete Math for Data Science",
-    "section": "Big-O Hot Takes",
-    "text": "Big-O Hot Takes\n\nTo find a simple asymptotic upper bound of \\(f(n)\\), ignore lower order terms.\nand ignore constant coefficients.\nA tight bound is most useful, but looser bounds fit the definition.\nThere is an equivalent definition for an asymptotic lower bound, called “big-Omega” (\\(\\Omega\\)).\nAnd finally, if functions are both \\(\\leq\\) (big-O) and \\(\\geq\\) (big-Omega) then they are said to be “big-Theta” of one another (\\(\\Theta\\)). This is “asymptotic equality.”"
+    "section": "Contains 11",
+    "text": "Contains 11\nAlphabet: {0,1}\nStates:\n\nS0: have seen no 1s (start)\nS1: just saw a 1\nS2: saw substring 11 (accepting)\n\nDFA Sketch:\n\nRun a couple examples on the board: 101101 (accept), 101010 (reject). key elements: 0) input alphabet 1) set of states. 2) start state, 3) transition function, 4) set of accept states."
   },
   {
-    "objectID": "slides/06_tue_asymptotics2.html#disproving-big-o",
-    "href": "slides/06_tue_asymptotics2.html#disproving-big-o",
+    "objectID": "slides/09_wed_dfa.html#dfa-ideas",
+    "href": "slides/09_wed_dfa.html#dfa-ideas",
     "title": "Discrete Math for Data Science",
-    "section": "Disproving Big-O",
-    "text": "Disproving Big-O\nSuppose someone claims\n\\[n^2\\log n = O(n^2).\\]\nAre they correct? _____\nHow can you disprove?"
+    "section": "DFA Ideas",
+    "text": "DFA Ideas\nProcess a string from left to right, one character at a time.\n\nState: what the prefix tells us so far.\nAccept iff we finish in an accepting state.\nDeterministic: at most one transition per symbol from every state.\nTotal: every state has a transition on every symbol."
   },
   {
-    "objectID": "slides/06_tue_asymptotics2.html#reinforcing-intuition",
-    "href": "slides/06_tue_asymptotics2.html#reinforcing-intuition",
+    "objectID": "slides/09_wed_dfa.html#dfa-definition",
+    "href": "slides/09_wed_dfa.html#dfa-definition",
     "title": "Discrete Math for Data Science",
-    "section": "Reinforcing Intuition",
-    "text": "Reinforcing Intuition\n \nPrairieLearn Activity"
+    "section": "DFA Definition",
+    "text": "DFA Definition\nA Deterministic Finite Automaton consists of the following:\n\na set of states \\(S\\)\na finite alphabet \\(\\Sigma\\)\na transition function \\(f\\) that assigns a next state to each \\((s, i)\\) pair, \\(s\\in S\\) and \\(i\\in \\Sigma\\).\na start state \\(s_0\\)\na set of accepting states \\(F\\subseteq S\\)"
   },
   {
-    "objectID": "slides/03_mon_quant2.html#announcements",
-    "href": "slides/03_mon_quant2.html#announcements",
+    "objectID": "slides/09_wed_dfa.html#regex-dfa",
+    "href": "slides/09_wed_dfa.html#regex-dfa",
+    "title": "Discrete Math for Data Science",
+    "section": "Regex = DFA",
+    "text": "Regex = DFA\nA language is regular if and only if it is recognized by some DFA."
+  },
+  {
+    "objectID": "slides/09_wed_dfa.html#you-try-ends-with-tea",
+    "href": "slides/09_wed_dfa.html#you-try-ends-with-tea",
+    "title": "Discrete Math for Data Science",
+    "section": "You Try: “Ends with Tea”",
+    "text": "You Try: “Ends with Tea”\nTarget: strings that end with tea\n\nalphabet is lower case letters, here, just to keep it simple.\nWe’ll use this when we do unions, later."
+  },
+  {
+    "objectID": "slides/09_wed_dfa.html#prefix-example-starts-with-iced",
+    "href": "slides/09_wed_dfa.html#prefix-example-starts-with-iced",
+    "title": "Discrete Math for Data Science",
+    "section": "Prefix Example: “Starts with Iced”",
+    "text": "Prefix Example: “Starts with Iced”\nPlan:\n\nChain prefix states; before success, any mismatch → SINK.\nAfter success, loop on any character in ACC.\n\nDiagram:"
+  },
+  {
+    "objectID": "slides/09_wed_dfa.html#one-last-example",
+    "href": "slides/09_wed_dfa.html#one-last-example",
+    "title": "Discrete Math for Data Science",
+    "section": "One Last Example",
+    "text": "One Last Example\nBuild the DFA corresponding to ^0(1*|0*)1$"
+  },
+  {
+    "objectID": "slides/09_wed_dfa.html#closure-tricks",
+    "href": "slides/09_wed_dfa.html#closure-tricks",
+    "title": "Discrete Math for Data Science",
+    "section": "Closure Tricks",
+    "text": "Closure Tricks\nWhat’s closure?\n\nComplement: make the DFA total (add SINK if needed), then flip accept to non-accept, and vice-versa.\nUnion / Intersection:\nStates are pairs (p,q)\n\nUnion accepts if p ∈ F1 or q ∈ F2\nIntersection accepts if p ∈ F1 and q ∈ F2\n\nDifference: L1 - L2 = \\(L1\\cap L2^c\\)\n\n\nThis mirrors set algebra directly; great place to reinforce recent set lessons."
+  },
+  {
+    "objectID": "slides/09_wed_dfa.html#mini-exercise",
+    "href": "slides/09_wed_dfa.html#mini-exercise",
+    "title": "Discrete Math for Data Science",
+    "section": "Mini-Exercise",
+    "text": "Mini-Exercise\nBuild a DFA for the union of:\n\nL1: contains 11 (use the machine we built)\nL2: ends with 00 (three states: Tε, T0, T00)\n\nHint: sketch product states (S_i, T_j) and mark accept pairs for union."
+  },
+  {
+    "objectID": "slides/09_wed_dfa.html#parity-demo",
+    "href": "slides/09_wed_dfa.html#parity-demo",
+    "title": "Discrete Math for Data Science",
+    "section": "Parity Demo",
+    "text": "Parity Demo\nLanguage: even number of 1s over {0,1}.\n\nEVEN (start, accept), ODD\n\non 1: toggle; on 0: stay\n\nTry: which strings of length \\(\\leq\\) 4 accept?"
+  },
+  {
+    "objectID": "slides/misc_skipped.html#announcements",
+    "href": "slides/misc_skipped.html#announcements",
     "title": "Discrete Math for Data Science",
     "section": "Announcements",
-    "text": "Announcements\n\nEnroll in PrairieTest here: https://us.prairietest.com/pt/student/course/12361/enroll/392674810508\nSign up for EX1. Practice materials on PL.\nTutorials begin this week."
+    "text": "Announcements"
   },
   {
-    "objectID": "slides/03_mon_quant2.html#counterexample",
-    "href": "slides/03_mon_quant2.html#counterexample",
+    "objectID": "slides/misc_skipped.html#last-demo",
+    "href": "slides/misc_skipped.html#last-demo",
     "title": "Discrete Math for Data Science",
-    "section": "Counterexample",
-    "text": "Counterexample\nSuppose someone says “all comedians are funny,” and you disagree, how would you refute the statement?\n       \\(\\forall x, C(x)\\rightarrow F(x)\\)\nRefute by negating:\n       \\(\\neg\\forall x, C(x)\\rightarrow F(x)\\)\n     \\(\\equiv\\exists x, \\neg(C(x)\\rightarrow F(x))\\)\n     \\(\\equiv\\exists x, \\neg(F(x)\\vee\\neg C(x))\\)\n     \\(\\equiv\\exists x, \\neg F(x)\\wedge C(x))\\)\nYour immediate response: _(some unfunny comedian)__\nThis evidence of refutation is called a _counterexample_.\nApplies specifically to refuting \\(\\forall\\)"
+    "section": "Last Demo",
+    "text": "Last Demo\nThis is a tromino:     \nThis is a \\(n\\) by \\(n\\) deficient grid:\n\n       \n\n\n\nClaim: Every \\(2^n\\) by \\(2^n\\) deficient grid can be tiled with trominos."
   },
   {
-    "objectID": "slides/03_mon_quant2.html#witness",
-    "href": "slides/03_mon_quant2.html#witness",
+    "objectID": "slides/misc_skipped.html#tile-work",
+    "href": "slides/misc_skipped.html#tile-work",
     "title": "Discrete Math for Data Science",
-    "section": "Witness",
-    "text": "Witness\nSuppose someone says “there is a funny comedian,” and you disagree, how could they justify their statement?\n\n\n       \\(\\exists x, C(x)\\wedge F(x)\\)\n\n\nTheir immediate response: _(a universally funny comedian – Robin Williams)_\nThis evidence of justification is called a _witness_.\nApplies specifically to defending an \\(\\exists\\)\nAside: Why not \\(\\exists x, C(x)\\rightarrow F(x)\\)?"
+    "section": "Tile Work",
+    "text": "Tile Work\nClaim: Every \\(2^n\\) by \\(2^n\\) deficient grid can be tiled with trominos.\n \nProof: Line 1:\n\n\nLine 2:\n \nSmall case(s):"
   },
   {
-    "objectID": "slides/03_mon_quant2.html#code-patterns",
-    "href": "slides/03_mon_quant2.html#code-patterns",
+    "objectID": "slides/misc_skipped.html#tile-work-1",
+    "href": "slides/misc_skipped.html#tile-work-1",
     "title": "Discrete Math for Data Science",
-    "section": "Code Patterns",
-    "text": "Code Patterns"
+    "section": "Tile Work",
+    "text": "Tile Work\nClaim: Every \\(2^n\\) by \\(2^n\\) deficient grid can be tiled with trominos.\n \nProof continued… Inductive case:"
   },
   {
-    "objectID": "slides/03_mon_quant2.html#nested-quantifiers",
-    "href": "slides/03_mon_quant2.html#nested-quantifiers",
+    "objectID": "slides/misc_skipped.html#toothpicks",
+    "href": "slides/misc_skipped.html#toothpicks",
     "title": "Discrete Math for Data Science",
-    "section": "Nested Quantifiers",
-    "text": "Nested Quantifiers\nIt will not surprise you that we can use multiple quantifiers:\n \n     \\(\\forall x, \\forall y \\text{ Knows}(x,y)\\)\n\n\nIn pairs, complete the second worksheet."
+    "section": "Toothpicks",
+    "text": "Toothpicks\nHow many toothpicks in an \\(n\\cross n\\) grid made of toothpicks?\n\n\nDraw the sequence:\n \nFind the recurrence:\n \nSolve the closed form for the recurrence:"
   },
   {
-    "objectID": "slides/03_mon_quant2.html#words-and-ideas",
-    "href": "slides/03_mon_quant2.html#words-and-ideas",
+    "objectID": "slides/misc_skipped.html#buds",
+    "href": "slides/misc_skipped.html#buds",
+    "title": "Discrete Math for Data Science",
+    "section": "Buds",
+    "text": "Buds"
+  },
+  {
+    "objectID": "slides/misc_skipped.html#affine-cipher-explicit-encodedecode",
+    "href": "slides/misc_skipped.html#affine-cipher-explicit-encodedecode",
+    "title": "Discrete Math for Data Science",
+    "section": "Affine Cipher (explicit encode/decode)",
+    "text": "Affine Cipher (explicit encode/decode)\nAlphabet. Map letters \\(A\\!\\to\\!0,\\ B\\!\\to\\!1,\\ \\dots,\\ Z\\!\\to\\!25\\) (ignore spaces/punctuation).\nKey. Choose \\(a=9,\\ b=5,\\ m=26\\). Since \\(\\gcd(9,26)=1\\), \\(a^{-1}\\equiv 3\\pmod{26}\\).\nEncrypt. \\(E(x)\\equiv (9x+5)\\bmod 26\\)\nDecrypt. \\(D(y)\\equiv a^{-1}(y-b)\\equiv 3(y-5)\\bmod 26\\)\nExample (plaintext): DATA SCIENCE\n\nNumbers: \\(D\\,A\\,T\\,A\\,S\\,C\\,I\\,E\\,N\\,C\\,E\\ \\to\\ 3,0,19,0,18,2,8,4,13,2,4\\)\nEncrypt via \\(9x+5\\) (mod \\(26\\)): \\[\n3\\!\\to\\!6,\\ 0\\!\\to\\!5,\\ 19\\!\\to\\!20,\\ 0\\!\\to\\!5,\\ 18\\!\\to\\!11,\\ 2\\!\\to\\!23,\\ 8\\!\\to\\!25,\\ 4\\!\\to\\!15,\\ 13\\!\\to\\!18,\\ 2\\!\\to\\!23,\\ 4\\!\\to\\!15\n\\]\nBack to letters: \\(6,5,20,5,11,23,25,15,18,23,15\\ \\to\\ \\texttt{GFUF LXZPSXP}\\)\n\nQuick decode check. \\(G(6)\\ \\mapsto\\ D(3)\\) because \\(D(6)=3(6-5)\\equiv 3\\pmod{26}\\);\n\\(X(23)\\ \\mapsto\\ C(2)\\) since \\(D(23)=3(23-5)=54\\equiv 2\\pmod{26}\\).\nData-science tie: solving \\(ax\\equiv b\\pmod{26}\\) is the same modular-inverse algebra behind simple substitution ciphers and modular encodings."
+  },
+  {
+    "objectID": "slides/misc_skipped.html#crt-as-two-dials",
+    "href": "slides/misc_skipped.html#crt-as-two-dials",
+    "title": "Discrete Math for Data Science",
+    "section": "CRT as “Two Dials”",
+    "text": "CRT as “Two Dials”\nPicture. Two clock faces: - Dial A: mod \\(m_1\\) (ticks \\(0,\\dots,m_1-1\\)) - Dial B: mod \\(m_2\\) (ticks \\(0,\\dots,m_2-1\\))\nAdvance one tick of absolute time \\(\\Rightarrow\\) both hands advance by \\(+1\\) (wrapping around). Solving \\(x\\equiv a\\pmod{m_1},\\ x\\equiv b\\pmod{m_2}\\) means: &gt; Find the absolute tick \\(x\\) where Dial A reads \\(a\\) and Dial B reads \\(b\\) simultaneously.\nWhy it works: If \\(\\gcd(m_1,m_2)=1\\), the pair of readings cycles through every \\((r_1,r_2)\\) exactly once in \\(0,\\dots,m_1m_2-1\\)."
+  },
+  {
+    "objectID": "slides/misc_skipped.html#two-dials-worked-example",
+    "href": "slides/misc_skipped.html#two-dials-worked-example",
+    "title": "Discrete Math for Data Science",
+    "section": "Two Dials — Worked Example",
+    "text": "Two Dials — Worked Example\nPuzzle. Find \\(x\\) with \\(x\\equiv 2\\pmod 3\\) and \\(x\\equiv 1\\pmod 5\\).\nDial states (absolute tick \\(\\to\\) readings):\n\\(0\\!\\to\\!(0,0),\\ 1\\!\\to\\!(1,1),\\ 2\\!\\to\\!(2,2),\\ 3\\!\\to\\!(0,3),\\ 4\\!\\to\\!(1,4),\\ 5\\!\\to\\!(2,0),\\ 6\\!\\to\\!(0,1),\\ 7\\!\\to\\!(1,2),\\ 8\\!\\to\\!(2,3),\\ 9\\!\\to\\!(0,4),\\ 10\\!\\to\\!(1,0),\\ 11\\!\\to\\!(2,1),\\ 12\\!\\to\\!(0,2),\\ 13\\!\\to\\!(1,3),\\ 14\\!\\to\\!(2,4)\\)\nWe need \\((2,1)\\) \\(\\Rightarrow\\) occurs at tick \\(11\\).\nAnswer: \\(x\\equiv 11\\pmod{15}\\)."
+  },
+  {
+    "objectID": "slides/misc_skipped.html#two-dials-algebra-behind-the-picture",
+    "href": "slides/misc_skipped.html#two-dials-algebra-behind-the-picture",
+    "title": "Discrete Math for Data Science",
+    "section": "Two Dials — Algebra Behind the Picture",
+    "text": "Two Dials — Algebra Behind the Picture\nGiven \\(x\\equiv a\\pmod{m_1},\\ x\\equiv b\\pmod{m_2}\\) with \\(\\gcd(m_1,m_2)=1\\):\n\nWrite \\(x=a+m_1t\\).\n\nPlug in: \\(a+m_1t\\equiv b\\pmod{m_2}\\ \\Rightarrow\\ m_1 t\\equiv b-a\\pmod{m_2}\\).\n\nSince \\(\\gcd(m_1,m_2)=1\\), \\(m_1\\) has an inverse \\((m_1)^{-1}\\pmod{m_2}\\), so\n\\(t\\equiv (b-a)\\,(m_1)^{-1}\\pmod{m_2}\\).\n\nSubstitute back: \\(x=a+m_1 t\\) and reduce \\(\\bmod\\ m_1m_2\\).\n\nExample recap (3 & 5).\n\\(x=2+3t\\), and \\(3t\\equiv 1-2\\equiv -1\\equiv 4\\ (\\bmod 5)\\).\n\\(3^{-1}\\equiv 2\\ (\\bmod 5)\\), so \\(t\\equiv 4\\cdot2\\equiv 8\\equiv 3\\ (\\bmod 5)\\).\nThus \\(x=2+3\\cdot 3=11\\ (\\bmod 15)\\)."
+  },
+  {
+    "objectID": "slides/01_fri_truth.html#communications",
+    "href": "slides/01_fri_truth.html#communications",
+    "title": "Discrete Math for Data Science",
+    "section": "Communications",
+    "text": "Communications\n\n\n📧 Email cheeren@cs.ubc.ca\nChecked daily. Please place “DSCI220” in subject!\n   Piazza piazza.com/ubc.ca/winterterm12025/dsci220\nPost questions for quick response.\n🏫 Office Hours\n\n\n\n\n\n\n\n\n\n\nName\nTime\nLocation & Zoom\n\n\n\n\nCinda\nMon 2–4pm\n🏢 ICCS 233 · \n\n\nJoe\nFri 11-12a\n🏢 FORW 317\n\n\nMarko\nTue 1:30-2:30p\n🏢 TBD"
+  },
+  {
+    "objectID": "slides/01_fri_truth.html#truth",
+    "href": "slides/01_fri_truth.html#truth",
+    "title": "Discrete Math for Data Science",
+    "section": "Truth",
+    "text": "Truth\nMake at least 3 observations about the following table:\n\n\n\n\n\n\\(p\\)\n\\(q\\)\n\\(p \\lor q\\)\n\n\n\n\nF\nF\nF\n\n\nF\nT\nT\n\n\nT\nF\nT\n\n\nT\nT\nT"
+  },
+  {
+    "objectID": "slides/01_fri_truth.html#summary",
+    "href": "slides/01_fri_truth.html#summary",
+    "title": "Discrete Math for Data Science",
+    "section": "Summary",
+    "text": "Summary\nKey observations about the table:\n\n\n\n\n\n\\(p\\)\n\\(q\\)\n\\(p \\lor q\\)\n\n\n\n\nF\nF\nF\n\n\nF\nT\nT\n\n\nT\nF\nT\n\n\nT\nT\nT\n\n\n\n\n\nThe diagram is called a Truth Table\np and q are variables, each of which take on one of two Boolean values, True or False (T/F, 1/0)\n∨ is a binary operator that implements a function (creates output) from the 2 input variables to another Boolean value. It is characterized by its output values.\nThe operator ∨ corresponds to the English word or.\nThe expression p ∨ q is called a proposition."
+  },
+  {
+    "objectID": "slides/01_fri_truth.html#foreshadowing",
+    "href": "slides/01_fri_truth.html#foreshadowing",
+    "title": "Discrete Math for Data Science",
+    "section": "Foreshadowing",
+    "text": "Foreshadowing\n\n\n\n\n\n\\(p\\)\n\\(q\\)\n\\(p \\lor q\\)\n\n\n\n\nF\nF\nF\n\n\nF\nT\nT\n\n\nT\nF\nT\n\n\nT\nT\nT\n\n\n\n\n\nHow many rows for a proposition on 3 variables? \\(k\\) variables?\nGive a good name for an operator that takes 1 variable: __________\nGive a good name for an operator that takes 3 variables: __________\nHow many different binary operators could there be?\n\n\n\n  \n    −\n    +\n \n 06:00\n \n\nchallenge: Of all binary operators, how many are commutative? (Half: 8.)"
+  },
+  {
+    "objectID": "slides/01_fri_truth.html#truth-tables",
+    "href": "slides/01_fri_truth.html#truth-tables",
+    "title": "Discrete Math for Data Science",
+    "section": "Truth Tables",
+    "text": "Truth Tables\nAll graded learning activities in the course will use a tool called PrairieLearn.\nNavigate to today’s activity and complete question 1\nhttps://us.prairielearn.com/pl/course_instance/186238/\n\n  \n    −\n    +\n \n 10:00"
+  },
+  {
+    "objectID": "slides/01_fri_truth.html#beyond-operators",
+    "href": "slides/01_fri_truth.html#beyond-operators",
+    "title": "Discrete Math for Data Science",
+    "section": "Beyond Operators",
+    "text": "Beyond Operators\nPropositions can be more complex than just a single operator!\nExample:\n\n\n\n\\(p\\)\n\\(q\\)\n_____\n\\(\\neg(p \\lor q)\\)\n\n\n\n\nF\nF\n\nT\n\n\nF\nT\n\nF\n\n\nT\nF\n\nF\n\n\nT\nT\n\nF"
+  },
+  {
+    "objectID": "slides/01_fri_truth.html#wffs",
+    "href": "slides/01_fri_truth.html#wffs",
+    "title": "Discrete Math for Data Science",
+    "section": "WFFs",
+    "text": "WFFs\nA well-formed formula is a Boolean statement generated by the following rules:\n&lt;wff&gt; ::= &lt;atom&gt;\n        | ~ &lt;wff&gt;\n        | ( &lt;wff&gt; ∧ &lt;wff&gt; )\n        | ( &lt;wff&gt; ∨ &lt;wff&gt; )\n\n&lt;atom&gt; ::= p | q | r | s | ...\nThis definition is in the form of a Grammar.\n_____________: &lt;wff&gt; and &lt;atom&gt;\n_____________: p, q, r, s …\nIt is our first self-referential or recursive definition."
+  },
+  {
+    "objectID": "slides/01_fri_truth.html#wffs-1",
+    "href": "slides/01_fri_truth.html#wffs-1",
+    "title": "Discrete Math for Data Science",
+    "section": "WFFs",
+    "text": "WFFs\n&lt;wff&gt; ::= &lt;atom&gt;\n        | ~ &lt;wff&gt;\n        | ( &lt;wff&gt; ∧ &lt;wff&gt; )\n        | ( &lt;wff&gt; ∨ &lt;wff&gt; )\n\n&lt;atom&gt; ::= p | q \nExample derivation:\n&lt;wff&gt;"
+  },
+  {
+    "objectID": "slides/01_fri_truth.html#wffs-notes",
+    "href": "slides/01_fri_truth.html#wffs-notes",
+    "title": "Discrete Math for Data Science",
+    "section": "WFFs (Notes)",
+    "text": "WFFs (Notes)\n&lt;wff&gt; ::= &lt;atom&gt;\n        | ~ &lt;wff&gt;\n        | ( &lt;wff&gt; ∧ &lt;wff&gt; )\n        | ( &lt;wff&gt; ∨ &lt;wff&gt; )\n\n&lt;atom&gt; ::= p | q \n\nGrammars can be used to construct many different kinds of sequences.\nWe could have included additional operators \\(\\rightarrow\\), \\(\\leftrightarrow\\), \\(\\oplus\\), \\(\\uparrow\\)\nComputational evaluation of &lt;wff&gt;is covered in DSCI221. For now, we trust Python and focus on logic.\nThe &lt;wff&gt; are propositions."
+  },
+  {
+    "objectID": "slides/01_fri_truth.html#wff-puzzle",
+    "href": "slides/01_fri_truth.html#wff-puzzle",
+    "title": "Discrete Math for Data Science",
+    "section": "WFF Puzzle",
+    "text": "WFF Puzzle\nWhich of these are WFFs?\n&lt;wff&gt; ::= &lt;atom&gt;\n        | ~ &lt;wff&gt;\n        | ( &lt;wff&gt; ∧ &lt;wff&gt; )\n        | ( &lt;wff&gt; ∨ &lt;wff&gt; )\n\n&lt;atom&gt; ::= p | q \n\n\n\n\\((\\neg p ∧ (q ∨ r))\\)\n\n\\(((p ∧ q) ∨ (r ∧ \\neg s))\\)\n\\(((\\neg p) ∨ (q ∨ r))\\)\n\n\n\n\\((p ∨ (qr))\\)\n\\(\\neg (p ∨ (q ∧ \\neg r))\\)\n\\(\\neg (p ∨ q))\\)\n\n\n\n  \n    −\n    +\n \n 03:00"
+  },
+  {
+    "objectID": "slides/01_fri_truth.html#wffs-2",
+    "href": "slides/01_fri_truth.html#wffs-2",
+    "title": "Discrete Math for Data Science",
+    "section": "WFFs",
+    "text": "WFFs\n&lt;wff&gt; ::= &lt;atom&gt;\n        | ~ &lt;wff&gt;\n        | ( &lt;wff&gt; ∧ &lt;wff&gt; )\n        | ( &lt;wff&gt; ∨ &lt;wff&gt; )\n\n&lt;atom&gt; ::= p | q \nTheorem: \\(\\neg (p ∨ q))\\) is not a WFF.\nProof:"
+  },
+  {
+    "objectID": "slides/01_fri_truth.html#propositions",
+    "href": "slides/01_fri_truth.html#propositions",
+    "title": "Discrete Math for Data Science",
+    "section": "Propositions",
+    "text": "Propositions\nA proposition is a statement that can be either True or False.\nExamples:\n\n\\(37 &gt; 12\\)\nFewer than 5 people in this room feel sleepy.\nThere are extra-terrestrial life forms.\nThis statement is False.\n\\(\\underline{\\hspace{10em}}\\)"
+  },
+  {
+    "objectID": "slides/01_fri_truth.html#translation",
+    "href": "slides/01_fri_truth.html#translation",
+    "title": "Discrete Math for Data Science",
+    "section": "Translation",
+    "text": "Translation\n\n\n\\(p\\): ___________ ate cereal for breakfast.\n\\(q\\): ___________ brought a backpack to class.\n \n\n\\((p\\lor q)\\)\n\\((p\\wedge q)\\)\n\\(\\neg q\\)"
+  },
+  {
+    "objectID": "slides/01_fri_truth.html#predicates",
+    "href": "slides/01_fri_truth.html#predicates",
+    "title": "Discrete Math for Data Science",
+    "section": "Predicates",
+    "text": "Predicates\n\n\n\\(p\\): ___________ ate cereal for breakfast.\n\n\nWe may want to apply the statement to many students, in which case we define a Predicate.\n\n\n\n\\(P(x)\\): \\(x\\) ate cereal for breakfast.\n\\(x\\) can be instantiated to be a particular student, or an arbitrary student.\n\\(P(\\underline{\\hspace{2em}} )\\) is a proposition."
+  },
+  {
+    "objectID": "slides/01_fri_truth.html#logical-equivalence",
+    "href": "slides/01_fri_truth.html#logical-equivalence",
+    "title": "Discrete Math for Data Science",
+    "section": "Logical Equivalence",
+    "text": "Logical Equivalence\n\n\nEx: Is it true that \\((p \\lor q) \\equiv (q\\lor p)\\) ?\n\n\nDiscussion points:\n\n\\(\\equiv\\) means logically equivalent\nThe answer had better be _________!!!\nHow can we justify our instinct?"
+  },
+  {
+    "objectID": "slides/01_fri_truth.html#logical-equivalence-example",
+    "href": "slides/01_fri_truth.html#logical-equivalence-example",
+    "title": "Discrete Math for Data Science",
+    "section": "Logical Equivalence example",
+    "text": "Logical Equivalence example"
+  },
+  {
+    "objectID": "slides/01_fri_truth.html#boolean-masks",
+    "href": "slides/01_fri_truth.html#boolean-masks",
+    "title": "Discrete Math for Data Science",
+    "section": "Boolean Masks",
+    "text": "Boolean Masks\nSelect all the cereals with at least 4 units of protein and no more than 6 units of sugars.\n\n\n\n\n\n\n\n\n\n\nChallenge: In pandas, test De Morgan with missing data: create a row with protein = NaN. Show that (~p) & (~q) can differ from ~(p | q) under three-valued logic; propose a fix (.fillna(False) or careful NA handling)."
+  },
+  {
+    "objectID": "slides/01_fri_truth.html#words-and-ideas",
+    "href": "slides/01_fri_truth.html#words-and-ideas",
     "title": "Discrete Math for Data Science",
     "section": "Words and Ideas",
-    "text": "Words and Ideas\nQuantifiers – “For all” and “There exists”\nCounterexample and Witness\nNegating quantifiers\nNested Quantifiers"
-  },
-  {
-    "objectID": "slides/06_wed_binary copy.html#announcements",
-    "href": "slides/06_wed_binary copy.html#announcements",
-    "title": "Representation as Encoding — Day 1: Binary & Size",
-    "section": "Announcements",
-    "text": "Announcements"
-  },
-  {
-    "objectID": "slides/06_wed_binary copy.html#goals",
-    "href": "slides/06_wed_binary copy.html#goals",
-    "title": "Representation as Encoding — Day 1: Binary & Size",
-    "section": "Goals",
-    "text": "Goals\n\nRead/write binary.\nReason about bit length and capacity.\n\nProve: \\(b\\) bits result in \\(2^b\\) codes, with max value \\(2^b-1\\).\n\nOverflow.\n\nDON’T FORGET THE MAGIC TRICK!"
-  },
-  {
-    "objectID": "slides/06_wed_binary copy.html#place-value",
-    "href": "slides/06_wed_binary copy.html#place-value",
-    "title": "Representation as Encoding — Day 1: Binary & Size",
-    "section": "Place Value",
-    "text": "Place Value\n  Consider an encoding into binary:\n\\[(b_{k-1}\\dots b_1 b_0)_2=\\sum_{i=0}^{k-1} b_i 2^i,\\quad b_i\\in\\{0,1\\}\\]\nWe are not flummoxed by this, because:\n\\[(d_{k-1}\\dots d_1 d_0)_{10}=\\sum_{i=0}^{k-1} d_i 10^i,\\quad d_i\\in\\{0,1,\\ldots,9\\}\\]"
-  },
-  {
-    "objectID": "slides/06_wed_binary copy.html#quantify-the-length",
-    "href": "slides/06_wed_binary copy.html#quantify-the-length",
-    "title": "Representation as Encoding — Day 1: Binary & Size",
-    "section": "Quantify the Length",
-    "text": "Quantify the Length\n \nHow many unique values can we store in \\(n\\) bits?\n \n \nHow many bits to represent \\(m\\) values?\n\nBit length: \\(L(n)=\\lfloor \\log_2 n\\rfloor+1\\) for \\(n\\ge1\\). Emphasize size grows like \\(\\log_2\\). Show a quick table for \\(2^b\\)."
-  },
-  {
-    "objectID": "slides/06_wed_binary copy.html#capacity-quickies",
-    "href": "slides/06_wed_binary copy.html#capacity-quickies",
-    "title": "Representation as Encoding — Day 1: Binary & Size",
-    "section": "Capacity Quickies",
-    "text": "Capacity Quickies\n \nHow many codes with…\n\n8 bits?\n\n12 bits?\n\n \nHow many bits to count to…\n\n\\(500\\)?\n\\(5000\\)?\n\\(1000000\\)?\n\n\nAnswers: \\(2^8=256\\), \\(2^{12}=4096\\), \\(\\lceil\\log_2 500\\rceil=9\\)."
-  },
-  {
-    "objectID": "slides/06_wed_binary copy.html#proof-moment",
-    "href": "slides/06_wed_binary copy.html#proof-moment",
-    "title": "Representation as Encoding — Day 1: Binary & Size",
-    "section": "Proof Moment",
-    "text": "Proof Moment\nClaim: With \\(b\\) bits we can represent \\(2^b\\) values."
-  },
-  {
-    "objectID": "slides/06_wed_binary copy.html#technical-aside",
-    "href": "slides/06_wed_binary copy.html#technical-aside",
-    "title": "Representation as Encoding — Day 1: Binary & Size",
-    "section": "Technical Aside",
-    "text": "Technical Aside\n\nint (pure Python): arbitrary precision (variable width)\nNumPy / Pandas arrays: fixed-width datatypes (int8, int32, int64, uint64, …)\n\n\n\nSigned range: \\([-2^{b-1},\\,2^{b-1}-1]\\); Unsigned range: \\([0,\\,2^b-1]\\).\nTakeaway: the container chooses the encoding (width & signedness).\n\n\nDemo:"
-  },
-  {
-    "objectID": "slides/06_wed_binary copy.html#overflow",
-    "href": "slides/06_wed_binary copy.html#overflow",
-    "title": "Representation as Encoding — Day 1: Binary & Size",
-    "section": "Overflow",
-    "text": "Overflow\nConsider addition, with 4 bits:\n\nannotate 1101_2 + 110_2 and ask students to speculate on 1) how addition works, and how they would describe the overflow. (they’ll say it’s like mod 2^4) With \\(b\\) fixed bits, adding wraps \\(\\bmod 2^b\\).\n\n\n\n \n\n\n \nPunchline: Overflow occurs when the number you want to represent is too big to fit into the space you’ve reserved for it."
-  },
-  {
-    "objectID": "slides/06_wed_binary copy.html#signed-integers",
-    "href": "slides/06_wed_binary copy.html#signed-integers",
-    "title": "Representation as Encoding — Day 1: Binary & Size",
-    "section": "Signed Integers",
-    "text": "Signed Integers\n\n\nUnsigned integers are represented by their encodings as discussed above.\n\n\n\\(b\\) bits typically represent values \\([0..2^b-1]\\).\n\n\nSigned integers have a different encoding (that we won’t discuss) but we can still guess the values that can be encoded:\n\n\n\\(b\\) bits typically represent values ____________."
-  },
-  {
-    "objectID": "slides/06_wed_binary copy.html#activity",
-    "href": "slides/06_wed_binary copy.html#activity",
-    "title": "Representation as Encoding — Day 1: Binary & Size",
-    "section": "Activity",
-    "text": "Activity\nFor each, compute bits needed or max value:\n\nSeats in a 500-seat hall.\n\n12-bit unsigned max.\n\nWorld pop (\\(\\approx 8\\cdot10^9\\) people) bits for unique IDs.\n\nTimestamps for next \\(100\\) years at 1-second resolution.\n\n\n\n9; (2) 4095; (3) \\(\\lceil\\log_2(8e9)\\rceil=33\\); (4) seconds \\(\\approx 3.15e9\\) → 32 bits."
-  },
-  {
-    "objectID": "slides/06_wed_binary copy.html#exit-ticket",
-    "href": "slides/06_wed_binary copy.html#exit-ticket",
-    "title": "Representation as Encoding — Day 1: Binary & Size",
-    "section": "Exit Ticket",
-    "text": "Exit Ticket\nIn words: what does \\(\\lceil\\log_2 N\\rceil\\) tell you?"
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "DSCI 220 was created by Dr. Cinda Heeren. The website shell was set up in Quarto by Dr. Stephan Koenig.",
-    "crumbs": [
-      "About"
-    ]
-  },
-  {
-    "objectID": "about.html#contributors",
-    "href": "about.html#contributors",
-    "title": "About",
-    "section": "",
-    "text": "DSCI 220 was created by Dr. Cinda Heeren. The website shell was set up in Quarto by Dr. Stephan Koenig.",
-    "crumbs": [
-      "About"
-    ]
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "DSCI 220: Discrete Math for Data Science",
-    "section": "",
-    "text": "Instructor: Dr. Cinda Heeren (She, Her)\n\n\n\nContact\n📧 cheeren@cs.ubc.ca\n⏰ Mon 2–4pm appointment\n🏢 ICCS 233 · \n\nClass\nMon/Wed/Fri 11:00-12:00\n317 Frank Forward Building",
-    "crumbs": [
-      "Course information",
-      "Schedule"
-    ]
-  },
-  {
-    "objectID": "index.html#course-information",
-    "href": "index.html#course-information",
-    "title": "DSCI 220: Discrete Math for Data Science",
-    "section": "",
-    "text": "Instructor: Dr. Cinda Heeren (She, Her)\n\n\n\nContact\n📧 cheeren@cs.ubc.ca\n⏰ Mon 2–4pm appointment\n🏢 ICCS 233 · \n\nClass\nMon/Wed/Fri 11:00-12:00\n317 Frank Forward Building",
-    "crumbs": [
-      "Course information",
-      "Schedule"
-    ]
-  },
-  {
-    "objectID": "index.html#most-recent-announcement",
-    "href": "index.html#most-recent-announcement",
-    "title": "DSCI 220: Discrete Math for Data Science",
-    "section": "Most recent announcement",
-    "text": "Most recent announcement\n\n\n\n\nNo matching items\n\n\n\n\n\n\n  \n    \n      Week\n      Mon\n      \n        Mon\n      \n      \n        Tue\n      \n      \n        Wed\n      \n      Lab\n      POTW\n      \n        Examlet\n      \n    \n    \n      S\n      A\n      V\n      S\n      A\n      V\n      S\n      A\n      V\n      Book\n      Due\n      Practice\n    \n  \n  \n    01\nSep 1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    02\nSep 8\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    03\nSep 15\n\n\n\n\n\n\n\n\n\n\n\nEX1\nSep 22\n\n    04\nSep 22\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    05\nSep 29\n\n\n\n\n\n\n\n\n\n\n\nEX2\nOct 5\n\n    06\nOct 6\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    07\nOct 13\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    08\nOct 20\n\n\n\n\n\n\n\n\n\n\n\nEX3\nOct 26\n\n    09\nOct 27\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    10\nNov 3\n\n\n\n\n\n\n\n\n\n\n\nEX4\nNov 9\n\n    11\nNov 10\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    12\nNov 17\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    13\nNov 24\n\n\n\n\n\n\n\n\n\n\n\nEX5\nNov 30\n\n    14\nDec 1",
-    "crumbs": [
-      "Course information",
-      "Schedule"
-    ]
-  },
-  {
-    "objectID": "LICENSE.html",
-    "href": "LICENSE.html",
-    "title": "DSCI 220: Discrete Math for Data Science",
-    "section": "",
-    "text": "Attribution-ShareAlike 4.0 International\n=======================================================================\nCreative Commons Corporation (“Creative Commons”) is not a law firm and does not provide legal services or legal advice. Distribution of Creative Commons public licenses does not create a lawyer-client or other relationship. Creative Commons makes its licenses and related information available on an “as-is” basis. Creative Commons gives no warranties regarding its licenses, any material licensed under their terms and conditions, or any related information. Creative Commons disclaims all liability for damages resulting from their use to the fullest extent possible.\nUsing Creative Commons Public Licenses\nCreative Commons public licenses provide a standard set of terms and conditions that creators and other rights holders may use to share original works of authorship and other material subject to copyright and certain other rights specified in the public license below. The following considerations are for informational purposes only, are not exhaustive, and do not form part of our licenses.\n Considerations for licensors: Our public licenses are\n intended for use by those authorized to give the public\n permission to use material in ways otherwise restricted by\n copyright and certain other rights. Our licenses are\n irrevocable. Licensors should read and understand the terms\n and conditions of the license they choose before applying it.\n Licensors should also secure all rights necessary before\n applying our licenses so that the public can reuse the\n material as expected. Licensors should clearly mark any\n material not subject to the license. This includes other CC-\n licensed material, or material used under an exception or\n limitation to copyright. More considerations for licensors:\nwiki.creativecommons.org/Considerations_for_licensors\n\n Considerations for the public: By using one of our public\n licenses, a licensor grants the public permission to use the\n licensed material under specified terms and conditions. If\n the licensor's permission is not necessary for any reason--for\n example, because of any applicable exception or limitation to\n copyright--then that use is not regulated by the license. Our\n licenses grant only permissions under copyright and certain\n other rights that a licensor has authority to grant. Use of\n the licensed material may still be restricted for other\n reasons, including because others have copyright or other\n rights in the material. A licensor may make special requests,\n such as asking that all changes be marked or described.\n Although not required by our licenses, you are encouraged to\n respect those requests where reasonable. More_considerations\n for the public:\nwiki.creativecommons.org/Considerations_for_licensees\n=======================================================================\nCreative Commons Attribution-ShareAlike 4.0 International Public License\nBy exercising the Licensed Rights (defined below), You accept and agree to be bound by the terms and conditions of this Creative Commons Attribution-ShareAlike 4.0 International Public License (“Public License”). To the extent this Public License may be interpreted as a contract, You are granted the Licensed Rights in consideration of Your acceptance of these terms and conditions, and the Licensor grants You such rights in consideration of benefits the Licensor receives from making the Licensed Material available under these terms and conditions.\nSection 1 – Definitions.\n\nAdapted Material means material subject to Copyright and Similar Rights that is derived from or based upon the Licensed Material and in which the Licensed Material is translated, altered, arranged, transformed, or otherwise modified in a manner requiring permission under the Copyright and Similar Rights held by the Licensor. For purposes of this Public License, where the Licensed Material is a musical work, performance, or sound recording, Adapted Material is always produced where the Licensed Material is synched in timed relation with a moving image.\nAdapter’s License means the license You apply to Your Copyright and Similar Rights in Your contributions to Adapted Material in accordance with the terms and conditions of this Public License.\nBY-SA Compatible License means a license listed at creativecommons.org/compatiblelicenses, approved by Creative Commons as essentially the equivalent of this Public License.\nCopyright and Similar Rights means copyright and/or similar rights closely related to copyright including, without limitation, performance, broadcast, sound recording, and Sui Generis Database Rights, without regard to how the rights are labeled or categorized. For purposes of this Public License, the rights specified in Section 2(b)(1)-(2) are not Copyright and Similar Rights.\nEffective Technological Measures means those measures that, in the absence of proper authority, may not be circumvented under laws fulfilling obligations under Article 11 of the WIPO Copyright Treaty adopted on December 20, 1996, and/or similar international agreements.\nExceptions and Limitations means fair use, fair dealing, and/or any other exception or limitation to Copyright and Similar Rights that applies to Your use of the Licensed Material.\nLicense Elements means the license attributes listed in the name of a Creative Commons Public License. The License Elements of this Public License are Attribution and ShareAlike.\nLicensed Material means the artistic or literary work, database, or other material to which the Licensor applied this Public License.\nLicensed Rights means the rights granted to You subject to the terms and conditions of this Public License, which are limited to all Copyright and Similar Rights that apply to Your use of the Licensed Material and that the Licensor has authority to license.\nLicensor means the individual(s) or entity(ies) granting rights under this Public License.\nShare means to provide material to the public by any means or process that requires permission under the Licensed Rights, such as reproduction, public display, public performance, distribution, dissemination, communication, or importation, and to make material available to the public including in ways that members of the public may access the material from a place and at a time individually chosen by them.\nSui Generis Database Rights means rights other than copyright resulting from Directive 96/9/EC of the European Parliament and of the Council of 11 March 1996 on the legal protection of databases, as amended and/or succeeded, as well as other essentially equivalent rights anywhere in the world.\nYou means the individual or entity exercising the Licensed Rights under this Public License. Your has a corresponding meaning.\n\nSection 2 – Scope.\n\nLicense grant.\n\nSubject to the terms and conditions of this Public License, the Licensor hereby grants You a worldwide, royalty-free, non-sublicensable, non-exclusive, irrevocable license to exercise the Licensed Rights in the Licensed Material to:\n\nreproduce and Share the Licensed Material, in whole or in part; and\nproduce, reproduce, and Share Adapted Material.\n\nExceptions and Limitations. For the avoidance of doubt, where Exceptions and Limitations apply to Your use, this Public License does not apply, and You do not need to comply with its terms and conditions.\nTerm. The term of this Public License is specified in Section 6(a).\nMedia and formats; technical modifications allowed. The Licensor authorizes You to exercise the Licensed Rights in all media and formats whether now known or hereafter created, and to make technical modifications necessary to do so. The Licensor waives and/or agrees not to assert any right or authority to forbid You from making technical modifications necessary to exercise the Licensed Rights, including technical modifications necessary to circumvent Effective Technological Measures. For purposes of this Public License, simply making modifications authorized by this Section 2(a)\n\nnever produces Adapted Material.\n\nDownstream recipients.\n\nOffer from the Licensor – Licensed Material. Every recipient of the Licensed Material automatically receives an offer from the Licensor to exercise the Licensed Rights under the terms and conditions of this Public License.\nAdditional offer from the Licensor – Adapted Material. Every recipient of Adapted Material from You automatically receives an offer from the Licensor to exercise the Licensed Rights in the Adapted Material under the conditions of the Adapter’s License You apply.\nNo downstream restrictions. You may not offer or impose any additional or different terms or conditions on, or apply any Effective Technological Measures to, the Licensed Material if doing so restricts exercise of the Licensed Rights by any recipient of the Licensed Material.\n\nNo endorsement. Nothing in this Public License constitutes or may be construed as permission to assert or imply that You are, or that Your use of the Licensed Material is, connected with, or sponsored, endorsed, or granted official status by, the Licensor or others designated to receive attribution as provided in Section 3(a)(1)(A)(i).\n\nOther rights.\n\nMoral rights, such as the right of integrity, are not licensed under this Public License, nor are publicity, privacy, and/or other similar personality rights; however, to the extent possible, the Licensor waives and/or agrees not to assert any such rights held by the Licensor to the limited extent necessary to allow You to exercise the Licensed Rights, but not otherwise.\nPatent and trademark rights are not licensed under this Public License.\nTo the extent possible, the Licensor waives any right to collect royalties from You for the exercise of the Licensed Rights, whether directly or through a collecting society under any voluntary or waivable statutory or compulsory licensing scheme. In all other cases the Licensor expressly reserves any right to collect such royalties.\n\n\nSection 3 – License Conditions.\nYour exercise of the Licensed Rights is expressly made subject to the following conditions.\n\nAttribution.\n\nIf You Share the Licensed Material (including in modified form), You must:\n\nretain the following if it is supplied by the Licensor with the Licensed Material:\n\nidentification of the creator(s) of the Licensed Material and any others designated to receive attribution, in any reasonable manner requested by the Licensor (including by pseudonym if designated);\na copyright notice;\na notice that refers to this Public License;\na notice that refers to the disclaimer of warranties;\na URI or hyperlink to the Licensed Material to the extent reasonably practicable;\n\nindicate if You modified the Licensed Material and retain an indication of any previous modifications; and\nindicate the Licensed Material is licensed under this Public License, and include the text of, or the URI or hyperlink to, this Public License.\n\nYou may satisfy the conditions in Section 3(a)(1) in any reasonable manner based on the medium, means, and context in which You Share the Licensed Material. For example, it may be reasonable to satisfy the conditions by providing a URI or hyperlink to a resource that includes the required information.\nIf requested by the Licensor, You must remove any of the information required by Section 3(a)(1)(A) to the extent reasonably practicable.\n\nShareAlike.\nIn addition to the conditions in Section 3(a), if You Share Adapted Material You produce, the following conditions also apply.\n\nThe Adapter’s License You apply must be a Creative Commons license with the same License Elements, this version or later, or a BY-SA Compatible License.\nYou must include the text of, or the URI or hyperlink to, the Adapter’s License You apply. You may satisfy this condition in any reasonable manner based on the medium, means, and context in which You Share Adapted Material.\nYou may not offer or impose any additional or different terms or conditions on, or apply any Effective Technological Measures to, Adapted Material that restrict exercise of the rights granted under the Adapter’s License You apply.\n\n\nSection 4 – Sui Generis Database Rights.\nWhere the Licensed Rights include Sui Generis Database Rights that apply to Your use of the Licensed Material:\n\nfor the avoidance of doubt, Section 2(a)(1) grants You the right to extract, reuse, reproduce, and Share all or a substantial portion of the contents of the database;\nif You include all or a substantial portion of the database contents in a database in which You have Sui Generis Database Rights, then the database in which You have Sui Generis Database Rights (but not its individual contents) is Adapted Material,\nincluding for purposes of Section 3(b); and\nYou must comply with the conditions in Section 3(a) if You Share all or a substantial portion of the contents of the database.\n\nFor the avoidance of doubt, this Section 4 supplements and does not replace Your obligations under this Public License where the Licensed Rights include other Copyright and Similar Rights.\nSection 5 – Disclaimer of Warranties and Limitation of Liability.\n\nUNLESS OTHERWISE SEPARATELY UNDERTAKEN BY THE LICENSOR, TO THE EXTENT POSSIBLE, THE LICENSOR OFFERS THE LICENSED MATERIAL AS-IS AND AS-AVAILABLE, AND MAKES NO REPRESENTATIONS OR WARRANTIES OF ANY KIND CONCERNING THE LICENSED MATERIAL, WHETHER EXPRESS, IMPLIED, STATUTORY, OR OTHER. THIS INCLUDES, WITHOUT LIMITATION, WARRANTIES OF TITLE, MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, NON-INFRINGEMENT, ABSENCE OF LATENT OR OTHER DEFECTS, ACCURACY, OR THE PRESENCE OR ABSENCE OF ERRORS, WHETHER OR NOT KNOWN OR DISCOVERABLE. WHERE DISCLAIMERS OF WARRANTIES ARE NOT ALLOWED IN FULL OR IN PART, THIS DISCLAIMER MAY NOT APPLY TO YOU.\nTO THE EXTENT POSSIBLE, IN NO EVENT WILL THE LICENSOR BE LIABLE TO YOU ON ANY LEGAL THEORY (INCLUDING, WITHOUT LIMITATION, NEGLIGENCE) OR OTHERWISE FOR ANY DIRECT, SPECIAL, INDIRECT, INCIDENTAL, CONSEQUENTIAL, PUNITIVE, EXEMPLARY, OR OTHER LOSSES, COSTS, EXPENSES, OR DAMAGES ARISING OUT OF THIS PUBLIC LICENSE OR USE OF THE LICENSED MATERIAL, EVEN IF THE LICENSOR HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH LOSSES, COSTS, EXPENSES, OR DAMAGES. WHERE A LIMITATION OF LIABILITY IS NOT ALLOWED IN FULL OR IN PART, THIS LIMITATION MAY NOT APPLY TO YOU.\nThe disclaimer of warranties and limitation of liability provided above shall be interpreted in a manner that, to the extent possible, most closely approximates an absolute disclaimer and waiver of all liability.\n\nSection 6 – Term and Termination.\n\nThis Public License applies for the term of the Copyright and Similar Rights licensed here. However, if You fail to comply with this Public License, then Your rights under this Public License terminate automatically.\nWhere Your right to use the Licensed Material has terminated under Section 6(a), it reinstates:\n\nautomatically as of the date the violation is cured, provided it is cured within 30 days of Your discovery of the violation; or\nupon express reinstatement by the Licensor.\n\nFor the avoidance of doubt, this Section 6(b) does not affect any right the Licensor may have to seek remedies for Your violations of this Public License.\nFor the avoidance of doubt, the Licensor may also offer the Licensed Material under separate terms or conditions or stop distributing the Licensed Material at any time; however, doing so will not terminate this Public License.\nSections 1, 5, 6, 7, and 8 survive termination of this Public License.\n\nSection 7 – Other Terms and Conditions.\n\nThe Licensor shall not be bound by any additional or different terms or conditions communicated by You unless expressly agreed.\nAny arrangements, understandings, or agreements regarding the Licensed Material not stated herein are separate from and independent of the terms and conditions of this Public License.\n\nSection 8 – Interpretation.\n\nFor the avoidance of doubt, this Public License does not, and shall not be interpreted to, reduce, limit, restrict, or impose conditions on any use of the Licensed Material that could lawfully be made without permission under this Public License.\nTo the extent possible, if any provision of this Public License is deemed unenforceable, it shall be automatically reformed to the minimum extent necessary to make it enforceable. If the provision cannot be reformed, it shall be severed from this Public License without affecting the enforceability of the remaining terms and conditions.\nNo term or condition of this Public License will be waived and no failure to comply consented to unless expressly agreed to by the Licensor.\nNothing in this Public License constitutes or may be interpreted as a limitation upon, or waiver of, any privileges and immunities that apply to the Licensor or You, including from the legal processes of any jurisdiction or authority.\n\n=======================================================================\nCreative Commons is not a party to its public licenses. Notwithstanding, Creative Commons may elect to apply one of its public licenses to material it publishes and in those instances will be considered the “Licensor.” The text of the Creative Commons public licenses is dedicated to the public domain under the CC0 Public Domain Dedication. Except for the limited purpose of indicating that material is shared under a Creative Commons public license or as otherwise permitted by the Creative Commons policies published at creativecommons.org/policies, Creative Commons does not authorize the use of the trademark “Creative Commons” or any other trademark or logo of Creative Commons without its prior written consent including, without limitation, in connection with any unauthorized modifications to any of its public licenses or any other arrangements, understandings, or agreements concerning use of licensed material. For the avoidance of doubt, this paragraph does not form part of the public licenses.\nCreative Commons may be contacted at creativecommons.org."
+    "text": "Words and Ideas\nTruth Table\nProposition\nGrammar\nPredicate\nBoolean Mask\nLogical Equivalence"
   },
   {
     "objectID": "slides/03_tue_inference.html#announcements",
@@ -1338,298 +1404,442 @@
     "text": "Exit Ticket (2 min)\nIn chat (or poll), complete both:\n\nOne valid rule I can spot in the wild is ________.\n\nOne trap I’ll watch for is ________."
   },
   {
-    "objectID": "slides/01_fri_truth.html#communications",
-    "href": "slides/01_fri_truth.html#communications",
-    "title": "Discrete Math for Data Science",
-    "section": "Communications",
-    "text": "Communications\n\n\n📧 Email cheeren@cs.ubc.ca\nChecked daily. Please place “DSCI220” in subject!\n   Piazza piazza.com/ubc.ca/winterterm12025/dsci220\nPost questions for quick response.\n🏫 Office Hours\n\n\n\n\n\n\n\n\n\n\nName\nTime\nLocation & Zoom\n\n\n\n\nCinda\nMon 2–4pm\n🏢 ICCS 233 · \n\n\nJoe\nFri 11-12a\n🏢 FORW 317\n\n\nMarko\nTue 1:30-2:30p\n🏢 TBD"
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "DSCI 220 was created by Dr. Cinda Heeren. The website shell was set up in Quarto by Dr. Stephan Koenig.",
+    "crumbs": [
+      "About"
+    ]
   },
   {
-    "objectID": "slides/01_fri_truth.html#truth",
-    "href": "slides/01_fri_truth.html#truth",
-    "title": "Discrete Math for Data Science",
-    "section": "Truth",
-    "text": "Truth\nMake at least 3 observations about the following table:\n\n\n\n\n\n\\(p\\)\n\\(q\\)\n\\(p \\lor q\\)\n\n\n\n\nF\nF\nF\n\n\nF\nT\nT\n\n\nT\nF\nT\n\n\nT\nT\nT"
+    "objectID": "about.html#contributors",
+    "href": "about.html#contributors",
+    "title": "About",
+    "section": "",
+    "text": "DSCI 220 was created by Dr. Cinda Heeren. The website shell was set up in Quarto by Dr. Stephan Koenig.",
+    "crumbs": [
+      "About"
+    ]
   },
   {
-    "objectID": "slides/01_fri_truth.html#summary",
-    "href": "slides/01_fri_truth.html#summary",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "DSCI 220: Discrete Math for Data Science",
+    "section": "",
+    "text": "Instructor: Dr. Cinda Heeren (She, Her)\n\n\n\nContact\n📧 cheeren@cs.ubc.ca\n⏰ Mon 2–4pm appointment\n🏢 ICCS 233 · \n\nClass\nMon/Wed/Fri 11:00-12:00\n317 Frank Forward Building",
+    "crumbs": [
+      "Course information",
+      "Schedule"
+    ]
+  },
+  {
+    "objectID": "index.html#course-information",
+    "href": "index.html#course-information",
+    "title": "DSCI 220: Discrete Math for Data Science",
+    "section": "",
+    "text": "Instructor: Dr. Cinda Heeren (She, Her)\n\n\n\nContact\n📧 cheeren@cs.ubc.ca\n⏰ Mon 2–4pm appointment\n🏢 ICCS 233 · \n\nClass\nMon/Wed/Fri 11:00-12:00\n317 Frank Forward Building",
+    "crumbs": [
+      "Course information",
+      "Schedule"
+    ]
+  },
+  {
+    "objectID": "index.html#most-recent-announcement",
+    "href": "index.html#most-recent-announcement",
+    "title": "DSCI 220: Discrete Math for Data Science",
+    "section": "Most recent announcement",
+    "text": "Most recent announcement\n\n\n\n\nNo matching items\n\n\n\n\n\n\n  \n    \n      Week\n      Mon\n      \n        Mon\n      \n      \n        Tue\n      \n      \n        Wed\n      \n      Lab\n      POTW\n      \n        Examlet\n      \n    \n    \n      S\n      A\n      V\n      S\n      A\n      V\n      S\n      A\n      V\n      Book\n      Due\n      Practice\n    \n  \n  \n    01\nSep 1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    02\nSep 8\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    03\nSep 15\n\n\n\n\n\n\n\n\n\n\n\nEX1\nSep 22\n\n    04\nSep 22\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    05\nSep 29\n\n\n\n\n\n\n\n\n\n\n\nEX2\nOct 5\n\n    06\nOct 6\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    07\nOct 13\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    08\nOct 20\n\n\n\n\n\n\n\n\n\n\n\nEX3\nOct 26\n\n    09\nOct 27\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    10\nNov 3\n\n\n\n\n\n\n\n\n\n\n\nEX4\nNov 9\n\n    11\nNov 10\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    12\nNov 17\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    13\nNov 24\n\n\n\n\n\n\n\n\n\n\n\nEX5\nNov 30\n\n    14\nDec 1",
+    "crumbs": [
+      "Course information",
+      "Schedule"
+    ]
+  },
+  {
+    "objectID": "LICENSE.html",
+    "href": "LICENSE.html",
+    "title": "DSCI 220: Discrete Math for Data Science",
+    "section": "",
+    "text": "Attribution-ShareAlike 4.0 International\n=======================================================================\nCreative Commons Corporation (“Creative Commons”) is not a law firm and does not provide legal services or legal advice. Distribution of Creative Commons public licenses does not create a lawyer-client or other relationship. Creative Commons makes its licenses and related information available on an “as-is” basis. Creative Commons gives no warranties regarding its licenses, any material licensed under their terms and conditions, or any related information. Creative Commons disclaims all liability for damages resulting from their use to the fullest extent possible.\nUsing Creative Commons Public Licenses\nCreative Commons public licenses provide a standard set of terms and conditions that creators and other rights holders may use to share original works of authorship and other material subject to copyright and certain other rights specified in the public license below. The following considerations are for informational purposes only, are not exhaustive, and do not form part of our licenses.\n Considerations for licensors: Our public licenses are\n intended for use by those authorized to give the public\n permission to use material in ways otherwise restricted by\n copyright and certain other rights. Our licenses are\n irrevocable. Licensors should read and understand the terms\n and conditions of the license they choose before applying it.\n Licensors should also secure all rights necessary before\n applying our licenses so that the public can reuse the\n material as expected. Licensors should clearly mark any\n material not subject to the license. This includes other CC-\n licensed material, or material used under an exception or\n limitation to copyright. More considerations for licensors:\nwiki.creativecommons.org/Considerations_for_licensors\n\n Considerations for the public: By using one of our public\n licenses, a licensor grants the public permission to use the\n licensed material under specified terms and conditions. If\n the licensor's permission is not necessary for any reason--for\n example, because of any applicable exception or limitation to\n copyright--then that use is not regulated by the license. Our\n licenses grant only permissions under copyright and certain\n other rights that a licensor has authority to grant. Use of\n the licensed material may still be restricted for other\n reasons, including because others have copyright or other\n rights in the material. A licensor may make special requests,\n such as asking that all changes be marked or described.\n Although not required by our licenses, you are encouraged to\n respect those requests where reasonable. More_considerations\n for the public:\nwiki.creativecommons.org/Considerations_for_licensees\n=======================================================================\nCreative Commons Attribution-ShareAlike 4.0 International Public License\nBy exercising the Licensed Rights (defined below), You accept and agree to be bound by the terms and conditions of this Creative Commons Attribution-ShareAlike 4.0 International Public License (“Public License”). To the extent this Public License may be interpreted as a contract, You are granted the Licensed Rights in consideration of Your acceptance of these terms and conditions, and the Licensor grants You such rights in consideration of benefits the Licensor receives from making the Licensed Material available under these terms and conditions.\nSection 1 – Definitions.\n\nAdapted Material means material subject to Copyright and Similar Rights that is derived from or based upon the Licensed Material and in which the Licensed Material is translated, altered, arranged, transformed, or otherwise modified in a manner requiring permission under the Copyright and Similar Rights held by the Licensor. For purposes of this Public License, where the Licensed Material is a musical work, performance, or sound recording, Adapted Material is always produced where the Licensed Material is synched in timed relation with a moving image.\nAdapter’s License means the license You apply to Your Copyright and Similar Rights in Your contributions to Adapted Material in accordance with the terms and conditions of this Public License.\nBY-SA Compatible License means a license listed at creativecommons.org/compatiblelicenses, approved by Creative Commons as essentially the equivalent of this Public License.\nCopyright and Similar Rights means copyright and/or similar rights closely related to copyright including, without limitation, performance, broadcast, sound recording, and Sui Generis Database Rights, without regard to how the rights are labeled or categorized. For purposes of this Public License, the rights specified in Section 2(b)(1)-(2) are not Copyright and Similar Rights.\nEffective Technological Measures means those measures that, in the absence of proper authority, may not be circumvented under laws fulfilling obligations under Article 11 of the WIPO Copyright Treaty adopted on December 20, 1996, and/or similar international agreements.\nExceptions and Limitations means fair use, fair dealing, and/or any other exception or limitation to Copyright and Similar Rights that applies to Your use of the Licensed Material.\nLicense Elements means the license attributes listed in the name of a Creative Commons Public License. The License Elements of this Public License are Attribution and ShareAlike.\nLicensed Material means the artistic or literary work, database, or other material to which the Licensor applied this Public License.\nLicensed Rights means the rights granted to You subject to the terms and conditions of this Public License, which are limited to all Copyright and Similar Rights that apply to Your use of the Licensed Material and that the Licensor has authority to license.\nLicensor means the individual(s) or entity(ies) granting rights under this Public License.\nShare means to provide material to the public by any means or process that requires permission under the Licensed Rights, such as reproduction, public display, public performance, distribution, dissemination, communication, or importation, and to make material available to the public including in ways that members of the public may access the material from a place and at a time individually chosen by them.\nSui Generis Database Rights means rights other than copyright resulting from Directive 96/9/EC of the European Parliament and of the Council of 11 March 1996 on the legal protection of databases, as amended and/or succeeded, as well as other essentially equivalent rights anywhere in the world.\nYou means the individual or entity exercising the Licensed Rights under this Public License. Your has a corresponding meaning.\n\nSection 2 – Scope.\n\nLicense grant.\n\nSubject to the terms and conditions of this Public License, the Licensor hereby grants You a worldwide, royalty-free, non-sublicensable, non-exclusive, irrevocable license to exercise the Licensed Rights in the Licensed Material to:\n\nreproduce and Share the Licensed Material, in whole or in part; and\nproduce, reproduce, and Share Adapted Material.\n\nExceptions and Limitations. For the avoidance of doubt, where Exceptions and Limitations apply to Your use, this Public License does not apply, and You do not need to comply with its terms and conditions.\nTerm. The term of this Public License is specified in Section 6(a).\nMedia and formats; technical modifications allowed. The Licensor authorizes You to exercise the Licensed Rights in all media and formats whether now known or hereafter created, and to make technical modifications necessary to do so. The Licensor waives and/or agrees not to assert any right or authority to forbid You from making technical modifications necessary to exercise the Licensed Rights, including technical modifications necessary to circumvent Effective Technological Measures. For purposes of this Public License, simply making modifications authorized by this Section 2(a)\n\nnever produces Adapted Material.\n\nDownstream recipients.\n\nOffer from the Licensor – Licensed Material. Every recipient of the Licensed Material automatically receives an offer from the Licensor to exercise the Licensed Rights under the terms and conditions of this Public License.\nAdditional offer from the Licensor – Adapted Material. Every recipient of Adapted Material from You automatically receives an offer from the Licensor to exercise the Licensed Rights in the Adapted Material under the conditions of the Adapter’s License You apply.\nNo downstream restrictions. You may not offer or impose any additional or different terms or conditions on, or apply any Effective Technological Measures to, the Licensed Material if doing so restricts exercise of the Licensed Rights by any recipient of the Licensed Material.\n\nNo endorsement. Nothing in this Public License constitutes or may be construed as permission to assert or imply that You are, or that Your use of the Licensed Material is, connected with, or sponsored, endorsed, or granted official status by, the Licensor or others designated to receive attribution as provided in Section 3(a)(1)(A)(i).\n\nOther rights.\n\nMoral rights, such as the right of integrity, are not licensed under this Public License, nor are publicity, privacy, and/or other similar personality rights; however, to the extent possible, the Licensor waives and/or agrees not to assert any such rights held by the Licensor to the limited extent necessary to allow You to exercise the Licensed Rights, but not otherwise.\nPatent and trademark rights are not licensed under this Public License.\nTo the extent possible, the Licensor waives any right to collect royalties from You for the exercise of the Licensed Rights, whether directly or through a collecting society under any voluntary or waivable statutory or compulsory licensing scheme. In all other cases the Licensor expressly reserves any right to collect such royalties.\n\n\nSection 3 – License Conditions.\nYour exercise of the Licensed Rights is expressly made subject to the following conditions.\n\nAttribution.\n\nIf You Share the Licensed Material (including in modified form), You must:\n\nretain the following if it is supplied by the Licensor with the Licensed Material:\n\nidentification of the creator(s) of the Licensed Material and any others designated to receive attribution, in any reasonable manner requested by the Licensor (including by pseudonym if designated);\na copyright notice;\na notice that refers to this Public License;\na notice that refers to the disclaimer of warranties;\na URI or hyperlink to the Licensed Material to the extent reasonably practicable;\n\nindicate if You modified the Licensed Material and retain an indication of any previous modifications; and\nindicate the Licensed Material is licensed under this Public License, and include the text of, or the URI or hyperlink to, this Public License.\n\nYou may satisfy the conditions in Section 3(a)(1) in any reasonable manner based on the medium, means, and context in which You Share the Licensed Material. For example, it may be reasonable to satisfy the conditions by providing a URI or hyperlink to a resource that includes the required information.\nIf requested by the Licensor, You must remove any of the information required by Section 3(a)(1)(A) to the extent reasonably practicable.\n\nShareAlike.\nIn addition to the conditions in Section 3(a), if You Share Adapted Material You produce, the following conditions also apply.\n\nThe Adapter’s License You apply must be a Creative Commons license with the same License Elements, this version or later, or a BY-SA Compatible License.\nYou must include the text of, or the URI or hyperlink to, the Adapter’s License You apply. You may satisfy this condition in any reasonable manner based on the medium, means, and context in which You Share Adapted Material.\nYou may not offer or impose any additional or different terms or conditions on, or apply any Effective Technological Measures to, Adapted Material that restrict exercise of the rights granted under the Adapter’s License You apply.\n\n\nSection 4 – Sui Generis Database Rights.\nWhere the Licensed Rights include Sui Generis Database Rights that apply to Your use of the Licensed Material:\n\nfor the avoidance of doubt, Section 2(a)(1) grants You the right to extract, reuse, reproduce, and Share all or a substantial portion of the contents of the database;\nif You include all or a substantial portion of the database contents in a database in which You have Sui Generis Database Rights, then the database in which You have Sui Generis Database Rights (but not its individual contents) is Adapted Material,\nincluding for purposes of Section 3(b); and\nYou must comply with the conditions in Section 3(a) if You Share all or a substantial portion of the contents of the database.\n\nFor the avoidance of doubt, this Section 4 supplements and does not replace Your obligations under this Public License where the Licensed Rights include other Copyright and Similar Rights.\nSection 5 – Disclaimer of Warranties and Limitation of Liability.\n\nUNLESS OTHERWISE SEPARATELY UNDERTAKEN BY THE LICENSOR, TO THE EXTENT POSSIBLE, THE LICENSOR OFFERS THE LICENSED MATERIAL AS-IS AND AS-AVAILABLE, AND MAKES NO REPRESENTATIONS OR WARRANTIES OF ANY KIND CONCERNING THE LICENSED MATERIAL, WHETHER EXPRESS, IMPLIED, STATUTORY, OR OTHER. THIS INCLUDES, WITHOUT LIMITATION, WARRANTIES OF TITLE, MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, NON-INFRINGEMENT, ABSENCE OF LATENT OR OTHER DEFECTS, ACCURACY, OR THE PRESENCE OR ABSENCE OF ERRORS, WHETHER OR NOT KNOWN OR DISCOVERABLE. WHERE DISCLAIMERS OF WARRANTIES ARE NOT ALLOWED IN FULL OR IN PART, THIS DISCLAIMER MAY NOT APPLY TO YOU.\nTO THE EXTENT POSSIBLE, IN NO EVENT WILL THE LICENSOR BE LIABLE TO YOU ON ANY LEGAL THEORY (INCLUDING, WITHOUT LIMITATION, NEGLIGENCE) OR OTHERWISE FOR ANY DIRECT, SPECIAL, INDIRECT, INCIDENTAL, CONSEQUENTIAL, PUNITIVE, EXEMPLARY, OR OTHER LOSSES, COSTS, EXPENSES, OR DAMAGES ARISING OUT OF THIS PUBLIC LICENSE OR USE OF THE LICENSED MATERIAL, EVEN IF THE LICENSOR HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH LOSSES, COSTS, EXPENSES, OR DAMAGES. WHERE A LIMITATION OF LIABILITY IS NOT ALLOWED IN FULL OR IN PART, THIS LIMITATION MAY NOT APPLY TO YOU.\nThe disclaimer of warranties and limitation of liability provided above shall be interpreted in a manner that, to the extent possible, most closely approximates an absolute disclaimer and waiver of all liability.\n\nSection 6 – Term and Termination.\n\nThis Public License applies for the term of the Copyright and Similar Rights licensed here. However, if You fail to comply with this Public License, then Your rights under this Public License terminate automatically.\nWhere Your right to use the Licensed Material has terminated under Section 6(a), it reinstates:\n\nautomatically as of the date the violation is cured, provided it is cured within 30 days of Your discovery of the violation; or\nupon express reinstatement by the Licensor.\n\nFor the avoidance of doubt, this Section 6(b) does not affect any right the Licensor may have to seek remedies for Your violations of this Public License.\nFor the avoidance of doubt, the Licensor may also offer the Licensed Material under separate terms or conditions or stop distributing the Licensed Material at any time; however, doing so will not terminate this Public License.\nSections 1, 5, 6, 7, and 8 survive termination of this Public License.\n\nSection 7 – Other Terms and Conditions.\n\nThe Licensor shall not be bound by any additional or different terms or conditions communicated by You unless expressly agreed.\nAny arrangements, understandings, or agreements regarding the Licensed Material not stated herein are separate from and independent of the terms and conditions of this Public License.\n\nSection 8 – Interpretation.\n\nFor the avoidance of doubt, this Public License does not, and shall not be interpreted to, reduce, limit, restrict, or impose conditions on any use of the Licensed Material that could lawfully be made without permission under this Public License.\nTo the extent possible, if any provision of this Public License is deemed unenforceable, it shall be automatically reformed to the minimum extent necessary to make it enforceable. If the provision cannot be reformed, it shall be severed from this Public License without affecting the enforceability of the remaining terms and conditions.\nNo term or condition of this Public License will be waived and no failure to comply consented to unless expressly agreed to by the Licensor.\nNothing in this Public License constitutes or may be interpreted as a limitation upon, or waiver of, any privileges and immunities that apply to the Licensor or You, including from the legal processes of any jurisdiction or authority.\n\n=======================================================================\nCreative Commons is not a party to its public licenses. Notwithstanding, Creative Commons may elect to apply one of its public licenses to material it publishes and in those instances will be considered the “Licensor.” The text of the Creative Commons public licenses is dedicated to the public domain under the CC0 Public Domain Dedication. Except for the limited purpose of indicating that material is shared under a Creative Commons public license or as otherwise permitted by the Creative Commons policies published at creativecommons.org/policies, Creative Commons does not authorize the use of the trademark “Creative Commons” or any other trademark or logo of Creative Commons without its prior written consent including, without limitation, in connection with any unauthorized modifications to any of its public licenses or any other arrangements, understandings, or agreements concerning use of licensed material. For the avoidance of doubt, this paragraph does not form part of the public licenses.\nCreative Commons may be contacted at creativecommons.org."
+  },
+  {
+    "objectID": "slides/12_mon_permcomb.html#announcements",
+    "href": "slides/12_mon_permcomb.html#announcements",
+    "title": "Discrete Math for Data Science",
+    "section": "Announcements",
+    "text": "Announcements"
+  },
+  {
+    "objectID": "slides/12_mon_permcomb.html#warm-up-multiplication-rule",
+    "href": "slides/12_mon_permcomb.html#warm-up-multiplication-rule",
+    "title": "Discrete Math for Data Science",
+    "section": "Warm-Up: Multiplication Rule",
+    "text": "Warm-Up: Multiplication Rule\nQuestion:\nWhat happens to the number of rows in a DataFrame when we use pandas.melt()?\n\n\n\n\n\n\n\nThis is a data-science version of the multiplication rule:\nwhen we consider every possible combination of two attributes, the number of possibilities multiplies.\n➡️ We’ll use the same reasoning today — but with people and chairs instead of rows and columns.\n\nNotes:\nUse this to remind students that the multiplication rule already appears in data contexts they know.\nEncourage them to connect this to the idea of enumerating combinations of attributes.\nKeep the demo under 4 minutes — it’s just a bridge to the main activity.\n⏱️ Timing: 3–4 minutes warm-up discussion."
+  },
+  {
+    "objectID": "slides/12_mon_permcomb.html#visualizing-wide-to-long",
+    "href": "slides/12_mon_permcomb.html#visualizing-wide-to-long",
+    "title": "Discrete Math for Data Science",
+    "section": "Visualizing Wide to Long",
+    "text": "Visualizing Wide to Long\nBefore melting (wide format):\n \n \n \nAfter melting (long format):\n \n \n\n\n\nEach wide row expands into three long rows — one for each temperature.\n\nEach pair (Object, Temperature) is one combination—just like the outfits we counted last time.\n\nThe total number of rows = 4 objects × 3 temperatures = 12 outcomes.\n\n\n\nNotes:\nUse this visual to anchor the idea that melting enumerates combinations explicitly.\nOptional ask: “Where do we see repetition here? What does that tell us about memory use?”\n⏱️ Timing: 3 minutes (interpretation and discussion)"
+  },
+  {
+    "objectID": "slides/12_mon_permcomb.html#visualizing-the-mapping-change",
+    "href": "slides/12_mon_permcomb.html#visualizing-the-mapping-change",
+    "title": "Discrete Math for Data Science",
+    "section": "Visualizing the Mapping Change",
+    "text": "Visualizing the Mapping Change\nBefore melting:\nWe have a function that maps each Object to a tuple of states across temperatures:\n\\[ f:\\ \\text{Object} \\to (\\text{Cold},\\ \\text{Warm},\\ \\text{Hot}) \\]\nExample: \\[ f( \\text{Wicked Witch}) = ( \\text{fine}, \\text{dripping}, \\text{gone?}) \\]\nAfter melting:\nWe redefine the function so that the pair (Object, Temperature) is the input:\n\\[ g: ( \\text{Object}, \\text{Temperature}) \\to \\text{State} \\]\nExample: \\[g( \\text{Wicked Witch}, \\text{Warm}) = \\text{dripping} \\]\nThe input domain has expanded from Objects to Objects × Temperatures. Each input now produces a single scalar output instead of a vector.\nThis is why the melted data get longer — we’ve made all combinations explicit.\n\n\nNotes: Emphasize the structural change: multivariate output → single-valued function on a larger domain. This perspective connects directly to Cartesian products and the multiplication rule.\n⏱️ Timing: 3 minutes for explanation + brief class recap."
+  },
+  {
+    "objectID": "slides/12_mon_permcomb.html#how-melting-affects-data-size",
+    "href": "slides/12_mon_permcomb.html#how-melting-affects-data-size",
+    "title": "Discrete Math for Data Science",
+    "section": "How Melting Affects Data Size",
+    "text": "How Melting Affects Data Size\nWhen we melt data, we don’t add new information — we just make existing information longer and more explicit.\n\n\n\n\n\n\n\n\nFormat\nShape\nDescription\n\n\n\n\nWide\n(4, 4)\nOne row per object; columns for Cold, Warm, Hot\n\n\nLong (Melted)\n(12, 3)\nOne row for each (Object, Temperature) pair\n\n\n\nEffect: The number of rows increases by a factor equal to the number of melted columns.\nEach object’s name and each temperature label are now repeated multiple times.\nMemory tradeoff: Long data are larger in memory but easier to work with for grouping and plotting.\n\n\nPrompt: Why would we use a representation that takes more space?\nWhat’s the parallel to our counting models — when do we expand possibilities to make reasoning easier?\n\n\nNotes:\nEmphasize the connection to the multiplication rule: 4 objects × 3 temperatures = 12 outcomes.\nUse this as a conceptual bridge — from data transformation to counting combinations in the upcoming seating activity.\n⏱️ Timing: 3 minutes for explanation + 1 minute discussion."
+  },
+  {
+    "objectID": "slides/12_mon_permcomb.html#a-new-counting-challenge",
+    "href": "slides/12_mon_permcomb.html#a-new-counting-challenge",
+    "title": "Discrete Math for Data Science",
+    "section": "A New Counting Challenge",
+    "text": "A New Counting Challenge\n \nArrange 4 people around a table.\nQuestion:\nHow many different ways can the people be seated?\nDiscuss:\n\nWhat counts as a different arrangement?\n\nWhat information defines one arrangement?\n\n\n\nNotes:\nBegin open-ended — let students debate what counts as a unique arrangement.\nThe goal is for them to build a model of the outcomes before applying counting rules.\nEncourage language like “distinct arrangements,” “rotations,” and “mirror images.”\nThis primes them for the concepts of permutations (order matters) and combinations (order doesn’t).\n⏱️ Timing: 4–5 minutes of pair discussion + 1 minute group debrief. TODO: make “tables with seat numbers” on cardstock"
+  },
+  {
+    "objectID": "slides/12_mon_permcomb.html#observing-the-structure",
+    "href": "slides/12_mon_permcomb.html#observing-the-structure",
+    "title": "Discrete Math for Data Science",
+    "section": "Observing the Structure",
+    "text": "Observing the Structure\nLet’s agree on a model for our table:\n\n\n\nSeat 1\nSeat 2\nSeat 3\nSeat 4\n\n\n\n\n?\n?\n?\n?\n\n\n\nEach arrangement can be described as a 4-tuple:\n\n\n(Who’s in seat 1, Who’s in seat 2, Who’s in seat 3, Who’s in seat 4)\n\n \nOur model is the set of all possible 4-tuples with no repeats.\n\n\nNotes:\nLink this back to the closet model from last time: both are built from describing all possible outcomes.\nHere, though, the choices are dependent—once a person is seated, they can’t be chosen again.\nIntroduce the term permutation: each arrangement of distinct objects where order matters.\n⏱️ Timing: 3 minutes setup + 2 minutes partner explanation."
+  },
+  {
+    "objectID": "slides/12_mon_permcomb.html#building-an-arrangement",
+    "href": "slides/12_mon_permcomb.html#building-an-arrangement",
+    "title": "Discrete Math for Data Science",
+    "section": "Building an Arrangement",
+    "text": "Building an Arrangement\nHow many choices do we have for each chair?\n\nSeat 1: 4 choices\n\nSeat 2: 3 remaining\n\nSeat 3: 2 remaining\n\nSeat 4: 1 remaining\n\n\\(\\text{Total} = 4 \\times 3 \\times 2 \\times 1 = 24\\) arrangements\nThat’s the multiplication rule — just like outfits, but now the choices depend on previous ones.\n\n\nNotes:\nHighlight that we’re applying the same reasoning pattern as before: define the structure → count each step → multiply.\nEmphasize how dependency reduces the count.\nReinforce vocabulary: these 24 ordered arrangements are permutations of 4 distinct items.\n⏱️ Timing: 4 minutes walkthrough + 2 minutes reflection."
+  },
+  {
+    "objectID": "slides/12_mon_permcomb.html#permutations",
+    "href": "slides/12_mon_permcomb.html#permutations",
+    "title": "Discrete Math for Data Science",
+    "section": "Permutations",
+    "text": "Permutations\nA permutation is an arrangement of \\(n\\) distinct objects in a specific order.\n\nOrder matters — changing the order creates a new permutation.\n\nEach permutation corresponds to a unique sequence of choices from the set.\n\nIf there are \\(n\\) distinct objects, then the number of permutations is:\n\\[\nP(n) = n! = n \\times (n-1) \\times (n-2) \\times \\dots \\times 1\n\\]\nExample: Four people can sit in a row in\n\\[\nP(4) = 4! = 24\n\\]\ndifferent ways."
+  },
+  {
+    "objectID": "slides/12_mon_permcomb.html#counting-under-rotation",
+    "href": "slides/12_mon_permcomb.html#counting-under-rotation",
+    "title": "Discrete Math for Data Science",
+    "section": "Counting under rotation",
+    "text": "Counting under rotation\nEmbrace the fact that the table is round.\n \nFor any rotation, the group of people is sitting in the same relative order.\nFor each arrangement there are 4 equivalent. Thus we ______________ the total by ______________.\n \nAlternatively we can fix one person’s seat.\nThen the remaining 3 can be arranged freely around the table.\n \nTotal distinct circular seatings: \\((4 − 1)! = 6\\).\n\n\nNotes:\nHave students physically fix one card to visualize duplicate rotations.\nUse the term circular permutation: order still matters, but rotations count as the same.\nAsk: “Why does fixing one position remove all rotations?”\n⏱️ Timing: 5–6 minutes including demonstration."
+  },
+  {
+    "objectID": "slides/12_mon_permcomb.html#friendship-bracelets",
+    "href": "slides/12_mon_permcomb.html#friendship-bracelets",
+    "title": "Discrete Math for Data Science",
+    "section": "Friendship Bracelets",
+    "text": "Friendship Bracelets\n \nGiven: 20 beads, each a different color. Make a circular bracelet by threading all 20 beads.\n\n\n20-bead bracelet\n\nTwenty differently colored beads arranged in a circle.                     \n\nQuestion:\nHow many different bracelets can be made?\n\n🧶 Think first:\n- Does rotating the bracelet create something new?\n- What about flipping it over (reflection)?\n💭 Discuss with a partner:\n1. How does this relate to our “round table” reasoning?\n2. What changes when reflections (mirror images) count as the same?\n3. How could we generalize our earlier counting model?\n\n\n\nNotes:\nThis parallels circular permutations, but now students must reason about rotations and reflections together (dihedral symmetry).\nEncourage qualitative reasoning before formulas — the goal is generalization, not numeric computation.\n⏱️ Timing: 5 minutes total (2 think, 2 pair, 1 share)."
+  },
+  {
+    "objectID": "slides/12_mon_permcomb.html#choosing-a-committee",
+    "href": "slides/12_mon_permcomb.html#choosing-a-committee",
+    "title": "Discrete Math for Data Science",
+    "section": "Choosing a Committee",
+    "text": "Choosing a Committee\nGoal: From 8 people, form a 3-person committee.\n \nQuestion:\nHow many different committees could we form?\n \nDiscuss:\n\nConsider it a sequence of 3 choices\n\nWhich of those describe the same committee?\n\nHow can we apply what we learned about rotations?\n\n\n💭 Hint: In this model, order doesn’t matter —\nit’s who’s in the committee, not who was picked first.\n\nNotes:\nThis builds on the rotational symmetry reasoning: we’re collapsing multiple ordered arrangements into a single unordered outcome.\nStudents should reason qualitatively that each distinct committee corresponds to several ordered sequences — and we divide by that number.\n⏱️ Timing: 5 minutes total (2 think, 2 pair, 1 share)."
+  },
+  {
+    "objectID": "slides/12_mon_permcomb.html#from-choices-to-combinations",
+    "href": "slides/12_mon_permcomb.html#from-choices-to-combinations",
+    "title": "Discrete Math for Data Science",
+    "section": "From Choices to Combinations",
+    "text": "From Choices to Combinations\nModel our 3-person committee.\nIf we make choices one at a time:\n\\[\n8 \\times 7 \\times 6 = 336\n\\]\nThat counts every possible order of picking 3 people.\nBut a committee doesn’t have an order — each group of 3 appears \\(3! = 6\\) times, once for every possible order.\nSo the number of distinct committees is:\n\\[\n\\frac{8 \\times 7 \\times 6}{3!} = 56\n\\]\n\n💡 Model:\nEach unordered committee corresponds to 3! ordered sequences.\n\nNotes:\n- Connect explicitly to the “rotations” reasoning — we’re dividing out symmetry again, this time the order symmetry of identical choices.\n- Encourage students to verbalize what makes two outcomes “the same.”\n- Use this moment to name the new idea: combinations.\n⏱️ Timing: 4 minutes walkthrough + 1 minute class check-in."
+  },
+  {
+    "objectID": "slides/12_mon_permcomb.html#combinations",
+    "href": "slides/12_mon_permcomb.html#combinations",
+    "title": "Discrete Math for Data Science",
+    "section": "Combinations",
+    "text": "Combinations\nA combination is a selection of \\(k\\) objects from \\(n\\) where order does not matter.\n\nThe group \\(\\{A, B, C\\}\\) is the same as \\(\\{B, A, C\\}\\).\n\nEach combination represents a unique set of choices.\n\nIf there are \\(n\\) objects and we choose \\(k\\) of them, the number of distinct combinations is:\n\\[\nC(n, k) = \\binom{n}{k} = \\frac{n!}{k!(n-k)!}\n\\]\nExample: Choosing a 3-person committee from 8 people:\n\\[\nC(8, 3) = \\frac{8!}{3!5!} = 56\n\\]\nNote: Each committee is a subset of the 8 people — we ignore order, only membership matters.\n\n\nNotes:\n- Use this to formalize what students discovered in the activity: dividing by the number of equivalent orders.\n- Emphasize the contrast with permutations: same domain, different notion of sameness.\n- Optionally end with: “Next time we’ll see how these appear in binomial coefficients and counting problems.”"
+  },
+  {
+    "objectID": "slides/12_mon_permcomb.html#reflection",
+    "href": "slides/12_mon_permcomb.html#reflection",
+    "title": "Discrete Math for Data Science",
+    "section": "Reflection",
+    "text": "Reflection\nCompare the models:\n\n\n\n\n\n\n\n\nScenario\nModel\nOutcome Count\n\n\n\n\nOutfits\n(shoe, pant, shirt)\n\\(|S|\\times|P|\\times|H|\\)\n\n\nSeating\n(seat 1, seat 2, seat 3, seat 4)\n\\(4\\times 3\\times 2\\times 1\\)\n\n\nCircular Seating\n(fix one person)\n\\((4 − 1)! = 6\\)\n\n\nChoosing Guests\n{subset of guests}\n\\(\\binom{4}{k}\\)\n\n\n\n\nAll start by modeling the outcomes carefully before counting.\n\nThe model determines whether order matters.\n\n\n\nNotes:\nPause for synthesis: have students summarize in their own words how the model affects the formula.\nReinforce the difference between permutations (ordered) and combinations (unordered).\n⏱️ Timing: 4–5 minutes for class synthesis."
+  },
+  {
+    "objectID": "slides/12_mon_permcomb.html#challenge-putting-it-all-together",
+    "href": "slides/12_mon_permcomb.html#challenge-putting-it-all-together",
+    "title": "Discrete Math for Data Science",
+    "section": "Challenge: Putting It All Together",
+    "text": "Challenge: Putting It All Together\nThere are 8 people, and 4 seats at the round table.\nQuestion: How many distinct arrangements are possible if rotations and reflections count as the same?\nCommunicate: Explain each step of your reasoning.\nGeneralize: What if there are \\(n\\) people and \\(k\\) seats?\n\n💭 Think first. Then compare reasoning with a neighbor.\nWe’ll build the model together and find the count at the end.\n\nNotes:\nEncourage modeling before computation.\nAsk: “How can we anchor the rotations and reflections?”\nExtend gently to dihedral symmetry ideas: we’re dividing out both rotation and flip equivalences.\nEnd with applause for reasoning, not the number.\n⏱️ Timing: 6–8 minutes (think–pair–share + group wrap)."
+  },
+  {
+    "objectID": "slides/12_mon_permcomb.html#summary",
+    "href": "slides/12_mon_permcomb.html#summary",
     "title": "Discrete Math for Data Science",
     "section": "Summary",
-    "text": "Summary\nKey observations about the table:\n\n\n\n\n\n\\(p\\)\n\\(q\\)\n\\(p \\lor q\\)\n\n\n\n\nF\nF\nF\n\n\nF\nT\nT\n\n\nT\nF\nT\n\n\nT\nT\nT\n\n\n\n\n\nThe diagram is called a Truth Table\np and q are variables, each of which take on one of two Boolean values, True or False (T/F, 1/0)\n∨ is a binary operator that implements a function (creates output) from the 2 input variables to another Boolean value. It is characterized by its output values.\nThe operator ∨ corresponds to the English word or.\nThe expression p ∨ q is called a proposition."
+    "text": "Summary\n\n\n\nConcept\nOrder Matters?\nModel\nEx Count\n\n\n\n\nPermutation\nYes\nOrdered arrangement\n4! = 24\n\n\nCombination\nNo\nUnordered selection\n\\(\\binom{4}{2} = 6\\)\n\n\n\nPunchline:\nCounting always starts with modeling the outcomes.\nOnce we know what counts as “different,” the computation follows.\n\n\nNotes:\nEnd with reflection: “What do we gain by naming these ideas?”\nEncourage them to see permutation and combination as families of counting models, not just formulas.\nOptional: connect to data sampling — rows (ordered) vs. groups (unordered).\n⏱️ Timing: 3–4 minutes as a closing summary."
   },
   {
-    "objectID": "slides/01_fri_truth.html#foreshadowing",
-    "href": "slides/01_fri_truth.html#foreshadowing",
+    "objectID": "slides/06_wed_binary copy.html#announcements",
+    "href": "slides/06_wed_binary copy.html#announcements",
+    "title": "Representation as Encoding — Day 1: Binary & Size",
+    "section": "Announcements",
+    "text": "Announcements"
+  },
+  {
+    "objectID": "slides/06_wed_binary copy.html#goals",
+    "href": "slides/06_wed_binary copy.html#goals",
+    "title": "Representation as Encoding — Day 1: Binary & Size",
+    "section": "Goals",
+    "text": "Goals\n\nRead/write binary.\nReason about bit length and capacity.\n\nProve: \\(b\\) bits result in \\(2^b\\) codes, with max value \\(2^b-1\\).\n\nOverflow.\n\nDON’T FORGET THE MAGIC TRICK!"
+  },
+  {
+    "objectID": "slides/06_wed_binary copy.html#place-value",
+    "href": "slides/06_wed_binary copy.html#place-value",
+    "title": "Representation as Encoding — Day 1: Binary & Size",
+    "section": "Place Value",
+    "text": "Place Value\n  Consider an encoding into binary:\n\\[(b_{k-1}\\dots b_1 b_0)_2=\\sum_{i=0}^{k-1} b_i 2^i,\\quad b_i\\in\\{0,1\\}\\]\nWe are not flummoxed by this, because:\n\\[(d_{k-1}\\dots d_1 d_0)_{10}=\\sum_{i=0}^{k-1} d_i 10^i,\\quad d_i\\in\\{0,1,\\ldots,9\\}\\]"
+  },
+  {
+    "objectID": "slides/06_wed_binary copy.html#quantify-the-length",
+    "href": "slides/06_wed_binary copy.html#quantify-the-length",
+    "title": "Representation as Encoding — Day 1: Binary & Size",
+    "section": "Quantify the Length",
+    "text": "Quantify the Length\n \nHow many unique values can we store in \\(n\\) bits?\n \n \nHow many bits to represent \\(m\\) values?\n\nBit length: \\(L(n)=\\lfloor \\log_2 n\\rfloor+1\\) for \\(n\\ge1\\). Emphasize size grows like \\(\\log_2\\). Show a quick table for \\(2^b\\)."
+  },
+  {
+    "objectID": "slides/06_wed_binary copy.html#capacity-quickies",
+    "href": "slides/06_wed_binary copy.html#capacity-quickies",
+    "title": "Representation as Encoding — Day 1: Binary & Size",
+    "section": "Capacity Quickies",
+    "text": "Capacity Quickies\n \nHow many codes with…\n\n8 bits?\n\n12 bits?\n\n \nHow many bits to count to…\n\n\\(500\\)?\n\\(5000\\)?\n\\(1000000\\)?\n\n\nAnswers: \\(2^8=256\\), \\(2^{12}=4096\\), \\(\\lceil\\log_2 500\\rceil=9\\)."
+  },
+  {
+    "objectID": "slides/06_wed_binary copy.html#proof-moment",
+    "href": "slides/06_wed_binary copy.html#proof-moment",
+    "title": "Representation as Encoding — Day 1: Binary & Size",
+    "section": "Proof Moment",
+    "text": "Proof Moment\nClaim: With \\(b\\) bits we can represent \\(2^b\\) values."
+  },
+  {
+    "objectID": "slides/06_wed_binary copy.html#technical-aside",
+    "href": "slides/06_wed_binary copy.html#technical-aside",
+    "title": "Representation as Encoding — Day 1: Binary & Size",
+    "section": "Technical Aside",
+    "text": "Technical Aside\n\nint (pure Python): arbitrary precision (variable width)\nNumPy / Pandas arrays: fixed-width datatypes (int8, int32, int64, uint64, …)\n\n\n\nSigned range: \\([-2^{b-1},\\,2^{b-1}-1]\\); Unsigned range: \\([0,\\,2^b-1]\\).\nTakeaway: the container chooses the encoding (width & signedness).\n\n\nDemo:"
+  },
+  {
+    "objectID": "slides/06_wed_binary copy.html#overflow",
+    "href": "slides/06_wed_binary copy.html#overflow",
+    "title": "Representation as Encoding — Day 1: Binary & Size",
+    "section": "Overflow",
+    "text": "Overflow\nConsider addition, with 4 bits:\n\nannotate 1101_2 + 110_2 and ask students to speculate on 1) how addition works, and how they would describe the overflow. (they’ll say it’s like mod 2^4) With \\(b\\) fixed bits, adding wraps \\(\\bmod 2^b\\).\n\n\n\n \n\n\n \nPunchline: Overflow occurs when the number you want to represent is too big to fit into the space you’ve reserved for it."
+  },
+  {
+    "objectID": "slides/06_wed_binary copy.html#signed-integers",
+    "href": "slides/06_wed_binary copy.html#signed-integers",
+    "title": "Representation as Encoding — Day 1: Binary & Size",
+    "section": "Signed Integers",
+    "text": "Signed Integers\n\n\nUnsigned integers are represented by their encodings as discussed above.\n\n\n\\(b\\) bits typically represent values \\([0..2^b-1]\\).\n\n\nSigned integers have a different encoding (that we won’t discuss) but we can still guess the values that can be encoded:\n\n\n\\(b\\) bits typically represent values ____________."
+  },
+  {
+    "objectID": "slides/06_wed_binary copy.html#activity",
+    "href": "slides/06_wed_binary copy.html#activity",
+    "title": "Representation as Encoding — Day 1: Binary & Size",
+    "section": "Activity",
+    "text": "Activity\nFor each, compute bits needed or max value:\n\nSeats in a 500-seat hall.\n\n12-bit unsigned max.\n\nWorld pop (\\(\\approx 8\\cdot10^9\\) people) bits for unique IDs.\n\nTimestamps for next \\(100\\) years at 1-second resolution.\n\n\n\n9; (2) 4095; (3) \\(\\lceil\\log_2(8e9)\\rceil=33\\); (4) seconds \\(\\approx 3.15e9\\) → 32 bits."
+  },
+  {
+    "objectID": "slides/06_wed_binary copy.html#exit-ticket",
+    "href": "slides/06_wed_binary copy.html#exit-ticket",
+    "title": "Representation as Encoding — Day 1: Binary & Size",
+    "section": "Exit Ticket",
+    "text": "Exit Ticket\nIn words: what does \\(\\lceil\\log_2 N\\rceil\\) tell you?"
+  },
+  {
+    "objectID": "slides/03_mon_quant2.html#announcements",
+    "href": "slides/03_mon_quant2.html#announcements",
     "title": "Discrete Math for Data Science",
-    "section": "Foreshadowing",
-    "text": "Foreshadowing\n\n\n\n\n\n\\(p\\)\n\\(q\\)\n\\(p \\lor q\\)\n\n\n\n\nF\nF\nF\n\n\nF\nT\nT\n\n\nT\nF\nT\n\n\nT\nT\nT\n\n\n\n\n\nHow many rows for a proposition on 3 variables? \\(k\\) variables?\nGive a good name for an operator that takes 1 variable: __________\nGive a good name for an operator that takes 3 variables: __________\nHow many different binary operators could there be?\n\n\n\n  \n    −\n    +\n \n 06:00\n \n\nchallenge: Of all binary operators, how many are commutative? (Half: 8.)"
+    "section": "Announcements",
+    "text": "Announcements\n\nEnroll in PrairieTest here: https://us.prairietest.com/pt/student/course/12361/enroll/392674810508\nSign up for EX1. Practice materials on PL.\nTutorials begin this week."
   },
   {
-    "objectID": "slides/01_fri_truth.html#truth-tables",
-    "href": "slides/01_fri_truth.html#truth-tables",
+    "objectID": "slides/03_mon_quant2.html#counterexample",
+    "href": "slides/03_mon_quant2.html#counterexample",
     "title": "Discrete Math for Data Science",
-    "section": "Truth Tables",
-    "text": "Truth Tables\nAll graded learning activities in the course will use a tool called PrairieLearn.\nNavigate to today’s activity and complete question 1\nhttps://us.prairielearn.com/pl/course_instance/186238/\n\n  \n    −\n    +\n \n 10:00"
+    "section": "Counterexample",
+    "text": "Counterexample\nSuppose someone says “all comedians are funny,” and you disagree, how would you refute the statement?\n       \\(\\forall x, C(x)\\rightarrow F(x)\\)\nRefute by negating:\n       \\(\\neg\\forall x, C(x)\\rightarrow F(x)\\)\n     \\(\\equiv\\exists x, \\neg(C(x)\\rightarrow F(x))\\)\n     \\(\\equiv\\exists x, \\neg(F(x)\\vee\\neg C(x))\\)\n     \\(\\equiv\\exists x, \\neg F(x)\\wedge C(x))\\)\nYour immediate response: _(some unfunny comedian)__\nThis evidence of refutation is called a _counterexample_.\nApplies specifically to refuting \\(\\forall\\)"
   },
   {
-    "objectID": "slides/01_fri_truth.html#beyond-operators",
-    "href": "slides/01_fri_truth.html#beyond-operators",
+    "objectID": "slides/03_mon_quant2.html#witness",
+    "href": "slides/03_mon_quant2.html#witness",
     "title": "Discrete Math for Data Science",
-    "section": "Beyond Operators",
-    "text": "Beyond Operators\nPropositions can be more complex than just a single operator!\nExample:\n\n\n\n\\(p\\)\n\\(q\\)\n_____\n\\(\\neg(p \\lor q)\\)\n\n\n\n\nF\nF\n\nT\n\n\nF\nT\n\nF\n\n\nT\nF\n\nF\n\n\nT\nT\n\nF"
+    "section": "Witness",
+    "text": "Witness\nSuppose someone says “there is a funny comedian,” and you disagree, how could they justify their statement?\n\n\n       \\(\\exists x, C(x)\\wedge F(x)\\)\n\n\nTheir immediate response: _(a universally funny comedian – Robin Williams)_\nThis evidence of justification is called a _witness_.\nApplies specifically to defending an \\(\\exists\\)\nAside: Why not \\(\\exists x, C(x)\\rightarrow F(x)\\)?"
   },
   {
-    "objectID": "slides/01_fri_truth.html#wffs",
-    "href": "slides/01_fri_truth.html#wffs",
+    "objectID": "slides/03_mon_quant2.html#code-patterns",
+    "href": "slides/03_mon_quant2.html#code-patterns",
     "title": "Discrete Math for Data Science",
-    "section": "WFFs",
-    "text": "WFFs\nA well-formed formula is a Boolean statement generated by the following rules:\n&lt;wff&gt; ::= &lt;atom&gt;\n        | ~ &lt;wff&gt;\n        | ( &lt;wff&gt; ∧ &lt;wff&gt; )\n        | ( &lt;wff&gt; ∨ &lt;wff&gt; )\n\n&lt;atom&gt; ::= p | q | r | s | ...\nThis definition is in the form of a Grammar.\n_____________: &lt;wff&gt; and &lt;atom&gt;\n_____________: p, q, r, s …\nIt is our first self-referential or recursive definition."
+    "section": "Code Patterns",
+    "text": "Code Patterns"
   },
   {
-    "objectID": "slides/01_fri_truth.html#wffs-1",
-    "href": "slides/01_fri_truth.html#wffs-1",
+    "objectID": "slides/03_mon_quant2.html#nested-quantifiers",
+    "href": "slides/03_mon_quant2.html#nested-quantifiers",
     "title": "Discrete Math for Data Science",
-    "section": "WFFs",
-    "text": "WFFs\n&lt;wff&gt; ::= &lt;atom&gt;\n        | ~ &lt;wff&gt;\n        | ( &lt;wff&gt; ∧ &lt;wff&gt; )\n        | ( &lt;wff&gt; ∨ &lt;wff&gt; )\n\n&lt;atom&gt; ::= p | q \nExample derivation:\n&lt;wff&gt;"
+    "section": "Nested Quantifiers",
+    "text": "Nested Quantifiers\nIt will not surprise you that we can use multiple quantifiers:\n \n     \\(\\forall x, \\forall y \\text{ Knows}(x,y)\\)\n\n\nIn pairs, complete the second worksheet."
   },
   {
-    "objectID": "slides/01_fri_truth.html#wffs-notes",
-    "href": "slides/01_fri_truth.html#wffs-notes",
-    "title": "Discrete Math for Data Science",
-    "section": "WFFs (Notes)",
-    "text": "WFFs (Notes)\n&lt;wff&gt; ::= &lt;atom&gt;\n        | ~ &lt;wff&gt;\n        | ( &lt;wff&gt; ∧ &lt;wff&gt; )\n        | ( &lt;wff&gt; ∨ &lt;wff&gt; )\n\n&lt;atom&gt; ::= p | q \n\nGrammars can be used to construct many different kinds of sequences.\nWe could have included additional operators \\(\\rightarrow\\), \\(\\leftrightarrow\\), \\(\\oplus\\), \\(\\uparrow\\)\nComputational evaluation of &lt;wff&gt;is covered in DSCI221. For now, we trust Python and focus on logic.\nThe &lt;wff&gt; are propositions."
-  },
-  {
-    "objectID": "slides/01_fri_truth.html#wff-puzzle",
-    "href": "slides/01_fri_truth.html#wff-puzzle",
-    "title": "Discrete Math for Data Science",
-    "section": "WFF Puzzle",
-    "text": "WFF Puzzle\nWhich of these are WFFs?\n&lt;wff&gt; ::= &lt;atom&gt;\n        | ~ &lt;wff&gt;\n        | ( &lt;wff&gt; ∧ &lt;wff&gt; )\n        | ( &lt;wff&gt; ∨ &lt;wff&gt; )\n\n&lt;atom&gt; ::= p | q \n\n\n\n\\((\\neg p ∧ (q ∨ r))\\)\n\n\\(((p ∧ q) ∨ (r ∧ \\neg s))\\)\n\\(((\\neg p) ∨ (q ∨ r))\\)\n\n\n\n\\((p ∨ (qr))\\)\n\\(\\neg (p ∨ (q ∧ \\neg r))\\)\n\\(\\neg (p ∨ q))\\)\n\n\n\n  \n    −\n    +\n \n 03:00"
-  },
-  {
-    "objectID": "slides/01_fri_truth.html#wffs-2",
-    "href": "slides/01_fri_truth.html#wffs-2",
-    "title": "Discrete Math for Data Science",
-    "section": "WFFs",
-    "text": "WFFs\n&lt;wff&gt; ::= &lt;atom&gt;\n        | ~ &lt;wff&gt;\n        | ( &lt;wff&gt; ∧ &lt;wff&gt; )\n        | ( &lt;wff&gt; ∨ &lt;wff&gt; )\n\n&lt;atom&gt; ::= p | q \nTheorem: \\(\\neg (p ∨ q))\\) is not a WFF.\nProof:"
-  },
-  {
-    "objectID": "slides/01_fri_truth.html#propositions",
-    "href": "slides/01_fri_truth.html#propositions",
-    "title": "Discrete Math for Data Science",
-    "section": "Propositions",
-    "text": "Propositions\nA proposition is a statement that can be either True or False.\nExamples:\n\n\\(37 &gt; 12\\)\nFewer than 5 people in this room feel sleepy.\nThere are extra-terrestrial life forms.\nThis statement is False.\n\\(\\underline{\\hspace{10em}}\\)"
-  },
-  {
-    "objectID": "slides/01_fri_truth.html#translation",
-    "href": "slides/01_fri_truth.html#translation",
-    "title": "Discrete Math for Data Science",
-    "section": "Translation",
-    "text": "Translation\n\n\n\\(p\\): ___________ ate cereal for breakfast.\n\\(q\\): ___________ brought a backpack to class.\n \n\n\\((p\\lor q)\\)\n\\((p\\wedge q)\\)\n\\(\\neg q\\)"
-  },
-  {
-    "objectID": "slides/01_fri_truth.html#predicates",
-    "href": "slides/01_fri_truth.html#predicates",
-    "title": "Discrete Math for Data Science",
-    "section": "Predicates",
-    "text": "Predicates\n\n\n\\(p\\): ___________ ate cereal for breakfast.\n\n\nWe may want to apply the statement to many students, in which case we define a Predicate.\n\n\n\n\\(P(x)\\): \\(x\\) ate cereal for breakfast.\n\\(x\\) can be instantiated to be a particular student, or an arbitrary student.\n\\(P(\\underline{\\hspace{2em}} )\\) is a proposition."
-  },
-  {
-    "objectID": "slides/01_fri_truth.html#logical-equivalence",
-    "href": "slides/01_fri_truth.html#logical-equivalence",
-    "title": "Discrete Math for Data Science",
-    "section": "Logical Equivalence",
-    "text": "Logical Equivalence\n\n\nEx: Is it true that \\((p \\lor q) \\equiv (q\\lor p)\\) ?\n\n\nDiscussion points:\n\n\\(\\equiv\\) means logically equivalent\nThe answer had better be _________!!!\nHow can we justify our instinct?"
-  },
-  {
-    "objectID": "slides/01_fri_truth.html#logical-equivalence-example",
-    "href": "slides/01_fri_truth.html#logical-equivalence-example",
-    "title": "Discrete Math for Data Science",
-    "section": "Logical Equivalence example",
-    "text": "Logical Equivalence example"
-  },
-  {
-    "objectID": "slides/01_fri_truth.html#boolean-masks",
-    "href": "slides/01_fri_truth.html#boolean-masks",
-    "title": "Discrete Math for Data Science",
-    "section": "Boolean Masks",
-    "text": "Boolean Masks\nSelect all the cereals with at least 4 units of protein and no more than 6 units of sugars.\n\n\n\n\n\n\n\n\n\n\nChallenge: In pandas, test De Morgan with missing data: create a row with protein = NaN. Show that (~p) & (~q) can differ from ~(p | q) under three-valued logic; propose a fix (.fillna(False) or careful NA handling)."
-  },
-  {
-    "objectID": "slides/01_fri_truth.html#words-and-ideas",
-    "href": "slides/01_fri_truth.html#words-and-ideas",
+    "objectID": "slides/03_mon_quant2.html#words-and-ideas",
+    "href": "slides/03_mon_quant2.html#words-and-ideas",
     "title": "Discrete Math for Data Science",
     "section": "Words and Ideas",
-    "text": "Words and Ideas\nTruth Table\nProposition\nGrammar\nPredicate\nBoolean Mask\nLogical Equivalence"
+    "text": "Words and Ideas\nQuantifiers – “For all” and “There exists”\nCounterexample and Witness\nNegating quantifiers\nNested Quantifiers"
   },
   {
-    "objectID": "slides/misc_skipped.html#announcements",
-    "href": "slides/misc_skipped.html#announcements",
+    "objectID": "slides/06_tue_asymptotics2.html#announcements",
+    "href": "slides/06_tue_asymptotics2.html#announcements",
     "title": "Discrete Math for Data Science",
     "section": "Announcements",
     "text": "Announcements"
   },
   {
-    "objectID": "slides/misc_skipped.html#last-demo",
-    "href": "slides/misc_skipped.html#last-demo",
+    "objectID": "slides/06_tue_asymptotics2.html#big-o-strategy",
+    "href": "slides/06_tue_asymptotics2.html#big-o-strategy",
     "title": "Discrete Math for Data Science",
-    "section": "Last Demo",
-    "text": "Last Demo\nThis is a tromino:     \nThis is a \\(n\\) by \\(n\\) deficient grid:\n\n       \n\n\n\nClaim: Every \\(2^n\\) by \\(2^n\\) deficient grid can be tiled with trominos."
+    "section": "Big O Strategy",
+    "text": "Big O Strategy\n\nGoal. To prove \\(f(n)=O(g(n))\\), show there exist constants \\(c&gt;0\\) and \\(n_0\\) such that\nfor all \\(n\\ge n_0\\), \\(f(n)\\le c\\,g(n)\\).\n\nPick your region.\nChoose \\(n_0\\) where simple comparisons are true (e.g., for \\(n\\ge 1\\), \\(n^2\\ge n\\); for \\(n\\ge e\\), \\(\\log n\\ge 1\\)).\nDominate each term by \\(g(n)\\).\nOn \\(n\\ge n_0\\), bound every term of \\(f\\) by a constant multiple of \\(g\\):\n\\(f(n)=\\text{(term}_1)+\\dots+\\text{(term}_k)\\ \\le\\ a_1 g(n)+\\dots+a_k g(n)\\).\nAdd and name the constant.\nSum the multipliers: \\(f(n)\\le (a_1+\\cdots+a_k)\\,g(n)\\).\nSet \\(c=a_1+\\cdots+a_k\\).\nState the line that matters.\n“For all \\(n\\ge n_0\\), \\(f(n)\\le c\\,g(n)\\). Therefore \\(f(n)=O(g(n))\\).”"
   },
   {
-    "objectID": "slides/misc_skipped.html#tile-work",
-    "href": "slides/misc_skipped.html#tile-work",
+    "objectID": "slides/06_tue_asymptotics2.html#prove-an-asymptotic-upper-bound",
+    "href": "slides/06_tue_asymptotics2.html#prove-an-asymptotic-upper-bound",
     "title": "Discrete Math for Data Science",
-    "section": "Tile Work",
-    "text": "Tile Work\nClaim: Every \\(2^n\\) by \\(2^n\\) deficient grid can be tiled with trominos.\n \nProof: Line 1:\n\n\nLine 2:\n \nSmall case(s):"
+    "section": "Prove an Asymptotic Upper Bound",
+    "text": "Prove an Asymptotic Upper Bound\nClaim: \\(n^3+100n^2\\log n=O(n^3)\\)\nProof:"
   },
   {
-    "objectID": "slides/misc_skipped.html#tile-work-1",
-    "href": "slides/misc_skipped.html#tile-work-1",
+    "objectID": "slides/06_tue_asymptotics2.html#big-o-game",
+    "href": "slides/06_tue_asymptotics2.html#big-o-game",
     "title": "Discrete Math for Data Science",
-    "section": "Tile Work",
-    "text": "Tile Work\nClaim: Every \\(2^n\\) by \\(2^n\\) deficient grid can be tiled with trominos.\n \nProof continued… Inductive case:"
+    "section": "Big-O Game",
+    "text": "Big-O Game\nFill in the blanks with an appropriate response:\n\n\\(5n^4+2n^3+7 = O(\\)______\\()\\)\n\n \n\n\\(20n+4\\sqrt n = O(\\)______\\()\\)\n\n \n\n\\(37\\log n^2 = O(\\)______\\()\\)"
   },
   {
-    "objectID": "slides/misc_skipped.html#toothpicks",
-    "href": "slides/misc_skipped.html#toothpicks",
+    "objectID": "slides/06_tue_asymptotics2.html#big-o-hot-takes",
+    "href": "slides/06_tue_asymptotics2.html#big-o-hot-takes",
     "title": "Discrete Math for Data Science",
-    "section": "Toothpicks",
-    "text": "Toothpicks\nHow many toothpicks in an \\(n\\cross n\\) grid made of toothpicks?\n\n\nDraw the sequence:\n \nFind the recurrence:\n \nSolve the closed form for the recurrence:"
+    "section": "Big-O Hot Takes",
+    "text": "Big-O Hot Takes\n\nTo find a simple asymptotic upper bound of \\(f(n)\\), ignore lower order terms.\nand ignore constant coefficients.\nA tight bound is most useful, but looser bounds fit the definition.\nThere is an equivalent definition for an asymptotic lower bound, called “big-Omega” (\\(\\Omega\\)).\nAnd finally, if functions are both \\(\\leq\\) (big-O) and \\(\\geq\\) (big-Omega) then they are said to be “big-Theta” of one another (\\(\\Theta\\)). This is “asymptotic equality.”"
   },
   {
-    "objectID": "slides/misc_skipped.html#buds",
-    "href": "slides/misc_skipped.html#buds",
+    "objectID": "slides/06_tue_asymptotics2.html#disproving-big-o",
+    "href": "slides/06_tue_asymptotics2.html#disproving-big-o",
     "title": "Discrete Math for Data Science",
-    "section": "Buds",
-    "text": "Buds"
+    "section": "Disproving Big-O",
+    "text": "Disproving Big-O\nSuppose someone claims\n\\[n^2\\log n = O(n^2).\\]\nAre they correct? _____\nHow can you disprove?"
   },
   {
-    "objectID": "slides/misc_skipped.html#affine-cipher-explicit-encodedecode",
-    "href": "slides/misc_skipped.html#affine-cipher-explicit-encodedecode",
+    "objectID": "slides/06_tue_asymptotics2.html#reinforcing-intuition",
+    "href": "slides/06_tue_asymptotics2.html#reinforcing-intuition",
     "title": "Discrete Math for Data Science",
-    "section": "Affine Cipher (explicit encode/decode)",
-    "text": "Affine Cipher (explicit encode/decode)\nAlphabet. Map letters \\(A\\!\\to\\!0,\\ B\\!\\to\\!1,\\ \\dots,\\ Z\\!\\to\\!25\\) (ignore spaces/punctuation).\nKey. Choose \\(a=9,\\ b=5,\\ m=26\\). Since \\(\\gcd(9,26)=1\\), \\(a^{-1}\\equiv 3\\pmod{26}\\).\nEncrypt. \\(E(x)\\equiv (9x+5)\\bmod 26\\)\nDecrypt. \\(D(y)\\equiv a^{-1}(y-b)\\equiv 3(y-5)\\bmod 26\\)\nExample (plaintext): DATA SCIENCE\n\nNumbers: \\(D\\,A\\,T\\,A\\,S\\,C\\,I\\,E\\,N\\,C\\,E\\ \\to\\ 3,0,19,0,18,2,8,4,13,2,4\\)\nEncrypt via \\(9x+5\\) (mod \\(26\\)): \\[\n3\\!\\to\\!6,\\ 0\\!\\to\\!5,\\ 19\\!\\to\\!20,\\ 0\\!\\to\\!5,\\ 18\\!\\to\\!11,\\ 2\\!\\to\\!23,\\ 8\\!\\to\\!25,\\ 4\\!\\to\\!15,\\ 13\\!\\to\\!18,\\ 2\\!\\to\\!23,\\ 4\\!\\to\\!15\n\\]\nBack to letters: \\(6,5,20,5,11,23,25,15,18,23,15\\ \\to\\ \\texttt{GFUF LXZPSXP}\\)\n\nQuick decode check. \\(G(6)\\ \\mapsto\\ D(3)\\) because \\(D(6)=3(6-5)\\equiv 3\\pmod{26}\\);\n\\(X(23)\\ \\mapsto\\ C(2)\\) since \\(D(23)=3(23-5)=54\\equiv 2\\pmod{26}\\).\nData-science tie: solving \\(ax\\equiv b\\pmod{26}\\) is the same modular-inverse algebra behind simple substitution ciphers and modular encodings."
+    "section": "Reinforcing Intuition",
+    "text": "Reinforcing Intuition\n \nPrairieLearn Activity"
   },
   {
-    "objectID": "slides/misc_skipped.html#crt-as-two-dials",
-    "href": "slides/misc_skipped.html#crt-as-two-dials",
-    "title": "Discrete Math for Data Science",
-    "section": "CRT as “Two Dials”",
-    "text": "CRT as “Two Dials”\nPicture. Two clock faces: - Dial A: mod \\(m_1\\) (ticks \\(0,\\dots,m_1-1\\)) - Dial B: mod \\(m_2\\) (ticks \\(0,\\dots,m_2-1\\))\nAdvance one tick of absolute time \\(\\Rightarrow\\) both hands advance by \\(+1\\) (wrapping around). Solving \\(x\\equiv a\\pmod{m_1},\\ x\\equiv b\\pmod{m_2}\\) means: &gt; Find the absolute tick \\(x\\) where Dial A reads \\(a\\) and Dial B reads \\(b\\) simultaneously.\nWhy it works: If \\(\\gcd(m_1,m_2)=1\\), the pair of readings cycles through every \\((r_1,r_2)\\) exactly once in \\(0,\\dots,m_1m_2-1\\)."
-  },
-  {
-    "objectID": "slides/misc_skipped.html#two-dials-worked-example",
-    "href": "slides/misc_skipped.html#two-dials-worked-example",
-    "title": "Discrete Math for Data Science",
-    "section": "Two Dials — Worked Example",
-    "text": "Two Dials — Worked Example\nPuzzle. Find \\(x\\) with \\(x\\equiv 2\\pmod 3\\) and \\(x\\equiv 1\\pmod 5\\).\nDial states (absolute tick \\(\\to\\) readings):\n\\(0\\!\\to\\!(0,0),\\ 1\\!\\to\\!(1,1),\\ 2\\!\\to\\!(2,2),\\ 3\\!\\to\\!(0,3),\\ 4\\!\\to\\!(1,4),\\ 5\\!\\to\\!(2,0),\\ 6\\!\\to\\!(0,1),\\ 7\\!\\to\\!(1,2),\\ 8\\!\\to\\!(2,3),\\ 9\\!\\to\\!(0,4),\\ 10\\!\\to\\!(1,0),\\ 11\\!\\to\\!(2,1),\\ 12\\!\\to\\!(0,2),\\ 13\\!\\to\\!(1,3),\\ 14\\!\\to\\!(2,4)\\)\nWe need \\((2,1)\\) \\(\\Rightarrow\\) occurs at tick \\(11\\).\nAnswer: \\(x\\equiv 11\\pmod{15}\\)."
-  },
-  {
-    "objectID": "slides/misc_skipped.html#two-dials-algebra-behind-the-picture",
-    "href": "slides/misc_skipped.html#two-dials-algebra-behind-the-picture",
-    "title": "Discrete Math for Data Science",
-    "section": "Two Dials — Algebra Behind the Picture",
-    "text": "Two Dials — Algebra Behind the Picture\nGiven \\(x\\equiv a\\pmod{m_1},\\ x\\equiv b\\pmod{m_2}\\) with \\(\\gcd(m_1,m_2)=1\\):\n\nWrite \\(x=a+m_1t\\).\n\nPlug in: \\(a+m_1t\\equiv b\\pmod{m_2}\\ \\Rightarrow\\ m_1 t\\equiv b-a\\pmod{m_2}\\).\n\nSince \\(\\gcd(m_1,m_2)=1\\), \\(m_1\\) has an inverse \\((m_1)^{-1}\\pmod{m_2}\\), so\n\\(t\\equiv (b-a)\\,(m_1)^{-1}\\pmod{m_2}\\).\n\nSubstitute back: \\(x=a+m_1 t\\) and reduce \\(\\bmod\\ m_1m_2\\).\n\nExample recap (3 & 5).\n\\(x=2+3t\\), and \\(3t\\equiv 1-2\\equiv -1\\equiv 4\\ (\\bmod 5)\\).\n\\(3^{-1}\\equiv 2\\ (\\bmod 5)\\), so \\(t\\equiv 4\\cdot2\\equiv 8\\equiv 3\\ (\\bmod 5)\\).\nThus \\(x=2+3\\cdot 3=11\\ (\\bmod 15)\\)."
-  },
-  {
-    "objectID": "slides/09_wed_dfa.html#announcements",
-    "href": "slides/09_wed_dfa.html#announcements",
+    "objectID": "slides/12_tue_starsbars.html#announcements",
+    "href": "slides/12_tue_starsbars.html#announcements",
     "title": "Discrete Math for Data Science",
     "section": "Announcements",
     "text": "Announcements"
   },
   {
-    "objectID": "slides/09_wed_dfa.html#goals",
-    "href": "slides/09_wed_dfa.html#goals",
+    "objectID": "slides/12_tue_starsbars.html#cookie-counter-1",
+    "href": "slides/12_tue_starsbars.html#cookie-counter-1",
     "title": "Discrete Math for Data Science",
-    "section": "Goals",
-    "text": "Goals\n\nRecall a regex is a set of strings (a language).\nBuild small DFAs that recognize those sets.\nUse closure tricks (∪, ∩, complement) to combine DFAs."
+    "section": "Cookie Counter 1",
+    "text": "Cookie Counter 1\nYou have 5 cookies 🍪 and 3 friends 👩‍🦱🧑‍🦰🧑‍🦱. Each friend can get any number of cookies.\nQuestion: How many different ways can you share the cookies?"
   },
   {
-    "objectID": "slides/09_wed_dfa.html#two-views-on-regular-expressions",
-    "href": "slides/09_wed_dfa.html#two-views-on-regular-expressions",
+    "objectID": "slides/12_tue_starsbars.html#summary",
+    "href": "slides/12_tue_starsbars.html#summary",
     "title": "Discrete Math for Data Science",
-    "section": "Two views on Regular Expressions",
-    "text": "Two views on Regular Expressions\n\n\n\n\n\n\n\n\nMeaning\nIn Python/Pandas\nAnchors\n\n\n\n\nFull-string match\nre.fullmatch(r'(bb+|c[ac]*|b?)', s)df['col'].str.fullmatch(r'(bb+|c[ac]*|b?)')\nUse ^ and $: r'^(...)$'\n\n\nSubstring search\nre.search(r'(bb+|c[ac]*|b?)', s)df['col'].str.contains(r'(bb+|c[ac]*|b?)')\nnone"
+    "section": "Summary",
+    "text": "Summary\nEach way of sharing is one arrangement of 5 stars and 2 bars.\nOr equivalently:\n \n\\[\n\\text{# ways} = \\binom{5 + 3 - 1}{3 - 1} = \\binom{7}{2} = 21\n\\]"
   },
   {
-    "objectID": "slides/09_wed_dfa.html#warm-up",
-    "href": "slides/09_wed_dfa.html#warm-up",
+    "objectID": "slides/12_tue_starsbars.html#cookie-counter-2",
+    "href": "slides/12_tue_starsbars.html#cookie-counter-2",
     "title": "Discrete Math for Data Science",
-    "section": "Warm-Up",
-    "text": "Warm-Up\nPattern: ^(0|1)*11(0|1)*$\nWhich strings are in the set?\n\n10101\n\n11010\n\n10001\n\n10110\n\n\nAnswer: 11010, 10110. emphasize that we are reading the string from left to right."
+    "section": "Cookie Counter 2",
+    "text": "Cookie Counter 2\nYou need to buy 5 boxes of GG 🍪, and there are 3 flavours.\nQuestion: How many different ways can you buy the boxes of cookies?"
   },
   {
-    "objectID": "slides/09_wed_dfa.html#contains-11",
-    "href": "slides/09_wed_dfa.html#contains-11",
+    "objectID": "slides/12_tue_starsbars.html#counting-partitions",
+    "href": "slides/12_tue_starsbars.html#counting-partitions",
     "title": "Discrete Math for Data Science",
-    "section": "Contains 11",
-    "text": "Contains 11\nAlphabet: {0,1}\nStates:\n\nS0: have seen no 1s (start)\nS1: just saw a 1\nS2: saw substring 11 (accepting)\n\nDFA Sketch:\n\nRun a couple examples on the board: 101101 (accept), 101010 (reject). key elements: 0) input alphabet 1) set of states. 2) start state, 3) transition function, 4) set of accept states."
+    "section": "Counting Partitions",
+    "text": "Counting Partitions\n\n\n\n\n\n\n\n\n\n\n\nScenario\nInterpretation\nWhat’s being partitioned?\n\n\n\n\n🍪 Cookie Counter\nDistributing identical items among labeled friends\nItems → People\n\n\n🎁 Girl Guide Boxes\nCounting totals of each labelled flavour\nboxes → Flavours\n\n\n\nEach arrangement of stars and bars corresponds to a unique configuration:\n\\[\n\\text{# ways} = \\binom{j + k - 1}{k - 1}\n\\]\n\n\nNotes:\n- Reinforces that “stars and bars” generalizes both partitions and categorizations.\n- Encourage students to restate the model aloud: “stars are identical; bars create groups.”\n- Use this slide to help them abstract from examples toward the general combinatorial pattern."
   },
   {
-    "objectID": "slides/09_wed_dfa.html#dfa-ideas",
-    "href": "slides/09_wed_dfa.html#dfa-ideas",
+    "objectID": "slides/12_tue_starsbars.html#knights-of-the-round-table",
+    "href": "slides/12_tue_starsbars.html#knights-of-the-round-table",
     "title": "Discrete Math for Data Science",
-    "section": "DFA Ideas",
-    "text": "DFA Ideas\nProcess a string from left to right, one character at a time.\n\nState: what the prefix tells us so far.\nAccept iff we finish in an accepting state.\nDeterministic: at most one transition per symbol from every state.\nTotal: every state has a transition on every symbol."
+    "section": "Knights of the Round Table",
+    "text": "Knights of the Round Table\n \nAfter King Arthur’s death, Guenevere always sits in the same seat. The 100 knights are arranged clockwise in increasing order of honor using 5 ranks. Knights of the same rank are indistinguishable, and each rank sits together (one contiguous block).\n \nQuestion:\nHow many different seating configurations are possible?\n \nDiscussion:\n\nare you counting permutations?\nare you counting combinations?\nare you counting partitions?\n\n\nwhat’s being partitioned?"
   },
   {
-    "objectID": "slides/09_wed_dfa.html#dfa-definition",
-    "href": "slides/09_wed_dfa.html#dfa-definition",
+    "objectID": "slides/12_tue_starsbars.html#back-to-cookies",
+    "href": "slides/12_tue_starsbars.html#back-to-cookies",
     "title": "Discrete Math for Data Science",
-    "section": "DFA Definition",
-    "text": "DFA Definition\nA Deterministic Finite Automaton consists of the following:\n\na set of states \\(S\\)\na finite alphabet \\(\\Sigma\\)\na transition function \\(f\\) that assigns a next state to each \\((s, i)\\) pair, \\(s\\in S\\) and \\(i\\in \\Sigma\\).\na start state \\(s_0\\)\na set of accepting states \\(F\\subseteq S\\)"
+    "section": "Back to Cookies",
+    "text": "Back to Cookies\nSuppose you have 10 cookies and 3 friends, and each friend must receive at least one cookie.\n\nHow many different ways are there to partition the cookies among your friends?\n\n \n\nHow does your answer change if Alex doesn’t care if they get any cookies, and Casey must have at least 3."
   },
   {
-    "objectID": "slides/09_wed_dfa.html#regex-dfa",
-    "href": "slides/09_wed_dfa.html#regex-dfa",
+    "objectID": "slides/12_tue_starsbars.html#constrained-partitions",
+    "href": "slides/12_tue_starsbars.html#constrained-partitions",
     "title": "Discrete Math for Data Science",
-    "section": "Regex = DFA",
-    "text": "Regex = DFA\nA language is regular if and only if it is recognized by some DFA."
+    "section": "Constrained Partitions",
+    "text": "Constrained Partitions\nSuppose a set of \\(n\\) items is to be partitioned among \\(k\\) categories, \\(C_1, \\ldots, C_k\\).\nAlso, suppose category \\(C_i\\) requires \\(x_i\\) items.\nThen the number of partitions is:\n\\[\n\\binom{n - \\sum_{i=1}^{k} x_i + k - 1}{k - 1}\n\\]\nReasoning:\n\nStart with \\(n\\) identical items (stars).\n\nPre-allocate the required \\(x_i\\) to each category \\(C_i\\). After this, \\(n' = n - (x_1 + x_2 + \\dots + x_k)\\) remain unassigned.\n\nDistribute these remaining \\(n'\\) items freely (possibly zero) among the \\(k\\) labeled categories — a stars and bars situation."
   },
   {
-    "objectID": "slides/09_wed_dfa.html#you-try-ends-with-tea",
-    "href": "slides/09_wed_dfa.html#you-try-ends-with-tea",
+    "objectID": "slides/12_tue_starsbars.html#counting-all-groupings",
+    "href": "slides/12_tue_starsbars.html#counting-all-groupings",
     "title": "Discrete Math for Data Science",
-    "section": "You Try: “Ends with Tea”",
-    "text": "You Try: “Ends with Tea”\nTarget: strings that end with tea\n\nalphabet is lower case letters, here, just to keep it simple.\nWe’ll use this when we do unions, later."
+    "section": "Counting All Groupings",
+    "text": "Counting All Groupings\nAmong 10 students, each will choose either AI or Data Science for a class project.\n\n\n\n\n\nStudent\nChoice\n\n\n\n\n1\n🤖📊\n\n\n2\n🤖📊\n\n\n⋮\n⋮\n\n\n10\n🤖📊\n\n\n\n\n \n\\[\n\\Rightarrow 2^{10} \\text{ unique groups }\n\\]\n\nBut notice that each of those choices has some number, \\(k\\), of DSci. How many ways are there to choose \\(k\\) students for DSci, from among the 10?\nThis is true for any \\(k\\), so we must have:\n\\[\n\\binom{10}{0} + \\binom{10}{1} + \\cdots + \\binom{10}{10} = 2^{10}.\n\\]\nThis is the sum of binomial coefficients identity — each term counts the groupings with exactly \\(k\\) DSci projects, and the sum counts all possible configurations."
   },
   {
-    "objectID": "slides/09_wed_dfa.html#prefix-example-starts-with-iced",
-    "href": "slides/09_wed_dfa.html#prefix-example-starts-with-iced",
+    "objectID": "slides/12_tue_starsbars.html#adding-a-third-choice",
+    "href": "slides/12_tue_starsbars.html#adding-a-third-choice",
     "title": "Discrete Math for Data Science",
-    "section": "Prefix Example: “Starts with Iced”",
-    "text": "Prefix Example: “Starts with Iced”\nPlan:\n\nChain prefix states; before success, any mismatch → SINK.\nAfter success, loop on any character in ACC.\n\nDiagram:"
+    "section": "Adding a Third Choice 🤖📊📈",
+    "text": "Adding a Third Choice 🤖📊📈\nOur 10 students can now choose a project in AI, Data Science, or Statistics.\nQuestion:\nHow many different ways can the class’s choices be distributed?\n\n\n\n\n\nCategory\nSymbol\nCount\n\n\n\n\nAI\n🤖\n\\(x_1\\)\n\n\nDSci\n📊\n\\(x_2\\)\n\n\nStat\n📈\n\\(x_3\\)\n\n\n\n\nEach student picks exactly one category, so:\n\\[\nx_1 + x_2 + x_3 = 10\n\\]\n\nCount as a sequence of combination steps:\n\nChoose \\(x_1\\) students for AI: \\(\\binom{10}{x_1}\\)\n\nFrom the remaining \\(10 - x_1\\), choose \\(x_2\\) for DSci: \\(\\binom{10 - x_1}{x_2}\\)\n\nThe rest automatically do Stat."
   },
   {
-    "objectID": "slides/09_wed_dfa.html#one-last-example",
-    "href": "slides/09_wed_dfa.html#one-last-example",
+    "objectID": "slides/12_tue_starsbars.html#continued",
+    "href": "slides/12_tue_starsbars.html#continued",
     "title": "Discrete Math for Data Science",
-    "section": "One Last Example",
-    "text": "One Last Example\nBuild the DFA corresponding to ^0(1*|0*)1$"
+    "section": "🤖📊📈 continued",
+    "text": "🤖📊📈 continued\nFor each of the \\(\\binom{10}{x_1}\\) choices of AI, there are \\(\\binom{10 - x_1}{x_2}\\) choices of DSCI, and the rest are Stat.\n\\[\n\\text{Total} =\n\\binom{10}{x_1} \\binom{10 - x_1}{x_2}\n= \\frac{10!}{x_1!x_2!(10 - x_1 - x_2)!}\n\\]\nGeneralizing to \\(k\\) categories:\nIf \\(n\\) students choose among \\(k\\) labeled categories with counts \\(x_1,\\dots,x_k\\):\n\\[\n\\binom{n}{x_1,x_2,\\ldots,x_k} = \\frac{n!}{x_1!x_2!\\cdots x_k!}\n\\]"
   },
   {
-    "objectID": "slides/09_wed_dfa.html#closure-tricks",
-    "href": "slides/09_wed_dfa.html#closure-tricks",
+    "objectID": "slides/12_tue_starsbars.html#counting-all-multinomial-outcomes",
+    "href": "slides/12_tue_starsbars.html#counting-all-multinomial-outcomes",
     "title": "Discrete Math for Data Science",
-    "section": "Closure Tricks",
-    "text": "Closure Tricks\nWhat’s closure?\n\nComplement: make the DFA total (add SINK if needed), then flip accept to non-accept, and vice-versa.\nUnion / Intersection:\nStates are pairs (p,q)\n\nUnion accepts if p ∈ F1 or q ∈ F2\nIntersection accepts if p ∈ F1 and q ∈ F2\n\nDifference: L1 - L2 = \\(L1\\cap L2^c\\)\n\n\nThis mirrors set algebra directly; great place to reinforce recent set lessons."
+    "section": "Counting All Multinomial Outcomes",
+    "text": "Counting All Multinomial Outcomes\nWe’ve seen how two categories led to:\n\\[\n\\sum_{k=0}^{n} \\binom{n}{k} = 2^n\n\\]\nNow each student chooses one of three project types: 🤖 AI, 📊 Data Science, or 📈 Statistics\nFor each possible triple \\((x_1, x_2, x_3)\\) with \\(x_1 + x_2 + x_3 = n\\), the number of ways to assign projects is:\n\\[\n\\binom{n}{x_1, x_2, x_3} = \\frac{n!}{x_1!x_2!x_3!}\n\\]\nIf we add them all up — over every valid triple:\n\\[\n\\sum_{x_1+x_2+x_3=n}\n\\binom{n}{x_1, x_2, x_3}\n= 3^n\n\\]"
   },
   {
-    "objectID": "slides/09_wed_dfa.html#mini-exercise",
-    "href": "slides/09_wed_dfa.html#mini-exercise",
+    "objectID": "slides/12_tue_starsbars.html#multinomials-in-general",
+    "href": "slides/12_tue_starsbars.html#multinomials-in-general",
     "title": "Discrete Math for Data Science",
-    "section": "Mini-Exercise",
-    "text": "Mini-Exercise\nBuild a DFA for the union of:\n\nL1: contains 11 (use the machine we built)\nL2: ends with 00 (three states: Tε, T0, T00)\n\nHint: sketch product states (S_i, T_j) and mark accept pairs for union."
-  },
-  {
-    "objectID": "slides/09_wed_dfa.html#parity-demo",
-    "href": "slides/09_wed_dfa.html#parity-demo",
-    "title": "Discrete Math for Data Science",
-    "section": "Parity Demo",
-    "text": "Parity Demo\nLanguage: even number of 1s over {0,1}.\n\nEVEN (start, accept), ODD\n\non 1: toggle; on 0: stay\n\nTry: which strings of length \\(\\leq\\) 4 accept?"
+    "section": "Multinomials in General",
+    "text": "Multinomials in General\nWhat is the result if there are \\(k\\) choices?\n\nEach student independently chooses one of \\(k\\) categories for \\(k^n\\) outcomes.\n\nEach multinomial coefficient counts how many outcomes share the same totals \\((x_1,x_2,\\ldots x_k)\\).\n\nSumming across all possible totals reconstructs all outcomes.\n\n\\[\n\\sum_{x_1+x_2+\\ldots x_k=n}\n\\binom{n}{x_1, x_2, \\ldots x_k}\n= k^n\n\\]\n\n\nNotes:\n- This is the natural generalization of the binomial identity.\n- You can phrase it as: “Combinations classify a two-way choice; multinomials classify a multi-way choice.”\n- The pattern will reappear when you expand ((x_1 + x_2 + x_3)^n)."
   },
   {
     "objectID": "slides/02_fri_quant1.html#announcements",
