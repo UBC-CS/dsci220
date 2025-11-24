@@ -9,12 +9,10 @@
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/quarto-contrib/live-runtime/live-runtime.js" type="module"></script>
 <link href="../site_libs/quarto-contrib/live-runtime/live-runtime.css" rel="stylesheet">
-<script src="../site_libs/quarto-contrib/countdown-0.5.0/countdown.js"></script>
-<link href="../site_libs/quarto-contrib/countdown-0.5.0/countdown.css" rel="stylesheet">
 <script src="../site_libs/quarto-contrib/iconify-3.0.0/iconify-icon.min.js"></script><meta charset="utf-8">
   <meta name="generator" content="quarto-1.8.26">
 
-  <meta name="dcterms.date" content="2025-09-24">
+  <meta name="dcterms.date" content="2025-11-25">
   <title>DSCI 220: Discrete Math for Data Science – Discrete Math for Data Science</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -150,154 +148,422 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">September 24, 2025</p>
+  <p class="date">November 25, 2025</p>
 </section>
 <section id="announcements" class="slide level2">
 <h2>Announcements</h2>
-</section>
-<section>
-<section id="proof-by-induction" class="title-slide slide level1 center">
-<h1>Proof by Induction</h1>
 <style>
-.small { font-size: 0.9rem; }
-.tiny { font-size: 0.8rem; }
-.rule { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; }
+.small { font-size: .9rem; }
+.tiny { font-size: .8rem; }
 .card { border: 2px solid #ddd; border-radius: 12px; padding: 14px 16px; margin: 10px 0; }
-.center { text-align: center; }
-.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-.badge { display:inline-block; padding:2px 8px; border:1px solid #bbb; border-radius:10px; font-size:.8rem; }
+.center { text-align:center; }
+.rule { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
 </style>
 </section>
-<section id="todays-goals" class="slide level2">
-<h2>Today’s goals</h2>
+<section>
+<section id="feature-spaces-and-the-curse-of-dimensionality" class="title-slide slide level1 center">
+<h1>Feature Spaces and the Curse of Dimensionality</h1>
+
+</section>
+<section id="today" class="slide level2">
+<h2>Today</h2>
 <ul>
-<li>Understand role of components of an inductive proof.</li>
-<li>Write short inductive proofs.</li>
+<li>Think of data as points in a <strong>feature space</strong> <span class="math inline">\(X\)</span></li>
+<li>Count how big <span class="math inline">\(X\)</span> gets as we:
+<ul>
+<li>add more features</li>
+<li>increase feature precision</li>
+</ul></li>
+<li>See why data are <strong>sparse</strong> in high dimensions</li>
+<li>Connect this to <strong>learning a function</strong> <span class="math inline">\(f : X \to Y\)</span> from data</li>
 </ul>
 </section>
-<section id="warm-up" class="slide level2 activity">
-<h2>Warm Up</h2>
-<p>A <em>Tower</em> is built by stacking 5m red panels, and 7m blue panels.</p>
-<p>What tower heights are possible?</p>
-<div id="timer_83b20846f702bbac098b4b885245a01e37f7f950" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
-  <div class="countdown-controls">
-    <button class="countdown-bump-down">−</button>
-    <button class="countdown-bump-up">+</button>
- </div>
- <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
- </div>
-<aside class="notes">
-<p>End up with a clear claim: For all n &gt; 23, we can build a tower of height n using only 5m red and 7m blue panels.</p>
-<p>Say “claim holds for smaller values”</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
+<section id="quick-recap-functions-and-models" class="slide level2">
+<h2>Quick recap: functions and models</h2>
+<p>From last time:</p>
+<ul>
+<li>A <strong>model / classifier</strong> is a function <span class="math inline">\(f : X \to Y\)</span>
+<ul>
+<li><span class="math inline">\(X\)</span> = input space / feature space</li>
+<li><span class="math inline">\(Y\)</span> = labels or outputs</li>
+</ul></li>
+<li>For finite <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>:
+<ul>
+<li>If <span class="math inline">\(|X| = N\)</span> and <span class="math inline">\(|Y| = m\)</span> then there are <span class="math inline">\(m^N\)</span> functions <span class="math inline">\(X \to Y\)</span></li>
+</ul></li>
+<li>Example:
+<ul>
+<li><span class="math inline">\(X = \{0,1\}^3\)</span> (3-bit vectors), so <span class="math inline">\(|X| = 8\)</span></li>
+<li>Binary labels <span class="math inline">\(Y = \{0,1\}\)</span>: there are <span class="math inline">\(2^8 = 256\)</span> classifiers</li>
+</ul></li>
+</ul>
 </section>
-<section id="warm-up-continued" class="slide level2 smaller">
-<h2>Warm Up Continued</h2>
-<p>Claim: for all integers <span class="math inline">\(n &gt; 23\)</span>, we can build a tower of height <span class="math inline">\(n\)</span> using only 5m red and 7m blue panels.</p>
-<p><br>
-</p>
-<p>24:</p>
-<p><br>
-</p>
-<p>25:</p>
-<p><br>
-</p>
-<p>26:</p>
-<aside class="notes">
-<p>point out universal quantifier, and also least value.</p>
-<p>Also point out which values follow easily from these… sequences, covering integers.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
+<section id="quick-recap-learning-from-data" class="slide level2">
+<h2>Quick recap: learning from data</h2>
+<ul>
+<li>There is some unknown <strong>true function</strong> <span class="math inline">\(f : X \to Y\)</span></li>
+<li>We see <strong>data</strong>: <span class="math display">\[
+D = \{(x_1, y_1), \dots, (x_n, y_n)\}, \quad y_i = f(x_i)
+\]</span></li>
+<li>We pick a function <span class="math inline">\(h\)</span> (our model) that:
+<ul>
+<li>agrees with the data (or mostly agrees)</li>
+<li>we hope generalizes to new <span class="math inline">\(x \in X\)</span></li>
+</ul></li>
+</ul>
+<p>Today’s question:</p>
+<blockquote>
+<p>What is this space <span class="math inline">\(X\)</span> really like, and why does it cause trouble?</p>
+</blockquote>
 </section>
-<section id="proof-by-induction-1" class="slide level2 smaller">
-<h2>Proof by Induction</h2>
-<p>Claim: For any integer <span class="math inline">\(n &gt; 0\)</span>, <span class="math inline">\(\sum\limits_{k=1}^{n} k^2 = \frac{n(n+1)(2n+1)}{6}\)</span>.</p>
-<p><br>
-</p>
-<p>Proof: Consider an arbitrary integer <span class="math inline">\(n &gt; 0\)</span>.</p>
-<p><br>
-</p>
-<p>IH: Assume inductively that for any <span class="math inline">\(j&lt;n\)</span>, <span class="math inline">\(\sum\limits_{k=1}^{j} k^2 = \frac{j(j+1)(2j+1)}{6}\)</span>.</p>
-<p><br>
-</p>
-<p>Either <span class="math inline">\(n=1\)</span>, or <span class="math inline">\(n&gt;1\)</span>.</p>
-<p>Case 1 <span class="math inline">\((n=1)\)</span>:</p>
-<p><br>
-</p>
-<p>Case 2 <span class="math inline">\((n&gt;1)\)</span>:</p>
+<section id="how-many-images-exist" class="slide level2 activity">
+<h2>How many images exist?</h2>
+<p>Consider black-and-white images:</p>
+<ul>
+<li>Size: <span class="math inline">\(28 \times 28\)</span> pixels</li>
+<li>Each pixel is either 0 (black) or 1 (white)</li>
+</ul>
+<p><strong>Question:</strong><br>
+If each pixel can be 0 or 1, how many different images are possible?</p>
+<ul>
+<li>Think: how many pixels? how many choices per pixel?</li>
+<li>Discuss with a neighbor and write your answer as a power of 2.</li>
+</ul>
 </section>
-<section id="inductive-proof-skeleton-card" class="slide level2">
-<h2>Inductive Proof Skeleton Card</h2>
-<div class="card">
-<p>Proof by Induction of <span class="math inline">\(\forall n, P(n)\)</span></p>
-<ol type="1">
-<li>First line: “Consider an arbitrary n.”</li>
-<li>Second line (IH): “Assume <span class="math inline">\(\forall j &lt; n, P(j)\)</span>.”</li>
-<li>Determine exhaustive cases for <span class="math inline">\(n\)</span>, including one or more base cases and usually one inductive case.</li>
-<li>Prove each case, base and inductive, independently. Base case is typically direct, and inductive case will require use of IH.</li>
-</ol>
-</div>
+<section id="counting-images" class="slide level2">
+<h2>Counting images</h2>
+<ul>
+<li>There are <span class="math inline">\(28 \times 28 = 784\)</span> pixels</li>
+<li>Each pixel: 2 choices (0 or 1)</li>
+</ul>
+<p>So the number of possible images is:</p>
+<p><span class="math display">\[
+2^{784}.
+\]</span></p>
+<p>We can estimate:</p>
+<ul>
+<li><span class="math inline">\(\log_{10}(2^{784}) = 784 \log_{10} 2 \approx 784 \cdot 0.301 \approx 236\)</span></li>
+<li>So about <span class="math inline">\(10^{236}\)</span> possible images</li>
+</ul>
 </section>
-<section id="your-turn" class="slide level2 activity">
-<h2>Your turn!</h2>
-<p>Claim: For any <span class="math inline">\(n&gt;0\)</span>, <span class="math inline">\(\sum\limits_{k=1}^n \frac{1}{(2k-1)(2k+1)} = \frac{n}{2n+1}\)</span>.</p>
-<div id="timer_83b20846f702bbac098b4b885245a01e37f7f950" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
-  <div class="countdown-controls">
-    <button class="countdown-bump-down">−</button>
-    <button class="countdown-bump-up">+</button>
- </div>
- <code class="countdown-time"><span class="countdown-digits minutes">10</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
- </div>
+<section id="images-as-feature-vectors" class="slide level2">
+<h2>Images as feature vectors</h2>
+<p>We can think of each image as a point in a <strong>feature space</strong>:</p>
+<ul>
+<li>Feature space: <span class="math display">\[
+X = \{0,1\}^{784}
+\]</span></li>
+<li>Each image is a 784-dimensional vector of 0s and 1s</li>
+<li>Size of <span class="math inline">\(X\)</span>: <span class="math inline">\(|X| = 2^{784}\)</span></li>
+</ul>
+<p>A digit recognizer is a function:</p>
+<p><span class="math display">\[
+f : X \to \{0,1,\dots,9\}
+\]</span></p>
+<p>that assigns a label to each possible image.</p>
 </section>
-<section id="last-demo" class="slide level2">
-<h2>Last Demo</h2>
-<p>This is a tromino: <svg viewbox="0 0 48 48" width="48" height="48" fill="currentColor" role="img" aria-label="L tromino"> <rect x="0" y="24" width="23" height="23" rx="3"></rect> <rect x="24" y="24" width="23" height="23" rx="3"></rect> <rect x="0" y="0" width="23" height="23" rx="3"></rect> </svg></p>
-<p>This is a <span class="math inline">\(n\)</span> by <span class="math inline">\(n\)</span> deficient grid:</p>
-<svg viewbox="0 0 200 200" width="240" height="240" role="img" aria-label="10 by 10 grid with one black square at row 6, column 6">
-<defs> <pattern id="grid20" width="20" height="20" patternunits="userSpaceOnUse"> <path d="M20 0H0V20" fill="none" stroke="#bbb" stroke-width="1"></path> </pattern> </defs> <rect x="0" y="0" width="200" height="200" fill="white" stroke="#333" stroke-width="2"></rect> <rect x="0" y="0" width="200" height="200" fill="url(#grid20)"></rect> <rect x="100" y="100" width="20" height="20" fill="black"></rect>
-</svg>
-<p><br>
-</p>
-<p>Claim: Every <span class="math inline">\(2^n\)</span> by <span class="math inline">\(2^n\)</span> deficient grid can be tiled with trominos.</p>
+<section id="data-and-the-domain" class="slide level2 smaller">
+<h2>Data and the Domain</h2>
+<p>In practice:</p>
+<ul>
+<li>We might have tens of thousands or millions of labeled images</li>
+<li>But the total number of possible images is on the order of <span class="math inline">\(10^{236}\)</span></li>
+</ul>
+<p>So:</p>
+<blockquote>
+<p>Our training set is a <strong>microscopic fraction</strong> of the full input space <span class="math inline">\(X\)</span>.</p>
+</blockquote>
+<p>Yet we want <span class="math inline">\(f\)</span> to behave well on images it has never seen.</p>
+<p>This is one face of the <strong>curse of dimensionality</strong>.</p>
 </section>
-<section id="tile-work" class="slide level2">
-<h2>Tile Work</h2>
-<p>Claim: Every <span class="math inline">\(2^n\)</span> by <span class="math inline">\(2^n\)</span> deficient grid can be tiled with trominos.</p>
-<p>&nbsp;</p>
-<p>Proof: Line 1:</p>
-<p><br>
-</p>
-<p>Line 2:</p>
-<p>&nbsp;</p>
-<p>Small case(s):</p>
+<section id="binary-feature-vectors" class="slide level2">
+<h2>Binary feature vectors</h2>
+<p>Now simplify:</p>
+<ul>
+<li>Suppose examples are described by <span class="math inline">\(d\)</span> <strong>binary features</strong>
+<ul>
+<li>Each feature: 0 or 1</li>
+</ul></li>
+<li>The feature space is: <span class="math display">\[
+X = \{0,1\}^d
+\]</span></li>
+</ul>
+<p>How big is <span class="math inline">\(X\)</span>?</p>
+<ul>
+<li>There are <span class="math inline">\(2\)</span> choices for each of the <span class="math inline">\(d\)</span> features</li>
+<li>So: <span class="math display">\[
+|X| = 2^d
+\]</span></li>
+</ul>
 </section>
-<section id="tile-work-1" class="slide level2 smaller">
-<h2>Tile Work</h2>
-<p>Claim: Every <span class="math inline">\(2^n\)</span> by <span class="math inline">\(2^n\)</span> deficient grid can be tiled with trominos.</p>
-<p>&nbsp;</p>
-<p>Proof continued… Inductive case:</p>
-<svg viewbox="0 0 400 400" width="480" height="480" role="img" aria-label="16 by 16 grid with one black square at row 4, column 12">
-<defs> <pattern id="grid25" width="25" height="25" patternunits="userSpaceOnUse"> <path d="M25 0H0V25" fill="none" stroke="#bbb" stroke-width="1"></path> </pattern> </defs> <rect x="0" y="0" width="400" height="400" fill="white" stroke="#333" stroke-width="2"></rect> <rect x="0" y="0" width="400" height="400" fill="url(#grid25)"></rect> <rect x="300" y="150" width="25" height="25" fill="black"></rect>
-</svg>
+<section id="features-vs-20-vs-30" class="slide level2 activity">
+<h2>10 features vs 20 vs 30</h2>
+<p>Suppose we have a dataset with <span class="math inline">\(n = 10{,}000\)</span> examples<br>
+(assume they are all distinct points in <span class="math inline">\(X\)</span>).</p>
+<p>Fill in this table:</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 14%">
+<col style="width: 19%">
+<col style="width: 39%">
+<col style="width: 26%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;"># features <span class="math inline">\(d\)</span></th>
+<th><span class="math inline">\(|X| = 2^d\)</span> (approx)</th>
+<th>Could 10,000 data points cover all of <span class="math inline">\(X\)</span>?</th>
+<th>Rough fraction seen <span class="math inline">\(n/|X|\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">10</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">20</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">30</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="features-vs-20-vs-30-1" class="slide level2">
+<h2>10 features vs 20 vs 30</h2>
+<p>Let’s plug in:</p>
+<ul>
+<li><span class="math inline">\(d = 10\)</span>: <span class="math inline">\(|X| = 2^{10} = 1{,}024\)</span></li>
+<li><span class="math inline">\(d = 20\)</span>: <span class="math inline">\(|X| = 2^{20} \approx 1{,}000{,}000\)</span></li>
+<li><span class="math inline">\(d = 30\)</span>: <span class="math inline">\(|X| = 2^{30} \approx 1{,}000{,}000{,}000\)</span></li>
+</ul>
+<p>With <span class="math inline">\(n = 10{,}000\)</span> data points:</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 15%">
+<col style="width: 15%">
+<col style="width: 43%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;"># features <span class="math inline">\(d\)</span></th>
+<th style="text-align: right;"><span class="math inline">\(|X|\)</span></th>
+<th>Can 10,000 cover all of <span class="math inline">\(X\)</span>?</th>
+<th>Fraction <span class="math inline">\(n/|X|\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">10</td>
+<td style="text-align: right;"><span class="math inline">\(1{,}024\)</span></td>
+<td>Yes (even many repeats)</td>
+<td><span class="math inline">\(\approx 10\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">20</td>
+<td style="text-align: right;"><span class="math inline">\(\approx 10^6\)</span></td>
+<td>No</td>
+<td><span class="math inline">\(\approx 10^{-2}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">30</td>
+<td style="text-align: right;"><span class="math inline">\(\approx 10^9\)</span></td>
+<td>Definitely not</td>
+<td><span class="math inline">\(\approx 10^{-5}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>As we add features, <span class="math inline">\(|X|\)</span> explodes, and the <strong>fraction</strong> of <span class="math inline">\(X\)</span> we see shrinks rapidly.</p>
+</section>
+<section id="functions-on-a-huge-x" class="slide level2">
+<h2>Functions on a huge <span class="math inline">\(X\)</span></h2>
+<p>Recall:</p>
+<ul>
+<li>For a finite input space <span class="math inline">\(X\)</span> with <span class="math inline">\(|X| = N\)</span> and binary labels: <span class="math display">\[
+\#\{f : X \to \{0,1\}\} = 2^N
+\]</span></li>
+</ul>
+<p>If we have labeled data on <span class="math inline">\(n\)</span> distinct inputs:</p>
+<ul>
+<li>The function is fixed on those <span class="math inline">\(n\)</span> points</li>
+<li>Free on the remaining <span class="math inline">\(N - n\)</span> points</li>
+<li>So the number of functions consistent with the data is: <span class="math display">\[
+2^{N - n}
+\]</span></li>
+</ul>
+<p>If <span class="math inline">\(N\)</span> is huge and <span class="math inline">\(n \ll N\)</span>, then <span class="math inline">\(N - n \approx N\)</span>: there are still <strong>astronomically many</strong> functions that fit the data perfectly.</p>
+</section>
+<section id="example-20-binary-features" class="slide level2">
+<h2>Example: 20 binary features</h2>
+<p>Take <span class="math inline">\(d = 20\)</span> binary features:</p>
+<ul>
+<li>Feature space size: <span class="math display">\[
+|X| = 2^{20} \approx 1{,}000{,}000
+\]</span></li>
+<li>Suppose we have <span class="math inline">\(n = 10{,}000\)</span> labeled examples</li>
+</ul>
+<p>Then:</p>
+<ul>
+<li><span class="math inline">\(N = 2^{20}\)</span>, <span class="math inline">\(N - n \approx 990{,}000\)</span></li>
+<li>Number of functions <span class="math inline">\(X \to \{0,1\}\)</span> <strong>consistent</strong> with the data: <span class="math display">\[
+2^{N - n} \approx 2^{990{,}000}
+\]</span></li>
+</ul>
+<p>Even after seeing 10,000 examples, there are still wildly many possible functions that agree with all observed labels.</p>
+</section>
+<section id="from-discrete-to-continuous-features" class="slide level2">
+<h2>From discrete to continuous features</h2>
+<p>Now imagine each feature is a <strong>real number</strong> in <span class="math inline">\([0,1]\)</span>:</p>
+<ul>
+<li>Feature space: <span class="math display">\[
+X = [0,1]^d
+\]</span></li>
+<li>A model is a function: <span class="math display">\[
+f : [0,1]^d \to Y
+\]</span></li>
+</ul>
+<p>We’d like our data to be dense enough that we can approximate <span class="math inline">\(f(x)\)</span><br>
+<strong>everywhere</strong> in <span class="math inline">\([0,1]^d\)</span>, not just at the sample points.</p>
+</section>
+<section id="a-grid-in-1-dimension" class="slide level2">
+<h2>A grid in 1 dimension</h2>
+<p>Start with <span class="math inline">\(d=1\)</span>:</p>
+<ul>
+<li>Interval <span class="math inline">\([0,1]\)</span></li>
+<li>We want a resolution of about <span class="math inline">\(0.1\)</span>:
+<ul>
+<li>Divide into 10 equal segments</li>
+<li>Place a grid point in each segment</li>
+</ul></li>
+</ul>
+<p>We need about <strong>10</strong> points to cover <span class="math inline">\([0,1]\)</span> at resolution <span class="math inline">\(0.1\)</span>.</p>
+<p>(Each point “represents” nearby values.)</p>
+</section>
+<section id="a-grid-in-2-and-3-dimensions" class="slide level2 activity">
+<h2>A grid in 2 and 3 dimensions</h2>
+<p>Now <span class="math inline">\(d=2\)</span>:</p>
+<ul>
+<li>Square <span class="math inline">\([0,1]^2\)</span></li>
+<li>Use the same spacing <span class="math inline">\(0.1\)</span> in each dimension:
+<ul>
+<li>10 grid points along <span class="math inline">\(x\)</span></li>
+<li>10 grid points along <span class="math inline">\(y\)</span></li>
+<li>Total grid points: <span class="math inline">\(10 \times 10 = 100\)</span></li>
+</ul></li>
+</ul>
+<p><span class="math inline">\(d=3\)</span>:</p>
+<ul>
+<li>Cube <span class="math inline">\([0,1]^3\)</span></li>
+<li>10 grid points per dimension → <span class="math inline">\(10^3 = 1{,}000\)</span> total</li>
+</ul>
+<p><strong>Question:</strong><br>
+With a partner, extend this pattern to <span class="math inline">\(d = 5\)</span> and <span class="math inline">\(d = 10\)</span>:</p>
+</section>
+<section id="a-grid-in-d-dimensions" class="slide level2">
+<h2>A grid in <span class="math inline">\(d\)</span> dimensions</h2>
+<p>In general:</p>
+<ul>
+<li>If we use 10 grid points per dimension (spacing <span class="math inline">\(\approx 0.1\)</span>),</li>
+<li>Then the total number of grid points is: <span class="math display">\[
+10^d
+\]</span></li>
+</ul>
+<p>Some values:</p>
+<ul>
+<li><span class="math inline">\(d = 2\)</span>: <span class="math inline">\(10^2 = 100\)</span></li>
+<li><span class="math inline">\(d = 5\)</span>: <span class="math inline">\(10^5 = 100{,}000\)</span></li>
+<li><span class="math inline">\(d = 10\)</span>: <span class="math inline">\(10^{10} = 10{,}000{,}000{,}000\)</span></li>
+</ul>
+<p>To “cover” <span class="math inline">\([0,1]^d\)</span> with this resolution, we’d need about <span class="math inline">\(10^d\)</span> samples.</p>
+</section>
+<section id="what-can-10000-points-cover" class="slide level2">
+<h2>What can 10,000 points cover?</h2>
+<p>Suppose we have <span class="math inline">\(n = 10{,}000\)</span> data points.</p>
+<p>Compare:</p>
+<ul>
+<li><span class="math inline">\(d=2\)</span>: need <span class="math inline">\(\approx 100\)</span> grid points
+<ul>
+<li>10,000 &gt;&gt; 100 → many points per cell</li>
+</ul></li>
+<li><span class="math inline">\(d=5\)</span>: need <span class="math inline">\(\approx 100{,}000\)</span> grid points
+<ul>
+<li>10,000 &lt; 100,000 → many empty cells</li>
+</ul></li>
+<li><span class="math inline">\(d=10\)</span>: need <span class="math inline">\(\approx 10^{10}\)</span> grid points
+<ul>
+<li>10,000 is negligible</li>
+</ul></li>
+</ul>
+<p>As dimension <span class="math inline">\(d\)</span> grows, a fixed number of points becomes <strong>very sparse</strong> in <span class="math inline">\([0,1]^d\)</span>.</p>
+</section>
+<section id="curse-of-dimensionality" class="slide level2">
+<h2>Curse of dimensionality</h2>
+<p>One way to state it:</p>
+<blockquote>
+<p>To approximate an arbitrary function <span class="math inline">\(f : [0,1]^d \to Y\)</span> everywhere with a fixed resolution, the number of required samples grows <strong>exponentially</strong> with the dimension <span class="math inline">\(d\)</span>.</p>
+</blockquote>
+<p>So:</p>
+<ul>
+<li>High-dimensional spaces are extremely sparse</li>
+<li>Most of the volume is “far away” from any given data point</li>
+<li>It is impossible to densely sample the space unless we have an enormous amount of data</li>
+</ul>
+</section>
+<section id="putting-it-together-data-functions-and-generalization" class="slide level2 smaller">
+<h2>Putting it together: data, functions, and generalization</h2>
+<p>Across these two lessons:</p>
+<ul>
+<li>The input space <span class="math inline">\(X\)</span> (feature space) can be <strong>huge</strong>:
+<ul>
+<li>discrete: <span class="math inline">\(|X| = 2^d\)</span> for <span class="math inline">\(d\)</span> binary features</li>
+<li>continuous: <span class="math inline">\([0,1]^d\)</span> needs <span class="math inline">\(10^d\)</span> grid points for modest resolution</li>
+</ul></li>
+<li>A model is a function <span class="math inline">\(f : X \to Y\)</span></li>
+<li>Even after observing data on <span class="math inline">\(n\)</span> points:
+<ul>
+<li>there are still many functions that fit the data perfectly</li>
+<li>especially when <span class="math inline">\(|X|\)</span> is enormous and <span class="math inline">\(n \ll |X|\)</span></li>
+</ul></li>
+</ul>
+<p>ML algorithms cope by:</p>
+<ul>
+<li>restricting to a <strong>structured hypothesis class</strong> (linear, trees, neural nets, …)</li>
+<li>using inductive biases (smoothness, simplicity, etc.) so that sparse data can still guide the choice of <span class="math inline">\(f\)</span></li>
+</ul>
+</section>
+<section id="big-picture" class="slide level2 smaller">
+<h2>Big picture</h2>
+<ul>
+<li>Counting tells us that:
+<ul>
+<li>High-dimensional feature spaces explode in size</li>
+<li>Our datasets occupy a tiny fraction of those spaces</li>
+</ul></li>
+<li>Functions lesson:
+<ul>
+<li>Huge number of possible functions <span class="math inline">\(f : X \to Y\)</span></li>
+<li>Many functions remain consistent with the same data</li>
+</ul></li>
+<li>Curse-of-dimensionality lesson:
+<ul>
+<li>As dimension grows, data become sparser</li>
+<li>Approximating a function everywhere in <span class="math inline">\(X\)</span> requires exponentially many samples</li>
+</ul></li>
+</ul>
+<p><strong>Reflection:</strong></p>
+<blockquote>
+<p>In your own words: why does adding more features make learning a function from data harder, from a <em>counting</em> perspective?</p>
+</blockquote>
 
 
 <script type="ojs-module-contents">
