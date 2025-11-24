@@ -1,0 +1,307 @@
+---
+date: 2025-11-24
+---
+
+## Announcements
+
+<style>
+.small { font-size: .9rem; }
+.tiny { font-size: .8rem; }
+.card { border: 2px solid #ddd; border-radius: 12px; padding: 14px 16px; margin: 10px 0; }
+.center { text-align:center; }
+.rule { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+</style>
+
+
+# Functions and Models
+
+## Today
+
+- Rethink **functions** in a discrete / set-theoretic way
+- Count how many functions exist between finite sets
+- See how a **classifier** is “just” a function from feature vectors to labels
+- Connect this to **learning from data** and hypothesis spaces
+
+
+## Warm-up {.activity}
+
+\ 
+
+What is a function? 
+
+
+
+## What is a function?
+
+You’ve seen things like:
+
+- $y = 2x + 3$
+- $f(x) = \sin(x)$
+- Graphs on the plane
+
+Informal idea:
+
+> A function takes an **input** and gives a single **output**.
+
+Today: we’ll make this more precise in a way that specifically applies to **data science**.
+
+## Sets and Cartesian products
+
+Let
+
+- $X = \{1,2,3\}$
+- $Y = \{a,b,c\}$
+
+Then the **Cartesian product** $X \times Y$ is:
+
+$$
+X \times Y = \{(1,a), (1,b), \dots, (3,c)\}
+$$
+
+All possible ordered pairs with first component in $X$ and second in $Y$.
+
+## Functions as subsets of a product
+
+> A function $f : X \to Y$ is a subset of $X \times Y$ with a special property:
+>
+> - For **every** $x \in X$,  
+> - there is **exactly one** $y \in Y$  
+>   such that $(x, y)$ is in the subset $f$.
+
+We have special names for $X$ and $Y$: 
+
+
+## Check your understanding {.activity}
+
+With $X = \{1,2,3\}, Y = \{a,b\}$, which of these are functions $X \to Y$?
+
+1. $\{(1,a), (2,a), (3,a)\}$
+2. $\{(1,a), (1,b), (2,a), (3,b)\}$
+3. $\{(1,b), (2,a)\}$
+4. $\{(1,a), (2,b), (3,b)\}$
+
+**Discuss with a neighbor:** which ones violate “every” or “exactly one”?
+
+## Counting functions {.activity}
+
+Let $X = \{1,2,3\}$, $Y = \{a,b\}$.
+
+How many functions $f : X \to Y$ are there?
+
+
+## Counting functions
+
+Let $|X| = n$, $|Y| = m$.
+
+For **each** of the $n$ inputs in $X$:
+
+- we choose **one** of the $m$ possible outputs in $Y$.
+
+Choices are independent, so:
+
+$$
+\#\{f : X \to Y\} = m^n.
+$$
+
+Special case: if $Y = \{0,1\}$, then there are $2^n$ different functions $X \to \{0,1\}$.
+
+## Quick practice {.activity}
+
+Work with a neighbor:
+
+1. If $|X| = 4$, $|Y| = 3$, how many functions $X \to Y$?  
+2. If $|X| = 10$, $|Y| = \{0,1\}$, how many functions $X \to Y$?
+
+
+## From algebra to models {.smaller}
+
+Algebra view:
+
+- Function example: $f(x) = 2x + 3$
+- Domain: real numbers $x$
+- Codomain: real numbers $y$
+- You plug in an $x$, get a $y$.
+
+Data science view:
+
+- **Inputs** are often **feature vectors** (multiple values).
+- **Outputs** can be:
+  - a class label (spam / not spam),
+  - a number (predicted price),
+  - a probability,
+  - a word, ...
+
+It’s still a function: inputs to outputs.
+
+## Simple ML-style function {.smaller}
+
+Example: recommending a drink based on conditions.
+
+- Input: $(\text{temperature}, \text{caffeine preference})$ in $[0,40] \times [0,10]$.
+- Output: $\{\text{hot drink}, \text{iced drink}\}$.
+
+Define a rule:
+
+- If temperature $\ge 20$ **and** caffeine preference $\ge 4$ then "iced drink"
+- Otherwise "hot drink"
+
+This is a function:
+
+$$
+f : [0,40] \times [0,10] \to \{\text{hot drink}, \text{iced drink}\}.
+$$
+
+Each pair of numbers gets exactly one label.
+
+## A discrete feature space
+
+Suppose our feature vectors are length-3 binary:
+
+$$
+X = \{0,1\}^3 = \{(0,0,0), (0,0,1), \dots, (1,1,1)\}.
+$$
+
+There are $|X| = 2^3 = 8$ possible inputs.
+
+Let $Y = \{0,1\}$ (e.g., "no / yes", "up / down", "negative / positive").
+
+A **classifier** here is just a function
+
+$$
+f : X \to \{0,1\}.
+$$
+
+## Counting classifiers {.smaller}
+
+How many such classifiers are there?
+
+We already know:
+
+$$
+\#\{f : X \to \{0,1\}\} = 2^{|X|}.
+$$
+
+Here $|X| = 8$, so:
+
+$$
+\#\text{classifiers} = 2^8 = 256.
+$$
+
+Even in this tiny universe with 3 binary features, there are 256 different labeling rules.
+
+Each one says, for each of the 8 feature vectors, whether the label is 0 or 1.
+
+## Machine Learning as function finding {.smaller}
+
+In ML:
+
+- There is some **unknown true function** $f : X \to Y$.  
+  - For each input $x$, it gives the "correct" output $y$.
+- We do **not** know $f$.
+- We get a **dataset** of examples:
+
+$$
+D = \{(x_1, y_1), \dots, (x_n, y_n)\}
+$$
+
+where each $y_i = f(x_i)$.
+
+- We choose a function $h$ (our model) that we hope is **close** to $f$, based only on those sample pairs.
+
+## A concrete example {.smaller}
+
+Use the 3-bit feature space:
+
+$$
+X = \{0,1\}^3
+$$
+
+and labels in $Y = \{0,1\}$.
+
+Suppose the **true function** $f$ is unknown, but we see data:
+
+- $(0,0,0) \mapsto 0$
+- $(0,0,1) \mapsto 1$
+- $(1,0,0) \mapsto 1$
+- $(1,1,1) \mapsto 0$
+
+That's 4 labeled points out of the 8 possible inputs.
+
+
+## How many functions fit the data? {.smaller}
+
+Question:
+
+> How many different functions $h : X \to \{0,1\}$ agree with these 4 labeled examples?
+
+- For the 4 **seen** inputs, $h$ is forced to match the given labels.
+- For the other 4 **unseen** inputs, $h$ can choose 0 or 1 freely.
+
+So there are
+
+$$
+2^4 = 16
+$$
+
+different functions that fit the data **perfectly**.
+
+The data does **not** uniquely determine the function, even in this tiny world.
+
+
+## Hypothesis spaces {.smaller}
+
+In general:
+
+- Let input space $X$ be finite of size $|X| = N$.
+- Let label set $Y$ be finite of size $|Y| = m$.
+
+The set of **all possible** classifiers is:
+
+$$
+\{ f : X \to Y \}
+$$
+
+and its size is:
+
+$$
+\#\{f : X \to Y\} = m^N.
+$$
+
+For binary labels $Y = \{0,1\}$: $2^N$ possible classifiers.
+
+This is called the **hypothesis space** if we allow all functions.
+
+In practice, ML algorithms restrict to a much smaller family.
+
+## How big can this get? {.smaller}
+
+Example:
+
+- 10 binary features: input space size $|X| = 2^{10} = 1024$.
+- Binary labels: $\#\text{classifiers} = 2^{1024}$.
+
+We don’t need to know the exact number; just that it’s unimaginably large.
+
+Key point:
+
+> Even for modest feature spaces, the set of all possible labelings (all functions) is enormous.  
+> A learning algorithm can’t search all functions — it explores a tiny, structured subset.
+
+
+## Big picture {.smaller}
+
+Today:
+
+- We treated a function as a **set of input–output pairs** with the "every and exactly one" property.
+- We learned how to **count** functions between finite sets:
+  - $|X| = n, |Y| = m \Rightarrow m^n$ functions.
+- We saw that a **classifier** is just a function from feature vectors to labels.
+- We saw that even tiny input spaces give rise to **huge** spaces of possible functions.
+
+Next time:
+
+- We’ll zoom in on the **input space $X$** itself:
+  - how big it gets as we add more features,
+  - why most of it is empty in our data,
+  - and how that leads to the **curse of dimensionality**.
+
