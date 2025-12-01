@@ -1488,235 +1488,221 @@
     "text": "Words and Ideas\nQuantifiers – “For all” and “There exists”\nCounterexample and Witness\nNegating quantifiers\nNested Quantifiers"
   },
   {
-    "objectID": "slides/06_wed_binary copy.html#announcements",
-    "href": "slides/06_wed_binary copy.html#announcements",
+    "objectID": "slides/03_tue_inference.html#announcements",
+    "href": "slides/03_tue_inference.html#announcements",
+    "title": "Discrete Math for Data Science",
+    "section": "Announcements",
+    "text": "Announcements\n\nEnroll in PrairieTest here: https://us.prairietest.com/pt/student/course/12361/enroll/392674810508\nSign up for EX1. Practice materials on PL.\nTutorials begin this week!"
+  },
+  {
+    "objectID": "slides/03_tue_inference.html#spot-the-rule-dodge-the-trap",
+    "href": "slides/03_tue_inference.html#spot-the-rule-dodge-the-trap",
+    "title": "Discrete Math for Data Science",
+    "section": "🎉 Spot the Rule, Dodge the Trap",
+    "text": "🎉 Spot the Rule, Dodge the Trap\nGoal for today: treat valid logical arguments like legal moves in a game.\nYou’ll identify moves, build quick proofs, and design traps."
+  },
+  {
+    "objectID": "slides/03_tue_inference.html#warm-up-5-min",
+    "href": "slides/03_tue_inference.html#warm-up-5-min",
+    "title": "Discrete Math for Data Science",
+    "section": "Warm Up (5 min)",
+    "text": "Warm Up (5 min)\nA valid argument is a legal inference. Content can change; form is what makes it valid.\n\nIf the lab is open, I’ll go. The lab is open. So I’ll go.\nIf the exam is today, the forum is quiet. The forum isn’t quiet. So the exam isn’t today."
+  },
+  {
+    "objectID": "slides/03_tue_inference.html#micro-rule-cards",
+    "href": "slides/03_tue_inference.html#micro-rule-cards",
+    "title": "Discrete Math for Data Science",
+    "section": "Micro Rule Cards",
+    "text": "Micro Rule Cards\nUse these all class as a reference.\n\nMP: from p→q, p infer q\n\nMT: from p→q, ¬q infer ¬p\n\nHS: from p→q, q→r infer p→r\n\nDS: from p∨q, ¬p infer q\n\n∧-Intro: from p, q infer p∧q\n\n∧-Elim: from p∧q infer p (or q)\n\n∨-Intro: from p infer p∨q (any q)\n\nRES: from p∨q, ¬p∨r infer q∨r\n\nCD: from (p→r), (q→s), (p∨q) infer r∨s\n\nCommon traps:\n\nAffirming consequent: p→q, q ∴ p ❌\nDenying antecedent: p→q, ¬p ∴ ¬q ❌"
+  },
+  {
+    "objectID": "slides/03_tue_inference.html#rule-card-modus-ponens-mp",
+    "href": "slides/03_tue_inference.html#rule-card-modus-ponens-mp",
+    "title": "Discrete Math for Data Science",
+    "section": "Rule Card: Modus Ponens (MP)",
+    "text": "Rule Card: Modus Ponens (MP)\n\nFrom p→q and p, infer q.\n\nEx:\nIf the bus is full, I’ll walk. The bus is full. So I’ll walk."
+  },
+  {
+    "objectID": "slides/03_tue_inference.html#rule-card-modus-tollens-mt",
+    "href": "slides/03_tue_inference.html#rule-card-modus-tollens-mt",
+    "title": "Discrete Math for Data Science",
+    "section": "Rule Card: Modus Tollens (MT)",
+    "text": "Rule Card: Modus Tollens (MT)\n\nFrom p→q and ¬q, infer ¬p.\n\nEx:\nIf office hours moved, Slack has an announcement. No announcement. So they didn’t move."
+  },
+  {
+    "objectID": "slides/03_tue_inference.html#rule-card-hypothetical-syllogism-hs",
+    "href": "slides/03_tue_inference.html#rule-card-hypothetical-syllogism-hs",
+    "title": "Discrete Math for Data Science",
+    "section": "Rule Card: Hypothetical Syllogism (HS)",
+    "text": "Rule Card: Hypothetical Syllogism (HS)\n\nFrom p→q and q→r, infer p→r.\n\nEx:\nIf tidy then joins are simpler; if simpler joins then faster viz; so tidy ⇒ faster viz."
+  },
+  {
+    "objectID": "slides/03_tue_inference.html#rule-card-disjunctive-syllogism-ds",
+    "href": "slides/03_tue_inference.html#rule-card-disjunctive-syllogism-ds",
+    "title": "Discrete Math for Data Science",
+    "section": "Rule Card: Disjunctive Syllogism (DS)",
+    "text": "Rule Card: Disjunctive Syllogism (DS)\n\nFrom p∨q and ¬p, infer q.\n\nEx:\nDinner is sushi or tacos. Not sushi. So tacos."
+  },
+  {
+    "objectID": "slides/03_tue_inference.html#rule-card-conjunction-simplification",
+    "href": "slides/03_tue_inference.html#rule-card-conjunction-simplification",
+    "title": "Discrete Math for Data Science",
+    "section": "Rule Card: Conjunction / Simplification",
+    "text": "Rule Card: Conjunction / Simplification\n\n\n∧-Intro: from p, q infer p∧q\n\n\n∧-Elim: from p∧q infer p (or q)"
+  },
+  {
+    "objectID": "slides/03_tue_inference.html#rule-card--intro",
+    "href": "slides/03_tue_inference.html#rule-card--intro",
+    "title": "Discrete Math for Data Science",
+    "section": "Rule Card: ∨-Intro",
+    "text": "Rule Card: ∨-Intro\n\nFrom p infer p∨q.\n\nEx: I rode my scooter today, so I either rode my scooter or I’m a unicorn.\nNote validity cares about form, not plausibility of the added disjunct."
+  },
+  {
+    "objectID": "slides/03_tue_inference.html#rule-card-resolution-res",
+    "href": "slides/03_tue_inference.html#rule-card-resolution-res",
+    "title": "Discrete Math for Data Science",
+    "section": "Rule Card: Resolution (RES)",
+    "text": "Rule Card: Resolution (RES)\n\nFrom p∨q and ¬p∨r infer q∨r.\n\nEx:\nEither study or soccer; if study then library. So soccer or library."
+  },
+  {
+    "objectID": "slides/03_tue_inference.html#rule-card-constructive-dilemma-cd",
+    "href": "slides/03_tue_inference.html#rule-card-constructive-dilemma-cd",
+    "title": "Discrete Math for Data Science",
+    "section": "Rule Card: Constructive Dilemma (CD)",
+    "text": "Rule Card: Constructive Dilemma (CD)\n\nFrom (p→r), (q→s), (p∨q) infer r∨s.\n\nEx:\nIf sunny then picnic; if rainy then museum; sunny or rainy; so picnic or museum."
+  },
+  {
+    "objectID": "slides/03_tue_inference.html#fallacy-cards-flash",
+    "href": "slides/03_tue_inference.html#fallacy-cards-flash",
+    "title": "Discrete Math for Data Science",
+    "section": "Fallacy Cards (flash)",
+    "text": "Fallacy Cards (flash)\n\n\nAffirming the consequent ❌\nfrom p→q, q infer p\n\n\nDenying the antecedent ❌\nfrom p→q, ¬p infer ¬q"
+  },
+  {
+    "objectID": "slides/03_tue_inference.html#validity",
+    "href": "slides/03_tue_inference.html#validity",
+    "title": "Discrete Math for Data Science",
+    "section": "Validity",
+    "text": "Validity\n∧-Elim: \\((p\\wedge q)\\rightarrow p\\) is this always true?"
+  },
+  {
+    "objectID": "slides/03_tue_inference.html#invalidity",
+    "href": "slides/03_tue_inference.html#invalidity",
+    "title": "Discrete Math for Data Science",
+    "section": "INValidity",
+    "text": "INValidity\nAffirming Consequent: \\(((p\\rightarrow q)\\wedge q)\\rightarrow p\\) is this always true?\n\n\n\n\n\n\n\n\n\n\n\\(p\\)\n\\(q\\)\n\\(p\\rightarrow q\\)\n\\((p\\rightarrow q)\\wedge q\\)\n\\(((p\\rightarrow q)\\wedge q)\\rightarrow p\\)\n\n\n\n\nF\nF\n\n\n\n\n\nF\nT\n\n\n\n\n\nT\nF\n\n\n\n\n\nT\nT"
+  },
+  {
+    "objectID": "slides/03_tue_inference.html#spot-the-rule-or-the-trap",
+    "href": "slides/03_tue_inference.html#spot-the-rule-or-the-trap",
+    "title": "Discrete Math for Data Science",
+    "section": "Spot the Rule or the Trap",
+    "text": "Spot the Rule or the Trap\nHow to play: post in chat…\n(a) valid or not, (b) if valid, name the rule, (c) formal pattern."
+  },
+  {
+    "objectID": "slides/03_tue_inference.html#build-a-proof",
+    "href": "slides/03_tue_inference.html#build-a-proof",
+    "title": "Discrete Math for Data Science",
+    "section": "Build a proof",
+    "text": "Build a proof\nIn the chat, each person adds exactly one line using a Rule Card."
+  },
+  {
+    "objectID": "slides/03_tue_inference.html#design-a-trap",
+    "href": "slides/03_tue_inference.html#design-a-trap",
+    "title": "Discrete Math for Data Science",
+    "section": "Design a Trap",
+    "text": "Design a Trap\nYour mission:\n- Write one valid two-premise argument (any rule).\n- Write a look-alike fallacy with the same topic words.\n- Bring to class on Wednesday morning!"
+  },
+  {
+    "objectID": "slides/03_tue_inference.html#quantifier-teaser",
+    "href": "slides/03_tue_inference.html#quantifier-teaser",
+    "title": "Discrete Math for Data Science",
+    "section": "Quantifier Teaser",
+    "text": "Quantifier Teaser\n\nUI: ∀x S(x) ⇒ S(Alex) (Universal instantiation)\nEG: S(Alex) ⇒ ∃x S(x) (Existential generalization) Analogy: mixing ∀/∃ incorrectly creates traps like affirming the consequent/denying the antecedent."
+  },
+  {
+    "objectID": "slides/03_tue_inference.html#exit-ticket-2-min",
+    "href": "slides/03_tue_inference.html#exit-ticket-2-min",
+    "title": "Discrete Math for Data Science",
+    "section": "Exit Ticket (2 min)",
+    "text": "Exit Ticket (2 min)\nIn chat (or poll), complete both:\n\nOne valid rule I can spot in the wild is ________.\n\nOne trap I’ll watch for is ________."
+  },
+  {
+    "objectID": "slides/06_wed_binary.html#announcements",
+    "href": "slides/06_wed_binary.html#announcements",
     "title": "Representation as Encoding — Day 1: Binary & Size",
     "section": "Announcements",
     "text": "Announcements"
   },
   {
-    "objectID": "slides/06_wed_binary copy.html#goals",
-    "href": "slides/06_wed_binary copy.html#goals",
+    "objectID": "slides/06_wed_binary.html#goals",
+    "href": "slides/06_wed_binary.html#goals",
     "title": "Representation as Encoding — Day 1: Binary & Size",
     "section": "Goals",
     "text": "Goals\n\nRead/write binary.\nReason about bit length and capacity.\n\nProve: \\(b\\) bits result in \\(2^b\\) codes, with max value \\(2^b-1\\).\n\nOverflow.\n\nDON’T FORGET THE MAGIC TRICK!"
   },
   {
-    "objectID": "slides/06_wed_binary copy.html#place-value",
-    "href": "slides/06_wed_binary copy.html#place-value",
+    "objectID": "slides/06_wed_binary.html#place-value",
+    "href": "slides/06_wed_binary.html#place-value",
     "title": "Representation as Encoding — Day 1: Binary & Size",
     "section": "Place Value",
     "text": "Place Value\n  Consider an encoding into binary:\n\\[(b_{k-1}\\dots b_1 b_0)_2=\\sum_{i=0}^{k-1} b_i 2^i,\\quad b_i\\in\\{0,1\\}\\]\nWe are not flummoxed by this, because:\n\\[(d_{k-1}\\dots d_1 d_0)_{10}=\\sum_{i=0}^{k-1} d_i 10^i,\\quad d_i\\in\\{0,1,\\ldots,9\\}\\]"
   },
   {
-    "objectID": "slides/06_wed_binary copy.html#quantify-the-length",
-    "href": "slides/06_wed_binary copy.html#quantify-the-length",
+    "objectID": "slides/06_wed_binary.html#quantify-the-length",
+    "href": "slides/06_wed_binary.html#quantify-the-length",
     "title": "Representation as Encoding — Day 1: Binary & Size",
     "section": "Quantify the Length",
     "text": "Quantify the Length\n \nHow many unique values can we store in \\(n\\) bits?\n \n \nHow many bits to represent \\(m\\) values?\n\nBit length: \\(L(n)=\\lfloor \\log_2 n\\rfloor+1\\) for \\(n\\ge1\\). Emphasize size grows like \\(\\log_2\\). Show a quick table for \\(2^b\\)."
   },
   {
-    "objectID": "slides/06_wed_binary copy.html#capacity-quickies",
-    "href": "slides/06_wed_binary copy.html#capacity-quickies",
+    "objectID": "slides/06_wed_binary.html#capacity-quickies",
+    "href": "slides/06_wed_binary.html#capacity-quickies",
     "title": "Representation as Encoding — Day 1: Binary & Size",
     "section": "Capacity Quickies",
     "text": "Capacity Quickies\n \nHow many codes with…\n\n8 bits?\n\n12 bits?\n\n \nHow many bits to count to…\n\n\\(500\\)?\n\\(5000\\)?\n\\(1000000\\)?\n\n\nAnswers: \\(2^8=256\\), \\(2^{12}=4096\\), \\(\\lceil\\log_2 500\\rceil=9\\)."
   },
   {
-    "objectID": "slides/06_wed_binary copy.html#proof-moment",
-    "href": "slides/06_wed_binary copy.html#proof-moment",
+    "objectID": "slides/06_wed_binary.html#proof-moment",
+    "href": "slides/06_wed_binary.html#proof-moment",
     "title": "Representation as Encoding — Day 1: Binary & Size",
     "section": "Proof Moment",
     "text": "Proof Moment\nClaim: With \\(b\\) bits we can represent \\(2^b\\) values."
   },
   {
-    "objectID": "slides/06_wed_binary copy.html#technical-aside",
-    "href": "slides/06_wed_binary copy.html#technical-aside",
+    "objectID": "slides/06_wed_binary.html#technical-aside",
+    "href": "slides/06_wed_binary.html#technical-aside",
     "title": "Representation as Encoding — Day 1: Binary & Size",
     "section": "Technical Aside",
     "text": "Technical Aside\n\nint (pure Python): arbitrary precision (variable width)\nNumPy / Pandas arrays: fixed-width datatypes (int8, int32, int64, uint64, …)\n\n\n\nSigned range: \\([-2^{b-1},\\,2^{b-1}-1]\\); Unsigned range: \\([0,\\,2^b-1]\\).\nTakeaway: the container chooses the encoding (width & signedness).\n\n\nDemo:"
   },
   {
-    "objectID": "slides/06_wed_binary copy.html#overflow",
-    "href": "slides/06_wed_binary copy.html#overflow",
+    "objectID": "slides/06_wed_binary.html#overflow",
+    "href": "slides/06_wed_binary.html#overflow",
     "title": "Representation as Encoding — Day 1: Binary & Size",
     "section": "Overflow",
     "text": "Overflow\nConsider addition, with 4 bits:\n\nannotate 1101_2 + 110_2 and ask students to speculate on 1) how addition works, and how they would describe the overflow. (they’ll say it’s like mod 2^4) With \\(b\\) fixed bits, adding wraps \\(\\bmod 2^b\\).\n\n\n\n \n\n\n \nPunchline: Overflow occurs when the number you want to represent is too big to fit into the space you’ve reserved for it."
   },
   {
-    "objectID": "slides/06_wed_binary copy.html#signed-integers",
-    "href": "slides/06_wed_binary copy.html#signed-integers",
+    "objectID": "slides/06_wed_binary.html#signed-integers",
+    "href": "slides/06_wed_binary.html#signed-integers",
     "title": "Representation as Encoding — Day 1: Binary & Size",
     "section": "Signed Integers",
     "text": "Signed Integers\n\n\nUnsigned integers are represented by their encodings as discussed above.\n\n\n\\(b\\) bits typically represent values \\([0..2^b-1]\\).\n\n\nSigned integers have a different encoding (that we won’t discuss) but we can still guess the values that can be encoded:\n\n\n\\(b\\) bits typically represent values ____________."
   },
   {
-    "objectID": "slides/06_wed_binary copy.html#activity",
-    "href": "slides/06_wed_binary copy.html#activity",
+    "objectID": "slides/06_wed_binary.html#activity",
+    "href": "slides/06_wed_binary.html#activity",
     "title": "Representation as Encoding — Day 1: Binary & Size",
     "section": "Activity",
     "text": "Activity\nFor each, compute bits needed or max value:\n\nSeats in a 500-seat hall.\n\n12-bit unsigned max.\n\nWorld pop (\\(\\approx 8\\cdot10^9\\) people) bits for unique IDs.\n\nTimestamps for next \\(100\\) years at 1-second resolution.\n\n\n\n9; (2) 4095; (3) \\(\\lceil\\log_2(8e9)\\rceil=33\\); (4) seconds \\(\\approx 3.15e9\\) → 32 bits."
   },
   {
-    "objectID": "slides/06_wed_binary copy.html#exit-ticket",
-    "href": "slides/06_wed_binary copy.html#exit-ticket",
+    "objectID": "slides/06_wed_binary.html#exit-ticket",
+    "href": "slides/06_wed_binary.html#exit-ticket",
     "title": "Representation as Encoding — Day 1: Binary & Size",
     "section": "Exit Ticket",
     "text": "Exit Ticket\nIn words: what does \\(\\lceil\\log_2 N\\rceil\\) tell you?"
-  },
-  {
-    "objectID": "slides/12_wed_php.html#announcements",
-    "href": "slides/12_wed_php.html#announcements",
-    "title": "Discrete Math for Data Science",
-    "section": "Announcements",
-    "text": "Announcements"
-  },
-  {
-    "objectID": "slides/12_wed_php.html#warm-up-1",
-    "href": "slides/12_wed_php.html#warm-up-1",
-    "title": "Discrete Math for Data Science",
-    "section": "Warm-Up 1",
-    "text": "Warm-Up 1\n \nYou have a drawer with:\n\n6 heart socks ❤️\n8 cat socks 😺\n\n5 striped socks 🌈\n\nYou pull out socks in the dark, one at a time.\nQuestion: How many socks do you need to pull to guarantee you have a matching pair?\n\nStudents will guess: - 2 (optimistic) - 3 (intuition) - “Half the drawer?”\nLet them debate worst-case reasoning.\nWorst-case = 1 heart + 1 cat + 1 striped → still no pair.\nThe next sock must match something.\nAnswer = 4."
-  },
-  {
-    "objectID": "slides/12_wed_php.html#thinking-about-the-worst-case",
-    "href": "slides/12_wed_php.html#thinking-about-the-worst-case",
-    "title": "Discrete Math for Data Science",
-    "section": "Thinking About the Worst Case",
-    "text": "Thinking About the Worst Case\nWorst-case sequence:\n\nheart\n\ncat\n\nstriped\n\n \nAt this point: no pair yet\n \nSo the next sock must match something."
-  },
-  {
-    "objectID": "slides/12_wed_php.html#warm-up-2",
-    "href": "slides/12_wed_php.html#warm-up-2",
-    "title": "Discrete Math for Data Science",
-    "section": "Warm-Up 2",
-    "text": "Warm-Up 2\nQuestion:\nHow many subsets does an \\(n\\)-element set have?\nTry small cases:\n\n\\(n = 0\\): \\(1\\) subset\n\n\\(n = 1\\): \\(2\\) subsets\n\n\\(n = 2\\): \\(4\\) subsets\n\n\\(n = 3\\): \\(8\\) subsets\n\nConjecture:\n\\[\n|P(S)| = 2^n\n\\]"
-  },
-  {
-    "objectID": "slides/12_wed_php.html#why-might-this-be-true",
-    "href": "slides/12_wed_php.html#why-might-this-be-true",
-    "title": "Discrete Math for Data Science",
-    "section": "Why Might This Be True?",
-    "text": "Why Might This Be True?\nLet \\(S\\) be an \\(n\\)-element set.\nChoose an element \\(a \\in S\\).\nEvery subset of \\(S\\) either:\n\nIncludes \\(a\\)\n\nDoes NOT include \\(a\\)\n\n\nThis partitions all subsets into two bins of equal size — perfect for induction."
-  },
-  {
-    "objectID": "slides/12_wed_php.html#include-or-exclude-a",
-    "href": "slides/12_wed_php.html#include-or-exclude-a",
-    "title": "Discrete Math for Data Science",
-    "section": "Include or Exclude \\(a\\)",
-    "text": "Include or Exclude \\(a\\)\n\n\n\nSubsets split by including or excluding a\n\n Visualizing all subsets of S as two groups: those that do not contain a, and those that do contain a.    S − {a}   (n − 1 elements)   all subsets of   S − {a}    Subsets WITHOUT a   exactly the subsets of S − {a}    Subsets WITH a   take a subset of S − {a} and add a          use subset as-is   subset ∪ {a} \n\n\nSo:\n\\[\n|P(S)| = |P(S - \\{a\\})| + |P(S - \\{a\\})| = 2\\cdot |P(S - \\{a\\})|\n\\]"
-  },
-  {
-    "objectID": "slides/12_wed_php.html#proof-by-induction",
-    "href": "slides/12_wed_php.html#proof-by-induction",
-    "title": "Discrete Math for Data Science",
-    "section": "Proof by Induction",
-    "text": "Proof by Induction\nClaim: For any set \\(S\\) with \\(|S|=n\\), \\[\n|P(S)| = 2^n\n\\]\nBase Case: \\(n = 0\\)\nA 0-element set has exactly one subset: \\(\\{\\}\\)\nAnd the claim says we should have \\(2^0 = 1\\).\n \nInductive Step\nAssume that for any \\(j&lt;n\\), if \\(|T|= j\\), \\(|P(T)| = 2^{j}\\)\nThen from previous slide:\n\\[\n|P(S)| = 2\\cdot |P(S - \\{a\\})|\n\\]"
-  },
-  {
-    "objectID": "slides/12_wed_php.html#a-teaser",
-    "href": "slides/12_wed_php.html#a-teaser",
-    "title": "Discrete Math for Data Science",
-    "section": "A Teaser…",
-    "text": "A Teaser…\n\nDividing up the things you’re counting into categories can help!\nWhen you split objects into categories\n\nIf you have more objects than categories, then some category must contain at least two objects.\n\n\n\nDo not name PHP yet—just show the conceptual bridge."
-  },
-  {
-    "objectID": "slides/12_wed_php.html#warm-up-tennis-balls",
-    "href": "slides/12_wed_php.html#warm-up-tennis-balls",
-    "title": "Discrete Math for Data Science",
-    "section": "Warm-Up: Tennis Balls",
-    "text": "Warm-Up: Tennis Balls\n \n29 tennis balls are distributed among 4 players.\n\n\nClaim:\nSome player must receive more than 7 balls.\n\nAsk for guesses first: “Is it possible that nobody gets more than 7?”"
-  },
-  {
-    "objectID": "slides/12_wed_php.html#a-picture-of-the-situation",
-    "href": "slides/12_wed_php.html#a-picture-of-the-situation",
-    "title": "Discrete Math for Data Science",
-    "section": "A Picture of the Situation",
-    "text": "A Picture of the Situation\n\n\n\n                     Player 1    Player 2    Player 3    Player 4"
-  },
-  {
-    "objectID": "slides/12_wed_php.html#proving-your-intuition",
-    "href": "slides/12_wed_php.html#proving-your-intuition",
-    "title": "Discrete Math for Data Science",
-    "section": "Proving Your Intuition",
-    "text": "Proving Your Intuition\nSuppose, for the sake of contradiction, that no player gets more than 7 balls.\nThen the maximum total number of balls is:\n\n7 + 7 + 7 + 7 = 28 But we have 29 balls. &gt; Contradiction! So our assumption was impossible.\nTherefore, some player must have at least 8 balls. ✅ You can phrase this as: - “If everyone had 7 or fewer, we’d only have 28 total.” - “Since we have 29, somebody has to overflow.”"
-  },
-  {
-    "objectID": "slides/12_wed_php.html#the-pigeonhole-principle",
-    "href": "slides/12_wed_php.html#the-pigeonhole-principle",
-    "title": "Discrete Math for Data Science",
-    "section": "The Pigeonhole Principle",
-    "text": "The Pigeonhole Principle\n \nSimple form:\n\nIf more than \\(n\\) objects are placed into \\(n\\) boxes,\nthen there is a box containing at least 2 objects.\n\n \nGeneral form:\n\nIf \\(N\\) objects are placed into \\(k\\) boxes,\nthen there is a box containing at least\n________ objects."
-  },
-  {
-    "objectID": "slides/12_wed_php.html#tennis-balls-as-an-example",
-    "href": "slides/12_wed_php.html#tennis-balls-as-an-example",
-    "title": "Discrete Math for Data Science",
-    "section": "Tennis Balls as an Example",
-    "text": "Tennis Balls as an Example\n29 tennis balls, 4 players.\n\nObjects = 29 balls\nBoxes = 4 players\nSo some player has at least \\[\n\\left\\lceil \\frac{29}{4} \\right\\rceil = \\left\\lceil 7.25 \\right\\rceil = 8\n\\] balls."
-  },
-  {
-    "objectID": "slides/12_wed_php.html#another-example",
-    "href": "slides/12_wed_php.html#another-example",
-    "title": "Discrete Math for Data Science",
-    "section": "Another Example",
-    "text": "Another Example\n \nClaim: Among any 7 positive integers,there are 2 whose sum or difference is divisible by 10.\n \nWhat are the pigeons?\nWhat are the boxes?"
-  },
-  {
-    "objectID": "slides/12_wed_php.html#last-digits-and-remainders",
-    "href": "slides/12_wed_php.html#last-digits-and-remainders",
-    "title": "Discrete Math for Data Science",
-    "section": "Last Digits and Remainders",
-    "text": "Last Digits and Remainders\nEvery positive integer has a last digit (i.e., a remainder when divided by 10):\n\\[\n0, 1, 2, 3, 4, 5, 6, 7, 8, 9\n\\]\nWe want to detect when a sum or difference is divisible by 10.\n\nDifference divisible by 10: numbers have the same last digit\n\nSum divisible by 10: last digits add to 10:\n\n(1, 9), (2, 8), (3, 7), (4, 6), and also (0, 0), (5, 5)"
-  },
-  {
-    "objectID": "slides/12_wed_php.html#defining-the-boxes",
-    "href": "slides/12_wed_php.html#defining-the-boxes",
-    "title": "Discrete Math for Data Science",
-    "section": "Defining the Boxes",
-    "text": "Defining the Boxes\nGroup integers by their last digit:\n\n\n\n  A last digit 0  B last digit 5  C last digit 1 or 9  D last digit 2 or 8  E last digit 3 or 7  F last digit 4 or 6\n\nPlace all the elements from either one of the following sets into the boxes.\n\n\\(\\{13, 15, 28, 30, 1, 46, 58\\}\\)\n\\(\\{27, 86, 50, 35, 11, 44, 108\\}\\)\n\nDoes the conjecture appear to be true?"
-  },
-  {
-    "objectID": "slides/12_wed_php.html#php",
-    "href": "slides/12_wed_php.html#php",
-    "title": "Discrete Math for Data Science",
-    "section": "PHP",
-    "text": "PHP\nWe have:\n\n7 integers (objects)\n\n6 boxes (based on last-digit)\n\nBy the Pigeonhole Principle, some box contains at least 2 of our integers.\nCheck each box:\n\n\n\n  A last digit 0  B last digit 5  C last digit 1 or 9  D last digit 2 or 8  E last digit 3 or 7  F last digit 4 or 6\n\nIn every case,\ntwo numbers in the same box have sum or difference divisible by 10."
-  },
-  {
-    "objectID": "slides/12_wed_php.html#summary",
-    "href": "slides/12_wed_php.html#summary",
-    "title": "Discrete Math for Data Science",
-    "section": "Summary",
-    "text": "Summary\n\nPigeonhole Principle:\n\nIf you have too many objects for the number of boxes,\nsome box must be crowded.\n\nTennis balls:\n\n29 balls, 4 players → some player has at least 8 balls.\n\n“Sum or difference divisible by 10”:\n\n7 integers, 6 boxes →\nsome box has 2 numbers whose sum or difference is divisible by 10.\n\n\nThe art is choosing what counts as a box.\n\nEmphasize: - The principle is simple. - The creativity is in modeling: deciding how to categorize."
-  },
-  {
-    "objectID": "slides/12_wed_php.html#try-this",
-    "href": "slides/12_wed_php.html#try-this",
-    "title": "Discrete Math for Data Science",
-    "section": "Try This!",
-    "text": "Try This!\nAmong 40 people, show that two of them must have birthdays that are within 9 days of each other.\n\nLet them wrestle.\nMost will try: “365 days → 40 is tiny… maybe not?”\nGuide them toward chunking the year."
-  },
-  {
-    "objectID": "slides/12_wed_php.html#a-hint",
-    "href": "slides/12_wed_php.html#a-hint",
-    "title": "Discrete Math for Data Science",
-    "section": "A Hint…",
-    "text": "A Hint…\nThink of the calendar as a long strip of 365 days:\n \n \nWhat would happen if we divide the year into blocks _______________?\nHow many blocks is that?"
-  },
-  {
-    "objectID": "slides/12_wed_php.html#the-hidden-boxes",
-    "href": "slides/12_wed_php.html#the-hidden-boxes",
-    "title": "Discrete Math for Data Science",
-    "section": "The Hidden Boxes",
-    "text": "The Hidden Boxes\nIf the year is divided into 10-day blocks, then:\n\nNumber of boxes =\n\\[\n\\left\\lceil \\frac{365}{10} \\right\\rceil = 37\n\\]\nNumber of pigeons = 40 birthdays\n\n \nBy the Pigeonhole Principle,\nsome block must contain at least 2 birthdays."
-  },
-  {
-    "objectID": "slides/12_wed_php.html#why-does-this-work",
-    "href": "slides/12_wed_php.html#why-does-this-work",
-    "title": "Discrete Math for Data Science",
-    "section": "Why Does This Work?",
-    "text": "Why Does This Work?\nIf two birthdays lie in the same 10-day block,\ntheir dates differ by at most 9 days.\n \nTherefore:\n\nAmong any 40 people, two have birthdays\nwithin 9 days of each other.\n\n\nA perfect example of: - choosing your own “boxes” - converting a continuous quantity into categories\n- using PHP in a modeling way"
   },
   {
     "objectID": "slides/12_mon_permcomb.html#announcements",
@@ -2045,144 +2031,158 @@
     "text": "Big picture\n\nCounting tells us that:\n\nHigh-dimensional feature spaces explode in size\nOur datasets occupy a tiny fraction of those spaces\n\nFunctions lesson:\n\nHuge number of possible functions \\(f : X \\to Y\\)\nMany functions remain consistent with the same data\n\nCurse-of-dimensionality lesson:\n\nAs dimension grows, data become sparser\nApproximating a function everywhere in \\(X\\) requires exponentially many samples\n\n\nReflection:\n\nIn your own words: why does adding more features make learning a function from data harder, from a counting perspective?"
   },
   {
-    "objectID": "slides/03_tue_inference.html#announcements",
-    "href": "slides/03_tue_inference.html#announcements",
+    "objectID": "slides/12_wed_php.html#announcements",
+    "href": "slides/12_wed_php.html#announcements",
     "title": "Discrete Math for Data Science",
     "section": "Announcements",
-    "text": "Announcements\n\nEnroll in PrairieTest here: https://us.prairietest.com/pt/student/course/12361/enroll/392674810508\nSign up for EX1. Practice materials on PL.\nTutorials begin this week!"
+    "text": "Announcements"
   },
   {
-    "objectID": "slides/03_tue_inference.html#spot-the-rule-dodge-the-trap",
-    "href": "slides/03_tue_inference.html#spot-the-rule-dodge-the-trap",
+    "objectID": "slides/12_wed_php.html#warm-up-1",
+    "href": "slides/12_wed_php.html#warm-up-1",
     "title": "Discrete Math for Data Science",
-    "section": "🎉 Spot the Rule, Dodge the Trap",
-    "text": "🎉 Spot the Rule, Dodge the Trap\nGoal for today: treat valid logical arguments like legal moves in a game.\nYou’ll identify moves, build quick proofs, and design traps."
+    "section": "Warm-Up 1",
+    "text": "Warm-Up 1\n \nYou have a drawer with:\n\n6 heart socks ❤️\n8 cat socks 😺\n\n5 striped socks 🌈\n\nYou pull out socks in the dark, one at a time.\nQuestion: How many socks do you need to pull to guarantee you have a matching pair?\n\nStudents will guess: - 2 (optimistic) - 3 (intuition) - “Half the drawer?”\nLet them debate worst-case reasoning.\nWorst-case = 1 heart + 1 cat + 1 striped → still no pair.\nThe next sock must match something.\nAnswer = 4."
   },
   {
-    "objectID": "slides/03_tue_inference.html#warm-up-5-min",
-    "href": "slides/03_tue_inference.html#warm-up-5-min",
+    "objectID": "slides/12_wed_php.html#thinking-about-the-worst-case",
+    "href": "slides/12_wed_php.html#thinking-about-the-worst-case",
     "title": "Discrete Math for Data Science",
-    "section": "Warm Up (5 min)",
-    "text": "Warm Up (5 min)\nA valid argument is a legal inference. Content can change; form is what makes it valid.\n\nIf the lab is open, I’ll go. The lab is open. So I’ll go.\nIf the exam is today, the forum is quiet. The forum isn’t quiet. So the exam isn’t today."
+    "section": "Thinking About the Worst Case",
+    "text": "Thinking About the Worst Case\nWorst-case sequence:\n\nheart\n\ncat\n\nstriped\n\n \nAt this point: no pair yet\n \nSo the next sock must match something."
   },
   {
-    "objectID": "slides/03_tue_inference.html#micro-rule-cards",
-    "href": "slides/03_tue_inference.html#micro-rule-cards",
+    "objectID": "slides/12_wed_php.html#warm-up-2",
+    "href": "slides/12_wed_php.html#warm-up-2",
     "title": "Discrete Math for Data Science",
-    "section": "Micro Rule Cards",
-    "text": "Micro Rule Cards\nUse these all class as a reference.\n\nMP: from p→q, p infer q\n\nMT: from p→q, ¬q infer ¬p\n\nHS: from p→q, q→r infer p→r\n\nDS: from p∨q, ¬p infer q\n\n∧-Intro: from p, q infer p∧q\n\n∧-Elim: from p∧q infer p (or q)\n\n∨-Intro: from p infer p∨q (any q)\n\nRES: from p∨q, ¬p∨r infer q∨r\n\nCD: from (p→r), (q→s), (p∨q) infer r∨s\n\nCommon traps:\n\nAffirming consequent: p→q, q ∴ p ❌\nDenying antecedent: p→q, ¬p ∴ ¬q ❌"
+    "section": "Warm-Up 2",
+    "text": "Warm-Up 2\nQuestion:\nHow many subsets does an \\(n\\)-element set have?\nTry small cases:\n\n\\(n = 0\\): \\(1\\) subset\n\n\\(n = 1\\): \\(2\\) subsets\n\n\\(n = 2\\): \\(4\\) subsets\n\n\\(n = 3\\): \\(8\\) subsets\n\nConjecture:\n\\[\n|P(S)| = 2^n\n\\]"
   },
   {
-    "objectID": "slides/03_tue_inference.html#rule-card-modus-ponens-mp",
-    "href": "slides/03_tue_inference.html#rule-card-modus-ponens-mp",
+    "objectID": "slides/12_wed_php.html#why-might-this-be-true",
+    "href": "slides/12_wed_php.html#why-might-this-be-true",
     "title": "Discrete Math for Data Science",
-    "section": "Rule Card: Modus Ponens (MP)",
-    "text": "Rule Card: Modus Ponens (MP)\n\nFrom p→q and p, infer q.\n\nEx:\nIf the bus is full, I’ll walk. The bus is full. So I’ll walk."
+    "section": "Why Might This Be True?",
+    "text": "Why Might This Be True?\nLet \\(S\\) be an \\(n\\)-element set.\nChoose an element \\(a \\in S\\).\nEvery subset of \\(S\\) either:\n\nIncludes \\(a\\)\n\nDoes NOT include \\(a\\)\n\n\nThis partitions all subsets into two bins of equal size — perfect for induction."
   },
   {
-    "objectID": "slides/03_tue_inference.html#rule-card-modus-tollens-mt",
-    "href": "slides/03_tue_inference.html#rule-card-modus-tollens-mt",
+    "objectID": "slides/12_wed_php.html#include-or-exclude-a",
+    "href": "slides/12_wed_php.html#include-or-exclude-a",
     "title": "Discrete Math for Data Science",
-    "section": "Rule Card: Modus Tollens (MT)",
-    "text": "Rule Card: Modus Tollens (MT)\n\nFrom p→q and ¬q, infer ¬p.\n\nEx:\nIf office hours moved, Slack has an announcement. No announcement. So they didn’t move."
+    "section": "Include or Exclude \\(a\\)",
+    "text": "Include or Exclude \\(a\\)\n\n\n\nSubsets split by including or excluding a\n\n Visualizing all subsets of S as two groups: those that do not contain a, and those that do contain a.    S − {a}   (n − 1 elements)   all subsets of   S − {a}    Subsets WITHOUT a   exactly the subsets of S − {a}    Subsets WITH a   take a subset of S − {a} and add a          use subset as-is   subset ∪ {a} \n\n\nSo:\n\\[\n|P(S)| = |P(S - \\{a\\})| + |P(S - \\{a\\})| = 2\\cdot |P(S - \\{a\\})|\n\\]"
   },
   {
-    "objectID": "slides/03_tue_inference.html#rule-card-hypothetical-syllogism-hs",
-    "href": "slides/03_tue_inference.html#rule-card-hypothetical-syllogism-hs",
+    "objectID": "slides/12_wed_php.html#proof-by-induction",
+    "href": "slides/12_wed_php.html#proof-by-induction",
     "title": "Discrete Math for Data Science",
-    "section": "Rule Card: Hypothetical Syllogism (HS)",
-    "text": "Rule Card: Hypothetical Syllogism (HS)\n\nFrom p→q and q→r, infer p→r.\n\nEx:\nIf tidy then joins are simpler; if simpler joins then faster viz; so tidy ⇒ faster viz."
+    "section": "Proof by Induction",
+    "text": "Proof by Induction\nClaim: For any set \\(S\\) with \\(|S|=n\\), \\[\n|P(S)| = 2^n\n\\]\nBase Case: \\(n = 0\\)\nA 0-element set has exactly one subset: \\(\\{\\}\\)\nAnd the claim says we should have \\(2^0 = 1\\).\n \nInductive Step\nAssume that for any \\(j&lt;n\\), if \\(|T|= j\\), \\(|P(T)| = 2^{j}\\)\nThen from previous slide:\n\\[\n|P(S)| = 2\\cdot |P(S - \\{a\\})|\n\\]"
   },
   {
-    "objectID": "slides/03_tue_inference.html#rule-card-disjunctive-syllogism-ds",
-    "href": "slides/03_tue_inference.html#rule-card-disjunctive-syllogism-ds",
+    "objectID": "slides/12_wed_php.html#a-teaser",
+    "href": "slides/12_wed_php.html#a-teaser",
     "title": "Discrete Math for Data Science",
-    "section": "Rule Card: Disjunctive Syllogism (DS)",
-    "text": "Rule Card: Disjunctive Syllogism (DS)\n\nFrom p∨q and ¬p, infer q.\n\nEx:\nDinner is sushi or tacos. Not sushi. So tacos."
+    "section": "A Teaser…",
+    "text": "A Teaser…\n\nDividing up the things you’re counting into categories can help!\nWhen you split objects into categories\n\nIf you have more objects than categories, then some category must contain at least two objects.\n\n\n\nDo not name PHP yet—just show the conceptual bridge."
   },
   {
-    "objectID": "slides/03_tue_inference.html#rule-card-conjunction-simplification",
-    "href": "slides/03_tue_inference.html#rule-card-conjunction-simplification",
+    "objectID": "slides/12_wed_php.html#warm-up-tennis-balls",
+    "href": "slides/12_wed_php.html#warm-up-tennis-balls",
     "title": "Discrete Math for Data Science",
-    "section": "Rule Card: Conjunction / Simplification",
-    "text": "Rule Card: Conjunction / Simplification\n\n\n∧-Intro: from p, q infer p∧q\n\n\n∧-Elim: from p∧q infer p (or q)"
+    "section": "Warm-Up: Tennis Balls",
+    "text": "Warm-Up: Tennis Balls\n \n29 tennis balls are distributed among 4 players.\n\n\nClaim:\nSome player must receive more than 7 balls.\n\nAsk for guesses first: “Is it possible that nobody gets more than 7?”"
   },
   {
-    "objectID": "slides/03_tue_inference.html#rule-card--intro",
-    "href": "slides/03_tue_inference.html#rule-card--intro",
+    "objectID": "slides/12_wed_php.html#a-picture-of-the-situation",
+    "href": "slides/12_wed_php.html#a-picture-of-the-situation",
     "title": "Discrete Math for Data Science",
-    "section": "Rule Card: ∨-Intro",
-    "text": "Rule Card: ∨-Intro\n\nFrom p infer p∨q.\n\nEx: I rode my scooter today, so I either rode my scooter or I’m a unicorn.\nNote validity cares about form, not plausibility of the added disjunct."
+    "section": "A Picture of the Situation",
+    "text": "A Picture of the Situation\n\n\n\n                     Player 1    Player 2    Player 3    Player 4"
   },
   {
-    "objectID": "slides/03_tue_inference.html#rule-card-resolution-res",
-    "href": "slides/03_tue_inference.html#rule-card-resolution-res",
+    "objectID": "slides/12_wed_php.html#proving-your-intuition",
+    "href": "slides/12_wed_php.html#proving-your-intuition",
     "title": "Discrete Math for Data Science",
-    "section": "Rule Card: Resolution (RES)",
-    "text": "Rule Card: Resolution (RES)\n\nFrom p∨q and ¬p∨r infer q∨r.\n\nEx:\nEither study or soccer; if study then library. So soccer or library."
+    "section": "Proving Your Intuition",
+    "text": "Proving Your Intuition\nSuppose, for the sake of contradiction, that no player gets more than 7 balls.\nThen the maximum total number of balls is:\n\n7 + 7 + 7 + 7 = 28 But we have 29 balls. &gt; Contradiction! So our assumption was impossible.\nTherefore, some player must have at least 8 balls. ✅ You can phrase this as: - “If everyone had 7 or fewer, we’d only have 28 total.” - “Since we have 29, somebody has to overflow.”"
   },
   {
-    "objectID": "slides/03_tue_inference.html#rule-card-constructive-dilemma-cd",
-    "href": "slides/03_tue_inference.html#rule-card-constructive-dilemma-cd",
+    "objectID": "slides/12_wed_php.html#the-pigeonhole-principle",
+    "href": "slides/12_wed_php.html#the-pigeonhole-principle",
     "title": "Discrete Math for Data Science",
-    "section": "Rule Card: Constructive Dilemma (CD)",
-    "text": "Rule Card: Constructive Dilemma (CD)\n\nFrom (p→r), (q→s), (p∨q) infer r∨s.\n\nEx:\nIf sunny then picnic; if rainy then museum; sunny or rainy; so picnic or museum."
+    "section": "The Pigeonhole Principle",
+    "text": "The Pigeonhole Principle\n \nSimple form:\n\nIf more than \\(n\\) objects are placed into \\(n\\) boxes,\nthen there is a box containing at least 2 objects.\n\n \nGeneral form:\n\nIf \\(N\\) objects are placed into \\(k\\) boxes,\nthen there is a box containing at least\n________ objects."
   },
   {
-    "objectID": "slides/03_tue_inference.html#fallacy-cards-flash",
-    "href": "slides/03_tue_inference.html#fallacy-cards-flash",
+    "objectID": "slides/12_wed_php.html#tennis-balls-as-an-example",
+    "href": "slides/12_wed_php.html#tennis-balls-as-an-example",
     "title": "Discrete Math for Data Science",
-    "section": "Fallacy Cards (flash)",
-    "text": "Fallacy Cards (flash)\n\n\nAffirming the consequent ❌\nfrom p→q, q infer p\n\n\nDenying the antecedent ❌\nfrom p→q, ¬p infer ¬q"
+    "section": "Tennis Balls as an Example",
+    "text": "Tennis Balls as an Example\n29 tennis balls, 4 players.\n\nObjects = 29 balls\nBoxes = 4 players\nSo some player has at least \\[\n\\left\\lceil \\frac{29}{4} \\right\\rceil = \\left\\lceil 7.25 \\right\\rceil = 8\n\\] balls."
   },
   {
-    "objectID": "slides/03_tue_inference.html#validity",
-    "href": "slides/03_tue_inference.html#validity",
+    "objectID": "slides/12_wed_php.html#another-example",
+    "href": "slides/12_wed_php.html#another-example",
     "title": "Discrete Math for Data Science",
-    "section": "Validity",
-    "text": "Validity\n∧-Elim: \\((p\\wedge q)\\rightarrow p\\) is this always true?"
+    "section": "Another Example",
+    "text": "Another Example\n \nClaim: Among any 7 positive integers,there are 2 whose sum or difference is divisible by 10.\n \nWhat are the pigeons?\nWhat are the boxes?"
   },
   {
-    "objectID": "slides/03_tue_inference.html#invalidity",
-    "href": "slides/03_tue_inference.html#invalidity",
+    "objectID": "slides/12_wed_php.html#last-digits-and-remainders",
+    "href": "slides/12_wed_php.html#last-digits-and-remainders",
     "title": "Discrete Math for Data Science",
-    "section": "INValidity",
-    "text": "INValidity\nAffirming Consequent: \\(((p\\rightarrow q)\\wedge q)\\rightarrow p\\) is this always true?\n\n\n\n\n\n\n\n\n\n\n\\(p\\)\n\\(q\\)\n\\(p\\rightarrow q\\)\n\\((p\\rightarrow q)\\wedge q\\)\n\\(((p\\rightarrow q)\\wedge q)\\rightarrow p\\)\n\n\n\n\nF\nF\n\n\n\n\n\nF\nT\n\n\n\n\n\nT\nF\n\n\n\n\n\nT\nT"
+    "section": "Last Digits and Remainders",
+    "text": "Last Digits and Remainders\nEvery positive integer has a last digit (i.e., a remainder when divided by 10):\n\\[\n0, 1, 2, 3, 4, 5, 6, 7, 8, 9\n\\]\nWe want to detect when a sum or difference is divisible by 10.\n\nDifference divisible by 10: numbers have the same last digit\n\nSum divisible by 10: last digits add to 10:\n\n(1, 9), (2, 8), (3, 7), (4, 6), and also (0, 0), (5, 5)"
   },
   {
-    "objectID": "slides/03_tue_inference.html#spot-the-rule-or-the-trap",
-    "href": "slides/03_tue_inference.html#spot-the-rule-or-the-trap",
+    "objectID": "slides/12_wed_php.html#defining-the-boxes",
+    "href": "slides/12_wed_php.html#defining-the-boxes",
     "title": "Discrete Math for Data Science",
-    "section": "Spot the Rule or the Trap",
-    "text": "Spot the Rule or the Trap\nHow to play: post in chat…\n(a) valid or not, (b) if valid, name the rule, (c) formal pattern."
+    "section": "Defining the Boxes",
+    "text": "Defining the Boxes\nGroup integers by their last digit:\n\n\n\n  A last digit 0  B last digit 5  C last digit 1 or 9  D last digit 2 or 8  E last digit 3 or 7  F last digit 4 or 6\n\nPlace all the elements from either one of the following sets into the boxes.\n\n\\(\\{13, 15, 28, 30, 1, 46, 58\\}\\)\n\\(\\{27, 86, 50, 35, 11, 44, 108\\}\\)\n\nDoes the conjecture appear to be true?"
   },
   {
-    "objectID": "slides/03_tue_inference.html#build-a-proof",
-    "href": "slides/03_tue_inference.html#build-a-proof",
+    "objectID": "slides/12_wed_php.html#php",
+    "href": "slides/12_wed_php.html#php",
     "title": "Discrete Math for Data Science",
-    "section": "Build a proof",
-    "text": "Build a proof\nIn the chat, each person adds exactly one line using a Rule Card."
+    "section": "PHP",
+    "text": "PHP\nWe have:\n\n7 integers (objects)\n\n6 boxes (based on last-digit)\n\nBy the Pigeonhole Principle, some box contains at least 2 of our integers.\nCheck each box:\n\n\n\n  A last digit 0  B last digit 5  C last digit 1 or 9  D last digit 2 or 8  E last digit 3 or 7  F last digit 4 or 6\n\nIn every case,\ntwo numbers in the same box have sum or difference divisible by 10."
   },
   {
-    "objectID": "slides/03_tue_inference.html#design-a-trap",
-    "href": "slides/03_tue_inference.html#design-a-trap",
+    "objectID": "slides/12_wed_php.html#summary",
+    "href": "slides/12_wed_php.html#summary",
     "title": "Discrete Math for Data Science",
-    "section": "Design a Trap",
-    "text": "Design a Trap\nYour mission:\n- Write one valid two-premise argument (any rule).\n- Write a look-alike fallacy with the same topic words.\n- Bring to class on Wednesday morning!"
+    "section": "Summary",
+    "text": "Summary\n\nPigeonhole Principle:\n\nIf you have too many objects for the number of boxes,\nsome box must be crowded.\n\nTennis balls:\n\n29 balls, 4 players → some player has at least 8 balls.\n\n“Sum or difference divisible by 10”:\n\n7 integers, 6 boxes →\nsome box has 2 numbers whose sum or difference is divisible by 10.\n\n\nThe art is choosing what counts as a box.\n\nEmphasize: - The principle is simple. - The creativity is in modeling: deciding how to categorize."
   },
   {
-    "objectID": "slides/03_tue_inference.html#quantifier-teaser",
-    "href": "slides/03_tue_inference.html#quantifier-teaser",
+    "objectID": "slides/12_wed_php.html#try-this",
+    "href": "slides/12_wed_php.html#try-this",
     "title": "Discrete Math for Data Science",
-    "section": "Quantifier Teaser",
-    "text": "Quantifier Teaser\n\nUI: ∀x S(x) ⇒ S(Alex) (Universal instantiation)\nEG: S(Alex) ⇒ ∃x S(x) (Existential generalization) Analogy: mixing ∀/∃ incorrectly creates traps like affirming the consequent/denying the antecedent."
+    "section": "Try This!",
+    "text": "Try This!\nAmong 40 people, show that two of them must have birthdays that are within 9 days of each other.\n\nLet them wrestle.\nMost will try: “365 days → 40 is tiny… maybe not?”\nGuide them toward chunking the year."
   },
   {
-    "objectID": "slides/03_tue_inference.html#exit-ticket-2-min",
-    "href": "slides/03_tue_inference.html#exit-ticket-2-min",
+    "objectID": "slides/12_wed_php.html#a-hint",
+    "href": "slides/12_wed_php.html#a-hint",
     "title": "Discrete Math for Data Science",
-    "section": "Exit Ticket (2 min)",
-    "text": "Exit Ticket (2 min)\nIn chat (or poll), complete both:\n\nOne valid rule I can spot in the wild is ________.\n\nOne trap I’ll watch for is ________."
+    "section": "A Hint…",
+    "text": "A Hint…\nThink of the calendar as a long strip of 365 days:\n \n \nWhat would happen if we divide the year into blocks _______________?\nHow many blocks is that?"
+  },
+  {
+    "objectID": "slides/12_wed_php.html#the-hidden-boxes",
+    "href": "slides/12_wed_php.html#the-hidden-boxes",
+    "title": "Discrete Math for Data Science",
+    "section": "The Hidden Boxes",
+    "text": "The Hidden Boxes\nIf the year is divided into 10-day blocks, then:\n\nNumber of boxes =\n\\[\n\\left\\lceil \\frac{365}{10} \\right\\rceil = 37\n\\]\nNumber of pigeons = 40 birthdays\n\n \nBy the Pigeonhole Principle,\nsome block must contain at least 2 birthdays."
+  },
+  {
+    "objectID": "slides/12_wed_php.html#why-does-this-work",
+    "href": "slides/12_wed_php.html#why-does-this-work",
+    "title": "Discrete Math for Data Science",
+    "section": "Why Does This Work?",
+    "text": "Why Does This Work?\nIf two birthdays lie in the same 10-day block,\ntheir dates differ by at most 9 days.\n \nTherefore:\n\nAmong any 40 people, two have birthdays\nwithin 9 days of each other.\n\n\nA perfect example of: - choosing your own “boxes” - converting a continuous quantity into categories\n- using PHP in a modeling way"
   },
   {
     "objectID": "slides/01_fri_truth.html#communications",
