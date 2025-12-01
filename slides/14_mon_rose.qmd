@@ -15,242 +15,12 @@ date: 2025-12-01
 
 # Hashing
 
-## Lists vs dictionaries
-
-Suppose we want to store our friends’ favourite drink orders...
-
-Use a **list** of pairs:
-
-``` {pyodide}
-orders_list = [
-    ("Alex",   "iced oat latte"),
-    ("Bianca", "mango bubble tea"),
-    ("Dev",    "cold brew, black"),
-    ("Sam",    "matcha latte")
-]
-
-print(orders_list[3])
-```
-
-How do we find Bianca's order?
-
-## Finding things with a list {.smaller}
-
-If we store data in a list, to find Bianca’s order we have to **search**:
-
-``` {pyodide}
-def order_from_list(query_name, orders):
-    for (n, drink) in orders:
-        if n == query_name:
-            return drink
-    return None   # not found
-
-print(order_from_list("Bianca", orders_list))
-```
-
-* Do you like this? 
-* What if the list were very long?
-* What's so special about the indices?
-
-## Python moment {.smaller}
-
-Python has an implementation of an *Associative Array* called a `dict`.
-
-``` {pyodide}
-orders_dict= dict(orders_list)
-print(orders_list)
-print(orders_dict)
-```
-
-``` {pyodide}
-print(orders_dict["Bianca"])
-```
-
-## Example Key: Value pairs {.smaller}
-
-We often want to map one kind of thing (the **key**) to another kind of thing (the **value**):
-
-::::: columns 
-::: {.column}
-
-- **Song title → artist**
-  - `"Anti-Hero" → "Taylor Swift"`
-- **Course code → course title**
-  - `"DSCI100" → "Intro to DSci"`
-
-- **Email address → user ID**
-  - `"alex@ubc.ca" → 1043921`
-- **Date → temperature**
-  - `"2025-11-27" → 9.3`
-:::
-::: {.column}
-
-- **Flight → destination**
-  - `"AC598" → SNA`
-- **City name → population**
-  - `"Vancouver" → 662248`
-- **Word → number of times it appears**
-  - `"hashing" → 17`
-- **user ID → Email address**
-  - `1043921 → "alex@ubc.ca"`
-
-:::
-:::::
-
-All of these are naturally modeled as **key–value pairs** — exactly what Python dictionaries (and hash tables) are built for.
-
-## Hashing {.smaller}
-
-
-::::: columns 
-::: {.column}
-
-\ 
-
-\ 
-
-``` {pyodide}
-d = dict()
-d['AC598'] = 'SNA'
-```
-:::
-::: {.column}
-![](/images/hash1.png)
-:::
-::::: 
-
-## Where we are {.smaller}
-
-- We’ve been thinking about **functions**:
-  - $f : X \to Y$
-  - “every $x \in X$ gets exactly one $y \in Y$”
-- We saw:
-  - functions as sets of input–output pairs,
-  - counting functions,
-  - huge feature spaces ($X$ can be enormous).
-
-Today:
-
-- A *special* and practical kind of function:
-  - a **hash function**.
-- Goal:
-  - connect hashing to our **function** language,
-  - introduce **injective / surjective** via a concrete example
-
-
-## Arrays vs *associative arrays* {.smaller}
-
-A simple array/list:
-
-- Indices: $0,1,2,\dots,m-1$
-- Values: whatever we store there
-- Access: by integer position, `A[3]` 
-
-An **associative array**:
-
-- Keys: strings, IDs, course codes,
-- Access: by key, `T["DSCI220"]`  
-
-Idea:
-
-> Use a **function** that turns a key into an **index**.
-
-That function is called a **hash function**.
-
-## Recall: functions {.smaller}
-
-Formal definition:
-
-> A function $f : X \to Y$ assigns to each input $x \in X$ **exactly one** output $y \in Y$.
-
-- $X$ = **domain**
-- $Y$ = **codomain**
-
-Today’s special case:
-
-- $X$ = set of **keys** (e.g., strings like `"DSCI220"`)
-- $Y$ = set of **indices** $\{0,1,\dots,m-1\}$
-
-So a **hash function** is just:
-
-$$
-h : \text{Keys} \to \{0,1,\dots,m-1\}.
-$$
-
-
-## Example {.activity}
-
-Let’s start with a set of keys:
-
-- `"MATH101"`, `"DSCI220"`, `"STAT201"`, `"DSCI221"`
-
-And an array:
-
-<svg width="420" height="120" viewBox="0 0 420 120" xmlns="http://www.w3.org/2000/svg">
-<rect x="20" y="20" width="380" height="50"
-        fill="none" stroke="white" stroke-width="2" />
-<line x1="115" y1="20" x2="115" y2="70" stroke="white" stroke-width="2" />
-  <line x1="210" y1="20" x2="210" y2="70" stroke="white" stroke-width="2" />
-  <line x1="305" y1="20" x2="305" y2="70" stroke="white" stroke-width="2" />
-<text x="67"  y="100" text-anchor="middle" font-family="monospace" font-size="16" fill="white">0</text>
-  <text x="162" y="100" text-anchor="middle" font-family="monospace" font-size="16" fill="white">1</text>
-  <text x="257" y="100" text-anchor="middle" font-family="monospace" font-size="16" fill="white">2</text>
-  <text x="352" y="100" text-anchor="middle" font-family="monospace" font-size="16" fill="white">3</text>
-</svg>
-
-Goal: Define a hash function $h$
-
-
-## Observations {.smaller}
-
-
-<svg width="520" height="240" viewBox="0 0 520 240" xmlns="http://www.w3.org/2000/svg">
-<text x="60" y="60"  font-family="monospace" font-size="16">MATH101</text>
-  <text x="60" y="100" font-family="monospace" font-size="16">STAT201</text>
-  <text x="60" y="140" font-family="monospace" font-size="16">DSCI220</text>
-  <text x="60" y="180" font-family="monospace" font-size="16">DSCI221</text>
-<rect x="260" y="40" width="160" height="160"
-        fill="none" stroke="black" stroke-width="2" />
-<line x1="260" y1="80" x2="420" y2="80" stroke="black" stroke-width="2" />
-  <line x1="260" y1="120" x2="420" y2="120" stroke="black" stroke-width="2" />
-  <line x1="260" y1="160" x2="420" y2="160" stroke="black" stroke-width="2" />
-<text x="240" y="68"  text-anchor="end" font-family="monospace" font-size="16">0</text>
-  <text x="240" y="108" text-anchor="end" font-family="monospace" font-size="16">1</text>
-  <text x="240" y="148" text-anchor="end" font-family="monospace" font-size="16">2</text>
-  <text x="240" y="188" text-anchor="end" font-family="monospace" font-size="16">3</text>
-</svg>
-
-Notes:
-
-- Every key has **exactly one** hash value. Why must this be true?
-- No 2 keys share the same output.
-- Every index is the output from *some* input.
-- We call this a **perfect hash function**
-
-## Vocabulary: injective / surjective {.smaller}
-
-Let $f : X \to Y$.
-
-- $f$ is **Injective (one-to-one)** if:
-  - $x_1 \ne x_2$ implies $f(x_1) \ne f(x_2)$.
-  - No two different inputs share the same output.
-
-- $f$ is **Surjective (onto)** if:
-  - For every $y \in Y$, there is at least one $x \in X$ with $f(x) = y$.
-  - Every output value is used.
-
-- $f$ is **Bijective** if:
-  - it is both injective and surjective.
-  - Perfect “pairing” between $X$ and $Y$.
-
-On our 4 course codes and 4 buckets, $h$ is **bijective**, a **perfect hash** for that key set.
-
 ## Perfect hash functions {.smaller}
 
 If we fix a finite set of keys $K$:
 
 - A function $h : K \to \{0,\dots,m-1\}$ is a **perfect hash** for $K$ if:
-  - $h$ is **injective** on $K$ (no two keys collide),
+  - $h$ is **injective** on $K$ (no two keys "collide" in the codomain),
   - so each key gets its own bucket.
 
 If also $|K| = m$ and $h$ is surjective, then $h$ is **bijective** on $K$.
@@ -373,12 +143,12 @@ By the pigeonhole principle:
 
 ## From “perfect” to “general-purpose” {.smaller}
 
-We’ve seen: On a tiny, fixed set of keys, we can sometimes build a **perfect hash**
+We’ve seen: On a fixed set of keys we can sometimes build a **perfect hash**
 
 But for **general-purpose hashing**:
 
 - The key space is HUGE (all possible strings, IDs, ...), so we only ever see a **sample** of keys in our data.
-- For any *fixed* hash function \(h : \text{Keys} \to \{0,\dots,m-1\}\)... 
+- For any *fixed* hash function $h : \text{Keys} \to \{0,\dots,m-1\}$... 
 
 <svg width="720" height="260" viewBox="0 0 720 260" xmlns="http://www.w3.org/2000/svg">
 <defs>
@@ -423,18 +193,37 @@ But for **general-purpose hashing**:
 The pigeonhole principle told us:
 
 - If the **number of items actually stored** in the table
-  is greater than the number of buckets \(m\),
+  is greater than the number of buckets $m$,
 - then some bucket must contain **at least 2** items.
 
-So if we keep inserting more and more items while keeping \(m\) fixed,
+So if we keep inserting more and more items while keeping $m$ fixed,
 collisions are eventually **guaranteed**.
 
-To ponder for next time:
+## To ponder... {.activity}
 
-- When we have **fewer than \(m\)** items, will we have collisions?
+\ 
+
+When we have **fewer than $m$** items, will we have collisions?
+
+\ 
+
+Create a small sketch or example that you can use to illustrate your understanding.
 
 
 
+## Hashing? {data-background-image="/images/bday2.png"
+            data-background-opacity="0.25"
+            data-background-size="contain"
+            data-background-position="center"}
 
+Place a colorful little dot on your own birthday.
 
+Interesting questions to ask:
+
+* How do we *tally* collisions?
+* How many collisions do we *expect*?
+* What is the general relationship between
+  a) number of keys ($n$), 
+  b) table size ($m$), and 
+  c) expected # of collisions?
 

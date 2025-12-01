@@ -1,0 +1,208 @@
+---
+date: 2025-12-02
+---
+
+## Announcements
+
+<style>
+.small { font-size: .9rem; }
+.tiny { font-size: .8rem; }
+.card { border: 2px solid #ddd; border-radius: 12px; padding: 14px 16px; margin: 10px 0; }
+.center { text-align:center; }
+.rule { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+</style>
+
+
+# Hashing
+
+## Hashing? {data-background-image="/images/bday2.png"
+            data-background-opacity="0.25"
+            data-background-size="contain"
+            data-background-position="center"}
+
+Place a colorful little dot on your own birthday.
+
+Interesting questions to ask:
+
+* How do we *tally* collisions?
+* How many collisions do we *expect*?
+* What is the general relationship between
+  a) number of keys ($n$), 
+  b) table size ($m$), and 
+  c) expected # of collisions?
+
+## Side Quest -- Birthdays
+
+What's the probability no-one in this room has a birthday today?
+
+\ 
+
+\ 
+
+What’s the probability that there are 2 people (or more) with the same
+birthday?
+
+\ 
+
+\ 
+
+Does this change depending on the number of people in the room?
+
+## Expected Value (an aside) {.smaller}
+
+How many pips do we expect to see on a die?
+
+Definitions that will help us:
+
+* $X$:
+* $E[X]$:
+
+How many pips do we expect to see on 2 dice?
+
+::::: columns
+::: {.column}
+* $X$, $Y$:
+* $E[ X + Y ] =$
+:::
+::: {.column}
+
+<svg width="380" height="300" viewBox="0 0 380 300" xmlns="http://www.w3.org/2000/svg">
+<rect x="10"  y="10"  width="50" height="40" fill="white" stroke="black" stroke-width="1" />
+  <rect x="60"  y="10"  width="50" height="40" fill="white" stroke="black" stroke-width="1" />
+  <rect x="110" y="10"  width="50" height="40" fill="white" stroke="black" stroke-width="1" />
+  <rect x="160" y="10"  width="50" height="40" fill="white" stroke="black" stroke-width="1" />
+  <rect x="210" y="10"  width="50" height="40" fill="white" stroke="black" stroke-width="1" />
+  <rect x="260" y="10"  width="50" height="40" fill="white" stroke="black" stroke-width="1" />
+  <rect x="310" y="10"  width="50" height="40" fill="white" stroke="black" stroke-width="1" />
+<rect x="10"  y="50"  width="50" height="40" fill="white" stroke="black" stroke-width="1" />
+  <rect x="60"  y="50"  width="50" height="40" fill="white" stroke="black" stroke-width="1" />
+  <rect x="110" y="50"  width="50" height="40" fill="white" stroke="black" stroke-width="1" />
+  <rect x="160" y="50"  width="50" height="40" fill="white" stroke="black" stroke-width="1" />
+  <rect x="210" y="50"  width="50" height="40" fill="white" stroke="black" stroke-width="1" />
+  <rect x="260" y="50"  width="50" height="40" fill="white" stroke="black" stroke-width="1" />
+  <rect x="310" y="50"  width="50" height="40" fill="white" stroke="black" stroke-width="1" />
+<rect x="10"  y="90"  width="50" height="40" fill="white" stroke="black" stroke-width="1" />
+  <rect x="60"  y="90"  width="50" height="40" fill="white" stroke="black" stroke-width="1" />
+  <rect x="110" y="90"  width="50" height="40" fill="white" stroke="black" stroke-width="1" />
+  <rect x="160" y="90"  width="50" height="40" fill="white" stroke="black" stroke-width="1" />
+  <rect x="210" y="90"  width="50" height="40" fill="white" stroke="black" stroke-width="1" />
+  <rect x="260" y="90"  width="50" height="40" fill="white" stroke="black" stroke-width="1" />
+  <rect x="310" y="90"  width="50" height="40" fill="white" stroke="black" stroke-width="1" />
+<rect x="10"  y="130" width="50" height="40" fill="white" stroke="black" stroke-width="1" />
+  <rect x="60"  y="130" width="50" height="40" fill="white" stroke="black" stroke-width="1" />
+  <rect x="110" y="130" width="50" height="40" fill="white" stroke="black" stroke-width="1" />
+  <rect x="160" y="130" width="50" height="40" fill="white" stroke="black" stroke-width="1" />
+  <rect x="210" y="130" width="50" height="40" fill="white" stroke="black" stroke-width="1" />
+  <rect x="260" y="130" width="50" height="40" fill="white" stroke="black" stroke-width="1" />
+  <rect x="310" y="130" width="50" height="40" fill="white" stroke="black" stroke-width="1" />
+<rect x="10"  y="170" width="50" height="40" fill="white" stroke="black" stroke-width="1" />
+  <rect x="60"  y="170" width="50" height="40" fill="white" stroke="black" stroke-width="1" />
+  <rect x="110" y="170" width="50" height="40" fill="white" stroke="black" stroke-width="1" />
+  <rect x="160" y="170" width="50" height="40" fill="white" stroke="black" stroke-width="1" />
+  <rect x="210" y="170" width="50" height="40" fill="white" stroke="black" stroke-width="1" />
+  <rect x="260" y="170" width="50" height="40" fill="white" stroke="black" stroke-width="1" />
+  <rect x="310" y="170" width="50" height="40" fill="white" stroke="black" stroke-width="1" />
+<rect x="10"  y="210" width="50" height="40" fill="white" stroke="black" stroke-width="1" />
+  <rect x="60"  y="210" width="50" height="40" fill="white" stroke="black" stroke-width="1" />
+  <rect x="110" y="210" width="50" height="40" fill="white" stroke="black" stroke-width="1" />
+  <rect x="160" y="210" width="50" height="40" fill="white" stroke="black" stroke-width="1" />
+  <rect x="210" y="210" width="50" height="40" fill="white" stroke="black" stroke-width="1" />
+  <rect x="260" y="210" width="50" height="40" fill="white" stroke="black" stroke-width="1" />
+  <rect x="310" y="210" width="50" height="40" fill="white" stroke="black" stroke-width="1" />
+<rect x="10"  y="250" width="50" height="40" fill="white" stroke="black" stroke-width="1" />
+  <rect x="60"  y="250" width="50" height="40" fill="white" stroke="black" stroke-width="1" />
+  <rect x="110" y="250" width="50" height="40" fill="white" stroke="black" stroke-width="1" />
+  <rect x="160" y="250" width="50" height="40" fill="white" stroke="black" stroke-width="1" />
+  <rect x="210" y="250" width="50" height="40" fill="white" stroke="black" stroke-width="1" />
+  <rect x="260" y="250" width="50" height="40" fill="white" stroke="black" stroke-width="1" />
+  <rect x="310" y="250" width="50" height="40" fill="white" stroke="black" stroke-width="1" />
+<line x1="10" y1="50" x2="360" y2="50" stroke="black" stroke-width="3" />
+  <line x1="60" y1="10" x2="60" y2="290" stroke="black" stroke-width="3" />
+<text x="85"  y="35" font-family="monospace" font-size="14" text-anchor="middle">1</text>
+  <text x="135" y="35" font-family="monospace" font-size="14" text-anchor="middle">2</text>
+  <text x="185" y="35" font-family="monospace" font-size="14" text-anchor="middle">3</text>
+  <text x="235" y="35" font-family="monospace" font-size="14" text-anchor="middle">4</text>
+  <text x="285" y="35" font-family="monospace" font-size="14" text-anchor="middle">5</text>
+  <text x="335" y="35" font-family="monospace" font-size="14" text-anchor="middle">6</text>
+<text x="35" y="75"  font-family="monospace" font-size="14" text-anchor="middle">1</text>
+  <text x="35" y="115" font-family="monospace" font-size="14" text-anchor="middle">2</text>
+  <text x="35" y="155" font-family="monospace" font-size="14" text-anchor="middle">3</text>
+  <text x="35" y="195" font-family="monospace" font-size="14" text-anchor="middle">4</text>
+  <text x="35" y="235" font-family="monospace" font-size="14" text-anchor="middle">5</text>
+  <text x="35" y="275" font-family="monospace" font-size="14" text-anchor="middle">6</text>
+<text x="85"  y="75" font-family="monospace" font-size="14" text-anchor="middle">2</text>
+  <text x="135" y="75" font-family="monospace" font-size="14" text-anchor="middle">3</text>
+  <text x="185" y="75" font-family="monospace" font-size="14" text-anchor="middle">4</text>
+  <text x="235" y="75" font-family="monospace" font-size="14" text-anchor="middle">5</text>
+  <text x="285" y="75" font-family="monospace" font-size="14" text-anchor="middle">6</text>
+  <text x="335" y="75" font-family="monospace" font-size="14" text-anchor="middle">7</text>
+<text x="85"  y="115" font-family="monospace" font-size="14" text-anchor="middle">3</text>
+  <text x="135" y="115" font-family="monospace" font-size="14" text-anchor="middle">4</text>
+  <text x="185" y="115" font-family="monospace" font-size="14" text-anchor="middle">5</text>
+  <text x="235" y="115" font-family="monospace" font-size="14" text-anchor="middle">6</text>
+  <text x="285" y="115" font-family="monospace" font-size="14" text-anchor="middle">7</text>
+  <text x="335" y="115" font-family="monospace" font-size="14" text-anchor="middle">8</text>
+<text x="85"  y="155" font-family="monospace" font-size="14" text-anchor="middle">4</text>
+  <text x="135" y="155" font-family="monospace" font-size="14" text-anchor="middle">5</text>
+  <text x="185" y="155" font-family="monospace" font-size="14" text-anchor="middle">6</text>
+  <text x="235" y="155" font-family="monospace" font-size="14" text-anchor="middle">7</text>
+  <text x="285" y="155" font-family="monospace" font-size="14" text-anchor="middle">8</text>
+  <text x="335" y="155" font-family="monospace" font-size="14" text-anchor="middle">9</text>
+<text x="85"  y="195" font-family="monospace" font-size="14" text-anchor="middle">5</text>
+  <text x="135" y="195" font-family="monospace" font-size="14" text-anchor="middle">6</text>
+  <text x="185" y="195" font-family="monospace" font-size="14" text-anchor="middle">7</text>
+  <text x="235" y="195" font-family="monospace" font-size="14" text-anchor="middle">8</text>
+  <text x="285" y="195" font-family="monospace" font-size="14" text-anchor="middle">9</text>
+  <text x="335" y="195" font-family="monospace" font-size="14" text-anchor="middle">10</text>
+<text x="85"  y="235" font-family="monospace" font-size="14" text-anchor="middle">6</text>
+  <text x="135" y="235" font-family="monospace" font-size="14" text-anchor="middle">7</text>
+  <text x="185" y="235" font-family="monospace" font-size="14" text-anchor="middle">8</text>
+  <text x="235" y="235" font-family="monospace" font-size="14" text-anchor="middle">9</text>
+  <text x="285" y="235" font-family="monospace" font-size="14" text-anchor="middle">10</text>
+  <text x="335" y="235" font-family="monospace" font-size="14" text-anchor="middle">11</text>
+<text x="85"  y="275" font-family="monospace" font-size="14" text-anchor="middle">7</text>
+  <text x="135" y="275" font-family="monospace" font-size="14" text-anchor="middle">8</text>
+  <text x="185" y="275" font-family="monospace" font-size="14" text-anchor="middle">9</text>
+  <text x="235" y="275" font-family="monospace" font-size="14" text-anchor="middle">10</text>
+  <text x="285" y="275" font-family="monospace" font-size="14" text-anchor="middle">11</text>
+  <text x="335" y="275" font-family="monospace" font-size="14" text-anchor="middle">12</text>
+</svg>
+:::
+:::::
+
+## Expected Number of Collisions {.smaller}
+What is expected # of people who share a bday w someone else?
+
+Definitions that will help us:
+
+* $X_{ij}$:
+* $E[X_{ij}]$:
+
+Sum over all $X_{ij}$ to get the number of shared bdays and its expectation:
+
+* $X$:
+* $E[X] =$
+
+Collisions: if we randomly put $k$ items into $m$ bins, we expect \_\_\_\_\_\_\_\_ pairs to collide. 
+
+Implication:
+
+## Hash function summary {.smaller}
+
+We can only avoid collisions if the size of keyspace is less than equal to the size of our hash table and we have a perfect hash function.
+
+We can thwart poor performance by randomizing our choice of hash function for each application. Universal Hashing to the rescue!
+
+We have to deal with collisions: even with only ____ keys we will expect at least one.
+
+We need a collision resolution strategy...
+
+
+
+
+
+
+
+
+
+
