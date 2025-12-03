@@ -25,34 +25,87 @@ date: 2025-12-03
   - are they *isomorphic*?
 - Big takeaway:
   - Easy invariants help sometimes  
-  - But there is no known “magic test” for graph isomorphism
+  - But there is no known "magic test" for graph isomorphism
 
 ## Mixer {.activity}
 
 How are the numbers on your cards related to one another? The same rule will apply to the numbers on all of your cards. 
 
+## Euler’s Formula 
 
-## Euler’s Formula (for connected planar graphs)
+Observe:
 
-For your card graphs, you (hopefully) noticed:
 
-$$
-V - E + F = 2.
-$$
 
 - This is true for **every** connected planar graph
-- It’s a classic example of a **graph invariant**:
-  - If two graphs are isomorphic, they must have the same $V,E,F$  
-  - And so they must have the same value of $V - E + F$
-
-But:
-
-> Do $V,E,F$ tell us *everything* about a graph?
-
-Nope. Different graphs can share the same $(V,E,F)$.
 
 
-## Graph isomorphism (informal)
+## Proof of Euler's Formula
+
+Claim: For any connected planar graph, $G=(V,E,F)$, \_\_\_\_\_\_\_\_\_\_
+
+Proof:
+
+## Observation 1 {.smaller}
+
+<div style="height: 270px;">
+  <!-- draw: G with an edge on a cycle, two faces merging into one in G' -->
+</div>
+
+Start with a connected planar graph $G = (V, E, F)$.
+
+Remove a **non-bridge** edge $e$ to form $G' = G - e = (V', E', F')$.
+
+- Edge $e$ lies on a **cycle**.
+- It borders **two distinct faces**.
+- Deleting $e$ merges those two faces into one.
+
+$$
+V' = V,\quad E' = E - 1,\quad F' = F - 1
+$$
+
+## Observation 2 {.smaller}
+
+<div style="height: 270px;">
+  <!-- draw: G with a bridge edge; in G' it splits into two pieces, same outer face -->
+</div>
+
+Start with a connected planar graph $G = (V, E, F)$.
+
+Remove a **bridge** edge $e$ to form $G' = G - e = (V', E', F')$.
+
+- Edge $e$ is **not** on any cycle.
+- Both "sides" of $e$ touch the **same face**.
+- Deleting $e$ does **not** change the number of faces.
+
+$$
+V' = V,\quad E' = E - 1,\quad F' = F
+$$
+
+## Observation 3 {.smaller}
+
+<div style="height: 270px;">
+  <!-- draw: G' with two components sharing one outer face;
+       then each component separately with its own outer face -->
+</div>
+
+After removing a bridge $e$ from $G = (V, E, F)$, we get a graph $G' = G - e = (V', E', F')$ with **two** connected components:
+$$
+G_1 = (V_1, E_1, F_1),\quad G_2 = (V_2, E_2, F_2).
+$$
+
+When drawn **separately**, each $G_i$ has its own outer face.
+
+When drawn **together** in one plane as $G'$:
+
+- The two outer faces become **one** shared outside face.
+- The total number of faces of $G'$ is
+$$
+F' = F_1 + F_2 - 1.
+$$
+
+
+## Graph isomorphism {.smaller}
 
 Two graphs $G$ and $H$ are **isomorphic** if:
 
@@ -67,36 +120,30 @@ Equivalently:
 We’ll play a game:
 
 - I show you two graphs, $G_1$ and $G_2$
-- You say: “Same or different?”
+- You say: "Same or different?"
 - Then we look for simple **invariants** to justify your answer:
-  - “They *can’t* be the same, because… (invariant here)”
+  - "They *can’t* be the same, because..."
 
 
-## What’s a graph invariant?
+## What’s a graph invariant? {.smaller}
 
-A **graph invariant** is:
-
-> Any quantity / property that is the **same** for all isomorphic copies of a graph.
+A **graph invariant** is: Any property that is the **same** for all isomorphic copies of a graph.
 
 Examples:
 
-- Number of vertices $V$
-- Number of edges $E$
-- Degree sequence (multiset of vertex degrees)
+- Number of vertices $V$ or edges $E$
+- Degree sequence 
 - Number of triangles
-- Whether a graph has an **odd cycle** (bipartite vs not)
-- Diameter (largest distance between vertices)
-- …and many more
+- Whether a graph has an **odd cycle** 
+- ...and many more
 
 If two graphs are isomorphic, **all** invariants must match.
 
 But the reverse is *not* obviously true:
+
 - Sharing a bunch of invariants does **not** guarantee isomorphism.
 
-
-# Example 1 — degree sequence to the rescue
-
-## Pair 1: same V and E, different degree sequence {.activity}
+## Pair 1: same V and E... are they the same? {.activity}
 
 ::::: columns
 ::: {.column}
@@ -114,7 +161,7 @@ But the reverse is *not* obviously true:
 </svg>
 
 <div class="graph-caption">
-Path on 4 vertices (\(P_4\))
+Path on 4 vertices ($P_4$)
 </div>
 
 :::
@@ -133,7 +180,7 @@ Path on 4 vertices (\(P_4\))
 </svg>
 
 <div class="graph-caption">
-Star on 4 vertices (\(K_{1,3}\))
+Star on 4 vertices ($K_{1,3}$)
 </div>
 
 :::
@@ -145,7 +192,7 @@ Star on 4 vertices (\(K_{1,3}\))
 - Are they isomorphic? Why or why not?
 
 
-## Invariant 1: degree sequence
+## Invariant: degree sequence {.smaller}
 
 Compute the **degree sequence** (sorted list of vertex degrees).
 
@@ -161,23 +208,14 @@ New invariant:
 
 But degree sequence is still not the whole story…
 
-
-# Example 2 — triangles vs triangle-free
-
 ## Pair 2: same V, E, and degrees {.activity}
-
-Now we level up. Both graphs below have:
-
-- 6 vertices
-- 9 edges
-- Every vertex has degree 3
 
 ::::: columns
 ::: {.column}
 
 **Graph C: Triangular prism**
 
-<svg width="260" height="180" viewBox="0 0 260 180" xmlns="http://www.w3.org/2000/svg">
+<svg width="260" height="200" viewBox="0 0 260 180" xmlns="http://www.w3.org/2000/svg">
   <circle cx="70"  cy="40" r="8" fill="white" stroke="black" stroke-width="2"/>
   <circle cx="190" cy="40" r="8" fill="white" stroke="black" stroke-width="2"/>
   <circle cx="130" cy="90" r="8" fill="white" stroke="black" stroke-width="2"/>
@@ -202,7 +240,7 @@ Triangular prism graph
 :::
 ::: {.column}
 
-**Graph D: \(K_{3,3}\)**
+**Graph D: $K_{3,3}$**
 
 <svg width="260" height="180" viewBox="0 0 260 180" xmlns="http://www.w3.org/2000/svg">
   <circle cx="60"  cy="40"  r="8" fill="white" stroke="black" stroke-width="2"/>
@@ -229,59 +267,39 @@ Complete bipartite graph \(K_{3,3}\)
 :::
 :::::
 
-**Prompt:**
 
 - Same $V$, same $E$, same degree sequence $[3,3,3,3,3,3]$.
 - Are they isomorphic?
-- Can you find a simple invariant that disagrees?
 
 
-## Invariant 2: triangles
+## Invariant: triangles {.smaller}
 
 Look for **triangles** (3-cycles).
 
 - Graph C (triangular prism):
-  - Has obvious triangles (top and bottom).
-- Graph D (\(K_{3,3}\)):
-  - Is **bipartite** (left vs right partition),
+  - Has obvious triangles.
+- Graph D ($K_{3,3}$):
+  - Is **bipartite**,
   - Any cycle must alternate sides, so it has **no odd cycles**,
   - In particular, it has **no triangles**.
 
 So:
 
-- # of triangles is a graph invariant.
+- number of triangles is a graph invariant.
 - It distinguishes C and D, even when $V,E,$ and degree sequence match.
 
-
-# Example 3 — odd cycles & bipartiteness
-
 ## Pair 3: cube vs Möbius ladder {.activity}
-
-Now both graphs:
-
-- 8 vertices
-- 12 edges
-- Every vertex degree 3
-- **No triangles** in either graph
 
 ::::: columns
 ::: {.column}
 
-**Graph E: Cube graph \(Q_3\)**
+**Graph E: Cube graph $Q_3$**
 
 <svg width="260" height="200" viewBox="0 0 260 200" xmlns="http://www.w3.org/2000/svg">
-  <circle cx="70"  cy="60"  r="7" fill="white" stroke="black" stroke-width="2"/>
-  <circle cx="190" cy="60"  r="7" fill="white" stroke="black" stroke-width="2"/>
-  <circle cx="70"  cy="140" r="7" fill="white" stroke="black" stroke-width="2"/>
-  <circle cx="190" cy="140" r="7" fill="white" stroke="black" stroke-width="2"/>
   <line x1="77"  y1="60"  x2="183" y2="60"  stroke="black" stroke-width="2"/>
   <line x1="77"  y1="140" x2="183" y2="140" stroke="black" stroke-width="2"/>
   <line x1="70"  y1="67"  x2="70"  y2="133" stroke="black" stroke-width="2"/>
   <line x1="190" y1="67"  x2="190" y2="133" stroke="black" stroke-width="2"/>
-  <circle cx="110" cy="30"  r="7" fill="white" stroke="black" stroke-width="2"/>
-  <circle cx="230" cy="50"  r="7" fill="white" stroke="black" stroke-width="2"/>
-  <circle cx="110" cy="170" r="7" fill="white" stroke="black" stroke-width="2"/>
-  <circle cx="230" cy="150" r="7" fill="white" stroke="black" stroke-width="2"/>
   <line x1="117" y1="30"  x2="223" y2="50"  stroke="black" stroke-width="2"/>
   <line x1="117" y1="170" x2="223" y2="150" stroke="black" stroke-width="2"/>
   <line x1="110" y1="37"  x2="110" y2="163" stroke="black" stroke-width="2"/>
@@ -290,59 +308,69 @@ Now both graphs:
   <line x1="190" y1="60"  x2="230" y2="50"  stroke="black" stroke-width="2"/>
   <line x1="70"  y1="140" x2="110" y2="170" stroke="black" stroke-width="2"/>
   <line x1="190" y1="140" x2="230" y2="150" stroke="black" stroke-width="2"/>
+  <circle cx="70"  cy="60"  r="7" fill="white" stroke="black" stroke-width="2"/>
+  <circle cx="190" cy="60"  r="7" fill="white" stroke="black" stroke-width="2"/>
+  <circle cx="70"  cy="140" r="7" fill="white" stroke="black" stroke-width="2"/>
+  <circle cx="190" cy="140" r="7" fill="white" stroke="black" stroke-width="2"/>
+  <circle cx="110" cy="30"  r="7" fill="white" stroke="black" stroke-width="2"/>
+  <circle cx="230" cy="50"  r="7" fill="white" stroke="black" stroke-width="2"/>
+  <circle cx="110" cy="170" r="7" fill="white" stroke="black" stroke-width="2"/>
+  <circle cx="230" cy="150" r="7" fill="white" stroke="black" stroke-width="2"/>
 </svg>
 
 <div class="graph-caption">
-Cube graph \(Q_3\)
+Cube graph $Q_3$
 </div>
 
 :::
 ::: {.column}
 
-**Graph F: Möbius ladder on 8 vertices**
+**Graph F: Möbius ladder**
 
-<svg width="260" height="200" viewBox="0 0 260 200" xmlns="http://www.w3.org/2000/svg">
-  <circle cx="130" cy="30"  r="7" fill="white" stroke="black" stroke-width="2"/>
-  <circle cx="200" cy="70"  r="7" fill="white" stroke="black" stroke-width="2"/>
-  <circle cx="230" cy="140" r="7" fill="white" stroke="black" stroke-width="2"/>
-  <circle cx="200" cy="210" r="7" fill="white" stroke="black" stroke-width="2"/>
-  <circle cx="130" cy="250" r="7" fill="white" stroke="black" stroke-width="2"/>
-  <circle cx="60"  cy="210" r="7" fill="white" stroke="black" stroke-width="2"/>
-  <circle cx="30"  cy="140" r="7" fill="white" stroke="black" stroke-width="2"/>
-  <circle cx="60"  cy="70"  r="7" fill="white" stroke="black" stroke-width="2"/>
-  <line x1="130" y1="37"  x2="193" y2="67"  stroke="black" stroke-width="2"/>
-  <line x1="207" y1="73"  x2="223" y2="133" stroke="black" stroke-width="2"/>
-  <line x1="230" y1="147" x2="207" y2="203" stroke="black" stroke-width="2"/>
-  <line x1="193" y1="217" x2="137" y2="243" stroke="black" stroke-width="2"/>
-  <line x1="123" y1="243" x2="67"  y2="217" stroke="black" stroke-width="2"/>
-  <line x1="53"  y1="203" x2="37"  y2="147" stroke="black" stroke-width="2"/>
-  <line x1="30"  y1="133" x2="53"  y2="77"  stroke="black" stroke-width="2"/>
-  <line x1="67"  y1="63"  x2="123" y2="37"  stroke="black" stroke-width="2"/>
-  <line x1="130" y1="37"  x2="200" y2="210" stroke="black" stroke-width="2"/>
-  <line x1="200" y1="70"  x2="130" y2="250" stroke="black" stroke-width="2"/>
-  <line x1="230" y1="140" x2="60"  y2="210" stroke="black" stroke-width="2"/>
-  <line x1="60"  y1="70"  x2="30"  y2="140" stroke="black" stroke-width="2"/>
+<svg width="260" height="200" xmlns="http://www.w3.org/2000/svg" viewBox="60 60 300 300">
+  <g stroke="black" stroke-width="2" fill="none">
+    <line x1="100" y1="100" x2="300" y2="100" stroke-width="2"/> 
+    <line x1="300" y1="100" x2="300" y2="300" stroke-width="2"/> 
+    <line x1="300" y1="300" x2="100" y2="300" stroke-width="2"/> 
+    <line x1="100" y1="300" x2="125" y2="125" stroke-width="2"/> 
+    <line x1="125" y1="125" x2="275" y2="125" stroke-width="2"/> 
+    <line x1="275" y1="125" x2="275" y2="275" stroke-width="2"/> 
+    <line x1="275" y1="275" x2="125" y2="275" stroke-width="2"/> 
+    <line x1="125" y1="275" x2="100" y2="100" stroke-width="2"/> 
+    <line x1="100" y1="100" x2="125" y2="125" stroke-width="2"/> 
+    <line x1="300" y1="100" x2="275" y2="125" stroke-width="2"/> 
+    <line x1="300" y1="300" x2="275" y2="275" stroke-width="2"/> 
+    <line x1="100" y1="300" x2="125" y2="275" stroke-width="2"/> 
+  </g>
+  <g fill="white" stroke="black" stroke-width="2">
+    <circle cx="100" cy="100" r="7" /> 
+    <circle cx="300" cy="100" r="7" /> 
+    <circle cx="300" cy="300" r="7" /> 
+    <circle cx="100" cy="300" r="7" /> 
+    <circle cx="125" cy="125" r="7" /> 
+    <circle cx="275" cy="125" r="7" /> 
+    <circle cx="275" cy="275" r="7" /> 
+    <circle cx="125" cy="275" r="7" /> 
+  </g>
 </svg>
 
 <div class="graph-caption">
-Möbius ladder \(M_8\)
+Möbius ladder $M_8$
 </div>
 
 :::
 :::::
-
-**Prompt:**
 
 - Same $V$, same $E$, same degree sequence.
 - Both have **no triangles**.
 - Are they isomorphic? Can you see a structural difference?
 
 
-## Invariant 3: odd cycles / bipartiteness
+## Invariant: odd cycles / bipartiteness {.smaller}
 
 Look for **odd cycles**:
 
-- The cube graph \(Q_3\) is **bipartite**:
+- The cube graph $Q_3$ is **bipartite**:
   - You can color vertices red/blue so every edge joins red–blue.
   - Therefore it has **no odd cycles**.
 
@@ -356,15 +384,7 @@ New invariant:
 > If one graph is bipartite and the other isn’t, they cannot be isomorphic.
 
 
-# Example 4 — trees with the same degree sequence
-
 ## Pair 4: two trees, same degrees, no cycles {.activity}
-
-Now: both graphs are **trees** (no cycles).
-
-- 8 vertices
-- 7 edges
-- Degree sequence: $[3,3,2,2,1,1,1,1]$
 
 ::::: columns
 ::: {.column}
@@ -390,9 +410,6 @@ Now: both graphs are **trees** (no cycles).
   <line x1="190" y1="147" x2="213" y2="193" stroke="black" stroke-width="2"/> 
 </svg>
 
-<div class="graph-caption">
-Tree G: degree-3 vertices are adjacent
-</div>
 
 :::
 ::: {.column}
@@ -407,78 +424,50 @@ Tree G: degree-3 vertices are adjacent
   <circle cx="10"  cy="110" r="7" fill="white" stroke="black" stroke-width="2"/> 
   <circle cx="240" cy="110" r="7" fill="white" stroke="black" stroke-width="2"/> 
   <circle cx="150" cy="50"  r="7" fill="white" stroke="black" stroke-width="2"/> 
-  <circle cx="150" cy="170" r="7" fill="white" stroke="black" stroke-width="2"/> 
+  <circle cx="200" cy="170" r="7" fill="white" stroke="black" stroke-width="2"/> 
   <line x1="17"  y1="110" x2="43"  y2="110" stroke="black" stroke-width="2"/> 
   <line x1="57"  y1="110" x2="93"  y2="110" stroke="black" stroke-width="2"/> 
   <line x1="107" y1="110" x2="143" y2="110" stroke="black" stroke-width="2"/> 
   <line x1="157" y1="110" x2="193" y2="110" stroke="black" stroke-width="2"/> 
   <line x1="207" y1="110" x2="233" y2="110" stroke="black" stroke-width="2"/> 
   <line x1="150" y1="103" x2="150" y2="57"  stroke="black" stroke-width="2"/>
-  <line x1="150" y1="117" x2="150" y2="163" stroke="black" stroke-width="2"/>
+  <line x1="200" y1="117" x2="200" y2="163" stroke="black" stroke-width="2"/>
 </svg>
-
-<div class="graph-caption">
-Tree H: degree-3 vertices are farther apart
-</div>
 
 :::
 :::::
 
-**Check:**
 
-- Both trees have degree multiset $[3,3,2,2,1,1,1,1]$.
-- Both have no cycles.
-- They are **not** isomorphic (try matching branches).
-
-This shows: even with many invariants matching, graphs can still be different.
-
-
-## Where we are
+## Where we are {.smaller}
 
 We’ve seen a chain of increasingly strong invariants:
 
-1. $V,E,F$ (Euler’s formula for planar graphs)
+1. $V,E,F$ 
 2. Degree sequence
-3. Number (and presence) of triangles
-4. Presence of any **odd cycle** (bipartite vs not)
-5. More subtle structure (distances between special vertices, etc.)
+3. Number of triangles
+4. Presence of any **odd cycle** 
+5. More subtle structure 
 
 At each step:
 
 - We found pairs of graphs that matched **all earlier** invariants
 - But were still **not isomorphic**, distinguished by a new invariant
 
-
-# Big Picture: why graph isomorphism is hard
-
-## Takeaway
+## Takeaway {.smaller}
 
 - If two graphs are isomorphic, they must agree on **every** invariant.
 - When we find a violated invariant, we can confidently say:
-  > “No, these graphs are different — here’s the evidence.”
+  > "No, these graphs are different — here’s the evidence."
 
 But:
 
 - There’s no single, simple invariant that always settles the question.
-- In the worst case, finding a certificate of “different” can be very non-obvious.
+- In the worst case, finding a certificate of "different" can be very non-obvious.
 - Designing a **fast general algorithm** for graph isomorphism is a deep theoretical problem.
 
-For us today:
+For today:
 
 > We’ve seen how **counting** and simple structural ideas  
 > (degrees, cycles, distances) can be powerful tools  
 > for understanding when two graphs “must” be different.
 
-
-## End-of-term vibes
-
-- Today you:
-  - Used **Euler’s formula** as an invariant.
-  - Played detective with **graph twins**.
-  - Saw why “proving two graphs are different” can be subtle.
-- This connects back to:
-  - Our work on **counting**, **functions**, and **structure**,
-  - And forward to topics like:
-    - network analysis,
-    - pattern recognition on graphs,
-    - and the theory behind graph algorithms.
