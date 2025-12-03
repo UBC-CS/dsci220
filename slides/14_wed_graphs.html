@@ -188,29 +188,70 @@
 <h2>Mixer</h2>
 <p>How are the numbers on your cards related to one another? The same rule will apply to the numbers on all of your cards.</p>
 </section>
-<section id="eulers-formula-for-connected-planar-graphs" class="slide level2">
-<h2>Euler’s Formula (for connected planar graphs)</h2>
-<p>For your card graphs, you (hopefully) noticed:</p>
-<p><span class="math display">\[
-V - E + F = 2.
-\]</span></p>
+<section id="eulers-formula" class="slide level2">
+<h2>Euler’s Formula</h2>
+<p>Observe:</p>
 <ul>
 <li>This is true for <strong>every</strong> connected planar graph</li>
-<li>It’s a classic example of a <strong>graph invariant</strong>:
-<ul>
-<li>If two graphs are isomorphic, they must have the same <span class="math inline">\(V,E,F\)</span><br>
-</li>
-<li>And so they must have the same value of <span class="math inline">\(V - E + F\)</span></li>
-</ul></li>
 </ul>
-<p>But:</p>
-<blockquote>
-<p>Do <span class="math inline">\(V,E,F\)</span> tell us <em>everything</em> about a graph?</p>
-</blockquote>
-<p>Nope. Different graphs can share the same <span class="math inline">\((V,E,F)\)</span>.</p>
 </section>
-<section id="graph-isomorphism-informal" class="slide level2">
-<h2>Graph isomorphism (informal)</h2>
+<section id="proof-of-eulers-formula" class="slide level2">
+<h2>Proof of Euler’s Formula</h2>
+<p>Claim: For any connected planar graph, <span class="math inline">\(G=(V,E,F)\)</span>, __________</p>
+<p>Proof:</p>
+</section>
+<section id="observation-1" class="slide level2 smaller">
+<h2>Observation 1</h2>
+<div style="height: 270px;">
+<p><!-- draw: G with an edge on a cycle, two faces merging into one in G' --></p>
+</div>
+<p>Start with a connected planar graph <span class="math inline">\(G = (V, E, F)\)</span>.</p>
+<p>Remove a <strong>non-bridge</strong> edge <span class="math inline">\(e\)</span> to form <span class="math inline">\(G' = G - e = (V', E', F')\)</span>.</p>
+<ul>
+<li>Edge <span class="math inline">\(e\)</span> lies on a <strong>cycle</strong>.</li>
+<li>It borders <strong>two distinct faces</strong>.</li>
+<li>Deleting <span class="math inline">\(e\)</span> merges those two faces into one.</li>
+</ul>
+<p><span class="math display">\[
+V' = V,\quad E' = E - 1,\quad F' = F - 1
+\]</span></p>
+</section>
+<section id="observation-2" class="slide level2 smaller">
+<h2>Observation 2</h2>
+<div style="height: 270px;">
+<p><!-- draw: G with a bridge edge; in G' it splits into two pieces, same outer face --></p>
+</div>
+<p>Start with a connected planar graph <span class="math inline">\(G = (V, E, F)\)</span>.</p>
+<p>Remove a <strong>bridge</strong> edge <span class="math inline">\(e\)</span> to form <span class="math inline">\(G' = G - e = (V', E', F')\)</span>.</p>
+<ul>
+<li>Edge <span class="math inline">\(e\)</span> is <strong>not</strong> on any cycle.</li>
+<li>Both “sides” of <span class="math inline">\(e\)</span> touch the <strong>same face</strong>.</li>
+<li>Deleting <span class="math inline">\(e\)</span> does <strong>not</strong> change the number of faces.</li>
+</ul>
+<p><span class="math display">\[
+V' = V,\quad E' = E - 1,\quad F' = F
+\]</span></p>
+</section>
+<section id="observation-3" class="slide level2 smaller">
+<h2>Observation 3</h2>
+<div style="height: 270px;">
+<p><!-- draw: G' with two components sharing one outer face;
+       then each component separately with its own outer face --></p>
+</div>
+<p>After removing a bridge <span class="math inline">\(e\)</span> from <span class="math inline">\(G = (V, E, F)\)</span>, we get a graph <span class="math inline">\(G' = G - e = (V', E', F')\)</span> with <strong>two</strong> connected components: <span class="math display">\[
+G_1 = (V_1, E_1, F_1),\quad G_2 = (V_2, E_2, F_2).
+\]</span></p>
+<p>When drawn <strong>separately</strong>, each <span class="math inline">\(G_i\)</span> has its own outer face.</p>
+<p>When drawn <strong>together</strong> in one plane as <span class="math inline">\(G'\)</span>:</p>
+<ul>
+<li>The two outer faces become <strong>one</strong> shared outside face.</li>
+<li>The total number of faces of <span class="math inline">\(G'\)</span> is <span class="math display">\[
+F' = F_1 + F_2 - 1.
+\]</span></li>
+</ul>
+</section>
+<section id="graph-isomorphism" class="slide level2 smaller">
+<h2>Graph isomorphism</h2>
 <p>Two graphs <span class="math inline">\(G\)</span> and <span class="math inline">\(H\)</span> are <strong>isomorphic</strong> if:</p>
 <ul>
 <li>You can <strong>rename the vertices</strong> of <span class="math inline">\(G\)</span></li>
@@ -227,36 +268,29 @@ the two graphs look the <strong>same</strong>.</p>
 <li>You say: “Same or different?”</li>
 <li>Then we look for simple <strong>invariants</strong> to justify your answer:
 <ul>
-<li>“They <em>can’t</em> be the same, because… (invariant here)”</li>
+<li>“They <em>can’t</em> be the same, because…”</li>
 </ul></li>
 </ul>
 </section>
-<section id="whats-a-graph-invariant" class="slide level2">
+<section id="whats-a-graph-invariant" class="slide level2 smaller">
 <h2>What’s a graph invariant?</h2>
-<p>A <strong>graph invariant</strong> is:</p>
-<blockquote>
-<p>Any quantity / property that is the <strong>same</strong> for all isomorphic copies of a graph.</p>
-</blockquote>
+<p>A <strong>graph invariant</strong> is: Any property that is the <strong>same</strong> for all isomorphic copies of a graph.</p>
 <p>Examples:</p>
 <ul>
-<li>Number of vertices <span class="math inline">\(V\)</span></li>
-<li>Number of edges <span class="math inline">\(E\)</span></li>
-<li>Degree sequence (multiset of vertex degrees)</li>
+<li>Number of vertices <span class="math inline">\(V\)</span> or edges <span class="math inline">\(E\)</span></li>
+<li>Degree sequence</li>
 <li>Number of triangles</li>
-<li>Whether a graph has an <strong>odd cycle</strong> (bipartite vs not)</li>
-<li>Diameter (largest distance between vertices)</li>
+<li>Whether a graph has an <strong>odd cycle</strong></li>
 <li>…and many more</li>
 </ul>
 <p>If two graphs are isomorphic, <strong>all</strong> invariants must match.</p>
-<p>But the reverse is <em>not</em> obviously true: - Sharing a bunch of invariants does <strong>not</strong> guarantee isomorphism.</p>
-</section></section>
-<section>
-<section id="example-1-degree-sequence-to-the-rescue" class="title-slide slide level1 center">
-<h1>Example 1 — degree sequence to the rescue</h1>
-
+<p>But the reverse is <em>not</em> obviously true:</p>
+<ul>
+<li>Sharing a bunch of invariants does <strong>not</strong> guarantee isomorphism.</li>
+</ul>
 </section>
-<section id="pair-1-same-v-and-e-different-degree-sequence" class="slide level2 activity">
-<h2>Pair 1: same V and E, different degree sequence</h2>
+<section id="pair-1-same-v-and-e-are-they-the-same" class="slide level2 activity">
+<h2>Pair 1: same V and E… are they the same?</h2>
 <div class="columns">
 <div class="column">
 <p><strong>Graph A</strong></p>
@@ -264,7 +298,7 @@ the two graphs look the <strong>same</strong>.</p>
 <circle cx="40" cy="40" r="8" fill="white" stroke="black" stroke-width="2"></circle> <circle cx="100" cy="40" r="8" fill="white" stroke="black" stroke-width="2"></circle> <circle cx="160" cy="40" r="8" fill="white" stroke="black" stroke-width="2"></circle> <circle cx="220" cy="40" r="8" fill="white" stroke="black" stroke-width="2"></circle> <line x1="48" y1="40" x2="92" y2="40" stroke="black" stroke-width="2"></line> <line x1="108" y1="40" x2="152" y2="40" stroke="black" stroke-width="2"></line> <line x1="168" y1="40" x2="212" y2="40" stroke="black" stroke-width="2"></line>
 </svg>
 <div class="graph-caption">
-<p>Path on 4 vertices ((P_4))</p>
+<p>Path on 4 vertices (<span class="math inline">\(P_4\)</span>)</p>
 </div>
 </div><div class="column">
 <p><strong>Graph B</strong></p>
@@ -272,7 +306,7 @@ the two graphs look the <strong>same</strong>.</p>
 <circle cx="130" cy="50" r="8" fill="white" stroke="black" stroke-width="2"></circle> <circle cx="60" cy="90" r="8" fill="white" stroke="black" stroke-width="2"></circle> <circle cx="130" cy="100" r="8" fill="white" stroke="black" stroke-width="2"></circle> <circle cx="200" cy="90" r="8" fill="white" stroke="black" stroke-width="2"></circle> <line x1="130" y1="58" x2="60" y2="82" stroke="black" stroke-width="2"></line> <line x1="130" y1="58" x2="130" y2="92" stroke="black" stroke-width="2"></line> <line x1="130" y1="58" x2="200" y2="82" stroke="black" stroke-width="2"></line>
 </svg>
 <div class="graph-caption">
-<p>Star on 4 vertices ((K_{1,3}))</p>
+<p>Star on 4 vertices (<span class="math inline">\(K_{1,3}\)</span>)</p>
 </div>
 </div></div>
 <p><strong>Think with a neighbor:</strong></p>
@@ -282,8 +316,8 @@ the two graphs look the <strong>same</strong>.</p>
 <li>Are they isomorphic? Why or why not?</li>
 </ul>
 </section>
-<section id="invariant-1-degree-sequence" class="slide level2">
-<h2>Invariant 1: degree sequence</h2>
+<section id="invariant-degree-sequence" class="slide level2 smaller">
+<h2>Invariant: degree sequence</h2>
 <p>Compute the <strong>degree sequence</strong> (sorted list of vertex degrees).</p>
 <ul>
 <li>Graph A (path <span class="math inline">\(P_4\)</span>): degrees are <span class="math inline">\([1,2,2,1]\)</span></li>
@@ -296,31 +330,20 @@ the two graphs look the <strong>same</strong>.</p>
 If degree sequences differ, the graphs are definitely different.</p>
 </blockquote>
 <p>But degree sequence is still not the whole story…</p>
-</section></section>
-<section>
-<section id="example-2-triangles-vs-triangle-free" class="title-slide slide level1 center">
-<h1>Example 2 — triangles vs triangle-free</h1>
-
 </section>
 <section id="pair-2-same-v-e-and-degrees" class="slide level2 activity">
 <h2>Pair 2: same V, E, and degrees</h2>
-<p>Now we level up. Both graphs below have:</p>
-<ul>
-<li>6 vertices</li>
-<li>9 edges</li>
-<li>Every vertex has degree 3</li>
-</ul>
 <div class="columns">
 <div class="column">
 <p><strong>Graph C: Triangular prism</strong></p>
-<svg width="260" height="180" viewbox="0 0 260 180" xmlns="http://www.w3.org/2000/svg">
+<svg width="260" height="200" viewbox="0 0 260 180" xmlns="http://www.w3.org/2000/svg">
 <circle cx="70" cy="40" r="8" fill="white" stroke="black" stroke-width="2"></circle> <circle cx="190" cy="40" r="8" fill="white" stroke="black" stroke-width="2"></circle> <circle cx="130" cy="90" r="8" fill="white" stroke="black" stroke-width="2"></circle> <line x1="78" y1="40" x2="182" y2="40" stroke="black" stroke-width="2"></line> <line x1="76" y1="46" x2="122" y2="84" stroke="black" stroke-width="2"></line> <line x1="138" y1="84" x2="184" y2="46" stroke="black" stroke-width="2"></line> <circle cx="70" cy="140" r="8" fill="white" stroke="black" stroke-width="2"></circle> <circle cx="190" cy="140" r="8" fill="white" stroke="black" stroke-width="2"></circle> <circle cx="130" cy="190" r="8" fill="white" stroke="black" stroke-width="2"></circle> <line x1="78" y1="140" x2="182" y2="140" stroke="black" stroke-width="2"></line> <line x1="76" y1="146" x2="122" y2="184" stroke="black" stroke-width="2"></line> <line x1="138" y1="184" x2="184" y2="146" stroke="black" stroke-width="2"></line> <line x1="70" y1="48" x2="70" y2="132" stroke="black" stroke-width="2"></line> <line x1="130" y1="98" x2="130" y2="182" stroke="black" stroke-width="2"></line> <line x1="190" y1="48" x2="190" y2="132" stroke="black" stroke-width="2"></line>
 </svg>
 <div class="graph-caption">
 <p>Triangular prism graph</p>
 </div>
 </div><div class="column">
-<p><strong>Graph D: (K_{3,3})</strong></p>
+<p><strong>Graph D: <span class="math inline">\(K_{3,3}\)</span></strong></p>
 <svg width="260" height="180" viewbox="0 0 260 180" xmlns="http://www.w3.org/2000/svg">
 <circle cx="60" cy="40" r="8" fill="white" stroke="black" stroke-width="2"></circle> <circle cx="60" cy="90" r="8" fill="white" stroke="black" stroke-width="2"></circle> <circle cx="60" cy="140" r="8" fill="white" stroke="black" stroke-width="2"></circle> <circle cx="200" cy="40" r="8" fill="white" stroke="black" stroke-width="2"></circle> <circle cx="200" cy="90" r="8" fill="white" stroke="black" stroke-width="2"></circle> <circle cx="200" cy="140" r="8" fill="white" stroke="black" stroke-width="2"></circle> <line x1="68" y1="40" x2="192" y2="40" stroke="black" stroke-width="2"></line> <line x1="68" y1="40" x2="192" y2="90" stroke="black" stroke-width="2"></line> <line x1="68" y1="40" x2="192" y2="140" stroke="black" stroke-width="2"></line> <line x1="68" y1="90" x2="192" y2="40" stroke="black" stroke-width="2"></line> <line x1="68" y1="90" x2="192" y2="90" stroke="black" stroke-width="2"></line> <line x1="68" y1="90" x2="192" y2="140" stroke="black" stroke-width="2"></line> <line x1="68" y1="140" x2="192" y2="40" stroke="black" stroke-width="2"></line> <line x1="68" y1="140" x2="192" y2="90" stroke="black" stroke-width="2"></line> <line x1="68" y1="140" x2="192" y2="140" stroke="black" stroke-width="2"></line>
 </svg>
@@ -328,78 +351,63 @@ If degree sequences differ, the graphs are definitely different.</p>
 <p>Complete bipartite graph (K_{3,3})</p>
 </div>
 </div></div>
-<p><strong>Prompt:</strong></p>
 <ul>
 <li>Same <span class="math inline">\(V\)</span>, same <span class="math inline">\(E\)</span>, same degree sequence <span class="math inline">\([3,3,3,3,3,3]\)</span>.</li>
 <li>Are they isomorphic?</li>
-<li>Can you find a simple invariant that disagrees?</li>
 </ul>
 </section>
-<section id="invariant-2-triangles" class="slide level2">
-<h2>Invariant 2: triangles</h2>
+<section id="invariant-triangles" class="slide level2 smaller">
+<h2>Invariant: triangles</h2>
 <p>Look for <strong>triangles</strong> (3-cycles).</p>
 <ul>
 <li>Graph C (triangular prism):
 <ul>
-<li>Has obvious triangles (top and bottom).</li>
+<li>Has obvious triangles.</li>
 </ul></li>
-<li>Graph D ((K_{3,3})):
+<li>Graph D (<span class="math inline">\(K_{3,3}\)</span>):
 <ul>
-<li>Is <strong>bipartite</strong> (left vs right partition),</li>
+<li>Is <strong>bipartite</strong>,</li>
 <li>Any cycle must alternate sides, so it has <strong>no odd cycles</strong>,</li>
 <li>In particular, it has <strong>no triangles</strong>.</li>
 </ul></li>
 </ul>
 <p>So:</p>
 <ul>
-<li><h1 id="of-triangles-is-a-graph-invariant.">of triangles is a graph invariant.</h1></li>
+<li>number of triangles is a graph invariant.</li>
 <li>It distinguishes C and D, even when <span class="math inline">\(V,E,\)</span> and degree sequence match.</li>
 </ul>
-</section></section>
-<section>
-<section id="example-3-odd-cycles-bipartiteness" class="title-slide slide level1 center">
-<h1>Example 3 — odd cycles &amp; bipartiteness</h1>
-
 </section>
 <section id="pair-3-cube-vs-möbius-ladder" class="slide level2 activity">
 <h2>Pair 3: cube vs Möbius ladder</h2>
-<p>Now both graphs:</p>
-<ul>
-<li>8 vertices</li>
-<li>12 edges</li>
-<li>Every vertex degree 3</li>
-<li><strong>No triangles</strong> in either graph</li>
-</ul>
 <div class="columns">
 <div class="column">
-<p><strong>Graph E: Cube graph (Q_3)</strong></p>
+<p><strong>Graph E: Cube graph <span class="math inline">\(Q_3\)</span></strong></p>
 <svg width="260" height="200" viewbox="0 0 260 200" xmlns="http://www.w3.org/2000/svg">
-<circle cx="70" cy="60" r="7" fill="white" stroke="black" stroke-width="2"></circle> <circle cx="190" cy="60" r="7" fill="white" stroke="black" stroke-width="2"></circle> <circle cx="70" cy="140" r="7" fill="white" stroke="black" stroke-width="2"></circle> <circle cx="190" cy="140" r="7" fill="white" stroke="black" stroke-width="2"></circle> <line x1="77" y1="60" x2="183" y2="60" stroke="black" stroke-width="2"></line> <line x1="77" y1="140" x2="183" y2="140" stroke="black" stroke-width="2"></line> <line x1="70" y1="67" x2="70" y2="133" stroke="black" stroke-width="2"></line> <line x1="190" y1="67" x2="190" y2="133" stroke="black" stroke-width="2"></line> <circle cx="110" cy="30" r="7" fill="white" stroke="black" stroke-width="2"></circle> <circle cx="230" cy="50" r="7" fill="white" stroke="black" stroke-width="2"></circle> <circle cx="110" cy="170" r="7" fill="white" stroke="black" stroke-width="2"></circle> <circle cx="230" cy="150" r="7" fill="white" stroke="black" stroke-width="2"></circle> <line x1="117" y1="30" x2="223" y2="50" stroke="black" stroke-width="2"></line> <line x1="117" y1="170" x2="223" y2="150" stroke="black" stroke-width="2"></line> <line x1="110" y1="37" x2="110" y2="163" stroke="black" stroke-width="2"></line> <line x1="230" y1="57" x2="230" y2="143" stroke="black" stroke-width="2"></line> <line x1="70" y1="60" x2="110" y2="30" stroke="black" stroke-width="2"></line> <line x1="190" y1="60" x2="230" y2="50" stroke="black" stroke-width="2"></line> <line x1="70" y1="140" x2="110" y2="170" stroke="black" stroke-width="2"></line> <line x1="190" y1="140" x2="230" y2="150" stroke="black" stroke-width="2"></line>
+<line x1="77" y1="60" x2="183" y2="60" stroke="black" stroke-width="2"></line> <line x1="77" y1="140" x2="183" y2="140" stroke="black" stroke-width="2"></line> <line x1="70" y1="67" x2="70" y2="133" stroke="black" stroke-width="2"></line> <line x1="190" y1="67" x2="190" y2="133" stroke="black" stroke-width="2"></line> <line x1="117" y1="30" x2="223" y2="50" stroke="black" stroke-width="2"></line> <line x1="117" y1="170" x2="223" y2="150" stroke="black" stroke-width="2"></line> <line x1="110" y1="37" x2="110" y2="163" stroke="black" stroke-width="2"></line> <line x1="230" y1="57" x2="230" y2="143" stroke="black" stroke-width="2"></line> <line x1="70" y1="60" x2="110" y2="30" stroke="black" stroke-width="2"></line> <line x1="190" y1="60" x2="230" y2="50" stroke="black" stroke-width="2"></line> <line x1="70" y1="140" x2="110" y2="170" stroke="black" stroke-width="2"></line> <line x1="190" y1="140" x2="230" y2="150" stroke="black" stroke-width="2"></line> <circle cx="70" cy="60" r="7" fill="white" stroke="black" stroke-width="2"></circle> <circle cx="190" cy="60" r="7" fill="white" stroke="black" stroke-width="2"></circle> <circle cx="70" cy="140" r="7" fill="white" stroke="black" stroke-width="2"></circle> <circle cx="190" cy="140" r="7" fill="white" stroke="black" stroke-width="2"></circle> <circle cx="110" cy="30" r="7" fill="white" stroke="black" stroke-width="2"></circle> <circle cx="230" cy="50" r="7" fill="white" stroke="black" stroke-width="2"></circle> <circle cx="110" cy="170" r="7" fill="white" stroke="black" stroke-width="2"></circle> <circle cx="230" cy="150" r="7" fill="white" stroke="black" stroke-width="2"></circle>
 </svg>
 <div class="graph-caption">
-<p>Cube graph (Q_3)</p>
+<p>Cube graph <span class="math inline">\(Q_3\)</span></p>
 </div>
 </div><div class="column">
-<p><strong>Graph F: Möbius ladder on 8 vertices</strong></p>
-<svg width="260" height="200" viewbox="0 0 260 200" xmlns="http://www.w3.org/2000/svg">
-<circle cx="130" cy="30" r="7" fill="white" stroke="black" stroke-width="2"></circle> <circle cx="200" cy="70" r="7" fill="white" stroke="black" stroke-width="2"></circle> <circle cx="230" cy="140" r="7" fill="white" stroke="black" stroke-width="2"></circle> <circle cx="200" cy="210" r="7" fill="white" stroke="black" stroke-width="2"></circle> <circle cx="130" cy="250" r="7" fill="white" stroke="black" stroke-width="2"></circle> <circle cx="60" cy="210" r="7" fill="white" stroke="black" stroke-width="2"></circle> <circle cx="30" cy="140" r="7" fill="white" stroke="black" stroke-width="2"></circle> <circle cx="60" cy="70" r="7" fill="white" stroke="black" stroke-width="2"></circle> <line x1="130" y1="37" x2="193" y2="67" stroke="black" stroke-width="2"></line> <line x1="207" y1="73" x2="223" y2="133" stroke="black" stroke-width="2"></line> <line x1="230" y1="147" x2="207" y2="203" stroke="black" stroke-width="2"></line> <line x1="193" y1="217" x2="137" y2="243" stroke="black" stroke-width="2"></line> <line x1="123" y1="243" x2="67" y2="217" stroke="black" stroke-width="2"></line> <line x1="53" y1="203" x2="37" y2="147" stroke="black" stroke-width="2"></line> <line x1="30" y1="133" x2="53" y2="77" stroke="black" stroke-width="2"></line> <line x1="67" y1="63" x2="123" y2="37" stroke="black" stroke-width="2"></line> <line x1="130" y1="37" x2="200" y2="210" stroke="black" stroke-width="2"></line> <line x1="200" y1="70" x2="130" y2="250" stroke="black" stroke-width="2"></line> <line x1="230" y1="140" x2="60" y2="210" stroke="black" stroke-width="2"></line> <line x1="60" y1="70" x2="30" y2="140" stroke="black" stroke-width="2"></line>
+<p><strong>Graph F: Möbius ladder</strong></p>
+<svg width="260" height="200" xmlns="http://www.w3.org/2000/svg" viewbox="60 60 300 300">
+<g stroke="black" stroke-width="2" fill="none"> <line x1="100" y1="100" x2="300" y2="100" stroke-width="2"></line> <line x1="300" y1="100" x2="300" y2="300" stroke-width="2"></line> <line x1="300" y1="300" x2="100" y2="300" stroke-width="2"></line> <line x1="100" y1="300" x2="125" y2="125" stroke-width="2"></line> <line x1="125" y1="125" x2="275" y2="125" stroke-width="2"></line> <line x1="275" y1="125" x2="275" y2="275" stroke-width="2"></line> <line x1="275" y1="275" x2="125" y2="275" stroke-width="2"></line> <line x1="125" y1="275" x2="100" y2="100" stroke-width="2"></line> <line x1="100" y1="100" x2="125" y2="125" stroke-width="2"></line> <line x1="300" y1="100" x2="275" y2="125" stroke-width="2"></line> <line x1="300" y1="300" x2="275" y2="275" stroke-width="2"></line> <line x1="100" y1="300" x2="125" y2="275" stroke-width="2"></line> </g> <g fill="white" stroke="black" stroke-width="2"> <circle cx="100" cy="100" r="7"></circle> <circle cx="300" cy="100" r="7"></circle> <circle cx="300" cy="300" r="7"></circle> <circle cx="100" cy="300" r="7"></circle> <circle cx="125" cy="125" r="7"></circle> <circle cx="275" cy="125" r="7"></circle> <circle cx="275" cy="275" r="7"></circle> <circle cx="125" cy="275" r="7"></circle> </g>
 </svg>
 <div class="graph-caption">
-<p>Möbius ladder (M_8)</p>
+<p>Möbius ladder <span class="math inline">\(M_8\)</span></p>
 </div>
 </div></div>
-<p><strong>Prompt:</strong></p>
 <ul>
 <li>Same <span class="math inline">\(V\)</span>, same <span class="math inline">\(E\)</span>, same degree sequence.</li>
 <li>Both have <strong>no triangles</strong>.</li>
 <li>Are they isomorphic? Can you see a structural difference?</li>
 </ul>
 </section>
-<section id="invariant-3-odd-cycles-bipartiteness" class="slide level2">
-<h2>Invariant 3: odd cycles / bipartiteness</h2>
+<section id="invariant-odd-cycles-bipartiteness" class="slide level2 smaller">
+<h2>Invariant: odd cycles / bipartiteness</h2>
 <p>Look for <strong>odd cycles</strong>:</p>
 <ul>
-<li>The cube graph (Q_3) is <strong>bipartite</strong>:
+<li>The cube graph <span class="math inline">\(Q_3\)</span> is <strong>bipartite</strong>:
 <ul>
 <li>You can color vertices red/blue so every edge joins red–blue.</li>
 <li>Therefore it has <strong>no odd cycles</strong>.</li>
@@ -415,20 +423,9 @@ If degree sequences differ, the graphs are definitely different.</p>
 <p>“Has an odd cycle?” / “Is bipartite?”<br>
 If one graph is bipartite and the other isn’t, they cannot be isomorphic.</p>
 </blockquote>
-</section></section>
-<section>
-<section id="example-4-trees-with-the-same-degree-sequence" class="title-slide slide level1 center">
-<h1>Example 4 — trees with the same degree sequence</h1>
-
 </section>
 <section id="pair-4-two-trees-same-degrees-no-cycles" class="slide level2 activity">
 <h2>Pair 4: two trees, same degrees, no cycles</h2>
-<p>Now: both graphs are <strong>trees</strong> (no cycles).</p>
-<ul>
-<li>8 vertices</li>
-<li>7 edges</li>
-<li>Degree sequence: <span class="math inline">\([3,3,2,2,1,1,1,1]\)</span></li>
-</ul>
 <div class="columns">
 <div class="column">
 <p><strong>Graph G</strong></p>
@@ -436,48 +433,30 @@ If one graph is bipartite and the other isn’t, they cannot be isomorphic.</p>
 <!-- degree-3 vertices -->
 <circle cx="130" cy="80" r="7" fill="white" stroke="black" stroke-width="2"></circle> <circle cx="190" cy="80" r="7" fill="white" stroke="black" stroke-width="2"></circle> <circle cx="130" cy="140" r="7" fill="white" stroke="black" stroke-width="2"></circle> <circle cx="190" cy="140" r="7" fill="white" stroke="black" stroke-width="2"></circle> <circle cx="100" cy="40" r="7" fill="white" stroke="black" stroke-width="2"></circle> <circle cx="220" cy="40" r="7" fill="white" stroke="black" stroke-width="2"></circle> <circle cx="100" cy="200" r="7" fill="white" stroke="black" stroke-width="2"></circle> <circle cx="220" cy="200" r="7" fill="white" stroke="black" stroke-width="2"></circle> <line x1="137" y1="80" x2="183" y2="80" stroke="black" stroke-width="2"></line> <line x1="130" y1="87" x2="130" y2="133" stroke="black" stroke-width="2"></line> <line x1="190" y1="87" x2="190" y2="133" stroke="black" stroke-width="2"></line> <line x1="123" y1="73" x2="107" y2="47" stroke="black" stroke-width="2"></line> <line x1="197" y1="73" x2="213" y2="47" stroke="black" stroke-width="2"></line> <line x1="130" y1="147" x2="107" y2="193" stroke="black" stroke-width="2"></line> <line x1="190" y1="147" x2="213" y2="193" stroke="black" stroke-width="2"></line>
 </svg>
-<div class="graph-caption">
-<p>Tree G: degree-3 vertices are adjacent</p>
-</div>
 </div><div class="column">
 <p><strong>Graph H</strong></p>
 <svg width="260" height="220" viewbox="0 0 260 220" xmlns="http://www.w3.org/2000/svg">
-<circle cx="50" cy="110" r="7" fill="white" stroke="black" stroke-width="2"></circle> <circle cx="100" cy="110" r="7" fill="white" stroke="black" stroke-width="2"></circle> <circle cx="150" cy="110" r="7" fill="white" stroke="black" stroke-width="2"></circle> <circle cx="200" cy="110" r="7" fill="white" stroke="black" stroke-width="2"></circle> <circle cx="10" cy="110" r="7" fill="white" stroke="black" stroke-width="2"></circle> <circle cx="240" cy="110" r="7" fill="white" stroke="black" stroke-width="2"></circle> <circle cx="150" cy="50" r="7" fill="white" stroke="black" stroke-width="2"></circle> <circle cx="150" cy="170" r="7" fill="white" stroke="black" stroke-width="2"></circle> <line x1="17" y1="110" x2="43" y2="110" stroke="black" stroke-width="2"></line> <line x1="57" y1="110" x2="93" y2="110" stroke="black" stroke-width="2"></line> <line x1="107" y1="110" x2="143" y2="110" stroke="black" stroke-width="2"></line> <line x1="157" y1="110" x2="193" y2="110" stroke="black" stroke-width="2"></line> <line x1="207" y1="110" x2="233" y2="110" stroke="black" stroke-width="2"></line> <line x1="150" y1="103" x2="150" y2="57" stroke="black" stroke-width="2"></line> <line x1="150" y1="117" x2="150" y2="163" stroke="black" stroke-width="2"></line>
+<circle cx="50" cy="110" r="7" fill="white" stroke="black" stroke-width="2"></circle> <circle cx="100" cy="110" r="7" fill="white" stroke="black" stroke-width="2"></circle> <circle cx="150" cy="110" r="7" fill="white" stroke="black" stroke-width="2"></circle> <circle cx="200" cy="110" r="7" fill="white" stroke="black" stroke-width="2"></circle> <circle cx="10" cy="110" r="7" fill="white" stroke="black" stroke-width="2"></circle> <circle cx="240" cy="110" r="7" fill="white" stroke="black" stroke-width="2"></circle> <circle cx="150" cy="50" r="7" fill="white" stroke="black" stroke-width="2"></circle> <circle cx="200" cy="170" r="7" fill="white" stroke="black" stroke-width="2"></circle> <line x1="17" y1="110" x2="43" y2="110" stroke="black" stroke-width="2"></line> <line x1="57" y1="110" x2="93" y2="110" stroke="black" stroke-width="2"></line> <line x1="107" y1="110" x2="143" y2="110" stroke="black" stroke-width="2"></line> <line x1="157" y1="110" x2="193" y2="110" stroke="black" stroke-width="2"></line> <line x1="207" y1="110" x2="233" y2="110" stroke="black" stroke-width="2"></line> <line x1="150" y1="103" x2="150" y2="57" stroke="black" stroke-width="2"></line> <line x1="200" y1="117" x2="200" y2="163" stroke="black" stroke-width="2"></line>
 </svg>
-<div class="graph-caption">
-<p>Tree H: degree-3 vertices are farther apart</p>
-</div>
 </div></div>
-<p><strong>Check:</strong></p>
-<ul>
-<li>Both trees have degree multiset <span class="math inline">\([3,3,2,2,1,1,1,1]\)</span>.</li>
-<li>Both have no cycles.</li>
-<li>They are <strong>not</strong> isomorphic (try matching branches).</li>
-</ul>
-<p>This shows: even with many invariants matching, graphs can still be different.</p>
 </section>
-<section id="where-we-are" class="slide level2">
+<section id="where-we-are" class="slide level2 smaller">
 <h2>Where we are</h2>
 <p>We’ve seen a chain of increasingly strong invariants:</p>
 <ol type="1">
-<li><span class="math inline">\(V,E,F\)</span> (Euler’s formula for planar graphs)</li>
+<li><span class="math inline">\(V,E,F\)</span></li>
 <li>Degree sequence</li>
-<li>Number (and presence) of triangles</li>
-<li>Presence of any <strong>odd cycle</strong> (bipartite vs not)</li>
-<li>More subtle structure (distances between special vertices, etc.)</li>
+<li>Number of triangles</li>
+<li>Presence of any <strong>odd cycle</strong></li>
+<li>More subtle structure</li>
 </ol>
 <p>At each step:</p>
 <ul>
 <li>We found pairs of graphs that matched <strong>all earlier</strong> invariants</li>
 <li>But were still <strong>not isomorphic</strong>, distinguished by a new invariant</li>
 </ul>
-</section></section>
-<section>
-<section id="big-picture-why-graph-isomorphism-is-hard" class="title-slide slide level1 center">
-<h1>Big Picture: why graph isomorphism is hard</h1>
-
 </section>
-<section id="takeaway" class="slide level2">
+<section id="takeaway" class="slide level2 smaller">
 <h2>Takeaway</h2>
 <ul>
 <li>If two graphs are isomorphic, they must agree on <strong>every</strong> invariant.</li>
@@ -489,33 +468,12 @@ If one graph is bipartite and the other isn’t, they cannot be isomorphic.</p>
 <li>In the worst case, finding a certificate of “different” can be very non-obvious.</li>
 <li>Designing a <strong>fast general algorithm</strong> for graph isomorphism is a deep theoretical problem.</li>
 </ul>
-<p>For us today:</p>
+<p>For today:</p>
 <blockquote>
 <p>We’ve seen how <strong>counting</strong> and simple structural ideas<br>
 (degrees, cycles, distances) can be powerful tools<br>
 for understanding when two graphs “must” be different.</p>
 </blockquote>
-</section>
-<section id="end-of-term-vibes" class="slide level2">
-<h2>End-of-term vibes</h2>
-<ul>
-<li>Today you:
-<ul>
-<li>Used <strong>Euler’s formula</strong> as an invariant.</li>
-<li>Played detective with <strong>graph twins</strong>.</li>
-<li>Saw why “proving two graphs are different” can be subtle.</li>
-</ul></li>
-<li>This connects back to:
-<ul>
-<li>Our work on <strong>counting</strong>, <strong>functions</strong>, and <strong>structure</strong>,</li>
-<li>And forward to topics like:
-<ul>
-<li>network analysis,</li>
-<li>pattern recognition on graphs,</li>
-<li>and the theory behind graph algorithms.</li>
-</ul></li>
-</ul></li>
-</ul>
 
 
 <script type="ojs-module-contents">

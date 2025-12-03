@@ -3235,95 +3235,116 @@
     "text": "Mixer\nHow are the numbers on your cards related to one another? The same rule will apply to the numbers on all of your cards."
   },
   {
-    "objectID": "slides/14_wed_graphs.html#eulers-formula-for-connected-planar-graphs",
-    "href": "slides/14_wed_graphs.html#eulers-formula-for-connected-planar-graphs",
+    "objectID": "slides/14_wed_graphs.html#eulers-formula",
+    "href": "slides/14_wed_graphs.html#eulers-formula",
     "title": "Discrete Math for Data Science",
-    "section": "Euler’s Formula (for connected planar graphs)",
-    "text": "Euler’s Formula (for connected planar graphs)\nFor your card graphs, you (hopefully) noticed:\n\\[\nV - E + F = 2.\n\\]\n\nThis is true for every connected planar graph\nIt’s a classic example of a graph invariant:\n\nIf two graphs are isomorphic, they must have the same \\(V,E,F\\)\n\nAnd so they must have the same value of \\(V - E + F\\)\n\n\nBut:\n\nDo \\(V,E,F\\) tell us everything about a graph?\n\nNope. Different graphs can share the same \\((V,E,F)\\)."
+    "section": "Euler’s Formula",
+    "text": "Euler’s Formula\nObserve:\n\nThis is true for every connected planar graph"
   },
   {
-    "objectID": "slides/14_wed_graphs.html#graph-isomorphism-informal",
-    "href": "slides/14_wed_graphs.html#graph-isomorphism-informal",
+    "objectID": "slides/14_wed_graphs.html#proof-of-eulers-formula",
+    "href": "slides/14_wed_graphs.html#proof-of-eulers-formula",
     "title": "Discrete Math for Data Science",
-    "section": "Graph isomorphism (informal)",
-    "text": "Graph isomorphism (informal)\nTwo graphs \\(G\\) and \\(H\\) are isomorphic if:\n\nYou can rename the vertices of \\(G\\)\nSo that the edge pattern becomes exactly the edge pattern of \\(H\\)\n\nEquivalently:\n\nIf you erase vertex labels and just look at the shape,\nthe two graphs look the same.\n\nWe’ll play a game:\n\nI show you two graphs, \\(G_1\\) and \\(G_2\\)\nYou say: “Same or different?”\nThen we look for simple invariants to justify your answer:\n\n“They can’t be the same, because… (invariant here)”"
+    "section": "Proof of Euler’s Formula",
+    "text": "Proof of Euler’s Formula\nClaim: For any connected planar graph, \\(G=(V,E,F)\\), __________\nProof:"
+  },
+  {
+    "objectID": "slides/14_wed_graphs.html#observation-1",
+    "href": "slides/14_wed_graphs.html#observation-1",
+    "title": "Discrete Math for Data Science",
+    "section": "Observation 1",
+    "text": "Observation 1\n\n\n\nStart with a connected planar graph \\(G = (V, E, F)\\).\nRemove a non-bridge edge \\(e\\) to form \\(G' = G - e = (V', E', F')\\).\n\nEdge \\(e\\) lies on a cycle.\nIt borders two distinct faces.\nDeleting \\(e\\) merges those two faces into one.\n\n\\[\nV' = V,\\quad E' = E - 1,\\quad F' = F - 1\n\\]"
+  },
+  {
+    "objectID": "slides/14_wed_graphs.html#observation-2",
+    "href": "slides/14_wed_graphs.html#observation-2",
+    "title": "Discrete Math for Data Science",
+    "section": "Observation 2",
+    "text": "Observation 2\n\n\n\nStart with a connected planar graph \\(G = (V, E, F)\\).\nRemove a bridge edge \\(e\\) to form \\(G' = G - e = (V', E', F')\\).\n\nEdge \\(e\\) is not on any cycle.\nBoth “sides” of \\(e\\) touch the same face.\nDeleting \\(e\\) does not change the number of faces.\n\n\\[\nV' = V,\\quad E' = E - 1,\\quad F' = F\n\\]"
+  },
+  {
+    "objectID": "slides/14_wed_graphs.html#observation-3",
+    "href": "slides/14_wed_graphs.html#observation-3",
+    "title": "Discrete Math for Data Science",
+    "section": "Observation 3",
+    "text": "Observation 3\n\n\n\nAfter removing a bridge \\(e\\) from \\(G = (V, E, F)\\), we get a graph \\(G' = G - e = (V', E', F')\\) with two connected components: \\[\nG_1 = (V_1, E_1, F_1),\\quad G_2 = (V_2, E_2, F_2).\n\\]\nWhen drawn separately, each \\(G_i\\) has its own outer face.\nWhen drawn together in one plane as \\(G'\\):\n\nThe two outer faces become one shared outside face.\nThe total number of faces of \\(G'\\) is \\[\nF' = F_1 + F_2 - 1.\n\\]"
+  },
+  {
+    "objectID": "slides/14_wed_graphs.html#graph-isomorphism",
+    "href": "slides/14_wed_graphs.html#graph-isomorphism",
+    "title": "Discrete Math for Data Science",
+    "section": "Graph isomorphism",
+    "text": "Graph isomorphism\nTwo graphs \\(G\\) and \\(H\\) are isomorphic if:\n\nYou can rename the vertices of \\(G\\)\nSo that the edge pattern becomes exactly the edge pattern of \\(H\\)\n\nEquivalently:\n\nIf you erase vertex labels and just look at the shape,\nthe two graphs look the same.\n\nWe’ll play a game:\n\nI show you two graphs, \\(G_1\\) and \\(G_2\\)\nYou say: “Same or different?”\nThen we look for simple invariants to justify your answer:\n\n“They can’t be the same, because…”"
   },
   {
     "objectID": "slides/14_wed_graphs.html#whats-a-graph-invariant",
     "href": "slides/14_wed_graphs.html#whats-a-graph-invariant",
     "title": "Discrete Math for Data Science",
     "section": "What’s a graph invariant?",
-    "text": "What’s a graph invariant?\nA graph invariant is:\n\nAny quantity / property that is the same for all isomorphic copies of a graph.\n\nExamples:\n\nNumber of vertices \\(V\\)\nNumber of edges \\(E\\)\nDegree sequence (multiset of vertex degrees)\nNumber of triangles\nWhether a graph has an odd cycle (bipartite vs not)\nDiameter (largest distance between vertices)\n…and many more\n\nIf two graphs are isomorphic, all invariants must match.\nBut the reverse is not obviously true: - Sharing a bunch of invariants does not guarantee isomorphism."
+    "text": "What’s a graph invariant?\nA graph invariant is: Any property that is the same for all isomorphic copies of a graph.\nExamples:\n\nNumber of vertices \\(V\\) or edges \\(E\\)\nDegree sequence\nNumber of triangles\nWhether a graph has an odd cycle\n…and many more\n\nIf two graphs are isomorphic, all invariants must match.\nBut the reverse is not obviously true:\n\nSharing a bunch of invariants does not guarantee isomorphism."
   },
   {
-    "objectID": "slides/14_wed_graphs.html#pair-1-same-v-and-e-different-degree-sequence",
-    "href": "slides/14_wed_graphs.html#pair-1-same-v-and-e-different-degree-sequence",
+    "objectID": "slides/14_wed_graphs.html#pair-1-same-v-and-e-are-they-the-same",
+    "href": "slides/14_wed_graphs.html#pair-1-same-v-and-e-are-they-the-same",
     "title": "Discrete Math for Data Science",
-    "section": "Pair 1: same V and E, different degree sequence",
-    "text": "Pair 1: same V and E, different degree sequence\n\n\nGraph A\n\n      \n\n\nPath on 4 vertices ((P_4))\n\n\nGraph B\n\n      \n\n\nStar on 4 vertices ((K_{1,3}))\n\n\nThink with a neighbor:\n\nBoth have \\(V = 4\\) and \\(E = 3\\)\n\nAre they isomorphic? Why or why not?"
+    "section": "Pair 1: same V and E… are they the same?",
+    "text": "Pair 1: same V and E… are they the same?\n\n\nGraph A\n\n      \n\n\nPath on 4 vertices (\\(P_4\\))\n\n\nGraph B\n\n      \n\n\nStar on 4 vertices (\\(K_{1,3}\\))\n\n\nThink with a neighbor:\n\nBoth have \\(V = 4\\) and \\(E = 3\\)\n\nAre they isomorphic? Why or why not?"
   },
   {
-    "objectID": "slides/14_wed_graphs.html#invariant-1-degree-sequence",
-    "href": "slides/14_wed_graphs.html#invariant-1-degree-sequence",
+    "objectID": "slides/14_wed_graphs.html#invariant-degree-sequence",
+    "href": "slides/14_wed_graphs.html#invariant-degree-sequence",
     "title": "Discrete Math for Data Science",
-    "section": "Invariant 1: degree sequence",
-    "text": "Invariant 1: degree sequence\nCompute the degree sequence (sorted list of vertex degrees).\n\nGraph A (path \\(P_4\\)): degrees are \\([1,2,2,1]\\)\nGraph B (star \\(K_{1,3}\\)): degrees are \\([3,1,1,1]\\)\n\nThese disagree, so the graphs cannot be isomorphic.\nNew invariant:\n\nDegree sequence is preserved by isomorphism.\nIf degree sequences differ, the graphs are definitely different.\n\nBut degree sequence is still not the whole story…"
+    "section": "Invariant: degree sequence",
+    "text": "Invariant: degree sequence\nCompute the degree sequence (sorted list of vertex degrees).\n\nGraph A (path \\(P_4\\)): degrees are \\([1,2,2,1]\\)\nGraph B (star \\(K_{1,3}\\)): degrees are \\([3,1,1,1]\\)\n\nThese disagree, so the graphs cannot be isomorphic.\nNew invariant:\n\nDegree sequence is preserved by isomorphism.\nIf degree sequences differ, the graphs are definitely different.\n\nBut degree sequence is still not the whole story…"
   },
   {
     "objectID": "slides/14_wed_graphs.html#pair-2-same-v-e-and-degrees",
     "href": "slides/14_wed_graphs.html#pair-2-same-v-e-and-degrees",
     "title": "Discrete Math for Data Science",
     "section": "Pair 2: same V, E, and degrees",
-    "text": "Pair 2: same V, E, and degrees\nNow we level up. Both graphs below have:\n\n6 vertices\n9 edges\nEvery vertex has degree 3\n\n\n\nGraph C: Triangular prism\n\n              \n\n\nTriangular prism graph\n\n\nGraph D: (K_{3,3})\n\n              \n\n\nComplete bipartite graph (K_{3,3})\n\n\nPrompt:\n\nSame \\(V\\), same \\(E\\), same degree sequence \\([3,3,3,3,3,3]\\).\nAre they isomorphic?\nCan you find a simple invariant that disagrees?"
+    "text": "Pair 2: same V, E, and degrees\n\n\nGraph C: Triangular prism\n\n              \n\n\nTriangular prism graph\n\n\nGraph D: \\(K_{3,3}\\)\n\n              \n\n\nComplete bipartite graph (K_{3,3})\n\n\n\nSame \\(V\\), same \\(E\\), same degree sequence \\([3,3,3,3,3,3]\\).\nAre they isomorphic?"
   },
   {
-    "objectID": "slides/14_wed_graphs.html#invariant-2-triangles",
-    "href": "slides/14_wed_graphs.html#invariant-2-triangles",
+    "objectID": "slides/14_wed_graphs.html#invariant-triangles",
+    "href": "slides/14_wed_graphs.html#invariant-triangles",
     "title": "Discrete Math for Data Science",
-    "section": "Invariant 2: triangles",
-    "text": "Invariant 2: triangles\nLook for triangles (3-cycles).\n\nGraph C (triangular prism):\n\nHas obvious triangles (top and bottom).\n\nGraph D ((K_{3,3})):\n\nIs bipartite (left vs right partition),\nAny cycle must alternate sides, so it has no odd cycles,\nIn particular, it has no triangles.\n\n\nSo:\n\nof triangles is a graph invariant.\nIt distinguishes C and D, even when \\(V,E,\\) and degree sequence match."
+    "section": "Invariant: triangles",
+    "text": "Invariant: triangles\nLook for triangles (3-cycles).\n\nGraph C (triangular prism):\n\nHas obvious triangles.\n\nGraph D (\\(K_{3,3}\\)):\n\nIs bipartite,\nAny cycle must alternate sides, so it has no odd cycles,\nIn particular, it has no triangles.\n\n\nSo:\n\nnumber of triangles is a graph invariant.\nIt distinguishes C and D, even when \\(V,E,\\) and degree sequence match."
   },
   {
     "objectID": "slides/14_wed_graphs.html#pair-3-cube-vs-möbius-ladder",
     "href": "slides/14_wed_graphs.html#pair-3-cube-vs-möbius-ladder",
     "title": "Discrete Math for Data Science",
     "section": "Pair 3: cube vs Möbius ladder",
-    "text": "Pair 3: cube vs Möbius ladder\nNow both graphs:\n\n8 vertices\n12 edges\nEvery vertex degree 3\nNo triangles in either graph\n\n\n\nGraph E: Cube graph (Q_3)\n\n                   \n\n\nCube graph (Q_3)\n\n\nGraph F: Möbius ladder on 8 vertices\n\n                   \n\n\nMöbius ladder (M_8)\n\n\nPrompt:\n\nSame \\(V\\), same \\(E\\), same degree sequence.\nBoth have no triangles.\nAre they isomorphic? Can you see a structural difference?"
+    "text": "Pair 3: cube vs Möbius ladder\n\n\nGraph E: Cube graph \\(Q_3\\)\n\n                   \n\n\nCube graph \\(Q_3\\)\n\n\nGraph F: Möbius ladder\n\n                       \n\n\nMöbius ladder \\(M_8\\)\n\n\n\nSame \\(V\\), same \\(E\\), same degree sequence.\nBoth have no triangles.\nAre they isomorphic? Can you see a structural difference?"
   },
   {
-    "objectID": "slides/14_wed_graphs.html#invariant-3-odd-cycles-bipartiteness",
-    "href": "slides/14_wed_graphs.html#invariant-3-odd-cycles-bipartiteness",
+    "objectID": "slides/14_wed_graphs.html#invariant-odd-cycles-bipartiteness",
+    "href": "slides/14_wed_graphs.html#invariant-odd-cycles-bipartiteness",
     "title": "Discrete Math for Data Science",
-    "section": "Invariant 3: odd cycles / bipartiteness",
-    "text": "Invariant 3: odd cycles / bipartiteness\nLook for odd cycles:\n\nThe cube graph (Q_3) is bipartite:\n\nYou can color vertices red/blue so every edge joins red–blue.\nTherefore it has no odd cycles.\n\nThe Möbius ladder has a 5-cycle:\n\ne.g., follow around including one “twisted” chord\nSo it has an odd cycle, therefore it is not bipartite.\n\n\nNew invariant:\n\n“Has an odd cycle?” / “Is bipartite?”\nIf one graph is bipartite and the other isn’t, they cannot be isomorphic."
+    "section": "Invariant: odd cycles / bipartiteness",
+    "text": "Invariant: odd cycles / bipartiteness\nLook for odd cycles:\n\nThe cube graph \\(Q_3\\) is bipartite:\n\nYou can color vertices red/blue so every edge joins red–blue.\nTherefore it has no odd cycles.\n\nThe Möbius ladder has a 5-cycle:\n\ne.g., follow around including one “twisted” chord\nSo it has an odd cycle, therefore it is not bipartite.\n\n\nNew invariant:\n\n“Has an odd cycle?” / “Is bipartite?”\nIf one graph is bipartite and the other isn’t, they cannot be isomorphic."
   },
   {
     "objectID": "slides/14_wed_graphs.html#pair-4-two-trees-same-degrees-no-cycles",
     "href": "slides/14_wed_graphs.html#pair-4-two-trees-same-degrees-no-cycles",
     "title": "Discrete Math for Data Science",
     "section": "Pair 4: two trees, same degrees, no cycles",
-    "text": "Pair 4: two trees, same degrees, no cycles\nNow: both graphs are trees (no cycles).\n\n8 vertices\n7 edges\nDegree sequence: \\([3,3,2,2,1,1,1,1]\\)\n\n\n\nGraph G\n\n\n              \n\n\nTree G: degree-3 vertices are adjacent\n\n\nGraph H\n\n              \n\n\nTree H: degree-3 vertices are farther apart\n\n\nCheck:\n\nBoth trees have degree multiset \\([3,3,2,2,1,1,1,1]\\).\nBoth have no cycles.\nThey are not isomorphic (try matching branches).\n\nThis shows: even with many invariants matching, graphs can still be different."
+    "text": "Pair 4: two trees, same degrees, no cycles\n\n\nGraph G\n\n\n              \n\n\nGraph H"
   },
   {
     "objectID": "slides/14_wed_graphs.html#where-we-are",
     "href": "slides/14_wed_graphs.html#where-we-are",
     "title": "Discrete Math for Data Science",
     "section": "Where we are",
-    "text": "Where we are\nWe’ve seen a chain of increasingly strong invariants:\n\n\\(V,E,F\\) (Euler’s formula for planar graphs)\nDegree sequence\nNumber (and presence) of triangles\nPresence of any odd cycle (bipartite vs not)\nMore subtle structure (distances between special vertices, etc.)\n\nAt each step:\n\nWe found pairs of graphs that matched all earlier invariants\nBut were still not isomorphic, distinguished by a new invariant"
+    "text": "Where we are\nWe’ve seen a chain of increasingly strong invariants:\n\n\\(V,E,F\\)\nDegree sequence\nNumber of triangles\nPresence of any odd cycle\nMore subtle structure\n\nAt each step:\n\nWe found pairs of graphs that matched all earlier invariants\nBut were still not isomorphic, distinguished by a new invariant"
   },
   {
     "objectID": "slides/14_wed_graphs.html#takeaway",
     "href": "slides/14_wed_graphs.html#takeaway",
     "title": "Discrete Math for Data Science",
     "section": "Takeaway",
-    "text": "Takeaway\n\nIf two graphs are isomorphic, they must agree on every invariant.\nWhen we find a violated invariant, we can confidently say: &gt; “No, these graphs are different — here’s the evidence.”\n\nBut:\n\nThere’s no single, simple invariant that always settles the question.\nIn the worst case, finding a certificate of “different” can be very non-obvious.\nDesigning a fast general algorithm for graph isomorphism is a deep theoretical problem.\n\nFor us today:\n\nWe’ve seen how counting and simple structural ideas\n(degrees, cycles, distances) can be powerful tools\nfor understanding when two graphs “must” be different."
-  },
-  {
-    "objectID": "slides/14_wed_graphs.html#end-of-term-vibes",
-    "href": "slides/14_wed_graphs.html#end-of-term-vibes",
-    "title": "Discrete Math for Data Science",
-    "section": "End-of-term vibes",
-    "text": "End-of-term vibes\n\nToday you:\n\nUsed Euler’s formula as an invariant.\nPlayed detective with graph twins.\nSaw why “proving two graphs are different” can be subtle.\n\nThis connects back to:\n\nOur work on counting, functions, and structure,\nAnd forward to topics like:\n\nnetwork analysis,\npattern recognition on graphs,\nand the theory behind graph algorithms."
+    "text": "Takeaway\n\nIf two graphs are isomorphic, they must agree on every invariant.\nWhen we find a violated invariant, we can confidently say: &gt; “No, these graphs are different — here’s the evidence.”\n\nBut:\n\nThere’s no single, simple invariant that always settles the question.\nIn the worst case, finding a certificate of “different” can be very non-obvious.\nDesigning a fast general algorithm for graph isomorphism is a deep theoretical problem.\n\nFor today:\n\nWe’ve seen how counting and simple structural ideas\n(degrees, cycles, distances) can be powerful tools\nfor understanding when two graphs “must” be different."
   },
   {
     "objectID": "slides/10_wed_counting.html#announcements",
