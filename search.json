@@ -1712,7 +1712,7 @@
     "href": "slides/10_mon_nfa.html#regex-to-nfa-gadgets",
     "title": "Discrete Math for Data Science",
     "section": "Regex to NFA Gadgets",
-    "text": "Regex to NFA Gadgets\n\n\n\n\nLiteral ‘a’\n\n\n   \n\n     a s f\n\n\nUnion: R | S\n\n\n   \n\n    s f  [ R ]    [ S ]     ε ε   ε ε\n\n\n\nConcatenation: RS\n\n\n   \n\n    s f  [ R ]    [ S ]      ε\n\n\nKleene star: R*\n\n\n   \n\n    s f  [ R ]    ε (empty)  ε  ε  ε"
+    "text": "Regex to NFA Gadgets\n\n\n\n\nLiteral ‘a’\n\n\n          a s f\n\n\nUnion: R | S\n\n\n         s f  [ R ]    [ S ]     ε ε   ε ε\n\n\n\nConcatenation: RS\n\n\n         s f  [ R ]    [ S ]      ε\n\n\nKleene star: R*\n\n\n         s f  [ R ]    ε (empty)  ε  ε  ε"
   },
   {
     "objectID": "slides/10_mon_nfa.html#example-1",
@@ -2890,7 +2890,7 @@
     "href": "slides/12_wed_php.html#a-picture-of-the-situation",
     "title": "Discrete Math for Data Science",
     "section": "A Picture of the Situation",
-    "text": "A Picture of the Situation\n\n\n\n                     Player 1    Player 2    Player 3    Player 4"
+    "text": "A Picture of the Situation\n\n                       Player 1    Player 2    Player 3    Player 4"
   },
   {
     "objectID": "slides/12_wed_php.html#proving-your-intuition",
@@ -2932,14 +2932,14 @@
     "href": "slides/12_wed_php.html#defining-the-boxes",
     "title": "Discrete Math for Data Science",
     "section": "Defining the Boxes",
-    "text": "Defining the Boxes\nGroup integers by their last digit:\n\n\n\n  A last digit 0  B last digit 5  C last digit 1 or 9  D last digit 2 or 8  E last digit 3 or 7  F last digit 4 or 6\n\nPlace all the elements from either one of the following sets into the boxes.\n\n\\(\\{13, 15, 28, 30, 1, 46, 58\\}\\)\n\\(\\{27, 86, 50, 35, 11, 44, 108\\}\\)\n\nDoes the conjecture appear to be true?"
+    "text": "Defining the Boxes\nGroup integers by their last digit:\n\n    A last digit 0  B last digit 5  C last digit 1 or 9  D last digit 2 or 8  E last digit 3 or 7  F last digit 4 or 6\n\nPlace all the elements from either one of the following sets into the boxes.\n\n\\(\\{13, 15, 28, 30, 1, 46, 58\\}\\)\n\\(\\{27, 86, 50, 35, 11, 44, 108\\}\\)\n\nDoes the conjecture appear to be true?"
   },
   {
     "objectID": "slides/12_wed_php.html#php",
     "href": "slides/12_wed_php.html#php",
     "title": "Discrete Math for Data Science",
     "section": "PHP",
-    "text": "PHP\nWe have:\n\n7 integers (objects)\n\n6 boxes (based on last-digit)\n\nBy the Pigeonhole Principle, some box contains at least 2 of our integers.\nCheck each box:\n\n\n\n  A last digit 0  B last digit 5  C last digit 1 or 9  D last digit 2 or 8  E last digit 3 or 7  F last digit 4 or 6\n\nIn every case,\ntwo numbers in the same box have sum or difference divisible by 10."
+    "text": "PHP\nWe have:\n\n7 integers (objects)\n\n6 boxes (based on last-digit)\n\nBy the Pigeonhole Principle, some box contains at least 2 of our integers.\nCheck each box:\n\n    A last digit 0  B last digit 5  C last digit 1 or 9  D last digit 2 or 8  E last digit 3 or 7  F last digit 4 or 6\n\nIn every case,\ntwo numbers in the same box have sum or difference divisible by 10."
   },
   {
     "objectID": "slides/12_wed_php.html#summary",
@@ -3730,7 +3730,7 @@
     "href": "slides/10_tue_nfa.html#regex-to-nfa-gadgets",
     "title": "Discrete Math for Data Science",
     "section": "Regex to NFA Gadgets",
-    "text": "Regex to NFA Gadgets\n\n\n\n\nLiteral ‘a’\n\n\n   \n\n     a s f\n\n\nUnion: R | S\n\n\n   \n\n    s f  [ R ]    [ S ]     ε ε   ε ε\n\n\n\nConcatenation: RS\n\n\n   \n\n    s f  [ R ]    [ S ]      ε\n\n\nKleene star: R*\n\n\n   \n\n    s f  [ R ]    ε (empty)  ε  ε  ε"
+    "text": "Regex to NFA Gadgets\n\n\n\n\nLiteral ‘a’\n\n\n          a s f\n\n\nUnion: R | S\n\n\n         s f  [ R ]    [ S ]     ε ε   ε ε\n\n\n\nConcatenation: RS\n\n\n         s f  [ R ]    [ S ]      ε\n\n\nKleene star: R*\n\n\n         s f  [ R ]    ε (empty)  ε  ε  ε"
   },
   {
     "objectID": "slides/10_tue_nfa.html#example-1",

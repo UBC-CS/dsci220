@@ -6,11 +6,11 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/quarto-contrib/live-runtime/live-runtime.js" type="module"></script>
 <link href="../site_libs/quarto-contrib/live-runtime/live-runtime.css" rel="stylesheet">
 <script src="../site_libs/quarto-contrib/iconify-3.0.0/iconify-icon.min.js"></script><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.8.27">
+  <meta name="generator" content="quarto-1.9.36">
 
   <meta name="dcterms.date" content="2025-11-19">
   <title>DSCI 220: Discrete Math for Data Science – Discrete Math for Data Science</title>
@@ -20,6 +20,9 @@
   <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
   <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -32,7 +35,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-5ae3d5caae53fa4640155f23cbb41086.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-1d8f29663442e8ef848d57f260e887b2.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -332,14 +335,7 @@ Some player must receive <strong>more than 7</strong> balls.</p>
 <section id="a-picture-of-the-situation" class="slide level2 smaller">
 <h2>A Picture of the Situation</h2>
 <svg width="900" height="280" viewbox="0 0 900 280" xmlns="http://www.w3.org/2000/svg">
-<defs>
-<style>
-      .body { stroke:#333; stroke-width:3; fill:none; stroke-linecap:round; }
-      .head { fill:#ffe6c7; stroke:#333; stroke-width:2; }
-      .label { font-family: system-ui, sans-serif; font-size: 14px; fill:#333; }
-      .ball { stroke:#333; stroke-width:1; }
-    </style>
-</defs> <g id="player"> <circle class="head" cx="140" cy="80" r="20"></circle> <line class="body" x1="140" y1="100" x2="140" y2="160"></line> <line class="body" x1="115" y1="120" x2="165" y2="120"></line> <line class="body" x1="140" y1="160" x2="120" y2="200"></line> <line class="body" x1="140" y1="160" x2="160" y2="200"></line> <circle class="ball" cx="185.0" cy="80.0" r="9" fill="#FF6B6B"></circle> <!-- k=0 --> <circle class="ball" cx="168.1" cy="115.2" r="9" fill="#FFA447"></circle> <circle class="ball" cx="140.0" cy="123.9" r="9" fill="#FFE66D"></circle> <!-- k=2 --> <circle class="ball" cx="100.5" cy="99.5" r="9" fill="#7DDE92"></circle> <!-- k=3 --> <circle class="ball" cx="100.5" cy="61.5" r="9" fill="#4D96FF"></circle> <!-- k=4 --> <circle class="ball" cx="130.0" cy="37.9" r="9" fill="#9D4EDD"></circle> <!-- k=5 --> <circle class="ball" cx="168.1" cy="45.2" r="9" fill="#F72585"></circle> <!-- k=6 --> <use href="#player"></use> <text class="label" x="140" y="230" text-anchor="middle">Player 1</text> </g> <g transform="translate(200,0)"> <use href="#player"></use> <text class="label" x="140" y="230" text-anchor="middle">Player 2</text> </g> <g transform="translate(400,0)"> <use href="#player"></use> <text class="label" x="140" y="230" text-anchor="middle">Player 3</text> </g> <g transform="translate(600,0)"> <use href="#player"></use> <text class="label" x="140" y="230" text-anchor="middle">Player 4</text> </g>
+<defs> <style> .body { stroke:#333; stroke-width:3; fill:none; stroke-linecap:round; } .head { fill:#ffe6c7; stroke:#333; stroke-width:2; } .label { font-family: system-ui, sans-serif; font-size: 14px; fill:#333; } .ball { stroke:#333; stroke-width:1; } </style> </defs> <g id="player"> <circle class="head" cx="140" cy="80" r="20"></circle> <line class="body" x1="140" y1="100" x2="140" y2="160"></line> <line class="body" x1="115" y1="120" x2="165" y2="120"></line> <line class="body" x1="140" y1="160" x2="120" y2="200"></line> <line class="body" x1="140" y1="160" x2="160" y2="200"></line> <circle class="ball" cx="185.0" cy="80.0" r="9" fill="#FF6B6B"></circle> <!-- k=0 --> <circle class="ball" cx="168.1" cy="115.2" r="9" fill="#FFA447"></circle> <circle class="ball" cx="140.0" cy="123.9" r="9" fill="#FFE66D"></circle> <!-- k=2 --> <circle class="ball" cx="100.5" cy="99.5" r="9" fill="#7DDE92"></circle> <!-- k=3 --> <circle class="ball" cx="100.5" cy="61.5" r="9" fill="#4D96FF"></circle> <!-- k=4 --> <circle class="ball" cx="130.0" cy="37.9" r="9" fill="#9D4EDD"></circle> <!-- k=5 --> <circle class="ball" cx="168.1" cy="45.2" r="9" fill="#F72585"></circle> <!-- k=6 --> <use href="#player"></use> <text class="label" x="140" y="230" text-anchor="middle">Player 1</text> </g> <g transform="translate(200,0)"> <use href="#player"></use> <text class="label" x="140" y="230" text-anchor="middle">Player 2</text> </g> <g transform="translate(400,0)"> <use href="#player"></use> <text class="label" x="140" y="230" text-anchor="middle">Player 3</text> </g> <g transform="translate(600,0)"> <use href="#player"></use> <text class="label" x="140" y="230" text-anchor="middle">Player 4</text> </g>
 </svg>
 </section>
 <section id="proving-your-intuition" class="slide level2 smaller">
@@ -416,32 +412,7 @@ then there is a box containing at least</p>
 <h2>Defining the Boxes</h2>
 <p>Group integers by their last digit:</p>
 <svg width="800" height="220" viewbox="0 0 800 220" xmlns="http://www.w3.org/2000/svg">
-<defs>
-<style>
-      .box {
-        fill: #f9fafb;
-        stroke: #333;
-        stroke-width: 1.5;
-        rx: 10;
-      }
-      .box-label {
-        font-family: system-ui, sans-serif;
-        font-size: 18px;
-        font-weight: 600;
-        fill: #111827;
-      }
-      .digits {
-        font-family: system-ui, sans-serif;
-        font-size: 14px;
-        fill: #374151;
-      }
-      .title {
-        font-family: system-ui, sans-serif;
-        font-size: 16px;
-        fill: #111827;
-      }
-    </style>
-</defs> <rect class="box" x="40" y="50" width="200" height="60"></rect> <text class="box-label" x="60" y="75">A</text> <text class="digits" x="60" y="100">last digit 0</text> <rect class="box" x="300" y="50" width="200" height="60"></rect> <text class="box-label" x="320" y="75">B</text> <text class="digits" x="320" y="100">last digit 5</text> <rect class="box" x="560" y="50" width="200" height="60"></rect> <text class="box-label" x="580" y="75">C</text> <text class="digits" x="580" y="100">last digit 1 or 9</text> <rect class="box" x="40" y="130" width="200" height="60"></rect> <text class="box-label" x="60" y="155">D</text> <text class="digits" x="60" y="180">last digit 2 or 8</text> <rect class="box" x="300" y="130" width="200" height="60"></rect> <text class="box-label" x="320" y="155">E</text> <text class="digits" x="320" y="180">last digit 3 or 7</text> <rect class="box" x="560" y="130" width="200" height="60"></rect> <text class="box-label" x="580" y="155">F</text> <text class="digits" x="580" y="180">last digit 4 or 6</text>
+<defs> <style> .box { fill: #f9fafb; stroke: #333; stroke-width: 1.5; rx: 10; } .box-label { font-family: system-ui, sans-serif; font-size: 18px; font-weight: 600; fill: #111827; } .digits { font-family: system-ui, sans-serif; font-size: 14px; fill: #374151; } .title { font-family: system-ui, sans-serif; font-size: 16px; fill: #111827; } </style> </defs> <rect class="box" x="40" y="50" width="200" height="60"></rect> <text class="box-label" x="60" y="75">A</text> <text class="digits" x="60" y="100">last digit 0</text> <rect class="box" x="300" y="50" width="200" height="60"></rect> <text class="box-label" x="320" y="75">B</text> <text class="digits" x="320" y="100">last digit 5</text> <rect class="box" x="560" y="50" width="200" height="60"></rect> <text class="box-label" x="580" y="75">C</text> <text class="digits" x="580" y="100">last digit 1 or 9</text> <rect class="box" x="40" y="130" width="200" height="60"></rect> <text class="box-label" x="60" y="155">D</text> <text class="digits" x="60" y="180">last digit 2 or 8</text> <rect class="box" x="300" y="130" width="200" height="60"></rect> <text class="box-label" x="320" y="155">E</text> <text class="digits" x="320" y="180">last digit 3 or 7</text> <rect class="box" x="560" y="130" width="200" height="60"></rect> <text class="box-label" x="580" y="155">F</text> <text class="digits" x="580" y="180">last digit 4 or 6</text>
 </svg>
 <p>Place all the elements from either one of the following sets into the boxes.</p>
 <ul>
@@ -461,32 +432,7 @@ then there is a box containing at least</p>
 <p>By the Pigeonhole Principle, <strong>some box contains at least 2</strong> of our integers.</p>
 <p>Check each box:</p>
 <svg width="800" height="220" viewbox="0 0 800 220" xmlns="http://www.w3.org/2000/svg">
-<defs>
-<style>
-      .box {
-        fill: #f9fafb;
-        stroke: #333;
-        stroke-width: 1.5;
-        rx: 10;
-      }
-      .box-label {
-        font-family: system-ui, sans-serif;
-        font-size: 18px;
-        font-weight: 600;
-        fill: #111827;
-      }
-      .digits {
-        font-family: system-ui, sans-serif;
-        font-size: 14px;
-        fill: #374151;
-      }
-      .title {
-        font-family: system-ui, sans-serif;
-        font-size: 16px;
-        fill: #111827;
-      }
-    </style>
-</defs> <rect class="box" x="40" y="50" width="200" height="60"></rect> <text class="box-label" x="60" y="75">A</text> <text class="digits" x="60" y="100">last digit 0</text> <rect class="box" x="300" y="50" width="200" height="60"></rect> <text class="box-label" x="320" y="75">B</text> <text class="digits" x="320" y="100">last digit 5</text> <rect class="box" x="560" y="50" width="200" height="60"></rect> <text class="box-label" x="580" y="75">C</text> <text class="digits" x="580" y="100">last digit 1 or 9</text> <rect class="box" x="40" y="130" width="200" height="60"></rect> <text class="box-label" x="60" y="155">D</text> <text class="digits" x="60" y="180">last digit 2 or 8</text> <rect class="box" x="300" y="130" width="200" height="60"></rect> <text class="box-label" x="320" y="155">E</text> <text class="digits" x="320" y="180">last digit 3 or 7</text> <rect class="box" x="560" y="130" width="200" height="60"></rect> <text class="box-label" x="580" y="155">F</text> <text class="digits" x="580" y="180">last digit 4 or 6</text>
+<defs> <style> .box { fill: #f9fafb; stroke: #333; stroke-width: 1.5; rx: 10; } .box-label { font-family: system-ui, sans-serif; font-size: 18px; font-weight: 600; fill: #111827; } .digits { font-family: system-ui, sans-serif; font-size: 14px; fill: #374151; } .title { font-family: system-ui, sans-serif; font-size: 16px; fill: #111827; } </style> </defs> <rect class="box" x="40" y="50" width="200" height="60"></rect> <text class="box-label" x="60" y="75">A</text> <text class="digits" x="60" y="100">last digit 0</text> <rect class="box" x="300" y="50" width="200" height="60"></rect> <text class="box-label" x="320" y="75">B</text> <text class="digits" x="320" y="100">last digit 5</text> <rect class="box" x="560" y="50" width="200" height="60"></rect> <text class="box-label" x="580" y="75">C</text> <text class="digits" x="580" y="100">last digit 1 or 9</text> <rect class="box" x="40" y="130" width="200" height="60"></rect> <text class="box-label" x="60" y="155">D</text> <text class="digits" x="60" y="180">last digit 2 or 8</text> <rect class="box" x="300" y="130" width="200" height="60"></rect> <text class="box-label" x="320" y="155">E</text> <text class="digits" x="320" y="180">last digit 3 or 7</text> <rect class="box" x="560" y="130" width="200" height="60"></rect> <text class="box-label" x="580" y="155">F</text> <text class="digits" x="580" y="180">last digit 4 or 6</text>
 </svg>
 <p>In <strong>every case</strong>,<br>
 two numbers in the same box have sum or difference divisible by 10.</p>
