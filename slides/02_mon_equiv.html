@@ -6,14 +6,14 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/quarto-contrib/live-runtime/live-runtime.js" type="module"></script>
 <link href="../site_libs/quarto-contrib/live-runtime/live-runtime.css" rel="stylesheet">
 <script src="../site_libs/quarto-contrib/countdown-0.5.0/countdown.js"></script>
 <link href="../site_libs/quarto-contrib/countdown-0.5.0/countdown.css" rel="stylesheet">
 <script src="../site_libs/quarto-contrib/qrcodejs-v1.0.0/qrcode.js"></script>
 <script src="../site_libs/quarto-contrib/iconify-3.0.0/iconify-icon.min.js"></script><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.9.38">
+  <meta name="generator" content="quarto-1.10.18">
 
   <meta name="dcterms.date" content="2025-09-08">
   <title>DSCI 220: Discrete Math for Data Science – Discrete Math for Data Science</title>
@@ -26,10 +26,13 @@
     /* Default styles provided by pandoc.
     ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
     */
-    code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -231,23 +234,23 @@
 <h2>WFFs</h2>
 <p><span id="generateButton1" class="btn btn-primary" role="button">Rand WFF</span> Apply rule on line:</p>
 <p><span id="generateButton2" class="btn btn-primary" role="button">Rand atom</span> Atom becomes:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bnf number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a></a>&lt;wff&gt; ::= &lt;atom&gt;</span>
-<span id="cb1-2"><a></a>        | ~ &lt;wff&gt;</span>
-<span id="cb1-3"><a></a>        | ( &lt;wff&gt; ∧ &lt;wff&gt; )</span>
-<span id="cb1-4"><a></a>        | ( &lt;wff&gt; ∨ &lt;wff&gt; )</span>
-<span id="cb1-5"><a></a></span>
-<span id="cb1-6"><a></a>&lt;atom&gt; ::= p | q </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bnf number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a aria-label="1"></a>&lt;wff&gt; ::= &lt;atom&gt;</span>
+<span id="cb1-2"><a aria-label="2"></a>        | ~ &lt;wff&gt;</span>
+<span id="cb1-3"><a aria-label="3"></a>        | ( &lt;wff&gt; ∧ &lt;wff&gt; )</span>
+<span id="cb1-4"><a aria-label="4"></a>        | ( &lt;wff&gt; ∨ &lt;wff&gt; )</span>
+<span id="cb1-5"><a aria-label="5"></a></span>
+<span id="cb1-6"><a aria-label="6"></a>&lt;atom&gt; ::= p | q </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Example derivation:</p>
 <p><code>&lt;wff&gt;</code></p>
 </section>
 <section id="wffs-notes" class="slide level2">
 <h2>WFFs (Notes)</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource bnf number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a></a>&lt;wff&gt; ::= &lt;atom&gt;</span>
-<span id="cb2-2"><a></a>        | ~ &lt;wff&gt;</span>
-<span id="cb2-3"><a></a>        | ( &lt;wff&gt; ∧ &lt;wff&gt; )</span>
-<span id="cb2-4"><a></a>        | ( &lt;wff&gt; ∨ &lt;wff&gt; )</span>
-<span id="cb2-5"><a></a></span>
-<span id="cb2-6"><a></a>&lt;atom&gt; ::= p | q </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource bnf number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a aria-label="1"></a>&lt;wff&gt; ::= &lt;atom&gt;</span>
+<span id="cb2-2"><a aria-label="2"></a>        | ~ &lt;wff&gt;</span>
+<span id="cb2-3"><a aria-label="3"></a>        | ( &lt;wff&gt; ∧ &lt;wff&gt; )</span>
+<span id="cb2-4"><a aria-label="4"></a>        | ( &lt;wff&gt; ∨ &lt;wff&gt; )</span>
+<span id="cb2-5"><a aria-label="5"></a></span>
+<span id="cb2-6"><a aria-label="6"></a>&lt;atom&gt; ::= p | q </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ul>
 <li><p>Grammars can be used to construct <em>many</em> different kinds of sequences.</p></li>
 <li><p>We could have included additional operators <span class="math inline">\(\rightarrow\)</span>, <span class="math inline">\(\leftrightarrow\)</span>, <span class="math inline">\(\oplus\)</span>, <span class="math inline">\(\uparrow\)</span></p></li>
@@ -258,12 +261,12 @@
 <section id="wff-puzzle" class="slide level2 activity">
 <h2>WFF Puzzle</h2>
 <p>Which of these are WFFs?</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource bnf number-lines code-with-copy"><code class="sourceCode"><span id="cb3-1"><a></a>&lt;wff&gt; ::= &lt;atom&gt;</span>
-<span id="cb3-2"><a></a>        | ~ &lt;wff&gt;</span>
-<span id="cb3-3"><a></a>        | ( &lt;wff&gt; ∧ &lt;wff&gt; )</span>
-<span id="cb3-4"><a></a>        | ( &lt;wff&gt; ∨ &lt;wff&gt; )</span>
-<span id="cb3-5"><a></a></span>
-<span id="cb3-6"><a></a>&lt;atom&gt; ::= p | q </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource bnf number-lines code-with-copy"><code class="sourceCode"><span id="cb3-1"><a aria-label="1"></a>&lt;wff&gt; ::= &lt;atom&gt;</span>
+<span id="cb3-2"><a aria-label="2"></a>        | ~ &lt;wff&gt;</span>
+<span id="cb3-3"><a aria-label="3"></a>        | ( &lt;wff&gt; ∧ &lt;wff&gt; )</span>
+<span id="cb3-4"><a aria-label="4"></a>        | ( &lt;wff&gt; ∨ &lt;wff&gt; )</span>
+<span id="cb3-5"><a aria-label="5"></a></span>
+<span id="cb3-6"><a aria-label="6"></a>&lt;atom&gt; ::= p | q </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="columns">
 <div class="column" style="width:50%;">
 <ol type="1">
@@ -278,7 +281,7 @@
 <li><span class="math inline">\(\neg (p ∨ q))\)</span></li>
 </ol>
 </div></div>
-<div id="timer_64d408e021775b792ef913e9b659bc0fa126be2e" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<div id="timer_8e886aa0759b76a83cd25d8244aedca7b3ed98b3" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
@@ -301,12 +304,12 @@
 </section>
 <section id="wffs-1" class="slide level2">
 <h2>WFFs</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource bnf number-lines code-with-copy"><code class="sourceCode"><span id="cb4-1"><a></a>&lt;wff&gt; ::= &lt;atom&gt;</span>
-<span id="cb4-2"><a></a>        | ~ &lt;wff&gt;</span>
-<span id="cb4-3"><a></a>        | ( &lt;wff&gt; ∧ &lt;wff&gt; )</span>
-<span id="cb4-4"><a></a>        | ( &lt;wff&gt; ∨ &lt;wff&gt; )</span>
-<span id="cb4-5"><a></a></span>
-<span id="cb4-6"><a></a>&lt;atom&gt; ::= p | q </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource bnf number-lines code-with-copy"><code class="sourceCode"><span id="cb4-1"><a aria-label="1"></a>&lt;wff&gt; ::= &lt;atom&gt;</span>
+<span id="cb4-2"><a aria-label="2"></a>        | ~ &lt;wff&gt;</span>
+<span id="cb4-3"><a aria-label="3"></a>        | ( &lt;wff&gt; ∧ &lt;wff&gt; )</span>
+<span id="cb4-4"><a aria-label="4"></a>        | ( &lt;wff&gt; ∨ &lt;wff&gt; )</span>
+<span id="cb4-5"><a aria-label="5"></a></span>
+<span id="cb4-6"><a aria-label="6"></a>&lt;atom&gt; ::= p | q </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Theorem: <span class="math inline">\(\neg (p ∨ q))\)</span> is not a WFF.</p>
 <p>Proof:</p>
 <aside class="notes">

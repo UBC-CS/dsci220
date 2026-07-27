@@ -6,13 +6,13 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/quarto-contrib/live-runtime/live-runtime.js" type="module"></script>
 <link href="../site_libs/quarto-contrib/live-runtime/live-runtime.css" rel="stylesheet">
 <script src="../site_libs/quarto-contrib/countdown-0.5.0/countdown.js"></script>
 <link href="../site_libs/quarto-contrib/countdown-0.5.0/countdown.css" rel="stylesheet">
 <script src="../site_libs/quarto-contrib/iconify-3.0.0/iconify-icon.min.js"></script><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.9.38">
+  <meta name="generator" content="quarto-1.10.18">
 
   <meta name="dcterms.date" content="2025-11-04">
   <title>DSCI 220: Discrete Math for Data Science – Discrete Math for Data Science</title>
@@ -25,10 +25,13 @@
     /* Default styles provided by pandoc.
     ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
     */
-    code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -239,27 +242,27 @@
 <section id="warm-up" class="slide level2 smaller">
 <h2>Warm Up</h2>
 <p>Start with <code>&lt;T&gt;</code> and roll a die to choose which rule to apply.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource {bnf} number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a></a>      &lt;T&gt; ::= &lt;CORE&gt; | &lt;CORE&gt; &lt;FEAT&gt;</span>
-<span id="cb1-2"><a></a></span>
-<span id="cb1-3"><a></a>   &lt;FEAT&gt; ::= "feat." &lt;ARTIST&gt;</span>
-<span id="cb1-4"><a></a></span>
-<span id="cb1-5"><a></a> &lt;ARTIST&gt; ::= "Taylor Swift" | "Sabrina Carpenter" | "Olivia" &lt;LN&gt; | "Chappell Roan"</span>
-<span id="cb1-6"><a></a></span>
-<span id="cb1-7"><a></a>     &lt;LN&gt; ::= "Rodrigo" | "Dean"</span>
-<span id="cb1-8"><a></a></span>
-<span id="cb1-9"><a></a>   &lt;CORE&gt; ::= &lt;NP&gt; | &lt;NP&gt; &lt;PREP&gt; &lt;NP&gt;</span>
-<span id="cb1-10"><a></a></span>
-<span id="cb1-11"><a></a>     &lt;NP&gt; ::= &lt;DET&gt; &lt;ADJLIST&gt; &lt;NOUN&gt;</span>
-<span id="cb1-12"><a></a></span>
-<span id="cb1-13"><a></a>    &lt;DET&gt; ::= "the" | "my" | "your" | "our"</span>
-<span id="cb1-14"><a></a></span>
-<span id="cb1-15"><a></a>&lt;ADJLIST&gt; ::= &lt;ADJ&gt; &lt;ADJ&gt; | &lt;ADJ&gt; | ε</span>
-<span id="cb1-16"><a></a></span>
-<span id="cb1-17"><a></a>    &lt;ADJ&gt; ::= "midnight" | "lonely" | "wild" | "broken" | "golden" | "electric"</span>
-<span id="cb1-18"><a></a></span>
-<span id="cb1-19"><a></a>   &lt;NOUN&gt; ::= "heart" | "city" | "dreams" | "summer" | "memories" | "night"</span>
-<span id="cb1-20"><a></a></span>
-<span id="cb1-21"><a></a>   &lt;PREP&gt; ::= "in" | "of" | "for" | "at"</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource {bnf} number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a aria-label="1"></a>      &lt;T&gt; ::= &lt;CORE&gt; | &lt;CORE&gt; &lt;FEAT&gt;</span>
+<span id="cb1-2"><a aria-label="2"></a></span>
+<span id="cb1-3"><a aria-label="3"></a>   &lt;FEAT&gt; ::= "feat." &lt;ARTIST&gt;</span>
+<span id="cb1-4"><a aria-label="4"></a></span>
+<span id="cb1-5"><a aria-label="5"></a> &lt;ARTIST&gt; ::= "Taylor Swift" | "Sabrina Carpenter" | "Olivia" &lt;LN&gt; | "Chappell Roan"</span>
+<span id="cb1-6"><a aria-label="6"></a></span>
+<span id="cb1-7"><a aria-label="7"></a>     &lt;LN&gt; ::= "Rodrigo" | "Dean"</span>
+<span id="cb1-8"><a aria-label="8"></a></span>
+<span id="cb1-9"><a aria-label="9"></a>   &lt;CORE&gt; ::= &lt;NP&gt; | &lt;NP&gt; &lt;PREP&gt; &lt;NP&gt;</span>
+<span id="cb1-10"><a aria-label="10"></a></span>
+<span id="cb1-11"><a aria-label="11"></a>     &lt;NP&gt; ::= &lt;DET&gt; &lt;ADJLIST&gt; &lt;NOUN&gt;</span>
+<span id="cb1-12"><a aria-label="12"></a></span>
+<span id="cb1-13"><a aria-label="13"></a>    &lt;DET&gt; ::= "the" | "my" | "your" | "our"</span>
+<span id="cb1-14"><a aria-label="14"></a></span>
+<span id="cb1-15"><a aria-label="15"></a>&lt;ADJLIST&gt; ::= &lt;ADJ&gt; &lt;ADJ&gt; | &lt;ADJ&gt; | ε</span>
+<span id="cb1-16"><a aria-label="16"></a></span>
+<span id="cb1-17"><a aria-label="17"></a>    &lt;ADJ&gt; ::= "midnight" | "lonely" | "wild" | "broken" | "golden" | "electric"</span>
+<span id="cb1-18"><a aria-label="18"></a></span>
+<span id="cb1-19"><a aria-label="19"></a>   &lt;NOUN&gt; ::= "heart" | "city" | "dreams" | "summer" | "memories" | "night"</span>
+<span id="cb1-20"><a aria-label="20"></a></span>
+<span id="cb1-21"><a aria-label="21"></a>   &lt;PREP&gt; ::= "in" | "of" | "for" | "at"</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="demo" class="slide level2">
 <h2>Demo</h2>
@@ -276,13 +279,13 @@ eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiXG5pbXBvcnQgcmFuZG9tXG5c
 <h2>A Basic JSON CFG</h2>
 <p><a href="https://www.json.org/json-en.html" class="uri">https://www.json.org/json-en.html</a></p>
 <p>We ignore lexical details and focus on <strong>structure</strong>.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource {bnf} number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a></a>   &lt;Value&gt; ::=  &lt;Object&gt; | &lt;Array&gt; | &lt;String&gt; | &lt;Number&gt; </span>
-<span id="cb2-2"><a></a>             | `true` | `false` | `null`  </span>
-<span id="cb2-3"><a></a>  &lt;Object&gt; ::= `{` &lt;Members&gt; `}` | `{}`  </span>
-<span id="cb2-4"><a></a> &lt;Members&gt; ::= &lt;Pair&gt; | &lt;Pair&gt; `,` &lt;Members&gt; </span>
-<span id="cb2-5"><a></a>    &lt;Pair&gt; ::= &lt;String&gt; `:` &lt;Value&gt;  </span>
-<span id="cb2-6"><a></a>   &lt;Array&gt; ::=  `[` &lt;Elements&gt; `]` | `[]`  </span>
-<span id="cb2-7"><a></a>&lt;Elements&gt; ::= &lt;Value&gt; | &lt;Value&gt; `,` &lt;Elements&gt;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource {bnf} number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a aria-label="1"></a>   &lt;Value&gt; ::=  &lt;Object&gt; | &lt;Array&gt; | &lt;String&gt; | &lt;Number&gt; </span>
+<span id="cb2-2"><a aria-label="2"></a>             | `true` | `false` | `null`  </span>
+<span id="cb2-3"><a aria-label="3"></a>  &lt;Object&gt; ::= `{` &lt;Members&gt; `}` | `{}`  </span>
+<span id="cb2-4"><a aria-label="4"></a> &lt;Members&gt; ::= &lt;Pair&gt; | &lt;Pair&gt; `,` &lt;Members&gt; </span>
+<span id="cb2-5"><a aria-label="5"></a>    &lt;Pair&gt; ::= &lt;String&gt; `:` &lt;Value&gt;  </span>
+<span id="cb2-6"><a aria-label="6"></a>   &lt;Array&gt; ::=  `[` &lt;Elements&gt; `]` | `[]`  </span>
+<span id="cb2-7"><a aria-label="7"></a>&lt;Elements&gt; ::= &lt;Value&gt; | &lt;Value&gt; `,` &lt;Elements&gt;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><strong>Example:</strong> Is <code>{"a":[1,2,{"b":null}]}</code> in the language?</p>
 <aside class="notes">
 <p>Point: regex can’t enforce <strong>balanced, nested</strong> delimiters; CFGs can.</p>
@@ -364,7 +367,7 @@ eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiXG5pbXBvcnQgcmFuZG9tXG5c
 <li>Are some combos invalid?</li>
 </ul>
 <p>Write down how you’d <strong>start</strong> to count, not just an answer.</p>
-<div id="timer_31bfab6dfe7be4d217af6de0a6042a911111d480" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<div id="timer_3782518fbd115e6c33ccb56f70c64d62cffa13a1" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
