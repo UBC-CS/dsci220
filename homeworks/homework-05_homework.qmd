@@ -1,0 +1,8 @@
+---
+title: "Homework 5"
+subtitle: "Homework 5, {{< var course.code >}}, {{< var course.term >}}"
+---
+
+<!-- Week 12. Due date and problems to come. -->
+
+Complete Homework 5 on [PrairieLearn](https://us.prairielearn.com/pl/course_instance/209866).

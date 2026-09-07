@@ -131,10 +131,14 @@ dmypy.json
 # Jupyter Book and Quarto outputs
 /_build/
 /_site/
+/_freeze/
 
 /.luarc.json
 
-# OS generated files
+**/*.quarto_ipynb
+
+# OS generated files #
+######################
 .DS_Store
 .DS_Store?
 ._*
@@ -142,5 +146,3 @@ dmypy.json
 .Trashes
 ehthumbs.db
 Thumbs.db
-
-**/*.quarto_ipynb

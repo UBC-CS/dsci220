@@ -1,0 +1,10 @@
+---
+title: "Sets, relations, and functions"
+subtitle: "Part II, {{< var course.code >}}, {{< var course.term >}}"
+---
+
+## Learning outcomes
+
+Students will be able to:
+
+{{< include /_includes/learning-outcomes/_part-02_learning-outcomes.qmd >}}

@@ -2,13 +2,11 @@ project:
   preview:
     port: 4200
   type: website
-  output-dir: _site
 
 website:
-  title: "DSCI 220: Discrete Math for Data Science"
+  title: "{{< var course.full-title >}}"
   description: >
-    Course website for DSCI 220 of the Department of Computer Science at the
-    University of British Columbia
+    Course website for {{< var course.code >}}
   open-graph: true
   twitter-card: true
   site-url: "https://ubc-cs.github.io/dsci220"
@@ -46,11 +44,15 @@ website:
             text: "Schedule"
       - section: "Resources"
         contents:
-          - href: "https://canvas.ubc.ca/courses/169809"
+          - href: getting-started.qmd
+            text: "Getting started"
+          - href: setup.qmd
+            text: "Setup"
+          - href: "https://canvas.ubc.ca/courses/195587"
             text: "Canvas"
-          - href: "https://piazza.com/ubc.ca/winterterm12025/dsci220"
+          - href: "https://piazza.com/ubc.ca/winterterm12026/dsci220"
             text: "Piazza"
-          - href: "https://us.prairielearn.com/pl/course_instance/186238"
+          - href: "https://us.prairielearn.com/pl/course_instance/209866"
             text: "PrairieLearn"
           - href: "https://us.prairietest.com"
             text: "PrairieTest"
@@ -58,6 +60,18 @@ website:
             text: "CBTF"
       - href: about.qmd
         text: About
+      - href: faq.qmd
+        text: FAQ
+
+  # comments:
+  #   giscus:
+  #     repo: stephan-koenig/course-template
+  #     repo-id:
+  #     category: announcements
+  #     category-id:
+  #     mapping: title
+  #     reactions-enabled: true
+  #     loading: lazy
 
 format:
   html:
@@ -77,3 +91,5 @@ editor_options:
     canonical: true
 
 bibliography: references.bib
+
+freeze: auto

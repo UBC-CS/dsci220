@@ -2,40 +2,40 @@
 title: "Syllabus"
 ---
 
+::: {.callout-note}
+This syllabus is being revised for {{< var course.term >}}. Details marked *TBC*
+(to be confirmed) and grade weights will be finalized before the first class.
+:::
+
 # Introduction
 
-Welcome to DSCI220! In this course we will use concepts and structures from
+Welcome to DSCI 220! In this course we will use concepts and structures from
 math as a model for the way we think about data. Among other things, we will explore sets, regular expressions, graphs, and strings. Most importantly, we will
-learn to reason about these structures and the data they represent. 
+learn to reason about these structures and the data they represent.
 
-## Instructor information
+## Instructor and teaching assistants
 
+- **Prof: Cinda Heeren**
+  📧 [cheeren@cs.ubc.ca](mailto:cheeren@cs.ubc.ca)
+  ⏰ Mon 2–4pm · 🏢 ICCS 233 · <a href="https://ubc.zoom.us/j/5393867685?pwd=N01ZS2dLbVorQkRzcDRuNTdwQmRYUT09"><img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Zoom_Communications_Logo.svg" alt="Zoom" style="height:20px; vertical-align:middle;"></a>
 
-- **Prof: Cinda Heeren**  
-  📧 [cheeren@cs.ubc.ca](mailto:cheeren@cs.ubc.ca)  
-   ⏰ Mon 2–4pm · 🏢 ICCS 233 · <a href="https://ubc.zoom.us/j/5393867685?pwd=N01ZS2dLbVorQkRzcDRuNTdwQmRYUT09"><img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Zoom_Communications_Logo.svg" alt="Zoom" style="height:20px; vertical-align:middle;"></a>
-
-- **TA: Joe Wonsil**  
-  📧 [jwonsil@cs.ubc.ca](mailto:jwonsil@cs.ubc.ca)  
-  ⏰ Fri 11-12a · 🏢 FORW 317 
-
-- **TA: Marko Ciric**
-  📧 [mciric01@student.ubc.ca](mailto:mciric01@student.ubc.ca)  
-  ⏰ Tue 1:30-2:30p · 🏢 TBD 
+- **TA: Marko Ciric** 📧 [mciric01@student.ubc.ca](mailto:mciric01@student.ubc.ca) · office hours *TBC*
+- **TA: Noah Hynds** 📧 [nhynds@student.ubc.ca](mailto:nhynds@student.ubc.ca) · office hours *TBC*
+- **TA: Perrie Soleimani** 📧 [perriesl@student.ubc.ca](mailto:perriesl@student.ubc.ca) · office hours *TBC*
 
 ## Course description and learning objectives
 
 By the end of the course, students will be able to:
 
--	Characterize data using a wide variety of structural, logical, and mathematical representations. 
+-	Characterize data using a wide variety of structural, logical, and mathematical representations.
 
--	Understand the importance of elegant and efficient data representation. 
+-	Understand the importance of elegant and efficient data representation.
 
 -	Clearly and precisely communicate data representations to data scientists.
 
 -	Clearly and precisely communicate logical arguments to data scientists.
 
--	Identify alternate mechanisms for solving or simplifying problems by translating between 1) English statements, 2) formal symbolic representation, and 3) code (where appropriate). 
+-	Identify alternate mechanisms for solving or simplifying problems by translating between 1) English statements, 2) formal symbolic representation, and 3) code (where appropriate).
 
 -	Write proofs for simple theorems by translating the theorem into first-order logic, decomposing the statements into symbolic representations, selecting an appropriate strategy (for example, direct proof, or proof by induction), and applying a sequence of logical inferences to make a conclusion.
 
@@ -43,19 +43,18 @@ By the end of the course, students will be able to:
 
 -	Prove the running times of simple algorithms.
 
-
-## Lecture material and Course Content
+## Lecture material and course content
 
 The topic list for this course parallels a classic course in discrete math,
 but with examples and applications from data science. We use the programming
 language python to connect ideas from the course to programming paradigms --
-especially those patterns and algorithms relevant to data scientists. 
+especially those patterns and algorithms relevant to data scientists.
 
-The course consists of 9 units of study, each approximately 1.5 weeks:
+The course consists of units of study covering, approximately in order:
 
 1. Logic
-2. Language and Proof
-3. Numbers and Functions
+2. Language and proof
+3. Numbers and functions
 4. Representation
 5. Sets
 6. Strings
@@ -64,65 +63,52 @@ The course consists of 9 units of study, each approximately 1.5 weeks:
 9. Graphs
 
 There is no required textbook for the course. We realize, however, that you
-may want reference material for some of the topics. I am using "Discrete Mathematics and its Applications," by Kenneth Rosen. Any edition will do, and 
-older editions are not very expensive. The material we study is classic, and 
-all topics will have robust explanations online, including on Wikipedia. 
+may want reference material for some of the topics. I am using "Discrete Mathematics and its Applications," by Kenneth Rosen. Any edition will do, and
+older editions are not very expensive. The material we study is classic, and
+all topics will have robust explanations online, including on Wikipedia.
 
 ## Course requirements
 
 Deliverables for the course include the following components:
 
-1. Classroom Meetings -- Class meets M/W/F, 11a-12p, in Frank Forward 317. All sessions are recorded and posted, but we make no guarantees about the quality of the recording, nor do we try very hard to replicate the in-class experience for online participants. 
+1. **Class meetings** — Class meets Mon/Wed/Fri, 11 am–12 pm, in Frank Forward 317. From Week 2, the Friday session is delivered as an async video rather than in person. In-person sessions are recorded and posted, but we make no guarantees about the quality of the recording, nor do we try very hard to replicate the in-class experience for online participants.
 
-2. Tutorial -- The material presented in the 2hr weekly tutorial is more 
-detailed and more applied than the classroom narrative. It is an 
-opportunity for you to make sure you can DO the things we talk about 
-in class. Tutorial sessions will be led by 
-course TAs. There are 10 over the term, beginning in week 3. Tutorial
-exercises may be completed collaboratively and with online resources.
+2. **Tutorials** — The material presented in the weekly tutorial is more detailed and more applied than the classroom narrative. It is an opportunity for you to make sure you can DO the things we talk about in class. Tutorial sessions are led by course TAs. There are 10 over the term. Tutorial exercises may be completed collaboratively and with online resources.
 
-3. Examlets -- Five self-scheduled 50 minute assessments to be completed on PrairieLearn in the Computer Based Testing Facility (CBTF). Rules for the 
-CBTF can be found here: [https://cbtf.ubc.ca/students/](https://cbtf.ubc.ca/students/). You will be given ample practice materials to use in preparation for the examlets. 
+3. **Homework** — Five homework assignments completed on PrairieLearn, in the weeks that do not have an examlet.
 
-4. Final Exam -- Like the examlets, the final exam will be self-scheduled within the CBTF. The exam window -- approximately 5 days -- will be posted later in the term.
+4. **Examlets** — Five self-scheduled 50-minute assessments to be completed on PrairieLearn in the Computer Based Testing Facility (CBTF). Rules for the CBTF can be found here: [https://cbtf.ubc.ca/students/](https://cbtf.ubc.ca/students/). You will be given ample practice materials to use in preparation for the examlets.
+
+5. **Final exam** — Like the examlets, the final exam will be self-scheduled within the CBTF. The exam window — approximately 5 days — will be posted later in the term.
 
 ## Grading and exam policies
 
-<div style="margin-left:0; width:fit-content; text-align:left;">
+Grade weights for {{< var course.term >}} are **to be confirmed** and will be
+posted here before the first class.
 
-| Component | Weight |
-|-----------|--------|
-| <span style="background:purple;color:white; padding:2px 6px; border-radius:4px;">🎉</span> Class Meetings | 0% |
-| <span style="background:dodgerblue; color:white; padding:2px 6px; border-radius:4px;">🪄</span> Tutorials | 15% |
-| <span style="background:seagreen; color:white; padding:2px 6px; border-radius:4px;">🤩</span> Examlets | 55% |
-| <span style="background:gold; color:white; padding:2px 6px; border-radius:4px;">🤩</span> Final Exam | 30% |
-
-</div>
-
-You must pass the final exam (50%) to pass the course. 
+You must pass the final exam to pass the course.
 
 ## Accessibility
 
-If you have a disability or ongoing medical condition that may 
-require accommodations, please contact the UBC Centre for 
-Accessibility [accessibility@ubc.ca](mailto:accessibility@ubc.ca) to 
-determine your eligibility and 
+If you have a disability or ongoing medical condition that may
+require accommodations, please contact the UBC Centre for
+Accessibility [accessibility@ubc.ca](mailto:accessibility@ubc.ca) to
+determine your eligibility and
 receive an accommodation letter.
 
-If you have a specific concern about accessing course materials or if you 
-would like to suggest improvements to the accessibility of this course, 
+If you have a specific concern about accessing course materials or if you
+would like to suggest improvements to the accessibility of this course,
 please do not hesitate to speak with me.
 
 ## Academic misconduct
 
 All instances of academic misconduct will be handled in a manner consistent with
-UBC policies. This includes reporting to the Director of Undergraduate Data 
+UBC policies. This includes reporting to the Director of Undergraduate Data
 Science Programs, and Faculty of Science Associate Dean of Students. No credit
-will be given for any assignment which was completed with inappropriate 
-collaboration. 
+will be given for any assignment which was completed with inappropriate
+collaboration.
 
-## Land Acknowledgement
+## Land acknowledgement
 
 UBC's Point Grey Campus is located on the traditional, ancestral, and unceded territory of the [xʷməθkʷəy̓əm (Musqueam)](https://www.musqueam.bc.ca/) people.
 The land it is situated on has always been a place of learning for the Musqueam people, who for millennia have passed on their culture, history, and traditions from one generation to the next on this site.
-

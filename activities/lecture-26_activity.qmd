@@ -1,0 +1,8 @@
+---
+title: "Activity"
+subtitle: "Lecture 26, {{< var course.code >}}, {{< var course.term >}}"
+---
+
+## {{< var icon.task >}} Steps
+
+-   [ ] Placeholder step.
