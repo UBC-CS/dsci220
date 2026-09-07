@@ -13,12 +13,14 @@ source(here::here("R", "highlight-current-week.R"))
 # "Tutorial" column, and the examlet + homework columns feed off `exam` /
 # `homework` units instead of `exam` / `potw`.
 
-# Columns that must exist for the gt spacer anchors and spanners to resolve even
-# when no row in the schedule produced them (e.g. no Monday has a recording).
+# Every class day carries exactly two resources: slides and a video. Activities
+# are linked from within the slides rather than given their own column.
+# These columns must exist for the gt spacer anchors and spanners to resolve
+# even when no row in the schedule produced them.
 lecture_col_order <- c(
-  "mon_lecture_slides", "mon_lecture_activity", "mon_lecture_recording",
-  "wed_lecture_slides", "wed_lecture_activity", "wed_lecture_recording",
-  "fri_lecture_slides", "fri_lecture_activity", "fri_lecture_recording"
+  "mon_lecture_slides", "mon_lecture_recording",
+  "wed_lecture_slides", "wed_lecture_recording",
+  "fri_lecture_slides", "fri_lecture_recording"
 )
 tutorial_col_order <- c("first_tutorial_lesson_plan", "first_tutorial_activity")
 
@@ -187,6 +189,16 @@ render_weekly_schedule <- function() {
       label = gt::md("Tutorial"),
       columns = tidyselect::starts_with("first_tutorial"),
       id = "first_tutorial"
+    ) |>
+    gt::tab_spanner(
+      label = "HWK",
+      columns = c(homework),
+      id = "homework_spanner"
+    ) |>
+    gt::tab_spanner(
+      label = "EX",
+      columns = c(exam),
+      id = "exam_spanner"
     ) |>
     gt::tab_style(
       style = gt::cell_text(size = "small"),
