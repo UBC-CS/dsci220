@@ -2,7 +2,13 @@
 title: About
 ---
 
-## Contributors
+## About this site
 
-DSCI 220 was created by [Dr. Cinda Heeren](https://www.cs.ubc.ca/people/cinda-heeren).
-The website shell was set up in [Quarto](https://quarto.org/) by [Dr. Stephan Koenig](https://stephankoenig.io).
+This is the course website for {{< var course.full-title >}} at the University
+of British Columbia, {{< var course.term >}}, taught by {{< var instructor.name >}}.
+
+The website and slides use the [`course-template`](https://github.com/stephan-koenig/course-template)
+created in [Quarto](https://quarto.org/) by [Dr. Stephan Koenig](https://stephankoenig.io).
+
+The previous offering (2025W1) is archived at
+[ubc-cs.github.io/dsci220-2025W1](https://ubc-cs.github.io/dsci220-2025W1).

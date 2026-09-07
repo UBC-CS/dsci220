@@ -1,0 +1,12 @@
+---
+title: "Lecture 22"
+subtitle: "Lecture 22, {{< var course.code >}}, {{< var course.term >}}"
+---
+
+<!-- Week 9 Monday — in person. Content to come. -->
+
+# Lecture 22
+
+## Topic
+
+Placeholder slide.

@@ -1,0 +1,10 @@
+---
+title: "Strings and regular expressions"
+subtitle: "Part IV, {{< var course.code >}}, {{< var course.term >}}"
+---
+
+## Learning outcomes
+
+Students will be able to:
+
+{{< include /_includes/learning-outcomes/_part-04_learning-outcomes.qmd >}}

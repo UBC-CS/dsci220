@@ -1,0 +1,12 @@
+---
+title: "Lecture 28"
+subtitle: "Lecture 28, {{< var course.code >}}, {{< var course.term >}}"
+---
+
+<!-- Week 11 Friday — async video. Content to come. -->
+
+# Lecture 28
+
+## Topic
+
+Placeholder slide.
