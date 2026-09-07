@@ -1,11 +1,12 @@
 name: deploy-website
 
-# Only run this when the main branch changes
+# Render on every push and PR; publish only from main.
 on:
   workflow_dispatch:
   push:
     branches:
     - main
+  pull_request:
   schedule:
     - cron: '25 11 * * 1'
     - cron: '25 11 * * 6'
@@ -46,6 +47,7 @@ jobs:
         done
 
     - name: Publish Quarto project
+      if: github.event_name != 'pull_request'
       uses: quarto-dev/quarto-actions/publish@v2
       with:
         render: false
