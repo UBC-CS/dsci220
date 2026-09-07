@@ -71,7 +71,7 @@ all topics will have robust explanations online, including on Wikipedia.
 
 Deliverables for the course include the following components:
 
-1. **Class meetings** — Class meets Mon/Wed/Fri, 11 am–12 pm, in Frank Forward 317. From Week 2, the Friday session is delivered as an async video rather than in person. In-person sessions are recorded and posted, but we make no guarantees about the quality of the recording, nor do we try very hard to replicate the in-class experience for online participants.
+1. **Class meetings** — Class meets Mon/Wed/Fri, 11 am–12 pm, in the {{< var building.name >}} ({{< var building.code >}} {{< var building.room >}}). From Week 2, the Friday session is delivered as an async video rather than in person. In-person sessions are recorded and posted, but we make no guarantees about the quality of the recording, nor do we try very hard to replicate the in-class experience for online participants.
 
 2. **Tutorials** — The material presented in the weekly tutorial is more detailed and more applied than the classroom narrative. It is an opportunity for you to make sure you can DO the things we talk about in class. Tutorial sessions are led by course TAs. There are 10 over the term. Tutorial exercises may be completed collaboratively and with online resources.
 

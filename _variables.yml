@@ -16,11 +16,11 @@ instructor:
   pronouns: "she, her"
   email: "cheeren@cs.ubc.ca"
 building:
-  name: "Frank Forward Building"
-  code: "FORW"
-  room: "Rm 317"
-  ubc-wayfinding: "[Wayfinding at UBC](https://maps.ubc.ca/?code=FORW)"
-  google-maps: "[Google Maps](https://www.google.com/maps/search/?api=1&query=Frank+Forward+Building+UBC)"
+  name: "Biological Sciences Building"
+  code: "BIOL"
+  room: "Rm 2200"
+  ubc-wayfinding: "[Wayfinding at UBC](https://maps.ubc.ca/?code=BIOL)"
+  google-maps: "[Google Maps](https://www.google.com/maps/search/?api=1&query=Biological+Sciences+Building+UBC)"
 software:
   bash: "5.3.9(1)"
   bash-year: "2025"
