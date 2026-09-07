@@ -29,8 +29,11 @@ get_schedule <- function() {
     "_variables.yml"
   )$course$`monday-of-first-term-week`
 
-  # Generate ids for each link to join into schedule
+  # Generate ids for each link to join into schedule.
+  # Skip resource directories that do not exist yet (e.g. no lesson plans have
+  # been written), since git does not track empty directories.
   resources_paths <- lookup$directory |> na.omit()
+  resources_paths <- resources_paths[fs::dir_exists(resources_paths)]
 
   schedule <- readr::read_csv(
     here::here("data", "schedule.csv"),
