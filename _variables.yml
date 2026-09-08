@@ -6,7 +6,7 @@ course:
   monday-of-first-term-week: "2026-09-07"
   finish-date: "2026-12-07"
   exams-finish-date: "2026-12-22"
-  time: "Mon/Wed/Fri 11:00--12:00 (Friday async from Week 2)"
+  time: "Mon/Wed/Fri 11:00--12:00"
   website: "https://ubc-cs.github.io/dsci220"
   repo: "https://github.com/UBC-CS/dsci220"
   lms: "https://canvas.ubc.ca/courses/195587"

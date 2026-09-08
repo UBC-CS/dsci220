@@ -17,14 +17,15 @@ execute:
 ::: {.column width="50%"}
 **Contact**\
 {{< var icon.mail >}} [{{< var instructor.email >}}](mailto:{{< var instructor.email >}})\
-{{< var icon.time >}} Mon 2--4pm [appointment](https://calendly.com/cheeren-cs/oh-appt)\
+{{< var icon.time >}} Tue 2--4pm\
 {{< var icon.building >}} ICCS 233 · <a href="https://ubc.zoom.us/j/5393867685?pwd=N01ZS2dLbVorQkRzcDRuNTdwQmRYUT09"><img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Zoom_Communications_Logo.svg" alt="Zoom" style="height:12px; vertical-align:middle;"></a>
 :::
 
 ::: {.column width="50%"}
 **Class**\
 {{< var course.time >}}\
-{{< var building.name >}} ({{< var building.code >}} {{< var building.room >}}, {{< var building.ubc-wayfinding >}})
+{{< var building.code >}} {{< var building.room >}},\
+{{< var building.ubc-wayfinding >}}
 :::
 :::::
 
