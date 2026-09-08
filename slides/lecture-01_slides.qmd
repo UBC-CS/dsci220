@@ -1,5 +1,5 @@
 ---
-title: "Syllabus Overview"
+title: "Introduction"
 subtitle: "Lecture 1, {{< var course.code >}}, {{< var course.term >}}"
 ---
 

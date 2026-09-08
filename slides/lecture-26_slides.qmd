@@ -1,5 +1,5 @@
 ---
-title: "Regular Expressions and DFAs, continued (2)"
+title: "NFAs, continued"
 subtitle: "Lecture 26, {{< var course.code >}}, {{< var course.term >}}"
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: "Exploration 1: Partitions"
+title: "Stars and Bars"
 subtitle: "Lecture 29, {{< var course.code >}}, {{< var course.term >}}"
 ---
 

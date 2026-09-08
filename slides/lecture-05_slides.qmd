@@ -1,5 +1,5 @@
 ---
-title: "Logical Equivalences, continued"
+title: "Quantifiers"
 subtitle: "Lecture 5, {{< var course.code >}}, {{< var course.term >}}"
 ---
 

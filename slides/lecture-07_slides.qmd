@@ -1,5 +1,5 @@
 ---
-title: "Inference"
+title: "Rules of Inference"
 subtitle: "Lecture 7, {{< var course.code >}}, {{< var course.term >}}"
 ---
 

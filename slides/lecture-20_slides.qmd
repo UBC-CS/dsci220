@@ -1,5 +1,5 @@
 ---
-title: "Sets, Power Sets, & Cross Products"
+title: "Sets, Power Sets, and Cross Products"
 subtitle: "Lecture 20, {{< var course.code >}}, {{< var course.term >}}"
 ---
 

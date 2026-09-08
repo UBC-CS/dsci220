@@ -1,5 +1,5 @@
 ---
-title: "Proofs"
+title: "Arguments, continued"
 subtitle: "Lecture 10, {{< var course.code >}}, {{< var course.term >}}"
 ---
 

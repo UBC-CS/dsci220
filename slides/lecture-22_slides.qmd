@@ -1,5 +1,5 @@
 ---
-title: "Sets Continued, continued"
+title: "Sets, continued (2)"
 subtitle: "Lecture 22, {{< var course.code >}}, {{< var course.term >}}"
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: "Induction"
+title: "Sequences"
 subtitle: "Lecture 13, {{< var course.code >}}, {{< var course.term >}}"
 ---
 

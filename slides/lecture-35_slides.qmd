@@ -1,5 +1,5 @@
 ---
-title: "Hashing, continued (2)"
+title: "Birthday Problem"
 subtitle: "Lecture 35, {{< var course.code >}}, {{< var course.term >}}"
 ---
 
