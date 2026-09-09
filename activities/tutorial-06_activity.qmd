@@ -1,0 +1,12 @@
+---
+title: "{{< var icon.computer-activity >}} Tutorial 6"
+subtitle: "Tutorial 6, {{< var course.code >}}, {{< var course.term >}}"
+---
+
+<!-- Week 8 tutorial. Content to come. -->
+
+## {{< var icon.task >}} Steps
+
+-   [ ] Placeholder step.
+
+## {{< var icon.resource >}} Resources

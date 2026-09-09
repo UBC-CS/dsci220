@@ -1,0 +1,308 @@
+---
+title: "Predicates and Logical Equivalence"
+subtitle: "Draft for Lecture 3, {{< var course.code >}}, {{< var course.term >}}"
+---
+
+## Predicates
+
+\
+
+$p$: \_\_\_\_\_\_\_\_\_\_\_ ate cereal for breakfast.
+
+\
+
+To apply the statement to many students, define a _Predicate_.
+
+\
+
+*   $P(x)$: $x$ ate cereal for breakfast.
+
+*   $x$ can be _instantiated_ to a particular student, or an arbitrary one.
+
+*   $P(\underline{\hspace{2em}})$ is a proposition.
+
+## One predicate, many rows {.activity}
+
+$P(x)$: cereal $x$ has at least 4 units of protein.
+
+\
+
+Fill in the truth value for each row:
+
+| cereal | protein | $P(x)$ |
+|---|:---:|:---:|
+| All-Bran | 4 | |
+| Froot Loops | 1 | |
+| Cheerios | 6 | |
+| Trix | 1 | |
+
+\
+
+What kind of object is the last column? \_\_\_\_\_\_\_\_\_\_\_\_
+
+{{< countdown minutes=3 >}}
+
+## The same column, in pandas
+
+```{pyodide}
+#| setup: true
+#| exercise: ex_pred
+import pandas as pd
+cereals = pd.read_csv('https://raw.githubusercontent.com/UBC-CS/dsci220/refs/heads/main/data/cereal.csv')
+```
+
+```{pyodide}
+#| exercise: ex_pred
+p = cereals['protein'] >= 4
+p.head()
+```
+
+\
+
+`p` is $P(x)$ evaluated at every row.
+
+## Boolean Masks {.activity}
+
+Select all cereals with at least 4 units of protein and no more than 6 units of sugars.
+
+```{pyodide}
+#| setup: true
+#| exercise: ex_cereal
+import pandas as pd
+cereals = pd.read_csv('https://raw.githubusercontent.com/UBC-CS/dsci220/refs/heads/main/data/cereal.csv')
+```
+
+```{pyodide}
+#| exercise: ex_cereal
+p = cereals['protein'] < 4
+q = cereals['sugars'] > 6
+filtered_df = cereals[______]
+filtered_df
+```
+
+```{pyodide}
+#| exercise: ex_cereal
+#| check: true
+correct_answer = cereals[(cereals['protein'] >= 4) & (cereals['sugars'] <= 6)]
+ok = (
+    len(filtered_df) == len(correct_answer)
+    and filtered_df.index.equals(correct_answer.index)
+)
+feedback = {"correct": True, "message": "Correct."} if ok else {
+    "correct": False, "message": "Use both conditions: protein >= 4 and sugars <= 6."}
+feedback
+```
+
+## A claim about the data {.activity}
+
+\
+
+> Every cereal with at least 4 units of protein has at most 6 units of sugars.
+
+\
+
+True or false?
+
+\
+
+How would you establish it? \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+{{< countdown minutes=4 >}}
+
+## Two ways to settle it
+
+::::: columns
+::: {.column width="50%"}
+**Check every row**
+
+```{.python}
+(~p | q).all()
+```
+
+Returns `True`: settled.
+:::
+
+::: {.column width="50%"}
+**Find one row that fails**
+
+```{.python}
+cereals[p & ~q].head(1)
+```
+
+Returns a row: settled.
+:::
+:::::
+
+\
+
+Written in logic:
+
+$$\forall x\, \big(P(x) \rightarrow Q(x)\big) \qquad\qquad \exists x\, \big(P(x) \wedge \neg Q(x)\big)$$
+
+::: notes
+The dataset is finite, so `.all()` checks every case. That is a proof. One
+counterexample refutes. Do not editorialize; just let them see that the pandas
+call and the quantifier are the same statement.
+:::
+
+## Now change one thing {.activity}
+
+\
+
+Same claim, but about **every cereal ever manufactured**.
+
+\
+
+Does `.all()` still settle it? \_\_\_\_\_\_
+
+Does one counterexample still settle it? \_\_\_\_\_\_
+
+\
+
+What could you do instead? \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+\
+
+*Week 1, the card game: you could see all six cards. That is the only reason it
+could be settled.*
+
+{{< countdown minutes=4 >}}
+
+::: notes
+Refutation survives; verification does not. When the domain is too big to
+enumerate you sample, and the verdict changes from settled to supported. That
+is claim B from lecture 1, and it is the rest of their degree.
+:::
+
+## Logical Equivalence
+
+\
+
+Ex: Is it true that $(p \lor q) \equiv (q\lor p)$ ?
+
+\
+
+*   $\equiv$ means _logically equivalent_
+
+*   The answer had better be \_\_\_\_\_\_\_\_\_!!!
+
+*   How can we justify our instinct?
+
+::: notes
+1. Show same truth table. 2. Chains of equivalence. Same as saying "write a proof".
+:::
+
+## Logical Equivalence example
+
+{{< video https://youtu.be/CLQ0LZSnJFE?si=jHDBkjZ2OnkfQqwW width="850" height="475">}}
+
+## Back to the mask {.activity}
+
+::: small-font-size
+"at least 4 units of protein and no more than 6 units of sugars"
+
+$p$: a cereal has less than 4 units of protein
+
+$q$: a cereal has more than 6 units of sugars
+
+We suspect $\neg p\wedge \neg q \equiv \neg( p\lor q)$:
+:::
+
+::::::: columns
+::: {.column width="45%"}
+| $p$ | $q$ | $\neg p\wedge \neg q$ |
+|-----|-----|----------------------:|
+| F   | F   |                       |
+| F   | T   |                       |
+| T   | F   |                       |
+| T   | T   |                       |
+:::
+
+::: {.column width="10%"}
+:::
+
+:::: {.column width="45%"}
+| $p$ | $q$ | $\neg( p\lor q)$ |
+|-----|-----|-----------------:|
+| F   | F   |                  |
+| F   | T   |                  |
+| T   | F   |                  |
+| T   | T   |                  |
+::::
+:::::::
+
+::: notes
+Half the room does the left table, half the right, then read aloud.
+:::
+
+## Logical Equivalences
+
+:::::: columns
+::: {.column width="50%"}
+[![](/images/LE.png){fig-alt="logical equivalences"}](https://en.wikipedia.org/wiki/Logical_equivalence)
+:::
+
+:::: {.column width="50%"}
+::: small-font-size
+The table lists equivalences important enough to have names.
+:::
+
+Observations:
+
+-
+-
+-
+-
+::::
+::::::
+
+## Where it breaks {.activity}
+
+Add a cereal whose protein is missing.
+
+```{.python}
+cereals.loc[len(cereals)] = {'name': 'Mystery', 'protein': None, 'sugars': 3}
+p = cereals['protein'] < 4
+q = cereals['sugars'] > 6
+((~p) & (~q)).sum(), (~(p | q)).sum()
+```
+
+\
+
+De Morgan held in the truth table. Do the two counts agree? \_\_\_\_\_\_
+
+Why? \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+::: notes
+Missing data gives a third value. Two-valued laws are not guaranteed. Connects
+back to lecture 2: a proposition is True or False --- `NaN` is neither, so it
+is not one.
+:::
+
+## In-class activity {.activity}
+
+**TBD --- not yet built.**
+
+Candidate: each student gets a different equivalence to justify; work in pairs
+across both versions.
+
+\
+
+{{< countdown minutes=10 >}}
+
+::: notes
+Needs a PrairieLearn assessment and a link on this slide --- activities are not
+linked anywhere else on the site.
+:::
+
+## Words and Ideas
+
+Predicate
+
+Boolean mask
+
+Logical equivalence
+
+De Morgan
+
+Counterexample
