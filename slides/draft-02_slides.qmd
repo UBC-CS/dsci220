@@ -1,4 +1,5 @@
 ---
+search: false
 title: "Propositions and WFFs"
 subtitle: "Draft for Lecture 2, {{< var course.code >}}, {{< var course.term >}}"
 ---

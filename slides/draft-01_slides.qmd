@@ -1,4 +1,5 @@
 ---
+search: false
 title: "Introduction"
 subtitle: "Draft for Lecture 1, {{< var course.code >}}, {{< var course.term >}}"
 ---
