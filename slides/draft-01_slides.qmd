@@ -11,6 +11,7 @@ subtitle: "Draft for Lecture 1, {{< var course.code >}}, {{< var course.term >}}
 - Draw one card from the envelope. Keep it hidden.
 - **Black = Sage.** You always tell the truth.
 - **Red = Trickster.** You always lie.
+- You may look at your **left neighbour's card**. Nobody else's.
 - The six cards are printed on the envelope. **Count the red ones** --- that is
   how many Tricksters your group has.
 - The **fact** on the slip is true.
@@ -43,10 +44,11 @@ Work out who is which. Everyone is on the same side, including the Tricksters.
   .hint-pop .pop-body li{margin:0.35em 0;}
 </style>
 
-### 1. Questions
-- As a group, agree on **two** yes/no questions.
-- **Every player answers both.**
-- Each question must be true of **at least one** of the six cards you can see.
+### 1. Questions --- two rounds
+- Each round, **every player asks one** yes/no question.
+- Ask anyone about **their own card**, or about **their left neighbour's card**.
+- Only ask about a card the person you ask can actually see.
+- Sages answer truthfully. Tricksters always answer falsely.
 
 ### 2. Debate
 - Compare answers. Look for contradictions.
@@ -58,10 +60,10 @@ Work out who is which. Everyone is on the same side, including the Tricksters.
 <details class="hint-pop">
 <summary>&#129535; Asking well</summary>
 <div class="pop-body">
-You get two questions. Spend them carefully.
 <ul>
-<li>Ask about your <strong>card</strong> &mdash; its suit, or its rank.</li>
-<li>Do <strong>not</strong> ask about its <strong>colour</strong>. Try it and see what happens.</li>
+<li>Ask about a <strong>card</strong> &mdash; its suit, or its rank.</li>
+<li>You can ask someone about <strong>their own</strong> card, or about their <strong>neighbour's</strong>.</li>
+<li>Asking about a card's <strong>colour</strong> is allowed. Try it and see what happens.</li>
 </ul>
 </div>
 </details>
