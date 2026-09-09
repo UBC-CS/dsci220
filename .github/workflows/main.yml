@@ -40,9 +40,14 @@ jobs:
     - name: Install R dependencies
       uses: r-lib/actions/setup-renv@v2
 
+    # Only the student-facing profiles are published. The instructor and ta
+    # profiles render to /instructor and /ta, which would be publicly reachable
+    # on GitHub Pages at a guessable URL -- and they carry lesson plans and
+    # answer keys. Render those locally instead:
+    #   QUARTO_PROFILE=instructor quarto render
     - name: Render Quarto project profiles
       run: |
-        for profile in student access,student instructor ta; do
+        for profile in student access,student; do
           uv run quarto render --profile "$profile"
         done
 
