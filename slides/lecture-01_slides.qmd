@@ -3,84 +3,290 @@ title: "Introduction"
 subtitle: "Lecture 1, {{< var course.code >}}, {{< var course.term >}}"
 ---
 
-## 🎭 Sages & Tricksters {.smaller}
+## &#127914; Sages & Tricksters {.smaller}
 
 \
 
-### How to Play 
-- Each of you are secretly assigned a role:  
-  - **Sage** = always tell the truth (Black)
-  - **Trickster** = always lie (Red)
-- Everyone sees the **packet of 6 cards** and the **fact**.  
-- In rounds, each player may ask **yes/no questions** about the fact.  
-- Work together: compare answers, spot contradictions.  
-- **Goal:** Deduce each person’s role!
+### Setup
+- Draw one card from the envelope. Keep it hidden.
+- **Black = Sage.** Always tell the truth.
+- **Red = Trickster.** Always lie.
+- The six cards are printed on the envelope. 
+- The **fact** on the slip is true.
 
-## 🔄 Round Structure {.smaller}
+### Goal
+Find the tricksters. 
+
+## &#128260; How to play {.smaller}
+
+<style>
+  /* Top right: reveal's controls and progress bar sit along the bottom edge,
+     and iPadOS Safari clips there. Panel opens down-left so it cannot run off
+     the right edge. */
+  .hint-pop{position:absolute; top:0; right:0; width:46%; z-index:60;
+    font-size:0.8em; text-align:right;}
+  .hint-pop summary{
+    cursor:pointer; display:inline-block; list-style:none;
+    -webkit-appearance:none; appearance:none;
+    touch-action:manipulation;          /* no 300ms double-tap delay on iPad */
+    background:#2C3E50; color:#fff; padding:0.45em 0.9em; border-radius:0.4em;
+    font-weight:600; line-height:1.1; white-space:nowrap;}
+  .hint-pop summary::-webkit-details-marker{display:none;}
+  .hint-pop summary::marker{content:"";}
+  .hint-pop[open] summary{border-bottom-right-radius:0;}
+  .hint-pop .pop-body{
+    text-align:left; background:#fff; color:#111; border:2px solid #2C3E50;
+    border-radius:0.4em 0 0.4em 0.4em; padding:0.6em 0.9em;
+    box-shadow:0 6px 18px rgba(0,0,0,0.25);}
+  .hint-pop .pop-body ul{margin:0.3em 0 0 1em; padding-left:0.6em;}
+  .hint-pop .pop-body li{margin:0.35em 0;}
+</style>
+
+### 1. Discovery --- two rounds
+- Each round, **every player asks one person** a yes/no question about their card.
+- Sages answer truthfully. Tricksters lie.
+
+### 2. Debate
+- Compare answers. Look for contradictions.
+- You may **not** say which card you hold, or which role you are.
+
+### 3. Conclusion
+- Agree on everyone's roles, then reveal.
+
+<details class="hint-pop">
+<summary>&#129535; Asking well</summary>
+<div class="pop-body">
+<ul>
+<li>Ask about a card's suit or rank.</li>
+<li>Asking about a card's colour is allowed. Try it and see what happens.</li>
+</ul>
+</div>
+</details>
+
+::: notes
+Click "Asking well" bottom right when you are ready, or leave it shut.
+
+"Is your card red?" gets no from everyone; "is your card black?" gets yes from
+everyone. Say only that colour questions are a trap, not why --- let them
+predict it. Hold the real method back: if a group stalls, hint that two
+properties which cannot both be true of one card will do it.
+:::
+
+## What did you just do? {.activity}
+
+Write down the step that convinced you:
 
 \
 
-### 1. Two Info Rounds 
-- In each round, take turns asking **one yes/no question** about the fact  
+"I knew \_\_\_\_\_\_\_\_\_\_ was a Trickster because \_\_\_\_\_\_\_\_\_\_."
 
-### 2. Debate Round  
-- Compare answers  
-- Look for contradictions  
+{{< countdown minutes=3 >}}
 
-### 3. Conclusion  
-- Agree on everyone’s roles  
-- Reveal the cards & roles!
+::: notes
+Collect two or three. Nearly all take the form: if they were a Sage, then X and
+not-X. Do not name it yet.
+:::
 
-## 🧩 Logic in Action
+
+## Lying is an operator {.smaller}
+
+Let $1$ mean yes and $0$ mean no.
+
+```{=html}
+<style>
+  table.xor{border-collapse:collapse; margin:0.2em auto 0 auto; font-size:1.05em;}
+  table.xor th, table.xor td{border:1px solid #95A5A6; padding:0.22em 0.9em; text-align:center;}
+  /* Quarto rewrites <th> to <td data-quarto-table-cell-role="th">, so target both */
+  table.xor th,
+  table.xor td[data-quarto-table-cell-role="th"]{background:#ECF0F1; font-size:0.72em;
+    font-weight:700; color:#2C3E50;}
+  table.xor colgroup{display:none;}
+  table.xor tr.alive td{background:#FDEDEC; font-weight:700; color:#C0392B;}
+  table.xor tr.alive td:last-child{border-right:4px solid #C0392B;}
+</style>
+```
+
+:::: columns
+::: {.column width="44%"}
+
+```{=html}
+<table class="xor">
+<tr><th>Their card<br>has it</th><th>They<br>lie</th><th>They<br>say</th></tr>
+<tr><td>0</td><td>0</td><td>0</td></tr>
+<tr class="alive"><td>0</td><td>1</td><td>1</td></tr>
+<tr class="alive"><td>1</td><td>0</td><td>1</td></tr>
+<tr><td>1</td><td>1</td><td>0</td></tr>
+</table>
+```
+
+:::
+
+::: {.column width="56%"}
+
+They say **1**.
+
+::: {.fragment}
+Two rows fit. Nothing so far separates them.
+:::
+
+::: {.fragment}
+To eliminate one, you must **fix one of the input columns**.
+:::
+
+::: {.fragment}
+You cannot fix **they lie** --- that is the unknown.
+:::
+
+::: {.fragment}
+So fix **their card has it**.
+:::
+
+::: {.fragment}
+\
+
+**What could you ask that would do that?**
+:::
+
+:::
+::::
+
+::: notes
+Drive the discussion from the table. Walk down the right column one reveal at a
+time and let them supply the last step.
+
+The answer they should reach: ask about a property whose value you already know
+for that person --- then the "has it" column is fixed, only two rows remain, and
+those two differ in the output. So the answer they give reports the lie bit
+directly.
+
+**Either value works.** Fix the column to 0 and the top two rows survive, so a
+"yes" means lying. Fix it to 1 and the bottom two survive, so a "no" means
+lying. If a group offers one direction, ask for the other.
+
+In practice known-false is much easier to find. After a "yes" the surviving
+cards are (black with the property) together with (red without it) --- a set
+spanning both colours. Naming a suit or rank none of them has is easy; finding
+something a mixed bag all share is rare. Across eight packets there were 20
+known-false follow-ups available and 1 known-true. Worth asking why, if someone
+notices.
+
+Do not name XOR. The Truth slide introduces the same four-row shape for OR, and
+naming it there lands better.
+
+Later in the term, the direction is the point: a truth table is normally read
+left to right, inputs to output. All hour they read it right to left. That is
+what you do with data --- you see what came out and argue about what went in.
+:::
+
+## Two claims {.activity}
 
 \
 
-- Logic means starting from **true facts**  
-- Asking the **right questions**  
-- Spotting **contradictions**  
-- And making valid **inferences**
+**A.** \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ is a Trickster.
 
-In this course we'll apply all of this to Data Science!
+**B.** Students who come to tutorials do better on examlets.
 
-# Syllabus Overview
+\
 
-## Instructional Team:
-
-- **Prof: Cinda Heeren**  
-  📧 [cheeren@cs.ubc.ca](mailto:cheeren@cs.ubc.ca)  
-   ⏰ Tue 2–4pm · 🏢 ICCS 233 · <a href="https://ubc.zoom.us/j/5393867685?pwd=N01ZS2dLbVorQkRzcDRuNTdwQmRYUT09"><img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Zoom_Communications_Logo.svg" alt="Zoom" style="height:20px; vertical-align:middle;"></a>
-
-- **TA: Joe Wonsil**  
-  📧 [jwonsil@cs.ubc.ca](mailto:jwonsil@cs.ubc.ca)  
-  ⏰ Fri 11-12a · 🏢 FORW 317 
-
-## Term Structure: 
+What would it take to settle each of these?
 
 ::::: columns
-::: {.column style="width: 80%; font-size: 50%;"}
+::: {.column width="50%"}
+A: \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+:::
 
-| Week | Sunday | M | T | W | F | Tutorial | Examlet |
-|:---:|---|:---:|:---:|:---:|:---:|:---:|:---:|
-| 1  | 8/31/2025  | <span style="background:#ddd; padding:2px 6px; border-radius:4px;">&nbsp;&nbsp;&nbsp;&nbsp;</span> |   | <span style="background:purple; color:white; padding:2px 6px; border-radius:4px;">🎉</span> | <span style="background:purple; color:white; padding:2px 6px; border-radius:4px;">🎉</span> |   |   |
-| 2  | 9/7/2025   | <span style="background:purple; color:white; padding:2px 6px; border-radius:4px;">🎉</span> |   | <span style="background:purple; color:white; padding:2px 6px; border-radius:4px;">🎉</span> | <span style="background:purple; color:white; padding:2px 6px; border-radius:4px;">🎉</span> |   |   |
-| 3  | 9/14/2025  | <span style="background:purple; color:white; padding:2px 6px; border-radius:4px;">🎉</span> | <span style="background:gold; padding:2px 6px; border-radius:4px;">📺</span> | <span style="background:purple; color:white; padding:2px 6px; border-radius:4px;">🎉</span> | <span style="background:#ddd; padding:2px 6px; border-radius:4px;">&nbsp;&nbsp;&nbsp;&nbsp;</span> | <span style="background:dodgerblue; color:white; padding:2px 6px; border-radius:4px;">🪄</span> | <span style="background:seagreen; color:white; padding:2px 6px; border-radius:4px;">🤩</span> |
-| 4  | 9/21/2025  | <span style="background:purple; color:white; padding:2px 6px; border-radius:4px;">🎉</span> | <span style="background:gold; padding:2px 6px; border-radius:4px;">📺</span> | <span style="background:purple; color:white; padding:2px 6px; border-radius:4px;">🎉</span> | <span style="background:#ddd; padding:2px 6px; border-radius:4px;">&nbsp;&nbsp;&nbsp;&nbsp;</span> | <span style="background:dodgerblue; color:white; padding:2px 6px; border-radius:4px;">🪄</span> |   |
-| 5  | 9/28/2025  | <span style="background:purple; color:white; padding:2px 6px; border-radius:4px;">🎉</span> | <span style="background:gold; padding:2px 6px; border-radius:4px;">📺</span> | <span style="background:purple; color:white; padding:2px 6px; border-radius:4px;">🎉</span> | <span style="background:#ddd; padding:2px 6px; border-radius:4px;">&nbsp;&nbsp;&nbsp;&nbsp;</span> | <span style="background:dodgerblue; color:white; padding:2px 6px; border-radius:4px;">🪄</span> | <span style="background:seagreen; color:white; padding:2px 6px; border-radius:4px;">🤩</span> |
-| 6  | 10/5/2025  | <span style="background:purple; color:white; padding:2px 6px; border-radius:4px;">🎉</span> | <span style="background:gold; padding:2px 6px; border-radius:4px;">📺</span> | <span style="background:purple; color:white; padding:2px 6px; border-radius:4px;">🎉</span> | <span style="background:#ddd; padding:2px 6px; border-radius:4px;">&nbsp;&nbsp;&nbsp;&nbsp;</span> | <span style="background:dodgerblue; color:white; padding:2px 6px; border-radius:4px;">🪄</span> |   |
-| 7  | 10/12/2025 | <span style="background:#ddd; padding:2px 6px; border-radius:4px;">&nbsp;&nbsp;&nbsp;&nbsp;</span> |   | <span style="background:gold; padding:2px 6px; border-radius:4px;">📺</span> | <span style="background:gold; padding:2px 6px; border-radius:4px;">📺</span> |   |   |
-| 8  | 10/19/2025 | <span style="background:purple; color:white; padding:2px 6px; border-radius:4px;">🎉</span> | <span style="background:gold; padding:2px 6px; border-radius:4px;">📺</span> | <span style="background:purple; color:white; padding:2px 6px; border-radius:4px;">🎉</span> | <span style="background:#ddd; padding:2px 6px; border-radius:4px;">&nbsp;&nbsp;&nbsp;&nbsp;</span> | <span style="background:dodgerblue; color:white; padding:2px 6px; border-radius:4px;">🪄</span> | <span style="background:seagreen; color:white; padding:2px 6px; border-radius:4px;">🤩</span> |
-| 9  | 10/26/2025 | <span style="background:purple; color:white; padding:2px 6px; border-radius:4px;">🎉</span> | <span style="background:gold; padding:2px 6px; border-radius:4px;">📺</span> | <span style="background:purple; color:white; padding:2px 6px; border-radius:4px;">🎉</span> | <span style="background:#ddd; padding:2px 6px; border-radius:4px;">&nbsp;&nbsp;&nbsp;&nbsp;</span> | <span style="background:dodgerblue; color:white; padding:2px 6px; border-radius:4px;">🪄</span> |   |
-| 10 | 11/2/2025  | <span style="background:purple; color:white; padding:2px 6px; border-radius:4px;">🎉</span> | <span style="background:gold; padding:2px 6px; border-radius:4px;">📺</span> | <span style="background:purple; color:white; padding:2px 6px; border-radius:4px;">🎉</span> | <span style="background:#ddd; padding:2px 6px; border-radius:4px;">&nbsp;&nbsp;&nbsp;&nbsp;</span> | <span style="background:dodgerblue; color:white; padding:2px 6px; border-radius:4px;">🪄</span> | <span style="background:seagreen; color:white; padding:2px 6px; border-radius:4px;">🤩</span> |
-| 11 | 11/9/2025  | <span style="background:#ddd; padding:2px 6px; border-radius:4px;">&nbsp;&nbsp;&nbsp;&nbsp;</span> |   | <span style="background:#ddd; padding:2px 6px; border-radius:4px;">&nbsp;&nbsp;&nbsp;&nbsp;</span> | <span style="background:gold; padding:2px 6px; border-radius:4px;">📺</span> |   |   |
-| 12 | 11/16/2025 | <span style="background:purple; color:white; padding:2px 6px; border-radius:4px;">🎉</span> | <span style="background:gold; padding:2px 6px; border-radius:4px;">📺</span> | <span style="background:purple; color:white; padding:2px 6px; border-radius:4px;">🎉</span> | <span style="background:#ddd; padding:2px 6px; border-radius:4px;">&nbsp;&nbsp;&nbsp;&nbsp;</span> | <span style="background:dodgerblue; color:white; padding:2px 6px; border-radius:4px;">🪄</span> |   |
-| 13 | 11/23/2025 | <span style="background:purple; color:white; padding:2px 6px; border-radius:4px;">🎉</span> | <span style="background:gold; padding:2px 6px; border-radius:4px;">📺</span> | <span style="background:purple; color:white; padding:2px 6px; border-radius:4px;">🎉</span> | <span style="background:#ddd; padding:2px 6px; border-radius:4px;">&nbsp;&nbsp;&nbsp;&nbsp;</span> | <span style="background:dodgerblue; color:white; padding:2px 6px; border-radius:4px;">🪄</span> | <span style="background:seagreen; color:white; padding:2px 6px; border-radius:4px;">🤩</span> |
-| 14 | 11/30/2025 | <span style="background:purple; color:white; padding:2px 6px; border-radius:4px;">🎉</span> | <span style="background:gold; padding:2px 6px; border-radius:4px;">📺</span> | <span style="background:purple; color:white; padding:2px 6px; border-radius:4px;">🎉</span> | <span style="background:#ddd; padding:2px 6px; border-radius:4px;">&nbsp;&nbsp;&nbsp;&nbsp;</span> | <span style="background:dodgerblue; color:white; padding:2px 6px; border-radius:4px;">🪄</span> |   |
-
-
+::: {.column width="50%"}
+B: \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 :::
 :::::
 
-## Grading:
+{{< countdown minutes=4 >}}
+
+::: notes
+Deliberately from different domains. If both came from the card game it would
+look like a fact about card games.
+:::
+
+## Two claims {.smaller}
+
+|  | **A.** Seat 3 is a Trickster | **B.** Tutorials help |
+|---|---|---|
+| The claim is about | six people | all students |
+| Can you examine every case? | **yes** | **no** |
+| So the method is | check them all | sample, and generalise |
+| Verdict | **settled** | **supported** |
+| Being wrong means | you made an error | you were unlucky |
+
+\
+
+Both are inference. The method follows from the information.
+
+::: notes
+The discriminator is whether the evidence reaches as far as the claim does.
+Exact inference is not a different mental operation; it is what inference
+becomes when the domain is small enough to exhaust.
+
+This course is the left-hand column. Most of their degree is the right. Do not
+oversell it yet --- lecture 3 earns it, when the same cereal claim is asked
+first of a dataset and then of every cereal ever manufactured.
+:::
+
+## Instructional team
+
+- **Prof: Cinda Heeren**
+  &#128231; [cheeren@cs.ubc.ca](mailto:cheeren@cs.ubc.ca)
+  &#9200; Tue 2--4pm &#183; &#127970; ICCS 233
+
+- **TA: Marko Ciric** &#128231; [mciric01@student.ubc.ca](mailto:mciric01@student.ubc.ca)
+- **TA: Noah Hynds** &#128231; [nhynds@student.ubc.ca](mailto:nhynds@student.ubc.ca)
+- **TA: Perrie Soleimani** &#128231; [perriesl@student.ubc.ca](mailto:perriesl@student.ubc.ca)
+
+## Term structure
+
+<style>
+  .pill{display:inline-block; min-width:1.6em; padding:0.1em 0.35em; border-radius:0.3em; text-align:center; font-weight:600; line-height:1;}
+  .pill--off{background:#ddd; color:#111;}
+  .pill--class{background:purple; color:#fff;}
+  .pill--video{background:#f97316; color:#fff;}
+  .pill--lab{background:dodgerblue; color:#fff;}
+  .pill--exam{background:seagreen; color:#fff;}
+  .pill--hw{background:#facc15; color:#111;}
+  .week-num{font-size:1.3em; font-weight:800; line-height:1;}
+  .date-cell{font-size:1em; white-space:nowrap; color:#666;}
+  #term-schedule table td, #term-schedule table th{vertical-align:middle; padding:0.05em 0.3em; line-height:1.1;}
+  #term-schedule table{font-size:0.48em; margin:0 auto; width:78%;}
+  #term-schedule p{font-size:0.48em; text-align:center;}
+</style>
+
+<div id="term-schedule">
+
+| Week | Mon | M | W | F | HW | Tut | EX |
+|:---:|---|:---:|:---:|:---:|:---:|:---:|:---:|
+| <span class="week-num">1</span> | <span class="date-cell">Sep 7</span> | <span class="pill pill--off" title="Labour Day">&nbsp;</span> | <span class="pill pill--class" title="In person">&#127881;</span> | <span class="pill pill--class" title="In person">&#127881;</span> | <span class="pill pill--off" title="Nothing due">&nbsp;</span> | <span class="pill pill--off" title="No tutorial">&nbsp;</span> | <span class="pill pill--off" title="No examlet">&nbsp;</span> |
+| <span class="week-num">2</span> | <span class="date-cell">Sep 14</span> | <span class="pill pill--class" title="In person">&#127881;</span> | <span class="pill pill--class" title="In person">&#127881;</span> | <span class="pill pill--video" title="Async video">&#128249;</span> | <span class="pill pill--hw" title="HW1 due">&#127950;</span> | <span class="pill pill--lab" title="Tutorial">&#129668;</span> | <span class="pill pill--off" title="No examlet">&nbsp;</span> |
+| <span class="week-num">3</span> | <span class="date-cell">Sep 21</span> | <span class="pill pill--class" title="In person">&#127881;</span> | <span class="pill pill--class" title="In person">&#127881;</span> | <span class="pill pill--video" title="Async video">&#128249;</span> | <span class="pill pill--off" title="Nothing due">&nbsp;</span> | <span class="pill pill--lab" title="Tutorial">&#129668;</span> | <span class="pill pill--exam" title="Examlet 1">&#129321;</span> |
+| <span class="week-num">4</span> | <span class="date-cell">Sep 28</span> | <span class="pill pill--class" title="In person">&#127881;</span> | <span class="pill pill--off" title="Truth and Reconciliation">&nbsp;</span> | <span class="pill pill--video" title="Async video">&#128249;</span> | <span class="pill pill--hw" title="HW2 due">&#127950;</span> | <span class="pill pill--lab" title="Tutorial">&#129668;</span> | <span class="pill pill--off" title="No examlet">&nbsp;</span> |
+| <span class="week-num">5</span> | <span class="date-cell">Oct 5</span> | <span class="pill pill--class" title="In person">&#127881;</span> | <span class="pill pill--class" title="In person">&#127881;</span> | <span class="pill pill--video" title="Async video">&#128249;</span> | <span class="pill pill--off" title="Nothing due">&nbsp;</span> | <span class="pill pill--lab" title="Tutorial">&#129668;</span> | <span class="pill pill--exam" title="Examlet 2">&#129321;</span> |
+| <span class="week-num">6</span> | <span class="date-cell">Oct 12</span> | <span class="pill pill--off" title="Thanksgiving">&nbsp;</span> | <span class="pill pill--video" title="Async video">&#128249;</span> | <span class="pill pill--video" title="Async video">&#128249;</span> | <span class="pill pill--off" title="Nothing due">&nbsp;</span> | <span class="pill pill--off" title="No tutorial">&nbsp;</span> | <span class="pill pill--off" title="No examlet">&nbsp;</span> |
+| <span class="week-num">7</span> | <span class="date-cell">Oct 19</span> | <span class="pill pill--class" title="In person">&#127881;</span> | <span class="pill pill--class" title="In person">&#127881;</span> | <span class="pill pill--video" title="Async video">&#128249;</span> | <span class="pill pill--hw" title="HW3 due">&#127950;</span> | <span class="pill pill--lab" title="Tutorial">&#129668;</span> | <span class="pill pill--off" title="No examlet">&nbsp;</span> |
+| <span class="week-num">8</span> | <span class="date-cell">Oct 26</span> | <span class="pill pill--class" title="In person">&#127881;</span> | <span class="pill pill--class" title="In person">&#127881;</span> | <span class="pill pill--video" title="Async video">&#128249;</span> | <span class="pill pill--off" title="Nothing due">&nbsp;</span> | <span class="pill pill--lab" title="Tutorial">&#129668;</span> | <span class="pill pill--exam" title="Examlet 3">&#129321;</span> |
+| <span class="week-num">9</span> | <span class="date-cell">Nov 2</span> | <span class="pill pill--class" title="In person">&#127881;</span> | <span class="pill pill--class" title="In person">&#127881;</span> | <span class="pill pill--video" title="Async video">&#128249;</span> | <span class="pill pill--hw" title="HW4 due">&#127950;</span> | <span class="pill pill--lab" title="Tutorial">&#129668;</span> | <span class="pill pill--off" title="No examlet">&nbsp;</span> |
+| <span class="week-num">10</span> | <span class="date-cell">Nov 9</span> | <span class="pill pill--off" title="No class">&nbsp;</span> | <span class="pill pill--off" title="Remembrance Day">&nbsp;</span> | <span class="pill pill--video" title="Async video">&#128249;</span> | <span class="pill pill--off" title="Nothing due">&nbsp;</span> | <span class="pill pill--off" title="No tutorial">&nbsp;</span> | <span class="pill pill--off" title="No examlet">&nbsp;</span> |
+| <span class="week-num">11</span> | <span class="date-cell">Nov 16</span> | <span class="pill pill--class" title="In person">&#127881;</span> | <span class="pill pill--class" title="In person">&#127881;</span> | <span class="pill pill--video" title="Async video">&#128249;</span> | <span class="pill pill--off" title="Nothing due">&nbsp;</span> | <span class="pill pill--lab" title="Tutorial">&#129668;</span> | <span class="pill pill--exam" title="Examlet 4">&#129321;</span> |
+| <span class="week-num">12</span> | <span class="date-cell">Nov 23</span> | <span class="pill pill--class" title="In person">&#127881;</span> | <span class="pill pill--class" title="In person">&#127881;</span> | <span class="pill pill--video" title="Async video">&#128249;</span> | <span class="pill pill--hw" title="HW5 due">&#127950;</span> | <span class="pill pill--lab" title="Tutorial">&#129668;</span> | <span class="pill pill--off" title="No examlet">&nbsp;</span> |
+| <span class="week-num">13</span> | <span class="date-cell">Nov 30</span> | <span class="pill pill--class" title="In person">&#127881;</span> | <span class="pill pill--class" title="In person">&#127881;</span> | <span class="pill pill--video" title="Async video">&#128249;</span> | <span class="pill pill--off" title="Nothing due">&nbsp;</span> | <span class="pill pill--lab" title="Tutorial">&#129668;</span> | <span class="pill pill--exam" title="Examlet 5">&#129321;</span> |
+| <span class="week-num">14</span> | <span class="date-cell">Dec 7</span> | <span class="pill pill--class" title="In person">&#127881;</span> | <span class="pill pill--off" title="Term over">&nbsp;</span> | <span class="pill pill--off" title="Term over">&nbsp;</span> | <span class="pill pill--off" title="Nothing due">&nbsp;</span> | <span class="pill pill--off" title="No tutorial">&nbsp;</span> | <span class="pill pill--off" title="No examlet">&nbsp;</span> |
+
+Legend:
+<span class="pill pill--class" title="In person">&#127881;</span> in person &nbsp;
+<span class="pill pill--video" title="Async video">&#128249;</span> async video &nbsp;
+<span class="pill pill--lab" title="Tutorial">&#129668;</span> tutorial &nbsp;
+<span class="pill pill--exam" title="Examlet">&#129321;</span> examlet &nbsp;
+<span class="pill pill--hw" title="HW due">&#127950;</span> HW due
+
+</div>
+
+## Grading
 
 <div style="margin-left:0; width:fit-content; text-align:left;">
 
@@ -98,34 +304,16 @@ In this course we'll apply all of this to Data Science!
 
 ::: {style="font-size: 80%;"}
 
-- 📧 **Email** [cheeren@cs.ubc.ca](mailto:cheeren@cs.ubc.ca)  
-  Checked daily. Please place "DSCI220" in subject!
-
-- <a href="https://piazza.com/ubc.ca/winterterm12025/dsci220">
-    <img src="https://tse2.mm.bing.net/th/id/OIP.usjgslq1FEPq7pholcHorQD6D6?pid=Api"
-         alt="Piazza" style="height:20px; vertical-align:middle;">
-  </a> **Piazza** [piazza.com/ubc.ca/winterterm12025/dsci220](https://piazza.com/ubc.ca/winterterm12025/dsci220)  
-  Post questions for quick response.  
-
-- 🏫 **Office Hours**
-
-<div style="margin:auto; width:fit-content;">
-
-| Name  | Time        | Location & Zoom |
-|-------|-------------|-----------------|
-| Cinda | Tue 2–4pm   | 🏢 ICCS 233 · <a href="https://ubc.zoom.us/j/5393867685?pwd=N01ZS2dLbVorQkRzcDRuNTdwQmRYUT09"><img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Zoom_Communications_Logo.svg" alt="Zoom" style="height:16px; vertical-align:middle;"></a> |
-| Joe   | Fri 11-12a | 🏢 FORW 317 |
-
-</div>
-
-- 🌐 **Course Website** [https://ubc-cs.github.io/dsci220/](https://ubc-cs.github.io/dsci220/)  
-  Syllabus, schedule, resources 
+- &#128231; **Email** [cheeren@cs.ubc.ca](mailto:cheeren@cs.ubc.ca) --- put "DSCI220" in the subject
+- &#128172; **Piazza** <https://piazza.com/ubc.ca/winterterm12026/dsci220>
+- &#127760; **Website** <{{< var course.website >}}>
+- &#127891; **Class** {{< var course.time >}}, {{< var building.code >}} {{< var building.room >}}
 
 :::
 
 # Logic
 
-## Truth
+## Truth {.activity}
 
 Make at least 3 observations about the following table:
 
@@ -143,22 +331,22 @@ Make at least 3 observations about the following table:
 
 ::: {.column width="70%"}
 
-*  
+*
 
 \
 
-*   
+*
 
 \
 
-*      
+*
 
 :::
 :::::
 
-## Summary
+{{< countdown minutes=5 >}}
 
-Key observations about the table:
+## Summary
 
 ::::: columns
 ::: {.column width="30%"}
@@ -174,41 +362,65 @@ Key observations about the table:
 
 ::: {.column style="width: 70%; font-size: 80%;"}
 
-*   The diagram is called a _Truth Table_
-*   p and q are _variables_, each of which take on one of two _Boolean_ values, True or False (T/F, 1/0) 
-*   ∨ is a _binary operator_ that implements a function (creates output) from the 2 input variables to another Boolean value. It is characterized by its output values.
-*   The operator ∨ corresponds to the English word _or_. 
-*   The expression p ∨ q is called a _proposition_.
-    
+*   The diagram is a _Truth Table_
+*   $p$, $q$ are _variables_ taking one of two _Boolean_ values (T/F, 1/0)
+*   $\lor$ is a _binary operator_: a function from 2 Boolean inputs to 1 Boolean output, characterized by its output column
+*   $\lor$ corresponds to the English _or_
+*   $p \lor q$ is a _proposition_
+
 :::
 :::::
 
-## Cool down
+## Cool down {.activity}
 
-::::: {.columns}
-::: {.column width="30%"}
+*   How many rows for a proposition on 3 variables? On $k$?
 
-| $p$ | $q$ | $p \lor q$ |
-|---|---|:--------:|
-| F | F |   F    |
-| F | T |   T    |
-| T | F |   T    |
-| T | T |   T    |
+\
 
+*   Name an operator taking 1 variable: \_\_\_\_\_\_\_\_\_\_
+
+\
+
+*   Name an operator taking 3 variables: \_\_\_\_\_\_\_\_\_\_
+
+\
+
+*   How many different binary operators could there be?
+
+{{< countdown minutes=5 >}}
+
+::: notes
+$2^k$ rows. $2^{2^k}$ operators on $k$ variables; 16 binary ones. Half the binary
+operators are commutative (8).
 :::
 
-::: {.column style="width: 70%;"}
+## Before Friday {.activity}
 
-*   How many rows for a proposition on 3 variables? $k$ variables?
+You counted how many binary operators there could be.
 
+Activity 1 introduces the ones that have names.
 
-*   Give a good name for an operator that takes 1 variable: __________
+\
 
+{{< qrcode https://us.prairielearn.com/pl/course_instance/209866/assessments >}}
 
-*   Give a good name for an operator that takes 3 variables: __________
+<{{< var course.prairielearn >}}/assessments>
 
+\
 
-*   How many different binary operators could there be? 
- 
+Due Friday 11:00, before class.
+
+::: notes
+All graded work is on PrairieLearn. This is the first one; walk them through
+finding it if anyone is stuck.
 :::
-:::::
+
+## Words and Ideas
+
+Truth Table
+
+Proposition
+
+Binary operator
+
+Argument

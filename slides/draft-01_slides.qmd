@@ -9,14 +9,13 @@ subtitle: "Draft for Lecture 1, {{< var course.code >}}, {{< var course.term >}}
 
 ### Setup
 - Draw one card from the envelope. Keep it hidden.
-- **Black = Sage.** You always tell the truth.
-- **Red = Trickster.** You always lie.
-- The six cards are printed on the envelope. **Count the red ones** --- that is
-  how many Tricksters your group has.
+- **Black = Sage.** Always tell the truth.
+- **Red = Trickster.** Always lie.
+- The six cards are printed on the envelope. 
 - The **fact** on the slip is true.
 
 ### Goal
-Work out who is which. Everyone is on the same side, including the Tricksters.
+Find the tricksters. 
 
 ## &#128260; How to play {.smaller}
 
@@ -43,10 +42,9 @@ Work out who is which. Everyone is on the same side, including the Tricksters.
   .hint-pop .pop-body li{margin:0.35em 0;}
 </style>
 
-### 1. Questions --- two rounds
-- Each round, **every player asks one** yes/no question about the cards.
-- **Everyone answers**, about their own card.
-- Sages answer truthfully. Tricksters always answer falsely.
+### 1. Discovery --- two rounds
+- Each round, **every player asks one person** a yes/no question about their card.
+- Sages answer truthfully. Tricksters lie.
 
 ### 2. Debate
 - Compare answers. Look for contradictions.
@@ -59,8 +57,8 @@ Work out who is which. Everyone is on the same side, including the Tricksters.
 <summary>&#129535; Asking well</summary>
 <div class="pop-body">
 <ul>
-<li>Ask about a <strong>card</strong> &mdash; its suit, or its rank.</li>
-<li>Asking about a card's <strong>colour</strong> is allowed. Try it and see what happens.</li>
+<li>Ask about a card's suit or rank.</li>
+<li>Asking about a card's colour is allowed. Try it and see what happens.</li>
 </ul>
 </div>
 </details>
@@ -76,8 +74,6 @@ properties which cannot both be true of one card will do it.
 
 ## What did you just do? {.activity}
 
-You settled on an answer without being told it.
-
 Write down the step that convinced you:
 
 \
@@ -91,25 +87,6 @@ Collect two or three. Nearly all take the form: if they were a Sage, then X and
 not-X. Do not name it yet.
 :::
 
-## What just happened {.smaller}
-
-\
-
-You never saw a role.
-
-\
-
-You checked what people said against the **six cards everyone could see**.
-
-\
-
-Some answers could not be true of any of them. Those were the liars.
-
-::: notes
-The six cards are public, so every answer is checkable against them. A Trickster
-inverts, so sooner or later they claim something no card in the envelope
-supports. That is the contradiction the debate round is hunting for.
-:::
 
 ## Lying is an operator {.smaller}
 
@@ -134,7 +111,7 @@ Let $1$ mean yes and $0$ mean no.
 
 ```{=html}
 <table class="xor">
-<tr><th>your card<br>has it</th><th>you<br>lie</th><th>you<br>say</th></tr>
+<tr><th>Their card<br>has it</th><th>They<br>lie</th><th>They<br>say</th></tr>
 <tr><td>0</td><td>0</td><td>0</td></tr>
 <tr class="alive"><td>0</td><td>1</td><td>1</td></tr>
 <tr class="alive"><td>1</td><td>0</td><td>1</td></tr>
@@ -146,22 +123,22 @@ Let $1$ mean yes and $0$ mean no.
 
 ::: {.column width="56%"}
 
-You hear **1**.
+They say **1**.
 
 ::: {.fragment}
 Two rows fit. Nothing so far separates them.
 :::
 
 ::: {.fragment}
-To kill one, you must **fix one of the input columns**.
+To eliminate one, you must **fix one of the input columns**.
 :::
 
 ::: {.fragment}
-You cannot fix **you lie** --- that is the thing you are hunting.
+You cannot fix **they lie** --- that is the unknown.
 :::
 
 ::: {.fragment}
-So fix **your card has it**.
+So fix **their card has it**.
 :::
 
 ::: {.fragment}
@@ -205,13 +182,13 @@ what you do with data --- you see what came out and argue about what went in.
 
 \
 
-**A.** Seat 3 is a Trickster.
+**A.** \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ is a Trickster.
 
 **B.** Students who come to tutorials do better on examlets.
 
 \
 
-What would it take to **settle** each one?
+What would it take to settle each of these?
 
 ::::: columns
 ::: {.column width="50%"}
@@ -234,7 +211,7 @@ look like a fact about card games.
 
 |  | **A.** Seat 3 is a Trickster | **B.** Tutorials help |
 |---|---|---|
-| The claim is about | six people, in this room | all students, including ones not here yet |
+| The claim is about | six people | all students |
 | Can you examine every case? | **yes** | **no** |
 | So the method is | check them all | sample, and generalise |
 | Verdict | **settled** | **supported** |
@@ -242,8 +219,7 @@ look like a fact about card games.
 
 \
 
-Both are inference. The method follows from the information --- not the other
-way round.
+Both are inference. The method follows from the information.
 
 ::: notes
 The discriminator is whether the evidence reaches as far as the claim does.
@@ -323,8 +299,6 @@ Legend:
 | <span style="background:gold; color:#111; padding:2px 6px; border-radius:4px;">&#129321;</span> Final Exam | 30% |
 
 </div>
-
-You must pass the final exam to pass the course.
 
 ## Communications
 
