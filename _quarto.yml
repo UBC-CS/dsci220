@@ -48,7 +48,7 @@ website:
             text: "Getting started"
           - href: setup.qmd
             text: "Setup"
-          - href: "https://canvas.ubc.ca/courses/195587"
+          - href: "https://canvas.ubc.ca/courses/191848"
             text: "Canvas"
           - href: "https://piazza.com/ubc.ca/winterterm12026/dsci220"
             text: "Piazza"
