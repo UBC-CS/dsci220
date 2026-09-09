@@ -2,27 +2,16 @@
 
 Not published (Quarto ignores `_`-prefixed files).
 
-## 🔴 TOMORROW — Wed Sep 9, first class
+## Before class
 
-- [ ] **🖨️ PRINT THE NEW RULE CARDS.** One per group (~12–15). The printable
-      card is the last section of `lesson-plans/lecture-01_lesson-plan.qmd`.
-      The old cards are wrong on three counts: they say *each player* asks a
-      question (it is two questions, agreed by the group), they omit that a
-      question must be true of at least one visible card, and they omit that
-      nobody may state their own card or role during the debate.
-- [ ] **Set Packet 12 aside — it cannot be won.** Its only black card is Q♠,
-      so no legal question pair exists (each question must avoid the red cards,
-      so each must be true of a black card, and two mutually exclusive
-      properties cannot both hold of one card). ~12 groups, 15 packets, so just
-      do not hand it out. Fix later by swapping KH→KS and QH→QC.
 - [ ] **Check Packet 12's fact slip.** If it says *"all spade cards are even"*,
-      replace it — the only spade is Q♠ and a Queen is neither even nor odd.
-      Use the kings/queens fact instead.
-- [ ] **Confirm roles come from the drawn card**, not a separate red/black deal.
-      All 15 packets are uniquely solvable that way; with separate role cards, 6
-      of them are ambiguous.
-- [ ] Decide whether to teach from `lecture-01` (imported 2025 deck, still has
-      the 2025 term table and Piazza link) or `draft-01` (rebuilt for 2026).
+      swap it — the only spade is Q♠ and a Queen is neither even nor odd. This
+      is the only real defect in the set.
+- [ ] Tell them roles come from the **colour of the card you draw**, and that
+      counting the reds gives the number of Tricksters. Never written down
+      before; the game does not work without it.
+- [ ] Teach from `draft-01` (rebuilt for 2026) rather than `lecture-01`, which
+      still has the 2025 term table and Piazza link.
 
 ## 🔴 MAKE HW1
 
