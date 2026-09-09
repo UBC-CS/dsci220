@@ -96,38 +96,38 @@ not-X. Do not name it yet.
 
 Asked *"is your card a spade?"*, then *"is your card a club?"*
 
-<svg viewBox="0 0 820 400" style="width:100%; max-height:66vh;" role="img"
-     aria-label="Six seats around a table. The three seats that answered yes to both questions are the liars.">
-  <ellipse cx="410" cy="197" rx="112" ry="72" fill="#ECF0F1" stroke="#95A5A6" stroke-width="2"/>
-  <text x="410" y="180" text-anchor="middle" font-size="17" font-weight="700" fill="#2C3E50">5&#9824; 9&#9824; 3&#9827;</text>
-  <text x="410" y="203" text-anchor="middle" font-size="17" font-weight="700" fill="#C0392B">K&#9829; 7&#9829; 2&#9830;</text>
-  <text x="410" y="228" text-anchor="middle" font-size="12" fill="#7B8A8B">3 red &rarr; 3 Tricksters</text>
-
-  <!-- Sages: answered yes to exactly one -->
-  <g fill="#fff" stroke="#2C3E50" stroke-width="2.5">
-    <circle cx="410" cy="60" r="40"/><circle cx="527" cy="128" r="40"/><circle cx="293" cy="128" r="40"/>
-  </g>
-  <g text-anchor="middle" fill="#2C3E50">
-    <text x="410" y="52" font-size="12">seat 1</text><text x="410" y="76" font-size="22" font-weight="700">1&#8202;0</text>
-    <text x="527" y="120" font-size="12">seat 2</text><text x="527" y="144" font-size="22" font-weight="700">1&#8202;0</text>
-    <text x="293" y="120" font-size="12">seat 6</text><text x="293" y="144" font-size="22" font-weight="700">0&#8202;1</text>
-  </g>
-
-  <!-- Tricksters: answered yes to both -->
-  <g fill="#FDEDEC" stroke="#C0392B" stroke-width="4">
-    <circle cx="527" cy="266" r="40"/><circle cx="410" cy="334" r="40"/><circle cx="293" cy="266" r="40"/>
-  </g>
-  <g text-anchor="middle" fill="#C0392B">
-    <text x="527" y="258" font-size="12">seat 3</text><text x="527" y="282" font-size="22" font-weight="700">1&#8202;1</text>
-    <text x="410" y="326" font-size="12">seat 4</text><text x="410" y="350" font-size="22" font-weight="700">1&#8202;1</text>
-    <text x="293" y="258" font-size="12">seat 5</text><text x="293" y="282" font-size="22" font-weight="700">1&#8202;1</text>
-  </g>
-
-  <text x="700" y="330" text-anchor="middle" font-size="15" font-weight="700" fill="#C0392B">yes to both</text>
-  <text x="700" y="352" text-anchor="middle" font-size="15" fill="#C0392B">= lying</text>
-  <text x="120" y="60" text-anchor="middle" font-size="13" fill="#7B8A8B">middle = everyone sees</text>
-  <text x="120" y="80" text-anchor="middle" font-size="13" fill="#7B8A8B">seats = only you see</text>
+```{=html}
+<svg viewBox="0 0 820 400" style="width:100%; height:auto; display:block;" role="img" aria-label="Six seats around a table. The three seats that answered yes to both questions are the liars.">
+  <ellipse cx="410" cy="200" rx="118" ry="74" fill="#ECF0F1" stroke="#95A5A6" stroke-width="2"/>
+  <text x="410" y="183" text-anchor="middle" font-size="19" font-weight="700" fill="#2C3E50">5&#9824; 9&#9824; 3&#9827;</text>
+  <text x="410" y="209" text-anchor="middle" font-size="19" font-weight="700" fill="#C0392B">K&#9829; 7&#9829; 2&#9830;</text>
+  <text x="410" y="234" text-anchor="middle" font-size="12" fill="#7B8A8B">3 red &#8594; 3 Tricksters</text>
+  <circle cx="410" cy="62" r="42" fill="#ffffff" stroke="#2C3E50" stroke-width="3"/>
+  <circle cx="530" cy="131" r="42" fill="#ffffff" stroke="#2C3E50" stroke-width="3"/>
+  <circle cx="290" cy="131" r="42" fill="#ffffff" stroke="#2C3E50" stroke-width="3"/>
+  <text x="410" y="54" text-anchor="middle" font-size="12" fill="#2C3E50">seat 1</text>
+  <text x="410" y="80" text-anchor="middle" font-size="23" font-weight="700" fill="#2C3E50">1 0</text>
+  <text x="530" y="123" text-anchor="middle" font-size="12" fill="#2C3E50">seat 2</text>
+  <text x="530" y="149" text-anchor="middle" font-size="23" font-weight="700" fill="#2C3E50">1 0</text>
+  <text x="290" y="123" text-anchor="middle" font-size="12" fill="#2C3E50">seat 6</text>
+  <text x="290" y="149" text-anchor="middle" font-size="23" font-weight="700" fill="#2C3E50">0 1</text>
+  <circle cx="530" cy="269" r="42" fill="#FDEDEC" stroke="#C0392B" stroke-width="5"/>
+  <circle cx="410" cy="338" r="42" fill="#FDEDEC" stroke="#C0392B" stroke-width="5"/>
+  <circle cx="290" cy="269" r="42" fill="#FDEDEC" stroke="#C0392B" stroke-width="5"/>
+  <text x="530" y="261" text-anchor="middle" font-size="12" fill="#C0392B">seat 3</text>
+  <text x="530" y="287" text-anchor="middle" font-size="23" font-weight="700" fill="#C0392B">1 1</text>
+  <text x="410" y="330" text-anchor="middle" font-size="12" fill="#C0392B">seat 4</text>
+  <text x="410" y="356" text-anchor="middle" font-size="23" font-weight="700" fill="#C0392B">1 1</text>
+  <text x="290" y="261" text-anchor="middle" font-size="12" fill="#C0392B">seat 5</text>
+  <text x="290" y="287" text-anchor="middle" font-size="23" font-weight="700" fill="#C0392B">1 1</text>
+  <text x="700" y="300" text-anchor="middle" font-size="17" font-weight="700" fill="#C0392B">yes to both</text>
+  <text x="700" y="324" text-anchor="middle" font-size="17" font-weight="700" fill="#C0392B">= lying</text>
+  <text x="700" y="352" text-anchor="middle" font-size="13" fill="#7B8A8B">no card is both</text>
+  <text x="700" y="370" text-anchor="middle" font-size="13" fill="#7B8A8B">a spade and a club</text>
+  <text x="118" y="300" text-anchor="middle" font-size="13" fill="#7B8A8B">middle: everyone sees</text>
+  <text x="118" y="322" text-anchor="middle" font-size="13" fill="#7B8A8B">seats: only you see</text>
 </svg>
+```
 
 ::: notes
 No card is both a spade and a club, so a truthful player says yes to at most
