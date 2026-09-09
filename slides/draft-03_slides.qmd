@@ -1,4 +1,5 @@
 ---
+search: false
 title: "Predicates and Logical Equivalence"
 subtitle: "Draft for Lecture 3, {{< var course.code >}}, {{< var course.term >}}"
 ---
