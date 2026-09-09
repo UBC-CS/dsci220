@@ -403,17 +403,12 @@ Activity 1 introduces the ones that have names.
 
 \
 
-{{< qrcode https://us.prairielearn.com/pl/course_instance/209866/assessments >}}
-
-<{{< var course.prairielearn >}}/assessments>
-
-\
-
-Due Friday 11:00, before class.
+It will be posted on PrairieLearn. Watch Piazza for the link.
 
 ::: notes
-All graded work is on PrairieLearn. This is the first one; walk them through
-finding it if anyone is stuck.
+PrairieLearn is not published yet, so do not send them to the site today --- the
+QR code and link are removed for that reason. Announce Activity 1 on Piazza once
+the course instance is live, and set the due date then.
 :::
 
 ## Words and Ideas

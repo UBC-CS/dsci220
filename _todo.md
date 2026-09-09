@@ -25,8 +25,12 @@ Not published (Quarto ignores `_`-prefixed files).
 
 ## PrairieLearn
 
-- [ ] **Push the `pl-ubc-dsci220` commit.** Activity 1 (`class1-truth`) is
-      committed locally but not pushed, so it will not sync to PrairieLearn.
+- [ ] **Publish the 2026W1 course instance.** It is not published, so students
+      cannot reach anything — including Activity 1, which is committed and
+      pushed but invisible to them. Lecture 1's "Before Friday" slide has had
+      its QR code and link removed for this reason; restore them once it is live.
+- [ ] Re-date Activity 1 once published. `class1-truth` currently allows full
+      credit only between Wed Sep 9 12:00 and Fri Sep 11 10:59.
 - [ ] Port the 2025W1 tutorials, examlets and practice sets into the 2026W1
       instance — it currently holds only Activity 1.
 - [ ] Fill in per-assessment links in `data/additional-resources.csv`; the exam
