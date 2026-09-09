@@ -49,9 +49,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-713b0136666c1ca4047413a70816f99a.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-f940847dab5a61eea1228625ffd75757.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-fb472fd2029dca8955286876ffb892b9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-f940847dab5a61eea1228625ffd75757.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-e379889d851794823266f26a03275dc0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-04c4c5efba1a99e4fc989928d879a459.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-e379889d851794823266f26a03275dc0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script src="site_libs/quarto-contrib/iconify-3.0.0/iconify-icon.min.js"></script>
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
@@ -91,7 +91,7 @@ ul.task-list li input[type="checkbox"] {
     const options = {
       valueNames: ['listing-title','listing-subtitle','listing-description','listing-date','listing-image','listing-reading-time',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-categories"],
+      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -140,7 +140,7 @@ window.Quarto = {
 </script>
 
 <link rel="stylesheet" href="styles/styles.css">
-<link rel="alternate" type="application/rss+xml" title="DSCI 220: Discrete Math for Data Science" href="announcements.xml" data-external="1"><meta property="og:title" content="Announcements – DSCI 220: Discrete Math for Data Science">
+<link rel="alternate" type="application/rss+xml" title="{{< var course.full-title >}}" href="announcements.xml" data-external="1"><meta property="og:title" content="Announcements – DSCI 220: Discrete Math for Data Science">
 <meta property="og:site_name" content="DSCI 220: Discrete Math for Data Science">
 <meta name="twitter:title" content="Announcements – DSCI 220: Discrete Math for Data Science">
 <meta name="twitter:card" content="summary">
@@ -394,19 +394,31 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="https://canvas.ubc.ca/courses/169809" class="sidebar-item-text sidebar-link">
+  <a href="./getting-started.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Getting started</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./setup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Setup</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="https://canvas.ubc.ca/courses/191848" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Canvas</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="https://piazza.com/ubc.ca/winterterm12025/dsci220" class="sidebar-item-text sidebar-link">
+  <a href="https://piazza.com/ubc.ca/winterterm12026/dsci220" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Piazza</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="https://us.prairielearn.com/pl/course_instance/186238" class="sidebar-item-text sidebar-link">
+  <a href="https://us.prairielearn.com/pl/course_instance/209866" class="sidebar-item-text sidebar-link">
  <span class="menu-text">PrairieLearn</span></a>
   </div>
 </li>
@@ -418,8 +430,8 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="https://cbtf.ubc.ca/students/" class="sidebar-item-text sidebar-link">
- <span class="menu-text">CBTF</span></a>
+  <a href="https://orca.ubc.ca/students/" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">ORCA</span></a>
   </div>
 </li>
       </ul>
@@ -430,6 +442,12 @@ window.Quarto = {
  <span class="menu-text">About</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./faq.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">FAQ</span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -437,7 +455,7 @@ window.Quarto = {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(0)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(1)</span></div><div class="category" data-category="b3JpZW50YXRpb24=">orientation <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cmVzb3VyY2U=">resource <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -467,7 +485,32 @@ window.Quarto = {
 
 <div class="quarto-listing quarto-listing-container-default" id="listing-listing">
 <div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-categories="b3JpZW50YXRpb24lMkNyZXNvdXJjZQ==" data-listing-date-sort="1788825600000" data-listing-file-modified-sort="1788946659234" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="88">
+<div class="thumbnail"><a href="./posts/00_welcome/index.html" class="no-external">
 
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./posts/00_welcome/index.html" class="no-external">Welcome to DSCI 220!</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./posts/00_welcome/index.html" class="no-external"></a>
+</div>
+<div class="delink listing-description"><a href="./posts/00_welcome/index.html" class="no-external">
+<p>Getting your bearings in DSCI 220</p>
+</a></div>
+</div>
+<div class="metadata">
+<a href="./posts/00_welcome/index.html" class="no-external">
+<div class="listing-date">
+Sep 8, 2026
+</div>
+<div class="listing-reading-time">1 min</div>
+</a>
+</div>
+</div>
 </div>
 <div class="listing-no-matching d-none">No matching items</div>
 </div></main> <!-- /main -->

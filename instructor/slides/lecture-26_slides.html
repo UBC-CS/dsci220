@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/quarto-contrib/live-runtime/live-runtime.js" type="module"></script>
+<link href="../site_libs/quarto-contrib/live-runtime/live-runtime.css" rel="stylesheet">
+<script src="../site_libs/quarto-contrib/iconify-3.0.0/iconify-icon.min.js"></script><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.10.18">
+
+  <title>{{&lt; var course.full-title &gt;}}---Instructor version – NFAs, continued</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-1d8f29663442e8ef848d57f260e887b2.css">
+  <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-drop/drop-runtime.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+  <script type="module" src="../site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
+  <link href="../site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
+<meta property="og:title" content="NFAs, continued – DSCI 220: Discrete Math for Data Science—Instructor version">
+<meta property="og:description" content="Lecture 26, DSCI 220, 2026W1">
+<meta property="og:site_name" content="DSCI 220: Discrete Math for Data Science—Instructor version">
+<meta name="twitter:title" content="NFAs, continued – DSCI 220: Discrete Math for Data Science—Instructor version">
+<meta name="twitter:description" content="Lecture 26, DSCI 220, 2026W1">
+<meta name="twitter:card" content="summary">
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">NFAs, continued</h1>
+  <p class="subtitle">Lecture 26, DSCI 220, 2026W1</p>
+
+<div class="quarto-title-authors">
+</div>
+
+</section>
+<section id="announcements" class="slide level2">
+<h2>Announcements</h2>
+<style>
+.small { font-size: .9rem; }
+.tiny { font-size: .8rem; }
+.card { border: 2px solid #ddd; border-radius: 12px; padding: 14px 16px; margin: 10px 0; }
+.center { text-align:center; }
+.rule { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+</style>
+</section>
+<section>
+<section id="regular-expressions-and-dfas" class="title-slide slide level1 center">
+<h1>Regular Expressions and DFAs</h1>
+
+</section>
+<section id="closure-tricks" class="slide level2">
+<h2>Closure Tricks</h2>
+<p>What’s <em>closure</em>?</p>
+<ul>
+<li><strong>Complement</strong>: make the DFA <strong>total</strong> (add SINK if needed), then flip accept to non-accept, and vice-versa.</li>
+<li><strong>Union / Intersection</strong>:<br>
+States are pairs <code>(p,q)</code>
+<ul>
+<li>Union accepts if <code>p ∈ F1</code> <strong>or</strong> <code>q ∈ F2</code></li>
+<li>Intersection accepts if <code>p ∈ F1</code> <strong>and</strong> <code>q ∈ F2</code></li>
+</ul></li>
+<li><strong>Difference</strong>: <code>L1 - L2 =</code> <span class="math inline">\(L1\cap L2^c\)</span></li>
+</ul>
+</section>
+<section id="exercise" class="slide level2">
+<h2>Exercise</h2>
+<p>Build a DFA for the <strong>union</strong> of:</p>
+<ul>
+<li><code>L1</code>: contains <code>11</code> (use the machine we built)</li>
+<li><code>L2</code>: ends with <code>00</code> (three states: <code>T, T0, T00</code>)</li>
+</ul>
+<p><strong>Hint:</strong> sketch product states <code>(S_i, T_j)</code> and mark <code>accept</code> pairs for union (or).</p>
+</section></section>
+<section>
+<section id="non-deterministic-fa" class="title-slide slide level1 center">
+<h1>Non-deterministic FA</h1>
+
+</section>
+<section id="nfas" class="slide level2">
+<h2>NFAs</h2>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><strong>DFA:</strong> exactly one transition for each input symbol in each state.<br>
+<strong>NFA:</strong> may have <strong>multiple</strong> choices on a symbol and <strong><span class="math inline">\(\varepsilon\)</span>-moves</strong> (move without consuming input).</p>
+<p><strong>Acceptance:</strong> a string is accepted if <strong>there exists</strong> a path that reads all characters and lands in an accept state.</p>
+<aside class="notes">
+<p>Say: “NFA is a modeling convenience. We’ll lean on that for regex to NFA construction.”</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="notes-on-nfas" class="slide level2">
+<h2>Notes on NFAs</h2>
+<ul>
+<li><p><strong>Direct from a regex:</strong> Translate patterns piece-by-piece without tricky state discovery.</p></li>
+<li><p><strong>Local “gadgets”:</strong> Build tiny NFAs for <strong>literal</strong>, <strong>union</strong> (<span class="math inline">\(|\)</span>), <strong>concatenation</strong>, <strong>Kleene star</strong> (<span class="math inline">\(^*\)</span>) and wire together with <span class="math inline">\(\varepsilon\)</span>.</p></li>
+<li><p><strong>NFAs and DFAs have the same power!!</strong> (Kleene’s Theorem)</p></li>
+<li><p><strong>Build a DFA from NFA</strong> algorithmically if you need one.</p></li>
+</ul>
+<aside class="notes">
+<p>Message: “We model the branching in the regex directly; acceptance means at least one successful path.”</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="regex-to-nfa-gadgets" class="slide level2 smaller">
+<h2>Regex to NFA Gadgets</h2>
+<div class="card">
+<div class="columns">
+<div class="column" style="width:50%;">
+<ol type="1">
+<li>Literal ‘a’</li>
+</ol>
+<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 420 140" width="90%" role="img" aria-label="Literal a NFA gadget">
+<defs> <marker id="arrow-lit" markerwidth="12" markerheight="12" refx="10" refy="6" orient="auto"> <path d="M0,0 L12,6 L0,12 Z" fill="#222"></path> </marker> <style> .state { fill:#fff; stroke:#222; stroke-width:2.5; } .accept { fill:none; stroke:#222; stroke-width:2.5; } .accept2{ fill:none; stroke:#222; stroke-width:2.5; } .label { font: 600 16px ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial; fill:#111; } .wire { stroke:#222; stroke-width:2.5; fill:none; } </style> </defs> <circle cx="80" cy="70" r="22" class="state"></circle> <circle cx="340" cy="70" r="22" class="accept"></circle> <circle cx="340" cy="70" r="16" class="accept2"></circle> <path d="M 102 70 H 318" class="wire" marker-end="url(#arrow-lit)"></path> <text x="210" y="55" class="label">a</text> <text x="80" y="110" class="label">s</text> <text x="340" y="110" class="label">f</text>
+</svg>
+<ol start="2" type="1">
+<li>Union: R | S</li>
+</ol>
+<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 720 240" width="90%" role="img" aria-label="Union NFA gadget for R or S">
+<defs> <marker id="arrow-un" markerwidth="12" markerheight="12" refx="10" refy="6" orient="auto"> <path d="M0,0 L12,6 L0,12 Z" fill="#222"></path> </marker> <style> .state { fill:#fff; stroke:#222; stroke-width:2.5; } .accept{ fill:none; stroke:#222; stroke-width:2.5; } .accept2{ fill:none; stroke:#222; stroke-width:2.5; } .box { fill:#f8fbff; stroke:#2b4ea2; stroke-width:2.5; rx:12; ry:12; } .port { fill:#fff; stroke:#2b4ea2; stroke-width:2; } .wire { stroke:#222; stroke-width:2.5; fill:none; } .label { font: 600 15px ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial; fill:#111; } .litev { font: 600 14px ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial; fill:#444; } </style> </defs> <circle cx="80" cy="120" r="22" class="state"></circle> <circle cx="640" cy="120" r="22" class="accept"></circle> <circle cx="640" cy="120" r="16" class="accept2"></circle> <text x="80" y="210" class="label">s</text> <text x="640" y="210" class="label">f</text> <rect x="270" y="35" width="160" height="70" class="box"></rect> <text x="350" y="78" text-anchor="middle" class="label">[ R ]</text> <circle cx="270" cy="70" r="6" class="port"></circle> <circle cx="430" cy="70" r="6" class="port"></circle> <rect x="270" y="135" width="160" height="70" class="box"></rect> <text x="350" y="178" text-anchor="middle" class="label">[ S ]</text> <circle cx="270" cy="170" r="6" class="port"></circle> <circle cx="430" cy="170" r="6" class="port"></circle> <path d="M 102 120 C 170 120, 200 90, 264 74" class="wire" marker-end="url(#arrow-un)"></path> <path d="M 102 120 C 170 120, 200 150, 264 166" class="wire" marker-end="url(#arrow-un)"></path> <text x="190" y="95" class="litev">ε</text> <text x="190" y="158" class="litev">ε</text> <path d="M 436 70 C 510 70, 560 100, 620 114" class="wire" marker-end="url(#arrow-un)"></path> <path d="M 436 170 C 510 170, 560 140, 620 126" class="wire" marker-end="url(#arrow-un)"></path> <text x="530" y="62" class="litev">ε</text> <text x="530" y="186" class="litev">ε</text>
+</svg>
+</div><div class="column" style="width:50%;">
+<ol start="3" type="1">
+<li>Concatenation: RS</li>
+</ol>
+<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 720 180" width="90%" role="img" aria-label="Concatenation NFA gadget for R followed by S">
+<defs> <marker id="arrow-con" markerwidth="12" markerheight="12" refx="10" refy="6" orient="auto"> <path d="M0,0 L12,6 L0,12 Z" fill="#222"></path> </marker> <style> .state { fill:#fff; stroke:#222; stroke-width:2.5; } .accept{ fill:none; stroke:#222; stroke-width:2.5; } .accept2{ fill:none; stroke:#222; stroke-width:2.5; } .box { fill:#f8fbff; stroke:#2b4ea2; stroke-width:2.5; rx:12; ry:12; } .port { fill:#fff; stroke:#2b4ea2; stroke-width:2; } .wire { stroke:#222; stroke-width:2.5; fill:none; } .label { font: 600 15px ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial; fill:#111; } .litev { font: 600 14px ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial; fill:#444; } </style> </defs> <circle cx="80" cy="90" r="22" class="state"></circle> <circle cx="640" cy="90" r="22" class="accept"></circle> <circle cx="640" cy="90" r="16" class="accept2"></circle> <text x="80" y="160" class="label">s</text> <text x="640" y="160" class="label">f</text> <rect x="160" y="50" width="180" height="80" class="box"></rect> <text x="250" y="98" text-anchor="middle" class="label">[ R ]</text> <circle cx="160" cy="90" r="6" class="port"></circle> <circle cx="340" cy="90" r="6" class="port"></circle> <rect x="360" y="50" width="180" height="80" class="box"></rect> <text x="450" y="98" text-anchor="middle" class="label">[ S ]</text> <circle cx="360" cy="90" r="6" class="port"></circle> <circle cx="540" cy="90" r="6" class="port"></circle> <path d="M 102 90 H 154" class="wire" marker-end="url(#arrow-con)"></path> <path d="M 546 90 H 618" class="wire" marker-end="url(#arrow-con)"></path> <path d="M 346 90 H 354" class="wire" marker-end="url(#arrow-con)"></path> <text x="350" y="75" class="litev">ε</text>
+</svg>
+<ol start="4" type="1">
+<li>Kleene star: R*</li>
+</ol>
+<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 780 260" width="90%" role="img" aria-label="Kleene star NFA gadget for R*">
+<defs> <marker id="arrow-star" markerwidth="12" markerheight="12" refx="10" refy="6" orient="auto"> <path d="M0,0 L12,6 L0,12 Z" fill="#222"></path> </marker> <style> .state { fill:#fff; stroke:#222; stroke-width:2.5; } .accept{ fill:none; stroke:#222; stroke-width:2.5; } .accept2{ fill:none; stroke:#222; stroke-width:2.5; } .box { fill:#f8fbff; stroke:#2b4ea2; stroke-width:2.5; rx:12; ry:12; } .port { fill:#fff; stroke:#2b4ea2; stroke-width:2; } .wire { stroke:#222; stroke-width:2.5; fill:none; } .label { font: 600 15px ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial; fill:#111; } .litev { font: 600 14px ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial; fill:#444; } </style> </defs> <circle cx="80" cy="130" r="22" class="state"></circle> <circle cx="700" cy="130" r="22" class="accept"></circle> <circle cx="700" cy="130" r="16" class="accept2"></circle> <text x="80" y="220" class="label">s</text> <text x="700" y="220" class="label">f</text> <rect x="320" y="90" width="160" height="80" class="box"></rect> <text x="400" y="132" text-anchor="middle" class="label">[ R ]</text> <circle cx="320" cy="130" r="6" class="port"></circle> <circle cx="480" cy="130" r="6" class="port"></circle> <path d="M 102 130 C 180 70, 600 70, 682 122" class="wire" marker-end="url(#arrow-star)"></path> <text x="390" y="70" class="litev">ε (empty)</text> <path d="M 102 130 C 170 130, 240 130, 312 130" class="wire" marker-end="url(#arrow-star)"></path> <text x="210" y="118" class="litev">ε</text> <path d="M 486 130 C 560 130, 620 130, 682 130" class="wire" marker-end="url(#arrow-star)"></path> <text x="585" y="118" class="litev">ε</text> <path d="M 478 126 C 540 80, 540 40, 400 40 C 260 40, 260 80, 322 126" class="wire" marker-end="url(#arrow-star)"></path> <text x="400" y="28" class="litev">ε</text>
+</svg>
+</div></div>
+</div>
+</section>
+<section id="example-1" class="slide level2">
+<h2>Example 1</h2>
+<p><code>^(ab|ba)*$</code></p>
+</section>
+<section id="example-2" class="slide level2">
+<h2>Example 2</h2>
+<p><code>^(0|1)*11(0|1)*$</code></p>
+</section>
+<section id="example-3" class="slide level2 activity">
+<h2>Example 3</h2>
+<p><strong>Task:</strong> Sketch an NFA for <code>^1(01|10)*0$</code> using only the four gadgets.</p>
+<p><strong>Plan:</strong> literal <code>1</code> … union(<code>01</code>,<code>10</code>) … star … literal <code>0</code>.</p>
+</section>
+<section id="last-puzzle" class="slide level2">
+<h2>Last Puzzle:</h2>
+<p><span class="math inline">\(0^n1^n\)</span></p>
+</section></section>
+<section>
+<section id="beyond-regular-context-free-grammars" class="title-slide slide level1 center">
+<h1>Beyond Regular: Context Free Grammars</h1>
+
+</section>
+<section id="why-regexdfas-cant-do-0n1n" class="slide level2">
+<h2>Why Regex/DFAs Can’t Do <span class="math inline">\(0^n1^n\)</span></h2>
+<p><strong>Language:</strong> <span class="math inline">\(\{\,0^n1^n : n\ge 0\,\}\)</span> (equal 0s followed by equal 1s)</p>
+<p><strong>Finite-state limitation:</strong></p>
+<p>Assume a DFA exists that accepts <span class="math inline">\(0^n1^n\)</span>, and let <span class="math inline">\(k\)</span> denote its number of states.</p>
+<p>Among the <span class="math inline">\(k+1\)</span> prefixes <span class="math inline">\(0^0, 0^1, \dots, 0^k\)</span> two must land in the <strong>same</strong> state.</p>
+<p>From those two prefixes, feed the <strong>same</strong> number of 1s. One string should accept, and the other should not.</p>
+<aside class="notes">
+<p>Not all languages are regular! No Pumping Lemma needed; it’s a pigeonhole/“can’t count unboundedly” story.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="cfg-review" class="slide level2">
+<h2>CFG Review</h2>
+<p>A <strong>context-free grammar (CFG)</strong> has:</p>
+<ul>
+<li><strong>Terminals</strong> (alphabet),</li>
+<li><strong>Nonterminals</strong> (variables),</li>
+<li><strong>Start symbol</strong>,</li>
+<li><strong>Productions</strong> like <span class="math inline">\(S \to 0S1 \mid \varepsilon\)</span>.</li>
+</ul>
+<p>Notes:</p>
+<ul>
+<li>A <strong>derivation</strong> rewrites nonterminals to produce a string.</li>
+<li>A <strong>parse tree</strong> is evidence of how a string was generated.</li>
+<li>The class of Regular Languages <span class="math inline">\(\subset\)</span> the class of Context-Free Languages</li>
+</ul>
+<aside class="notes">
+<p>Connect to your earlier WFF grammar: “That was a CFG all along.”</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="grammar-for-0n1n" class="slide level2">
+<h2>Grammar for <span class="math inline">\(0^n1^n\)</span> ?</h2>
+<p><strong>Grammar:</strong><br>
+<span class="math inline">\(S \to 0S1 \ \mid\ \varepsilon\)</span></p>
+<p><strong>Derivations:</strong></p>
+<ul>
+<li>For <code>01</code>: <span class="math display">\[
+S \Rightarrow 0S1 \Rightarrow 01
+\]</span></li>
+<li>For <code>000111</code>: <span class="math display">\[
+S \Rightarrow 0S1 \Rightarrow 00S11 \Rightarrow 000S111 \Rightarrow 000111
+\]</span></li>
+</ul>
+<p><strong>Parse tree shape for <code>0011</code>:</strong></p>
+</section>
+<section id="closure-facts" class="slide level2">
+<h2>Closure Facts</h2>
+<p>If <span class="math inline">\(L_1, L_2\)</span> are context-free:</p>
+<ul>
+<li><strong>Union:</strong> context-free via new start <span class="math inline">\(S \to S_1 \mid S_2\)</span></li>
+<li><strong>Concatenation:</strong> context-free via <span class="math inline">\(S \to S_1 S_2\)</span></li>
+<li><strong>Kleene star:</strong> context-free via <span class="math inline">\(S \to SS \mid \varepsilon\)</span></li>
+</ul>
+<p><em>(Intersection with regular languages is CF; general intersection/complement are not.)</em></p>
+<aside class="notes">
+<p>Tie back to set algebra &amp; your earlier closures with DFAs.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
+<section id="json-as-a-grammar" class="title-slide slide level1 center">
+<h1>JSON as a Grammar</h1>
+
+</section>
+<section id="a-basic-json-cfg" class="slide level2 smaller">
+<h2>A Basic JSON CFG</h2>
+<p><a href="https://www.json.org/json-en.html" class="uri">https://www.json.org/json-en.html</a></p>
+<p>We ignore lexical details and focus on <strong>structure</strong>.</p>
+<ul>
+<li>Value → Object | Array | String | Number | <code>true</code> | <code>false</code> | <code>null</code><br>
+</li>
+<li>Object → <code>{</code> Members <code>}</code> | <code>{}</code><br>
+</li>
+<li>Members → Pair | Pair <code>,</code> Members<br>
+</li>
+<li>Pair → String <code>:</code> Value<br>
+</li>
+<li>Array → <code>[</code> Elements <code>]</code> | <code>[]</code><br>
+</li>
+<li>Elements → Value | Value <code>,</code> Elements</li>
+</ul>
+<p><strong>Example:</strong> Is <code>{"a":[1,2,{"b":null}]}</code> in the language?</p>
+<aside class="notes">
+<p>Point: regex can’t enforce <strong>balanced, nested</strong> delimiters; CFGs can.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+
+
+<script type="ojs-module-contents">
+eyJjb250ZW50cyI6W119
+</script>
+<div id="exercise-loading-indicator" class="exercise-loading-indicator d-none d-flex align-items-center gap-2">
+<div id="exercise-loading-status" class="d-flex gap-2">
+
+</div>
+<div class="spinner-grow spinner-grow-sm">
+
+</div>
+</div>
+<script type="vfs-file">
+W10=
+</script>
+</section></section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-drop/drop-runtime.js"></script>
+  <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': false,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true},
+'drop': {"button":true,"shortcut":"`","engine":"pyodide","webr":{"packages":[]},"pyodide":{"packages":[]}},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: true,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: false,
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: false,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, RevealDrop, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script type="ojs-module-contents">
+    eyJjb250ZW50cyI6W119
+    </script>
+    <script type="module">
+    if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
+    window._ojs.paths.runtimeToDoc = "../../slides";
+    window._ojs.paths.runtimeToRoot = "../..";
+    window._ojs.paths.docToRoot = "..";
+    window._ojs.selfContained = false;
+    window._ojs.runtime.interpretFromScriptTags();
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp("https:\/\/ubc-cs\.github\.io\/dsci220");
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
+
+</body></html>

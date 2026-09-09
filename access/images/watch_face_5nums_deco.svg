@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="480" viewBox="0 0 480 480">
+<defs>
+<radialGradient id="decoDial" cx="50%" cy="45%" r="70%">  <stop offset="0%" stop-color="#161a22"/>  <stop offset="100%" stop-color="#0d0f12"/></radialGradient>
+<linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="0%">  <stop offset="0%" stop-color="#d4af37"/>  <stop offset="50%" stop-color="#e6e6e6"/>  <stop offset="100%" stop-color="#d4af37"/></linearGradient>
+</defs>
+<circle cx="240.0" cy="240.0" r="228.8" fill="#0d0f12" stroke="#d4af37" stroke-width="6"/>
+<circle cx="240.0" cy="240.0" r="220.8" fill="url(#decoDial)" stroke="#1a1f28" stroke-width="2"/>
+<path d="M 273.34,50.92 A 192.00,192.00 0 0 1 429.08,206.66" fill="none" stroke="url(#goldGrad)" stroke-width="1.5" opacity="0.9"/>
+<path d="M 272.99,52.89 A 190.00,190.00 0 0 1 427.11,207.01" fill="none" stroke="url(#goldGrad)" stroke-width="1.5" opacity="0.8"/>
+<path d="M 272.65,54.86 A 188.00,188.00 0 0 1 425.14,207.35" fill="none" stroke="url(#goldGrad)" stroke-width="1.5" opacity="0.7"/>
+<path d="M 272.30,56.83 A 186.00,186.00 0 0 1 423.17,207.70" fill="none" stroke="url(#goldGrad)" stroke-width="1.5" opacity="0.6"/>
+<path d="M 429.08,273.34 A 192.00,192.00 0 0 1 273.34,429.08" fill="none" stroke="url(#goldGrad)" stroke-width="1.5" opacity="0.9"/>
+<path d="M 427.11,272.99 A 190.00,190.00 0 0 1 272.99,427.11" fill="none" stroke="url(#goldGrad)" stroke-width="1.5" opacity="0.8"/>
+<path d="M 425.14,272.65 A 188.00,188.00 0 0 1 272.65,425.14" fill="none" stroke="url(#goldGrad)" stroke-width="1.5" opacity="0.7"/>
+<path d="M 423.17,272.30 A 186.00,186.00 0 0 1 272.30,423.17" fill="none" stroke="url(#goldGrad)" stroke-width="1.5" opacity="0.6"/>
+<path d="M 206.66,429.08 A 192.00,192.00 0 0 1 50.92,273.34" fill="none" stroke="url(#goldGrad)" stroke-width="1.5" opacity="0.9"/>
+<path d="M 207.01,427.11 A 190.00,190.00 0 0 1 52.89,272.99" fill="none" stroke="url(#goldGrad)" stroke-width="1.5" opacity="0.8"/>
+<path d="M 207.35,425.14 A 188.00,188.00 0 0 1 54.86,272.65" fill="none" stroke="url(#goldGrad)" stroke-width="1.5" opacity="0.7"/>
+<path d="M 207.70,423.17 A 186.00,186.00 0 0 1 56.83,272.30" fill="none" stroke="url(#goldGrad)" stroke-width="1.5" opacity="0.6"/>
+<path d="M 50.92,206.66 A 192.00,192.00 0 0 1 206.66,50.92" fill="none" stroke="url(#goldGrad)" stroke-width="1.5" opacity="0.9"/>
+<path d="M 52.89,207.01 A 190.00,190.00 0 0 1 207.01,52.89" fill="none" stroke="url(#goldGrad)" stroke-width="1.5" opacity="0.8"/>
+<path d="M 54.86,207.35 A 188.00,188.00 0 0 1 207.35,54.86" fill="none" stroke="url(#goldGrad)" stroke-width="1.5" opacity="0.7"/>
+<path d="M 56.83,207.70 A 186.00,186.00 0 0 1 207.70,56.83" fill="none" stroke="url(#goldGrad)" stroke-width="1.5" opacity="0.6"/>
+<line x1="240.00" y1="182.40" x2="240.00" y2="28.80" stroke="#b08a25" stroke-width="1.2" opacity="0.55"/>
+<line x1="251.98" y1="183.66" x2="283.91" y2="33.42" stroke="#8b7e5b" stroke-width="0.8" opacity="0.55"/>
+<line x1="263.43" y1="187.38" x2="325.90" y2="47.06" stroke="#8b7e5b" stroke-width="0.8" opacity="0.55"/>
+<line x1="273.86" y1="193.40" x2="364.14" y2="69.14" stroke="#b08a25" stroke-width="1.2" opacity="0.55"/>
+<line x1="282.81" y1="201.46" x2="396.95" y2="98.68" stroke="#8b7e5b" stroke-width="0.8" opacity="0.55"/>
+<line x1="289.88" y1="211.20" x2="422.90" y2="134.40" stroke="#8b7e5b" stroke-width="0.8" opacity="0.55"/>
+<line x1="294.78" y1="222.20" x2="440.86" y2="174.74" stroke="#b08a25" stroke-width="1.2" opacity="0.55"/>
+<line x1="297.28" y1="233.98" x2="450.04" y2="217.92" stroke="#8b7e5b" stroke-width="0.8" opacity="0.55"/>
+<line x1="297.28" y1="246.02" x2="450.04" y2="262.08" stroke="#8b7e5b" stroke-width="0.8" opacity="0.55"/>
+<line x1="294.78" y1="257.80" x2="440.86" y2="305.26" stroke="#b08a25" stroke-width="1.2" opacity="0.55"/>
+<line x1="289.88" y1="268.80" x2="422.90" y2="345.60" stroke="#8b7e5b" stroke-width="0.8" opacity="0.55"/>
+<line x1="282.81" y1="278.54" x2="396.95" y2="381.32" stroke="#8b7e5b" stroke-width="0.8" opacity="0.55"/>
+<line x1="273.86" y1="286.60" x2="364.14" y2="410.86" stroke="#b08a25" stroke-width="1.2" opacity="0.55"/>
+<line x1="263.43" y1="292.62" x2="325.90" y2="432.94" stroke="#8b7e5b" stroke-width="0.8" opacity="0.55"/>
+<line x1="251.98" y1="296.34" x2="283.91" y2="446.58" stroke="#8b7e5b" stroke-width="0.8" opacity="0.55"/>
+<line x1="240.00" y1="297.60" x2="240.00" y2="451.20" stroke="#b08a25" stroke-width="1.2" opacity="0.55"/>
+<line x1="228.02" y1="296.34" x2="196.09" y2="446.58" stroke="#8b7e5b" stroke-width="0.8" opacity="0.55"/>
+<line x1="216.57" y1="292.62" x2="154.10" y2="432.94" stroke="#8b7e5b" stroke-width="0.8" opacity="0.55"/>
+<line x1="206.14" y1="286.60" x2="115.86" y2="410.86" stroke="#b08a25" stroke-width="1.2" opacity="0.55"/>
+<line x1="197.19" y1="278.54" x2="83.05" y2="381.32" stroke="#8b7e5b" stroke-width="0.8" opacity="0.55"/>
+<line x1="190.12" y1="268.80" x2="57.10" y2="345.60" stroke="#8b7e5b" stroke-width="0.8" opacity="0.55"/>
+<line x1="185.22" y1="257.80" x2="39.14" y2="305.26" stroke="#b08a25" stroke-width="1.2" opacity="0.55"/>
+<line x1="182.72" y1="246.02" x2="29.96" y2="262.08" stroke="#8b7e5b" stroke-width="0.8" opacity="0.55"/>
+<line x1="182.72" y1="233.98" x2="29.96" y2="217.92" stroke="#8b7e5b" stroke-width="0.8" opacity="0.55"/>
+<line x1="185.22" y1="222.20" x2="39.14" y2="174.74" stroke="#b08a25" stroke-width="1.2" opacity="0.55"/>
+<line x1="190.12" y1="211.20" x2="57.10" y2="134.40" stroke="#8b7e5b" stroke-width="0.8" opacity="0.55"/>
+<line x1="197.19" y1="201.46" x2="83.05" y2="98.68" stroke="#8b7e5b" stroke-width="0.8" opacity="0.55"/>
+<line x1="206.14" y1="193.40" x2="115.86" y2="69.14" stroke="#b08a25" stroke-width="1.2" opacity="0.55"/>
+<line x1="216.57" y1="187.38" x2="154.10" y2="47.06" stroke="#8b7e5b" stroke-width="0.8" opacity="0.55"/>
+<line x1="228.02" y1="183.66" x2="196.09" y2="33.42" stroke="#8b7e5b" stroke-width="0.8" opacity="0.55"/>
+<polygon points="240.00,33.60 219.89,48.65 260.11,48.65" fill="url(#goldGrad)" stroke="#b08a25" stroke-width="1"/>
+<polygon points="436.30,176.22 415.77,161.74 428.20,200.00" fill="url(#goldGrad)" stroke="#b08a25" stroke-width="1"/>
+<polygon points="361.32,406.98 368.74,382.98 336.20,406.62" fill="url(#goldGrad)" stroke="#b08a25" stroke-width="1"/>
+<polygon points="118.68,406.98 143.80,406.62 111.26,382.98" fill="url(#goldGrad)" stroke="#b08a25" stroke-width="1"/>
+<polygon points="43.70,176.22 51.80,200.00 64.23,161.74" fill="url(#goldGrad)" stroke="#b08a25" stroke-width="1"/>
+<text x="240.00" y="81.60" text-anchor="middle" dominant-baseline="middle" font-family="Montserrat, Futura, Avenir-Next, Gill Sans, Arial, sans-serif" font-size="67" fill="#d4af37" style="letter-spacing:1px; font-weight:700; text-shadow: 0 1px 0 #000;">0</text>
+<text x="390.65" y="191.05" text-anchor="middle" dominant-baseline="middle" font-family="Montserrat, Futura, Avenir-Next, Gill Sans, Arial, sans-serif" font-size="67" fill="#d4af37" style="letter-spacing:1px; font-weight:700; text-shadow: 0 1px 0 #000;">1</text>
+<text x="333.11" y="368.15" text-anchor="middle" dominant-baseline="middle" font-family="Montserrat, Futura, Avenir-Next, Gill Sans, Arial, sans-serif" font-size="67" fill="#d4af37" style="letter-spacing:1px; font-weight:700; text-shadow: 0 1px 0 #000;">2</text>
+<text x="146.89" y="368.15" text-anchor="middle" dominant-baseline="middle" font-family="Montserrat, Futura, Avenir-Next, Gill Sans, Arial, sans-serif" font-size="67" fill="#d4af37" style="letter-spacing:1px; font-weight:700; text-shadow: 0 1px 0 #000;">3</text>
+<text x="89.35" y="191.05" text-anchor="middle" dominant-baseline="middle" font-family="Montserrat, Futura, Avenir-Next, Gill Sans, Arial, sans-serif" font-size="67" fill="#d4af37" style="letter-spacing:1px; font-weight:700; text-shadow: 0 1px 0 #000;">4</text>
+<circle cx="240.0" cy="240.0" r="28.799999999999997" fill="#0d0f12" stroke="url(#goldGrad)" stroke-width="3"/>
+<line x1="199.36" y1="76.99" x2="280.64" y2="403.01" stroke="#d4af37" stroke-width="1" opacity="0.35"/>
+<line x1="240.00" y1="72.00" x2="240.00" y2="408.00" stroke="#d4af37" stroke-width="1" opacity="0.35"/>
+<line x1="280.64" y1="76.99" x2="199.36" y2="403.01" stroke="#d4af37" stroke-width="1" opacity="0.35"/>
+</svg>

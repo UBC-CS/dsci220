@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>{{&lt; var course.full-title &gt;}}---TA version</title>
+<link>https://ubc-cs.github.io/dsci220/announcements.html</link>
+<atom:link href="https://ubc-cs.github.io/dsci220/announcements.xml" rel="self" type="application/rss+xml"/>
+<description>Course website for {{&lt; var course.code &gt;}}
+</description>
+<generator>quarto-1.10.18</generator>
+<lastBuildDate>Tue, 08 Sep 2026 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>Welcome to DSCI 220!</title>
+  <dc:creator>{{&lt; var instructor.name &gt;}}</dc:creator>
+  <link>https://ubc-cs.github.io/dsci220/posts/00_welcome/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>I am excited to welcome you to DSCI 220! This short announcement is here to get you oriented to this course website and point out some important resources. The landing page contains the <a href="../../index.html">schedule</a> where you can see all the things happening in the weeks to come and the most recent post in <a href="../../announcements.html">announcements</a>. Then take a look at the <a href="../../syllabus.html">syllabus</a> to gain an overview of the course and its requirements, but we will discuss it in the first class.</p>
+<p>See you in the first class on Wednesday, September 9.</p>
+
+
+
+ ]]></description>
+  <category>orientation</category>
+  <category>resource</category>
+  <guid>https://ubc-cs.github.io/dsci220/posts/00_welcome/</guid>
+  <pubDate>Tue, 08 Sep 2026 00:00:00 GMT</pubDate>
+</item>
+</channel>
+</rss>
