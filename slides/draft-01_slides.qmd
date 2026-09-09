@@ -7,29 +7,53 @@ subtitle: "Draft for Lecture 1, {{< var course.code >}}, {{< var course.term >}}
 
 \
 
-### How to Play
-- Each of you are secretly assigned a role:
-  - **Sage** = always tell the truth (Black)
-  - **Trickster** = always lie (Red)
-- Everyone sees the **packet of 6 cards** and the **fact**.
-- In rounds, each player may ask **yes/no questions** about the fact.
-- Work together: compare answers, spot contradictions.
-- **Goal:** Deduce each person's role!
+### Setup
+- Draw one card from the envelope. Keep it hidden.
+- **Black = Sage.** You always tell the truth.
+- **Red = Trickster.** You always lie.
+- The six cards are printed on the envelope. **Count the red ones** --- that is
+  how many Tricksters your group has.
+- The **fact** on the slip is true.
 
-## &#128260; Round Structure {.smaller}
+### Goal
+Work out who is which. Everyone is on the same side, including the Tricksters.
+
+## &#128260; How to play {.smaller}
 
 \
 
-### 1. Two Info Rounds
-- In each round, take turns asking **one yes/no question** about the fact
+### 1. Questions
+- As a group, agree on **two** yes/no questions.
+- **Every player answers both.**
+- Each question must be true of **at least one** of the six cards you can see.
 
-### 2. Debate Round
-- Compare answers
-- Look for contradictions
+### 2. Debate
+- Compare answers. Look for contradictions.
+- You may **not** say which card you hold, or which role you are.
 
 ### 3. Conclusion
-- Agree on everyone's roles
-- Reveal the cards & roles!
+- Agree on everyone's roles, then reveal.
+
+## &#129535; Asking well {.smaller}
+
+\
+
+You get two questions. Spend them carefully.
+
+\
+
+- Ask about your **card** --- its suit, or its rank.
+
+- Do **not** ask about its **colour**. Try it and see what happens.
+
+\
+
+::: notes
+"Is your card red?" gets no from everyone; "is your card black?" gets yes from
+everyone. Say only that colour questions are a trap, not why --- let them
+predict it. Hold the real method back: if a group stalls, hint that two
+properties which cannot both be true of one card will do it.
+:::
 
 ## What did you just do? {.activity}
 

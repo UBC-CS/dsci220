@@ -52,6 +52,12 @@ twice.
 
 > **Yes to both $\Rightarrow$ Trickster. Yes to at most one $\Rightarrow$ Sage.**
 
+**Keep this off the reference card.** It is the discovery. The card tells them
+only to ask about the card rather than its colour --- necessary, since with two
+questions a wasted round is fatal. **Hint to deploy if a group stalls:** *"try
+two properties that cannot both be true of the same card."* That is enough to
+unlock every packet without handing over the conclusion.
+
 Rank questions work too, but they are weaker alone: suit determines colour,
 rank does not, so a "yes" to a rank question could be a truthful black card
 with the property or a lying red card without it. 14 of the 15 packets have a
@@ -135,11 +141,9 @@ answers.
 
 **Round 3 --- Conclusion.** Agree on who is which, then reveal.
 
-**Asking well.**
+**Asking well.** You get two questions. Spend them carefully.
 
-1. Ask about your **card** --- its suit or its rank. Never about its colour:
-   everyone gives the same answer, so you learn nothing.
-2. Choose two questions that **cannot both be true** of one card.
-3. Anyone who answered yes to both is lying.
+1. Ask about your **card** --- its suit, or its rank.
+2. Do **not** ask about its colour. Try it and see what happens.
 
 ------------------------------------------------------------------------
