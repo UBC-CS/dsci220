@@ -80,7 +80,7 @@ Deliverables for the course include the following components:
 
 4. **Examlets** — Five self-scheduled 50-minute assessments to be completed on PrairieLearn in the Computer Based Testing Facility (CBTF). Rules for the CBTF can be found here: [https://cbtf.ubc.ca/students/](https://cbtf.ubc.ca/students/). You will be given ample practice materials to use in preparation for the examlets.
 
-5. **Final exam** — Like the examlets, the final exam will be self-scheduled within the CBTF. The exam window — approximately 5 days — will be posted later in the term.
+5. **Final exam** — The final exam will be scheduled in the ORCA. The date will be posted here once it is set (*TBC*).
 
 ## Grading and exam policies
 
