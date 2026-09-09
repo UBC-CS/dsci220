@@ -1,6 +1,6 @@
 ---
-title: "Sets, relations, and functions"
-subtitle: "Part II, {{< var course.code >}}, {{< var course.term >}}"
+title: "Topic to be decided"
+subtitle: "Part 2, {{< var course.code >}}, {{< var course.term >}}"
 ---
 
 ## Learning outcomes

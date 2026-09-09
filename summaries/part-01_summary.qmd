@@ -1,6 +1,6 @@
 ---
-title: "Logic and proofs"
-subtitle: "Part I, {{< var course.code >}}, {{< var course.term >}}"
+title: "Topic to be decided"
+subtitle: "Part 1, {{< var course.code >}}, {{< var course.term >}}"
 ---
 
 ## Learning outcomes

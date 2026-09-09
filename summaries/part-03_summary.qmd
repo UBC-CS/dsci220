@@ -1,6 +1,6 @@
 ---
-title: "Graphs"
-subtitle: "Part III, {{< var course.code >}}, {{< var course.term >}}"
+title: "Topic to be decided"
+subtitle: "Part 3, {{< var course.code >}}, {{< var course.term >}}"
 ---
 
 ## Learning outcomes
