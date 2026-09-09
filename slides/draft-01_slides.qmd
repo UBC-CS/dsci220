@@ -203,49 +203,56 @@ what you do with data --- you see what came out and argue about what went in.
 
 ## Two claims {.activity}
 
-Both are claims about this room. Neither was announced.
+\
+
+**A.** Seat 3 is a Trickster.
+
+**B.** Students who come to tutorials do better on examlets.
+
+\
+
+What would it take to **settle** each one?
 
 ::::: columns
 ::: {.column width="50%"}
-**A.** \_\_\_\_\_\_ is a Trickster.
-
-\
-
-How did you establish A?
-
-\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+A: \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 :::
 
 ::: {.column width="50%"}
-**B.** Most questions asked were about the same card.
-
-\
-
-How would you establish B?
-
-\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+B: \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 :::
 :::::
 
 {{< countdown minutes=4 >}}
 
-## Two claims
+::: notes
+Deliberately from different domains. If both came from the card game it would
+look like a fact about card games.
+:::
 
-|  | A | B |
+## Two claims {.smaller}
+
+|  | **A.** Seat 3 is a Trickster | **B.** Tutorials help |
 |---|---|---|
-| Method | find a contradiction | count |
-| Needs | the rules | the questions |
-| If I am wrong | I made an error | I was unlucky |
-| Verdict | settled | supported |
+| The claim is about | six people, in this room | all students, including ones not here yet |
+| Can you examine every case? | **yes** | **no** |
+| So the method is | check them all | sample, and generalise |
+| Verdict | **settled** | **supported** |
+| Being wrong means | you made an error | you were unlucky |
 
 \
 
-Both are arguments. This course is A.
+Both are inference. The method follows from the information --- not the other
+way round.
 
 ::: notes
-Do not oversell. B is what they will do in DSCI 100/220-adjacent stats courses.
-The claim to make later, once they have seen predicates over rows, is that A and
-B run on the same machinery. Not yet.
+The discriminator is whether the evidence reaches as far as the claim does.
+Exact inference is not a different mental operation; it is what inference
+becomes when the domain is small enough to exhaust.
+
+This course is the left-hand column. Most of their degree is the right. Do not
+oversell it yet --- lecture 3 earns it, when the same cereal claim is asked
+first of a dataset and then of every cereal ever manufactured.
 :::
 
 ## Instructional team

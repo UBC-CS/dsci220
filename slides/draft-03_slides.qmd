@@ -161,6 +161,11 @@ Does one counterexample still settle it? \_\_\_\_\_\_
 
 What could you do instead? \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
+\
+
+*Week 1, the card game: you could see all six cards. That is the only reason it
+could be settled.*
+
 {{< countdown minutes=4 >}}
 
 ::: notes
