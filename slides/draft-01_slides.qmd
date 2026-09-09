@@ -182,6 +182,17 @@ for that person --- then the "has it" column is fixed, only two rows remain, and
 those two differ in the output. So the answer they give reports the lie bit
 directly.
 
+**Either value works.** Fix the column to 0 and the top two rows survive, so a
+"yes" means lying. Fix it to 1 and the bottom two survive, so a "no" means
+lying. If a group offers one direction, ask for the other.
+
+In practice known-false is much easier to find. After a "yes" the surviving
+cards are (black with the property) together with (red without it) --- a set
+spanning both colours. Naming a suit or rank none of them has is easy; finding
+something a mixed bag all share is rare. Across eight packets there were 20
+known-false follow-ups available and 1 known-true. Worth asking why, if someone
+notices.
+
 Do not name XOR. The Truth slide introduces the same four-row shape for OR, and
 naming it there lands better.
 
