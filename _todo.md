@@ -2,6 +2,23 @@
 
 Not published (Quarto ignores `_`-prefixed files).
 
+## 🔴 TOMORROW — Wed Sep 9, first class
+
+- [ ] **🖨️ PRINT THE NEW RULE CARDS.** One per group (~12–15). The printable
+      card is the last section of `lesson-plans/lecture-01_lesson-plan.qmd`.
+      The old cards are wrong on three counts: they say *each player* asks a
+      question (it is two questions, agreed by the group), they omit that a
+      question must be true of at least one visible card, and they omit that
+      nobody may state their own card or role during the debate.
+- [ ] **Check Packet 12's fact slip.** If it says *"all spade cards are even"*,
+      replace it — the only spade is Q♠ and a Queen is neither even nor odd.
+      Use the kings/queens fact instead.
+- [ ] **Confirm roles come from the drawn card**, not a separate red/black deal.
+      All 15 packets are uniquely solvable that way; with separate role cards, 6
+      of them are ambiguous.
+- [ ] Decide whether to teach from `lecture-01` (imported 2025 deck, still has
+      the 2025 term table and Piazza link) or `draft-01` (rebuilt for 2026).
+
 ## 🔴 MAKE HW1
 
 **Due Sunday 2026-09-20** (end of week 2). Nothing exists for it yet.
@@ -11,21 +28,6 @@ Not published (Quarto ignores `_`-prefixed files).
 - `homeworks/homework-01_homework.qmd` is a stub that just says "complete it on
   PrairieLearn" — it needs the real link and the problem list
 - Same for HW2–HW5: due Sun **Oct 4**, **Nov 8**, **Nov 22**, **Nov 29**
-
-## Before the first class (Wed Sep 9)
-
-- [ ] **Check Packet 12's fact slip.** If it says *"all spade cards are even"*,
-      replace it — the only spade is Q♠ and a Queen is neither even nor odd.
-      Use the kings/queens fact instead.
-- [ ] **Confirm roles come from the drawn card**, not a separate red/black deal.
-      All 15 packets are uniquely solvable that way; with separate role cards, 6
-      of them are ambiguous.
-- [ ] **Print new reference cards.** Rules changed: two group-agreed questions
-      (not one per player), each question must be true of at least one visible
-      card, and no stating your own card/role during debate. Printable card is
-      at the bottom of `lesson-plans/lecture-01_lesson-plan.qmd`.
-- [ ] Decide whether to teach from `lecture-01` (imported 2025 deck, still has
-      the 2025 term table and Piazza link) or `draft-01` (rebuilt for 2026).
 
 ## PrairieLearn
 
