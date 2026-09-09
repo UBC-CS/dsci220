@@ -49,10 +49,7 @@ Not published (Quarto ignores `_`-prefixed files).
 - [ ] Course part titles and week spans — currently Part 1/2/3 starting weeks
       1, 6, 11, all titled "Topic to be decided".
 - [ ] TA office hours (Marko, Noah, Perrie) — syllabus says *TBC*.
-- [ ] Final exam date — scheduled in the **ORCA** (not the CBTF, unlike the
-      examlets). Date still *TBC*. Syllabus needs the ORCA spelled out on first
-      use, and a link for students, once known. Consider whether the sidebar
-      should carry an ORCA link alongside CBTF.
+- [ ] Final exam window — in the ORCA, same as the examlets. Date still *TBC*.
 - [ ] In-class activities for lectures 2 and 3 — the slots in `draft-02` and
       `draft-03` are marked TBD. Everything must be linked from a slide, since
       activities are not linked anywhere else on the site.
