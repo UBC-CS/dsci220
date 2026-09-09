@@ -20,7 +20,19 @@ Work out who is which. Everyone is on the same side, including the Tricksters.
 
 ## &#128260; How to play {.smaller}
 
-\
+<style>
+  .hint-pop{position:absolute; right:0; bottom:0; width:48%; z-index:20; font-size:0.82em;}
+  .hint-pop summary{cursor:pointer; list-style:none; display:inline-block;
+    background:#2C3E50; color:#fff; padding:0.25em 0.7em; border-radius:0.4em;
+    font-weight:600;}
+  .hint-pop summary::-webkit-details-marker{display:none;}
+  .hint-pop[open] summary{border-bottom-left-radius:0; border-bottom-right-radius:0;}
+  .hint-pop .pop-body{background:#fff; color:#111; border:2px solid #2C3E50;
+    border-radius:0 0.4em 0.4em 0.4em; padding:0.6em 0.9em;
+    box-shadow:0 6px 18px rgba(0,0,0,0.25);}
+  .hint-pop .pop-body ul{margin:0.3em 0 0 1em;}
+  .hint-pop .pop-body li{margin:0.35em 0;}
+</style>
 
 ### 1. Questions
 - As a group, agree on **two** yes/no questions.
@@ -34,21 +46,20 @@ Work out who is which. Everyone is on the same side, including the Tricksters.
 ### 3. Conclusion
 - Agree on everyone's roles, then reveal.
 
-## &#129535; Asking well {.smaller}
-
-\
-
+<details class="hint-pop">
+<summary>&#129535; Asking well</summary>
+<div class="pop-body">
 You get two questions. Spend them carefully.
-
-\
-
-- Ask about your **card** --- its suit, or its rank.
-
-- Do **not** ask about its **colour**. Try it and see what happens.
-
-\
+<ul>
+<li>Ask about your <strong>card</strong> &mdash; its suit, or its rank.</li>
+<li>Do <strong>not</strong> ask about its <strong>colour</strong>. Try it and see what happens.</li>
+</ul>
+</div>
+</details>
 
 ::: notes
+Click "Asking well" bottom right when you are ready, or leave it shut.
+
 "Is your card red?" gets no from everyone; "is your card black?" gets yes from
 everyone. Say only that colour questions are a trap, not why --- let them
 predict it. Hold the real method back: if a group stalls, hint that two
@@ -70,6 +81,81 @@ Write down the step that convinced you:
 ::: notes
 Collect two or three. Nearly all take the form: if they were a Sage, then X and
 not-X. Do not name it yet.
+:::
+
+## Six answers {.smaller}
+
+Asked *"is your card a spade?"*, then *"is your card a club?"*
+
+<svg viewBox="0 0 820 400" style="width:100%; max-height:66vh;" role="img"
+     aria-label="Six seats around a table. The three seats that answered yes to both questions are the liars.">
+  <ellipse cx="410" cy="197" rx="112" ry="72" fill="#ECF0F1" stroke="#95A5A6" stroke-width="2"/>
+  <text x="410" y="180" text-anchor="middle" font-size="17" font-weight="700" fill="#2C3E50">5&#9824; 9&#9824; 3&#9827;</text>
+  <text x="410" y="203" text-anchor="middle" font-size="17" font-weight="700" fill="#C0392B">K&#9829; 7&#9829; 2&#9830;</text>
+  <text x="410" y="228" text-anchor="middle" font-size="12" fill="#7B8A8B">3 red &rarr; 3 Tricksters</text>
+
+  <!-- Sages: answered yes to exactly one -->
+  <g fill="#fff" stroke="#2C3E50" stroke-width="2.5">
+    <circle cx="410" cy="60" r="40"/><circle cx="527" cy="128" r="40"/><circle cx="293" cy="128" r="40"/>
+  </g>
+  <g text-anchor="middle" fill="#2C3E50">
+    <text x="410" y="52" font-size="12">seat 1</text><text x="410" y="76" font-size="22" font-weight="700">1&#8202;0</text>
+    <text x="527" y="120" font-size="12">seat 2</text><text x="527" y="144" font-size="22" font-weight="700">1&#8202;0</text>
+    <text x="293" y="120" font-size="12">seat 6</text><text x="293" y="144" font-size="22" font-weight="700">0&#8202;1</text>
+  </g>
+
+  <!-- Tricksters: answered yes to both -->
+  <g fill="#FDEDEC" stroke="#C0392B" stroke-width="4">
+    <circle cx="527" cy="266" r="40"/><circle cx="410" cy="334" r="40"/><circle cx="293" cy="266" r="40"/>
+  </g>
+  <g text-anchor="middle" fill="#C0392B">
+    <text x="527" y="258" font-size="12">seat 3</text><text x="527" y="282" font-size="22" font-weight="700">1&#8202;1</text>
+    <text x="410" y="326" font-size="12">seat 4</text><text x="410" y="350" font-size="22" font-weight="700">1&#8202;1</text>
+    <text x="293" y="258" font-size="12">seat 5</text><text x="293" y="282" font-size="22" font-weight="700">1&#8202;1</text>
+  </g>
+
+  <text x="700" y="330" text-anchor="middle" font-size="15" font-weight="700" fill="#C0392B">yes to both</text>
+  <text x="700" y="352" text-anchor="middle" font-size="15" fill="#C0392B">= lying</text>
+  <text x="120" y="60" text-anchor="middle" font-size="13" fill="#7B8A8B">middle = everyone sees</text>
+  <text x="120" y="80" text-anchor="middle" font-size="13" fill="#7B8A8B">seats = only you see</text>
+</svg>
+
+::: notes
+No card is both a spade and a club, so a truthful player says yes to at most
+one. A liar's truth is no to both, and they invert both. This is not one of the
+15 packets --- nobody's own game is spoiled.
+:::
+
+## Lying is an operator {.smaller}
+
+Let $1$ mean yes and $0$ mean no.
+
+::::: columns
+::: {.column width="46%"}
+| your card has it | you lie | you say |
+|:---:|:---:|:---:|
+| 0 | 0 | 0 |
+| 0 | 1 | **1** |
+| 1 | 0 | **1** |
+| 1 | 1 | 0 |
+:::
+
+::: {.column width="54%"}
+\
+
+Two inputs, one output, defined entirely by that last column.
+
+\
+
+We will meet this table again in twenty minutes --- and give the operator a
+name.
+:::
+:::::
+
+::: notes
+This is XOR. Do not name it yet; the Truth slide introduces the same four-row
+shape for OR, and naming it there lands better. The point to make here is only
+that the rule they just played by is a function of two Booleans.
 :::
 
 ## Two claims {.activity}
