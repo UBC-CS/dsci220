@@ -11,7 +11,6 @@ subtitle: "Draft for Lecture 1, {{< var course.code >}}, {{< var course.term >}}
 - Draw one card from the envelope. Keep it hidden.
 - **Black = Sage.** You always tell the truth.
 - **Red = Trickster.** You always lie.
-- You may look at your **left neighbour's card**. Nobody else's.
 - The six cards are printed on the envelope. **Count the red ones** --- that is
   how many Tricksters your group has.
 - The **fact** on the slip is true.
@@ -45,9 +44,8 @@ Work out who is which. Everyone is on the same side, including the Tricksters.
 </style>
 
 ### 1. Questions --- two rounds
-- Each round, **every player asks one** yes/no question.
-- Ask anyone about **their own card**, or about **their left neighbour's card**.
-- Only ask about a card the person you ask can actually see.
+- Each round, **every player asks one** yes/no question about the cards.
+- **Everyone answers**, about their own card.
 - Sages answer truthfully. Tricksters always answer falsely.
 
 ### 2. Debate
@@ -62,7 +60,6 @@ Work out who is which. Everyone is on the same side, including the Tricksters.
 <div class="pop-body">
 <ul>
 <li>Ask about a <strong>card</strong> &mdash; its suit, or its rank.</li>
-<li>You can ask someone about <strong>their own</strong> card, or about their <strong>neighbour's</strong>.</li>
 <li>Asking about a card's <strong>colour</strong> is allowed. Try it and see what happens.</li>
 </ul>
 </div>
@@ -94,47 +91,6 @@ Collect two or three. Nearly all take the form: if they were a Sage, then X and
 not-X. Do not name it yet.
 :::
 
-## Two answers, one card {.smaller}
-
-Ask seat 3 *"do you have a diamond?"* --- and ask seat 2, who can see it, the same thing.
-
-```{=html}
-<svg viewBox="0 0 820 340" style="width:100%; height:auto; display:block;" role="img" aria-label="Two answers about the same card: agreeing means the same type, differing means different types.">
-  <rect x="20" y="30" width="375" height="290" rx="14" fill="#FBFCFC" stroke="#95A5A6" stroke-width="2"/>
-  <text x="207" y="60" text-anchor="middle" font-size="17" font-weight="700" fill="#2C3E50">They agree</text>
-  <rect x="183" y="76" width="48" height="66" rx="6" fill="#EAF2F8" stroke="#2C3E50" stroke-width="2.5"/>
-  <text x="207" y="120" text-anchor="middle" font-size="26" font-weight="700" fill="#2C3E50">?</text>
-  <text x="207" y="163" text-anchor="middle" font-size="12" fill="#7B8A8B">seat 3&#8217;s card</text>
-  <rect x="52" y="185" width="140" height="46" rx="8" fill="#fff" stroke="#2C3E50" stroke-width="2"/>
-  <text x="122" y="203" text-anchor="middle" font-size="12" fill="#7B8A8B">seat 3, about their own</text>
-  <text x="122" y="223" text-anchor="middle" font-size="17" font-weight="700" fill="#2C3E50">no</text>
-  <rect x="222" y="185" width="140" height="46" rx="8" fill="#fff" stroke="#2C3E50" stroke-width="2"/>
-  <text x="292" y="203" text-anchor="middle" font-size="12" fill="#7B8A8B">seat 2, about seat 3&#8217;s</text>
-  <text x="292" y="223" text-anchor="middle" font-size="17" font-weight="700" fill="#2C3E50">no</text>
-  <text x="207" y="277" text-anchor="middle" font-size="18" font-weight="700" fill="#2C3E50">same type</text>
-  <rect x="425" y="30" width="375" height="290" rx="14" fill="#FBFCFC" stroke="#95A5A6" stroke-width="2"/>
-  <text x="612" y="60" text-anchor="middle" font-size="17" font-weight="700" fill="#2C3E50">They differ</text>
-  <rect x="588" y="76" width="48" height="66" rx="6" fill="#EAF2F8" stroke="#2C3E50" stroke-width="2.5"/>
-  <text x="612" y="120" text-anchor="middle" font-size="26" font-weight="700" fill="#2C3E50">?</text>
-  <text x="612" y="163" text-anchor="middle" font-size="12" fill="#7B8A8B">seat 3&#8217;s card</text>
-  <rect x="457" y="185" width="140" height="46" rx="8" fill="#fff" stroke="#2C3E50" stroke-width="2"/>
-  <text x="527" y="203" text-anchor="middle" font-size="12" fill="#7B8A8B">seat 3, about their own</text>
-  <text x="527" y="223" text-anchor="middle" font-size="17" font-weight="700" fill="#2C3E50">no</text>
-  <rect x="627" y="185" width="140" height="46" rx="8" fill="#fff" stroke="#2C3E50" stroke-width="2"/>
-  <text x="697" y="203" text-anchor="middle" font-size="12" fill="#7B8A8B">seat 2, about seat 3&#8217;s</text>
-  <text x="697" y="223" text-anchor="middle" font-size="17" font-weight="700" fill="#2C3E50">yes</text>
-  <text x="612" y="277" text-anchor="middle" font-size="18" font-weight="700" fill="#C0392B">different types</text>
-</svg>
-```
-
-You never find out whether seat 3 has a diamond. The card cancels.
-
-::: notes
-Both answers are about the same card, so whatever the card is drops out of the
-comparison and what is left is the relationship between the two people. Do not
-say "XOR" yet.
-:::
-
 ## What just happened {.smaller}
 
 \
@@ -143,16 +99,16 @@ You never saw a role.
 
 \
 
-Two answers about the same card cancelled the card --- and told you about the
-two **people**.
+You checked what people said against the **six cards everyone could see**.
 
 \
 
-Counting the red cards told you which way round.
+Some answers could not be true of any of them. Those were the liars.
 
 ::: notes
-Relative knowledge plus one public anchor. The count is the anchor; without it
-the whole assignment could be flipped and nothing would contradict.
+The six cards are public, so every answer is checkable against them. A Trickster
+inverts, so sooner or later they claim something no card in the envelope
+supports. That is the contradiction the debate round is hunting for.
 :::
 
 ## Lying is an operator {.smaller}
@@ -161,7 +117,7 @@ Let $1$ mean yes and $0$ mean no.
 
 ::::: columns
 ::: {.column width="46%"}
-| the card has it | you lie | you say |
+| your card has it | you lie | you say |
 |:---:|:---:|:---:|
 | 0 | 0 | 0 |
 | 0 | 1 | **1** |
@@ -183,8 +139,8 @@ name.
 
 ::: notes
 This is XOR. Do not name it yet; the Truth slide introduces the same four-row
-shape for OR, and naming it there lands better. It also explains the previous
-slide: comparing two answers about one card XORs away the card.
+shape for OR, and naming it there lands better. The point here is only that the
+rule they just played by is a function of two Booleans.
 :::
 
 ## Two claims {.activity}
