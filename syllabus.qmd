@@ -4,7 +4,8 @@ title: "Syllabus"
 
 ::: {.callout-note}
 This syllabus is being revised for {{< var course.term >}}. Details marked *TBC*
-(to be confirmed) and grade weights will be finalized before the first class.
+(to be confirmed) --- TA office hours and the final exam date --- will be filled
+in as they are set.
 :::
 
 # Introduction
@@ -17,7 +18,7 @@ learn to reason about these structures and the data they represent.
 
 - **Prof: Cinda Heeren**
   📧 [cheeren@cs.ubc.ca](mailto:cheeren@cs.ubc.ca)
-  ⏰ Mon 2–4pm · 🏢 ICCS 233 · <a href="https://ubc.zoom.us/j/5393867685?pwd=N01ZS2dLbVorQkRzcDRuNTdwQmRYUT09"><img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Zoom_Communications_Logo.svg" alt="Zoom" style="height:20px; vertical-align:middle;"></a>
+  ⏰ Tue 2–4pm · 🏢 ICCS 233 · <a href="https://ubc.zoom.us/j/5393867685?pwd=N01ZS2dLbVorQkRzcDRuNTdwQmRYUT09"><img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Zoom_Communications_Logo.svg" alt="Zoom" style="height:20px; vertical-align:middle;"></a>
 
 - **TA: Marko Ciric** 📧 [mciric01@student.ubc.ca](mailto:mciric01@student.ubc.ca) · office hours *TBC*
 - **TA: Noah Hynds** 📧 [nhynds@student.ubc.ca](mailto:nhynds@student.ubc.ca) · office hours *TBC*
@@ -83,8 +84,13 @@ Deliverables for the course include the following components:
 
 ## Grading and exam policies
 
-Grade weights for {{< var course.term >}} are **to be confirmed** and will be
-posted here before the first class.
+| Component | Weight |
+|-----------|-------:|
+| Class meetings | 0% |
+| Tutorials | 10% |
+| Homework | 10% |
+| Examlets | 50% |
+| Final exam | 30% |
 
 You must pass the final exam to pass the course.
 

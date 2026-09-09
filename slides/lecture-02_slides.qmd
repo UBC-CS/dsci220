@@ -24,7 +24,7 @@ subtitle: "Lecture 2, {{< var course.code >}}, {{< var course.term >}}"
 
 | Name  | Time        | Location & Zoom |
 |-------|-------------|-----------------|
-| Cinda | Mon 2–4pm   | 🏢 ICCS 233 · <a href="https://ubc.zoom.us/j/5393867685?pwd=N01ZS2dLbVorQkRzcDRuNTdwQmRYUT09"><img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Zoom_Communications_Logo.svg" alt="Zoom" style="height:16px; vertical-align:middle;"></a> |
+| Cinda | Tue 2–4pm   | 🏢 ICCS 233 · <a href="https://ubc.zoom.us/j/5393867685?pwd=N01ZS2dLbVorQkRzcDRuNTdwQmRYUT09"><img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Zoom_Communications_Logo.svg" alt="Zoom" style="height:16px; vertical-align:middle;"></a> |
 | Joe   | Fri 11-12a | 🏢 FORW 317 |
 | Marko   | Tue 1:30-2:30p | 🏢 TBD |
 

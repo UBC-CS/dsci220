@@ -176,8 +176,17 @@ Legend:
 
 ## Grading
 
-Weights for {{< var course.term >}} are still being set. Posted on the
-[syllabus]({{< var course.website >}}/syllabus.html) before the first tutorial.
+<div style="margin-left:0; width:fit-content; text-align:left;">
+
+| Component | Weight |
+|-----------|--------|
+| <span style="background:purple; color:white; padding:2px 6px; border-radius:4px;">&#127881;</span> Class Meetings | 0% |
+| <span style="background:dodgerblue; color:white; padding:2px 6px; border-radius:4px;">&#129668;</span> Tutorials | 10% |
+| <span style="background:#facc15; color:#111; padding:2px 6px; border-radius:4px;">&#127950;</span> Homework | 10% |
+| <span style="background:seagreen; color:white; padding:2px 6px; border-radius:4px;">&#129321;</span> Examlets | 50% |
+| <span style="background:gold; color:#111; padding:2px 6px; border-radius:4px;">&#129321;</span> Final Exam | 30% |
+
+</div>
 
 You must pass the final exam to pass the course.
 
