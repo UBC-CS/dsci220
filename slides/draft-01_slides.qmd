@@ -21,16 +21,25 @@ Work out who is which. Everyone is on the same side, including the Tricksters.
 ## &#128260; How to play {.smaller}
 
 <style>
-  .hint-pop{position:absolute; right:0; bottom:0; width:48%; z-index:20; font-size:0.82em;}
-  .hint-pop summary{cursor:pointer; list-style:none; display:inline-block;
-    background:#2C3E50; color:#fff; padding:0.25em 0.7em; border-radius:0.4em;
-    font-weight:600;}
+  /* Top right: reveal's controls and progress bar sit along the bottom edge,
+     and iPadOS Safari clips there. Panel opens down-left so it cannot run off
+     the right edge. */
+  .hint-pop{position:absolute; top:0; right:0; width:46%; z-index:60;
+    font-size:0.8em; text-align:right;}
+  .hint-pop summary{
+    cursor:pointer; display:inline-block; list-style:none;
+    -webkit-appearance:none; appearance:none;
+    touch-action:manipulation;          /* no 300ms double-tap delay on iPad */
+    background:#2C3E50; color:#fff; padding:0.45em 0.9em; border-radius:0.4em;
+    font-weight:600; line-height:1.1; white-space:nowrap;}
   .hint-pop summary::-webkit-details-marker{display:none;}
-  .hint-pop[open] summary{border-bottom-left-radius:0; border-bottom-right-radius:0;}
-  .hint-pop .pop-body{background:#fff; color:#111; border:2px solid #2C3E50;
-    border-radius:0 0.4em 0.4em 0.4em; padding:0.6em 0.9em;
+  .hint-pop summary::marker{content:"";}
+  .hint-pop[open] summary{border-bottom-right-radius:0;}
+  .hint-pop .pop-body{
+    text-align:left; background:#fff; color:#111; border:2px solid #2C3E50;
+    border-radius:0.4em 0 0.4em 0.4em; padding:0.6em 0.9em;
     box-shadow:0 6px 18px rgba(0,0,0,0.25);}
-  .hint-pop .pop-body ul{margin:0.3em 0 0 1em;}
+  .hint-pop .pop-body ul{margin:0.3em 0 0 1em; padding-left:0.6em;}
   .hint-pop .pop-body li{margin:0.35em 0;}
 </style>
 
