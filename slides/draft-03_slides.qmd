@@ -274,17 +274,21 @@ back to lecture 2: a proposition is True or False --- `NaN` is neither, so it
 is not one.
 :::
 
-## PrairieLearn {.activity}
+## In-class activity {.activity}
 
-Navigate to Activity 1 and complete question 2.
+**TBD --- not yet built.**
 
-Each of you gets a different version. Work in pairs on both versions.
+Candidate: each student gets a different equivalence to justify; work in pairs
+across both versions.
 
-{{< qrcode https://us.prairielearn.com/pl/course_instance/209866 >}}
-
-<{{< var course.prairielearn >}}>
+\
 
 {{< countdown minutes=10 >}}
+
+::: notes
+Needs a PrairieLearn assessment and a link on this slide --- activities are not
+linked anywhere else on the site.
+:::
 
 ## Words and Ideas
 

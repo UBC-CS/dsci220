@@ -251,6 +251,27 @@ $2^k$ rows. $2^{2^k}$ operators on $k$ variables; 16 binary ones. Half the binar
 operators are commutative (8).
 :::
 
+## Before Friday {.activity}
+
+You counted how many binary operators there could be.
+
+Activity 1 introduces the ones that have names.
+
+\
+
+{{< qrcode https://us.prairielearn.com/pl/course_instance/209866/assessments >}}
+
+<{{< var course.prairielearn >}}/assessments>
+
+\
+
+Due Friday 11:00, before class.
+
+::: notes
+All graded work is on PrairieLearn. This is the first one; walk them through
+finding it if anyone is stuck.
+:::
+
 ## Words and Ideas
 
 Truth Table

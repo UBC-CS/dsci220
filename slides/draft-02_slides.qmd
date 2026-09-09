@@ -273,17 +273,21 @@ $q$: \_\_\_\_\_\_\_\_\_\_\_ brought a backpack to class.
 
 {{< countdown minutes=5 >}}
 
-## PrairieLearn {.activity}
+## In-class activity {.activity}
 
-All graded activities use _PrairieLearn_.
+**TBD --- not yet built.**
 
-Navigate to today's activity and complete question 1.
+Candidate: derive a `<wff>` and have a neighbour check each rule application.
 
-{{< qrcode https://us.prairielearn.com/pl/course_instance/209866 >}}
-
-<{{< var course.prairielearn >}}>
+\
 
 {{< countdown minutes=10 >}}
+
+::: notes
+Activity 1 (operators) was due before this class. Whatever goes here needs a
+PrairieLearn assessment and a link on this slide --- activities are not linked
+anywhere else on the site.
+:::
 
 ## Words and Ideas
 
