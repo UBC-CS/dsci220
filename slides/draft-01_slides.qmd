@@ -135,6 +135,46 @@ one. A liar's truth is no to both, and they invert both. This is not one of the
 15 packets --- nobody's own game is spoiled.
 :::
 
+## Why "yes to both" is impossible {.smaller}
+
+```{=html}
+<svg viewBox="0 0 820 415" style="width:100%; height:auto; display:block;" role="img" aria-label="Two non-overlapping question circles covering the black cards, with the red cards outside both and the empty intersection shaded.">
+  <defs>
+    <pattern id="hatch" width="8" height="8" patternTransform="rotate(45)" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="0" x2="0" y2="8" stroke="#C0392B" stroke-width="3" opacity="0.55"/>
+    </pattern>
+  </defs>
+  <rect x="30" y="30" width="760" height="330" rx="14" fill="#FBFCFC" stroke="#95A5A6" stroke-width="2"/>
+  <text x="46" y="52" font-size="13" fill="#7B8A8B">your six cards</text>
+  <circle cx="310" cy="195" r="125" fill="#EAF2F8" stroke="#2C3E50" stroke-width="3"/>
+  <circle cx="470" cy="195" r="125" fill="#EAF2F8" stroke="#2C3E50" stroke-width="3"/>
+  <path d="M 390,99 A 125,125 0 0,1 390,291 A 125,125 0 0,1 390,99" fill="url(#hatch)" stroke="#C0392B" stroke-width="2.5"/>
+  <text x="250" y="120" text-anchor="middle" font-size="14" font-weight="700" fill="#2C3E50">is it a spade?</text>
+  <text x="533" y="120" text-anchor="middle" font-size="14" font-weight="700" fill="#2C3E50">is it a club?</text>
+  <text x="248" y="185" text-anchor="middle" font-size="26" font-weight="700" fill="#2C3E50">5&#9824;</text>
+  <text x="248" y="230" text-anchor="middle" font-size="26" font-weight="700" fill="#2C3E50">9&#9824;</text>
+  <text x="533" y="207" text-anchor="middle" font-size="26" font-weight="700" fill="#2C3E50">3&#9827;</text>
+  <text x="390" y="200" text-anchor="middle" font-size="30" font-weight="700" fill="#C0392B">&#8709;</text>
+  <text x="110" y="150" text-anchor="middle" font-size="26" font-weight="700" fill="#C0392B">K&#9829;</text>
+  <text x="110" y="265" text-anchor="middle" font-size="26" font-weight="700" fill="#C0392B">7&#9829;</text>
+  <text x="700" y="150" text-anchor="middle" font-size="26" font-weight="700" fill="#C0392B">2&#9830;</text>
+  <text x="110" y="200" text-anchor="middle" font-size="12" fill="#7B8A8B">outside both</text>
+  <text x="700" y="200" text-anchor="middle" font-size="12" fill="#7B8A8B">outside both</text>
+  <text x="410" y="390" text-anchor="middle" font-size="15" fill="#2C3E50">A Sage sits in <tspan font-weight="700">exactly one</tspan> circle, so answers yes once. A Trickster sits in <tspan font-weight="700">neither</tspan>, so both truths are no &#8212; and inverting both claims the shaded region.</text>
+</svg>
+```
+
+::: notes
+Shading a region is the standard Venn convention for "nothing lives here". A
+double yes is a claim to be in the shaded lens.
+
+The design rule, if a group asks: pick two questions that are **not true of any
+red card** and that **cannot both be true** of one card. Nothing more is needed
+--- a black card in neither circle answers no/no, which is still distinct from
+the liars' yes/yes. Students can check both conditions off the printed
+envelope, since the six cards are public.
+:::
+
 ## Lying is an operator {.smaller}
 
 Let $1$ mean yes and $0$ mean no.

@@ -10,6 +10,11 @@ Not published (Quarto ignores `_`-prefixed files).
       question (it is two questions, agreed by the group), they omit that a
       question must be true of at least one visible card, and they omit that
       nobody may state their own card or role during the debate.
+- [ ] **Set Packet 12 aside — it cannot be won.** Its only black card is Q♠,
+      so no legal question pair exists (each question must avoid the red cards,
+      so each must be true of a black card, and two mutually exclusive
+      properties cannot both hold of one card). ~12 groups, 15 packets, so just
+      do not hand it out. Fix later by swapping KH→KS and QH→QC.
 - [ ] **Check Packet 12's fact slip.** If it says *"all spade cards are even"*,
       replace it — the only spade is Q♠ and a Queen is neither even nor odd.
       Use the kings/queens fact instead.
