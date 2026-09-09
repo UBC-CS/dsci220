@@ -1,5 +1,8 @@
 project:
   output-dir: _site/access
+  render:
+    - "**/*.qmd"
+    - "!lesson-plans/"
 
 website:
   title: "{{< var course.full-title >}}---Accessibility version"

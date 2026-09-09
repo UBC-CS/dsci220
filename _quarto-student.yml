@@ -1,2 +1,9 @@
 project:
   output-dir: _site
+  # Lesson plans are instructor/TA material. Excluding them from the student
+  # render matters: the `lesson-plan` rows are dropped from the schedule by
+  # get_schedule(), but without this the pages are still BUILT and reachable
+  # by URL in the student site.
+  render:
+    - "**/*.qmd"
+    - "!lesson-plans/"
