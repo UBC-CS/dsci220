@@ -1,0 +1,262 @@
+---
+title: "Introduction"
+subtitle: "Draft for Lecture 1, {{< var course.code >}}, {{< var course.term >}}"
+---
+
+## &#127914; Sages & Tricksters {.smaller}
+
+\
+
+### How to Play
+- Each of you are secretly assigned a role:
+  - **Sage** = always tell the truth (Black)
+  - **Trickster** = always lie (Red)
+- Everyone sees the **packet of 6 cards** and the **fact**.
+- In rounds, each player may ask **yes/no questions** about the fact.
+- Work together: compare answers, spot contradictions.
+- **Goal:** Deduce each person's role!
+
+## &#128260; Round Structure {.smaller}
+
+\
+
+### 1. Two Info Rounds
+- In each round, take turns asking **one yes/no question** about the fact
+
+### 2. Debate Round
+- Compare answers
+- Look for contradictions
+
+### 3. Conclusion
+- Agree on everyone's roles
+- Reveal the cards & roles!
+
+## What did you just do? {.activity}
+
+You settled on an answer without being told it.
+
+Write down the step that convinced you:
+
+\
+
+"I knew \_\_\_\_\_\_\_\_\_\_ was a Trickster because \_\_\_\_\_\_\_\_\_\_."
+
+{{< countdown minutes=3 >}}
+
+::: notes
+Collect two or three. Nearly all take the form: if they were a Sage, then X and
+not-X. Do not name it yet.
+:::
+
+## Two claims {.activity}
+
+Both are claims about this room. Neither was announced.
+
+::::: columns
+::: {.column width="50%"}
+**A.** \_\_\_\_\_\_ is a Trickster.
+
+\
+
+How did you establish A?
+
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+:::
+
+::: {.column width="50%"}
+**B.** Most questions asked were about the same card.
+
+\
+
+How would you establish B?
+
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+:::
+:::::
+
+{{< countdown minutes=4 >}}
+
+## Two claims
+
+|  | A | B |
+|---|---|---|
+| Method | find a contradiction | count |
+| Needs | the rules | the questions |
+| If I am wrong | I made an error | I was unlucky |
+| Verdict | settled | supported |
+
+\
+
+Both are arguments. This course is A.
+
+::: notes
+Do not oversell. B is what they will do in DSCI 100/220-adjacent stats courses.
+The claim to make later, once they have seen predicates over rows, is that A and
+B run on the same machinery. Not yet.
+:::
+
+## Instructional team
+
+- **Prof: Cinda Heeren**
+  &#128231; [cheeren@cs.ubc.ca](mailto:cheeren@cs.ubc.ca)
+  &#9200; Tue 2--4pm &#183; &#127970; ICCS 233
+
+- **TA: Marko Ciric** &#128231; [mciric01@student.ubc.ca](mailto:mciric01@student.ubc.ca)
+- **TA: Noah Hynds** &#128231; [nhynds@student.ubc.ca](mailto:nhynds@student.ubc.ca)
+- **TA: Perrie Soleimani** &#128231; [perriesl@student.ubc.ca](mailto:perriesl@student.ubc.ca)
+
+## Term structure
+
+<style>
+  .pill{display:inline-block; min-width:1.6em; padding:0.1em 0.35em; border-radius:0.3em; text-align:center; font-weight:600; line-height:1;}
+  .pill--off{background:#ddd; color:#111;}
+  .pill--class{background:purple; color:#fff;}
+  .pill--video{background:#f97316; color:#fff;}
+  .pill--lab{background:dodgerblue; color:#fff;}
+  .pill--exam{background:seagreen; color:#fff;}
+  .pill--hw{background:#facc15; color:#111;}
+  .week-num{font-size:1.3em; font-weight:800; line-height:1;}
+  .date-cell{font-size:1em; white-space:nowrap; color:#666;}
+  #term-schedule table td, #term-schedule table th{vertical-align:middle; padding:0.05em 0.3em; line-height:1.1;}
+  #term-schedule table{font-size:0.48em; margin:0 auto; width:78%;}
+  #term-schedule p{font-size:0.48em; text-align:center;}
+</style>
+
+<div id="term-schedule">
+
+| Week | Mon | M | W | F | HW | Tut | EX |
+|:---:|---|:---:|:---:|:---:|:---:|:---:|:---:|
+| <span class="week-num">1</span> | <span class="date-cell">Sep 7</span> | <span class="pill pill--off" title="Labour Day">&nbsp;</span> | <span class="pill pill--class" title="In person">&#127881;</span> | <span class="pill pill--class" title="In person">&#127881;</span> | <span class="pill pill--off" title="Nothing due">&nbsp;</span> | <span class="pill pill--off" title="No tutorial">&nbsp;</span> | <span class="pill pill--off" title="No examlet">&nbsp;</span> |
+| <span class="week-num">2</span> | <span class="date-cell">Sep 14</span> | <span class="pill pill--class" title="In person">&#127881;</span> | <span class="pill pill--class" title="In person">&#127881;</span> | <span class="pill pill--video" title="Async video">&#128249;</span> | <span class="pill pill--hw" title="HW1 due">&#127950;</span> | <span class="pill pill--lab" title="Tutorial">&#129668;</span> | <span class="pill pill--off" title="No examlet">&nbsp;</span> |
+| <span class="week-num">3</span> | <span class="date-cell">Sep 21</span> | <span class="pill pill--class" title="In person">&#127881;</span> | <span class="pill pill--class" title="In person">&#127881;</span> | <span class="pill pill--video" title="Async video">&#128249;</span> | <span class="pill pill--off" title="Nothing due">&nbsp;</span> | <span class="pill pill--lab" title="Tutorial">&#129668;</span> | <span class="pill pill--exam" title="Examlet 1">&#129321;</span> |
+| <span class="week-num">4</span> | <span class="date-cell">Sep 28</span> | <span class="pill pill--class" title="In person">&#127881;</span> | <span class="pill pill--off" title="Truth and Reconciliation">&nbsp;</span> | <span class="pill pill--video" title="Async video">&#128249;</span> | <span class="pill pill--hw" title="HW2 due">&#127950;</span> | <span class="pill pill--lab" title="Tutorial">&#129668;</span> | <span class="pill pill--off" title="No examlet">&nbsp;</span> |
+| <span class="week-num">5</span> | <span class="date-cell">Oct 5</span> | <span class="pill pill--class" title="In person">&#127881;</span> | <span class="pill pill--class" title="In person">&#127881;</span> | <span class="pill pill--video" title="Async video">&#128249;</span> | <span class="pill pill--off" title="Nothing due">&nbsp;</span> | <span class="pill pill--lab" title="Tutorial">&#129668;</span> | <span class="pill pill--exam" title="Examlet 2">&#129321;</span> |
+| <span class="week-num">6</span> | <span class="date-cell">Oct 12</span> | <span class="pill pill--off" title="Thanksgiving">&nbsp;</span> | <span class="pill pill--video" title="Async video">&#128249;</span> | <span class="pill pill--video" title="Async video">&#128249;</span> | <span class="pill pill--off" title="Nothing due">&nbsp;</span> | <span class="pill pill--off" title="No tutorial">&nbsp;</span> | <span class="pill pill--off" title="No examlet">&nbsp;</span> |
+| <span class="week-num">7</span> | <span class="date-cell">Oct 19</span> | <span class="pill pill--class" title="In person">&#127881;</span> | <span class="pill pill--class" title="In person">&#127881;</span> | <span class="pill pill--video" title="Async video">&#128249;</span> | <span class="pill pill--hw" title="HW3 due">&#127950;</span> | <span class="pill pill--lab" title="Tutorial">&#129668;</span> | <span class="pill pill--off" title="No examlet">&nbsp;</span> |
+| <span class="week-num">8</span> | <span class="date-cell">Oct 26</span> | <span class="pill pill--class" title="In person">&#127881;</span> | <span class="pill pill--class" title="In person">&#127881;</span> | <span class="pill pill--video" title="Async video">&#128249;</span> | <span class="pill pill--off" title="Nothing due">&nbsp;</span> | <span class="pill pill--lab" title="Tutorial">&#129668;</span> | <span class="pill pill--exam" title="Examlet 3">&#129321;</span> |
+| <span class="week-num">9</span> | <span class="date-cell">Nov 2</span> | <span class="pill pill--class" title="In person">&#127881;</span> | <span class="pill pill--class" title="In person">&#127881;</span> | <span class="pill pill--video" title="Async video">&#128249;</span> | <span class="pill pill--hw" title="HW4 due">&#127950;</span> | <span class="pill pill--lab" title="Tutorial">&#129668;</span> | <span class="pill pill--off" title="No examlet">&nbsp;</span> |
+| <span class="week-num">10</span> | <span class="date-cell">Nov 9</span> | <span class="pill pill--off" title="No class">&nbsp;</span> | <span class="pill pill--off" title="Remembrance Day">&nbsp;</span> | <span class="pill pill--video" title="Async video">&#128249;</span> | <span class="pill pill--off" title="Nothing due">&nbsp;</span> | <span class="pill pill--off" title="No tutorial">&nbsp;</span> | <span class="pill pill--off" title="No examlet">&nbsp;</span> |
+| <span class="week-num">11</span> | <span class="date-cell">Nov 16</span> | <span class="pill pill--class" title="In person">&#127881;</span> | <span class="pill pill--class" title="In person">&#127881;</span> | <span class="pill pill--video" title="Async video">&#128249;</span> | <span class="pill pill--off" title="Nothing due">&nbsp;</span> | <span class="pill pill--lab" title="Tutorial">&#129668;</span> | <span class="pill pill--exam" title="Examlet 4">&#129321;</span> |
+| <span class="week-num">12</span> | <span class="date-cell">Nov 23</span> | <span class="pill pill--class" title="In person">&#127881;</span> | <span class="pill pill--class" title="In person">&#127881;</span> | <span class="pill pill--video" title="Async video">&#128249;</span> | <span class="pill pill--hw" title="HW5 due">&#127950;</span> | <span class="pill pill--lab" title="Tutorial">&#129668;</span> | <span class="pill pill--off" title="No examlet">&nbsp;</span> |
+| <span class="week-num">13</span> | <span class="date-cell">Nov 30</span> | <span class="pill pill--class" title="In person">&#127881;</span> | <span class="pill pill--class" title="In person">&#127881;</span> | <span class="pill pill--video" title="Async video">&#128249;</span> | <span class="pill pill--off" title="Nothing due">&nbsp;</span> | <span class="pill pill--lab" title="Tutorial">&#129668;</span> | <span class="pill pill--exam" title="Examlet 5">&#129321;</span> |
+| <span class="week-num">14</span> | <span class="date-cell">Dec 7</span> | <span class="pill pill--class" title="In person">&#127881;</span> | <span class="pill pill--off" title="Term over">&nbsp;</span> | <span class="pill pill--off" title="Term over">&nbsp;</span> | <span class="pill pill--off" title="Nothing due">&nbsp;</span> | <span class="pill pill--off" title="No tutorial">&nbsp;</span> | <span class="pill pill--off" title="No examlet">&nbsp;</span> |
+
+Legend:
+<span class="pill pill--class" title="In person">&#127881;</span> in person &nbsp;
+<span class="pill pill--video" title="Async video">&#128249;</span> async video &nbsp;
+<span class="pill pill--lab" title="Tutorial">&#129668;</span> tutorial &nbsp;
+<span class="pill pill--exam" title="Examlet">&#129321;</span> examlet &nbsp;
+<span class="pill pill--hw" title="HW due">&#127950;</span> HW due
+
+</div>
+
+## Grading
+
+Weights for {{< var course.term >}} are still being set. Posted on the
+[syllabus]({{< var course.website >}}/syllabus.html) before the first tutorial.
+
+You must pass the final exam to pass the course.
+
+## Communications
+
+::: {style="font-size: 80%;"}
+
+- &#128231; **Email** [cheeren@cs.ubc.ca](mailto:cheeren@cs.ubc.ca) --- put "DSCI220" in the subject
+- &#128172; **Piazza** <https://piazza.com/ubc.ca/winterterm12026/dsci220>
+- &#127760; **Website** <{{< var course.website >}}>
+- &#127891; **Class** {{< var course.time >}}, {{< var building.code >}} {{< var building.room >}}
+
+:::
+
+# Logic
+
+## Truth {.activity}
+
+Make at least 3 observations about the following table:
+
+::::: columns
+::: {.column width="30%"}
+
+| $p$ | $q$ | $p \lor q$ |
+|---|---|:--------:|
+| F | F |   F    |
+| F | T |   T    |
+| T | F |   T    |
+| T | T |   T    |
+
+:::
+
+::: {.column width="70%"}
+
+*
+
+\
+
+*
+
+\
+
+*
+
+:::
+:::::
+
+{{< countdown minutes=5 >}}
+
+## Summary
+
+::::: columns
+::: {.column width="30%"}
+
+| $p$ | $q$ | $p \lor q$ |
+|---|---|:--------:|
+| F | F |   F    |
+| F | T |   T    |
+| T | F |   T    |
+| T | T |   T    |
+
+:::
+
+::: {.column style="width: 70%; font-size: 80%;"}
+
+*   The diagram is a _Truth Table_
+*   $p$, $q$ are _variables_ taking one of two _Boolean_ values (T/F, 1/0)
+*   $\lor$ is a _binary operator_: a function from 2 Boolean inputs to 1 Boolean output, characterized by its output column
+*   $\lor$ corresponds to the English _or_
+*   $p \lor q$ is a _proposition_
+
+:::
+:::::
+
+## Cool down {.activity}
+
+*   How many rows for a proposition on 3 variables? On $k$?
+
+\
+
+*   Name an operator taking 1 variable: \_\_\_\_\_\_\_\_\_\_
+
+\
+
+*   Name an operator taking 3 variables: \_\_\_\_\_\_\_\_\_\_
+
+\
+
+*   How many different binary operators could there be?
+
+{{< countdown minutes=5 >}}
+
+::: notes
+$2^k$ rows. $2^{2^k}$ operators on $k$ variables; 16 binary ones. Half the binary
+operators are commutative (8).
+:::
+
+## Words and Ideas
+
+Truth Table
+
+Proposition
+
+Binary operator
+
+Argument
