@@ -115,45 +115,79 @@ supports. That is the contradiction the debate round is hunting for.
 
 Let $1$ mean yes and $0$ mean no.
 
-::::: columns
-::: {.column width="46%"}
-| your card has it | you lie | you say |
-|:---:|:---:|:---:|
-| 0 | 0 | 0 |
-| 0 | 1 | **1** |
-| 1 | 0 | **1** |
-| 1 | 1 | 0 |
+```{=html}
+<style>
+  table.xor{border-collapse:collapse; margin:0.2em auto 0 auto; font-size:1.05em;}
+  table.xor th, table.xor td{border:1px solid #95A5A6; padding:0.22em 0.9em; text-align:center;}
+  /* Quarto rewrites <th> to <td data-quarto-table-cell-role="th">, so target both */
+  table.xor th,
+  table.xor td[data-quarto-table-cell-role="th"]{background:#ECF0F1; font-size:0.72em;
+    font-weight:700; color:#2C3E50;}
+  table.xor colgroup{display:none;}
+  table.xor tr.alive td{background:#FDEDEC; font-weight:700; color:#C0392B;}
+  table.xor tr.alive td:last-child{border-right:4px solid #C0392B;}
+</style>
+```
+
+:::: columns
+::: {.column width="44%"}
+
+```{=html}
+<table class="xor">
+<tr><th>your card<br>has it</th><th>you<br>lie</th><th>you<br>say</th></tr>
+<tr><td>0</td><td>0</td><td>0</td></tr>
+<tr class="alive"><td>0</td><td>1</td><td>1</td></tr>
+<tr class="alive"><td>1</td><td>0</td><td>1</td></tr>
+<tr><td>1</td><td>1</td><td>0</td></tr>
+</table>
+```
+
 :::
 
-::: {.column width="54%"}
+::: {.column width="56%"}
+
+You hear **1**.
+
+::: {.fragment}
+Two rows fit. Nothing so far separates them.
+:::
+
+::: {.fragment}
+To kill one, you must **fix one of the input columns**.
+:::
+
+::: {.fragment}
+You cannot fix **you lie** --- that is the thing you are hunting.
+:::
+
+::: {.fragment}
+So fix **your card has it**.
+:::
+
+::: {.fragment}
 \
 
-Two inputs, one output.
-
-\
-
-In the game you only ever saw the **last column**. You had to work out the
-first two.
-
-\
-
-Every answer has two explanations --- which is why one answer was never enough.
+**What could you ask that would do that?**
+:::
 
 :::
-:::::
+::::
 
 ::: notes
-This is XOR. Do not name it yet; the Truth slide introduces the same four-row
-shape for OR, and naming it there lands better.
+Drive the discussion from the table. Walk down the right column one reveal at a
+time and let them supply the last step.
 
-The direction is the thing worth saying out loud. A truth table is normally read
-left to right: given the inputs, compute the output. All hour they read it right
-to left: given the output, which inputs could have produced it? "Yes" is
-consistent with (has it, truthful) and with (lacks it, lying) --- two rows, every
-time. The six public cards are what rules rows out.
+The answer they should reach: ask about a property whose value you already know
+for that person --- then the "has it" column is fixed, only two rows remain, and
+those two differ in the output. So the answer they give reports the lie bit
+directly.
 
-Worth holding until later in the term: reading a table backwards is what you do
-with data. You see what came out and argue about what went in.
+Do not name XOR. The Truth slide introduces the same four-row shape for OR, and
+naming it there lands better.
+
+Later in the term, the direction is the point: a truth table is normally read
+left to right, inputs to output. All hour they read it right to left. That is
+what you do with data --- you see what came out and argue about what went in.
 :::
 
 ## Two claims {.activity}
