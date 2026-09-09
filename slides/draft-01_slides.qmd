@@ -128,19 +128,32 @@ Let $1$ mean yes and $0$ mean no.
 ::: {.column width="54%"}
 \
 
-Two inputs, one output, defined entirely by that last column.
+Two inputs, one output.
 
 \
 
-We will meet this table again in twenty minutes --- and give the operator a
-name.
+In the game you only ever saw the **last column**. You had to work out the
+first two.
+
+\
+
+Every answer has two explanations --- which is why one answer was never enough.
+
 :::
 :::::
 
 ::: notes
 This is XOR. Do not name it yet; the Truth slide introduces the same four-row
-shape for OR, and naming it there lands better. The point here is only that the
-rule they just played by is a function of two Booleans.
+shape for OR, and naming it there lands better.
+
+The direction is the thing worth saying out loud. A truth table is normally read
+left to right: given the inputs, compute the output. All hour they read it right
+to left: given the output, which inputs could have produced it? "Yes" is
+consistent with (has it, truthful) and with (lacks it, lying) --- two rows, every
+time. The six public cards are what rules rows out.
+
+Worth holding until later in the term: reading a table backwards is what you do
+with data. You see what came out and argue about what went in.
 :::
 
 ## Two claims {.activity}
