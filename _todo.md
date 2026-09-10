@@ -51,6 +51,12 @@ Not published (Quarto ignores `_`-prefixed files).
       real sections are Tue 2–4, Tue 4–6, Wed 1–3, Wed 3–5.
 - [ ] Recording links are placeholders pointing at the Canvas course.
 
+## Next year
+
+- [ ] **Grouping.** Forming groups of exactly six cost time and did not really
+      work. Groups of 4-6 all solve, so hand one envelope per block of adjacent
+      seats and deal one card per person present. See the lecture-1 lesson plan.
+
 ## Open decisions
 
 - [ ] Course part titles and week spans — currently Part 1/2/3 starting weeks

@@ -85,6 +85,31 @@ cards are (black with the property) together with (red without it), spanning bot
 colours, so naming a suit or rank none of them has is easy while finding
 something they all share is rare.
 
+## Next year
+
+**Grouping was the weak point in 2026W1.** Forming groups of exactly six in a
+fixed-seat lecture hall cost time and never quite worked.
+
+It does not have to be six. Checked across five packets with two questions:
+groups of **4, 5 and 6 all solve uniquely**. Each player's answers pin down their
+own card's colour independently, so cards left undealt in the envelope create no
+ambiguity about anyone who is holding one.
+
+So next year, do not form groups at all:
+
+- Hand one envelope to each **block of adjacent seats** --- roughly six wide, but
+  whatever the row gives you.
+- Deal one card per person present; leftovers stay in the envelope.
+- Nobody moves, nothing is counted off, and it absorbs whatever attendance is.
+
+Two consequences to state if you do this:
+
+- Say that **not every printed card is necessarily in play**, or students will
+  reason about a card nobody holds.
+- The red count on the envelope becomes an **upper bound** on the number of
+  Tricksters rather than the exact figure. The puzzle does not need the exact
+  count, so this costs nothing --- but do not tell them to count the reds.
+
 ## Handoff
 
 Two claims about the room, both established during the game:
