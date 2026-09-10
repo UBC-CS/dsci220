@@ -23,6 +23,13 @@ Not published (Quarto ignores `_`-prefixed files).
   PrairieLearn" — it needs the real link and the problem list
 - Same for HW2–HW5: due Sun **Oct 4**, **Nov 8**, **Nov 22**, **Nov 29**
 
+## Canvas
+
+- [ ] **Create the Canvas homepage, then publish the course.** Course 191848 is
+      linked from the sidebar, the syllabus and the recording rows in
+      `data/additional-resources.csv`, so those all dead-end until it is
+      published.
+
 ## PrairieLearn
 
 - [ ] **Publish the 2026W1 course instance.** It is not published, so students
