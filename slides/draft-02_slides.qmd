@@ -285,9 +285,10 @@ Candidate: derive a `<wff>` and have a neighbour check each rule application.
 {{< countdown minutes=10 >}}
 
 ::: notes
-Activity 1 (operators) was due before this class. Whatever goes here needs a
-PrairieLearn assessment and a link on this slide --- activities are not linked
-anywhere else on the site.
+Activity 1 was never assigned --- PrairieLearn is not published, and Lecture 1
+ran out of time before the slide that would have set it. Do not refer to it as
+though they have done it. Whatever goes here needs a PrairieLearn assessment and
+a link on this slide, since activities are not linked anywhere else on the site.
 :::
 
 ## Words and Ideas

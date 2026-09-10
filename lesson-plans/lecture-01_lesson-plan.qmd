@@ -91,6 +91,22 @@ still hold --- so it rarely blocks the strategy. A clean two-question kill exist
 after about 88% of first answers; the rest need the group to combine answers
 across several people, which is what the debate round is for.
 
+## How it actually ran, 2026W1
+
+Class ended on the **Truth** slide (three observations about the OR table).
+Vocabulary was introduced and Friday was set up, but these were not reached:
+
+- **Summary** --- the vocabulary consolidation
+- **Cool down** --- rows for $k$ variables, naming 1- and 3-input operators, and
+  how many binary operators there could be
+- **Before Friday** --- so **Activity 1 was never assigned**, which is just as
+  well since PrairieLearn is not published
+- **Words and Ideas**
+
+Grouping was the main time sink; see below. Carry the Cool down questions into
+Friday --- "how many binary operators could there be" is the natural way into
+the grammar, since it motivates why only a handful get names.
+
 ## Next year
 
 **Grouping was the weak point in 2026W1.** Forming groups of exactly six in a
