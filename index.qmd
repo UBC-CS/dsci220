@@ -1,12 +1,5 @@
 ---
 title: "{{< var course.full-title >}}"
-listing:
-  id: most-recent-announcement
-  contents: posts
-  sort: "date desc"
-  type: default
-  max-items: 1
-  fields: [title, subtitle, description, date, image, reading-time]
 execute:
   freeze: false
 ---
@@ -29,11 +22,6 @@ execute:
 :::
 :::::
 
-## Weekly announcement
-
-::: {#most-recent-announcement}
-:::
-
 ## Schedule
 ```{r}
 #| label: setup
@@ -44,6 +32,20 @@ dark_theme <- quarto::theme_brand_gt("dark-brand.yml")
 ```
 
 ::: {.panel-tabset}
+### By week
+
+```{r}
+#| label: weekly-schedule
+#| echo: false
+#| message: false
+#| renderings: [light, dark]
+source(here::here("R", "render-weekly-schedule.R"))
+weekly_schedule <- render_weekly_schedule()
+
+weekly_schedule |> light_theme()
+weekly_schedule |> dark_theme()
+```
+
 ### By unit
 
 ```{r}
@@ -58,17 +60,5 @@ unit_schedule |> light_theme()
 unit_schedule |> dark_theme()
 ```
 
-### By week
 
-```{r}
-#| label: weekly-schedule
-#| echo: false
-#| message: false
-#| renderings: [light, dark]
-source(here::here("R", "render-weekly-schedule.R"))
-weekly_schedule <- render_weekly_schedule()
-
-weekly_schedule |> light_theme()
-weekly_schedule |> dark_theme()
-```
 :::

@@ -25,10 +25,8 @@ Not published (Quarto ignores `_`-prefixed files).
 
 ## Canvas
 
-- [ ] **Create the Canvas homepage, then publish the course.** Course 191848 is
-      linked from the sidebar, the syllabus and the recording rows in
-      `data/additional-resources.csv`, so those all dead-end until it is
-      published.
+- [x] ~~Create the Canvas homepage, then publish the course.~~ Done — course
+      191848 is live, so the sidebar, syllabus and recording links all resolve.
 
 ## PrairieLearn
 
