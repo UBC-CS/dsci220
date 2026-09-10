@@ -4,6 +4,86 @@ title: "Propositions and WFFs"
 subtitle: "Draft for Lecture 2, {{< var course.code >}}, {{< var course.term >}}"
 ---
 
+# Where we left off
+
+## Summary
+
+::::: columns
+::: {.column width="30%"}
+
+| $p$ | $q$ | $p \lor q$ |
+|---|---|:--------:|
+| F | F |   F    |
+| F | T |   T    |
+| T | F |   T    |
+| T | T |   T    |
+
+:::
+
+::: {.column style="width: 70%; font-size: 80%;"}
+
+*   The diagram is a _Truth Table_
+*   $p$, $q$ are _variables_ taking one of two _Boolean_ values (T/F, 1/0)
+*   $\lor$ is a _binary operator_: a function from 2 Boolean inputs to 1 Boolean output, characterized by its output column
+*   $\lor$ corresponds to the English _or_
+*   $p \lor q$ is a _proposition_
+
+:::
+:::::
+
+## Cool down {.activity}
+
+*   How many rows for a proposition on 3 variables? On $k$?
+
+\
+
+*   Name an operator taking 1 variable: \_\_\_\_\_\_\_\_\_\_
+
+\
+
+*   Name an operator taking 3 variables: \_\_\_\_\_\_\_\_\_\_
+
+\
+
+*   How many different binary operators could there be?
+
+{{< countdown minutes=5 >}}
+
+::: notes
+$2^k$ rows. $2^{2^k}$ operators on $k$ variables; 16 binary ones. Half the binary
+operators are commutative (8).
+:::
+
+::: notes
+Both carried over from Wednesday --- class ended on the three observations and
+never reached these. Do the Cool down properly: the last question, how many
+binary operators there could be, is what the rest of today answers.
+:::
+
+## Sixteen of them {.smaller}
+
+$2^k$ rows for $k$ variables --- so $2^{2^k}$ possible operators.
+
+\
+
+On two variables: **16**.
+
+\
+
+A handful are worth naming: $\wedge$, $\vee$, $\neg$, $\rightarrow$, $\oplus$, $\uparrow$
+
+\
+
+But naming them is not enough. You also have to say **how they combine**.
+
+::: notes
+This answers the last Cool down question and pivots into the swim sentence.
+Naming the operators is the other half, and is what Activity 1
+(operatorsMatching) does once PrairieLearn is published.
+:::
+
+# Saying what you mean
+
 ## A sentence {.activity}
 
 \
