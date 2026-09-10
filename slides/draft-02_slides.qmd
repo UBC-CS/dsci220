@@ -88,7 +88,7 @@ Naming the operators is the other half, and is what Activity 1
 
 \
 
-> I swim Tuesday and Thursday and either Saturday or Sunday.
+> I swim Tuesday and Thursday and Saturday or Sunday.
 
 \
 
@@ -116,7 +116,7 @@ Do not resolve it yet.
 Same words. Three answers.
 
 ::: notes
-Reading 2: "either/or" in English often excludes. Reading 3: drop the
+Reading 2: "or" in English is sometimes exclusive. Reading 3: drop the
 parentheses and apply the usual precedence, $\wedge$ before $\vee$. A lone
 Sunday swim satisfies it.
 :::
