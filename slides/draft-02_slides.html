@@ -221,6 +221,136 @@
 </div>
 
 </section>
+<section>
+<section id="where-we-left-off" class="title-slide slide level1 center">
+<h1>Where we left off</h1>
+
+</section>
+<section id="summary" class="slide level2">
+<h2>Summary</h2>
+<div class="columns">
+<div class="column" style="width:30%;">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th><span class="math inline">\(p\)</span></th>
+<th><span class="math inline">\(q\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(p \lor q\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>F</td>
+<td>F</td>
+<td style="text-align: center;">F</td>
+</tr>
+<tr class="even">
+<td>F</td>
+<td>T</td>
+<td style="text-align: center;">T</td>
+</tr>
+<tr class="odd">
+<td>T</td>
+<td>F</td>
+<td style="text-align: center;">T</td>
+</tr>
+<tr class="even">
+<td>T</td>
+<td>T</td>
+<td style="text-align: center;">T</td>
+</tr>
+</tbody>
+</table>
+</div><div class="column" style="width: 70%; font-size: 80%;">
+<ul>
+<li>The diagram is a <em>Truth Table</em></li>
+<li><span class="math inline">\(p\)</span>, <span class="math inline">\(q\)</span> are <em>variables</em> taking one of two <em>Boolean</em> values (T/F, 1/0)</li>
+<li><span class="math inline">\(\lor\)</span> is a <em>binary operator</em>: a function from 2 Boolean inputs to 1 Boolean output, characterized by its output column</li>
+<li><span class="math inline">\(\lor\)</span> corresponds to the English <em>or</em></li>
+<li><span class="math inline">\(p \lor q\)</span> is a <em>proposition</em></li>
+</ul>
+</div></div>
+</section>
+<section id="cool-down" class="slide level2 activity">
+<h2>Cool down</h2>
+<ul>
+<li>How many rows for a proposition on 3 variables? On <span class="math inline">\(k\)</span>?</li>
+</ul>
+<p><br>
+</p>
+<ul>
+<li>Name an operator taking 1 variable: __________</li>
+</ul>
+<p><br>
+</p>
+<ul>
+<li>Name an operator taking 3 variables: __________</li>
+</ul>
+<p><br>
+</p>
+<ul>
+<li>How many different binary operators could there be?</li>
+</ul>
+<countdown-timer id="timer_dede9cf2dc12fb6da1650fde35bde0b3bbebbfd2" minutes="05" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+ </countdown-timer>
+<aside class="notes">
+<p><span class="math inline">\(2^k\)</span> rows. <span class="math inline">\(2^{2^k}\)</span> operators on <span class="math inline">\(k\)</span> variables; 16 binary ones. Half the binary operators are commutative (8).</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<aside class="notes">
+<p>Both carried over from Wednesday — class ended on the three observations and never reached these. Do the Cool down properly: the last question, how many binary operators there could be, is what the rest of today answers.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="sixteen-of-them" class="slide level2 smaller">
+<h2>Sixteen of them</h2>
+<p><span class="math inline">\(2^k\)</span> rows for <span class="math inline">\(k\)</span> variables — so <span class="math inline">\(2^{2^k}\)</span> possible operators.</p>
+<p><br>
+</p>
+<p>On two variables: <strong>16</strong>.</p>
+<p><br>
+</p>
+<p>A handful are worth naming: <span class="math inline">\(\wedge\)</span>, <span class="math inline">\(\vee\)</span>, <span class="math inline">\(\neg\)</span>, <span class="math inline">\(\rightarrow\)</span>, <span class="math inline">\(\oplus\)</span>, <span class="math inline">\(\uparrow\)</span></p>
+<p><br>
+</p>
+<p>But naming them is not enough. You also have to say <strong>how they combine</strong>.</p>
+<aside class="notes">
+<p>This answers the last Cool down question and pivots into the swim sentence. Naming the operators is the other half, and is what Activity 1 (operatorsMatching) does once PrairieLearn is published.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
+<section id="saying-what-you-mean" class="title-slide slide level1 center">
+<h1>Saying what you mean</h1>
+
+</section>
 <section id="a-sentence" class="slide level2 activity">
 <h2>A sentence</h2>
 <p><br>
@@ -232,7 +362,7 @@
 </p>
 <p><strong>What is the fewest number of swims consistent with what I said?</strong></p>
 <p>______</p>
-<countdown-timer id="timer_c69f969ca46fe1e20070d9f169dc2ee9833f7f36" minutes="02" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<countdown-timer id="timer_dede9cf2dc12fb6da1650fde35bde0b3bbebbfd2" minutes="02" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
  </countdown-timer>
 <aside class="notes">
 <p>Collect answers before advancing. Expect 3 and 4. Push for anyone who says 1. Do not resolve it yet.</p>
@@ -317,7 +447,7 @@
 <p>Sat/Sun: ______ ways</p>
 <p>Mon, Wed, Fri: ______ ways</p>
 <p>Total: ______</p>
-<countdown-timer id="timer_c69f969ca46fe1e20070d9f169dc2ee9833f7f36" minutes="04" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<countdown-timer id="timer_dede9cf2dc12fb6da1650fde35bde0b3bbebbfd2" minutes="04" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
  </countdown-timer>
 <aside class="notes">
 <p><span class="math inline">\(1 \times 3 \times 2^3 = 24\)</span>. Under reading 2, <span class="math inline">\(1 \times 2 \times 8 = 16\)</span>.</p>
@@ -399,7 +529,7 @@
 <li><span class="math inline">\(\neg (p ∨ q))\)</span></li>
 </ol>
 </div></div>
-<countdown-timer id="timer_c69f969ca46fe1e20070d9f169dc2ee9833f7f36" minutes="03" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<countdown-timer id="timer_dede9cf2dc12fb6da1650fde35bde0b3bbebbfd2" minutes="03" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
  </countdown-timer>
 <aside class="notes">
 <p>Symbols vary between sources: <span class="math inline">\(pq\)</span>, <span class="math inline">\(p \wedge q\)</span>, <code>p &amp; q</code>, <code>p &amp;&amp; q</code>. Our grammar uses one. Be agile.</p>
@@ -499,7 +629,7 @@
 <li><p><span class="math inline">\(\neg q\)</span></p></li>
 <li><p>Now the swim sentence: ________________</p></li>
 </ul>
-<countdown-timer id="timer_c69f969ca46fe1e20070d9f169dc2ee9833f7f36" minutes="05" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<countdown-timer id="timer_dede9cf2dc12fb6da1650fde35bde0b3bbebbfd2" minutes="05" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
  </countdown-timer>
 </section>
 <section id="in-class-activity" class="slide level2 activity">
@@ -508,7 +638,7 @@
 <p>Candidate: derive a <code>&lt;wff&gt;</code> and have a neighbour check each rule application.</p>
 <p><br>
 </p>
-<countdown-timer id="timer_c69f969ca46fe1e20070d9f169dc2ee9833f7f36" minutes="10" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<countdown-timer id="timer_dede9cf2dc12fb6da1650fde35bde0b3bbebbfd2" minutes="10" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
  </countdown-timer>
 <aside class="notes">
 <p>Activity 1 was never assigned — PrairieLearn is not published, and Lecture 1 ran out of time before the slide that would have set it. Do not refer to it as though they have done it. Whatever goes here needs a PrairieLearn assessment and a link on this slide, since activities are not linked anywhere else on the site.</p>
@@ -547,7 +677,7 @@ eyJjb250ZW50cyI6W119
 <script type="vfs-file">
 W10=
 </script>
-</section>
+</section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
