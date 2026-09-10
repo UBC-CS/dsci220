@@ -2314,11 +2314,32 @@
     "text": "Truth Tables\nAll graded learning activities in the course will use a tool called PrairieLearn.\nNavigate to today’s activity and complete question 1\nhttps://us.prairielearn.com/pl/course_instance/186238/"
   },
   {
-    "objectID": "slides/lecture-02_slides.html#beyond-operators",
-    "href": "slides/lecture-02_slides.html#beyond-operators",
+    "objectID": "slides/lecture-02_slides.html#a-sentence",
+    "href": "slides/lecture-02_slides.html#a-sentence",
     "title": "Truth and Propositions",
-    "section": "Beyond Operators",
-    "text": "Beyond Operators\nPropositions can be more complex than just a single operator!\nExample:\n\n\n\n\\(p\\)\n\\(q\\)\n_____\n\\(\\neg(p \\lor q)\\)\n\n\n\n\nF\nF\n\nT\n\n\nF\nT\n\nF\n\n\nT\nF\n\nF\n\n\nT\nT\n\nF"
+    "section": "A sentence",
+    "text": "A sentence\n\n\n\nI swim Tuesday and Thursday and either Saturday or Sunday.\n\n\n\nWhat is the fewest number of swims consistent with what I said?\n______\n\n \n\nCollect answers before advancing. Expect 3 and 4. Push for anyone who says 1. Do not resolve it yet."
+  },
+  {
+    "objectID": "slides/lecture-02_slides.html#three-readings",
+    "href": "slides/lecture-02_slides.html#three-readings",
+    "title": "Truth and Propositions",
+    "section": "Three readings",
+    "text": "Three readings\n\n\n\n\n\n\n\nReading\nFewest swims\n\n\n\n\n\\(\\text{Tue} \\wedge \\text{Thu} \\wedge (\\text{Sat} \\vee \\text{Sun})\\)\n3\n\n\n\\(\\text{Tue} \\wedge \\text{Thu} \\wedge (\\text{Sat} \\oplus \\text{Sun})\\)\n3\n\n\n\\((\\text{Tue} \\wedge \\text{Thu} \\wedge \\text{Sat}) \\vee \\text{Sun}\\)\n1\n\n\n\n\n\nSame words. Three answers.\n\nReading 2: “either/or” in English often excludes. Reading 3: drop the parentheses and apply the usual precedence, \\(\\wedge\\) before \\(\\vee\\)."
+  },
+  {
+    "objectID": "slides/lecture-02_slides.html#where-the-third-reading-comes-from",
+    "href": "slides/lecture-02_slides.html#where-the-third-reading-comes-from",
+    "title": "Truth and Propositions",
+    "section": "Where the third reading comes from",
+    "text": "Where the third reading comes from\n\\[\\text{Tue} \\wedge \\text{Thu} \\wedge \\text{Sat} \\vee \\text{Sun}\\]\n\n\n\\(\\wedge\\) binds tighter than \\(\\vee\\), so this groups as\n\\[(\\text{Tue} \\wedge \\text{Thu} \\wedge \\text{Sat}) \\vee \\text{Sun}\\]\n\n\nSet \\(\\text{Sun} =\\) T and the rest F. Is the sentence satisfied? ______\nHow many swims? ______"
+  },
+  {
+    "objectID": "slides/lecture-02_slides.html#the-fix",
+    "href": "slides/lecture-02_slides.html#the-fix",
+    "title": "Truth and Propositions",
+    "section": "The fix",
+    "text": "The fix\nTo say which reading you mean, you need a notation where the grouping cannot be dropped.\n\n\nWe will build one.\n\nLeads straight into the grammar. If there is time, draft-02 also has a slide counting how many whole weeks satisfy the sentence – the point being that Mon, Wed and Fri are unconstrained and easy to overlook."
   },
   {
     "objectID": "slides/lecture-02_slides.html#wffs",
