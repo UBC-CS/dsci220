@@ -139,22 +139,71 @@ Navigate to today's activity and complete question 1
 
 {{< countdown minutes=10 >}}
 
-## Beyond Operators
+## A sentence {.activity}
 
-_Propositions_ can be more complex than just a single operator! 
+\
 
-Example:
+> I swim Tuesday and Thursday and either Saturday or Sunday.
 
+\
 
-| $p$ | $q$ | \_\_\_\_\_ | $\neg(p \lor q)$ |
-|---|---|:--------:|:--------:|
-| F | F |   |   T    |
-| F | T |   |   F    |
-| T | F |   |   F    |
-| T | T |   |   F    |
+**What is the fewest number of swims consistent with what I said?**
+
+\_\_\_\_\_\_
+
+{{< countdown minutes=2 >}}
 
 ::: notes
-<!-- so what kinds of expressions CAN we make? -->
+Collect answers before advancing. Expect 3 and 4. Push for anyone who says 1.
+Do not resolve it yet.
+:::
+
+## Three readings
+
+| Reading | Fewest swims |
+|---|:---:|
+| $\text{Tue} \wedge \text{Thu} \wedge (\text{Sat} \vee \text{Sun})$ | 3 |
+| $\text{Tue} \wedge \text{Thu} \wedge (\text{Sat} \oplus \text{Sun})$ | 3 |
+| $(\text{Tue} \wedge \text{Thu} \wedge \text{Sat}) \vee \text{Sun}$ | 1 |
+
+\
+
+Same words. Three answers.
+
+::: notes
+Reading 2: "either/or" in English often excludes. Reading 3: drop the
+parentheses and apply the usual precedence, $\wedge$ before $\vee$.
+:::
+
+## Where the third reading comes from
+
+$$\text{Tue} \wedge \text{Thu} \wedge \text{Sat} \vee \text{Sun}$$
+
+\
+
+$\wedge$ binds tighter than $\vee$, so this groups as
+
+$$(\text{Tue} \wedge \text{Thu} \wedge \text{Sat}) \vee \text{Sun}$$
+
+\
+
+Set $\text{Sun} =$ T and the rest F. Is the sentence satisfied? \_\_\_\_\_\_
+
+How many swims? \_\_\_\_\_\_
+
+## The fix
+
+To say which reading you mean, you need a notation where the grouping
+**cannot be dropped**.
+
+\
+
+We will build one.
+
+::: notes
+Leads straight into the grammar. If there is time, draft-02 also has a slide
+counting how many whole weeks satisfy the sentence -- the point being that
+Mon, Wed and Fri are unconstrained and easy to overlook.
 :::
 
 ## WFFs
