@@ -85,6 +85,12 @@ cards are (black with the property) together with (red without it), spanning bot
 colours, so naming a suit or rank none of them has is easy while finding
 something they all share is rare.
 
+If you keep the "must be true of at least one card" rule, note that it bans
+questions vacuous over the *packet*, not over the cards a given person could
+still hold --- so it rarely blocks the strategy. A clean two-question kill exists
+after about 88% of first answers; the rest need the group to combine answers
+across several people, which is what the debate round is for.
+
 ## Next year
 
 **Grouping was the weak point in 2026W1.** Forming groups of exactly six in a

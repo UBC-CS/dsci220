@@ -167,9 +167,19 @@ lying. If a group offers one direction, ask for the other.
 In practice known-false is much easier to find. After a "yes" the surviving
 cards are (black with the property) together with (red without it) --- a set
 spanning both colours. Naming a suit or rank none of them has is easy; finding
-something a mixed bag all share is rare. Across eight packets there were 20
-known-false follow-ups available and 1 known-true. Worth asking why, if someone
-notices.
+something a mixed bag all share is rare.
+
+**Careful with the "true of at least one card" rule.** It bans a question that is
+false of *every card in the packet*. It does not ban one that is false of every
+card *this person could still be holding*, which is what the strategy actually
+needs --- and that is usually still legal. Packet 9, after a yes to "spade":
+club, heart and even-number all work, and club is legal because 2C is in the
+packet even though no candidate is a club.
+
+The clean two-question kill is available after 192 of 219 possible first
+answers, about 88%. In the remaining cases no single follow-up fixes the column,
+and the group has to combine what they heard across several people instead --
+which is what the debate round is for.
 
 Do not name XOR. The Truth slide introduces the same four-row shape for OR, and
 naming it there lands better.
