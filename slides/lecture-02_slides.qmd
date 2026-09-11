@@ -121,8 +121,10 @@ Add parentheses so that I swam exactly this many times:
 ::: notes
 Same string six times. Annotate each line live.
 
-Close on the pivot: to say which reading you mean, you need a notation whose
-grouping cannot be dropped -- and that is what we build next.
+Close on the pivot: in English the parentheses are optional, which is why the
+sentence had three readings. We are about to build a notation where they are
+compulsory -- every AND and OR rule in the grammar emits its own pair, so there
+is nothing to leave out and nothing to guess.
 :::
 
 ## WFFs
