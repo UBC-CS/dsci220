@@ -2314,20 +2314,6 @@
     "text": "Swimming Continued\nAdd parentheses so that I swam exactly this many times:\n5: \\(\\text{Tue} \\wedge \\text{Thu} \\wedge \\text{Sat} \\vee \\text{Sun}\\)\n4: \\(\\text{Tue} \\wedge \\text{Thu} \\wedge \\text{Sat} \\vee \\text{Sun}\\)\n3: \\(\\text{Tue} \\wedge \\text{Thu} \\wedge \\text{Sat} \\vee \\text{Sun}\\)\n2: \\(\\text{Tue} \\wedge \\text{Thu} \\wedge \\text{Sat} \\vee \\text{Sun}\\)\n1: \\(\\text{Tue} \\wedge \\text{Thu} \\wedge \\text{Sat} \\vee \\text{Sun}\\)\n0: \\(\\text{Tue} \\wedge \\text{Thu} \\wedge \\text{Sat} \\vee \\text{Sun}\\)\n\nSame string six times. Annotate each line live."
   },
   {
-    "objectID": "slides/lecture-02_slides.html#where-the-third-reading-comes-from",
-    "href": "slides/lecture-02_slides.html#where-the-third-reading-comes-from",
-    "title": "Truth and Propositions",
-    "section": "Where the third reading comes from",
-    "text": "Where the third reading comes from\n\\[\\text{Tue} \\wedge \\text{Thu} \\wedge \\text{Sat} \\vee \\text{Sun}\\]\n\n\n\\(\\wedge\\) binds tighter than \\(\\vee\\), so this groups as\n\\[(\\text{Tue} \\wedge \\text{Thu} \\wedge \\text{Sat}) \\vee \\text{Sun}\\]\n\n\nSet \\(\\text{Sun} =\\) T and the rest F. Is the sentence satisfied? ______\nHow many swims? ______"
-  },
-  {
-    "objectID": "slides/lecture-02_slides.html#the-fix",
-    "href": "slides/lecture-02_slides.html#the-fix",
-    "title": "Truth and Propositions",
-    "section": "The fix",
-    "text": "The fix\nTo say which reading you mean, you need a notation where the grouping cannot be dropped.\n\n\nWe will build one.\n\nLeads straight into the grammar. If there is time, draft-02 also has a slide counting how many whole weeks satisfy the sentence – the point being that Mon, Wed and Fri are unconstrained and easy to overlook."
-  },
-  {
     "objectID": "slides/lecture-02_slides.html#wffs",
     "href": "slides/lecture-02_slides.html#wffs",
     "title": "Truth and Propositions",
