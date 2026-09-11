@@ -97,6 +97,13 @@ Not published (Quarto ignores `_`-prefixed files).
       Lab 1 is Cinda's. Six of the ten are new builds; only four exist from
       2025W1.
 
+## Promotion
+
+- [ ] **Advertise the DSCI Instagram** (Jayden's). Need the handle. Candidate
+      places: the Canvas front page, a Lecture 1 announcement slide, and/or the
+      website sidebar under Resources. Not a course-content link, so probably
+      Canvas + a slide mention rather than the schedule.
+
 ## Question bank
 
 - [ ] **Write more WFF questions.** WFFs are ~46% of lecture 2 but only 2 of 294
