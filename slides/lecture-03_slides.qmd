@@ -233,7 +233,16 @@ feedback
 ```
 
 ::: notes
-note that by doing this filtering, we are defining a predicate instantiated by each row whose truth value is evaluated.
+Filtering defines a predicate, instantiated by each row, whose truth value is
+then evaluated. Say that out loud -- the mask *is* P(x).
+
+**The Monday point.** This is where the swim sentence pays off. It said nothing
+about Monday, Wednesday or Friday; a filter says nothing about the rows it does
+not return. In both cases absence is not falsity. `cereals[p]` hands you the
+rows where p holds and tells you nothing about why the rest are missing --
+p false, or the value absent? Treating unmentioned days as "no swim" is the same
+move as treating excluded rows as "not true", and both are assumptions you are
+making rather than facts the data gave you.
 
 Challenge: In pandas, test De Morgan with missing data: create a row with protein = NaN.
 Show that (\~p) & (\~q) can differ from \~(p \| q) under three-valued logic; propose a fix (.fillna(False) or careful NA handling).
