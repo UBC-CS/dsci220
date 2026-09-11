@@ -278,7 +278,7 @@
 <li><span class="math inline">\(\neg (p ∨ q))\)</span></li>
 </ol>
 </div></div>
-<countdown-timer id="timer_082c15365500d42016a7a54069d1d6212b3e94fd" minutes="03" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<countdown-timer id="timer_42b40c3ce7cf374083810d419f1717d635054d41" minutes="03" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
  </countdown-timer>
 <aside class="notes">
 <p>Sometimes pq is the same as p^q, p &amp; q, p &amp;&amp; q, but our grammar only uses ^. In this course we will vary symbols fluidly, partly because we’re assembling info from many different sources, but also partly because you’ll need to be agile in the future. Note that the same issues exist for other operators.</p>
@@ -419,7 +419,8 @@ eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWUsImV4ZXJjaXNlIjoiZXhfY2VyZWFsIn0sImNv
 eyJhdHRyIjp7ImNoZWNrIjp0cnVlLCJlZGl0Ijp0cnVlLCJldmFsIjp0cnVlLCJleGVyY2lzZSI6ImV4X2NlcmVhbCJ9LCJjb2RlIjoiY29ycmVjdF9hbnN3ZXIgPSBjZXJlYWxzWyhjZXJlYWxzWydwcm90ZWluJ10gPj0gNCkgJiAoY2VyZWFsc1snc3VnYXJzJ10gPD0gNildXG5cbm9rID0gKFxuICAgIGxlbihmaWx0ZXJlZF9kZikgPT0gbGVuKGNvcnJlY3RfYW5zd2VyKVxuICAgIGFuZCBmaWx0ZXJlZF9kZi5pbmRleC5lcXVhbHMoY29ycmVjdF9hbnN3ZXIuaW5kZXgpXG4pXG5cbmlmIG9rOlxuICAgIGZlZWRiYWNrID0ge1xuICAgICAgICBcImNvcnJlY3RcIjogVHJ1ZSxcbiAgICAgICAgXCJtZXNzYWdlXCI6IFwiUGVyZmVjdCEgWW91IGNvcnJlY3RseSBmaWx0ZXJlZCBmb3IgaGVhbHRoeSBjZXJlYWwuXCJcbiAgICB9XG5lbHNlOlxuICAgIGZlZWRiYWNrID0ge1xuICAgICAgICBcImNvcnJlY3RcIjogRmFsc2UsXG4gICAgICAgIFwibWVzc2FnZVwiOiBcIk5vdCBxdWl0ZS4gVXNlIGJvdGggY29uZGl0aW9uczogcHJvdGVpbiA+PSA0IGFuZCBzdWdhcnMgPD0gNi5cIlxuICAgIH1cblxuZmVlZGJhY2sgICJ9
 </script>
 <aside class="notes">
-<p>note that by doing this filtering, we are defining a predicate instantiated by each row whose truth value is evaluated.</p>
+<p>Filtering defines a predicate, instantiated by each row, whose truth value is then evaluated. Say that out loud – the mask <em>is</em> P(x).</p>
+<p><strong>The Monday point.</strong> This is where the swim sentence pays off. It said nothing about Monday, Wednesday or Friday; a filter says nothing about the rows it does not return. In both cases absence is not falsity. <code>cereals[p]</code> hands you the rows where p holds and tells you nothing about why the rest are missing – p false, or the value absent? Treating unmentioned days as “no swim” is the same move as treating excluded rows as “not true”, and both are assumptions you are making rather than facts the data gave you.</p>
 <p>Challenge: In pandas, test De Morgan with missing data: create a row with protein = NaN. Show that (~p) &amp; (~q) can differ from ~(p | q) under three-valued logic; propose a fix (.fillna(False) or careful NA handling).</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {

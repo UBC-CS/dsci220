@@ -1755,7 +1755,7 @@
     "href": "slides/lecture-03_slides.html#boolean-masks",
     "title": "Logical Equivalences",
     "section": "Boolean Masks",
-    "text": "Boolean Masks\nSelect all the cereals with at least 4 units of protein and no more than 6 units of sugars.\n\n\n\n\n\n\n\n\n\nnote that by doing this filtering, we are defining a predicate instantiated by each row whose truth value is evaluated.\nChallenge: In pandas, test De Morgan with missing data: create a row with protein = NaN. Show that (~p) & (~q) can differ from ~(p | q) under three-valued logic; propose a fix (.fillna(False) or careful NA handling)."
+    "text": "Boolean Masks\nSelect all the cereals with at least 4 units of protein and no more than 6 units of sugars.\n\n\n\n\n\n\n\n\n\nFiltering defines a predicate, instantiated by each row, whose truth value is then evaluated. Say that out loud – the mask is P(x).\nThe Monday point. This is where the swim sentence pays off. It said nothing about Monday, Wednesday or Friday; a filter says nothing about the rows it does not return. In both cases absence is not falsity. cereals[p] hands you the rows where p holds and tells you nothing about why the rest are missing – p false, or the value absent? Treating unmentioned days as “no swim” is the same move as treating excluded rows as “not true”, and both are assumptions you are making rather than facts the data gave you.\nChallenge: In pandas, test De Morgan with missing data: create a row with protein = NaN. Show that (~p) & (~q) can differ from ~(p | q) under three-valued logic; propose a fix (.fillna(False) or careful NA handling)."
   },
   {
     "objectID": "slides/lecture-03_slides.html#logical-equivalence-2",
@@ -2349,53 +2349,11 @@
     "text": "WFFs\n&lt;wff&gt; ::= &lt;atom&gt;\n        | ~ &lt;wff&gt;\n        | ( &lt;wff&gt; ∧ &lt;wff&gt; )\n        | ( &lt;wff&gt; ∨ &lt;wff&gt; )\n\n&lt;atom&gt; ::= p | q \nTheorem: \\(\\neg (p ∨ q))\\) is not a WFF.\nProof:"
   },
   {
-    "objectID": "slides/lecture-02_slides.html#propositions",
-    "href": "slides/lecture-02_slides.html#propositions",
-    "title": "Truth and Propositions",
-    "section": "Propositions",
-    "text": "Propositions\nA proposition is a statement that can be either True or False.\nExamples:\n\n\\(37 &gt; 12\\)\nFewer than 5 people in this room feel sleepy.\nThere are extra-terrestrial life forms.\nThis statement is False.\n\\(\\underline{\\hspace{10em}}\\)"
-  },
-  {
-    "objectID": "slides/lecture-02_slides.html#translation",
-    "href": "slides/lecture-02_slides.html#translation",
-    "title": "Truth and Propositions",
-    "section": "Translation",
-    "text": "Translation\n\n\n\\(p\\): ___________ ate cereal for breakfast.\n\\(q\\): ___________ brought a backpack to class.\n \n\n\\((p\\lor q)\\)\n\\((p\\wedge q)\\)\n\\(\\neg q\\)"
-  },
-  {
-    "objectID": "slides/lecture-02_slides.html#predicates",
-    "href": "slides/lecture-02_slides.html#predicates",
-    "title": "Truth and Propositions",
-    "section": "Predicates",
-    "text": "Predicates\n\n\n\\(p\\): ___________ ate cereal for breakfast.\n\n\nWe may want to apply the statement to many students, in which case we define a Predicate.\n\n\n\n\\(P(x)\\): \\(x\\) ate cereal for breakfast.\n\\(x\\) can be instantiated to be a particular student, or an arbitrary student.\n\\(P(\\underline{\\hspace{2em}} )\\) is a proposition."
-  },
-  {
-    "objectID": "slides/lecture-02_slides.html#logical-equivalence",
-    "href": "slides/lecture-02_slides.html#logical-equivalence",
-    "title": "Truth and Propositions",
-    "section": "Logical Equivalence",
-    "text": "Logical Equivalence\n\n\nEx: Is it true that \\((p \\lor q) \\equiv (q\\lor p)\\) ?\n\n\nDiscussion points:\n\n\\(\\equiv\\) means logically equivalent\nThe answer had better be _________!!!\nHow can we justify our instinct?"
-  },
-  {
-    "objectID": "slides/lecture-02_slides.html#logical-equivalence-example",
-    "href": "slides/lecture-02_slides.html#logical-equivalence-example",
-    "title": "Truth and Propositions",
-    "section": "Logical Equivalence example",
-    "text": "Logical Equivalence example"
-  },
-  {
-    "objectID": "slides/lecture-02_slides.html#boolean-masks",
-    "href": "slides/lecture-02_slides.html#boolean-masks",
-    "title": "Truth and Propositions",
-    "section": "Boolean Masks",
-    "text": "Boolean Masks\nSelect all the cereals with at least 4 units of protein and no more than 6 units of sugars.\n\n\n\n\n\n\n\n\n\nFiltering defines a predicate, instantiated by each row, whose truth value is then evaluated. Say that out loud – the mask is P(x).\nThe Monday point. This is where the swim sentence pays off. It said nothing about Monday, Wednesday or Friday; a filter says nothing about the rows it does not return. In both cases absence is not falsity. cereals[p] hands you the rows where p holds and tells you nothing about why the rest are missing – p false, or the value absent? Treating unmentioned days as “no swim” is the same move as treating excluded rows as “not true”, and both are assumptions you are making rather than facts the data gave you.\nChallenge: in pandas, test De Morgan with missing data – add a row with protein = NaN and show that (~p) & (~q) can differ from ~(p | q) under three-valued logic. Fix with .fillna(False) or careful NA handling. That is the same gap: NaN is neither True nor False, so it is not a proposition."
-  },
-  {
     "objectID": "slides/lecture-02_slides.html#words-and-ideas",
     "href": "slides/lecture-02_slides.html#words-and-ideas",
     "title": "Truth and Propositions",
     "section": "Words and Ideas",
-    "text": "Words and Ideas\nTruth Table\nProposition\nGrammar\nPredicate\nBoolean Mask\nLogical Equivalence"
+    "text": "Words and Ideas\nTruth Table\nProposition\nGrammar\nWell-formed formula\nRecursive definition"
   },
   {
     "objectID": "slides/lecture-04_slides.html#announcements",
