@@ -82,44 +82,42 @@ walk the room. Full credit runs to Sunday, so nobody is penalised for a slow
 start.
 :::
 
-## A sentence {.activity}
-
-\
+## A sentence {.activity .smaller}
 
 > I swim Tuesday and Thursday and Saturday or Sunday.
 
 \
 
-**What is the least number of swims consistent with what I said?**
+**How many times did I swim?**  (circle all possible values)
 
-\_\_\_\_\_\_
-
-**What is the greatest number of swims consistent with what I said?**
-
-\_\_\_\_\_\_
+$$1 \qquad 2 \qquad 3 \qquad 4 \qquad 5$$
 
 {{< countdown minutes=2 >}}
 
 ::: notes
-Collect answers before advancing. Expect 3 and 4. Push for anyone who says 1.
-Do not resolve it yet.
+Collect before advancing.
+
+5 is the one worth an argument: it turns on whether days I never mentioned
+count. The sentence is silent about Monday.
 :::
 
-## Three readings
+## Three readings {.smaller}
 
-| Reading | Fewest swims |
+| Reading | Possible |
 |---|:---:|
-| $\text{Tue} \wedge \text{Thu} \wedge (\text{Sat} \vee \text{Sun})$ | 3 |
-| $\text{Tue} \wedge \text{Thu} \wedge (\text{Sat} \oplus \text{Sun})$ | 3 |
-| $(\text{Tue} \wedge \text{Thu} \wedge \text{Sat}) \vee \text{Sun}$ | 1 |
+| $\text{Tue} \wedge \text{Thu} \wedge (\text{Sat} \vee \text{Sun})$ | |
+| $\text{Tue} \wedge \text{Thu} \wedge (\text{Sat} \oplus \text{Sun})$ | |
+| $(\text{Tue} \wedge \text{Thu} \wedge \text{Sat}) \vee \text{Sun}$ | |
 
 \
 
-Same words. Three answers.
+Same words. Three different answers.
 
 ::: notes
+Fill the right-hand column in live.
+
 Reading 2: "or" in English is sometimes exclusive. Reading 3: drop the
-parentheses and apply the usual precedence, $\wedge$ before $\vee$.
+parentheses and apply the usual precedence, AND before OR.
 :::
 
 ## Where the third reading comes from
