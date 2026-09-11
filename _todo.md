@@ -68,8 +68,13 @@ Not published (Quarto ignores `_`-prefixed files).
       time. Candidates: apply a named rule to a given line; give the rule
       sequence that produces a target formula; spot the illegal step in a
       derivation.
-- [ ] For contrast, logical equivalence has 76 bank questions and now gets no
-      lecture-2 time at all — check lecture 3 leaves room for it.
+      Note the 46%-vs-2-questions figure understates WFFs' weight: **logical
+      equivalence is a relation between well-formed formulas**, so the 76
+      equivalence questions in the bank presuppose WFFs rather than competing
+      with them. "Is $(p \lor q) \equiv (q \lor p)$?" only means something once
+      both sides are known to be legal formulas, and the equivalence laws are
+      rewrite rules on formula structure. Time spent on WFFs is not time taken
+      from equivalence; it is what makes equivalence statable.
 
 ## Open decisions
 
