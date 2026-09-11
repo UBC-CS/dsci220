@@ -251,17 +251,15 @@ assembling info from many different sources, but also partly because you'll
 need to be agile in the future. Note that the same issues exist for other operators. -->
 :::
 
-## WFFs
+## Parse Trees 
 
-Build the parse tree for each:
+Apply the outermost relevant rule...
 
-$$((\text{Tu} \wedge \text{Th}) \wedge (\text{Sa} \vee \text{Su}))$$
-
-$$(\text{Tu} \wedge (\text{Th} \wedge (\text{Sa} \vee \text{Su})))$$
+$((\text{Tu} \wedge \text{Th}) \wedge (\text{Sa} \vee \text{Su}))$&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+$(\text{Tu} \wedge (\text{Th} \wedge (\text{Sa} \vee \text{Su})))$
 
 \
 
-Same tree?&emsp;&emsp;Same meaning?
 
 ::: notes
 Work outward-in: the outermost parentheses are the last rule applied, so they
