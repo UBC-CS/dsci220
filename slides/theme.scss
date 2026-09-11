@@ -35,6 +35,13 @@ $colors: (
   background-color: theme-color("activity");
 }
 
+// Quarto styles blockquotes grey (#6F6F6F), which against the activity blue is
+// a contrast ratio of 1.04:1 -- effectively invisible. Lift them to white here.
+.reveal .activity blockquote {
+  color: #fff;
+  border-left-color: rgba(255, 255, 255, 0.85);
+}
+
 .medium-table table {
   font-size: 0.8em;
 }
