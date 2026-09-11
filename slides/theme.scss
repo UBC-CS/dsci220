@@ -35,11 +35,20 @@ $colors: (
   background-color: theme-color("activity");
 }
 
-// Quarto styles blockquotes grey (#6F6F6F), which against the activity blue is
-// a contrast ratio of 1.04:1 -- effectively invisible. Lift them to white here.
+// Blockquotes: indented and italic, with no rule down the side.
+.reveal blockquote {
+  border-left: none;
+  margin: var(--r-block-margin) 0 var(--r-block-margin) 2em;
+  padding: 0;
+  font-style: italic;
+  background: none;
+  box-shadow: none;
+}
+
+// Quarto colours blockquotes grey (#6F6F6F), which against the activity blue is
+// a contrast ratio of 1.04:1 -- effectively invisible. Lift them to white.
 .reveal .activity blockquote {
   color: #fff;
-  border-left-color: rgba(255, 255, 255, 0.85);
 }
 
 .medium-table table {
