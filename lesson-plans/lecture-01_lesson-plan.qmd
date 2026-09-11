@@ -107,6 +107,14 @@ Grouping was the main time sink; see below. Carry the Cool down questions into
 Friday --- "how many binary operators could there be" is the natural way into
 the grammar, since it motivates why only a handful get names.
 
+## Pacing note, lecture 2
+
+In 2025 lecture 2 never reached WFFs at all -- the material that now opens
+lecture 2 is where lecture 3 started last year. So the Friday deck is built
+long on purpose: 11 slides, roughly 49 minutes by estimate, ending at the WFF
+theorem. Getting partway through is the expected case, not a failure; anything
+not reached carries to Monday, where it already lives.
+
 ## Next year
 
 **Grouping was the weak point in 2026W1.** Forming groups of exactly six in a

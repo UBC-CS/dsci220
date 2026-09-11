@@ -57,6 +57,20 @@ Not published (Quarto ignores `_`-prefixed files).
       work. Groups of 4-6 all solve, so hand one envelope per block of adjacent
       seats and deal one card per person present. See the lecture-1 lesson plan.
 
+## Question bank
+
+- [ ] **Write more WFF questions.** WFFs are ~46% of lecture 2 but only 2 of 294
+      questions in the bank (`2026W1/logic/WFF1`, `WFF2`), and both test
+      recognition — "is this a WFF?" / "which of these are WFFs?" Nothing asks
+      for a **derivation**, which is the part class spends longest on and the
+      same machinery as the context-free grammars in week 10. Decision
+      2026-09-10: fix the imbalance by adding questions, not by cutting class
+      time. Candidates: apply a named rule to a given line; give the rule
+      sequence that produces a target formula; spot the illegal step in a
+      derivation.
+- [ ] For contrast, logical equivalence has 76 bank questions and now gets no
+      lecture-2 time at all — check lecture 3 leaves room for it.
+
 ## Open decisions
 
 - [ ] Course part titles and week spans — currently Part 1/2/3 starting weeks
