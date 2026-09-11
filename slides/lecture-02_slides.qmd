@@ -253,6 +253,36 @@ need to be agile in the future. Note that the same issues exist for other operat
 
 ## WFFs
 
+Build the parse tree for
+
+$$((\text{Tu} \wedge \text{Th}) \wedge (\text{Sa} \vee \text{Su}))$$
+
+```{bnf}
+<wff> ::= <atom>
+        | ~ <wff>
+        | ( <wff> ∧ <wff> )
+        | ( <wff> ∨ <wff> )
+
+<atom> ::= Tu | Th | Sa | Su
+
+```
+
+\
+
+\
+
+::: notes
+The correct parenthesization of the swim sentence, drawn as a tree. Work
+outward-in: the outermost pair of parentheses is the last rule applied, so it is
+the root.
+
+Each internal node is a rule application; each leaf is an atom. The tree records
+which rule was used where -- which is what the parentheses were encoding all
+along, and why dropping them loses information.
+:::
+
+## WFFs
+
 ```{bnf}
 <wff> ::= <atom>
         | ~ <wff>
