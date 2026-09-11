@@ -49,7 +49,9 @@ format_resource_as_icon <- function(show_week, id, type, resource) {
     ) |>
     fontawesome::fa()
 
-  if (!show_week) {
+  # Grey and unlinked when the week is not yet revealed, or when the resource
+  # exists in the schedule but is not available yet (TBD).
+  if (!show_week || is.na(resource) || resource == "TBD") {
     return(
       glue::glue('<span class="inactive-link">{icon}</span>')
     )

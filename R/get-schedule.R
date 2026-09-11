@@ -53,7 +53,10 @@ get_schedule <- function() {
 
   resources <-
     tibble::tibble(
-      resource = fs::dir_ls(resources_paths, glob = "*.qmd"),
+      # as.character() matters: dir_ls() returns fs_path, and bind_rows() below
+      # would then coerce the URLs from additional-resources.csv into fs_path
+      # too -- which normalises "https://" to "https:/" and breaks every link.
+      resource = as.character(fs::dir_ls(resources_paths, glob = "*.qmd")),
       id = get_id_from_resource(resource),
       type = resource |> fs::path_dir()
     ) |>
