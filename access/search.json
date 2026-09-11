@@ -2279,18 +2279,11 @@
     "text": "I am excited to welcome you to DSCI 220! This short announcement is here to get you oriented to this course website and point out some important resources. The landing page contains the schedule where you can see all the things happening in the weeks to come and the most recent post in announcements. Then take a look at the syllabus to gain an overview of the course and its requirements, but we will discuss it in the first class.\nSee you in the first class on Wednesday, September 9."
   },
   {
-    "objectID": "slides/lecture-02_slides.html#truth",
-    "href": "slides/lecture-02_slides.html#truth",
+    "objectID": "slides/lecture-02_slides.html#recall",
+    "href": "slides/lecture-02_slides.html#recall",
     "title": "Truth and Propositions",
-    "section": "Truth",
-    "text": "Truth\nMake at least 3 observations about the following table:\n\n\n\n\n\n\\(p\\)\n\\(q\\)\n\\(p \\lor q\\)\n\n\n\n\nF\nF\nF\n\n\nF\nT\nT\n\n\nT\nF\nT\n\n\nT\nT\nT"
-  },
-  {
-    "objectID": "slides/lecture-02_slides.html#summary",
-    "href": "slides/lecture-02_slides.html#summary",
-    "title": "Truth and Propositions",
-    "section": "Summary",
-    "text": "Summary\nKey observations about the table:\n\n\n\n\n\n\\(p\\)\n\\(q\\)\n\\(p \\lor q\\)\n\n\n\n\nF\nF\nF\n\n\nF\nT\nT\n\n\nT\nF\nT\n\n\nT\nT\nT\n\n\n\n\n\nThe diagram is called a Truth Table\np and q are variables, each of which take on one of two Boolean values, True or False (T/F, 1/0)\n∨ is a binary operator that implements a function (creates output) from the 2 input variables to another Boolean value. It is characterized by its output values.\nThe operator ∨ corresponds to the English word or.\nThe expression p ∨ q is called a proposition."
+    "section": "Recall…",
+    "text": "Recall…\nKey observations about the table:\n\n\n\n\n\n\\(p\\)\n\\(q\\)\n\\(p \\lor q\\)\n\n\n\n\nF\nF\nF\n\n\nF\nT\nT\n\n\nT\nF\nT\n\n\nT\nT\nT\n\n\n\n\n\nThe diagram is called a Truth Table\np and q are variables, each of which take on one of two Boolean values, True or False (T/F, 1/0)\n∨ is a binary operator that implements a function (creates output) from the 2 input variables to another Boolean value. It is characterized by its output values.\nThe operator ∨ corresponds to the English word or.\nThe expression p ∨ q is called a proposition."
   },
   {
     "objectID": "slides/lecture-02_slides.html#foreshadowing",
@@ -2304,14 +2297,14 @@
     "href": "slides/lecture-02_slides.html#truth-tables",
     "title": "Truth and Propositions",
     "section": "Truth Tables",
-    "text": "Truth Tables\nAll graded learning activities in the course will use a tool called PrairieLearn.\nIt will be posted on PrairieLearn. Watch Piazza for the link.\n\nPrairieLearn is not published yet, so the link is removed. Restore it once the 2026W1 instance is live: course_instance/209866."
+    "text": "Truth Tables\nAll graded learning activities in the course use a tool called PrairieLearn.\nOpen Activity 1: Propositional Logic and work through it.\n\n\n    \n&lt;https://us.prairielearn.com/pl/course_instance/209866/assessments&gt;\n\n \n\nFirst time any of them has opened PrairieLearn. Expect enrolment friction – walk the room. Full credit runs to Sunday, so nobody is penalised for a slow start."
   },
   {
     "objectID": "slides/lecture-02_slides.html#a-sentence",
     "href": "slides/lecture-02_slides.html#a-sentence",
     "title": "Truth and Propositions",
     "section": "A sentence",
-    "text": "A sentence\n\n\n\nI swim Tuesday and Thursday and Saturday or Sunday.\n\n\n\nWhat is the fewest number of swims consistent with what I said?\n______\n\n \n\nCollect answers before advancing. Expect 3 and 4. Push for anyone who says 1. Do not resolve it yet."
+    "text": "A sentence\n\n\n\nI swim Tuesday and Thursday and Saturday or Sunday.\n\n\n\nWhat is the least number of swims consistent with what I said?\n______\nWhat is the greatest number of swims consistent with what I said?\n______\n\n \n\nCollect answers before advancing. Expect 3 and 4. Push for anyone who says 1. Do not resolve it yet."
   },
   {
     "objectID": "slides/lecture-02_slides.html#three-readings",
