@@ -82,7 +82,7 @@ walk the room. Full credit runs to Sunday, so nobody is penalised for a slow
 start.
 :::
 
-## A sentence {.activity .smaller}
+## A sentence {.activity}
 
 > I swim Tuesday and Thursday and Saturday or Sunday.
 
@@ -90,9 +90,9 @@ start.
 
 **How many times did I swim?**  (circle all possible values)
 
-$$1 \qquad 2 \qquad 3 \qquad 4 \qquad 5$$
+$$0 \qquad 1 \qquad 2 \qquad 3 \qquad 4 \qquad 5$$
 
-{{< countdown minutes=2 >}}
+{{< countdown minutes=4 >}}
 
 ::: notes
 Collect before advancing.
@@ -101,23 +101,28 @@ Collect before advancing.
 count. The sentence is silent about Monday.
 :::
 
-## Three readings {.smaller}
+## Where do the parentheses go? {.activity .smaller}
 
-| Reading | Possible |
-|---|:---:|
-| $\text{Tue} \wedge \text{Thu} \wedge (\text{Sat} \vee \text{Sun})$ | |
-| $\text{Tue} \wedge \text{Thu} \wedge (\text{Sat} \oplus \text{Sun})$ | |
-| $(\text{Tue} \wedge \text{Thu} \wedge \text{Sat}) \vee \text{Sun}$ | |
+Add parentheses so that I swam exactly this many times:
 
 \
 
-Same words. Three different answers.
+**5:**  $\text{Tue} \wedge \text{Thu} \wedge \text{Sat} \vee \text{Sun}$
+
+**4:**  $\text{Tue} \wedge \text{Thu} \wedge \text{Sat} \vee \text{Sun}$
+
+**3:**  $\text{Tue} \wedge \text{Thu} \wedge \text{Sat} \vee \text{Sun}$
+
+**2:**  $\text{Tue} \wedge \text{Thu} \wedge \text{Sat} \vee \text{Sun}$
+
+**1:**  $\text{Tue} \wedge \text{Thu} \wedge \text{Sat} \vee \text{Sun}$
+
+**0:**  $\text{Tue} \wedge \text{Thu} \wedge \text{Sat} \vee \text{Sun}$
+
+{{< countdown minutes=5 >}}
 
 ::: notes
-Fill the right-hand column in live.
-
-Reading 2: "or" in English is sometimes exclusive. Reading 3: drop the
-parentheses and apply the usual precedence, AND before OR.
+Same string six times. Annotate each line live.
 :::
 
 ## Where the third reading comes from
