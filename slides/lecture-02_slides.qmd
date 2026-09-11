@@ -120,6 +120,9 @@ Add parentheses so that I swam exactly this many times:
 
 ::: notes
 Same string six times. Annotate each line live.
+
+Close on the pivot: to say which reading you mean, you need a notation whose
+grouping cannot be dropped -- and that is what we build next.
 :::
 
 ## WFFs
