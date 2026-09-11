@@ -1692,7 +1692,7 @@
     "href": "slides/lecture-03_slides.html#wffs",
     "title": "Logical Equivalences",
     "section": "WFFs",
-    "text": "WFFs\nRand WFF Apply rule on line:\nRand atom Atom becomes:\n&lt;wff&gt; ::= &lt;atom&gt;\n        | ~ &lt;wff&gt;\n        | ( &lt;wff&gt; ∧ &lt;wff&gt; )\n        | ( &lt;wff&gt; ∨ &lt;wff&gt; )\n\n&lt;atom&gt; ::= p | q \nExample derivation:\n&lt;wff&gt;"
+    "text": "WFFs\nRand WFF Apply rule on line:\nRand atom Atom becomes:\n&lt;wff&gt; ::= &lt;atom&gt;\n        | ~ &lt;wff&gt;\n        | ( &lt;wff&gt; ∧ &lt;wff&gt; )\n        | ( &lt;wff&gt; ∨ &lt;wff&gt; )\n\n&lt;atom&gt; ::= p | q \nGenerate a WFF:\n&lt;wff&gt;"
   },
   {
     "objectID": "slides/lecture-03_slides.html#wffs-notes",
@@ -2325,7 +2325,7 @@
     "href": "slides/lecture-02_slides.html#wffs-1",
     "title": "Truth and Propositions",
     "section": "WFFs",
-    "text": "WFFs\nRand rule   apply rule on line —\nRand atom   atom becomes —\n&lt;wff&gt; ::= &lt;atom&gt;\n        | ~ &lt;wff&gt;\n        | ( &lt;wff&gt; ∧ &lt;wff&gt; )\n        | ( &lt;wff&gt; ∨ &lt;wff&gt; )\n\n&lt;atom&gt; ::= p | q \nExample derivation:\n&lt;wff&gt;"
+    "text": "WFFs\nRand rule   apply rule on line —\nRand atom   atom becomes —\n&lt;wff&gt; ::= &lt;atom&gt;\n        | ~ &lt;wff&gt;\n        | ( &lt;wff&gt; ∧ &lt;wff&gt; )\n        | ( &lt;wff&gt; ∨ &lt;wff&gt; )\n\n&lt;atom&gt; ::= p | q \nGenerate a WFF:\n&lt;wff&gt;"
   },
   {
     "objectID": "slides/lecture-02_slides.html#wffs-notes",
