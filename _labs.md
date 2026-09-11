@@ -7,7 +7,12 @@ Not published (Quarto ignores `_`-prefixed files).
 - The **TA team reviews and refines all lab materials** together.
 - **One TA owns each lab** — responsible for signing off that it is complete,
   and for keeping it on track.
-- The **three TAs meet weekly**.
+- The **three TAs meet weekly**. Proposed: **Monday 12:00–1:00** — straight
+  after Monday's class and before the week's first lab (Noah's Tue 2pm), so a
+  lab can still be fixed after sign-off. Fallbacks: Mon 1–2, or Thursday (open
+  for all four, but falls after every lab that week).
+- **Video recording: Wednesday 3:00–4:00**, after Marko's lab. A day's buffer
+  before the Friday release, and fresh from Wednesday's class.
 - **Lab 1 is Cinda's**, since it lands immediately.
 
 ## Where materials go
