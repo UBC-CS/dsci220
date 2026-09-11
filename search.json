@@ -2304,14 +2304,14 @@
     "href": "slides/lecture-02_slides.html#a-sentence",
     "title": "Truth and Propositions",
     "section": "A sentence",
-    "text": "A sentence\n\nI swim Tuesday and Thursday and Saturday or Sunday.\n\n\n\nHow many times did I swim? (circle all possible values)\n\\[1 \\qquad 2 \\qquad 3 \\qquad 4 \\qquad 5\\]\n\n \n\nCollect before advancing.\n5 is the one worth an argument: it turns on whether days I never mentioned count. The sentence is silent about Monday."
+    "text": "A sentence\n\nI swim Tuesday and Thursday and Saturday or Sunday.\n\n\n\nHow many times did I swim? (circle all possible values)\n\\[0 \\qquad 1 \\qquad 2 \\qquad 3 \\qquad 4 \\qquad 5\\]\n\n \n\nCollect before advancing.\n5 is the one worth an argument: it turns on whether days I never mentioned count. The sentence is silent about Monday."
   },
   {
-    "objectID": "slides/lecture-02_slides.html#three-readings",
-    "href": "slides/lecture-02_slides.html#three-readings",
+    "objectID": "slides/lecture-02_slides.html#where-do-the-parentheses-go",
+    "href": "slides/lecture-02_slides.html#where-do-the-parentheses-go",
     "title": "Truth and Propositions",
-    "section": "Three readings",
-    "text": "Three readings\n\n\n\n\n\n\n\nReading\nPossible\n\n\n\n\n\\(\\text{Tue} \\wedge \\text{Thu} \\wedge (\\text{Sat} \\vee \\text{Sun})\\)\n\n\n\n\\(\\text{Tue} \\wedge \\text{Thu} \\wedge (\\text{Sat} \\oplus \\text{Sun})\\)\n\n\n\n\\((\\text{Tue} \\wedge \\text{Thu} \\wedge \\text{Sat}) \\vee \\text{Sun}\\)\n\n\n\n\n\n\nSame words. Three different answers.\n\nFill the right-hand column in live.\nReading 2: “or” in English is sometimes exclusive. Reading 3: drop the parentheses and apply the usual precedence, AND before OR."
+    "section": "Where do the parentheses go?",
+    "text": "Where do the parentheses go?\nAdd parentheses so that I swam exactly this many times:\n\n\n5: \\(\\text{Tue} \\wedge \\text{Thu} \\wedge \\text{Sat} \\vee \\text{Sun}\\)\n4: \\(\\text{Tue} \\wedge \\text{Thu} \\wedge \\text{Sat} \\vee \\text{Sun}\\)\n3: \\(\\text{Tue} \\wedge \\text{Thu} \\wedge \\text{Sat} \\vee \\text{Sun}\\)\n2: \\(\\text{Tue} \\wedge \\text{Thu} \\wedge \\text{Sat} \\vee \\text{Sun}\\)\n1: \\(\\text{Tue} \\wedge \\text{Thu} \\wedge \\text{Sat} \\vee \\text{Sun}\\)\n0: \\(\\text{Tue} \\wedge \\text{Thu} \\wedge \\text{Sat} \\vee \\text{Sun}\\)\n\n \n\nSame string six times. Annotate each line live."
   },
   {
     "objectID": "slides/lecture-02_slides.html#where-the-third-reading-comes-from",
