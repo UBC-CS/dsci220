@@ -2346,7 +2346,7 @@
     "href": "slides/lecture-02_slides.html#wffs-2",
     "title": "Truth and Propositions",
     "section": "WFFs",
-    "text": "WFFs\nBuild the parse tree for\n\\[((\\text{Tu} \\wedge \\text{Th}) \\wedge (\\text{Sa} \\vee \\text{Su}))\\]\n&lt;wff&gt; ::= &lt;atom&gt;\n        | ~ &lt;wff&gt;\n        | ( &lt;wff&gt; ∧ &lt;wff&gt; )\n        | ( &lt;wff&gt; ∨ &lt;wff&gt; )\n\n&lt;atom&gt; ::= Tu | Th | Sa | Su\n\n\n\n\n\nThe correct parenthesization of the swim sentence, drawn as a tree. Work outward-in: the outermost pair of parentheses is the last rule applied, so it is the root.\nEach internal node is a rule application; each leaf is an atom. The tree records which rule was used where – which is what the parentheses were encoding all along, and why dropping them loses information."
+    "text": "WFFs\nBuild the parse tree for each:\n\\[((\\text{Tu} \\wedge \\text{Th}) \\wedge (\\text{Sa} \\vee \\text{Su}))\\]\n\\[(\\text{Tu} \\wedge (\\text{Th} \\wedge (\\text{Sa} \\vee \\text{Su})))\\]\n\n\nSame tree?  Same meaning?\n\nWork outward-in: the outermost parentheses are the last rule applied, so they are the root. Each internal node is a rule application, each leaf an atom.\nThe trees are different – and every row of the truth table agrees. That gap is the point. The parentheses fix the structure, the structure fixes how you evaluate, but two structures can evaluate the same everywhere. What the parentheses buy you is a definite answer, not a unique expression.\nThat is the opening for Monday: logical equivalence is exactly this relation – different formulas, same truth table. Do not name it yet; just let them notice that two different trees came out the same."
   },
   {
     "objectID": "slides/lecture-02_slides.html#wffs-3",
