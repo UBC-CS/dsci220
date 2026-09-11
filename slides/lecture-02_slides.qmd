@@ -103,6 +103,8 @@ start.
 
 ## Swimming {.activity}
 
+\ 
+
 > I swim Tuesday and Thursday and Saturday or Sunday.
 
 \
@@ -124,17 +126,17 @@ count. The sentence is silent about Monday.
 
 Add parentheses so that I swam exactly this many times:
 
-**5:**  $\text{Tue} \wedge \text{Thu} \wedge \text{Sat} \vee \text{Sun}$
+**5:**&emsp;&emsp;&emsp;$\text{Tue} \wedge \text{Thu} \wedge \text{Sat} \vee \text{Sun}$
 
-**4:**  $\text{Tue} \wedge \text{Thu} \wedge \text{Sat} \vee \text{Sun}$
+**4:**&emsp;&emsp;&emsp;$\text{Tue} \wedge \text{Thu} \wedge \text{Sat} \vee \text{Sun}$
 
-**3:**  $\text{Tue} \wedge \text{Thu} \wedge \text{Sat} \vee \text{Sun}$
+**3:**&emsp;&emsp;&emsp;$\text{Tue} \wedge \text{Thu} \wedge \text{Sat} \vee \text{Sun}$
 
-**2:**  $\text{Tue} \wedge \text{Thu} \wedge \text{Sat} \vee \text{Sun}$
+**2:**&emsp;&emsp;&emsp;$\text{Tue} \wedge \text{Thu} \wedge \text{Sat} \vee \text{Sun}$
 
-**1:**  $\text{Tue} \wedge \text{Thu} \wedge \text{Sat} \vee \text{Sun}$
+**1:**&emsp;&emsp;&emsp;$\text{Tue} \wedge \text{Thu} \wedge \text{Sat} \vee \text{Sun}$
 
-**0:**  $\text{Tue} \wedge \text{Thu} \wedge \text{Sat} \vee \text{Sun}$
+**0:**&emsp;&emsp;&emsp;$\text{Tue} \wedge \text{Thu} \wedge \text{Sat} \vee \text{Sun}$
 
 
 ::: notes
