@@ -2300,11 +2300,11 @@
     "text": "Truth Tables\nAll graded learning activities in the course use a tool called PrairieLearn.\nOpen Activity 1: Propositional Logic and work through it.\n\n\n    \nus.prairielearn.com/pl/course_instance/209866\n\n \n\nFirst time any of them has opened PrairieLearn. Expect enrolment friction – walk the room. Full credit runs to Sunday, so nobody is penalised for a slow start."
   },
   {
-    "objectID": "slides/lecture-02_slides.html#a-sentence",
-    "href": "slides/lecture-02_slides.html#a-sentence",
+    "objectID": "slides/lecture-02_slides.html#swimming",
+    "href": "slides/lecture-02_slides.html#swimming",
     "title": "Truth and Propositions",
-    "section": "A sentence",
-    "text": "A sentence\n\nI swim Tuesday and Thursday and Saturday or Sunday.\n\n\n\nHow many times did I swim? (circle all possible values)\n\\[0 \\qquad 1 \\qquad 2 \\qquad 3 \\qquad 4 \\qquad 5\\]\n\n \n\nCollect before advancing.\n5 is the one worth an argument: it turns on whether days I never mentioned count. The sentence is silent about Monday."
+    "section": "Swimming",
+    "text": "Swimming\n\nI swim Tuesday and Thursday and Saturday or Sunday.\n\n\n\nHow many times did I swim? (circle all possible values)\n\\[0 \\qquad 1 \\qquad 2 \\qquad 3 \\qquad 4 \\qquad 5\\]\n\n \n\nCollect before advancing.\n5 is the one worth an argument: it turns on whether days I never mentioned count. The sentence is silent about Monday."
   },
   {
     "objectID": "slides/lecture-02_slides.html#swimming-continued",
@@ -2325,7 +2325,7 @@
     "href": "slides/lecture-02_slides.html#wffs-1",
     "title": "Truth and Propositions",
     "section": "WFFs",
-    "text": "WFFs\n&lt;wff&gt; ::= &lt;atom&gt;\n        | ~ &lt;wff&gt;\n        | ( &lt;wff&gt; ∧ &lt;wff&gt; )\n        | ( &lt;wff&gt; ∨ &lt;wff&gt; )\n\n&lt;atom&gt; ::= p | q \nExample derivation:\n&lt;wff&gt;"
+    "text": "WFFs\nRand rule   apply rule on line —\nRand atom   atom becomes —\n&lt;wff&gt; ::= &lt;atom&gt;\n        | ~ &lt;wff&gt;\n        | ( &lt;wff&gt; ∧ &lt;wff&gt; )\n        | ( &lt;wff&gt; ∨ &lt;wff&gt; )\n\n&lt;atom&gt; ::= p | q \nExample derivation:\n&lt;wff&gt;"
   },
   {
     "objectID": "slides/lecture-02_slides.html#wffs-notes",

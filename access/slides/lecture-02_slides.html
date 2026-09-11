@@ -106,7 +106,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-ad89d5034dd4e1a3b7d6da61ead2c72b.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-bfbf9440c219ff9c2bd519a97c613035.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -316,7 +316,7 @@
 <li><p>How many different binary operators could there be?</p></li>
 </ul>
 </div></div>
-<countdown-timer id="timer_8f01706b3933d1f630eb660ba5879effd471c851" minutes="06" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<countdown-timer id="timer_6b2cb55be5410e47849d4d79fee3f8ba8792cacf" minutes="06" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
  </countdown-timer>
 <aside class="notes">
 <p>challenge: Of all binary operators, how many are commutative? (Half: 8.)</p>
@@ -347,7 +347,7 @@
 </script>
     
 <p><a href="https://us.prairielearn.com/pl/course_instance/209866">us.prairielearn.com/pl/course_instance/209866</a></p>
-<countdown-timer id="timer_8f01706b3933d1f630eb660ba5879effd471c851" minutes="05" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<countdown-timer id="timer_6b2cb55be5410e47849d4d79fee3f8ba8792cacf" minutes="05" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
  </countdown-timer>
 <aside class="notes">
 <p>First time any of them has opened PrairieLearn. Expect enrolment friction – walk the room. Full credit runs to Sunday, so nobody is penalised for a slow start.</p>
@@ -363,8 +363,8 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="a-sentence" class="slide level2 activity">
-<h2>A sentence</h2>
+<section id="swimming" class="slide level2 activity">
+<h2>Swimming</h2>
 <blockquote>
 <p>I swim Tuesday and Thursday and Saturday or Sunday.</p>
 </blockquote>
@@ -372,7 +372,7 @@
 </p>
 <p><strong>How many times did I swim?</strong> (circle all possible values)</p>
 <p><span class="math display">\[0 \qquad 1 \qquad 2 \qquad 3 \qquad 4 \qquad 5\]</span></p>
-<countdown-timer id="timer_8f01706b3933d1f630eb660ba5879effd471c851" minutes="04" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<countdown-timer id="timer_6b2cb55be5410e47849d4d79fee3f8ba8792cacf" minutes="04" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
  </countdown-timer>
 <aside class="notes">
 <p>Collect before advancing.</p>
@@ -429,6 +429,8 @@
 </section>
 <section id="wffs-1" class="slide level2">
 <h2>WFFs</h2>
+<p><span id="generateButton1" class="btn btn-primary" role="button">Rand rule</span> &nbsp; apply rule on line <span id="randomNumberDisplay1" class="rand-out">—</span></p>
+<p><span id="generateButton2" class="btn btn-primary" role="button">Rand atom</span> &nbsp; atom becomes <span id="randomNumberDisplay2" class="rand-out">—</span></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource {bnf} number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a aria-label="1"></a>&lt;wff&gt; ::= &lt;atom&gt;</span>
 <span id="cb2-2"><a aria-label="2"></a>        | ~ &lt;wff&gt;</span>
 <span id="cb2-3"><a aria-label="3"></a>        | ( &lt;wff&gt; ∧ &lt;wff&gt; )</span>
@@ -477,7 +479,7 @@
 <li><span class="math inline">\(\neg (p ∨ q))\)</span></li>
 </ol>
 </div></div>
-<countdown-timer id="timer_8f01706b3933d1f630eb660ba5879effd471c851" minutes="03" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<countdown-timer id="timer_6b2cb55be5410e47849d4d79fee3f8ba8792cacf" minutes="03" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
  </countdown-timer>
 <aside class="notes">
 <!-- notes: sometimes pq is the same as p^q, p & q, p && q, but our grammar only 
@@ -1061,6 +1063,23 @@ W10=
         }
       });
       </script>
+    <script>
+      function show(id, value) {
+        const el = document.getElementById(id);
+        if (el) el.innerText = value;
+      }
+      function wireUp() {
+        const b1 = document.getElementById("generateButton1");
+        const b2 = document.getElementById("generateButton2");
+        if (b1) b1.addEventListener("click", () =>
+          show("randomNumberDisplay1", Math.floor(Math.random() * 4) + 1));
+        if (b2) b2.addEventListener("click", () =>
+          show("randomNumberDisplay2", Math.random() < 0.5 ? "p" : "q"));
+      }
+      if (document.readyState === "loading")
+        document.addEventListener("DOMContentLoaded", wireUp);
+      else wireUp();
+    </script>
     
 
 </body></html>
