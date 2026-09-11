@@ -2304,14 +2304,14 @@
     "href": "slides/lecture-02_slides.html#a-sentence",
     "title": "Truth and Propositions",
     "section": "A sentence",
-    "text": "A sentence\n\n\n\nI swim Tuesday and Thursday and Saturday or Sunday.\n\n\n\nWhat is the least number of swims consistent with what I said?\n______\nWhat is the greatest number of swims consistent with what I said?\n______\n\n \n\nCollect answers before advancing. Expect 3 and 4. Push for anyone who says 1. Do not resolve it yet."
+    "text": "A sentence\n\nI swim Tuesday and Thursday and Saturday or Sunday.\n\n\n\nHow many times did I swim? (circle all possible values)\n\\[1 \\qquad 2 \\qquad 3 \\qquad 4 \\qquad 5\\]\n\n \n\nCollect before advancing.\n5 is the one worth an argument: it turns on whether days I never mentioned count. The sentence is silent about Monday."
   },
   {
     "objectID": "slides/lecture-02_slides.html#three-readings",
     "href": "slides/lecture-02_slides.html#three-readings",
     "title": "Truth and Propositions",
     "section": "Three readings",
-    "text": "Three readings\n\n\n\n\n\n\n\nReading\nFewest swims\n\n\n\n\n\\(\\text{Tue} \\wedge \\text{Thu} \\wedge (\\text{Sat} \\vee \\text{Sun})\\)\n3\n\n\n\\(\\text{Tue} \\wedge \\text{Thu} \\wedge (\\text{Sat} \\oplus \\text{Sun})\\)\n3\n\n\n\\((\\text{Tue} \\wedge \\text{Thu} \\wedge \\text{Sat}) \\vee \\text{Sun}\\)\n1\n\n\n\n\n\nSame words. Three answers.\n\nReading 2: “or” in English is sometimes exclusive. Reading 3: drop the parentheses and apply the usual precedence, \\(\\wedge\\) before \\(\\vee\\)."
+    "text": "Three readings\n\n\n\n\n\n\n\nReading\nPossible\n\n\n\n\n\\(\\text{Tue} \\wedge \\text{Thu} \\wedge (\\text{Sat} \\vee \\text{Sun})\\)\n\n\n\n\\(\\text{Tue} \\wedge \\text{Thu} \\wedge (\\text{Sat} \\oplus \\text{Sun})\\)\n\n\n\n\\((\\text{Tue} \\wedge \\text{Thu} \\wedge \\text{Sat}) \\vee \\text{Sun}\\)\n\n\n\n\n\n\nSame words. Three different answers.\n\nFill the right-hand column in live.\nReading 2: “or” in English is sometimes exclusive. Reading 3: drop the parentheses and apply the usual precedence, AND before OR."
   },
   {
     "objectID": "slides/lecture-02_slides.html#where-the-third-reading-comes-from",
