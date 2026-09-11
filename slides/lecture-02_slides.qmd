@@ -101,11 +101,9 @@ Collect before advancing.
 count. The sentence is silent about Monday.
 :::
 
-## Where do the parentheses go? {.activity .smaller}
+## Swimming Continued
 
 Add parentheses so that I swam exactly this many times:
-
-\
 
 **5:**  $\text{Tue} \wedge \text{Thu} \wedge \text{Sat} \vee \text{Sun}$
 
@@ -119,7 +117,6 @@ Add parentheses so that I swam exactly this many times:
 
 **0:**  $\text{Tue} \wedge \text{Thu} \wedge \text{Sat} \vee \text{Sun}$
 
-{{< countdown minutes=5 >}}
 
 ::: notes
 Same string six times. Annotate each line live.
