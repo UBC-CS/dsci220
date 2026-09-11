@@ -20,7 +20,7 @@ subtitle: "Lecture 3, {{< var course.code >}}, {{< var course.term >}}"
 <atom> ::= p | q 
 ```
 
-Example derivation:
+Generate a WFF:
 
 `<wff>`
 

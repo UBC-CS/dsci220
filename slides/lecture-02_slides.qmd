@@ -185,7 +185,7 @@ It is our first self-referential or _recursive_ definition.
 <atom> ::= p | q 
 
 ```
-Example derivation:
+Generate a WFF:
 
 `<wff>`
 

@@ -62,12 +62,16 @@ Not published (Quarto ignores `_`-prefixed files).
 - [ ] **Write more WFF questions.** WFFs are ~46% of lecture 2 but only 2 of 294
       questions in the bank (`2026W1/logic/WFF1`, `WFF2`), and both test
       recognition — "is this a WFF?" / "which of these are WFFs?" Nothing asks
-      for a **derivation**, which is the part class spends longest on and the
+      for a **generation** -- building a formula by applying the rules -- which
+      is the part class spends longest on and the
       same machinery as the context-free grammars in week 10. Decision
       2026-09-10: fix the imbalance by adding questions, not by cutting class
       time. Candidates: apply a named rule to a given line; give the rule
       sequence that produces a target formula; spot the illegal step in a
-      derivation.
+      generation. (Avoid the word "derivation" in student-facing material: in
+      formal language theory it is correct, but in a logic course it collides
+      with deriving a conclusion from premises, which arrives with Rules of
+      Inference.)
       Note the 46%-vs-2-questions figure understates WFFs' weight: **logical
       equivalence is a relation between well-formed formulas**, so the 76
       equivalence questions in the bank presuppose WFFs rather than competing
