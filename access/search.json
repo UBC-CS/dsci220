@@ -2346,6 +2346,13 @@
     "href": "slides/lecture-02_slides.html#wffs-2",
     "title": "Truth and Propositions",
     "section": "WFFs",
+    "text": "WFFs\nBuild the parse tree for\n\\[((\\text{Tu} \\wedge \\text{Th}) \\wedge (\\text{Sa} \\vee \\text{Su}))\\]\n&lt;wff&gt; ::= &lt;atom&gt;\n        | ~ &lt;wff&gt;\n        | ( &lt;wff&gt; ∧ &lt;wff&gt; )\n        | ( &lt;wff&gt; ∨ &lt;wff&gt; )\n\n&lt;atom&gt; ::= Tu | Th | Sa | Su\n\n\n\n\n\nThe correct parenthesization of the swim sentence, drawn as a tree. Work outward-in: the outermost pair of parentheses is the last rule applied, so it is the root.\nEach internal node is a rule application; each leaf is an atom. The tree records which rule was used where – which is what the parentheses were encoding all along, and why dropping them loses information."
+  },
+  {
+    "objectID": "slides/lecture-02_slides.html#wffs-3",
+    "href": "slides/lecture-02_slides.html#wffs-3",
+    "title": "Truth and Propositions",
+    "section": "WFFs",
     "text": "WFFs\n&lt;wff&gt; ::= &lt;atom&gt;\n        | ~ &lt;wff&gt;\n        | ( &lt;wff&gt; ∧ &lt;wff&gt; )\n        | ( &lt;wff&gt; ∨ &lt;wff&gt; )\n\n&lt;atom&gt; ::= p | q \nTheorem: \\(\\neg (p ∨ q))\\) is not a WFF.\nProof:"
   },
   {

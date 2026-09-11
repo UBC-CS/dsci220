@@ -316,7 +316,7 @@
 <li><p>How many different binary operators could there be?</p></li>
 </ul>
 </div></div>
-<countdown-timer id="timer_fad9f6973f6dfe3079ddc3d7d732e179d24fa2d0" minutes="06" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<countdown-timer id="timer_328e42900f97743b0e9b94d689fe71e5df74a6a4" minutes="06" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
  </countdown-timer>
 <aside class="notes">
 <p>challenge: Of all binary operators, how many are commutative? (Half: 8.)</p>
@@ -347,7 +347,7 @@
 </script>
     
 <p><a href="https://us.prairielearn.com/pl/course_instance/209866">us.prairielearn.com/pl/course_instance/209866</a></p>
-<countdown-timer id="timer_fad9f6973f6dfe3079ddc3d7d732e179d24fa2d0" minutes="05" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<countdown-timer id="timer_328e42900f97743b0e9b94d689fe71e5df74a6a4" minutes="05" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
  </countdown-timer>
 <aside class="notes">
 <p>First time any of them has opened PrairieLearn. Expect enrolment friction – walk the room. Full credit runs to Sunday, so nobody is penalised for a slow start.</p>
@@ -373,7 +373,7 @@
 </p>
 <p><strong>How many times did I swim?</strong> (circle all possible values)</p>
 <p><span class="math display">\[0 \qquad 1 \qquad 2 \qquad 3 \qquad 4 \qquad 5\]</span></p>
-<countdown-timer id="timer_fad9f6973f6dfe3079ddc3d7d732e179d24fa2d0" minutes="04" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<countdown-timer id="timer_328e42900f97743b0e9b94d689fe71e5df74a6a4" minutes="04" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
  </countdown-timer>
 <aside class="notes">
 <p>Collect before advancing.</p>
@@ -480,7 +480,7 @@
 <li><span class="math inline">\(\neg (p ∨ q))\)</span></li>
 </ol>
 </div></div>
-<countdown-timer id="timer_fad9f6973f6dfe3079ddc3d7d732e179d24fa2d0" minutes="03" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<countdown-timer id="timer_328e42900f97743b0e9b94d689fe71e5df74a6a4" minutes="03" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
  </countdown-timer>
 <aside class="notes">
 <!-- notes: sometimes pq is the same as p^q, p & q, p && q, but our grammar only 
@@ -501,12 +501,41 @@ need to be agile in the future. Note that the same issues exist for other operat
 </section>
 <section id="wffs-2" class="slide level2">
 <h2>WFFs</h2>
+<p>Build the parse tree for</p>
+<p><span class="math display">\[((\text{Tu} \wedge \text{Th}) \wedge (\text{Sa} \vee \text{Su}))\]</span></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource {bnf} number-lines code-with-copy"><code class="sourceCode"><span id="cb5-1"><a aria-label="1"></a>&lt;wff&gt; ::= &lt;atom&gt;</span>
 <span id="cb5-2"><a aria-label="2"></a>        | ~ &lt;wff&gt;</span>
 <span id="cb5-3"><a aria-label="3"></a>        | ( &lt;wff&gt; ∧ &lt;wff&gt; )</span>
 <span id="cb5-4"><a aria-label="4"></a>        | ( &lt;wff&gt; ∨ &lt;wff&gt; )</span>
 <span id="cb5-5"><a aria-label="5"></a></span>
-<span id="cb5-6"><a aria-label="6"></a>&lt;atom&gt; ::= p | q </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb5-6"><a aria-label="6"></a>&lt;atom&gt; ::= Tu | Th | Sa | Su</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><br>
+</p>
+<p><br>
+</p>
+<aside class="notes">
+<p>The correct parenthesization of the swim sentence, drawn as a tree. Work outward-in: the outermost pair of parentheses is the last rule applied, so it is the root.</p>
+<p>Each internal node is a rule application; each leaf is an atom. The tree records which rule was used where – which is what the parentheses were encoding all along, and why dropping them loses information.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="wffs-3" class="slide level2">
+<h2>WFFs</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource {bnf} number-lines code-with-copy"><code class="sourceCode"><span id="cb6-1"><a aria-label="1"></a>&lt;wff&gt; ::= &lt;atom&gt;</span>
+<span id="cb6-2"><a aria-label="2"></a>        | ~ &lt;wff&gt;</span>
+<span id="cb6-3"><a aria-label="3"></a>        | ( &lt;wff&gt; ∧ &lt;wff&gt; )</span>
+<span id="cb6-4"><a aria-label="4"></a>        | ( &lt;wff&gt; ∨ &lt;wff&gt; )</span>
+<span id="cb6-5"><a aria-label="5"></a></span>
+<span id="cb6-6"><a aria-label="6"></a>&lt;atom&gt; ::= p | q </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Theorem: <span class="math inline">\(\neg (p ∨ q))\)</span> is not a WFF.</p>
 <p>Proof:</p>
 <aside class="notes">
