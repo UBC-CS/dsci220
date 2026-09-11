@@ -91,6 +91,12 @@ Not published (Quarto ignores `_`-prefixed files).
 - [ ] **Who helps with the weekly video** — the async Friday recording, needed
       every week from Week 2 (13 of them). Currently nobody is named.
 
+## Lab development
+
+- [ ] See `_labs.md` — process, where materials live, and the per-lab tracker.
+      Lab 1 is Cinda's. Six of the ten are new builds; only four exist from
+      2025W1.
+
 ## Question bank
 
 - [ ] **Write more WFF questions.** WFFs are ~46% of lecture 2 but only 2 of 294
