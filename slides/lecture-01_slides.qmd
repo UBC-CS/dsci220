@@ -316,7 +316,7 @@ Legend:
 
 - &#128231; **Email** [cheeren@cs.ubc.ca](mailto:cheeren@cs.ubc.ca) --- put "DSCI220" in the subject
 - &#128172; **Piazza** <https://piazza.com/ubc.ca/winterterm12026/dsci220>
-- &#127760; **Website** <{{< var course.website >}}>
+- &#127760; **Website** [{{< var course.website >}}]({{< var course.website >}})
 - &#127891; **Class** {{< var course.time >}}, {{< var building.code >}} {{< var building.room >}}
 
 :::

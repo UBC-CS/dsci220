@@ -70,11 +70,11 @@ All graded learning activities in the course use a tool called _PrairieLearn_.
 
 Open **Activity 1: Propositional Logic** and work through it.
 
-{{< qrcode https://us.prairielearn.com/pl/course_instance/209866/assessments >}}
+{{< qrcode https://us.prairielearn.com/pl/course_instance/209866 >}}
 
-<{{< var course.prairielearn >}}/assessments>
+[us.prairielearn.com/pl/course_instance/209866](https://us.prairielearn.com/pl/course_instance/209866)
 
-{{< countdown minutes=10 >}}
+{{< countdown minutes=5 >}}
 
 ::: notes
 First time any of them has opened PrairieLearn. Expect enrolment friction --
