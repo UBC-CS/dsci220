@@ -2304,14 +2304,14 @@
     "href": "slides/lecture-02_slides.html#swimming",
     "title": "Truth and Propositions",
     "section": "Swimming",
-    "text": "Swimming\n\nI swim Tuesday and Thursday and Saturday or Sunday.\n\n\n\nHow many times did I swim? (circle all possible values)\n\\[0 \\qquad 1 \\qquad 2 \\qquad 3 \\qquad 4 \\qquad 5\\]\n\n \n\nCollect before advancing.\n5 is the one worth an argument: it turns on whether days I never mentioned count. The sentence is silent about Monday."
+    "text": "Swimming\n \n\nI swim Tuesday and Thursday and Saturday or Sunday.\n\n\n\nHow many times did I swim? (circle all possible values)\n\\[0 \\qquad 1 \\qquad 2 \\qquad 3 \\qquad 4 \\qquad 5\\]\n\n \n\nCollect before advancing.\n5 is the one worth an argument: it turns on whether days I never mentioned count. The sentence is silent about Monday."
   },
   {
     "objectID": "slides/lecture-02_slides.html#swimming-continued",
     "href": "slides/lecture-02_slides.html#swimming-continued",
     "title": "Truth and Propositions",
     "section": "Swimming Continued",
-    "text": "Swimming Continued\nAdd parentheses so that I swam exactly this many times:\n5: \\(\\text{Tue} \\wedge \\text{Thu} \\wedge \\text{Sat} \\vee \\text{Sun}\\)\n4: \\(\\text{Tue} \\wedge \\text{Thu} \\wedge \\text{Sat} \\vee \\text{Sun}\\)\n3: \\(\\text{Tue} \\wedge \\text{Thu} \\wedge \\text{Sat} \\vee \\text{Sun}\\)\n2: \\(\\text{Tue} \\wedge \\text{Thu} \\wedge \\text{Sat} \\vee \\text{Sun}\\)\n1: \\(\\text{Tue} \\wedge \\text{Thu} \\wedge \\text{Sat} \\vee \\text{Sun}\\)\n0: \\(\\text{Tue} \\wedge \\text{Thu} \\wedge \\text{Sat} \\vee \\text{Sun}\\)\n\nSame string six times. Annotate each line live.\nClose on the pivot: in English the parentheses are optional, which is why the sentence had three readings. We are about to build a notation where they are compulsory – every AND and OR rule in the grammar emits its own pair, so there is nothing to leave out and nothing to guess."
+    "text": "Swimming Continued\nAdd parentheses so that I swam exactly this many times:\n5:   \\(\\text{Tue} \\wedge \\text{Thu} \\wedge \\text{Sat} \\vee \\text{Sun}\\)\n4:   \\(\\text{Tue} \\wedge \\text{Thu} \\wedge \\text{Sat} \\vee \\text{Sun}\\)\n3:   \\(\\text{Tue} \\wedge \\text{Thu} \\wedge \\text{Sat} \\vee \\text{Sun}\\)\n2:   \\(\\text{Tue} \\wedge \\text{Thu} \\wedge \\text{Sat} \\vee \\text{Sun}\\)\n1:   \\(\\text{Tue} \\wedge \\text{Thu} \\wedge \\text{Sat} \\vee \\text{Sun}\\)\n0:   \\(\\text{Tue} \\wedge \\text{Thu} \\wedge \\text{Sat} \\vee \\text{Sun}\\)\n\nSame string six times. Annotate each line live.\nClose on the pivot: in English the parentheses are optional, which is why the sentence had three readings. We are about to build a notation where they are compulsory – every AND and OR rule in the grammar emits its own pair, so there is nothing to leave out and nothing to guess."
   },
   {
     "objectID": "slides/lecture-02_slides.html#wffs",
