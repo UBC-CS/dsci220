@@ -1,6 +1,25 @@
 ---
 title: "Truth and Propositions"
 subtitle: "Lecture 2, {{< var course.code >}}, {{< var course.term >}}"
+include-after-body:
+  text: |
+    <script>
+      function show(id, value) {
+        const el = document.getElementById(id);
+        if (el) el.innerText = value;
+      }
+      function wireUp() {
+        const b1 = document.getElementById("generateButton1");
+        const b2 = document.getElementById("generateButton2");
+        if (b1) b1.addEventListener("click", () =>
+          show("randomNumberDisplay1", Math.floor(Math.random() * 4) + 1));
+        if (b2) b2.addEventListener("click", () =>
+          show("randomNumberDisplay2", Math.random() < 0.5 ? "p" : "q"));
+      }
+      if (document.readyState === "loading")
+        document.addEventListener("DOMContentLoaded", wireUp);
+      else wireUp();
+    </script>
 ---
 # Logic
 
@@ -82,7 +101,7 @@ walk the room. Full credit runs to Sunday, so nobody is penalised for a slow
 start.
 :::
 
-## A sentence {.activity}
+## Swimming {.activity}
 
 > I swim Tuesday and Thursday and Saturday or Sunday.
 
@@ -150,6 +169,10 @@ _____________: `p`, `q`, `r`, `s` ...
 It is our first self-referential or _recursive_ definition. 
 
 ## WFFs
+
+[Rand rule]{#generateButton1 .btn .btn-primary role="button"} &nbsp; apply rule on line [&mdash;]{#randomNumberDisplay1 .rand-out}
+
+[Rand atom]{#generateButton2 .btn .btn-primary role="button"} &nbsp; atom becomes [&mdash;]{#randomNumberDisplay2 .rand-out}
 
 ```{bnf}
 <wff> ::= <atom>

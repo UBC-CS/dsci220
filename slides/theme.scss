@@ -116,3 +116,12 @@ table caption {
     margin: 0px 5px;
   }
 }
+// Output of the random-rule / random-atom buttons on the WFF derivation slide.
+.reveal .rand-out {
+  display: inline-block;
+  min-width: 1.6em;
+  padding: 0 0.3em;
+  font-weight: 700;
+  color: theme-color("activity");
+  border-bottom: 2px solid theme-color("activity");
+}
