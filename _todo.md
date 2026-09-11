@@ -30,12 +30,14 @@ Not published (Quarto ignores `_`-prefixed files).
 
 ## PrairieLearn
 
-- [ ] **Publish the 2026W1 course instance.** It is not published, so students
-      cannot reach anything — including Activity 1, which is committed and
-      pushed but invisible to them. Lecture 1's "Before Friday" slide has had
-      its QR code and link removed for this reason; restore them once it is live.
-- [ ] Re-date Activity 1 once published. `class1-truth` currently allows full
-      credit only between Wed Sep 9 12:00 and Fri Sep 11 10:59.
+- [x] ~~Publish the 2026W1 course instance.~~ Published 2026-09-09 23:14.
+- [x] ~~Re-date Activity 1.~~ Full credit now runs to Sun Sep 13.
+- [ ] **Check students can enrol.** `selfEnrollment` was removed from
+      `infoCourseInstance.json`, so joining now depends on PrairieLearn's
+      default. Worth testing with a student account before Friday — it is how
+      they get in during class.
+- [ ] Lecture 1's "Before Friday" slide still says the activity "will be posted
+      on PrairieLearn" — now stale, since it is live and done in class Friday.
 - [ ] Port the 2025W1 tutorials, examlets and practice sets into the 2026W1
       instance — it currently holds only Activity 1.
 - [ ] Fill in per-assessment links in `data/additional-resources.csv`; the exam

@@ -2,41 +2,9 @@
 title: "Truth and Propositions"
 subtitle: "Lecture 2, {{< var course.code >}}, {{< var course.term >}}"
 ---
-
 # Logic
 
-## Truth
-
-Make at least 3 observations about the following table:
-
-::::: columns
-::: {.column width="30%"}
-
-| $p$ | $q$ | $p \lor q$ |
-|---|---|:--------:|
-| F | F |   F    |
-| F | T |   T    |
-| T | F |   T    |
-| T | T |   T    |
-
-:::
-
-::: {.column width="70%"}
-
-*  
-
-\
-
-*   
-
-\
-
-*      
-
-:::
-:::::
-
-## Summary
+## Recall...
 
 Key observations about the table:
 
@@ -83,11 +51,7 @@ Key observations about the table:
 
 
 *   Give a good name for an operator that takes 1 variable: __________
-
-
 *   Give a good name for an operator that takes 3 variables: __________
-
-
 *   How many different binary operators could there be? 
  
 :::
@@ -102,13 +66,20 @@ challenge: Of all binary operators, how many are commutative? (Half: 8.)
 
 ## Truth Tables {.activity}
 
-All graded learning activities in the course will use a tool called _PrairieLearn_. 
+All graded learning activities in the course use a tool called _PrairieLearn_.
 
-It will be posted on PrairieLearn. Watch Piazza for the link.
+Open **Activity 1: Propositional Logic** and work through it.
+
+{{< qrcode https://us.prairielearn.com/pl/course_instance/209866/assessments >}}
+
+<{{< var course.prairielearn >}}/assessments>
+
+{{< countdown minutes=10 >}}
 
 ::: notes
-PrairieLearn is not published yet, so the link is removed. Restore it once the
-2026W1 instance is live: course_instance/209866.
+First time any of them has opened PrairieLearn. Expect enrolment friction --
+walk the room. Full credit runs to Sunday, so nobody is penalised for a slow
+start.
 :::
 
 ## A sentence {.activity}
@@ -119,7 +90,11 @@ PrairieLearn is not published yet, so the link is removed. Restore it once the
 
 \
 
-**What is the fewest number of swims consistent with what I said?**
+**What is the least number of swims consistent with what I said?**
+
+\_\_\_\_\_\_
+
+**What is the greatest number of swims consistent with what I said?**
 
 \_\_\_\_\_\_
 
