@@ -78,7 +78,16 @@ Not published (Quarto ignores `_`-prefixed files).
       Tuesday sections' 10. Options: skip Tutorial 3 for everyone, run it async
       for L1A, or hold that week's content back from assessment.
 - [ ] **Articulate hours of engagement** — what each TA is expected to spend
-      where, against their appointment hours.
+      where, against their appointment hours. Settled so far:
+
+      | | |
+      |---|---|
+      | Lab section | 2 hrs/week × 10 tutorial weeks (9 for Marko — Sep 30) |
+      | Office hours | by appointment, all three |
+      | Piazza | **primarily Cinda**, not a TA duty |
+      | Weekly async video | unassigned — 13 of them, see below |
+      | Marking | not yet discussed |
+      | Prep / meetings | not yet discussed |
 - [ ] **Who helps with the weekly video** — the async Friday recording, needed
       every week from Week 2 (13 of them). Currently nobody is named.
 
