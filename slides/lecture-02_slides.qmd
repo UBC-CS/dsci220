@@ -3,35 +3,6 @@ title: "Truth and Propositions"
 subtitle: "Lecture 2, {{< var course.code >}}, {{< var course.term >}}"
 ---
 
-# Syllabus Continued
-
-## Communications
-
-::: {style="font-size: 80%;"}
-
-- 📧 **Email** [cheeren@cs.ubc.ca](mailto:cheeren@cs.ubc.ca)  
-  Checked daily. Please place "DSCI220" in subject!
-
-- <a href="https://piazza.com/ubc.ca/winterterm12025/dsci220">
-    <img src="https://tse2.mm.bing.net/th/id/OIP.usjgslq1FEPq7pholcHorQD6D6?pid=Api"
-         alt="Piazza" style="height:20px; vertical-align:middle;">
-  </a> **Piazza** [piazza.com/ubc.ca/winterterm12025/dsci220](https://piazza.com/ubc.ca/winterterm12025/dsci220)  
-  Post questions for quick response.  
-
-- 🏫 **Office Hours**
-
-<div style="margin:auto; width:fit-content;">
-
-| Name  | Time        | Location & Zoom |
-|-------|-------------|-----------------|
-| Cinda | Tue 2–4pm   | 🏢 ICCS 233 · <a href="https://ubc.zoom.us/j/5393867685?pwd=N01ZS2dLbVorQkRzcDRuNTdwQmRYUT09"><img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Zoom_Communications_Logo.svg" alt="Zoom" style="height:16px; vertical-align:middle;"></a> |
-| Joe   | Fri 11-12a | 🏢 FORW 317 |
-| Marko   | Tue 1:30-2:30p | 🏢 TBD |
-
-</div>
-
-:::
-
 # Logic
 
 ## Truth
@@ -133,11 +104,12 @@ challenge: Of all binary operators, how many are commutative? (Half: 8.)
 
 All graded learning activities in the course will use a tool called _PrairieLearn_. 
 
-Navigate to today's activity and complete question 1
+It will be posted on PrairieLearn. Watch Piazza for the link.
 
-<https://us.prairielearn.com/pl/course_instance/186238/>
-
-{{< countdown minutes=10 >}}
+::: notes
+PrairieLearn is not published yet, so the link is removed. Restore it once the
+2026W1 instance is live: course_instance/209866.
+:::
 
 ## A sentence {.activity}
 
