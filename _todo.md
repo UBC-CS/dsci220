@@ -57,6 +57,19 @@ Not published (Quarto ignores `_`-prefixed files).
       work. Groups of 4-6 all solve, so hand one envelope per block of adjacent
       seats and deal one card per person present. See the lecture-1 lesson plan.
 
+## From the TA meeting, 2026-09-11 (Perrie and Noah; Marko away)
+
+- [ ] **Report the scrolling bug** hit while giving Marko student-data access
+      for the term. Note where it happened (PrairieLearn? Canvas?) and what the
+      page was doing, while it is fresh.
+- [ ] **Lab section assignments** — who staffs which. Four sections: L1A Wed 1–3
+      (SPPH 143), L1B Tue 4–6 (ORCH 3002), L1C Wed 3–5 (SPPH 143), L1D Tue 2–4
+      (ORCH 3002, closed at 26/26). Three TAs, four sections.
+- [ ] **Articulate hours of engagement** — what each TA is expected to spend
+      where, against their appointment hours.
+- [ ] **Who helps with the weekly video** — the async Friday recording, needed
+      every week from Week 2 (13 of them). Currently nobody is named.
+
 ## Question bank
 
 - [ ] **Write more WFF questions.** WFFs are ~46% of lecture 2 but only 2 of 294
