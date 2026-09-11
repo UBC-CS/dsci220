@@ -3,9 +3,8 @@ title: "Syllabus"
 ---
 
 ::: {.callout-note}
-This syllabus is being revised for {{< var course.term >}}. Details marked *TBC*
-(to be confirmed) --- TA office hours and the final exam date --- will be filled
-in as they are set.
+This syllabus is being revised for {{< var course.term >}}. The final exam date
+is still *to be confirmed* and will be filled in once the Registrar posts it.
 :::
 
 # Introduction
@@ -20,9 +19,9 @@ learn to reason about these structures and the data they represent.
   📧 [cheeren@cs.ubc.ca](mailto:cheeren@cs.ubc.ca)
   ⏰ Tue 2–4pm · 🏢 ICCS 233 · <a href="https://ubc.zoom.us/j/5393867685?pwd=N01ZS2dLbVorQkRzcDRuNTdwQmRYUT09"><img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Zoom_Communications_Logo.svg" alt="Zoom" style="height:20px; vertical-align:middle;"></a>
 
-- **TA: Marko Ciric** 📧 [mciric01@student.ubc.ca](mailto:mciric01@student.ubc.ca) · office hours *TBC*
-- **TA: Noah Hynds** 📧 [nhynds@student.ubc.ca](mailto:nhynds@student.ubc.ca) · office hours *TBC*
-- **TA: Perrie Soleimani** 📧 [perriesl@student.ubc.ca](mailto:perriesl@student.ubc.ca) · office hours *TBC*
+- **TA: Marko Ciric** 📧 [mciric01@student.ubc.ca](mailto:mciric01@student.ubc.ca) · office hours by appointment
+- **TA: Noah Hynds** 📧 [nhynds@student.ubc.ca](mailto:nhynds@student.ubc.ca) · office hours by appointment
+- **TA: Perrie Soleimani** 📧 [perriesl@student.ubc.ca](mailto:perriesl@student.ubc.ca) · office hours by appointment
 
 ## Course description and learning objectives
 
