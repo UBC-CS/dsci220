@@ -2388,7 +2388,7 @@
     "href": "slides/lecture-02_slides.html#boolean-masks",
     "title": "Truth and Propositions",
     "section": "Boolean Masks",
-    "text": "Boolean Masks\nSelect all the cereals with at least 4 units of protein and no more than 6 units of sugars.\n\n\n\n\n\n\n\n\n\n\nChallenge: In pandas, test De Morgan with missing data: create a row with protein = NaN. Show that (~p) & (~q) can differ from ~(p | q) under three-valued logic; propose a fix (.fillna(False) or careful NA handling)."
+    "text": "Boolean Masks\nSelect all the cereals with at least 4 units of protein and no more than 6 units of sugars.\n\n\n\n\n\n\n\n\n\nFiltering defines a predicate, instantiated by each row, whose truth value is then evaluated. Say that out loud – the mask is P(x).\nThe Monday point. This is where the swim sentence pays off. It said nothing about Monday, Wednesday or Friday; a filter says nothing about the rows it does not return. In both cases absence is not falsity. cereals[p] hands you the rows where p holds and tells you nothing about why the rest are missing – p false, or the value absent? Treating unmentioned days as “no swim” is the same move as treating excluded rows as “not true”, and both are assumptions you are making rather than facts the data gave you.\nChallenge: in pandas, test De Morgan with missing data – add a row with protein = NaN and show that (~p) & (~q) can differ from ~(p | q) under three-valued logic. Fix with .fillna(False) or careful NA handling. That is the same gap: NaN is neither True nor False, so it is not a proposition."
   },
   {
     "objectID": "slides/lecture-02_slides.html#words-and-ideas",
