@@ -62,9 +62,21 @@ Not published (Quarto ignores `_`-prefixed files).
 - [ ] **Report the scrolling bug** hit while giving Marko student-data access
       for the term. Note where it happened (PrairieLearn? Canvas?) and what the
       page was doing, while it is fresh.
-- [ ] **Lab section assignments** — who staffs which. Four sections: L1A Wed 1–3
-      (SPPH 143), L1B Tue 4–6 (ORCH 3002), L1C Wed 3–5 (SPPH 143), L1D Tue 2–4
-      (ORCH 3002, closed at 26/26). Three TAs, four sections.
+- [x] ~~Lab section assignments.~~ **L1C is cancelled.** Remaining:
+
+      | Section | Day | Time | Room | TA | Enrolled |
+      |---|---|---|---|---|---|
+      | L1A | Wed | 1–3 | SPPH 143 | **Marko** | 24/26 |
+      | L1D | Tue | 2–4 | ORCH 3002 | **Noah** | 26/26 (full) |
+      | L1B | Tue | 4–6 | ORCH 3002 | **Perrie** | 17/26 |
+
+- [ ] **Re-home L1C's 5 students.** L1D is full, L1A has 2 spaces, L1B has 9 —
+      so they fit, but 3 of the 5 must take the Tue 4–6 slot.
+- [ ] **Marko's section loses Tutorial 3.** Week 4's Wednesday is **Sep 30**,
+      the National Day for Truth and Reconciliation. With L1C gone, L1A is the
+      only Wednesday section, so Marko's 24 students get 9 tutorials to the
+      Tuesday sections' 10. Options: skip Tutorial 3 for everyone, run it async
+      for L1A, or hold that week's content back from assessment.
 - [ ] **Articulate hours of engagement** — what each TA is expected to spend
       where, against their appointment hours.
 - [ ] **Who helps with the weekly video** — the async Friday recording, needed
