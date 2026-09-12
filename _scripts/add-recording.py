@@ -64,7 +64,7 @@ def main():
     ap.add_argument("--write", action="store_true", help="update the CSV")
     a = ap.parse_args()
 
-    cmd = [sys.executable, FETCH, a.label] + (["--all"] if a.all else [])
+    cmd = [sys.executable, FETCH, a.label, "--full"] + (["--all"] if a.all else [])
     text = subprocess.run(cmd, capture_output=True, text=True).stdout
     found = list(parse_mail(text))
     if not found:

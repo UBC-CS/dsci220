@@ -11,9 +11,22 @@ Not published (Quarto ignores `_`-prefixed files).
   after Monday's class and before the week's first lab (Noah's Tue 2pm), so a
   lab can still be fixed after sign-off. Fallbacks: Mon 1–2, or Thursday (open
   for all four, but falls after every lab that week).
-- **Video recording: Wednesday 3:00–4:00**, after Marko's lab. A day's buffer
-  before the Friday release, and fresh from Wednesday's class.
+- **Video recording: Thursday 10:00–11:00.** Wednesday afternoon is gone —
+  Cinda is in another class 3–4 and recording for a different course 4:30–5:30,
+  and Marko's lab runs 1–3. Thursday is open for all four, is still after
+  Wednesday's class, and leaves a day before the Friday release. Tighter
+  alternative if Thursday slips: **Wed 12:00–1:00**, also free for all four.
 - **Lab 1 is Cinda's**, since it lands immediately.
+
+### Cinda's fixed weekly commitments
+
+| Day | |
+|---|---|
+| Mon | 11–12 class |
+| Tue | 2–4 office hours |
+| Wed | 11–12 class, 3–4 other class, 4:30–5:30 recording for another course |
+| Thu | clear |
+| Fri | 11–12 class (async from week 2) |
 
 ## Where materials go
 
@@ -21,10 +34,12 @@ Not published (Quarto ignores `_`-prefixed files).
 |---|---|---|
 | Graded questions | `pl-ubc-dsci220/courseInstances/2026W1/assessments/tutorialNN/` | Tutorials are 10% of the grade, so they need auto-grading and a gradebook |
 | Question sources | `pl-ubc-dsci220/questions/2026W1/tutorials/` | Reusable across terms |
-| Handout / instructions | `dsci220/activities/tutorial-NN_activity.qmd` | Already linked from the schedule's Tutorial column |
+| Instructions | Inside the PrairieLearn assessment | Everything students need is in one place |
 
-Each handout should link out to its PrairieLearn assessment. Both repos are
-git, so review happens through normal commits and pull requests.
+There are no handout `.qmd` files — the schedule's Tutorial column links
+straight to the PrairieLearn assessment (`data/additional-resources.csv`, rows
+`tutorial-NN,activity,<PL url>`; they read `TBD` until the assessment exists).
+Both repos are git, so review happens through normal commits and pull requests.
 
 ## Sections
 

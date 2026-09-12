@@ -2,6 +2,11 @@ project:
   preview:
     port: 4200
   type: website
+  # Only .qmd is course content. Keeps working notes (todoTODAY.md, README.md,
+  # LICENSE.md) out of every build -- the `_`-prefixed ones are ignored anyway,
+  # but todoTODAY.md is not underscored.
+  render:
+    - "**/*.qmd"
 
 website:
   title: "{{< var course.full-title >}}"
