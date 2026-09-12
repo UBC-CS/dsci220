@@ -49,7 +49,12 @@ render_unit_schedule <- function() {
     ) |>
     dplyr::mutate(
       title = dplyr::case_when(
-        unit == "tutorial" ~ purrr::map_chr(resource, get_id_title),
+        # Tutorials live on PrairieLearn, so there is no qmd to read a title
+        # from -- label them from the id instead.
+        unit == "tutorial" ~ glue::glue(
+          '<div class="hidden-placeholder">Placeholder</div>',
+          '<div>{format_id(id)}</div>'
+        ),
         unit == "lecture" ~ purrr::map_chr(resource, get_id_title),
         unit == "homework" ~ format_homework_link(id, resource),
         unit == "exam" ~ format_exam_title_with_buttons(id, resource)
