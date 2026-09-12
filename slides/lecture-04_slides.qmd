@@ -11,46 +11,87 @@ subtitle: "Lecture 4, {{< var course.code >}}, {{< var course.term >}}"
 * We will have class THIS friday, but not thereafter. 
 * Tutorials begin next week.
 
-# Logical Equivalences
+# Predicates and Data
 
-## Logical Equivalences
+## Predicates {.smaller}
 
-:::::: columns
-::: {.column width="50%"}
-[![](/images/LE.png){fig-alt="logical equivalences"}](https://en.wikipedia.org/wiki/Logical_equivalence)
+\
+
+$p$: \_\_\_\_\_\_\_\_\_\_\_ ate cereal for breakfast.
+
+\
+
+We may want to apply the statement to many students, in which case we define a *Predicate*.
+
+\
+
+-   $P(x)$: $x$ ate cereal for breakfast.
+
+-   $x$ can be *instantiated* to be a particular student, or an arbitrary student.
+
+-   $P(\underline{\hspace{2em}} )$ is a proposition.
+
+## Back to Cereal
+
+{{< video https://youtu.be/CLQ0LZSnJFE?si=jHDBkjZ2OnkfQqwW width="850" height="475">}}
+
+
+## Boolean Masks
+
+Select all the cereals with at least 4 units of protein and no more than 6 units of sugars.
+
+```{pyodide}
+#| setup: true
+#| exercise: ex_cereal
+import pandas as pd
+# import numpy as np
+
+# Load and prepare data
+cereals = pd.read_csv('https://raw.githubusercontent.com/UBC-CS/dsci220/refs/heads/main/data/cereal.csv')
+# cereals = cereals.dropna()
+
+```
+
+```{pyodide}
+#| exercise: ex_cereal
+p = cereals['protein'] < 4 
+q = cereals['sugars'] > 6
+filtered_df = cereals[______]
+filtered_df
+```
+
+```{pyodide}
+#| exercise: ex_cereal
+#| check: true
+correct_answer = cereals[(cereals['protein'] >= 4) & (cereals['sugars'] <= 6)]
+
+ok = (
+    len(filtered_df) == len(correct_answer)
+    and filtered_df.index.equals(correct_answer.index)
+)
+
+if ok:
+    feedback = {
+        "correct": True,
+        "message": "Perfect! You correctly filtered for healthy cereal."
+    }
+else:
+    feedback = {
+        "correct": False,
+        "message": "Not quite. Use both conditions: protein >= 4 and sugars <= 6."
+    }
+
+feedback  
+```
+
+::: notes
+note that by doing this filtering, we are defining a predicate instantiated by each row whose truth value is evaluated.
+
+Challenge: In pandas, test De Morgan with missing data: create a row with protein = NaN.
+Show that (\~p) & (\~q) can differ from \~(p \| q) under three-valued logic; propose a fix (.fillna(False) or careful NA handling).
 :::
 
-:::: {.column width="50%"}
-::: small-font-size
-We have discussed Logical Equivalence (LE) and explored an example.
-The table illustrates LE that are so important, they have names!
-:::
 
-Observations:
-
--   
-
--   
-
--   
-
--   
-
--   
-::::
-::::::
-
-## Logical Equivalence Practice {.activity}
-
-All graded learning activities in the course will use *PrairieLearn*.
-
-Navigate to Activity 1 and complete question 2.
-Each of you will receive a different version of the problem.
-Work together in pairs to solve each person's version.
-
-<https://us.prairielearn.com/pl/course_instance/186238/assessment/2562335>
-
-{{< countdown minutes=7 >}}
 
 # Implication
 
@@ -151,6 +192,13 @@ Which of the expressions on the previous page are biconditionals?
 
 ## Words and Ideas
 
-Logical Equivalence
+Predicate
+
+Boolean Mask
 
 Implication
+
+Converse, Contrapositive, Inverse
+
+Biconditional
+

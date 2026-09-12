@@ -13,6 +13,24 @@ Not published (Quarto ignores `_`-prefixed files).
 - [ ] Teach from `draft-01` (rebuilt for 2026) rather than `lecture-01`, which
       still has the 2025 term table and Piazza link.
 
+## 🔴 Lecture 3 announcements slide — verify before Monday
+
+Added 2026-09-12. Four claims on it are inferred, not known:
+
+- [ ] **"bring a laptop"** — assumed, since Tutorial 1 is a PrairieLearn
+      assessment. Never actually stated anywhere.
+- [ ] **Section times and rooms** come from `_labs.md`, not from the schedule.
+      `data/schedule.csv` has `tutorial-01` in the `First` slot, which resolves
+      to Monday — wrong, and already listed under Website below.
+- [ ] **"HW1 is due Sunday, Sep 20"** — the date is right but HW1 does not
+      exist. Either build it or pull the bullet.
+- [ ] **EX1 Sun Sep 27** is `exam-01` in `schedule.csv`, so the date is solid,
+      but the PrairieTest enrolment link for 2026W1 is unknown. Lectures 4 and 5
+      still carry the 2025 one (`prairietest.com/pt/student/course/12361/...`),
+      which is dead.
+
+Deliberately left off: today's Activity 3, since the LE Practice slide covers it.
+
 ## 🔴 MAKE HW1
 
 **Due Sunday 2026-09-20** (end of week 2). Nothing exists for it yet.
