@@ -12,10 +12,26 @@ Backlog lives in `_todo.md`; lab tracker in `_labs.md`.
       read — fixed, so `python3 _scripts/add-recording.py --write` works
       unattended from now on.)
 - [x] Added the **Homework** assessment set to `pl-ubc-dsci220/infoCourse.json`.
-      HW1 was blocked on this; it isn't now.
+      HW1 was blocked on this; it isn't now. Committed and pushed.
 - [x] Recording slot moved off Wednesday — see below.
 
-Both of those still need a commit + push.
+## Marko pushed while you were away
+
+Pulled just now (`225c3ce`). He added:
+
+- **`tutorial1-logic-2026W1` — Lab 1 exists.** 7 questions in 3 zones:
+  Functional Completeness (×3), NaN equivalence, Tautologies and
+  Contradictions (×3). All 7 question ids resolve. **You do not have to build
+  this.**
+- **Practice sets for weeks 2, 3, 4, 5, 6, 8, 9, 10.**
+- A batch of Week 4 direct-proof questions (dropdowns, fix-the-mistake).
+
+⚠️ **Lab 1's `accessControl` is `[]`** — no release date, so students can't
+open it, and it runs Tuesday 2pm. This is the one thing standing between Lab 1
+and working. Tell me the window and I'll set it; the model is `class1-truth`,
+which uses `release` / `due` / `afterLastDeadline: credit 0`. Tutorials are 10%
+and graded, so it presumably wants a due date well after the lab ends, not at
+the end of the session.
 
 ---
 
@@ -29,10 +45,14 @@ Both of those still need a commit + push.
 
 ## Must land before Tue 14:00 (Noah's lab, first one of the term)
 
-- [ ] **Lab 1 — it does not exist.** Yours to build. Port from
-      `pl-ubc-dsci220/questions/2025W1/.../tutorial1-logic`. Needs an
-      assessment under `courseInstances/2026W1/assessments/`, then its URL
-      into `data/additional-resources.csv` (row `tutorial-01,activity,TBD`).
+- [ ] **Set Lab 1's access window** — see above. Without it students can't
+      open the assessment.
+- [ ] **Review Marko's Lab 1** — 7 questions for a 2-hour session. Is that the
+      right amount, and is Functional Completeness the right opener given class
+      has only reached WFFs?
+- [ ] Put Lab 1's URL in `data/additional-resources.csv` — the
+      `tutorial-01,activity` row still reads `TBD`, so the schedule's Tutorial
+      column is greyed out.
 - [ ] Tell the TAs where Lab 1 is and what they're running.
 
 ## Must land before Wed 11:00
@@ -51,7 +71,8 @@ Both of those still need a commit + push.
 
 - [ ] **HW1 — it does not exist.** Due Sunday. No longer blocked; build the
       assessment, then fill in `homeworks/homework-01_homework.qmd`, which is
-      still a stub saying "complete it on PrairieLearn".
+      still a stub saying "complete it on PrairieLearn". Marko's new practice
+      sets for weeks 2–4 are the obvious source of questions.
 
 ---
 
