@@ -31,6 +31,15 @@ Added 2026-09-12. Four claims on it are inferred, not known:
 
 Deliberately left off: today's Activity 3, since the LE Practice slide covers it.
 
+## HW2 — due Sun Oct 4
+
+- [ ] **Put `2025W1/logic/equivalence-with-nans` here.** Pulled out of Tutorial 1
+      on 2026-09-12 because Boolean masks moved to lecture 8 (Fri Sep 25) —
+      parked, not dropped. It is the payoff for the De Morgan work: the law
+      holds, but pandas is three-valued, so `NaN` breaks the precondition that
+      every proposition is True or False. By Oct 4 they will have had the
+      lecture.
+
 ## 🔴 MAKE HW1
 
 **Due Sunday 2026-09-20** (end of week 2). Nothing exists for it yet.

@@ -83,6 +83,76 @@ anchor the Monday after.
 - **Boolean Masks / dataframe filtering.** A long way out.
 - Both are stashed in `slides/_unassigned/_stash_predicates-quantifiers.qmd`.
 
+### A three-stage arc: reduction, then data, then nulls
+
+Decided 2026-09-12. HW1 (week 2) does data reduction **in pure propositional
+logic, with no mention of dataframes**, so that the data connection is still
+available later as a reveal rather than already spent.
+
+**Stage 1 — HW1, now.** `2026W1/logic/which-conditions-matter`. Students find
+that $P \wedge (P \vee Q)$ ignores $Q$, name absorption, then reduce
+$(A \vee B) \wedge (A \vee \neg B) \wedge (A \vee C) \wedge (A \vee \neg C)$
+to $A$ by naming four laws. Closes on: a 20-variable truth table needs 1,048,576
+rows, so use the laws. Nothing about data.
+
+**Stage 2 — lecture 8, Boolean masks.** Reveal that the formula was a filter.
+Four conditions per row collapse to one; write both in pandas and run them.
+They predicted this in week 2 from the laws alone.
+
+**Stage 3 — after lecture 8 (HW2 or later): three-valued logic.** Cinda's
+`references/prairielearn_3vl_logic_prompt.txt` is the seed. Verified content,
+worth keeping:
+
+- In Kleene 3VL (T, F, U) **De Morgan holds** — both directions — as do double
+  negation, commutativity and distributivity. Exactly two classical laws fail:
+  **excluded middle** ($p \vee \neg p \equiv \mathsf{T}$) and
+  **non-contradiction** ($p \wedge \neg p \equiv \mathsf{F}$). Both give U when
+  $p$ is U.
+- **Only one of those failures can change a query**, because a filter keeps T and
+  nothing else. Excluded middle failing turns an expected T into U — a kept row
+  is dropped. Non-contradiction failing turns an expected F into U — a dropped
+  row stays dropped.
+- Therefore **the two classically-identical formulas behave differently**:
+
+  | | Classically | Under nulls |
+  |---|---|---|
+  | $(A \vee B) \wedge (A \vee \neg B) \wedge \ldots$ — HW1's | $\equiv A$ | same rows, **safe** |
+  | $(A \wedge B) \vee (A \wedge \neg B) \vee \ldots$ | $\equiv A$ | differs at $A{=}\mathsf{T}, B{=}\mathsf{U}, C{=}\mathsf{U}$, **unsafe** |
+
+  HW1's version reduces via non-contradiction; the other via excluded middle.
+  That is the whole difference, and swapping $\wedge$ and $\vee$ causes it.
+- The sharpest demonstration: `mask = df['age'] > 21`. A row with a missing age
+  makes the mask U, so $P \vee \neg P$ is U, and that row appears in **neither**
+  `df[mask]` nor `df[~mask]`. Splitting a dataframe in two loses rows.
+- **Do not claim De Morgan breaks.** It holds in Kleene and it holds in pandas
+  — verified against 2.3.3 with both numpy `NaN` and nullable `pd.NA`. The
+  2025 Boolean Masks speaker note says otherwise and is wrong.
+- The dtype split is its own lesson: numpy float comparisons against `NaN`
+  return **False**, so a missing value is silently treated as "condition not
+  met" and the row is *included* by a negated filter. Nullable dtypes
+  (`Float64`, `Int64`, `boolean`) return NA and the row is *excluded* by both.
+  Same expression, same data, different rows — decided by dtype alone.
+- The prompt's `topic: "Logic"` is not a declared topic — use `module-1`.
+
+### Parked, not dropped: the NaN question
+
+`2025W1/logic/equivalence-with-nans` came out of Tutorial 1 on 2026-09-12
+because Boolean masks are now lecture 8. **It is not retired — target HW2.**
+
+**CAUTION — its stated premise is false.** The lecture note and the question
+describe `(~p) & (~q)` differing from `~(p | q)` under missing data. It does not.
+De Morgan holds in Kleene logic, and tested against pandas 2.3.3 the two are
+identical with numpy `NaN` *and* with nullable `pd.NA`. Read the question before
+using it; if that is what it asserts, it needs rewriting, not just rescheduling.
+
+What is true, and is better, is in the three-stage arc above: excluded middle and
+non-contradiction are the laws that fail, and the visible symptoms are that
+`df[mask]` and `df[~mask]` together lose rows, and that numpy `NaN` silently
+evaluates comparisons to `False` while nullable dtypes give NA — so the same
+expression selects different rows depending only on the column's dtype.
+
+Timing works: Boolean Masks is Fri Sep 25 (lecture 8), HW2 is due Sun Oct 4.
+
 ## Known consequences
 
 - **EX2 is lopsided.** Its window covers resolution through the start of proofs

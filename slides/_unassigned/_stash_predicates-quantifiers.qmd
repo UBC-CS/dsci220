@@ -84,8 +84,28 @@ feedback
 ::: notes
 note that by doing this filtering, we are defining a predicate instantiated by each row whose truth value is evaluated.
 
-Challenge: In pandas, test De Morgan with missing data: create a row with protein = NaN.
-Show that (\~p) & (\~q) can differ from \~(p \| q) under three-valued logic; propose a fix (.fillna(False) or careful NA handling).
+CORRECTED 2026-09-12. The old note here claimed (\~p) & (\~q) can differ from
+\~(p \| q) under missing data. **It cannot.** De Morgan holds in Kleene
+three-valued logic, and holds in pandas -- tested against 2.3.3 with both numpy
+NaN and nullable pd.NA, the two expressions are identical in every row.
+
+The laws that actually fail under U are **excluded middle** (p \| \~p) and
+**non-contradiction** (p & \~p), and only the first is visible to a filter,
+since a filter keeps T and nothing else.
+
+Two demonstrations that do work:
+
+1.  mask = df\['age'\] > 21. With a nullable dtype, a row with a missing age
+    makes the mask NA, so it appears in **neither** df\[mask\] **nor**
+    df\[\~mask\]. Split the frame in two and lose rows.
+
+2.  The dtype split. Numpy float comparisons against NaN return **False**, so a
+    missing value is silently read as "condition not met" and the row is
+    *included* by a negated filter. Nullable dtypes return NA and it is
+    *excluded* by both. Same expression, same data, different rows -- decided
+    by nothing but the column's dtype.
+
+See `_sequence.md`, "A three-stage arc".
 :::
 
 
