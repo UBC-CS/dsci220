@@ -139,17 +139,19 @@ worth keeping:
 `2025W1/logic/equivalence-with-nans` came out of Tutorial 1 on 2026-09-12
 because Boolean masks are now lecture 8. **It is not retired — target HW2.**
 
-**CAUTION — its stated premise is false.** The lecture note and the question
-describe `(~p) & (~q)` differing from `~(p | q)` under missing data. It does not.
-De Morgan holds in Kleene logic, and tested against pandas 2.3.3 the two are
-identical with numpy `NaN` *and* with nullable `pd.NA`. Read the question before
-using it; if that is what it asserts, it needs rewriting, not just rescheduling.
+**Checked 2026-09-12: the question is sound and needs no rewrite.** It is not
+about De Morgan — the *slide note* was, and that note was wrong. This question
+compares `protein >= 4` with `~(protein < 4)`. Under IEEE 754 every comparison
+with `NaN` is False, so both are False at once, and the first filter excludes
+that row while the second includes it. The law that breaks is **trichotomy** —
+exactly one of <, =, > holds — which is what licenses ¬(a < 4) ≡ (a ≥ 4).
 
-What is true, and is better, is in the three-stage arc above: excluded middle and
-non-contradiction are the laws that fail, and the visible symptoms are that
-`df[mask]` and `df[~mask]` together lose rows, and that numpy `NaN` silently
-evaluates comparisons to `False` while nullable dtypes give NA — so the same
-expression selects different rows depending only on the column's dtype.
+It uses a PrairieLearn workspace, which is more machinery than the other
+questions in this bank; budget for that.
+
+It is also the natural predecessor to the 3VL question rather than a duplicate:
+here `NaN` **collapses to False** (numpy), there it **stays unknown** (nullable
+dtypes). Same missing value, two semantics, chosen by dtype alone.
 
 Timing works: Boolean Masks is Fri Sep 25 (lecture 8), HW2 is due Sun Oct 4.
 
