@@ -39,7 +39,7 @@ propositional inference, then universal generalization. Lecture 9 opens with
 | L5 | Fri Sep 18 | video | **Propositional inference** — the 8 rule cards, fallacies |
 | | | | ⟵ EX1 window closes. **EX1 = propositional logic, entire** |
 | L6–L7 | Sep 21, 23 | class | **Resolution** — 74 min of material, so two slots |
-| L8 | Fri Sep 25 | video | **Predicates + quantifiers** |
+| L8 | Fri Sep 25 | video | **Predicates + Boolean masks + quantifiers** — 57 min |
 | L9 | Mon Sep 28 | class | **Predicate inference** — deck does not exist |
 | | Wed Sep 30 | — | Truth and Reconciliation, no class |
 | L10 | Fri Oct 2 | video | Proofs begin ⟵ EX2 window closes |
@@ -80,7 +80,10 @@ anchor the Monday after.
   quantifiers come first; multiples are not on the critical path. The worksheet
   is pages 3–4 of `data/quantifiers.pdf` (recoverable from git; deleted in
   `6ca88a54`).
-- **Boolean Masks / dataframe filtering.** A long way out.
+- ~~Boolean Masks~~ — **no longer deferred.** It belongs immediately after
+  Predicates in L8, because a Boolean mask *is* a predicate instantiated once
+  per row; the 2025 speaker note on that slide says exactly this. With it
+  restored, L8 runs 57 minutes against a 60-minute cap.
 - Both are stashed in `slides/_unassigned/_stash_predicates-quantifiers.qmd`.
 
 ### A three-stage arc: reduction, then data, then nulls
@@ -89,24 +92,28 @@ Decided 2026-09-12. HW1 (week 2) does data reduction **in pure propositional
 logic, with no mention of dataframes**, so that the data connection is still
 available later as a reveal rather than already spent.
 
-**Stage 1 — HW1, now.** `2026W1/logic/which-conditions-matter`. Students find
+**Stage 1 — HW2, due Sun Oct 4** (moved out of HW1 on 2026-09-12; HW1 was
+running two hours, and stages 1 and 3 are better done after Sep 25 anyway, in
+the context of dataframe filtering). `2026W1/logic/which-conditions-matter`. Students find
 that $P \wedge (P \vee Q)$ ignores $Q$, name absorption, then reduce
 $(A \vee B) \wedge (A \vee \neg B) \wedge (A \vee C) \wedge (A \vee \neg C)$
 to $A$ by naming four laws. Closes on: a 20-variable truth table needs 1,048,576
 rows, so use the laws. Nothing about data.
 
-**Stage 2 — lecture 8, Boolean masks.** Reveal that the formula was a filter.
+**Stage 2 — lecture 8, Fri Sep 25.** Boolean masks, straight after predicates.
+Reveal that the formula was a filter.
 Four conditions per row collapse to one; write both in pandas and run them.
 They predicted this in week 2 from the laws alone.
 
-**Stage 3 — BUILT, and it is in HW1 too.** `2026W1/logic/missing-truth-values`,
+**Stage 3 — BUILT, and travels with stage 1 into HW2.** It refers back to
+stage 1's reduction, so the two cannot be separated. `2026W1/logic/missing-truth-values`,
 kept entirely propositional: T/F/U, no dataframes, so the data reveal is still
 unspent. Students build the Kleene operator tables from "answer only when the
 known part settles it", find which laws survive, and evaluate the two formulas.
 It must stay *after* `which-conditions-matter` in any assessment — it refers back
 to that reduction.
 
-**Stage 4 — lecture 8 / HW2: the data reveal.** U is what a missing value looks
+**Stage 4 — after stage 2: the data reveal.** U is what a missing value looks
 like. Then `2025W1/logic/equivalence-with-nans` shows the other model, where NaN
 collapses to False instead of staying unknown.
 
@@ -146,7 +153,8 @@ Verified content behind stage 3, from `references/prairielearn_3vl_logic_prompt.
 ### Parked, not dropped: the NaN question
 
 `2025W1/logic/equivalence-with-nans` came out of Tutorial 1 on 2026-09-12
-because Boolean masks are now lecture 8. **It is not retired — target HW2.**
+because Boolean masks are deferred and unscheduled. **It is not retired — but it
+cannot be set until dataframe filtering is taught.**
 
 **Checked 2026-09-12: the question is sound and needs no rewrite.** It is not
 about De Morgan — the *slide note* was, and that note was wrong. This question
@@ -162,7 +170,9 @@ It is also the natural predecessor to the 3VL question rather than a duplicate:
 here `NaN` **collapses to False** (numpy), there it **stays unknown** (nullable
 dtypes). Same missing value, two semantics, chosen by dtype alone.
 
-Timing works: Boolean Masks is Fri Sep 25 (lecture 8), HW2 is due Sun Oct 4.
+Timing works: Boolean Masks is lecture 8, Fri Sep 25; HW2 is due Sun Oct 4.
+Set HW2 to open on or after Sep 25 so nobody meets the dataframe questions
+before the lecture.
 
 ## Known consequences
 
