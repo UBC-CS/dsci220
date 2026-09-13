@@ -54,6 +54,19 @@ the hinge from implication into the rule cards, and it lands on the tautology /
 contradiction concept from lecture 3. It belongs at the end of the propositional
 block, not buried mid-inference where it was.
 
+### The video is the overflow buffer
+
+Decided 2026-09-12. Lecture 4 carries ~68 min of material into a 50-minute
+class, deliberately. **Whatever is not covered Wednesday moves into Friday's
+video.** It is the only lecture whose length is set rather than discovered, so
+it is the only place a backlog can be paid down instead of cascading.
+
+Consequence: L5 is 41 min of rule cards plus up to ~18 of overflow, so it sits
+at the one-hour cap with no slack. And the recording must happen **after**
+Wednesday's class — either Wed 12–1 (the only free hour; releases Wed night
+with PE1, matching the announcements slide) or Thu 10–11 (what `_labs.md` says,
+but then the slide's "video released by Thursday morning" is wrong).
+
 ### Why the rule cards are the video
 
 Eight named rules, each one pattern, already authored as flashcards — the most

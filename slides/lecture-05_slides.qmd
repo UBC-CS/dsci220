@@ -168,6 +168,26 @@ If sunny then picnic; if rainy then museum; sunny or rainy; **so picnic or museu
 
 ---
 
+## Validity
+
+**∧-Elim**: $(p\wedge q)\rightarrow p$ is this always true?
+
+
+## INValidity
+
+**Affirming Consequent**: $((p\rightarrow q)\wedge q)\rightarrow p$ is this always true?
+
+
+| $p$ | $q$ | $p\rightarrow q$ | $(p\rightarrow q)\wedge q$ | $((p\rightarrow q)\wedge q)\rightarrow p$ |
+|---|---|:--------:|:--------:|:--------:|
+| F | F |       |      |      |      
+| F | T |       |       |       |       
+| T | F |       |       |       |       
+| T | T |       |       |       |
+
+
+---
+
 ## Words and Ideas
 
 Rules of Inference

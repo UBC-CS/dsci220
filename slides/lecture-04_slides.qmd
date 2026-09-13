@@ -23,8 +23,6 @@ Connect operator $\rightarrow$ to a logically equivalent expression using only *
 | T   | F   |        F         |                            |
 | T   | T   |        T         |                            |
 
--   Is this operator commutative?
-
 -   Note: $p \rightarrow q \equiv$ \_\_\_\_\_\_\_.
 
 -   $p \rightarrow q$ Corresponds to "if $p$ then $q$"
@@ -33,7 +31,10 @@ Connect operator $\rightarrow$ to a logically equivalent expression using only *
 
 -   $p \rightarrow q$ is `False` **only** when $p$ is `True` and $q$ is `False`.
 
--   Gives us mechanism for reasoning (next week)!
+-   Gives us mechanism for reasoning!
+
+-   Is this operator commutative?
+
 
 
 ::: notes
@@ -53,9 +54,84 @@ Then $p$ is a *Contradiction*.
 
 :::
 
-## Logical Equivalence Proof
+## Converses — check what’s `True` {.activity .smaller}
 
-Prove that $p \rightarrow q \equiv \neg q \rightarrow \neg p$:
+Each of the following is $p\rightarrow q$. &emsp; Underline $p$, [dash-underline]{.dashed} $q$. &emsp; Then decide whether each direction is true.
+
+| # | Statement | p→q | q→p |
+|:-:|---|:--:|:--:|
+| 1 | If it’s a kitten, then it’s a cat. | ☐ | ☐ |
+| 2 | If an animal is a mammal, then it is a cat. | ☐ | ☐ |
+| 3 | If I’m an only child, then I have zero siblings. | ☐ | ☐ |
+| 4 | If I eat breakfast, then I ace the quiz. | ☐ | ☐ |
+| 5 | A player is in the NHL only if they are a professional. | ☐ | ☐ |
+| 6 | To be empty, a string must have length 0. | ☐ | ☐ |
+| 7 | No song appears on the Billboard Hot 100 without reaching #1. | ☐ | ☐ |
+: {tbl-colwidths="[5,81,7,7]"}
+
+{{< countdown minutes=8 >}}
+
+::: notes
+Two steps per row, and only the first is logic:
+
+  TRANSLATE -- what does the sentence assert?   EVALUATE -- is that true?
+
+Rows 1-4 translate for free ("if" names the antecedent). Rows 5-7 do not:
+
+  5  "only if" marks the CONSEQUENT. Students read "p only if q" as q->p
+     because "if" sits next to q. It means p->q.
+  6  "must" -- necessity, so again the consequent.
+  7  Board work. THE HARD PART IS FINDING p AND q, not the algebra below.
+
+     The sentence carries two negation words -- "No" and "without" -- and
+     NEITHER belongs to p or q. Both are structural. p and q are positive:
+
+       p: this song appears on the Hot 100
+       q: this song reached #1
+
+     Ask "what two facts about a single song does this sentence relate?"
+     That strips the scaffolding and leaves the atoms. Each is plainly
+     true-or-false of one song; neither contains a "no" or a "without".
+     Students will want q = "does not reach #1", or will attach the "No"
+     to p. Underline only the positive spans.
+
+     Once p and q are fixed, *without* = *and not* and the rest is algebra:
+
+       ~(p ^ ~q)  ==  ~p v ~~q     De Morgan        (lecture 3 laws table)
+                  ==  ~p v q       double negation  (same table)
+                  ==  p -> q       definition of -> (slide 1 today)
+
+     This is the first CHAIN OF EQUIVALENCES in the course -- lecture 3
+     promised two ways to justify an equivalence, and only truth tables have
+     been used so far. It is also the worked example for the LE Proof slide
+     two slides from now.
+
+     Then the catch: the chain shows the sentence MEANS p->q. It does not
+     show p->q is true -- and it isn't. A song that charted but never hit #1
+     makes p true, q false, which falsifies BOTH forms. That is what the
+     equivalence promised.
+
+     But the CONVERSE is true, and for a different kind of reason:
+       p->q  (charted -> hit #1)   FALSE, empirically -- most never do.
+       q->p  (hit #1 -> charted)   TRUE, definitionally -- #1 IS a position
+                                   on the Hot 100. You cannot top a chart
+                                   you are not on.
+     So the sentence asserts the contingent direction, which fails, while the
+     direction it does not assert holds by definition. Not a biconditional.
+
+     Same truth pattern as row 2 (mammal -> cat), which they met early and
+     easily. Row 7 is that pattern in disguise -- worth pointing back to it.
+
+Row 4 (breakfast/quiz) is the discussion row, not a quick one. Nobody in the
+room has the facts, so ask what would make it FALSE -- one day you ate
+breakfast and did not ace. That is a counterexample, three lectures early.
+It is also the only home for vacuous truth: if you never eat breakfast, p is
+always false and the statement is true, because you never broke the promise.
+
+Rows 3 and 4 are the only propositional ones -- about a fixed "I". The rest
+range over a domain, which is what predicates are for. Do not say "for all"
+yet; it becomes the callback when quantifiers arrive.
+:::
 
 
 ## Vocabulary {.smaller}
@@ -74,23 +150,10 @@ Describe all the logical equivalences among the 4 statements:
 we'll see if English can help us!
 :::
 
-## Converses — check what’s `True` {.smaller}
+## Logical Equivalence Proof
 
-| # | Statement p→q  | p→q | q→p |
-|:-:|---|:--:|:--:|
-| 1  | To be empty, a string must have length 0. | ☐ | ☐ |
-| 2  | Playing in the NHL entails being a professional hockey player. | ☐ | ☐ |
-| 3  | If an animal is a mammal, then it is a cat. | ☐ | ☐ |
-| 4  | Riding the 99 B-Line counts as public transit. | ☐ | ☐ |
-| 5  | If a dish is spicy, then it is Indian cuisine. | ☐ | ☐ |
-| 6  | If it’s a kitten, then it’s a cat. | ☐ | ☐ |
-| 7  | No song appears on the Billboard Hot 100 without reaching #1. | ☐ | ☐ |
-| 8  | If I live in Totem Park residence, then I live in campus housing. | ☐ | ☐ |
-| 9  | If I eat breakfast, then I ace the quiz. | ☐ | ☐ |
-| 10 | If a movie is a superhero film, then it is an MCU movie. | ☐ | ☐ |
-| 11 | If I’m an only child, then I have zero siblings. | ☐ | ☐ |
-| 12 | If I’m in British Columbia, then I’m in Vancouver. | ☐ | ☐ |
-: {tbl-colwidths="[5,81,7,7]"}
+Prove that $p \rightarrow q \equiv \neg q \rightarrow \neg p$:
+
 
 ## Biconditionals
 
@@ -105,27 +168,7 @@ Some phrases describing this relationship:
 * if and only if (iff)
 * equivalent
 
-Which of the expressions on the previous page are biconditionals? 
-
-## Validity
-
-**∧-Elim**: $(p\wedge q)\rightarrow p$ is this always true?
-
-
-## INValidity
-
-**Affirming Consequent**: $((p\rightarrow q)\wedge q)\rightarrow p$ is this always true?
-
-
-| $p$ | $q$ | $p\rightarrow q$ | $(p\rightarrow q)\wedge q$ | $((p\rightarrow q)\wedge q)\rightarrow p$ |
-|---|---|:--------:|:--------:|:--------:|
-| F | F |       |      |      |      
-| F | T |       |       |       |       
-| T | F |       |       |       |       
-| T | T |       |       |       |
-
-
----
+Which of the seven statements were biconditionals? 
 
 ## Words and Ideas
 
@@ -135,5 +178,4 @@ Converse, Contrapositive, Inverse
 
 Biconditional
 
-Validity
 

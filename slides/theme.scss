@@ -149,3 +149,8 @@ table caption {
   transform: translateY(2px);
   box-shadow: none;
 }
+
+// Used on the Converses activity to demonstrate the annotation students make.
+.reveal .dashed {
+  border-bottom: 2px dashed currentColor;
+}
