@@ -99,9 +99,18 @@ rows, so use the laws. Nothing about data.
 Four conditions per row collapse to one; write both in pandas and run them.
 They predicted this in week 2 from the laws alone.
 
-**Stage 3 — after lecture 8 (HW2 or later): three-valued logic.** Cinda's
-`references/prairielearn_3vl_logic_prompt.txt` is the seed. Verified content,
-worth keeping:
+**Stage 3 — BUILT, and it is in HW1 too.** `2026W1/logic/missing-truth-values`,
+kept entirely propositional: T/F/U, no dataframes, so the data reveal is still
+unspent. Students build the Kleene operator tables from "answer only when the
+known part settles it", find which laws survive, and evaluate the two formulas.
+It must stay *after* `which-conditions-matter` in any assessment — it refers back
+to that reduction.
+
+**Stage 4 — lecture 8 / HW2: the data reveal.** U is what a missing value looks
+like. Then `2025W1/logic/equivalence-with-nans` shows the other model, where NaN
+collapses to False instead of staying unknown.
+
+Verified content behind stage 3, from `references/prairielearn_3vl_logic_prompt.txt`:
 
 - In Kleene 3VL (T, F, U) **De Morgan holds** — both directions — as do double
   negation, commutativity and distributivity. Exactly two classical laws fail:
