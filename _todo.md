@@ -56,6 +56,20 @@ Deliberately left off: today's Activity 3, since the LE Practice slide covers it
       they get in during class.
 - [ ] Lecture 1's "Before Friday" slide still says the activity "will be posted
       on PrairieLearn" — now stale, since it is live and done in class Friday.
+- [ ] **PE1 — practice for EX1 (Sun Sep 27).** The questions exist: Marko's
+      `practice/week_1` (17), `week_2` (43) and `Week_3` (31) cover weeks 1--3,
+      which is EX1's range. In 2025W1 this was a single assessment titled
+      "EX1 Practice (Week 3)". Decide whether to keep the per-week split or
+      collect them the way last year did.
+      - [ ] **None of the nine practice sets has an access window** — every
+            `accessControl` is empty, so students cannot open any of them.
+            Lectures 4 and 5 already promise "Practice materials coming soon".
+            Should be open roughly a week before EX1, so by **Sun Sep 20**.
+      - [ ] `Week_3` is capitalised, unlike the other eight. PrairieLearn tids
+            are case-sensitive.
+      - [ ] Numbering desyncs after week 6: `week_8` is number 7, `week_9` is 8,
+            `week_10` is 9, because week 7 does not exist.
+      - [ ] No practice set for weeks 7, 11, 12 or 13. EX5 is week 13.
 - [ ] Port the 2025W1 tutorials, examlets and practice sets into the 2026W1
       instance — it currently holds only Activity 1.
 - [ ] Fill in per-assessment links in `data/additional-resources.csv`; the exam

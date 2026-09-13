@@ -10,200 +10,173 @@ subtitle: "Lecture 5, {{< var course.code >}}, {{< var course.term >}}"
 * Sign up for EX1. Practice materials (on PL) coming soon!
 * Tutorials begin next week.
 
-# Logical Equivalences
+# Inference
 
-## Vocabulary {.smaller}
+<!-- Helper classes -->
+<style>
+.small { font-size: 0.9rem; }
+.tiny { font-size: 0.8rem; }
+.rule { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; }
+.card { border: 2px solid #ddd; border-radius: 12px; padding: 14px 16px; margin: 10px 0; }
+.center { text-align: center; }
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.badge { display:inline-block; padding:2px 8px; border:1px solid #bbb; border-radius:10px; font-size:.8rem; }
+</style>
 
-Given $p\rightarrow q$, we define the following 3 terms:
+## 🎉 Spot the Rule, Dodge the Trap
 
-* \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ is $\neg q\rightarrow \neg p$
+**Goal for today:** treat valid logical arguments like *legal moves* in a game.  
 
-* \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ is $q\rightarrow p$
+You’ll identify moves, build quick proofs, and design  traps.
 
-* \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ is $\neg p\rightarrow \neg q$
 
-Describe all the logical equivalences among the 4 statements:
+## Warm Up (5 min)
 
-::: notes
-we'll see if English can help us!
-:::
+A *valid argument* is a *legal inference*. Content can change; form is what makes it valid.
 
-## Converses — check what’s `True` {.smaller}
+- If the lab is open, I’ll go. The lab is open. **So I’ll go.** 
 
-| # | Statement p→q  | p→q | q→p |
-|:-:|---|:--:|:--:|
-| 1  | To be empty, a string must have length 0. | ☐ | ☐ |
-| 2  | Playing in the NHL entails being a professional hockey player. | ☐ | ☐ |
-| 3  | If an animal is a mammal, then it is a cat. | ☐ | ☐ |
-| 4  | Riding the 99 B-Line counts as public transit. | ☐ | ☐ |
-| 5  | If a dish is spicy, then it is Indian cuisine. | ☐ | ☐ |
-| 6  | If it’s a kitten, then it’s a cat. | ☐ | ☐ |
-| 7  | No song appears on the Billboard Hot 100 without reaching #1. | ☐ | ☐ |
-| 8  | If I live in Totem Park residence, then I live in campus housing. | ☐ | ☐ |
-| 9  | If I eat breakfast, then I ace the quiz. | ☐ | ☐ |
-| 10 | If a movie is a superhero film, then it is an MCU movie. | ☐ | ☐ |
-| 11 | If I’m an only child, then I have zero siblings. | ☐ | ☐ |
-| 12 | If I’m in British Columbia, then I’m in Vancouver. | ☐ | ☐ |
-: {tbl-colwidths="[5,81,7,7]"}
+- If the exam is today, the forum is quiet. The forum isn’t quiet. **So the exam isn’t today.** 
 
-## Biconditionals
+---
 
-We have a special operator for those implications whose converses are 
-also `True`:
+## Micro Rule Cards {.smaller}
 
-|   $(p\rightarrow q) \wedge (q\rightarrow p)\equiv p\leftrightarrow q$
+Use these all class as a reference.
 
-Some phrases describing this relationship:
+- **MP**: from `p→q, p` infer `q`  
+- **MT**: from `p→q, ¬q` infer `¬p`  
+- **HS**: from `p→q, q→r` infer `p→r`  
+- **DS**: from `p∨q, ¬p` infer `q`  
+- **∧-Intro**: from `p, q` infer `p∧q`  
+- **∧-Elim**: from `p∧q` infer `p` (or `q`)  
+- **∨-Intro**: from `p` infer `p∨q` (any `q`)  
+- **RES**: from `p∨q, ¬p∨r` infer `q∨r`  
+- **CD**: from `(p→r), (q→s), (p∨q)` infer `r∨s`
 
-* biconditional
-* if and only if (iff)
-* equivalent
+**Common traps:**  
 
-Which of the expressions on the previous page are biconditionals? 
+- Affirming consequent: `p→q, q ∴ p` ❌  
 
-# Quantifiers
+- Denying antecedent: `p→q, ¬p ∴ ¬q` ❌
 
-## Quantified Predicates {.smaller}
+---
 
-Consider the predicate:
+## Rule Card: Modus Ponens (MP)
 
-|        $H(x)$: $x$ is a Hero
+<div class="card rule">
+From <code>p→q</code> and <code>p</code>, infer <code>q</code>.
+</div>
 
-Is this a proposition? \_\_\_\_.  We add a "quantifier":
+**Ex:**  
+If the bus is full, I’ll walk. The bus is full. **So I’ll walk.**
 
-|                $H(x)$: $x$ is a Hero
+---
 
-Now is it a proposition? \_\_\_\_.  We scope the variable:
+## Rule Card: Modus Tollens (MT)
 
-|                        $H(x)$: $x$ is a Hero
+<div class="card rule">
+From <code>p→q</code> and <code>¬q</code>, infer <code>¬p</code>.
+</div>
 
-\
-\
+**Ex:**  
+If office hours moved, Slack has an announcement. No announcement. **So they didn’t move.**
 
-Two classic quantifiers:
+---
 
-|   $\forall$: "For every" or "For all"
-|   $\exists$: "There exists" or "There is at least one"
+## Rule Card: Hypothetical Syllogism (HS)
 
-## Quantified Predicates
+<div class="card rule">
+From <code>p→q</code> and <code>q→r</code>, infer <code>p→r</code>.
+</div>
 
-In pairs, complete the worksheet!
+**Ex:**  
+If tidy then joins are simpler; if simpler joins then faster viz; **so tidy ⇒ faster viz.**
 
-\ 
+---
 
-What did you discover about negation?
+## Rule Card: Disjunctive Syllogism (DS)
 
-\ 
+<div class="card rule">
+From <code>p∨q</code> and <code>¬p</code>, infer <code>q</code>.
+</div>
 
-## Counterexample
+**Ex:**  
+Dinner is sushi or tacos. Not sushi. **So tacos.**
 
-Suppose someone says "all comedians are funny," and you disagree, how would you refute the statement?
+---
 
-\
+## Rule Card: Conjunction / Simplification
 
-|        $\forall x, C(x)\rightarrow F(x)$ 
+<div class="two-col">
+<div class="card rule">
+<strong>∧-Intro</strong>: from <code>p, q</code> infer <code>p∧q</code>
+</div>
+<div class="card rule">
+<strong>∧-Elim</strong>: from <code>p∧q</code> infer <code>p</code> (or <code>q</code>)
+</div>
+</div>
 
-\
-\
-\
+---
 
-Your immediate response: \_\_\_\_\_\_\_\_\_\_
+## Rule Card: ∨-Intro
 
-This evidence of refutation is called a \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_. 
+<div class="card rule">
+From <code>p</code> infer <code>p∨q</code>.
+</div>
 
-Another way: 
+**Ex:** I rode my scooter today, **so I either rode my scooter or I'm a unicorn.**
 
-Applies specifically to $\neg\forall$
+**Note** validity cares about *form*, not plausibility of the added disjunct.
 
-## Witness
+---
 
-Suppose someone says "there is a funny comedian," and you disagree, how could they justify their statement?
+## Rule Card: Resolution (RES)
 
-\
+<div class="card rule">
+From <code>p∨q</code> and <code>¬p∨r</code> infer <code>q∨r</code>.
+</div>
 
-|        $\exists x, C(x)\wedge F(x)$ 
+**Ex:**  
+Either study or soccer; if study then library. **So soccer or library.**
 
-\
+---
 
-Their immediate response: \_\_\_\_\_\_\_\_\_\_
+## Rule Card: Constructive Dilemma (CD)
 
-This evidence of justification is called a \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_. 
+<div class="card rule">
+From <code>(p→r), (q→s), (p∨q)</code> infer <code>r∨s</code>.
+</div>
 
-Applies specifically to $\exists$
+**Ex:**  
+If sunny then picnic; if rainy then museum; sunny or rainy; **so picnic or museum.**
 
-Aside: Why not $\exists x, C(x)\rightarrow F(x)$?
+---
 
-## Code Patterns
+## Fallacy Cards (flash)
 
-```{pyodide}
-#| exercise: quantifiers
-# --- Data ------------------------------------------------------------
+<div class="two-col">
+<div class="card rule">
+<strong>Affirming the consequent</strong> ❌  
+<code>from p→q, q infer p</code>
+</div>
+<div class="card rule">
+<strong>Denying the antecedent</strong> ❌  
+<code>from p→q, ¬p infer ¬q</code>
+</div>
+</div>
 
-# Unary universe: students and simple properties
-students = ["Alex", "Bea", "Chen", "Devon", "Emi", "Farah"]
-
-Breakfast = {"Alex", "Bea", "Emi"}     # R(x): ate breakfast
-OnCampus  = {"Bea", "Devon"}           # L(x): lives on campus
-Bikes     = {"Alex", "Bea", "Devon"}   # B(x)
-Helmet    = {"Alex", "Bea", "Devon"}   # H(x) 
-
-def R(x): return x in Breakfast     
-def L(x): return x in OnCampus
-def B(x): return x in Bikes
-def H(x): return x in Helmet
-
-# --- Quantifiers with LOOPS ------------------
-
-def forall_X_P(X, P):
-    """Return (truth, counterexample_or_None)."""
-    for x in X:
-        if ______:
-            return ______, ______   
-    return ______, ______
-
-def exists_X_P(X, P):
-    """Return (truth, witness_or_None)."""
-    for x in X:
-        if ______:
-            return ______, ______    
-    return ______, ______
-
-
-# --- Demos -------------------------------
-
-
-print("∀x (B(x) → H(x)) ?  Expect True here.")
-P = lambda x: H(x) or (not B(x))
-truth, cx = forall_X_P(students, P)
-print("  result = ", truth, " counterexample = ", cx, "\n")
-
-print("∃x (L(x) ∧ ¬R(x)) ?  Does anyone live on campus and skipped breakfast?")
-P = lambda x: L(x) and not R(x)
-truth, witness = exists_X_P(students, P)
-print("  result = ", truth, " witness = ", witness)
-
-
-```
-
-## Nested Quantifiers
-
-It will not surprise you that we can use multiple quantifiers:
-
-\ 
-
-|      $\forall x, \forall y \text{ Knows}(x,y)$  
-
-\
-
-In pairs, complete the second worksheet. 
+---
 
 ## Words and Ideas
 
-Quantifiers -- "For all" and "There exists"
+Rules of Inference
 
-Counterexample and Witness
+Modus Ponens, Modus Tollens
 
-Negating quantifiers
+Hypothetical and Disjunctive Syllogism
 
-Nested Quantifiers
+Resolution
+
+Fallacies
 

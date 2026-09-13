@@ -10,117 +10,122 @@ subtitle: "Lecture 6, {{< var course.code >}}, {{< var course.term >}}"
 * Sign up for EX1. Practice materials on PL. 
 * Tutorials begin this week.
 
-# Quantifiers Continued
+# Inference Practice
 
-## Counterexample
+## Spot the Rule or the Trap 
 
-Suppose someone says "all comedians are funny," and you disagree, how would you refute the statement?
+**How to play:** post in chat...
 
+**(a)** valid or not, **(b)** if valid, name the rule, **(c)** formal pattern.
 
-|        $\forall x, C(x)\rightarrow F(x)$ 
+---
 
-Refute by negating:
+### Campus
 
-|        $\neg\forall x, C(x)\rightarrow F(x)$ 
-|      $\equiv\exists x, \neg(C(x)\rightarrow F(x))$ 
-|      $\equiv\exists x, \neg(F(x)\vee\neg C(x))$ 
-|      $\equiv\exists x, \neg F(x)\wedge C(x))$ 
+If the lecture live-streams, the chat is busy. The chat is busy. **So it live-streams.**
 
-Your immediate response: \_(some unfunny comedian)_\_
+<span class="fragment">❌ Fallacy: Affirming the consequent (<code>p→q, q ∴ p</code>)</span>
 
-This evidence of refutation is called a \_counterexample\_. 
+---
 
-Applies specifically to refuting $\forall$
+### Sports 
 
-## Witness
+If the Canucks win, downtown is loud. Downtown isn’t loud. **So the Canucks didn’t win.**
 
-Suppose someone says "there is a funny comedian," and you disagree, how could they justify their statement?
+<span class="fragment">✅ MT (<code>p→q, ¬q ∴ ¬p</code>)</span>
 
-\
+---
 
-|        $\exists x, C(x)\wedge F(x)$ 
+### Food
 
-\
+Dinner is sushi or tacos. Not sushi. **So tacos.**
 
-Their immediate response: \_(a universally funny comedian -- Robin Williams)\_
+<span class="fragment">✅ DS (<code>p∨q, ¬p ∴ q</code>)</span>
 
-This evidence of justification is called a \_witness\_. 
+---
 
-Applies specifically to defending an $\exists$
+### Travel
 
-Aside: Why not $\exists x, C(x)\rightarrow F(x)$?
+If it rains, I’ll bus. If I’m late, I’ll bus. It’s raining or I’m late. **So I’ll bus.**
 
-## Code Patterns
+<span class="fragment">✅ CD with <code>r=s=bus</code></span>
 
-```{pyodide}
-#| exercise: quantifiers
-# --- Data ------------------------------------------------------------
+---
 
-# Unary universe: students and simple properties
-students = ["Alex", "Bea", "Chen", "Devon", "Emi", "Farah"]
+### Movies 
 
-Breakfast = {"Alex", "Bea", "Emi"}     # R(x): ate breakfast
-OnCampus  = {"Bea", "Devon"}           # L(x): lives on campus
-Bikes     = {"Alex", "Bea", "Devon"}   # B(x)
-Helmet    = {"Alex", "Bea", "Devon"}   # H(x) 
+If a film is MCU, it has a post-credits scene. This is MCU. **So post-credits.**
 
-def R(x): return x in Breakfast     
-def L(x): return x in OnCampus
-def B(x): return x in Bikes
-def H(x): return x in Helmet
+<span class="fragment">✅ MP (<code>p→q, p ∴ q</code>)</span>
 
-# --- Quantifiers with LOOPS ------------------
+---
 
-def forall_X_P(X, P):
-    """Return (truth, counterexample_or_None)."""
-    for x in X:
-        if ______:
-            return ______, ______   
-    return ______, ______
+### Music 
 
-def exists_X_P(X, P):
-    """Return (truth, witness_or_None)."""
-    for x in X:
-        if ______:
-            return ______, ______    
-    return ______, ______
+Either I practice guitar or code. If coding, then coffee. **So either practice or coffee.**
 
+<span class="fragment">✅ RES: <code>(g ∨ c)</code> and <code>(f v ¬c)</code></span>
 
-# --- Demos -------------------------------
+---
 
+### Wellness
 
-print("∀x (B(x) → H(x)) ?  Expect True here.")
-P = lambda x: H(x) or (not B(x))
-truth, cx = forall_X_P(students, P)
-print("  result = ", truth, " counterexample = ", cx, "\n")
+I stretched **and** hydrated. **So I stretched.**
 
-print("∃x (L(x) ∧ ¬R(x)) ?  Does anyone live on campus and skipped breakfast?")
-P = lambda x: L(x) and not R(x)
-truth, witness = exists_X_P(students, P)
-print("  result = ", truth, " witness = ", witness)
+<span class="fragment">✅ ∧-Elim</span>
 
+---
 
-```
+### Data
 
-## Nested Quantifiers
+If a dataset is tidy then joins are simpler. If joins are simpler then viz faster. **So if tidy then viz faster.**
 
-It will not surprise you that we can use multiple quantifiers:
+<span class="fragment">✅ HS</span>
 
-\ 
+---
 
-|      $\forall x, \forall y \text{ Knows}(x,y)$  
+## Build a proof 
 
-\
+In the chat, each person adds exactly **one** line using a Rule Card.  
 
-In pairs, complete the second worksheet. 
+---
 
-## Words and Ideas
+### Relay A 
 
-Quantifiers -- "For all" and "There exists"
+**Premises**  
+1. `D→R` (deadline ⇒ review session)  
+2. `R→C` (review ⇒ crowded café)  
+3. `D`
 
-Counterexample and Witness
+**Goal**: `C`
 
-Negating quantifiers
+---
 
-Nested Quantifiers
+### Relay B 
+
+**Premises**  
+1. `P∨Q` (pizza or quinoa)  
+2. `¬P∨R` (if pizza then ramen)  
+3. `¬Q` (no quinoa)
+
+**Goal**: `R`
+
+---
+
+## Design a Trap
+
+**Your mission:**  
+- Write one **valid** two-premise argument (any rule).  
+- Write a **look-alike fallacy** with the same topic words.  
+- Bring to class on Wednesday morning!
+
+---
+
+## Exit Ticket (2 min)
+
+In chat (or poll), complete both:
+
+- **One valid rule I can spot in the wild is** ________.  
+- **One trap I’ll watch for is** ________.
+
 

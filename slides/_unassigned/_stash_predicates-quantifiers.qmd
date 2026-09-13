@@ -1,0 +1,236 @@
+---
+title: "Stash — predicates, quantifiers, dataframes"
+subtitle: "Displaced 2026-09-12. Not scheduled."
+---
+
+<!-- Evicted when all propositional material moved ahead of predicates.
+     Predicates + quantifiers are destined for the Fri Sep 25 video;
+     Nested Quantifiers is deferred past proofs (single quantifiers first);
+     Boolean Masks / dataframe filtering is deferred a long way. -->
+
+# Predicates and Data
+
+## Predicates {.smaller}
+
+\
+
+$p$: \_\_\_\_\_\_\_\_\_\_\_ ate cereal for breakfast.
+
+\
+
+We may want to apply the statement to many students, in which case we define a *Predicate*.
+
+\
+
+-   $P(x)$: $x$ ate cereal for breakfast.
+
+-   $x$ can be *instantiated* to be a particular student, or an arbitrary student.
+
+-   $P(\underline{\hspace{2em}} )$ is a proposition.
+
+## Back to Cereal
+
+{{< video https://youtu.be/CLQ0LZSnJFE?si=jHDBkjZ2OnkfQqwW width="850" height="475">}}
+
+
+## Boolean Masks
+
+Select all the cereals with at least 4 units of protein and no more than 6 units of sugars.
+
+```{pyodide}
+#| setup: true
+#| exercise: ex_cereal
+import pandas as pd
+# import numpy as np
+
+# Load and prepare data
+cereals = pd.read_csv('https://raw.githubusercontent.com/UBC-CS/dsci220/refs/heads/main/data/cereal.csv')
+# cereals = cereals.dropna()
+
+```
+
+```{pyodide}
+#| exercise: ex_cereal
+p = cereals['protein'] < 4 
+q = cereals['sugars'] > 6
+filtered_df = cereals[______]
+filtered_df
+```
+
+```{pyodide}
+#| exercise: ex_cereal
+#| check: true
+correct_answer = cereals[(cereals['protein'] >= 4) & (cereals['sugars'] <= 6)]
+
+ok = (
+    len(filtered_df) == len(correct_answer)
+    and filtered_df.index.equals(correct_answer.index)
+)
+
+if ok:
+    feedback = {
+        "correct": True,
+        "message": "Perfect! You correctly filtered for healthy cereal."
+    }
+else:
+    feedback = {
+        "correct": False,
+        "message": "Not quite. Use both conditions: protein >= 4 and sugars <= 6."
+    }
+
+feedback  
+```
+
+::: notes
+note that by doing this filtering, we are defining a predicate instantiated by each row whose truth value is evaluated.
+
+Challenge: In pandas, test De Morgan with missing data: create a row with protein = NaN.
+Show that (\~p) & (\~q) can differ from \~(p \| q) under three-valued logic; propose a fix (.fillna(False) or careful NA handling).
+:::
+
+
+
+# Quantifiers
+
+## Quantified Predicates {.smaller}
+
+Consider the predicate:
+
+|        $H(x)$: $x$ is a Hero
+
+Is this a proposition? \_\_\_\_.  We add a "quantifier":
+
+|                $H(x)$: $x$ is a Hero
+
+Now is it a proposition? \_\_\_\_.  We scope the variable:
+
+|                        $H(x)$: $x$ is a Hero
+
+\
+\
+
+Two classic quantifiers:
+
+|   $\forall$: "For every" or "For all"
+|   $\exists$: "There exists" or "There is at least one"
+
+## Quantified Predicates
+
+In pairs, complete the worksheet!
+
+\ 
+
+What did you discover about negation?
+
+\ 
+
+## Counterexample
+
+Suppose someone says "all comedians are funny," and you disagree, how would you refute the statement?
+
+\
+
+|        $\forall x, C(x)\rightarrow F(x)$ 
+
+\
+\
+\
+
+Your immediate response: \_\_\_\_\_\_\_\_\_\_
+
+This evidence of refutation is called a \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_. 
+
+Another way: 
+
+Applies specifically to $\neg\forall$
+
+## Witness
+
+Suppose someone says "there is a funny comedian," and you disagree, how could they justify their statement?
+
+\
+
+|        $\exists x, C(x)\wedge F(x)$ 
+
+\
+
+Their immediate response: \_\_\_\_\_\_\_\_\_\_
+
+This evidence of justification is called a \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_. 
+
+Applies specifically to $\exists$
+
+Aside: Why not $\exists x, C(x)\rightarrow F(x)$?
+
+## Code Patterns
+
+```{pyodide}
+#| exercise: quantifiers
+# --- Data ------------------------------------------------------------
+
+# Unary universe: students and simple properties
+students = ["Alex", "Bea", "Chen", "Devon", "Emi", "Farah"]
+
+Breakfast = {"Alex", "Bea", "Emi"}     # R(x): ate breakfast
+OnCampus  = {"Bea", "Devon"}           # L(x): lives on campus
+Bikes     = {"Alex", "Bea", "Devon"}   # B(x)
+Helmet    = {"Alex", "Bea", "Devon"}   # H(x) 
+
+def R(x): return x in Breakfast     
+def L(x): return x in OnCampus
+def B(x): return x in Bikes
+def H(x): return x in Helmet
+
+# --- Quantifiers with LOOPS ------------------
+
+def forall_X_P(X, P):
+    """Return (truth, counterexample_or_None)."""
+    for x in X:
+        if ______:
+            return ______, ______   
+    return ______, ______
+
+def exists_X_P(X, P):
+    """Return (truth, witness_or_None)."""
+    for x in X:
+        if ______:
+            return ______, ______    
+    return ______, ______
+
+
+# --- Demos -------------------------------
+
+
+print("∀x (B(x) → H(x)) ?  Expect True here.")
+P = lambda x: H(x) or (not B(x))
+truth, cx = forall_X_P(students, P)
+print("  result = ", truth, " counterexample = ", cx, "\n")
+
+print("∃x (L(x) ∧ ¬R(x)) ?  Does anyone live on campus and skipped breakfast?")
+P = lambda x: L(x) and not R(x)
+truth, witness = exists_X_P(students, P)
+print("  result = ", truth, " witness = ", witness)
+
+
+```
+
+## Nested Quantifiers
+
+It will not surprise you that we can use multiple quantifiers:
+
+\ 
+
+|      $\forall x, \forall y \text{ Knows}(x,y)$  
+
+\
+
+In pairs, complete the second worksheet. 
+
+## Quantifier Teaser
+
+- **UI:** `∀x S(x) ⇒ S(Alex)`  (Universal instantiation)
+- **EG:** `S(Alex) ⇒ ∃x S(x)`  (Existential generalization)
+**Analogy:** mixing ∀/∃ incorrectly creates traps like affirming the consequent/denying the antecedent.
+
+---
+
