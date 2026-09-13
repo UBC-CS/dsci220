@@ -13,6 +13,35 @@ Not published (Quarto ignores `_`-prefixed files).
 - [ ] Teach from `draft-01` (rebuilt for 2026) rather than `lecture-01`, which
       still has the 2025 term table and Piazza link.
 
+## Equivalence proofs are too tedious
+
+Noted 2026-09-12. All three `Equivalence_Proof--*` questions share one 30-line
+proof panel: every line needs an expression **and** a law from a dropdown, so an
+8-step proof is ~16 inputs. Tutorial 1 has three of them.
+
+They differ only in which pair they draw from the 73 in
+`serverFilesCourse/equiv_proofs.py`:
+
+| | draws from | steps min/median/max |
+|---|---|---|
+| `Level01` | **all 73, unfiltered** | 2 / 8 / **20** |
+| `Level02_copy1` | Medium only (31) | 5 / 8 / 14 |
+| `Bonus--Discussion` | one hardcoded pair, with → and ⊕ | fixed, hardest |
+
+- [ ] **Build `Equivalence_Proof--Level00`.** An Easy band already exists — 24
+      pairs, median 5 steps, shortest 2 — and **nothing draws from it.** Copy
+      `Level01/` and add the filter `Level02` already uses:
+
+          while eqv_exps.hardship != "E":
+              eqv_exps = random.choice(equiv_exp_list)
+
+- [ ] **`Level01` is mislabelled.** It filters nothing, so the nominally
+      introductory question can hand a student a 20-step Hard proof. Either
+      point it at "E" too, or rename it so the numbering means something.
+- [ ] **All three declare `"topic": "Module 02"`**, which is not in
+      `infoCourse.json` (it lists `module-1`…`module-9`). The sync tolerated it,
+      but they are the only questions in the repo with an undeclared topic.
+
 ## 🔴 Lecture 3 announcements slide — verify before Monday
 
 Added 2026-09-12. Four claims on it are inferred, not known:
