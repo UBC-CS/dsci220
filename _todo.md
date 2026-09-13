@@ -38,6 +38,27 @@ They differ only in which pair they draw from the 73 in
 - [ ] **`Level01` is mislabelled.** It filters nothing, so the nominally
       introductory question can hand a student a 20-step Hard proof. Either
       point it at "E" too, or rename it so the numbering means something.
+- [ ] **Rethink the grading — Cinda wants to do better here.** Read
+      `Equivalence_Proof--Level01/server.py`. Four problems, in order of how
+      cheap they are to fix:
+
+      1. **Three different errors give identical text.** The code computes
+         `other_law` to distinguish "your step is legal but you named the wrong
+         law" from "that step is not a legal move", then prints the same string
+         for both, and for a missing law name. The information is already
+         there and thrown away. Cheapest fix, biggest payoff.
+      2. **No partial credit.** Every failure path sets `data["score"] = 0` and
+         returns. Seven correct steps out of eight scores zero.
+      3. **Aborts on the first error** — "rest of the expressions were not
+         graded" — so debugging is serial: submit, fix one line, submit again.
+      4. **One feedback slot for the whole question.** `data["feedback"]["ans"]`
+         is overwritten, so nothing marks the offending line; the student reads
+         "Expression 5" and counts down the panel.
+
+      Worth considering alongside: partial credit per line would change what
+      "tedious" means. Sixteen inputs is less punishing when they are not all
+      staked on the last one.
+
 - [ ] **All three declare `"topic": "Module 02"`**, which is not in
       `infoCourse.json` (it lists `module-1`…`module-9`). The sync tolerated it,
       but they are the only questions in the repo with an undeclared topic.
