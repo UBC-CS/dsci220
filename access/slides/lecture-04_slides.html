@@ -39,7 +39,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-166720c53c9199dc4f67362a381071ae.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-174e53ea35c4976936f67edec17b7262.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -159,43 +159,10 @@
 <h2>Announcements</h2>
 <ul>
 <li>Enroll in PrairieTest here: <a href="https://us.prairietest.com/pt/student/course/12361/enroll/392674810508" class="uri">https://us.prairietest.com/pt/student/course/12361/enroll/392674810508</a></li>
-<li>Sign up for EX1. Practice materials (on PL) coming soon!</li>
-<li>We will have class THIS friday, but not thereafter.</li>
-<li>Tutorials begin next week.</li>
+<li>Sign up for EX1. Practice materials available tonight!</li>
+<li>HW1 due 9/20, 11:59p.</li>
 </ul>
 </section>
-<section>
-<section id="logical-equivalences" class="title-slide slide level1 center">
-<h1>Logical Equivalences</h1>
-
-</section>
-<section id="logical-equivalences-1" class="slide level2">
-<h2>Logical Equivalences</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p><a href="https://en.wikipedia.org/wiki/Logical_equivalence"><img data-src="../images/LE.png" alt="logical equivalences"></a></p>
-</div><div class="column" style="width:50%;">
-<div class="small-font-size">
-<p>We have discussed Logical Equivalence (LE) and explored an example. The table illustrates LE that are so important, they have names!</p>
-</div>
-<p>Observations:</p>
-<ul>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-</ul>
-</div></div>
-</section>
-<section id="logical-equivalence-practice" class="slide level2 activity">
-<h2>Logical Equivalence Practice</h2>
-<p>All graded learning activities in the course will use <em>PrairieLearn</em>.</p>
-<p>Navigate to Activity 1 and complete question 2. Each of you will receive a different version of the problem. Work together in pairs to solve each person’s version.</p>
-<p><a href="https://us.prairielearn.com/pl/course_instance/186238/assessment/2562335" class="uri">https://us.prairielearn.com/pl/course_instance/186238/assessment/2562335</a></p>
-<countdown-timer id="timer_c402ea05f45dd4b1b9030f29ab52ea3258a43cf6" minutes="07" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
- </countdown-timer>
-</section></section>
 <section>
 <section id="implication" class="title-slide slide level1 center">
 <h1>Implication</h1>
@@ -241,12 +208,12 @@
 </tbody>
 </table>
 <ul>
-<li><p>Is this operator commutative?</p></li>
 <li><p>Note: <span class="math inline">\(p \rightarrow q \equiv\)</span> _______.</p></li>
 <li><p><span class="math inline">\(p \rightarrow q\)</span> Corresponds to “if <span class="math inline">\(p\)</span> then <span class="math inline">\(q\)</span>”</p></li>
 <li><p>We’re not promising causation, only a truth condition.</p></li>
 <li><p><span class="math inline">\(p \rightarrow q\)</span> is <code>False</code> <strong>only</strong> when <span class="math inline">\(p\)</span> is <code>True</code> and <span class="math inline">\(q\)</span> is <code>False</code>.</p></li>
-<li><p>Gives us mechanism for reasoning (next week)!</p></li>
+<li><p>Gives us mechanism for reasoning!</p></li>
+<li><p>Is this operator commutative?</p></li>
 </ul>
 <aside class="notes">
 <p>q and not p is false. so it’s NOT (q^-p) == ??? (apply demorgan)</p>
@@ -266,9 +233,127 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="logical-equivalence-proof" class="slide level2">
-<h2>Logical Equivalence Proof</h2>
-<p>Prove that <span class="math inline">\(p \rightarrow q \equiv \neg q \rightarrow \neg p\)</span>:</p>
+<section id="converses-check-whats-true" class="slide level2 activity smaller">
+<h2>Converses — check what’s <code>True</code></h2>
+<p>Each of the following is <span class="math inline">\(p\rightarrow q\)</span>.   Underline <span class="math inline">\(p\)</span>, <span class="dashed">dash-underline</span> <span class="math inline">\(q\)</span>.   Then decide whether each direction is true.</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 5%">
+<col style="width: 81%">
+<col style="width: 7%">
+<col style="width: 7%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">#</th>
+<th>Statement</th>
+<th style="text-align: center;">p→q</th>
+<th style="text-align: center;">q→p</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td>If it’s a kitten, then it’s a cat.</td>
+<td style="text-align: center;">☐</td>
+<td style="text-align: center;">☐</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2</td>
+<td>If an animal is a mammal, then it is a cat.</td>
+<td style="text-align: center;">☐</td>
+<td style="text-align: center;">☐</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">3</td>
+<td>If I’m an only child, then I have zero siblings.</td>
+<td style="text-align: center;">☐</td>
+<td style="text-align: center;">☐</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">4</td>
+<td>If I eat breakfast, then I ace the quiz.</td>
+<td style="text-align: center;">☐</td>
+<td style="text-align: center;">☐</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">5</td>
+<td>A player is in the NHL only if they are a professional.</td>
+<td style="text-align: center;">☐</td>
+<td style="text-align: center;">☐</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">6</td>
+<td>To be empty, a string must have length 0.</td>
+<td style="text-align: center;">☐</td>
+<td style="text-align: center;">☐</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">7</td>
+<td>No song appears on the Billboard Hot 100 without reaching #1.</td>
+<td style="text-align: center;">☐</td>
+<td style="text-align: center;">☐</td>
+</tr>
+</tbody>
+</table>
+<countdown-timer id="timer_61a152b9d2722c9e21d9bba32b9513ca0c68f706" minutes="08" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+ </countdown-timer>
+<aside class="notes">
+<p>Two steps per row, and only the first is logic:</p>
+<p>TRANSLATE – what does the sentence assert? EVALUATE – is that true?</p>
+<p>Rows 1-4 translate for free (“if” names the antecedent). Rows 5-7 do not:</p>
+<p>5 “only if” marks the CONSEQUENT. Students read “p only if q” as q-&gt;p because “if” sits next to q. It means p-&gt;q. 6 “must” – necessity, so again the consequent. 7 Board work. THE HARD PART IS FINDING p AND q, not the algebra below.</p>
+<pre><code> The sentence carries two negation words -- "No" and "without" -- and
+ NEITHER belongs to p or q. Both are structural. p and q are positive:
+
+   p: this song appears on the Hot 100
+   q: this song reached #1
+
+ Ask "what two facts about a single song does this sentence relate?"
+ That strips the scaffolding and leaves the atoms. Each is plainly
+ true-or-false of one song; neither contains a "no" or a "without".
+ Students will want q = "does not reach #1", or will attach the "No"
+ to p. Underline only the positive spans.
+
+ Once p and q are fixed, *without* = *and not* and the rest is algebra:
+
+   ~(p ^ ~q)  ==  ~p v ~~q     De Morgan        (lecture 3 laws table)
+              ==  ~p v q       double negation  (same table)
+              ==  p -&gt; q       definition of -&gt; (slide 1 today)
+
+ This is the first CHAIN OF EQUIVALENCES in the course -- lecture 3
+ promised two ways to justify an equivalence, and only truth tables have
+ been used so far. It is also the worked example for the LE Proof slide
+ two slides from now.
+
+ Then the catch: the chain shows the sentence MEANS p-&gt;q. It does not
+ show p-&gt;q is true -- and it isn't. A song that charted but never hit #1
+ makes p true, q false, which falsifies BOTH forms. That is what the
+ equivalence promised.
+
+ But the CONVERSE is true, and for a different kind of reason:
+   p-&gt;q  (charted -&gt; hit #1)   FALSE, empirically -- most never do.
+   q-&gt;p  (hit #1 -&gt; charted)   TRUE, definitionally -- #1 IS a position
+                               on the Hot 100. You cannot top a chart
+                               you are not on.
+ So the sentence asserts the contingent direction, which fails, while the
+ direction it does not assert holds by definition. Not a biconditional.
+
+ Same truth pattern as row 2 (mammal -&gt; cat), which they met early and
+ easily. Row 7 is that pattern in disguise -- worth pointing back to it.</code></pre>
+<p>Row 4 (breakfast/quiz) is the discussion row, not a quick one. Nobody in the room has the facts, so ask what would make it FALSE – one day you ate breakfast and did not ace. That is a counterexample, three lectures early. It is also the only home for vacuous truth: if you never eat breakfast, p is always false and the statement is true, because you never broke the promise.</p>
+<p>Rows 3 and 4 are the only propositional ones – about a fixed “I”. The rest range over a domain, which is what predicates are for. Do not say “for all” yet; it becomes the callback when quantifiers arrive.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="vocabulary" class="slide level2 smaller">
 <h2>Vocabulary</h2>
@@ -293,98 +378,9 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="converses-check-whats-true" class="slide level2 smaller">
-<h2>Converses — check what’s <code>True</code></h2>
-<table class="caption-top">
-<colgroup>
-<col style="width: 5%">
-<col style="width: 81%">
-<col style="width: 7%">
-<col style="width: 7%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: center;">#</th>
-<th>Statement p→q</th>
-<th style="text-align: center;">p→q</th>
-<th style="text-align: center;">q→p</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">1</td>
-<td>To be empty, a string must have length 0.</td>
-<td style="text-align: center;">☐</td>
-<td style="text-align: center;">☐</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">2</td>
-<td>Playing in the NHL entails being a professional hockey player.</td>
-<td style="text-align: center;">☐</td>
-<td style="text-align: center;">☐</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">3</td>
-<td>If an animal is a mammal, then it is a cat.</td>
-<td style="text-align: center;">☐</td>
-<td style="text-align: center;">☐</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">4</td>
-<td>Riding the 99 B-Line counts as public transit.</td>
-<td style="text-align: center;">☐</td>
-<td style="text-align: center;">☐</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">5</td>
-<td>If a dish is spicy, then it is Indian cuisine.</td>
-<td style="text-align: center;">☐</td>
-<td style="text-align: center;">☐</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">6</td>
-<td>If it’s a kitten, then it’s a cat.</td>
-<td style="text-align: center;">☐</td>
-<td style="text-align: center;">☐</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">7</td>
-<td>No song appears on the Billboard Hot 100 without reaching #1.</td>
-<td style="text-align: center;">☐</td>
-<td style="text-align: center;">☐</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">8</td>
-<td>If I live in Totem Park residence, then I live in campus housing.</td>
-<td style="text-align: center;">☐</td>
-<td style="text-align: center;">☐</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">9</td>
-<td>If I eat breakfast, then I ace the quiz.</td>
-<td style="text-align: center;">☐</td>
-<td style="text-align: center;">☐</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">10</td>
-<td>If a movie is a superhero film, then it is an MCU movie.</td>
-<td style="text-align: center;">☐</td>
-<td style="text-align: center;">☐</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">11</td>
-<td>If I’m an only child, then I have zero siblings.</td>
-<td style="text-align: center;">☐</td>
-<td style="text-align: center;">☐</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">12</td>
-<td>If I’m in British Columbia, then I’m in Vancouver.</td>
-<td style="text-align: center;">☐</td>
-<td style="text-align: center;">☐</td>
-</tr>
-</tbody>
-</table>
+<section id="logical-equivalence-proof" class="slide level2">
+<h2>Logical Equivalence Proof</h2>
+<p>Prove that <span class="math inline">\(p \rightarrow q \equiv \neg q \rightarrow \neg p\)</span>:</p>
 </section>
 <section id="biconditionals" class="slide level2">
 <h2>Biconditionals</h2>
@@ -396,12 +392,13 @@
 <li>if and only if (iff)</li>
 <li>equivalent</li>
 </ul>
-<p>Which of the expressions on the previous page are biconditionals?</p>
+<p>Which of the seven statements were biconditionals?</p>
 </section>
 <section id="words-and-ideas" class="slide level2">
 <h2>Words and Ideas</h2>
-<p>Logical Equivalence</p>
 <p>Implication</p>
+<p>Converse, Contrapositive, Inverse</p>
+<p>Biconditional</p>
 
 
 <script type="ojs-module-contents">

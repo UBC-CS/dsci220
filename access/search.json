@@ -1618,74 +1618,116 @@
     "text": "Announcements\n\nEnroll in PrairieTest here: https://us.prairietest.com/pt/student/course/12361/enroll/392674810508\nSign up for EX1. Practice materials (on PL) coming soon!\nTutorials begin next week."
   },
   {
-    "objectID": "slides/lecture-05_slides.html#vocabulary",
-    "href": "slides/lecture-05_slides.html#vocabulary",
+    "objectID": "slides/lecture-05_slides.html#spot-the-rule-dodge-the-trap",
+    "href": "slides/lecture-05_slides.html#spot-the-rule-dodge-the-trap",
     "title": "Quantifiers",
-    "section": "Vocabulary",
-    "text": "Vocabulary\nGiven \\(p\\rightarrow q\\), we define the following 3 terms:\n\n________________ is \\(\\neg q\\rightarrow \\neg p\\)\n________________ is \\(q\\rightarrow p\\)\n________________ is \\(\\neg p\\rightarrow \\neg q\\)\n\nDescribe all the logical equivalences among the 4 statements:\n\nwe’ll see if English can help us!"
+    "section": "🎉 Spot the Rule, Dodge the Trap",
+    "text": "🎉 Spot the Rule, Dodge the Trap\nGoal for today: treat valid logical arguments like legal moves in a game.\nYou’ll identify moves, build quick proofs, and design traps."
   },
   {
-    "objectID": "slides/lecture-05_slides.html#converses-check-whats-true",
-    "href": "slides/lecture-05_slides.html#converses-check-whats-true",
+    "objectID": "slides/lecture-05_slides.html#warm-up-5-min",
+    "href": "slides/lecture-05_slides.html#warm-up-5-min",
     "title": "Quantifiers",
-    "section": "Converses — check what’s True",
-    "text": "Converses — check what’s True\n\n\n\n\n\n\n\n\n\n#\nStatement p→q\np→q\nq→p\n\n\n\n\n1\nTo be empty, a string must have length 0.\n☐\n☐\n\n\n2\nPlaying in the NHL entails being a professional hockey player.\n☐\n☐\n\n\n3\nIf an animal is a mammal, then it is a cat.\n☐\n☐\n\n\n4\nRiding the 99 B-Line counts as public transit.\n☐\n☐\n\n\n5\nIf a dish is spicy, then it is Indian cuisine.\n☐\n☐\n\n\n6\nIf it’s a kitten, then it’s a cat.\n☐\n☐\n\n\n7\nNo song appears on the Billboard Hot 100 without reaching #1.\n☐\n☐\n\n\n8\nIf I live in Totem Park residence, then I live in campus housing.\n☐\n☐\n\n\n9\nIf I eat breakfast, then I ace the quiz.\n☐\n☐\n\n\n10\nIf a movie is a superhero film, then it is an MCU movie.\n☐\n☐\n\n\n11\nIf I’m an only child, then I have zero siblings.\n☐\n☐\n\n\n12\nIf I’m in British Columbia, then I’m in Vancouver.\n☐\n☐"
+    "section": "Warm Up (5 min)",
+    "text": "Warm Up (5 min)\nA valid argument is a legal inference. Content can change; form is what makes it valid.\n\nIf the lab is open, I’ll go. The lab is open. So I’ll go.\nIf the exam is today, the forum is quiet. The forum isn’t quiet. So the exam isn’t today."
   },
   {
-    "objectID": "slides/lecture-05_slides.html#biconditionals",
-    "href": "slides/lecture-05_slides.html#biconditionals",
+    "objectID": "slides/lecture-05_slides.html#micro-rule-cards",
+    "href": "slides/lecture-05_slides.html#micro-rule-cards",
     "title": "Quantifiers",
-    "section": "Biconditionals",
-    "text": "Biconditionals\nWe have a special operator for those implications whose converses are also True:\n  \\((p\\rightarrow q) \\wedge (q\\rightarrow p)\\equiv p\\leftrightarrow q\\)\nSome phrases describing this relationship:\n\nbiconditional\nif and only if (iff)\nequivalent\n\nWhich of the expressions on the previous page are biconditionals?"
+    "section": "Micro Rule Cards",
+    "text": "Micro Rule Cards\nUse these all class as a reference.\n\nMP: from p→q, p infer q\n\nMT: from p→q, ¬q infer ¬p\n\nHS: from p→q, q→r infer p→r\n\nDS: from p∨q, ¬p infer q\n\n∧-Intro: from p, q infer p∧q\n\n∧-Elim: from p∧q infer p (or q)\n\n∨-Intro: from p infer p∨q (any q)\n\nRES: from p∨q, ¬p∨r infer q∨r\n\nCD: from (p→r), (q→s), (p∨q) infer r∨s\n\nCommon traps:\n\nAffirming consequent: p→q, q ∴ p ❌\nDenying antecedent: p→q, ¬p ∴ ¬q ❌"
   },
   {
-    "objectID": "slides/lecture-05_slides.html#quantified-predicates",
-    "href": "slides/lecture-05_slides.html#quantified-predicates",
+    "objectID": "slides/lecture-05_slides.html#rule-card-modus-ponens-mp",
+    "href": "slides/lecture-05_slides.html#rule-card-modus-ponens-mp",
     "title": "Quantifiers",
-    "section": "Quantified Predicates",
-    "text": "Quantified Predicates\nConsider the predicate:\n       \\(H(x)\\): \\(x\\) is a Hero\nIs this a proposition? ____. We add a “quantifier”:\n               \\(H(x)\\): \\(x\\) is a Hero\nNow is it a proposition? ____. We scope the variable:\n                       \\(H(x)\\): \\(x\\) is a Hero\n\n\n\nTwo classic quantifiers:\n  \\(\\forall\\): “For every” or “For all”\n  \\(\\exists\\): “There exists” or “There is at least one”"
+    "section": "Rule Card: Modus Ponens (MP)",
+    "text": "Rule Card: Modus Ponens (MP)\n\nFrom p→q and p, infer q.\n\nEx:\nIf the bus is full, I’ll walk. The bus is full. So I’ll walk."
   },
   {
-    "objectID": "slides/lecture-05_slides.html#quantified-predicates-1",
-    "href": "slides/lecture-05_slides.html#quantified-predicates-1",
+    "objectID": "slides/lecture-05_slides.html#rule-card-modus-tollens-mt",
+    "href": "slides/lecture-05_slides.html#rule-card-modus-tollens-mt",
     "title": "Quantifiers",
-    "section": "Quantified Predicates",
-    "text": "Quantified Predicates\nIn pairs, complete the worksheet!\n \nWhat did you discover about negation?"
+    "section": "Rule Card: Modus Tollens (MT)",
+    "text": "Rule Card: Modus Tollens (MT)\n\nFrom p→q and ¬q, infer ¬p.\n\nEx:\nIf office hours moved, Slack has an announcement. No announcement. So they didn’t move."
   },
   {
-    "objectID": "slides/lecture-05_slides.html#counterexample",
-    "href": "slides/lecture-05_slides.html#counterexample",
+    "objectID": "slides/lecture-05_slides.html#rule-card-hypothetical-syllogism-hs",
+    "href": "slides/lecture-05_slides.html#rule-card-hypothetical-syllogism-hs",
     "title": "Quantifiers",
-    "section": "Counterexample",
-    "text": "Counterexample\nSuppose someone says “all comedians are funny,” and you disagree, how would you refute the statement?\n\n\n       \\(\\forall x, C(x)\\rightarrow F(x)\\)\n\n\n\n\nYour immediate response: __________\nThis evidence of refutation is called a _______________.\nAnother way:\nApplies specifically to \\(\\neg\\forall\\)"
+    "section": "Rule Card: Hypothetical Syllogism (HS)",
+    "text": "Rule Card: Hypothetical Syllogism (HS)\n\nFrom p→q and q→r, infer p→r.\n\nEx:\nIf tidy then joins are simpler; if simpler joins then faster viz; so tidy ⇒ faster viz."
   },
   {
-    "objectID": "slides/lecture-05_slides.html#witness",
-    "href": "slides/lecture-05_slides.html#witness",
+    "objectID": "slides/lecture-05_slides.html#rule-card-disjunctive-syllogism-ds",
+    "href": "slides/lecture-05_slides.html#rule-card-disjunctive-syllogism-ds",
     "title": "Quantifiers",
-    "section": "Witness",
-    "text": "Witness\nSuppose someone says “there is a funny comedian,” and you disagree, how could they justify their statement?\n\n\n       \\(\\exists x, C(x)\\wedge F(x)\\)\n\n\nTheir immediate response: __________\nThis evidence of justification is called a _______________.\nApplies specifically to \\(\\exists\\)\nAside: Why not \\(\\exists x, C(x)\\rightarrow F(x)\\)?"
+    "section": "Rule Card: Disjunctive Syllogism (DS)",
+    "text": "Rule Card: Disjunctive Syllogism (DS)\n\nFrom p∨q and ¬p, infer q.\n\nEx:\nDinner is sushi or tacos. Not sushi. So tacos."
   },
   {
-    "objectID": "slides/lecture-05_slides.html#code-patterns",
-    "href": "slides/lecture-05_slides.html#code-patterns",
+    "objectID": "slides/lecture-05_slides.html#rule-card-conjunction-simplification",
+    "href": "slides/lecture-05_slides.html#rule-card-conjunction-simplification",
     "title": "Quantifiers",
-    "section": "Code Patterns",
-    "text": "Code Patterns"
+    "section": "Rule Card: Conjunction / Simplification",
+    "text": "Rule Card: Conjunction / Simplification\n\n\n∧-Intro: from p, q infer p∧q\n\n\n∧-Elim: from p∧q infer p (or q)"
   },
   {
-    "objectID": "slides/lecture-05_slides.html#nested-quantifiers",
-    "href": "slides/lecture-05_slides.html#nested-quantifiers",
+    "objectID": "slides/lecture-05_slides.html#rule-card--intro",
+    "href": "slides/lecture-05_slides.html#rule-card--intro",
     "title": "Quantifiers",
-    "section": "Nested Quantifiers",
-    "text": "Nested Quantifiers\nIt will not surprise you that we can use multiple quantifiers:\n \n     \\(\\forall x, \\forall y \\text{ Knows}(x,y)\\)\n\n\nIn pairs, complete the second worksheet."
+    "section": "Rule Card: ∨-Intro",
+    "text": "Rule Card: ∨-Intro\n\nFrom p infer p∨q.\n\nEx: I rode my scooter today, so I either rode my scooter or I’m a unicorn.\nNote validity cares about form, not plausibility of the added disjunct."
+  },
+  {
+    "objectID": "slides/lecture-05_slides.html#rule-card-resolution-res",
+    "href": "slides/lecture-05_slides.html#rule-card-resolution-res",
+    "title": "Quantifiers",
+    "section": "Rule Card: Resolution (RES)",
+    "text": "Rule Card: Resolution (RES)\n\nFrom p∨q and ¬p∨r infer q∨r.\n\nEx:\nEither study or soccer; if study then library. So soccer or library."
+  },
+  {
+    "objectID": "slides/lecture-05_slides.html#rule-card-constructive-dilemma-cd",
+    "href": "slides/lecture-05_slides.html#rule-card-constructive-dilemma-cd",
+    "title": "Quantifiers",
+    "section": "Rule Card: Constructive Dilemma (CD)",
+    "text": "Rule Card: Constructive Dilemma (CD)\n\nFrom (p→r), (q→s), (p∨q) infer r∨s.\n\nEx:\nIf sunny then picnic; if rainy then museum; sunny or rainy; so picnic or museum."
+  },
+  {
+    "objectID": "slides/lecture-05_slides.html#fallacy-cards-flash",
+    "href": "slides/lecture-05_slides.html#fallacy-cards-flash",
+    "title": "Quantifiers",
+    "section": "Fallacy Cards (flash)",
+    "text": "Fallacy Cards (flash)\n\n\nAffirming the consequent ❌\nfrom p→q, q infer p\n\n\nDenying the antecedent ❌\nfrom p→q, ¬p infer ¬q"
+  },
+  {
+    "objectID": "slides/lecture-05_slides.html#validity",
+    "href": "slides/lecture-05_slides.html#validity",
+    "title": "Quantifiers",
+    "section": "Validity",
+    "text": "Validity\n∧-Elim: \\((p\\wedge q)\\rightarrow p\\) is this always true?"
+  },
+  {
+    "objectID": "slides/lecture-05_slides.html#invalidity",
+    "href": "slides/lecture-05_slides.html#invalidity",
+    "title": "Quantifiers",
+    "section": "INValidity",
+    "text": "INValidity\nAffirming Consequent: \\(((p\\rightarrow q)\\wedge q)\\rightarrow p\\) is this always true?\n\n\n\n\n\n\n\n\n\n\n\\(p\\)\n\\(q\\)\n\\(p\\rightarrow q\\)\n\\((p\\rightarrow q)\\wedge q\\)\n\\(((p\\rightarrow q)\\wedge q)\\rightarrow p\\)\n\n\n\n\nF\nF\n\n\n\n\n\nF\nT\n\n\n\n\n\nT\nF\n\n\n\n\n\nT\nT"
   },
   {
     "objectID": "slides/lecture-05_slides.html#words-and-ideas",
     "href": "slides/lecture-05_slides.html#words-and-ideas",
     "title": "Quantifiers",
     "section": "Words and Ideas",
-    "text": "Words and Ideas\nQuantifiers – “For all” and “There exists”\nCounterexample and Witness\nNegating quantifiers\nNested Quantifiers"
+    "text": "Words and Ideas\nRules of Inference\nModus Ponens, Modus Tollens\nHypothetical and Disjunctive Syllogism\nResolution\nFallacies"
+  },
+  {
+    "objectID": "slides/lecture-03_slides.html#announcements",
+    "href": "slides/lecture-03_slides.html#announcements",
+    "title": "Logical Equivalences",
+    "section": "Announcements",
+    "text": "Announcements\n\nTutorials begin this week.\n\nL1D    Tue 2–4    ORCH 3002\nL1B    Tue 4–6    ORCH 3002\nL1A    Wed 1–3    SPPH 143\n\nNo class this Friday. Video released by Thursday morning.\nHW1 available, due Sunday, Sep 20.\nEX1 next week (end of week 3). Sign up on PrairieTest — link to come."
   },
   {
     "objectID": "slides/lecture-03_slides.html#parse-trees",
@@ -1727,7 +1769,7 @@
     "href": "slides/lecture-03_slides.html#logical-equivalences",
     "title": "Logical Equivalences",
     "section": "Logical Equivalences",
-    "text": "Logical Equivalences\n\n\n\n\n\nWe have discussed Logical Equivalence (LE) and explored an example. The table illustrates LE that are so important, they have names!\n\nSix cells are missing. What belongs in them?\nObservations:\n\n\n\n\n\n\n\n\n\nThe blanks are in Identity, Domination and Negation – all six are T or F, and all six follow from the \\(\\wedge\\) and \\(\\vee\\) truth tables. They do not need any new vocabulary to fill them in.\nSpend the last bullet on Negation: \\(p \\vee \\neg p \\equiv\\) T and \\(p \\wedge \\neg p \\equiv\\) F are tautology and contradiction. Filling those two cells is the next slide; it only supplies the names.\nDe Morgan is two rows further down – flag it, since the cereal slide verifies it."
+    "text": "Logical Equivalences\n\n\n\n\n\nWe have discussed Logical Equivalence (LE) and explored an example. The table illustrates LE that are so important, they have names!\nEight cells are missing. What belongs in them?\n\nObservations:\n\n\n\n\n\n\n\n\n \n\nThe blanks are in Identity, Domination and Negation. Identity and Negation hide two cells each; Domination hides four, because both the operand and the result are greyed on each of its lines. All eight are T or F, and all eight follow from the \\(\\wedge\\) and \\(\\vee\\) truth tables – no new vocabulary needed.\nSpend the last bullet on Negation: \\(p \\vee \\neg p \\equiv\\) T and \\(p \\wedge \\neg p \\equiv\\) F are tautology and contradiction. Filling those two cells is the next slide; it only supplies the names.\nDe Morgan is two rows further down – flag it, since the cereal slide verifies it."
   },
   {
     "objectID": "slides/lecture-03_slides.html#special-logical-equivalences",
@@ -1741,49 +1783,21 @@
     "href": "slides/lecture-03_slides.html#logical-equivalence-2",
     "title": "Logical Equivalences",
     "section": "Logical Equivalence",
-    "text": "Logical Equivalence\n\n“Select all the cereals with at least 4 units of protein and no more than 6 units of sugars.”\n\n\n\n\n\\(p\\): a cereal has less than 4 units of protein\n\\(q\\): a cereal has more than 6 units of sugars\n\n\n\n\n\nWe suspect that \\(\\neg p\\wedge \\neg q \\equiv \\neg( p\\lor q)\\):\n\n\n\n\n\n\n\n\n\n\n\n\\(p\\)\n\\(q\\)\n\\(\\neg p\\wedge \\neg q\\)\n\n\n\n\nF\nF\n\n\n\nF\nT\n\n\n\nT\nF\n\n\n\nT\nT\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\\(p\\)\n\\(q\\)\n\\(\\neg( p\\lor q)\\)\n\n\n\n\nF\nF\n\n\n\nF\nT\n\n\n\nT\nF\n\n\n\nT\nT\n\n\n\n\n\n\n\nhalf the class complete the TT on the left, the other half on the right, then we all read our responses aloud!"
+    "text": "Logical Equivalence\nSuppose we have the following propositions, and someone has asserted that for Cheerios, \\(\\neg(p\\lor q)\\). How is this expressed in English? Can you find a simpler expression?\n\n\n\n\n\\(p\\): a cereal has less than 4 units of protein\n\\(q\\): a cereal has more than 6 units of sugars\n\n\n\nDeMorgan’s tells us \\(\\neg p\\wedge \\neg q \\equiv \\neg( p\\lor q)\\).\n\n\n\n\n\n\n\n\n\n\n\\(p\\)\n\\(q\\)\n\\(\\neg p\\wedge \\neg q\\)\n\n\n\n\nF\nF\n\n\n\nF\nT\n\n\n\nT\nF\n\n\n\nT\nT\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\\(p\\)\n\\(q\\)\n\\(\\neg( p\\lor q)\\)\n\n\n\n\nF\nF\n\n\n\nF\nT\n\n\n\nT\nF\n\n\n\nT\nT\n\n\n\n\n\n\nSimplified statement:\n\nhalf the class complete the TT on the left, the other half on the right, then we all read our responses aloud!"
   },
   {
     "objectID": "slides/lecture-03_slides.html#logical-equivalence-practice",
     "href": "slides/lecture-03_slides.html#logical-equivalence-practice",
     "title": "Logical Equivalences",
     "section": "Logical Equivalence Practice",
-    "text": "Logical Equivalence Practice\nAll graded learning activities in the course will use a tool called PrairieLearn.\nNavigate to Activity 1 and complete question 2. Each of you will receive a different version of the problem. Work together in pairs to solve each person’s version.\n\n\n    \nhttps://us.prairielearn.com/pl/course_instance/186238/assessment/2562335"
-  },
-  {
-    "objectID": "slides/lecture-03_slides.html#implication-1",
-    "href": "slides/lecture-03_slides.html#implication-1",
-    "title": "Logical Equivalences",
-    "section": "Implication",
-    "text": "Implication\nConnect operator \\(\\rightarrow\\) to a logically equivalent expression using only and, or, and not.\n\n\n\n\\(p\\)\n\\(q\\)\n\\(p\\rightarrow q\\)\n\\(\\underline{\\hspace{3em}}\\)\n\n\n\n\nF\nF\nT\n\n\n\nF\nT\nT\n\n\n\nT\nF\nF\n\n\n\nT\nT\nT\n\n\n\n\n\nIs this operator commutative?\nNote: \\(p \\rightarrow q \\equiv\\) _______.\n\\(p \\rightarrow q\\) Corresponds to “if \\(p\\) then \\(q\\)”\nGives us mechanism for reasoning!\n\n\nq and not p is false. so it’s NOT (q^-p) == ??? (apply demorgan)\nPL exercises on Logical equivalence involving implication?\nMore on implication and logical equivalence in tutorial questions"
-  },
-  {
-    "objectID": "slides/lecture-03_slides.html#predicates",
-    "href": "slides/lecture-03_slides.html#predicates",
-    "title": "Logical Equivalences",
-    "section": "Predicates",
-    "text": "Predicates\n\n\n\\(p\\): ___________ ate cereal for breakfast.\n\n\nWe may want to apply the statement to many students, in which case we define a Predicate.\n\n\n\n\\(P(x)\\): \\(x\\) ate cereal for breakfast.\n\\(x\\) can be instantiated to be a particular student, or an arbitrary student.\n\\(P(\\underline{\\hspace{2em}} )\\) is a proposition."
-  },
-  {
-    "objectID": "slides/lecture-03_slides.html#back-to-cereal",
-    "href": "slides/lecture-03_slides.html#back-to-cereal",
-    "title": "Logical Equivalences",
-    "section": "Back to Cereal",
-    "text": "Back to Cereal"
-  },
-  {
-    "objectID": "slides/lecture-03_slides.html#boolean-masks",
-    "href": "slides/lecture-03_slides.html#boolean-masks",
-    "title": "Logical Equivalences",
-    "section": "Boolean Masks",
-    "text": "Boolean Masks\nSelect all the cereals with at least 4 units of protein and no more than 6 units of sugars.\n\n\n\n\n\n\n\n\n\nnote that by doing this filtering, we are defining a predicate instantiated by each row whose truth value is evaluated.\nChallenge: In pandas, test De Morgan with missing data: create a row with protein = NaN. Show that (~p) & (~q) can differ from ~(p | q) under three-valued logic; propose a fix (.fillna(False) or careful NA handling)."
+    "text": "Logical Equivalence Practice\nNavigate to Activity 3 and complete question 1. Each of you will receive a different version of the problem. Work together in pairs to solve each person’s version.\n\n\n    \nPrairieLearn Activity 3"
   },
   {
     "objectID": "slides/lecture-03_slides.html#words-and-ideas",
     "href": "slides/lecture-03_slides.html#words-and-ideas",
     "title": "Logical Equivalences",
     "section": "Words and Ideas",
-    "text": "Words and Ideas\nGrammar\nLogical Equivalence\nTautology, Contradiction\nImplication\nPredicate\nBoolean Mask"
+    "text": "Words and Ideas\nGrammar\nLogical Equivalence\nTautology, Contradiction"
   },
   {
     "objectID": "slides/lecture-01_slides.html#sages-tricksters",
@@ -2136,35 +2150,21 @@
     "href": "slides/lecture-04_slides.html#announcements",
     "title": "Implication",
     "section": "Announcements",
-    "text": "Announcements\n\nEnroll in PrairieTest here: https://us.prairietest.com/pt/student/course/12361/enroll/392674810508\nSign up for EX1. Practice materials (on PL) coming soon!\nWe will have class THIS friday, but not thereafter.\nTutorials begin next week."
-  },
-  {
-    "objectID": "slides/lecture-04_slides.html#logical-equivalences-1",
-    "href": "slides/lecture-04_slides.html#logical-equivalences-1",
-    "title": "Implication",
-    "section": "Logical Equivalences",
-    "text": "Logical Equivalences\n\n\n\n\n\nWe have discussed Logical Equivalence (LE) and explored an example. The table illustrates LE that are so important, they have names!\n\nObservations:"
-  },
-  {
-    "objectID": "slides/lecture-04_slides.html#logical-equivalence-practice",
-    "href": "slides/lecture-04_slides.html#logical-equivalence-practice",
-    "title": "Implication",
-    "section": "Logical Equivalence Practice",
-    "text": "Logical Equivalence Practice\nAll graded learning activities in the course will use PrairieLearn.\nNavigate to Activity 1 and complete question 2. Each of you will receive a different version of the problem. Work together in pairs to solve each person’s version.\nhttps://us.prairielearn.com/pl/course_instance/186238/assessment/2562335"
+    "text": "Announcements\n\nEnroll in PrairieTest here: https://us.prairietest.com/pt/student/course/12361/enroll/392674810508\nSign up for EX1. Practice materials available tonight!\nHW1 due 9/20, 11:59p."
   },
   {
     "objectID": "slides/lecture-04_slides.html#implication-1",
     "href": "slides/lecture-04_slides.html#implication-1",
     "title": "Implication",
     "section": "Implication",
-    "text": "Implication\nConnect operator \\(\\rightarrow\\) to a logically equivalent expression using only and, or, and not.\n\n\n\n\\(p\\)\n\\(q\\)\n\\(p\\rightarrow q\\)\n\\(\\underline{\\hspace{3em}}\\)\n\n\n\n\nF\nF\nT\n\n\n\nF\nT\nT\n\n\n\nT\nF\nF\n\n\n\nT\nT\nT\n\n\n\n\n\nIs this operator commutative?\nNote: \\(p \\rightarrow q \\equiv\\) _______.\n\\(p \\rightarrow q\\) Corresponds to “if \\(p\\) then \\(q\\)”\nWe’re not promising causation, only a truth condition.\n\\(p \\rightarrow q\\) is False only when \\(p\\) is True and \\(q\\) is False.\nGives us mechanism for reasoning (next week)!\n\n\nq and not p is false. so it’s NOT (q^-p) == ??? (apply demorgan)\nPL exercises on Logical equivalence involving implication?\nMore on implication and logical equivalence in tutorial questions\nSuppose \\(p\\equiv\\) T . Then \\(p\\) is a Tautology.\nSuppose \\(p\\equiv\\) F . Then \\(p\\) is a Contradiction."
+    "text": "Implication\nConnect operator \\(\\rightarrow\\) to a logically equivalent expression using only and, or, and not.\n\n\n\n\\(p\\)\n\\(q\\)\n\\(p\\rightarrow q\\)\n\\(\\underline{\\hspace{3em}}\\)\n\n\n\n\nF\nF\nT\n\n\n\nF\nT\nT\n\n\n\nT\nF\nF\n\n\n\nT\nT\nT\n\n\n\n\n\nNote: \\(p \\rightarrow q \\equiv\\) _______.\n\\(p \\rightarrow q\\) Corresponds to “if \\(p\\) then \\(q\\)”\nWe’re not promising causation, only a truth condition.\n\\(p \\rightarrow q\\) is False only when \\(p\\) is True and \\(q\\) is False.\nGives us mechanism for reasoning!\nIs this operator commutative?\n\n\nq and not p is false. so it’s NOT (q^-p) == ??? (apply demorgan)\nPL exercises on Logical equivalence involving implication?\nMore on implication and logical equivalence in tutorial questions\nSuppose \\(p\\equiv\\) T . Then \\(p\\) is a Tautology.\nSuppose \\(p\\equiv\\) F . Then \\(p\\) is a Contradiction."
   },
   {
-    "objectID": "slides/lecture-04_slides.html#logical-equivalence-proof",
-    "href": "slides/lecture-04_slides.html#logical-equivalence-proof",
+    "objectID": "slides/lecture-04_slides.html#converses-check-whats-true",
+    "href": "slides/lecture-04_slides.html#converses-check-whats-true",
     "title": "Implication",
-    "section": "Logical Equivalence Proof",
-    "text": "Logical Equivalence Proof\nProve that \\(p \\rightarrow q \\equiv \\neg q \\rightarrow \\neg p\\):"
+    "section": "Converses — check what’s True",
+    "text": "Converses — check what’s True\nEach of the following is \\(p\\rightarrow q\\).   Underline \\(p\\), dash-underline \\(q\\).   Then decide whether each direction is true.\n\n\n\n\n\n\n\n\n\n#\nStatement\np→q\nq→p\n\n\n\n\n1\nIf it’s a kitten, then it’s a cat.\n☐\n☐\n\n\n2\nIf an animal is a mammal, then it is a cat.\n☐\n☐\n\n\n3\nIf I’m an only child, then I have zero siblings.\n☐\n☐\n\n\n4\nIf I eat breakfast, then I ace the quiz.\n☐\n☐\n\n\n5\nA player is in the NHL only if they are a professional.\n☐\n☐\n\n\n6\nTo be empty, a string must have length 0.\n☐\n☐\n\n\n7\nNo song appears on the Billboard Hot 100 without reaching #1.\n☐\n☐\n\n\n\n\n \n\nTwo steps per row, and only the first is logic:\nTRANSLATE – what does the sentence assert? EVALUATE – is that true?\nRows 1-4 translate for free (“if” names the antecedent). Rows 5-7 do not:\n5 “only if” marks the CONSEQUENT. Students read “p only if q” as q-&gt;p because “if” sits next to q. It means p-&gt;q. 6 “must” – necessity, so again the consequent. 7 Board work. THE HARD PART IS FINDING p AND q, not the algebra below.\n The sentence carries two negation words -- \"No\" and \"without\" -- and\n NEITHER belongs to p or q. Both are structural. p and q are positive:\n\n   p: this song appears on the Hot 100\n   q: this song reached #1\n\n Ask \"what two facts about a single song does this sentence relate?\"\n That strips the scaffolding and leaves the atoms. Each is plainly\n true-or-false of one song; neither contains a \"no\" or a \"without\".\n Students will want q = \"does not reach #1\", or will attach the \"No\"\n to p. Underline only the positive spans.\n\n Once p and q are fixed, *without* = *and not* and the rest is algebra:\n\n   ~(p ^ ~q)  ==  ~p v ~~q     De Morgan        (lecture 3 laws table)\n              ==  ~p v q       double negation  (same table)\n              ==  p -&gt; q       definition of -&gt; (slide 1 today)\n\n This is the first CHAIN OF EQUIVALENCES in the course -- lecture 3\n promised two ways to justify an equivalence, and only truth tables have\n been used so far. It is also the worked example for the LE Proof slide\n two slides from now.\n\n Then the catch: the chain shows the sentence MEANS p-&gt;q. It does not\n show p-&gt;q is true -- and it isn't. A song that charted but never hit #1\n makes p true, q false, which falsifies BOTH forms. That is what the\n equivalence promised.\n\n But the CONVERSE is true, and for a different kind of reason:\n   p-&gt;q  (charted -&gt; hit #1)   FALSE, empirically -- most never do.\n   q-&gt;p  (hit #1 -&gt; charted)   TRUE, definitionally -- #1 IS a position\n                               on the Hot 100. You cannot top a chart\n                               you are not on.\n So the sentence asserts the contingent direction, which fails, while the\n direction it does not assert holds by definition. Not a biconditional.\n\n Same truth pattern as row 2 (mammal -&gt; cat), which they met early and\n easily. Row 7 is that pattern in disguise -- worth pointing back to it.\nRow 4 (breakfast/quiz) is the discussion row, not a quick one. Nobody in the room has the facts, so ask what would make it FALSE – one day you ate breakfast and did not ace. That is a counterexample, three lectures early. It is also the only home for vacuous truth: if you never eat breakfast, p is always false and the statement is true, because you never broke the promise.\nRows 3 and 4 are the only propositional ones – about a fixed “I”. The rest range over a domain, which is what predicates are for. Do not say “for all” yet; it becomes the callback when quantifiers arrive."
   },
   {
     "objectID": "slides/lecture-04_slides.html#vocabulary",
@@ -2174,25 +2174,25 @@
     "text": "Vocabulary\nGiven \\(p\\rightarrow q\\), we define the following 3 terms:\n\n________________ is \\(\\neg q\\rightarrow \\neg p\\)\n________________ is \\(q\\rightarrow p\\)\n________________ is \\(\\neg p\\rightarrow \\neg q\\)\n\nDescribe all the logical equivalences among the 4 statements:\n\nwe’ll see if English can help us!"
   },
   {
-    "objectID": "slides/lecture-04_slides.html#converses-check-whats-true",
-    "href": "slides/lecture-04_slides.html#converses-check-whats-true",
+    "objectID": "slides/lecture-04_slides.html#logical-equivalence-proof",
+    "href": "slides/lecture-04_slides.html#logical-equivalence-proof",
     "title": "Implication",
-    "section": "Converses — check what’s True",
-    "text": "Converses — check what’s True\n\n\n\n\n\n\n\n\n\n#\nStatement p→q\np→q\nq→p\n\n\n\n\n1\nTo be empty, a string must have length 0.\n☐\n☐\n\n\n2\nPlaying in the NHL entails being a professional hockey player.\n☐\n☐\n\n\n3\nIf an animal is a mammal, then it is a cat.\n☐\n☐\n\n\n4\nRiding the 99 B-Line counts as public transit.\n☐\n☐\n\n\n5\nIf a dish is spicy, then it is Indian cuisine.\n☐\n☐\n\n\n6\nIf it’s a kitten, then it’s a cat.\n☐\n☐\n\n\n7\nNo song appears on the Billboard Hot 100 without reaching #1.\n☐\n☐\n\n\n8\nIf I live in Totem Park residence, then I live in campus housing.\n☐\n☐\n\n\n9\nIf I eat breakfast, then I ace the quiz.\n☐\n☐\n\n\n10\nIf a movie is a superhero film, then it is an MCU movie.\n☐\n☐\n\n\n11\nIf I’m an only child, then I have zero siblings.\n☐\n☐\n\n\n12\nIf I’m in British Columbia, then I’m in Vancouver.\n☐\n☐"
+    "section": "Logical Equivalence Proof",
+    "text": "Logical Equivalence Proof\nProve that \\(p \\rightarrow q \\equiv \\neg q \\rightarrow \\neg p\\):"
   },
   {
     "objectID": "slides/lecture-04_slides.html#biconditionals",
     "href": "slides/lecture-04_slides.html#biconditionals",
     "title": "Implication",
     "section": "Biconditionals",
-    "text": "Biconditionals\nWe have a special operator for those implications whose converses are also True:\n  \\((p\\rightarrow q) \\wedge (q\\rightarrow p)\\equiv p\\leftrightarrow q\\)\nSome phrases describing this relationship:\n\nbiconditional\nif and only if (iff)\nequivalent\n\nWhich of the expressions on the previous page are biconditionals?"
+    "text": "Biconditionals\nWe have a special operator for those implications whose converses are also True:\n  \\((p\\rightarrow q) \\wedge (q\\rightarrow p)\\equiv p\\leftrightarrow q\\)\nSome phrases describing this relationship:\n\nbiconditional\nif and only if (iff)\nequivalent\n\nWhich of the seven statements were biconditionals?"
   },
   {
     "objectID": "slides/lecture-04_slides.html#words-and-ideas",
     "href": "slides/lecture-04_slides.html#words-and-ideas",
     "title": "Implication",
     "section": "Words and Ideas",
-    "text": "Words and Ideas\nLogical Equivalence\nImplication"
+    "text": "Words and Ideas\nImplication\nConverse, Contrapositive, Inverse\nBiconditional"
   },
   {
     "objectID": "slides/lecture-06_slides.html#announcements",
@@ -2202,39 +2202,32 @@
     "text": "Announcements\n\nEnroll in PrairieTest here: https://us.prairietest.com/pt/student/course/12361/enroll/392674810508\nSign up for EX1. Practice materials on PL.\nTutorials begin this week."
   },
   {
-    "objectID": "slides/lecture-06_slides.html#counterexample",
-    "href": "slides/lecture-06_slides.html#counterexample",
+    "objectID": "slides/lecture-06_slides.html#spot-the-rule-or-the-trap",
+    "href": "slides/lecture-06_slides.html#spot-the-rule-or-the-trap",
     "title": "Quantifiers, continued",
-    "section": "Counterexample",
-    "text": "Counterexample\nSuppose someone says “all comedians are funny,” and you disagree, how would you refute the statement?\n       \\(\\forall x, C(x)\\rightarrow F(x)\\)\nRefute by negating:\n       \\(\\neg\\forall x, C(x)\\rightarrow F(x)\\)\n     \\(\\equiv\\exists x, \\neg(C(x)\\rightarrow F(x))\\)\n     \\(\\equiv\\exists x, \\neg(F(x)\\vee\\neg C(x))\\)\n     \\(\\equiv\\exists x, \\neg F(x)\\wedge C(x))\\)\nYour immediate response: _(some unfunny comedian)__\nThis evidence of refutation is called a _counterexample_.\nApplies specifically to refuting \\(\\forall\\)"
+    "section": "Spot the Rule or the Trap",
+    "text": "Spot the Rule or the Trap\nHow to play: post in chat…\n(a) valid or not, (b) if valid, name the rule, (c) formal pattern."
   },
   {
-    "objectID": "slides/lecture-06_slides.html#witness",
-    "href": "slides/lecture-06_slides.html#witness",
+    "objectID": "slides/lecture-06_slides.html#build-a-proof",
+    "href": "slides/lecture-06_slides.html#build-a-proof",
     "title": "Quantifiers, continued",
-    "section": "Witness",
-    "text": "Witness\nSuppose someone says “there is a funny comedian,” and you disagree, how could they justify their statement?\n\n\n       \\(\\exists x, C(x)\\wedge F(x)\\)\n\n\nTheir immediate response: _(a universally funny comedian – Robin Williams)_\nThis evidence of justification is called a _witness_.\nApplies specifically to defending an \\(\\exists\\)\nAside: Why not \\(\\exists x, C(x)\\rightarrow F(x)\\)?"
+    "section": "Build a proof",
+    "text": "Build a proof\nIn the chat, each person adds exactly one line using a Rule Card."
   },
   {
-    "objectID": "slides/lecture-06_slides.html#code-patterns",
-    "href": "slides/lecture-06_slides.html#code-patterns",
+    "objectID": "slides/lecture-06_slides.html#design-a-trap",
+    "href": "slides/lecture-06_slides.html#design-a-trap",
     "title": "Quantifiers, continued",
-    "section": "Code Patterns",
-    "text": "Code Patterns"
+    "section": "Design a Trap",
+    "text": "Design a Trap\nYour mission:\n- Write one valid two-premise argument (any rule).\n- Write a look-alike fallacy with the same topic words.\n- Bring to class on Wednesday morning!"
   },
   {
-    "objectID": "slides/lecture-06_slides.html#nested-quantifiers",
-    "href": "slides/lecture-06_slides.html#nested-quantifiers",
+    "objectID": "slides/lecture-06_slides.html#exit-ticket-2-min",
+    "href": "slides/lecture-06_slides.html#exit-ticket-2-min",
     "title": "Quantifiers, continued",
-    "section": "Nested Quantifiers",
-    "text": "Nested Quantifiers\nIt will not surprise you that we can use multiple quantifiers:\n \n     \\(\\forall x, \\forall y \\text{ Knows}(x,y)\\)\n\n\nIn pairs, complete the second worksheet."
-  },
-  {
-    "objectID": "slides/lecture-06_slides.html#words-and-ideas",
-    "href": "slides/lecture-06_slides.html#words-and-ideas",
-    "title": "Quantifiers, continued",
-    "section": "Words and Ideas",
-    "text": "Words and Ideas\nQuantifiers – “For all” and “There exists”\nCounterexample and Witness\nNegating quantifiers\nNested Quantifiers"
+    "section": "Exit Ticket (2 min)",
+    "text": "Exit Ticket (2 min)\nIn chat (or poll), complete both:\n\nOne valid rule I can spot in the wild is ________.\n\nOne trap I’ll watch for is ________."
   },
   {
     "objectID": "slides/lecture-08_slides.html#announcements",
