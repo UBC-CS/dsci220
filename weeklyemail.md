@@ -13,6 +13,7 @@ When they disagree, the slide is the one students saw in the room.
 | Course website | <https://ubc-cs.github.io/dsci220> |
 | PrairieLearn | <https://us.prairielearn.com/pl/course_instance/209866> |
 | Canvas | <https://canvas.ubc.ca/courses/191848> |
+| Piazza | <https://piazza.com/ubc.ca/winterterm12026/dsci220> |
 | Class | Mon/Wed/Fri 11:00–12:00, BIOL 2200 (Fri is async from week 2) |
 | Office hours | Mon 12–1, ICCS 233. TAs by appointment. |
 
@@ -71,6 +72,10 @@ inference.
 
 Monday's in-class activity is **Activity 3** on PrairieLearn, open during the
 class hour only.
+
+Questions go on **Piazza** —
+<https://piazza.com/ubc.ca/winterterm12026/dsci220> — rather than email, so
+everyone sees the answer.
 
 See you Monday,
 Cinda
