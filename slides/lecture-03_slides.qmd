@@ -300,9 +300,9 @@ half the class complete the TT on the left, the other half on the right, then we
 
 ## Chains of Equivalence
 
-\
+Prove that
 
-$(((p \wedge q) \wedge r) \vee ((p \wedge q) \wedge \neg r))$
+$$(((p \wedge q) \wedge r) \vee ((p \wedge q) \wedge \neg r)) \;\equiv\; (p \wedge q)$$
 
 \
 
