@@ -21,6 +21,16 @@ subtitle: "Lecture 3, {{< var course.code >}}, {{< var course.term >}}"
 
 ## Parse Trees
 
+```{bnf}
+<wff> ::= <atom>
+        | ~ <wff>
+        | ( <wff> ∧ <wff> )
+        | ( <wff> ∨ <wff> )
+
+<atom> ::= p | q 
+
+```
+
 Apply the outermost relevant rule...
 
 ::::: columns
@@ -37,6 +47,30 @@ $(\text{Tu} \wedge (\text{Th} \wedge (\text{Sa} \vee \text{Su})))$
 ::: notes
 Work outward-in: the outermost parentheses are the last rule applied, so they
 are the root. Each internal node is a rule application, each leaf an atom.
+
+EXPECT THE QUESTION: "how do we know which operator goes with the outer
+parentheses?" Answer by annotating, not by algorithm -- say outright that the
+programmatic version waits for 221, and that for now this is observational.
+
+Write the depth under each operator:
+
+      ((Tu ^ Th) ^ (Sa v Su))          (Tu ^ (Th ^ (Sa v Su)))
+          2       1     2                  1      2      3
+
+Depths 2,1,2 -- the middle one is the root. Depths 1,2,3 -- the first one is.
+Same symbols, different tree, visible without parsing anything.
+
+Counting version, if they want to do it by hand: the root is the operator with
+exactly ONE more "(" than ")" to its left. Same fact, two tallies instead of a
+running counter.
+
+Why it works is the grammar: ( <wff> op <wff> ) wraps every binary operator in
+its OWN parentheses, so an operator's depth counts how many rule applications
+deep it sits. Exactly one sits at depth 1.
+
+Edge case, and someone will write it: ~<wff> adds no parentheses, so on
+~(p ^ q) the counting rule points at the ^ when the root is the leading ~. Rule
+of thumb -- if it starts with ~, that is the root; otherwise count.
 
 The trees are **different** -- and every row of the truth table agrees. That gap
 is the point. The parentheses fix the structure, the structure fixes how you
