@@ -12,11 +12,14 @@ Not published (Quarto ignores `_`-prefixed files).
   Monday's class and before the week's first lab (Noah's Tue 2pm), so a lab can
   still be fixed after sign-off. Thursday is also open for all four, but falls
   after every lab that week.
-- **Video recording: Thursday 10:00–11:00.** Wednesday afternoon is gone —
-  Cinda is in another class 3–4 and recording for a different course 4:30–5:30,
-  and Marko's lab runs 1–3. Thursday is open for all four, is still after
-  Wednesday's class, and leaves a day before the Friday release. Tighter
-  alternative if Thursday slips: **Wed 12:00–1:00**, also free for all four.
+- **Video recording: Wednesday evenings** (decided 2026-09-13). It has to be
+  after Wednesday's class, since the video absorbs whatever lecture 4 did not
+  reach, and the week-2 letter promises students the video **by Thursday
+  morning** — so Wednesday night is the only slot that satisfies both.
+  Wednesday daytime is full: class 11–12, Marko's lab 1–3, Cinda's other class
+  3–4, her other recording 4:30–5:30.
+  Cinda has told students she will invite them to attend the recordings once
+  things settle, so the slot needs to be one others can join.
 - **Lab 1 is Cinda's**, since it lands immediately.
 
 ### Cinda's fixed weekly commitments

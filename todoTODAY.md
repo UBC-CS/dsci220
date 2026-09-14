@@ -54,11 +54,12 @@ Built and pushed. **Needs a PrairieLearn sync** — nothing else.
 - [ ] **Lecture 3, Mon 11:00.** Done and live.
 - [ ] **Lecture 4, Wed 11:00.** Done. ~68 min of material in a 50-min class, by
       design — overflow goes into Friday's video.
-- [ ] **Record lecture 5** — first async video of 13, and **nobody is named to
-      help**. Must happen *after* Wednesday's class, since it absorbs the
-      overflow. **Slot still undecided:** Wed 12–1 (matches the slide's "video
-      released by Thursday morning") or Thu 10–11 (what `_labs.md` says, but
-      then the slide is wrong).
+- [x] ~~Recording slot.~~ **Wednesday evenings**, decided Sep 13. It is the only
+      time that is both after Wednesday's class (the video absorbs lecture 4's
+      overflow) and early enough for the Thursday-morning posting promised in
+      the week-2 letter.
+- [ ] **Record lecture 5 this Wednesday** — first async video of 13, and
+      **nobody is named to help**.
 - [ ] **PE1 releases Wed 23:59** — 72 questions, done, no action needed.
 
 ---

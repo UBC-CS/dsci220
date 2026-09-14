@@ -13,7 +13,6 @@ When they disagree, the slide is the one students saw in the room.
 | Course website | <https://ubc-cs.github.io/dsci220> |
 | PrairieLearn | <https://us.prairielearn.com/pl/course_instance/209866> |
 | Canvas | <https://canvas.ubc.ca/courses/191848> |
-| Piazza | <https://piazza.com/ubc.ca/winterterm12026/dsci220> |
 | Class | Mon/Wed/Fri 11:00–12:00, BIOL 2200 (Fri is async from week 2) |
 | Office hours | Mon 12–1, ICCS 233. TAs by appointment. |
 
@@ -28,57 +27,25 @@ listed in `_todo.md`.*
 
 Hi everyone,
 
-Short note on what's happening this week, since we don't spend class time on
-announcements.
+Welcome to week 2!! I hope your weekend was fantastic. Mine was quiet and restorative after a brutal first week.  I finished a book, saw friends, and designed your homework assignment. :)
 
-**Three things open tonight and are due Sunday, Sep 20 at 11:59pm.**
+The news:
+1. Tutorials meet this week, and every week hereafter except for weeks 6, 10, and 14. Note that L1C was cancelled, so if you didn't change your registration, please do so!! Attendance at labs is not mandatory, and the material will be available all week, BUT our TAs are amazing and this is your chance to get to know them! 
 
-- **Tutorial 1** — on PrairieLearn. You'll do most of it in your lab, but it
-  stays open all week if you don't finish. Bring a laptop.
-- **Homework 1** — also on PrairieLearn. This is the first one, so give
-  yourself more time than you think: there's a section on *functional
-  completeness* that isn't covered in class, and the questions teach it to you
-  as you go. Read them rather than skimming.
+2. HW1 is available, Due Sun, 09/20, 11:59p. I anticipate that it will take you approximately 2hr. You should engage with the material. We will test your understanding of the concepts via the examlets! 
 
-**Labs meet for the first time this week.**
+3. Friday's class is cancelled...for the rest of the term. I'll be recording a video of the lesson and posting it by each Thursday morning.(Note that this is new material, just like any class meeting.) Once things settle, I'll invite you to attend those recordings -- they're much easier to do when I can actually talk to someone! :)
 
-| Section | When | Where | TA |
-|---|---|---|---|
-| L1D | Tuesday 2–4 | ORCH 3002 | Noah Hynds |
-| L1B | Tuesday 4–6 | ORCH 3002 | Perrie Soleimani |
-| L1A | Wednesday 1–3 | SPPH 143 | Marko Ciric |
+4. Examlet 1 is next week, self-scheduled in ORCA for some session Thursday (9/24) through Sunday (9/27). It covers all material in the course through week 2 (this week). I will let you know the _second_  the examlet is available for registration on prairietest.com.
 
-**L1C has been cancelled.** If that was your section, please move to L1A or
-L1B — L1D is full. Sorry for the disruption.
+5. To help you prepare for your examlet, we will release practice problems on Wednesday, 09/16, at 11:59p. This will be the pattern throughout the term.
 
-**There is no class this Friday, and there won't be on Fridays from now on.**
-Friday's session is a video instead, posted on the course schedule by Thursday.
-Monday and Wednesday are unchanged and still in BIOL 2200.
+I can't think of anything else for tonight -- you are always welcome to drop me an email (cheeren@cs.ubc.ca), or post questions on piazza (https://piazza.com/ubc.ca/winterterm12026/dsci220). Also, in case you've misplaced it, the course website is https://ubc-cs.github.io/dsci220.
 
-**The Friday videos are examinable.** They are not optional and they are not
-review — new material is introduced in them. This Friday's video covers the
-rules of inference, and EX1 is written on everything through that video.
+See you in class tomorrow! (Oh, that reminds me of another thing. I know that your decision to attend class is a choice. We make all course materials accessible because we believe it's the right thing to do, so I know you could glean the material on your own (at 3am?). BUT I think the chances of building your understanding via human communication, and of smiling while you learn, are greatly improved by coming to the class meetings. I love it when you're in the room...)
 
-**EX1 is the weekend of Sep 24–27.** ⚠ You need to sign up for a sitting on
-PrairieTest — link to follow. Practice problems for it appear on PrairieLearn
-on Wednesday night. They are not graded and you can redo every question as many
-times as you like; they exist purely so you can find out what you don't know
-yet.
-
-**In class this week.** Monday: logical equivalence, the laws that have names,
-and tautologies and contradictions. Wednesday: implication — and the three
-statements people constantly confuse it with. Friday's video: rules of
-inference.
-
-Monday's in-class activity is **Activity 3** on PrairieLearn, open during the
-class hour only.
-
-Questions go on **Piazza** —
-<https://piazza.com/ubc.ca/winterterm12026/dsci220> — rather than email, so
-everyone sees the answer.
-
-See you Monday,
-Cinda
+All the best!
+Cinda and the DSCI220 teaching team Perrie, Noah, and Marko.
 
 ---
 
