@@ -3,6 +3,6 @@ title: "Homework 1"
 subtitle: "Homework 1, {{< var course.code >}}, {{< var course.term >}}"
 ---
 
-<!-- Week 2. Due date and problems to come. -->
+<!-- Week 2. Opens Sun Sep 13 23:59, due Sun Sep 20 23:59. -->
 
-Complete Homework 1 on [PrairieLearn](https://us.prairielearn.com/pl/course_instance/209866).
+Complete Homework 1 on [PrairieLearn](https://us.prairielearn.com/pl/course_instance/209866/assessment/2731701).

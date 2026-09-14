@@ -88,9 +88,12 @@ get_schedule <- function() {
       show_week = dplyr::case_when(
         !rendering_student_profile ~ TRUE,
         week == 1 ~ TRUE,
-        # Reveal each item on its own date, not the whole week at once:
-        # otherwise Monday unlocks Wednesday's and Friday's decks too.
-        date <= current_date ~ TRUE,
+        # Lectures reveal on their OWN day -- otherwise Monday would unlock
+        # Wednesday's and Friday's decks too. Everything else reveals on its
+        # week's Monday, because for homework and exams `date` is the DUE date
+        # and the work opens well before it.
+        unit == "lecture" ~ date <= current_date,
+        monday <= current_date ~ TRUE,
         .default = FALSE
       ),
       next_exam = dplyr::if_else(unit == "exam", date, NA),
