@@ -1786,6 +1786,13 @@
     "text": "Logical Equivalence\nSuppose we have the following propositions, and someone has asserted that for Cheerios, \\(\\neg(p\\lor q)\\). How is this expressed in English? Can you find a simpler expression?\n\n\n\n\n\\(p\\): a cereal has less than 4 units of protein\n\\(q\\): a cereal has more than 6 units of sugars\n\n\n\nDeMorgan’s tells us \\(\\neg p\\wedge \\neg q \\equiv \\neg( p\\lor q)\\).\n\n\n\n\n\n\n\n\n\n\n\\(p\\)\n\\(q\\)\n\\(\\neg p\\wedge \\neg q\\)\n\n\n\n\nF\nF\n\n\n\nF\nT\n\n\n\nT\nF\n\n\n\nT\nT\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\\(p\\)\n\\(q\\)\n\\(\\neg( p\\lor q)\\)\n\n\n\n\nF\nF\n\n\n\nF\nT\n\n\n\nT\nF\n\n\n\nT\nT\n\n\n\n\n\n\nSimplified statement:\n\nhalf the class complete the TT on the left, the other half on the right, then we all read our responses aloud!"
   },
   {
+    "objectID": "slides/lecture-03_slides.html#chains-of-equivalence",
+    "href": "slides/lecture-03_slides.html#chains-of-equivalence",
+    "title": "Logical Equivalences",
+    "section": "Chains of Equivalence",
+    "text": "Chains of Equivalence\nProve that\n\\[(((p \\wedge q) \\wedge r) \\vee ((p \\wedge q) \\wedge \\neg r)) \\;\\equiv\\; (p \\wedge q)\\]\n\n\n\\(\\equiv\\)\n\n\n\\(\\equiv\\)\n\n\n\\(\\equiv\\)\n\nThe other method. Truth tables settled the last one; this settles it by rewriting, one named law at a time.\nThree variables, so a truth table is 8 rows. The chain is 3 lines. Say that out loud – it is the whole argument for learning the laws.\n(((p ^ q) ^ r) v ((p ^ q) ^ ~r)) == ((p ^ q) ^ (r v ~r)) Distributive == ((p ^ q) ^ T) Negation == (p ^ q) Identity\nEvery line is a WFF – fully parenthesised, one binary operator per pair. Worth being fussy about here, one slide after parse trees.\nr vanishes. That is the point to sit on: r appears twice in the original and cannot change the answer. They meet exactly this again in HW1.\nThis is also the thing Tutorial 1 asks for tomorrow, and this is the only worked example they get before it."
+  },
+  {
     "objectID": "slides/lecture-03_slides.html#logical-equivalence-practice",
     "href": "slides/lecture-03_slides.html#logical-equivalence-practice",
     "title": "Logical Equivalences",
@@ -1982,18 +1989,22 @@
     ]
   },
   {
-    "objectID": "homeworks/homework-04_homework.html",
-    "href": "homeworks/homework-04_homework.html",
-    "title": "Homework 4",
+    "objectID": "formatting.html",
+    "href": "formatting.html",
+    "title": "Formatting",
     "section": "",
-    "text": "Complete Homework 4 on PrairieLearn."
+    "text": "In text paragraphs, code is always formatted with a monospace font and surrounded by a box like this. Longer examples of code will be in a separate box.\nFirst line of code\nSecond line of code\n...\nIn many cases, the output for code in these boxes will be below them.\nReplace any placeholder indicated by angular brackets &lt;placeholder&gt; with your own code.\nPressing a KeyKey on the keyboard is formatted like that."
   },
   {
-    "objectID": "homeworks/homework-02_homework.html",
-    "href": "homeworks/homework-02_homework.html",
-    "title": "Homework 2",
+    "objectID": "announcements.html",
+    "href": "announcements.html",
+    "title": "Announcements",
     "section": "",
-    "text": "Complete Homework 2 on PrairieLearn."
+    "text": "Welcome to DSCI 220!\n\n\n\n\n\nGetting your bearings in DSCI 220\n\n\n\n\n\nSep 8, 2026\n\n1 min\n\n\n\n\nNo matching items",
+    "crumbs": [
+      "Course information",
+      "Announcements"
+    ]
   },
   {
     "objectID": "about.html",
@@ -2014,45 +2025,6 @@
     "crumbs": [
       "About"
     ]
-  },
-  {
-    "objectID": "announcements.html",
-    "href": "announcements.html",
-    "title": "Announcements",
-    "section": "",
-    "text": "Welcome to DSCI 220!\n\n\n\n\n\nGetting your bearings in DSCI 220\n\n\n\n\n\nSep 8, 2026\n\n1 min\n\n\n\n\nNo matching items",
-    "crumbs": [
-      "Course information",
-      "Announcements"
-    ]
-  },
-  {
-    "objectID": "formatting.html",
-    "href": "formatting.html",
-    "title": "Formatting",
-    "section": "",
-    "text": "In text paragraphs, code is always formatted with a monospace font and surrounded by a box like this. Longer examples of code will be in a separate box.\nFirst line of code\nSecond line of code\n...\nIn many cases, the output for code in these boxes will be below them.\nReplace any placeholder indicated by angular brackets &lt;placeholder&gt; with your own code.\nPressing a KeyKey on the keyboard is formatted like that."
-  },
-  {
-    "objectID": "homeworks/homework-01_homework.html",
-    "href": "homeworks/homework-01_homework.html",
-    "title": "Homework 1",
-    "section": "",
-    "text": "Complete Homework 1 on PrairieLearn."
-  },
-  {
-    "objectID": "homeworks/homework-03_homework.html",
-    "href": "homeworks/homework-03_homework.html",
-    "title": "Homework 3",
-    "section": "",
-    "text": "Complete Homework 3 on PrairieLearn."
-  },
-  {
-    "objectID": "homeworks/homework-05_homework.html",
-    "href": "homeworks/homework-05_homework.html",
-    "title": "Homework 5",
-    "section": "",
-    "text": "Complete Homework 5 on PrairieLearn."
   },
   {
     "objectID": "posts/00_welcome/index.html",

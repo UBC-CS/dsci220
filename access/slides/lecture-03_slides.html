@@ -395,7 +395,7 @@ but don't worry, we'll be teaching you how to do it. -->
 <li></li>
 </ul>
 </div></div>
-<countdown-timer id="timer_808c5710cc5b2038161953cb26ca4f1a031ae290" minutes="07" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<countdown-timer id="timer_804b0cbcd39edfc2356067e888f52bc212492b4c" minutes="07" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
  </countdown-timer>
 <aside class="notes">
 <p>The blanks are in Identity, Domination and Negation. Identity and Negation hide two cells each; Domination hides four, because both the operand and the result are greyed on each of its lines. All eight are <strong>T</strong> or <strong>F</strong>, and all eight follow from the <span class="math inline">\(\wedge\)</span> and <span class="math inline">\(\vee\)</span> truth tables – no new vocabulary needed.</p>
@@ -526,6 +526,38 @@ but don't worry, we'll be teaching you how to do it. -->
           display:block!important;
       }</style></aside>
 </section>
+<section id="chains-of-equivalence" class="slide level2">
+<h2>Chains of Equivalence</h2>
+<p>Prove that</p>
+<p><span class="math display">\[(((p \wedge q) \wedge r) \vee ((p \wedge q) \wedge \neg r)) \;\equiv\; (p \wedge q)\]</span></p>
+<p><br>
+</p>
+<p><span class="math inline">\(\equiv\)</span></p>
+<p><br>
+</p>
+<p><span class="math inline">\(\equiv\)</span></p>
+<p><br>
+</p>
+<p><span class="math inline">\(\equiv\)</span></p>
+<aside class="notes">
+<p>The other method. Truth tables settled the last one; this settles it by rewriting, one named law at a time.</p>
+<p>Three variables, so a truth table is 8 rows. The chain is 3 lines. Say that out loud – it is the whole argument for learning the laws.</p>
+<p>(((p ^ q) ^ r) v ((p ^ q) ^ ~r)) == ((p ^ q) ^ (r v ~r)) Distributive == ((p ^ q) ^ T) Negation == (p ^ q) Identity</p>
+<p>Every line is a WFF – fully parenthesised, one binary operator per pair. Worth being fussy about here, one slide after parse trees.</p>
+<p>r vanishes. That is the point to sit on: r appears twice in the original and cannot change the answer. They meet exactly this again in HW1.</p>
+<p>This is also the thing Tutorial 1 asks for tomorrow, and this is the only worked example they get before it.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
 <section id="logical-equivalence-practice" class="slide level2 activity">
 <h2>Logical Equivalence Practice</h2>
 <p>Navigate to Activity 3 and complete question 1. Each of you will receive a different version of the problem. Work together in pairs to solve each person’s version.</p>
@@ -540,7 +572,7 @@ but don't worry, we'll be teaching you how to do it. -->
 </script>
     
 <p><a href="https://us.prairielearn.com/pl/course_instance/209866/assessment/2731569">PrairieLearn Activity 3</a></p>
-<countdown-timer id="timer_808c5710cc5b2038161953cb26ca4f1a031ae290" minutes="05" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<countdown-timer id="timer_804b0cbcd39edfc2356067e888f52bc212492b4c" minutes="05" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
  </countdown-timer>
 </section>
 <section id="words-and-ideas" class="slide level2">
