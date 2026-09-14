@@ -2,7 +2,7 @@
 
 Not published (Quarto ignores `_`-prefixed files).
 
-## Before class
+## Lecture 1 — taught Wed Sep 9, keep for next year
 
 - [ ] **Check Packet 12's fact slip.** If it says *"all spade cards are even"*,
       swap it — the only spade is Q♠ and a Queen is neither even nor odd. This
@@ -10,8 +10,8 @@ Not published (Quarto ignores `_`-prefixed files).
 - [ ] Tell them roles come from the **colour of the card you draw**, and that
       counting the reds gives the number of Tricksters. Never written down
       before; the game does not work without it.
-- [ ] Teach from `draft-01` (rebuilt for 2026) rather than `lecture-01`, which
-      still has the 2025 term table and Piazza link.
+- [x] ~~Teach from `draft-01` rather than `lecture-01`.~~ Done; `draft-01` was
+      copied over `lecture-01` afterwards.
 
 ## Equivalence proofs are too tedious
 
@@ -90,15 +90,15 @@ Deliberately left off: today's Activity 3, since the LE Practice slide covers it
       every proposition is True or False. By Oct 4 they will have had the
       lecture.
 
-## 🔴 MAKE HW1
+## HW1 — DONE
 
-**Due Sunday 2026-09-20** (end of week 2). Nothing exists for it yet.
+Built 2026-09-12, opens Sun Sep 13 23:59, due Sun Sep 20. 7 questions, 10 pts,
+entirely propositional. Two new questions written for it: `wff-structure` and
+`missing-truth-values`; `which-conditions-matter` too.
 
-- Needs a PrairieLearn assessment under
-  `pl-ubc-dsci220/courseInstances/2026W1/assessments/`
-- `homeworks/homework-01_homework.qmd` is a stub that just says "complete it on
-  PrairieLearn" — it needs the real link and the problem list
-- Same for HW2–HW5: due Sun **Oct 4**, **Nov 8**, **Nov 22**, **Nov 29**
+- [ ] `homeworks/homework-01_homework.qmd` is still a stub — no link, no problem
+      list. Same for HW2–HW5 (due Oct 4, Oct 25, Nov 8, Nov 29).
+
 
 ## Canvas
 
@@ -115,20 +115,21 @@ Deliberately left off: today's Activity 3, since the LE Practice slide covers it
       they get in during class.
 - [ ] Lecture 1's "Before Friday" slide still says the activity "will be posted
       on PrairieLearn" — now stale, since it is live and done in class Friday.
-- [ ] **PE1 — practice for EX1 (Sun Sep 27).** The questions exist: Marko's
-      `practice/week_1` (17), `week_2` (43) and `Week_3` (31) cover weeks 1--3,
-      which is EX1's range. In 2025W1 this was a single assessment titled
-      "EX1 Practice (Week 3)". Decide whether to keep the per-week split or
-      collect them the way last year did.
-      - [ ] **None of the nine practice sets has an access window** — every
-            `accessControl` is empty, so students cannot open any of them.
-            Lectures 4 and 5 already promise "Practice materials coming soon".
-            Should be open roughly a week before EX1, so by **Sun Sep 20**.
-      - [ ] `Week_3` is capitalised, unlike the other eight. PrairieLearn tids
-            are case-sensitive.
-      - [ ] Numbering desyncs after week 6: `week_8` is number 7, `week_9` is 8,
-            `week_10` is 9, because week 7 does not exist.
-      - [ ] No practice set for weeks 7, 11, 12 or 13. EX5 is week 13.
+- [x] ~~**PE1–PE5.**~~ Done 2026-09-12. Marko's nine week-based sets were
+      consolidated into five examlet-based ones (`practice-ex1`…`5`), all with
+      release windows — Wednesday of week *N*−1 at 23:59, alongside that week's
+      video. His nine originals are left in place with no access rules, as his
+      working material.
+      - [ ] **PE5 is thin** — 16 questions, all carried from 2025W1, because
+            Marko's sets stop at week 10. It covers weeks 11–12, which include
+            NFAs and CFGs, and it has nothing for either.
+      - [ ] **No practice for week 7**, which sits inside EX3's window.
+      - [ ] **Marko's 151 new questions are unreviewed.** None are in a graded
+            assessment — every graded question in 2026W1 is Cinda's or Joe's —
+            so the exposure is zero for now. Review is gated by release: PE1 50
+            new, PE2 68 (all his, none vetted — the pressure point), PE3 37,
+            PE4 11, PE5 0.
+
 - [ ] Port the 2025W1 tutorials, examlets and practice sets into the 2026W1
       instance — it currently holds only Activity 1.
 - [ ] Fill in per-assessment links in `data/additional-resources.csv`; the exam
@@ -136,8 +137,7 @@ Deliberately left off: today's Activity 3, since the LE Practice slide covers it
 
 ## Website
 
-- [ ] Merge PR #1 (`2026W1-migration`), then move the submodule pointer in
-      `dsci220-root` and push the root repo.
+- [x] ~~Merge PR #1.~~ Done.
 - [ ] Tutorials are modelled in the `First` slot, which resolves to Monday. The
       real sections are Tue 2–4, Tue 4–6, Wed 1–3, Wed 3–5.
 - [ ] Recording links are placeholders pointing at the Canvas course.
@@ -197,6 +197,15 @@ Deliberately left off: today's Activity 3, since the LE Practice slide covers it
 
 ## Question bank
 
+- [x] ~~**A WFF generation question.**~~ Written 2026-09-12:
+      `2026W1/logic/wff-structure`. Students build WFFs to spec, hit one that
+      cannot exist, find that atoms = binary + 1, check that every grammar rule
+      preserves it (structural induction, named after the fact), and finally
+      construct a 13-character impostor with a WFF's exact symbol counts that
+      the grammar still rejects. Graded by a hand-written recursive-descent
+      parser. **Still wanted:** apply a named rule to a given line; give the
+      rule sequence producing a target formula; spot the illegal step.
+
 - [ ] **Write more WFF questions.** WFFs are ~46% of lecture 2 but only 2 of 294
       questions in the bank (`2026W1/logic/WFF1`, `WFF2`), and both test
       recognition — "is this a WFF?" / "which of these are WFFs?" Nothing asks
@@ -224,9 +233,9 @@ Deliberately left off: today's Activity 3, since the LE Practice slide covers it
       1, 6, 11, all titled "Topic to be decided".
 - [x] ~~TA office hours.~~ By appointment, for all three.
 - [ ] Final exam window — in the ORCA, same as the examlets. Date still *TBC*.
-- [ ] In-class activities for lectures 2 and 3 — the slots in `draft-02` and
-      `draft-03` are marked TBD. Everything must be linked from a slide, since
-      activities are not linked anywhere else on the site.
+- [x] ~~In-class activities for lectures 2 and 3.~~ Settled: lecture 2 used
+      Activity 1, lecture 3 uses Activity 3 (`class3-equivalence`). Both linked
+      from a slide.
 - [ ] `slides/_unassigned/14_wed_graphs.qmd` — Graphs has no slot in the 35.
       Also parked: the three `XX_` Representation-as-Encoding decks and
       `misc_skipped.qmd`.
