@@ -298,6 +298,46 @@ half the class complete the TT on the left, the other half on the right, then we
 :::
 
 
+## Chains of Equivalence
+
+\
+
+$(((p \wedge q) \wedge r) \vee ((p \wedge q) \wedge \neg r))$
+
+\
+
+$\equiv$
+
+\
+
+$\equiv$
+
+\
+
+$\equiv$
+
+::: notes
+The other method. Truth tables settled the last one; this settles it by rewriting,
+one named law at a time.
+
+Three variables, so a truth table is 8 rows. The chain is 3 lines. Say that out
+loud -- it is the whole argument for learning the laws.
+
+  (((p ^ q) ^ r) v ((p ^ q) ^ ~r))
+  == ((p ^ q) ^ (r v ~r))            Distributive
+  == ((p ^ q) ^ T)                   Negation
+  == (p ^ q)                         Identity
+
+Every line is a WFF -- fully parenthesised, one binary operator per pair. Worth
+being fussy about here, one slide after parse trees.
+
+r vanishes. That is the point to sit on: r appears twice in the original and
+cannot change the answer. They meet exactly this again in HW1.
+
+This is also the thing Tutorial 1 asks for tomorrow, and this is the only worked
+example they get before it.
+:::
+
 ## Logical Equivalence Practice {.activity}
 
 Navigate to Activity 3 and complete question 1.
