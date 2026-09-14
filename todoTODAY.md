@@ -7,7 +7,7 @@ record — this file gets rewritten). Labs in `_labs.md`. Email in `weeklyemail.
 
 ---
 
-## 1 — EX1 does not exist · written Thu–Sun **Sep 24–27** · 50%
+## 1 — EX1 does not exist · written Thu–Sun **Sep 24–27** · 10% (1 of 5)
 
 Nothing in `courseInstances/2026W1/assessments/`. No examlets at all for 2026W1,
 nor the final.
@@ -19,17 +19,16 @@ nor the final.
 - [ ] Needs a PrairieTest sitting. The 2026W1 enrolment link is still unknown;
       lectures 4–8 carry the dead 2025 one.
 
-## 2 — Tutorial 1 cannot be opened · **Tue Sep 15, 2pm** · 10%
+## 2 — Tutorial 1 · opens **tonight 23:59**, due Sun Sep 20 · 1% (1 of 10)
 
-- [ ] **`accessControl` is `[]`.** One JSON block, copied from
-      `class3-equivalence`. Blocked only on you naming the window. This is the
-      single thing standing between a student and Tuesday's lab.
-- [ ] 6 questions: Tautologies & Contradictions ×3, Equivalence Proof ×3.
+- [x] ~~Access window.~~ Set Sep 13: opens tonight with HW1, due Sun Sep 20,
+      submissions after that at credit 0.
 - [ ] Tell the TAs where it is and what they are running.
 - [ ] `data/additional-resources.csv` still has `tutorial-01,activity,TBD`, so
       the schedule's Tutorial column is greyed out.
 
-## 3 — HW1 opens **tonight, 23:59** · due Sun Sep 20 · 10%
+
+## 3 — HW1 opens **tonight, 23:59** · due Sun Sep 20 · 2% (1 of 5)
 
 Built and pushed. **Needs a PrairieLearn sync** — nothing else.
 
@@ -66,7 +65,8 @@ Built and pushed. **Needs a PrairieLearn sync** — nothing else.
 
 ## People
 
-- [ ] **Book the weekly staff meeting.** Proposed Mon 12–1. Nobody asked yet.
+- [ ] **Book the weekly staff meeting.** ~~Mon 12-1~~ is office hours now.
+      Proposed **Mon 1-2**. Nobody asked yet.
 - [ ] **Re-home L1C's 5 students.** L1D full, L1A has 2 spaces, L1B has 9 — so 3
       of the 5 must take Tue 4–6. You dropped the cancellation line from
       Monday's slide.
@@ -80,8 +80,8 @@ Built and pushed. **Needs a PrairieLearn sync** — nothing else.
       enrolment URL and `course_instance/186238`.
 - [ ] **Lecture 4's announcements** say "class THIS friday" (there isn't one)
       and "tutorials begin next week" (they begin the day before).
-- [ ] Tell students **the Friday videos are examinable.** Nothing says so, and
-      EX1's window closes on one.
+- [x] ~~Tell students the Friday videos are examinable.~~ Week-2 letter: "Note
+      that this is new material, just like any class meeting."
 - [ ] Course part titles — the live site still says "Topic to be decided".
 - [ ] Final exam date. DSCI Instagram handle (Jayden's).
 
