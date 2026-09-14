@@ -197,6 +197,34 @@ entirely propositional. Two new questions written for it: `wff-structure` and
 
 ## Question bank
 
+## 🌳 A real parse-tree question — for practice and the examlet
+
+Noted 2026-09-13. **Nothing in the course assesses parse trees.** Lecture 3 draws
+two at the board and that is the whole of it. HW1's `wff-structure` even tells
+students "deciding whether a string is a WFF requires that you build the parse
+tree" and then never asks for one — its parser is grading infrastructure they
+never see, and everything it asks is *generation*, not parsing.
+
+Elements available (usage counts in this repo): `pl-order-blocks` **33**,
+`pl-matching`/`pl-matrix` 7, `pl-drawing` **0** anywhere in any of the three
+courses. So order-blocks is the familiar tool; drawing would be new ground.
+
+Design candidates, cheapest first:
+
+- **Reconstruct without drawing.** Given a formula, ask for the root operator
+  (dropdown), the left and right subtrees (string inputs, parseable), and the
+  depth (integer). Fully determines the tree, every part auto-grades, and it
+  randomises — generate a WFF, compute its properties.
+- **`pl-order-blocks` with indentation** to encode tree structure. The element
+  is already used 33 times here, so the idiom is familiar.
+- **Where does it fail?** Give `~(p v q))` — the lecture 2 theorem — and ask
+  where the first failure is. Outside-in dies at `q)`; a depth counter dies at
+  the final `)` going to −1; recursive descent *parses `~(p v q)` successfully*
+  and only rejects on leftover input. Four methods, four different answers, all
+  correct. Good examlet material and it needs no new widget.
+- A genuine drawn tree. Most work, most fidelity, defer.
+
+
 - [x] ~~**A WFF generation question.**~~ Written 2026-09-12:
       `2026W1/logic/wff-structure`. Students build WFFs to spec, hit one that
       cannot exist, find that atoms = binary + 1, check that every grammar rule
