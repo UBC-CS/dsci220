@@ -7,10 +7,11 @@ Not published (Quarto ignores `_`-prefixed files).
 - The **TA team reviews and refines all lab materials** together.
 - **One TA owns each lab** — responsible for signing off that it is complete,
   and for keeping it on track.
-- The **three TAs meet weekly**. Proposed: **Monday 12:00–1:00** — straight
-  after Monday's class and before the week's first lab (Noah's Tue 2pm), so a
-  lab can still be fixed after sign-off. Fallbacks: Mon 1–2, or Thursday (open
-  for all four, but falls after every lab that week).
+- The **three TAs meet weekly**. ~~Monday 12:00–1:00~~ — **taken by office
+  hours as of 2026-09-13.** Next best is **Monday 1:00–2:00**: still after
+  Monday's class and before the week's first lab (Noah's Tue 2pm), so a lab can
+  still be fixed after sign-off. Thursday is also open for all four, but falls
+  after every lab that week.
 - **Video recording: Thursday 10:00–11:00.** Wednesday afternoon is gone —
   Cinda is in another class 3–4 and recording for a different course 4:30–5:30,
   and Marko's lab runs 1–3. Thursday is open for all four, is still after
@@ -22,8 +23,7 @@ Not published (Quarto ignores `_`-prefixed files).
 
 | Day | |
 |---|---|
-| Mon | 11–12 class |
-| Tue | 2–4 office hours |
+| Mon | 11–12 class, 12–1 office hours |
 | Wed | 11–12 class, 3–4 other class, 4:30–5:30 recording for another course |
 | Thu | clear |
 | Fri | 11–12 class (async from week 2) |

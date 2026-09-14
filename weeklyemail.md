@@ -14,7 +14,7 @@ When they disagree, the slide is the one students saw in the room.
 | PrairieLearn | <https://us.prairielearn.com/pl/course_instance/209866> |
 | Canvas | <https://canvas.ubc.ca/courses/191848> |
 | Class | Mon/Wed/Fri 11:00–12:00, BIOL 2200 (Fri is async from week 2) |
-| Office hours | Tue 2–4, ICCS 233. TAs by appointment. |
+| Office hours | Mon 12–1, ICCS 233. TAs by appointment. |
 
 ---
 

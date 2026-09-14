@@ -245,7 +245,7 @@ first of a dataset and then of every cereal ever manufactured.
 
 - **Prof: Cinda Heeren**
   &#128231; [cheeren@cs.ubc.ca](mailto:cheeren@cs.ubc.ca)
-  &#9200; Tue 2--4pm &#183; &#127970; ICCS 233
+  &#9200; Mon 12--1pm &#183; &#127970; ICCS 233
 
 - **TA: Marko Ciric** &#128231; [mciric01@student.ubc.ca](mailto:mciric01@student.ubc.ca)
 - **TA: Noah Hynds** &#128231; [nhynds@student.ubc.ca](mailto:nhynds@student.ubc.ca)
