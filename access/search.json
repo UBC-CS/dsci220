@@ -1613,112 +1613,112 @@
   {
     "objectID": "slides/lecture-05_slides.html#announcements",
     "href": "slides/lecture-05_slides.html#announcements",
-    "title": "Quantifiers",
+    "title": "Rules of Inference",
     "section": "Announcements",
-    "text": "Announcements\n\nEnroll in PrairieTest here: https://us.prairietest.com/pt/student/course/24076/enroll/238568773340\nSign up for EX1. Practice materials (on PL) coming soon!\nTutorials begin next week."
+    "text": "Announcements\n\nEX1 is next week, Thu 9/24 through Sun 9/27, self-scheduled in ORCA. Enrol on PrairieTest: https://us.prairietest.com/pt/student/course/24076/enroll/238568773340\nPractice problems are on PrairieLearn now. Not graded, unlimited retries.\nHW1 is due Sunday 9/20, 11:59p.\nThis material is on EX1, just like any class meeting."
   },
   {
-    "objectID": "slides/lecture-05_slides.html#spot-the-rule-dodge-the-trap",
-    "href": "slides/lecture-05_slides.html#spot-the-rule-dodge-the-trap",
-    "title": "Quantifiers",
-    "section": "🎉 Spot the Rule, Dodge the Trap",
-    "text": "🎉 Spot the Rule, Dodge the Trap\nGoal for today: treat valid logical arguments like legal moves in a game.\nYou’ll identify moves, build quick proofs, and design traps."
+    "objectID": "slides/lecture-05_slides.html#legal-moves",
+    "href": "slides/lecture-05_slides.html#legal-moves",
+    "title": "Rules of Inference",
+    "section": "Legal Moves",
+    "text": "Legal Moves\nTreat a valid argument like a legal move in a game. Today we collect the moves: eight named rules, and the traps that look like rules but are not.\nYou will use them on Monday, to spot rules, build proofs, and design traps of your own."
   },
   {
-    "objectID": "slides/lecture-05_slides.html#warm-up-5-min",
-    "href": "slides/lecture-05_slides.html#warm-up-5-min",
-    "title": "Quantifiers",
-    "section": "Warm Up (5 min)",
-    "text": "Warm Up (5 min)\nA valid argument is a legal inference. Content can change; form is what makes it valid.\n\nIf the lab is open, I’ll go. The lab is open. So I’ll go.\nIf the exam is today, the forum is quiet. The forum isn’t quiet. So the exam isn’t today."
+    "objectID": "slides/lecture-05_slides.html#warm-up",
+    "href": "slides/lecture-05_slides.html#warm-up",
+    "title": "Rules of Inference",
+    "section": "Warm Up",
+    "text": "Warm Up\nA valid argument is a legal inference. Content can change; form is what makes it valid.\n\nIf the lab is open, I’ll go. The lab is open. So I’ll go.\nIf the exam is today, the forum is quiet. The forum isn’t quiet. So the exam isn’t today."
   },
   {
     "objectID": "slides/lecture-05_slides.html#micro-rule-cards",
     "href": "slides/lecture-05_slides.html#micro-rule-cards",
-    "title": "Quantifiers",
+    "title": "Rules of Inference",
     "section": "Micro Rule Cards",
-    "text": "Micro Rule Cards\nUse these all class as a reference.\n\nMP: from p→q, p infer q\n\nMT: from p→q, ¬q infer ¬p\n\nHS: from p→q, q→r infer p→r\n\nDS: from p∨q, ¬p infer q\n\n∧-Intro: from p, q infer p∧q\n\n∧-Elim: from p∧q infer p (or q)\n\n∨-Intro: from p infer p∨q (any q)\n\nRES: from p∨q, ¬p∨r infer q∨r\n\nCD: from (p→r), (q→s), (p∨q) infer r∨s\n\nCommon traps:\n\nAffirming consequent: p→q, q ∴ p ❌\nDenying antecedent: p→q, ¬p ∴ ¬q ❌"
+    "text": "Micro Rule Cards\nKeep these next to you. You will need them Monday.\n\nMP: from p→q, p infer q\n\nMT: from p→q, ¬q infer ¬p\n\nHS: from p→q, q→r infer p→r\n\nDS: from p∨q, ¬p infer q\n\n∧-Intro: from p, q infer p∧q\n\n∧-Elim: from p∧q infer p (or q)\n\n∨-Intro: from p infer p∨q (any q)\n\nRES: from p∨q, ¬p∨r infer q∨r\n\nCD: from (p→r), (q→s), (p∨q) infer r∨s\n\nCommon traps:\n\nAffirming consequent: p→q, q ∴ p ❌\nDenying antecedent: p→q, ¬p ∴ ¬q ❌"
   },
   {
     "objectID": "slides/lecture-05_slides.html#rule-card-modus-ponens-mp",
     "href": "slides/lecture-05_slides.html#rule-card-modus-ponens-mp",
-    "title": "Quantifiers",
+    "title": "Rules of Inference",
     "section": "Rule Card: Modus Ponens (MP)",
     "text": "Rule Card: Modus Ponens (MP)\n\nFrom p→q and p, infer q.\n\nEx:\nIf the bus is full, I’ll walk. The bus is full. So I’ll walk."
   },
   {
     "objectID": "slides/lecture-05_slides.html#rule-card-modus-tollens-mt",
     "href": "slides/lecture-05_slides.html#rule-card-modus-tollens-mt",
-    "title": "Quantifiers",
+    "title": "Rules of Inference",
     "section": "Rule Card: Modus Tollens (MT)",
     "text": "Rule Card: Modus Tollens (MT)\n\nFrom p→q and ¬q, infer ¬p.\n\nEx:\nIf office hours moved, Slack has an announcement. No announcement. So they didn’t move."
   },
   {
     "objectID": "slides/lecture-05_slides.html#rule-card-hypothetical-syllogism-hs",
     "href": "slides/lecture-05_slides.html#rule-card-hypothetical-syllogism-hs",
-    "title": "Quantifiers",
+    "title": "Rules of Inference",
     "section": "Rule Card: Hypothetical Syllogism (HS)",
     "text": "Rule Card: Hypothetical Syllogism (HS)\n\nFrom p→q and q→r, infer p→r.\n\nEx:\nIf tidy then joins are simpler; if simpler joins then faster viz; so tidy ⇒ faster viz."
   },
   {
     "objectID": "slides/lecture-05_slides.html#rule-card-disjunctive-syllogism-ds",
     "href": "slides/lecture-05_slides.html#rule-card-disjunctive-syllogism-ds",
-    "title": "Quantifiers",
+    "title": "Rules of Inference",
     "section": "Rule Card: Disjunctive Syllogism (DS)",
     "text": "Rule Card: Disjunctive Syllogism (DS)\n\nFrom p∨q and ¬p, infer q.\n\nEx:\nDinner is sushi or tacos. Not sushi. So tacos."
   },
   {
     "objectID": "slides/lecture-05_slides.html#rule-card-conjunction-simplification",
     "href": "slides/lecture-05_slides.html#rule-card-conjunction-simplification",
-    "title": "Quantifiers",
+    "title": "Rules of Inference",
     "section": "Rule Card: Conjunction / Simplification",
     "text": "Rule Card: Conjunction / Simplification\n\n\n∧-Intro: from p, q infer p∧q\n\n\n∧-Elim: from p∧q infer p (or q)"
   },
   {
     "objectID": "slides/lecture-05_slides.html#rule-card--intro",
     "href": "slides/lecture-05_slides.html#rule-card--intro",
-    "title": "Quantifiers",
+    "title": "Rules of Inference",
     "section": "Rule Card: ∨-Intro",
     "text": "Rule Card: ∨-Intro\n\nFrom p infer p∨q.\n\nEx: I rode my scooter today, so I either rode my scooter or I’m a unicorn.\nNote validity cares about form, not plausibility of the added disjunct."
   },
   {
     "objectID": "slides/lecture-05_slides.html#rule-card-resolution-res",
     "href": "slides/lecture-05_slides.html#rule-card-resolution-res",
-    "title": "Quantifiers",
+    "title": "Rules of Inference",
     "section": "Rule Card: Resolution (RES)",
     "text": "Rule Card: Resolution (RES)\n\nFrom p∨q and ¬p∨r infer q∨r.\n\nEx:\nEither study or soccer; if study then library. So soccer or library."
   },
   {
     "objectID": "slides/lecture-05_slides.html#rule-card-constructive-dilemma-cd",
     "href": "slides/lecture-05_slides.html#rule-card-constructive-dilemma-cd",
-    "title": "Quantifiers",
+    "title": "Rules of Inference",
     "section": "Rule Card: Constructive Dilemma (CD)",
     "text": "Rule Card: Constructive Dilemma (CD)\n\nFrom (p→r), (q→s), (p∨q) infer r∨s.\n\nEx:\nIf sunny then picnic; if rainy then museum; sunny or rainy; so picnic or museum."
   },
   {
     "objectID": "slides/lecture-05_slides.html#fallacy-cards-flash",
     "href": "slides/lecture-05_slides.html#fallacy-cards-flash",
-    "title": "Quantifiers",
+    "title": "Rules of Inference",
     "section": "Fallacy Cards (flash)",
     "text": "Fallacy Cards (flash)\n\n\nAffirming the consequent ❌\nfrom p→q, q infer p\n\n\nDenying the antecedent ❌\nfrom p→q, ¬p infer ¬q"
   },
   {
     "objectID": "slides/lecture-05_slides.html#validity",
     "href": "slides/lecture-05_slides.html#validity",
-    "title": "Quantifiers",
+    "title": "Rules of Inference",
     "section": "Validity",
     "text": "Validity\n∧-Elim: \\((p\\wedge q)\\rightarrow p\\) is this always true?"
   },
   {
     "objectID": "slides/lecture-05_slides.html#invalidity",
     "href": "slides/lecture-05_slides.html#invalidity",
-    "title": "Quantifiers",
+    "title": "Rules of Inference",
     "section": "INValidity",
     "text": "INValidity\nAffirming Consequent: \\(((p\\rightarrow q)\\wedge q)\\rightarrow p\\) is this always true?\n\n\n\n\n\n\n\n\n\n\n\\(p\\)\n\\(q\\)\n\\(p\\rightarrow q\\)\n\\((p\\rightarrow q)\\wedge q\\)\n\\(((p\\rightarrow q)\\wedge q)\\rightarrow p\\)\n\n\n\n\nF\nF\n\n\n\n\n\nF\nT\n\n\n\n\n\nT\nF\n\n\n\n\n\nT\nT"
   },
   {
     "objectID": "slides/lecture-05_slides.html#words-and-ideas",
     "href": "slides/lecture-05_slides.html#words-and-ideas",
-    "title": "Quantifiers",
+    "title": "Rules of Inference",
     "section": "Words and Ideas",
     "text": "Words and Ideas\nRules of Inference\nModus Ponens, Modus Tollens\nHypothetical and Disjunctive Syllogism\nResolution\nFallacies"
   },

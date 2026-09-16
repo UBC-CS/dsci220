@@ -12,7 +12,7 @@
 <script src="../site_libs/quarto-contrib/iconify-3.0.0/iconify-icon.min.js"></script><meta charset="utf-8">
   <meta name="generator" content="quarto-1.10.18">
 
-  <title>{{&lt; var course.full-title &gt;}}---Accessibility version – Quantifiers</title>
+  <title>{{&lt; var course.full-title &gt;}}---Accessibility version – Rules of Inference</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -134,10 +134,10 @@
   </style>
   <script type="module" src="../site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
   <link href="../site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
-<meta property="og:title" content="Quantifiers – DSCI 220: Discrete Math for Data Science—Accessibility version">
+<meta property="og:title" content="Rules of Inference – DSCI 220: Discrete Math for Data Science—Accessibility version">
 <meta property="og:description" content="Lecture 5, DSCI 220, 2026W1">
 <meta property="og:site_name" content="DSCI 220: Discrete Math for Data Science—Accessibility version">
-<meta name="twitter:title" content="Quantifiers – DSCI 220: Discrete Math for Data Science—Accessibility version">
+<meta name="twitter:title" content="Rules of Inference – DSCI 220: Discrete Math for Data Science—Accessibility version">
 <meta name="twitter:description" content="Lecture 5, DSCI 220, 2026W1">
 <meta name="twitter:card" content="summary">
 </head>
@@ -146,7 +146,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Quantifiers</h1>
+  <h1 class="title">Rules of Inference</h1>
   <p class="subtitle">Lecture 5, DSCI 220, 2026W1</p>
 
 <div class="quarto-title-authors">
@@ -156,9 +156,10 @@
 <section id="announcements" class="slide level2 smaller">
 <h2>Announcements</h2>
 <ul>
-<li>Enroll in PrairieTest here: <a href="https://us.prairietest.com/pt/student/course/24076/enroll/238568773340" class="uri">https://us.prairietest.com/pt/student/course/24076/enroll/238568773340</a></li>
-<li>Sign up for EX1. Practice materials (on PL) coming soon!</li>
-<li>Tutorials begin next week.</li>
+<li><strong>EX1 is next week</strong>, Thu 9/24 through Sun 9/27, self-scheduled in ORCA. Enrol on PrairieTest: <a href="https://us.prairietest.com/pt/student/course/24076/enroll/238568773340" class="uri">https://us.prairietest.com/pt/student/course/24076/enroll/238568773340</a></li>
+<li><strong>Practice problems are on PrairieLearn now.</strong> Not graded, unlimited retries.</li>
+<li><strong>HW1 is due Sunday 9/20, 11:59p.</strong></li>
+<li>This material is on EX1, just like any class meeting.</li>
 </ul>
 </section>
 <section>
@@ -175,13 +176,13 @@
 .badge { display:inline-block; padding:2px 8px; border:1px solid #bbb; border-radius:10px; font-size:.8rem; }
 </style>
 </section>
-<section id="spot-the-rule-dodge-the-trap" class="slide level2">
-<h2>🎉 Spot the Rule, Dodge the Trap</h2>
-<p><strong>Goal for today:</strong> treat valid logical arguments like <em>legal moves</em> in a game.</p>
-<p>You’ll identify moves, build quick proofs, and design traps.</p>
+<section id="legal-moves" class="slide level2">
+<h2>Legal Moves</h2>
+<p>Treat a valid argument like a <em>legal move</em> in a game. Today we collect the moves: eight named rules, and the traps that look like rules but are not.</p>
+<p>You will use them on Monday, to spot rules, build proofs, and design traps of your own.</p>
 </section>
-<section id="warm-up-5-min" class="slide level2">
-<h2>Warm Up (5 min)</h2>
+<section id="warm-up" class="slide level2">
+<h2>Warm Up</h2>
 <p>A <em>valid argument</em> is a <em>legal inference</em>. Content can change; form is what makes it valid.</p>
 <ul>
 <li><p>If the lab is open, I’ll go. The lab is open. <strong>So I’ll go.</strong></p></li>
@@ -190,7 +191,7 @@
 </section>
 <section id="micro-rule-cards" class="slide level2 smaller">
 <h2>Micro Rule Cards</h2>
-<p>Use these all class as a reference.</p>
+<p>Keep these next to you. You will need them Monday.</p>
 <ul>
 <li><strong>MP</strong>: from <code>p→q, p</code> infer <code>q</code><br>
 </li>
