@@ -4,7 +4,9 @@ source(here::here("R", "get-id-from-resource.R"))
 
 get_schedule <- function() {
   rendering_student_profile <- check_if_student_profile()
-  current_date <- lubridate::today()
+  # GitHub runners are UTC, which would make "Monday" start at 5pm Pacific
+  # on Sunday. Reveal on local dates instead.
+  current_date <- lubridate::today(tzone = "America/Vancouver")
 
   lookup <- readr::read_csv(here::here("data", "lookup.csv"), col_types = "cc")
   # Sequence of `type`s in `lookup` table determines column sequence

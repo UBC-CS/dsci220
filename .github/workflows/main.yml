@@ -8,8 +8,11 @@ on:
     - main
   pull_request:
   schedule:
-    - cron: '25 11 * * 1'
-    - cron: '25 11 * * 6'
+    # Daily: the schedule reveals each lecture on its OWN day, so a twice-weekly
+    # build would leave Wednesday's deck and Friday's video hidden until the
+    # weekend. 08:05 UTC is 01:05 PDT / 00:05 PST -- just after local midnight
+    # on both sides of the time change.
+    - cron: '5 8 * * *'
 
 jobs:
   build-deploy:
