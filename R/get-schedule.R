@@ -87,14 +87,22 @@ get_schedule <- function() {
       ),
       monday = lubridate::floor_date(date, unit = "week", week_start = "Mon"),
       current_week = is_current_week(date, current_date),
+      # A lecture's deck appears on the day it is delivered -- otherwise Monday
+      # would unlock the whole week. Friday is the exception: it is an async
+      # video recorded right after Wednesday's class, so its deck is ready
+      # then and reveals with Wednesday's. Nothing to maintain per week; the
+      # slot decides.
+      reveal_date = dplyr::if_else(
+        as.character(slot) == "Fri",
+        monday + lubridate::days(2),
+        date
+      ),
       show_week = dplyr::case_when(
         !rendering_student_profile ~ TRUE,
         week == 1 ~ TRUE,
-        # Lectures reveal on their OWN day -- otherwise Monday would unlock
-        # Wednesday's and Friday's decks too. Everything else reveals on its
-        # week's Monday, because for homework and exams `date` is the DUE date
-        # and the work opens well before it.
-        unit == "lecture" ~ date <= current_date,
+        # Everything else reveals on its week's Monday, because for homework
+        # and exams `date` is the DUE date and the work opens well before it.
+        unit == "lecture" ~ reveal_date <= current_date,
         monday <= current_date ~ TRUE,
         .default = FALSE
       ),
