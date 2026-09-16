@@ -53,7 +53,7 @@ Built and pushed. **Needs a PrairieLearn sync** — nothing else.
 - [ ] **Lecture 3, Mon 11:00.** Done and live.
 - [ ] **Lecture 4, Wed 11:00.** Done. ~68 min of material in a 50-min class, by
       design — overflow goes into Friday's video.
-- [x] ~~Recording slot.~~ **Wednesday evenings**, decided Sep 13. It is the only
+- [x] ~~Recording slot.~~ **Wednesday 12-1**, settled Sep 15 -- straight after class. It is the only
       time that is both after Wednesday's class (the video absorbs lecture 4's
       overflow) and early enough for the Thursday-morning posting promised in
       the week-2 letter.

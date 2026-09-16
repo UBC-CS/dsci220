@@ -12,7 +12,8 @@ Not published (Quarto ignores `_`-prefixed files).
   Monday's class and before the week's first lab (Noah's Tue 2pm), so a lab can
   still be fixed after sign-off. Thursday is also open for all four, but falls
   after every lab that week.
-- **Video recording: Wednesday evenings** (decided 2026-09-13). It has to be
+- **Video recording: Wednesday 12:00-1:00** (settled 2026-09-15), straight
+  after class. It has to be
   after Wednesday's class, since the video absorbs whatever lecture 4 did not
   reach, and the week-2 letter promises students the video **by Thursday
   morning** — so Wednesday night is the only slot that satisfies both.

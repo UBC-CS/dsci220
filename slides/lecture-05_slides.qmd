@@ -1,14 +1,16 @@
 ---
-title: "Quantifiers"
+title: "Rules of Inference"
 subtitle: "Lecture 5, {{< var course.code >}}, {{< var course.term >}}"
 ---
 
 ## Announcements {.smaller}
 
-* Enroll in PrairieTest here:
+* **EX1 is next week**, Thu 9/24 through Sun 9/27, self-scheduled in ORCA.
+  Enrol on PrairieTest:
  <https://us.prairietest.com/pt/student/course/24076/enroll/238568773340>
-* Sign up for EX1. Practice materials (on PL) coming soon!
-* Tutorials begin next week.
+* **Practice problems are on PrairieLearn now.** Not graded, unlimited retries.
+* **HW1 is due Sunday 9/20, 11:59p.**
+* This material is on EX1, just like any class meeting.
 
 # Inference
 
@@ -23,14 +25,16 @@ subtitle: "Lecture 5, {{< var course.code >}}, {{< var course.term >}}"
 .badge { display:inline-block; padding:2px 8px; border:1px solid #bbb; border-radius:10px; font-size:.8rem; }
 </style>
 
-## 🎉 Spot the Rule, Dodge the Trap
+## Legal Moves
 
-**Goal for today:** treat valid logical arguments like *legal moves* in a game.  
+Treat a valid argument like a *legal move* in a game. Today we collect the
+moves: eight named rules, and the traps that look like rules but are not.
 
-You’ll identify moves, build quick proofs, and design  traps.
+You will use them on Monday, to spot rules, build proofs, and design traps of
+your own.
 
 
-## Warm Up (5 min)
+## Warm Up
 
 A *valid argument* is a *legal inference*. Content can change; form is what makes it valid.
 
@@ -42,7 +46,7 @@ A *valid argument* is a *legal inference*. Content can change; form is what make
 
 ## Micro Rule Cards {.smaller}
 
-Use these all class as a reference.
+Keep these next to you. You will need them Monday.
 
 - **MP**: from `p→q, p` infer `q`  
 - **MT**: from `p→q, ¬q` infer `¬p`  
