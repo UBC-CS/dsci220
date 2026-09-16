@@ -189,41 +189,15 @@
 <li><p>If the exam is today, the forum is quiet. The forum isn’t quiet. <strong>So the exam isn’t today.</strong></p></li>
 </ul>
 </section>
-<section id="micro-rule-cards" class="slide level2 smaller">
-<h2>Micro Rule Cards</h2>
-<p>Given the premises, what can you infer?</p>
-<div class="columns">
-<div class="column" style="width:50%;">
-<ul>
-<li><strong>MP</strong>: from <code>p→q, p</code> infer ______</li>
-<li><strong>MT</strong>: from <code>p→q, ¬q</code> infer ______</li>
-<li><strong>HS</strong>: from <code>p→q, q→r</code> infer ______</li>
-<li><strong>DS</strong>: from <code>p∨q, ¬p</code> infer ______</li>
-<li><strong>∧-Intro</strong>: from <code>p, q</code> infer ______</li>
-</ul>
-</div><div class="column" style="width:50%;">
-<ul>
-<li><strong>∧-Elim</strong>: from <code>p∧q</code> infer ______</li>
-<li><strong>∨-Intro</strong>: from <code>p</code> infer ______</li>
-<li><strong>RES</strong>: from <code>p∨q, ¬p∨r</code> infer ______</li>
-<li><strong>CD</strong>: from <code>(p→r), (q→s), (p∨q)</code> infer ______</li>
-</ul>
-</div></div>
-<p><strong>Common traps:</strong></p>
-<div class="columns">
-<div class="column" style="width:50%;">
-<ul>
-<li>Affirming consequent: <code>p→q, q ∴ p</code> ❌</li>
-</ul>
-</div><div class="column" style="width:50%;">
-<ul>
-<li>Denying antecedent: <code>p→q, ¬p ∴ ¬q</code> ❌</li>
-</ul>
-</div></div>
+<section id="rule-card-modus-ponens-mp" class="slide level2">
+<h2>Rule Card: Modus Ponens (MP)</h2>
+<div class="card rule">
+<p>From <code>p→q</code> and <code>p</code>, infer <code>________</code>.</p>
+</div>
+<p><strong>Ex:</strong><br>
+If the bus is full, I’ll walk. The bus is full. <strong>________</strong></p>
 <aside class="notes">
-<p>Ask the room (Noah or Perrie) before filling each one in. The nine Rule Card slides that follow are the reveal, one at a time, so do not rush this.</p>
-<p>MP q MT ~p HS p-&gt;r DS q ^-Intro p^q ^-Elim p (or q) v-Intro pvq (any q) RES qvr CD rvs</p>
-<p>The two traps are already shown as traps – they are the contrast, not a guess.</p>
+<p>Blank: q Example: So I’ll walk.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -236,72 +210,155 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="rule-card-modus-ponens-mp" class="slide level2">
-<h2>Rule Card: Modus Ponens (MP)</h2>
-<div class="card rule">
-<p>From <code>p→q</code> and <code>p</code>, infer <code>q</code>.</p>
-</div>
-<p><strong>Ex:</strong><br>
-If the bus is full, I’ll walk. The bus is full. <strong>So I’ll walk.</strong></p>
-</section>
 <section id="rule-card-modus-tollens-mt" class="slide level2">
 <h2>Rule Card: Modus Tollens (MT)</h2>
 <div class="card rule">
-<p>From <code>p→q</code> and <code>¬q</code>, infer <code>¬p</code>.</p>
+<p>From <code>p→q</code> and <code>¬q</code>, infer <code>________</code>.</p>
 </div>
 <p><strong>Ex:</strong><br>
-If office hours moved, Slack has an announcement. No announcement. <strong>So they didn’t move.</strong></p>
+If office hours moved, Slack has an announcement. No announcement. <strong>________</strong></p>
+<aside class="notes">
+<p>Blank: ~p Example: So they didn’t move.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="rule-card-hypothetical-syllogism-hs" class="slide level2">
 <h2>Rule Card: Hypothetical Syllogism (HS)</h2>
 <div class="card rule">
-<p>From <code>p→q</code> and <code>q→r</code>, infer <code>p→r</code>.</p>
+<p>From <code>p→q</code> and <code>q→r</code>, infer <code>________</code>.</p>
 </div>
 <p><strong>Ex:</strong><br>
-If tidy then joins are simpler; if simpler joins then faster viz; <strong>so tidy ⇒ faster viz.</strong></p>
+If tidy then joins are simpler; if simpler joins then faster viz; <strong>________</strong></p>
+<aside class="notes">
+<p>Blank: p-&gt;r Example: So tidy =&gt; faster viz.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="rule-card-disjunctive-syllogism-ds" class="slide level2">
 <h2>Rule Card: Disjunctive Syllogism (DS)</h2>
 <div class="card rule">
-<p>From <code>p∨q</code> and <code>¬p</code>, infer <code>q</code>.</p>
+<p>From <code>p∨q</code> and <code>¬p</code>, infer <code>________</code>.</p>
 </div>
 <p><strong>Ex:</strong><br>
-Dinner is sushi or tacos. Not sushi. <strong>So tacos.</strong></p>
+Dinner is sushi or tacos. Not sushi. <strong>________</strong></p>
+<aside class="notes">
+<p>Blank: q Example: So tacos.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="rule-card-conjunction-simplification" class="slide level2">
 <h2>Rule Card: Conjunction / Simplification</h2>
 <div class="two-col">
 <div class="card rule">
-<p><strong>∧-Intro</strong>: from <code>p, q</code> infer <code>p∧q</code></p>
+<p><strong>∧-Intro</strong>: from <code>p, q</code> infer <code>________</code></p>
 </div>
 <div class="card rule">
-<p><strong>∧-Elim</strong>: from <code>p∧q</code> infer <code>p</code> (or <code>q</code>)</p>
+<p><strong>∧-Elim</strong>: from <code>p∧q</code> infer <code>________</code></p>
 </div>
 </div>
+<aside class="notes">
+<p>Blanks: ^-Intro p^q ^-Elim p (or q)</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="rule-card--intro" class="slide level2">
 <h2>Rule Card: ∨-Intro</h2>
 <div class="card rule">
-<p>From <code>p</code> infer <code>p∨q</code>.</p>
+<p>From <code>p</code> infer <code>________</code>.</p>
 </div>
-<p><strong>Ex:</strong> I rode my scooter today, <strong>so I either rode my scooter or I’m a unicorn.</strong></p>
+<p><strong>Ex:</strong> I rode my scooter today, <strong>________</strong></p>
 <p><strong>Note</strong> validity cares about <em>form</em>, not plausibility of the added disjunct.</p>
+<aside class="notes">
+<p>Blank: pvq Example: So I either rode my scooter or I’m a unicorn.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="rule-card-resolution-res" class="slide level2">
 <h2>Rule Card: Resolution (RES)</h2>
 <div class="card rule">
-<p>From <code>p∨q</code> and <code>¬p∨r</code> infer <code>q∨r</code>.</p>
+<p>From <code>p∨q</code> and <code>¬p∨r</code> infer <code>________</code>.</p>
 </div>
 <p><strong>Ex:</strong><br>
-Either study or soccer; if study then library. <strong>So soccer or library.</strong></p>
+Either study or soccer; if study then library. <strong>________</strong></p>
+<aside class="notes">
+<p>Blank: qvr Example: So soccer or library.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="rule-card-constructive-dilemma-cd" class="slide level2">
 <h2>Rule Card: Constructive Dilemma (CD)</h2>
 <div class="card rule">
-<p>From <code>(p→r), (q→s), (p∨q)</code> infer <code>r∨s</code>.</p>
+<p>From <code>(p→r), (q→s), (p∨q)</code> infer <code>________</code>.</p>
 </div>
 <p><strong>Ex:</strong><br>
-If sunny then picnic; if rainy then museum; sunny or rainy; <strong>so picnic or museum.</strong></p>
+If sunny then picnic; if rainy then museum; sunny or rainy; <strong>________</strong></p>
+<aside class="notes">
+<p>Blank: rvs Example: So picnic or museum.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="fallacy-cards-flash" class="slide level2">
 <h2>Fallacy Cards (flash)</h2>
@@ -371,6 +428,51 @@ If sunny then picnic; if rainy then museum; sunny or rainy; <strong>so picnic or
 </tr>
 </tbody>
 </table>
+</section>
+<section id="micro-rule-cards" class="slide level2 smaller">
+<h2>Micro Rule Cards</h2>
+<p>Keep these next to you. You will need them Monday.</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li><strong>MP</strong>: from <code>p→q, p</code> infer <code>q</code></li>
+<li><strong>MT</strong>: from <code>p→q, ¬q</code> infer <code>¬p</code></li>
+<li><strong>HS</strong>: from <code>p→q, q→r</code> infer <code>p→r</code></li>
+<li><strong>DS</strong>: from <code>p∨q, ¬p</code> infer <code>q</code></li>
+<li><strong>∧-Intro</strong>: from <code>p, q</code> infer <code>p∧q</code></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<ul>
+<li><strong>∧-Elim</strong>: from <code>p∧q</code> infer <code>p</code> (or <code>q</code>)</li>
+<li><strong>∨-Intro</strong>: from <code>p</code> infer <code>p∨q</code> (any <code>q</code>)</li>
+<li><strong>RES</strong>: from <code>p∨q, ¬p∨r</code> infer <code>q∨r</code></li>
+<li><strong>CD</strong>: from <code>(p→r), (q→s), (p∨q)</code> infer <code>r∨s</code></li>
+</ul>
+</div></div>
+<p><strong>Common traps:</strong></p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li>Affirming consequent: <code>p→q, q ∴ p</code> ❌</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<ul>
+<li>Denying antecedent: <code>p→q, ¬p ∴ ¬q</code> ❌</li>
+</ul>
+</div></div>
+<aside class="notes">
+<p>The reference sheet, now that every rule has been worked. This is the one to screenshot.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="words-and-ideas" class="slide level2">
 <h2>Words and Ideas</h2>

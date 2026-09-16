@@ -1632,67 +1632,60 @@
     "text": "Warm Up\nA valid argument is a legal inference. Content can change; form is what makes it valid.\n\nIf the lab is open, I’ll go. The lab is open. So I’ll go.\nIf the exam is today, the forum is quiet. The forum isn’t quiet. So the exam isn’t today."
   },
   {
-    "objectID": "slides/lecture-05_slides.html#micro-rule-cards",
-    "href": "slides/lecture-05_slides.html#micro-rule-cards",
-    "title": "Rules of Inference",
-    "section": "Micro Rule Cards",
-    "text": "Micro Rule Cards\nGiven the premises, what can you infer?\n\n\n\nMP: from p→q, p infer ______\nMT: from p→q, ¬q infer ______\nHS: from p→q, q→r infer ______\nDS: from p∨q, ¬p infer ______\n∧-Intro: from p, q infer ______\n\n\n\n∧-Elim: from p∧q infer ______\n∨-Intro: from p infer ______\nRES: from p∨q, ¬p∨r infer ______\nCD: from (p→r), (q→s), (p∨q) infer ______\n\n\nCommon traps:\n\n\n\nAffirming consequent: p→q, q ∴ p ❌\n\n\n\nDenying antecedent: p→q, ¬p ∴ ¬q ❌\n\n\n\nAsk the room (Noah or Perrie) before filling each one in. The nine Rule Card slides that follow are the reveal, one at a time, so do not rush this.\nMP q MT ~p HS p-&gt;r DS q ^-Intro p^q ^-Elim p (or q) v-Intro pvq (any q) RES qvr CD rvs\nThe two traps are already shown as traps – they are the contrast, not a guess."
-  },
-  {
     "objectID": "slides/lecture-05_slides.html#rule-card-modus-ponens-mp",
     "href": "slides/lecture-05_slides.html#rule-card-modus-ponens-mp",
     "title": "Rules of Inference",
     "section": "Rule Card: Modus Ponens (MP)",
-    "text": "Rule Card: Modus Ponens (MP)\n\nFrom p→q and p, infer q.\n\nEx:\nIf the bus is full, I’ll walk. The bus is full. So I’ll walk."
+    "text": "Rule Card: Modus Ponens (MP)\n\nFrom p→q and p, infer ________.\n\nEx:\nIf the bus is full, I’ll walk. The bus is full. ________\n\nBlank: q Example: So I’ll walk."
   },
   {
     "objectID": "slides/lecture-05_slides.html#rule-card-modus-tollens-mt",
     "href": "slides/lecture-05_slides.html#rule-card-modus-tollens-mt",
     "title": "Rules of Inference",
     "section": "Rule Card: Modus Tollens (MT)",
-    "text": "Rule Card: Modus Tollens (MT)\n\nFrom p→q and ¬q, infer ¬p.\n\nEx:\nIf office hours moved, Slack has an announcement. No announcement. So they didn’t move."
+    "text": "Rule Card: Modus Tollens (MT)\n\nFrom p→q and ¬q, infer ________.\n\nEx:\nIf office hours moved, Slack has an announcement. No announcement. ________\n\nBlank: ~p Example: So they didn’t move."
   },
   {
     "objectID": "slides/lecture-05_slides.html#rule-card-hypothetical-syllogism-hs",
     "href": "slides/lecture-05_slides.html#rule-card-hypothetical-syllogism-hs",
     "title": "Rules of Inference",
     "section": "Rule Card: Hypothetical Syllogism (HS)",
-    "text": "Rule Card: Hypothetical Syllogism (HS)\n\nFrom p→q and q→r, infer p→r.\n\nEx:\nIf tidy then joins are simpler; if simpler joins then faster viz; so tidy ⇒ faster viz."
+    "text": "Rule Card: Hypothetical Syllogism (HS)\n\nFrom p→q and q→r, infer ________.\n\nEx:\nIf tidy then joins are simpler; if simpler joins then faster viz; ________\n\nBlank: p-&gt;r Example: So tidy =&gt; faster viz."
   },
   {
     "objectID": "slides/lecture-05_slides.html#rule-card-disjunctive-syllogism-ds",
     "href": "slides/lecture-05_slides.html#rule-card-disjunctive-syllogism-ds",
     "title": "Rules of Inference",
     "section": "Rule Card: Disjunctive Syllogism (DS)",
-    "text": "Rule Card: Disjunctive Syllogism (DS)\n\nFrom p∨q and ¬p, infer q.\n\nEx:\nDinner is sushi or tacos. Not sushi. So tacos."
+    "text": "Rule Card: Disjunctive Syllogism (DS)\n\nFrom p∨q and ¬p, infer ________.\n\nEx:\nDinner is sushi or tacos. Not sushi. ________\n\nBlank: q Example: So tacos."
   },
   {
     "objectID": "slides/lecture-05_slides.html#rule-card-conjunction-simplification",
     "href": "slides/lecture-05_slides.html#rule-card-conjunction-simplification",
     "title": "Rules of Inference",
     "section": "Rule Card: Conjunction / Simplification",
-    "text": "Rule Card: Conjunction / Simplification\n\n\n∧-Intro: from p, q infer p∧q\n\n\n∧-Elim: from p∧q infer p (or q)"
+    "text": "Rule Card: Conjunction / Simplification\n\n\n∧-Intro: from p, q infer ________\n\n\n∧-Elim: from p∧q infer ________\n\n\n\nBlanks: ^-Intro p^q ^-Elim p (or q)"
   },
   {
     "objectID": "slides/lecture-05_slides.html#rule-card--intro",
     "href": "slides/lecture-05_slides.html#rule-card--intro",
     "title": "Rules of Inference",
     "section": "Rule Card: ∨-Intro",
-    "text": "Rule Card: ∨-Intro\n\nFrom p infer p∨q.\n\nEx: I rode my scooter today, so I either rode my scooter or I’m a unicorn.\nNote validity cares about form, not plausibility of the added disjunct."
+    "text": "Rule Card: ∨-Intro\n\nFrom p infer ________.\n\nEx: I rode my scooter today, ________\nNote validity cares about form, not plausibility of the added disjunct.\n\nBlank: pvq Example: So I either rode my scooter or I’m a unicorn."
   },
   {
     "objectID": "slides/lecture-05_slides.html#rule-card-resolution-res",
     "href": "slides/lecture-05_slides.html#rule-card-resolution-res",
     "title": "Rules of Inference",
     "section": "Rule Card: Resolution (RES)",
-    "text": "Rule Card: Resolution (RES)\n\nFrom p∨q and ¬p∨r infer q∨r.\n\nEx:\nEither study or soccer; if study then library. So soccer or library."
+    "text": "Rule Card: Resolution (RES)\n\nFrom p∨q and ¬p∨r infer ________.\n\nEx:\nEither study or soccer; if study then library. ________\n\nBlank: qvr Example: So soccer or library."
   },
   {
     "objectID": "slides/lecture-05_slides.html#rule-card-constructive-dilemma-cd",
     "href": "slides/lecture-05_slides.html#rule-card-constructive-dilemma-cd",
     "title": "Rules of Inference",
     "section": "Rule Card: Constructive Dilemma (CD)",
-    "text": "Rule Card: Constructive Dilemma (CD)\n\nFrom (p→r), (q→s), (p∨q) infer r∨s.\n\nEx:\nIf sunny then picnic; if rainy then museum; sunny or rainy; so picnic or museum."
+    "text": "Rule Card: Constructive Dilemma (CD)\n\nFrom (p→r), (q→s), (p∨q) infer ________.\n\nEx:\nIf sunny then picnic; if rainy then museum; sunny or rainy; ________\n\nBlank: rvs Example: So picnic or museum."
   },
   {
     "objectID": "slides/lecture-05_slides.html#fallacy-cards-flash",
@@ -1714,6 +1707,13 @@
     "title": "Rules of Inference",
     "section": "INValidity",
     "text": "INValidity\nAffirming Consequent: \\(((p\\rightarrow q)\\wedge q)\\rightarrow p\\) is this always true?\n\n\n\n\n\n\n\n\n\n\n\\(p\\)\n\\(q\\)\n\\(p\\rightarrow q\\)\n\\((p\\rightarrow q)\\wedge q\\)\n\\(((p\\rightarrow q)\\wedge q)\\rightarrow p\\)\n\n\n\n\nF\nF\n\n\n\n\n\nF\nT\n\n\n\n\n\nT\nF\n\n\n\n\n\nT\nT"
+  },
+  {
+    "objectID": "slides/lecture-05_slides.html#micro-rule-cards",
+    "href": "slides/lecture-05_slides.html#micro-rule-cards",
+    "title": "Rules of Inference",
+    "section": "Micro Rule Cards",
+    "text": "Micro Rule Cards\nKeep these next to you. You will need them Monday.\n\n\n\nMP: from p→q, p infer q\nMT: from p→q, ¬q infer ¬p\nHS: from p→q, q→r infer p→r\nDS: from p∨q, ¬p infer q\n∧-Intro: from p, q infer p∧q\n\n\n\n∧-Elim: from p∧q infer p (or q)\n∨-Intro: from p infer p∨q (any q)\nRES: from p∨q, ¬p∨r infer q∨r\nCD: from (p→r), (q→s), (p∨q) infer r∨s\n\n\nCommon traps:\n\n\n\nAffirming consequent: p→q, q ∴ p ❌\n\n\n\nDenying antecedent: p→q, ¬p ∴ ¬q ❌\n\n\n\nThe reference sheet, now that every rule has been worked. This is the one to screenshot."
   },
   {
     "objectID": "slides/lecture-05_slides.html#words-and-ideas",
