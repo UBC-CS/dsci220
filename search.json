@@ -1636,7 +1636,7 @@
     "href": "slides/lecture-05_slides.html#micro-rule-cards",
     "title": "Rules of Inference",
     "section": "Micro Rule Cards",
-    "text": "Micro Rule Cards\nKeep these next to you. You will need them Monday.\n\n\n\nMP: from p→q, p infer q\nMT: from p→q, ¬q infer ¬p\nHS: from p→q, q→r infer p→r\nDS: from p∨q, ¬p infer q\n∧-Intro: from p, q infer p∧q\n\n\n\n∧-Elim: from p∧q infer p (or q)\n∨-Intro: from p infer p∨q (any q)\nRES: from p∨q, ¬p∨r infer q∨r\nCD: from (p→r), (q→s), (p∨q) infer r∨s\n\n\nCommon traps:\n\n\n\nAffirming consequent: p→q, q ∴ p ❌\n\n\n\nDenying antecedent: p→q, ¬p ∴ ¬q ❌"
+    "text": "Micro Rule Cards\nGiven the premises, what can you infer?\n\n\n\nMP: from p→q, p infer ______\nMT: from p→q, ¬q infer ______\nHS: from p→q, q→r infer ______\nDS: from p∨q, ¬p infer ______\n∧-Intro: from p, q infer ______\n\n\n\n∧-Elim: from p∧q infer ______\n∨-Intro: from p infer ______\nRES: from p∨q, ¬p∨r infer ______\nCD: from (p→r), (q→s), (p∨q) infer ______\n\n\nCommon traps:\n\n\n\nAffirming consequent: p→q, q ∴ p ❌\n\n\n\nDenying antecedent: p→q, ¬p ∴ ¬q ❌\n\n\n\nAsk the room (Noah or Perrie) before filling each one in. The nine Rule Card slides that follow are the reveal, one at a time, so do not rush this.\nMP q MT ~p HS p-&gt;r DS q ^-Intro p^q ^-Elim p (or q) v-Intro pvq (any q) RES qvr CD rvs\nThe two traps are already shown as traps – they are the contrast, not a guess."
   },
   {
     "objectID": "slides/lecture-05_slides.html#rule-card-modus-ponens-mp",
