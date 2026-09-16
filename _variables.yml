@@ -11,6 +11,7 @@ course:
   repo: "https://github.com/UBC-CS/dsci220"
   lms: "https://canvas.ubc.ca/courses/191848"
   prairielearn: "https://us.prairielearn.com/pl/course_instance/209866"
+  prairietest: "https://us.prairietest.com/pt/student/course/24076"
 instructor:
   name: "Dr. Cinda Heeren"
   pronouns: "she, her"

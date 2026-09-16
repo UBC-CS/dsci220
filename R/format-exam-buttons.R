@@ -5,19 +5,25 @@ format_exam_buttons <- function(id, resource) {
   book <- glue::glue("Book {id} on PrairieTest")
   practice <- glue::glue("Practice for {id} on PrairieLearn")
 
-  buttons <- glue::glue(
-    '<a class="exam-button" href="https://us.prairietest.com" ',
-    'title="{practice}" aria-label="{book}">Book</a> ',
+  prairietest <- yaml::read_yaml("_variables.yml")$course$prairietest
+
+  book_button <- glue::glue(
+    '<a class="exam-button" href="{prairietest}" ',
+    'title="{book}" aria-label="{book}">Book</a>'
+  )
+
+  practice_button <- glue::glue(
     '<a class="exam-button" href="{resource}" ',
     'title="{practice}" aria-label="{practice}">Practice</a>'
   )
 
-  # Nothing to link to yet: the PrairieTest sitting may not exist and the
-  # practice set may not have been released. Emit no buttons rather than
-  # buttons that go nowhere useful. Vectorised -- this is called from mutate().
+  # Booking and practice become available at different times, so they are
+  # gated separately. The PrairieTest course page is live all term, so Book
+  # always renders; a practice set is released per examlet, so Practice waits
+  # until `resource` names one. Vectorised -- this is called from mutate().
   dplyr::if_else(
     dplyr::coalesce(resource, "TBD") == "TBD",
-    "",
-    as.character(buttons)
+    as.character(book_button),
+    as.character(glue::glue("{book_button} {practice_button}"))
   )
 }
