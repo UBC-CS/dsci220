@@ -1622,70 +1622,77 @@
     "href": "slides/lecture-05_slides.html#legal-moves",
     "title": "Rules of Inference",
     "section": "Legal Moves",
-    "text": "Legal Moves\nTreat a valid argument like a legal move in a game. Today we collect the moves: eight named rules, and the traps that look like rules but are not.\nYou will use them on Monday, to spot rules, build proofs, and design traps of your own."
+    "text": "Legal Moves\nTreat a valid argument like a legal move in a game.\nToday we define the moves: eight named rules, and two rules?"
   },
   {
     "objectID": "slides/lecture-05_slides.html#warm-up",
     "href": "slides/lecture-05_slides.html#warm-up",
     "title": "Rules of Inference",
     "section": "Warm Up",
-    "text": "Warm Up\nA valid argument is a legal inference. Content can change; form is what makes it valid.\n\nIf the lab is open, I’ll go. The lab is open. So I’ll go.\nIf the exam is today, the forum is quiet. The forum isn’t quiet. So the exam isn’t today."
+    "text": "Warm Up\nA valid argument is a legal inference.\n\nIf the lab is open, I’ll go. The lab is open. So I’ll go.\nIf the exam is today, the forum is quiet. The forum isn’t quiet. So the exam isn’t today."
+  },
+  {
+    "objectID": "slides/lecture-05_slides.html#a-puzzle",
+    "href": "slides/lecture-05_slides.html#a-puzzle",
+    "title": "Rules of Inference",
+    "section": "A Puzzle",
+    "text": "A Puzzle\nYour friend _______ .\n\nIf BC has Chunkys, they go to BC.\nIf they go to BC, they miss the kitten.\nThey did not miss the kitten.\nThey went out today.\nThey only go out for Chunkys or for kittens.\nNobody goes out for a kitten unless they love kittens.\n\n\n\nDo they love kittens?\n\nAsk before saying anything. The usual first answers are “they went for the cookie” and “you cannot tell”, and both are wrong for interesting reasons.\nNothing in the premises mentions how they FEEL until premise 6 – everything before it is about a cookie, and the conclusion is about affection.\nPremise 6 is the bridge. Without it the argument gets you “they went out FOR the kitten”, which is a different proposition from “they love kittens” – a good place to say an atom means one thing all the way through. It is also the same disguised conditional as lecture 4’s “No song appears on the Hot 100 without reaching #1”: two negation words hiding an implication.\nDo not solve it now. Come back to it after the rule cards; by then they will have the four rules it needs. The load-bearing premise is 2: it is what lets a fact about a kitten rule out Chunkys, and it is the one nobody questions."
   },
   {
     "objectID": "slides/lecture-05_slides.html#rule-card-modus-ponens-mp",
     "href": "slides/lecture-05_slides.html#rule-card-modus-ponens-mp",
     "title": "Rules of Inference",
     "section": "Rule Card: Modus Ponens (MP)",
-    "text": "Rule Card: Modus Ponens (MP)\n\nFrom p→q and p, infer ________.\n\nEx:\nIf the bus is full, I’ll walk. The bus is full. ________\n\nBlank: q Example: So I’ll walk."
+    "text": "Rule Card: Modus Ponens (MP)\n\nFrom p→q and p, infer ________.\n\nEx:\nIf the bus is full, I’ll walk. The bus is full. ________\n \n____________________   is a tautology\n\nBlank: q Example: So I’ll walk."
   },
   {
     "objectID": "slides/lecture-05_slides.html#rule-card-modus-tollens-mt",
     "href": "slides/lecture-05_slides.html#rule-card-modus-tollens-mt",
     "title": "Rules of Inference",
     "section": "Rule Card: Modus Tollens (MT)",
-    "text": "Rule Card: Modus Tollens (MT)\n\nFrom p→q and ¬q, infer ________.\n\nEx:\nIf office hours moved, Slack has an announcement. No announcement. ________\n\nBlank: ~p Example: So they didn’t move."
+    "text": "Rule Card: Modus Tollens (MT)\n\nFrom p→q and ¬q, infer ________.\n\nEx:\nIf office hours moved, Slack has an announcement. No announcement. ________\n \n____________________   is a tautology\n\nBlank: ~p Example: So they didn’t move."
   },
   {
     "objectID": "slides/lecture-05_slides.html#rule-card-hypothetical-syllogism-hs",
     "href": "slides/lecture-05_slides.html#rule-card-hypothetical-syllogism-hs",
     "title": "Rules of Inference",
     "section": "Rule Card: Hypothetical Syllogism (HS)",
-    "text": "Rule Card: Hypothetical Syllogism (HS)\n\nFrom p→q and q→r, infer ________.\n\nEx:\nIf tidy then joins are simpler; if simpler joins then faster viz; ________\n\nBlank: p-&gt;r Example: So tidy =&gt; faster viz."
+    "text": "Rule Card: Hypothetical Syllogism (HS)\n\nFrom p→q and q→r, infer ________.\n\nEx:\nIf tidy then joins are simpler; if simpler joins then faster viz; ________\n \n____________________   is a tautology\n\nBlank: p-&gt;r Example: So tidy =&gt; faster viz."
   },
   {
     "objectID": "slides/lecture-05_slides.html#rule-card-disjunctive-syllogism-ds",
     "href": "slides/lecture-05_slides.html#rule-card-disjunctive-syllogism-ds",
     "title": "Rules of Inference",
     "section": "Rule Card: Disjunctive Syllogism (DS)",
-    "text": "Rule Card: Disjunctive Syllogism (DS)\n\nFrom p∨q and ¬p, infer ________.\n\nEx:\nDinner is sushi or tacos. Not sushi. ________\n\nBlank: q Example: So tacos."
+    "text": "Rule Card: Disjunctive Syllogism (DS)\n\nFrom p∨q and ¬p, infer ________.\n\nEx:\nDinner is sushi or tacos. Not sushi. ________\n \n____________________   is a tautology\n\nBlank: q Example: So tacos."
   },
   {
     "objectID": "slides/lecture-05_slides.html#rule-card-conjunction-simplification",
     "href": "slides/lecture-05_slides.html#rule-card-conjunction-simplification",
     "title": "Rules of Inference",
     "section": "Rule Card: Conjunction / Simplification",
-    "text": "Rule Card: Conjunction / Simplification\n\n\n∧-Intro: from p, q infer ________\n\n\n∧-Elim: from p∧q infer ________\n\n\n\nBlanks: ^-Intro p^q ^-Elim p (or q)"
+    "text": "Rule Card: Conjunction / Simplification\n\n\n∧-Intro: from p, q infer ________\n\n\n∧-Elim: from p∧q infer ________\n\n\n \n__________________   and   __________________   are tautologies\n\nBlanks: ^-Intro p^q ^-Elim p (or q)"
   },
   {
     "objectID": "slides/lecture-05_slides.html#rule-card--intro",
     "href": "slides/lecture-05_slides.html#rule-card--intro",
     "title": "Rules of Inference",
     "section": "Rule Card: ∨-Intro",
-    "text": "Rule Card: ∨-Intro\n\nFrom p infer ________.\n\nEx: I rode my scooter today, ________\nNote validity cares about form, not plausibility of the added disjunct.\n\nBlank: pvq Example: So I either rode my scooter or I’m a unicorn."
+    "text": "Rule Card: ∨-Intro\n\nFrom p infer ________.\n\nEx: I rode my scooter today, ________\n \n________________   is a tautology\n\nBlank: pvq Example: So I either rode my scooter or I’m a unicorn."
   },
   {
     "objectID": "slides/lecture-05_slides.html#rule-card-resolution-res",
     "href": "slides/lecture-05_slides.html#rule-card-resolution-res",
     "title": "Rules of Inference",
     "section": "Rule Card: Resolution (RES)",
-    "text": "Rule Card: Resolution (RES)\n\nFrom p∨q and ¬p∨r infer ________.\n\nEx:\nEither study or soccer; if study then library. ________\n\nBlank: qvr Example: So soccer or library."
+    "text": "Rule Card: Resolution (RES)\n\nFrom p∨q and ¬p∨r infer ________.\n\nEx:\nEither study or soccer; if study then library. ________\n \n________________   is a tautology\n\nBlank: qvr Example: So soccer or library."
   },
   {
     "objectID": "slides/lecture-05_slides.html#rule-card-constructive-dilemma-cd",
     "href": "slides/lecture-05_slides.html#rule-card-constructive-dilemma-cd",
     "title": "Rules of Inference",
     "section": "Rule Card: Constructive Dilemma (CD)",
-    "text": "Rule Card: Constructive Dilemma (CD)\n\nFrom (p→r), (q→s), (p∨q) infer ________.\n\nEx:\nIf sunny then picnic; if rainy then museum; sunny or rainy; ________\n\nBlank: rvs Example: So picnic or museum."
+    "text": "Rule Card: Constructive Dilemma (CD)\n\nFrom (p→r), (q→s), (p∨q) infer ________.\n\nEx:\nIf sunny then picnic; if rainy then museum; sunny or rainy; ________\n \n________________   is a tautology\n\nBlank: rvs Example: So picnic or museum."
   },
   {
     "objectID": "slides/lecture-05_slides.html#fallacy-cards-flash",
@@ -1707,6 +1714,13 @@
     "title": "Rules of Inference",
     "section": "INValidity",
     "text": "INValidity\nAffirming Consequent: \\(((p\\rightarrow q)\\wedge q)\\rightarrow p\\) is this always true?\n\n\n\n\n\n\n\n\n\n\n\\(p\\)\n\\(q\\)\n\\(p\\rightarrow q\\)\n\\((p\\rightarrow q)\\wedge q\\)\n\\(((p\\rightarrow q)\\wedge q)\\rightarrow p\\)\n\n\n\n\nF\nF\n\n\n\n\n\nF\nT\n\n\n\n\n\nT\nF\n\n\n\n\n\nT\nT"
+  },
+  {
+    "objectID": "slides/lecture-05_slides.html#a-puzzle-1",
+    "href": "slides/lecture-05_slides.html#a-puzzle-1",
+    "title": "Rules of Inference",
+    "section": "A Puzzle",
+    "text": "A Puzzle\nYour friend _______ .\n\nIf BC has Chunkys, they go to BC.\nIf they go to BC, they miss the kitten.\nThey did not miss the kitten.\nThey went out today.\nThey only go out for Chunkys or for kittens.\nNobody goes out for a kitten unless they love kittens.\n\n\n\nDo they love kittens?"
   },
   {
     "objectID": "slides/lecture-05_slides.html#micro-rule-cards",
