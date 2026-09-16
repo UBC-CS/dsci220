@@ -1636,7 +1636,7 @@
     "href": "slides/lecture-05_slides.html#micro-rule-cards",
     "title": "Rules of Inference",
     "section": "Micro Rule Cards",
-    "text": "Micro Rule Cards\nKeep these next to you. You will need them Monday.\n\nMP: from p→q, p infer q\n\nMT: from p→q, ¬q infer ¬p\n\nHS: from p→q, q→r infer p→r\n\nDS: from p∨q, ¬p infer q\n\n∧-Intro: from p, q infer p∧q\n\n∧-Elim: from p∧q infer p (or q)\n\n∨-Intro: from p infer p∨q (any q)\n\nRES: from p∨q, ¬p∨r infer q∨r\n\nCD: from (p→r), (q→s), (p∨q) infer r∨s\n\nCommon traps:\n\nAffirming consequent: p→q, q ∴ p ❌\nDenying antecedent: p→q, ¬p ∴ ¬q ❌"
+    "text": "Micro Rule Cards\nKeep these next to you. You will need them Monday.\n\n\n\nMP: from p→q, p infer q\nMT: from p→q, ¬q infer ¬p\nHS: from p→q, q→r infer p→r\nDS: from p∨q, ¬p infer q\n∧-Intro: from p, q infer p∧q\n\n\n\n∧-Elim: from p∧q infer p (or q)\n∨-Intro: from p infer p∨q (any q)\nRES: from p∨q, ¬p∨r infer q∨r\nCD: from (p→r), (q→s), (p∨q) infer r∨s\n\n\nCommon traps:\n\n\n\nAffirming consequent: p→q, q ∴ p ❌\n\n\n\nDenying antecedent: p→q, ¬p ∴ ¬q ❌"
   },
   {
     "objectID": "slides/lecture-05_slides.html#rule-card-modus-ponens-mp",
