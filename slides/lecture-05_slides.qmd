@@ -46,22 +46,22 @@ A *valid argument* is a *legal inference*. Content can change; form is what make
 
 ## Micro Rule Cards {.smaller}
 
-Keep these next to you. You will need them Monday.
+Given the premises, what can you infer?
 
 :::: columns
 ::: {.column width="50%"}
-- **MP**: from `p→q, p` infer `q`
-- **MT**: from `p→q, ¬q` infer `¬p`
-- **HS**: from `p→q, q→r` infer `p→r`
-- **DS**: from `p∨q, ¬p` infer `q`
-- **∧-Intro**: from `p, q` infer `p∧q`
+- **MP**: from `p→q, p` infer \_\_\_\_\_\_
+- **MT**: from `p→q, ¬q` infer \_\_\_\_\_\_
+- **HS**: from `p→q, q→r` infer \_\_\_\_\_\_
+- **DS**: from `p∨q, ¬p` infer \_\_\_\_\_\_
+- **∧-Intro**: from `p, q` infer \_\_\_\_\_\_
 :::
 
 ::: {.column width="50%"}
-- **∧-Elim**: from `p∧q` infer `p` (or `q`)
-- **∨-Intro**: from `p` infer `p∨q` (any `q`)
-- **RES**: from `p∨q, ¬p∨r` infer `q∨r`
-- **CD**: from `(p→r), (q→s), (p∨q)` infer `r∨s`
+- **∧-Elim**: from `p∧q` infer \_\_\_\_\_\_
+- **∨-Intro**: from `p` infer \_\_\_\_\_\_
+- **RES**: from `p∨q, ¬p∨r` infer \_\_\_\_\_\_
+- **CD**: from `(p→r), (q→s), (p∨q)` infer \_\_\_\_\_\_
 :::
 ::::
 
@@ -76,6 +76,19 @@ Keep these next to you. You will need them Monday.
 - Denying antecedent: `p→q, ¬p ∴ ¬q` ❌
 :::
 ::::
+
+::: notes
+Ask the room (Noah or Perrie) before filling each one in. The nine Rule Card
+slides that follow are the reveal, one at a time, so do not rush this.
+
+  MP        q                  MT        ~p
+  HS        p->r               DS        q
+  ^-Intro   p^q                ^-Elim    p  (or q)
+  v-Intro   pvq  (any q)       RES       qvr
+  CD        rvs
+
+The two traps are already shown as traps -- they are the contrast, not a guess.
+:::
 
 ---
 
