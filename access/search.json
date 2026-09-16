@@ -1639,60 +1639,67 @@
     "text": "A Puzzle\nYour friend _______ .\n\nIf BC has Chunkys, they go to BC.\nIf they go to BC, they miss the kitten.\nThey did not miss the kitten.\nThey went out today.\nThey only go out for Chunkys or for kittens.\nNobody goes out for a kitten unless they love kittens.\n\n\n\nDo they love kittens?\n\nAsk before saying anything. The usual first answers are “they went for the cookie” and “you cannot tell”, and both are wrong for interesting reasons.\nNothing in the premises mentions how they FEEL until premise 6 – everything before it is about a cookie, and the conclusion is about affection.\nPremise 6 is the bridge. Without it the argument gets you “they went out FOR the kitten”, which is a different proposition from “they love kittens” – a good place to say an atom means one thing all the way through. It is also the same disguised conditional as lecture 4’s “No song appears on the Hot 100 without reaching #1”: two negation words hiding an implication.\nDo not solve it now. Come back to it after the rule cards; by then they will have the four rules it needs. The load-bearing premise is 2: it is what lets a fact about a kitten rule out Chunkys, and it is the one nobody questions."
   },
   {
-    "objectID": "slides/lecture-05_slides.html#rule-card-modus-ponens-mp",
-    "href": "slides/lecture-05_slides.html#rule-card-modus-ponens-mp",
+    "objectID": "slides/lecture-05_slides.html#rule-card-modus-ponens-m.pon",
+    "href": "slides/lecture-05_slides.html#rule-card-modus-ponens-m.pon",
     "title": "Rules of Inference",
-    "section": "Rule Card: Modus Ponens (MP)",
-    "text": "Rule Card: Modus Ponens (MP)\n\nFrom p→q and p, infer ________.\n\nEx:\nIf the bus is full, I’ll walk. The bus is full. ________\n \n____________________   is a tautology\n\nBlank: q Example: So I’ll walk."
+    "section": "Rule Card: Modus Ponens [M.PON]",
+    "text": "Rule Card: Modus Ponens [M.PON]\n\nFrom p→q and p, infer ________.\n\nEx:\nIf the bus is full, I’ll walk. The bus is full. ________\n \n____________________   is a tautology\n\nBlank: q Example: So I’ll walk."
   },
   {
-    "objectID": "slides/lecture-05_slides.html#rule-card-modus-tollens-mt",
-    "href": "slides/lecture-05_slides.html#rule-card-modus-tollens-mt",
+    "objectID": "slides/lecture-05_slides.html#rule-card-modus-tollens-m.tol",
+    "href": "slides/lecture-05_slides.html#rule-card-modus-tollens-m.tol",
     "title": "Rules of Inference",
-    "section": "Rule Card: Modus Tollens (MT)",
-    "text": "Rule Card: Modus Tollens (MT)\n\nFrom p→q and ¬q, infer ________.\n\nEx:\nIf office hours moved, Slack has an announcement. No announcement. ________\n \n____________________   is a tautology\n\nBlank: ~p Example: So they didn’t move."
+    "section": "Rule Card: Modus Tollens [M.TOL]",
+    "text": "Rule Card: Modus Tollens [M.TOL]\n\nFrom p→q and ¬q, infer ________.\n\nEx:\nIf office hours moved, Slack has an announcement. No announcement. ________\n \n____________________   is a tautology\n\nBlank: ~p Example: So they didn’t move."
   },
   {
-    "objectID": "slides/lecture-05_slides.html#rule-card-hypothetical-syllogism-hs",
-    "href": "slides/lecture-05_slides.html#rule-card-hypothetical-syllogism-hs",
+    "objectID": "slides/lecture-05_slides.html#rule-card-transitivity-trans",
+    "href": "slides/lecture-05_slides.html#rule-card-transitivity-trans",
     "title": "Rules of Inference",
-    "section": "Rule Card: Hypothetical Syllogism (HS)",
-    "text": "Rule Card: Hypothetical Syllogism (HS)\n\nFrom p→q and q→r, infer ________.\n\nEx:\nIf tidy then joins are simpler; if simpler joins then faster viz; ________\n \n____________________   is a tautology\n\nBlank: p-&gt;r Example: So tidy =&gt; faster viz."
+    "section": "Rule Card: Transitivity [TRANS]",
+    "text": "Rule Card: Transitivity [TRANS]\n\nFrom p→q and q→r, infer ________.\n\nEx:\nIf tidy then joins are simpler; if simpler joins then faster viz; ________\n \n____________________   is a tautology\n\nBlank: p-&gt;r Example: So tidy =&gt; faster viz."
   },
   {
-    "objectID": "slides/lecture-05_slides.html#rule-card-disjunctive-syllogism-ds",
-    "href": "slides/lecture-05_slides.html#rule-card-disjunctive-syllogism-ds",
+    "objectID": "slides/lecture-05_slides.html#rule-card-elimination-elim",
+    "href": "slides/lecture-05_slides.html#rule-card-elimination-elim",
     "title": "Rules of Inference",
-    "section": "Rule Card: Disjunctive Syllogism (DS)",
-    "text": "Rule Card: Disjunctive Syllogism (DS)\n\nFrom p∨q and ¬p, infer ________.\n\nEx:\nDinner is sushi or tacos. Not sushi. ________\n \n____________________   is a tautology\n\nBlank: q Example: So tacos."
+    "section": "Rule Card: Elimination [ELIM]",
+    "text": "Rule Card: Elimination [ELIM]\n\nFrom p∨q and ¬q, infer ________.\n\nEx:\nDinner is sushi or tacos. Not tacos. ________\n \n____________________   is a tautology\n\nBlank: p Example: So sushi."
   },
   {
-    "objectID": "slides/lecture-05_slides.html#rule-card-conjunction-simplification",
-    "href": "slides/lecture-05_slides.html#rule-card-conjunction-simplification",
+    "objectID": "slides/lecture-05_slides.html#rule-card-conjunction-conj-specialization-spec",
+    "href": "slides/lecture-05_slides.html#rule-card-conjunction-conj-specialization-spec",
     "title": "Rules of Inference",
-    "section": "Rule Card: Conjunction / Simplification",
-    "text": "Rule Card: Conjunction / Simplification\n\n\n∧-Intro: from p, q infer ________\n\n\n∧-Elim: from p∧q infer ________\n\n\n \n__________________   and   __________________   are tautologies\n\nBlanks: ^-Intro p^q ^-Elim p (or q)"
+    "section": "Rule Card: Conjunction [CONJ] / Specialization [SPEC]",
+    "text": "Rule Card: Conjunction [CONJ] / Specialization [SPEC]\n\n\nCONJ: from p, q infer ________\n\n\nSPEC: from p∧q infer ________\n\n\n \n__________________   and   __________________   are tautologies\n\nBlanks: CONJ p^q SPEC p (or q)"
   },
   {
-    "objectID": "slides/lecture-05_slides.html#rule-card--intro",
-    "href": "slides/lecture-05_slides.html#rule-card--intro",
+    "objectID": "slides/lecture-05_slides.html#rule-card-generalization-gen",
+    "href": "slides/lecture-05_slides.html#rule-card-generalization-gen",
     "title": "Rules of Inference",
-    "section": "Rule Card: ∨-Intro",
-    "text": "Rule Card: ∨-Intro\n\nFrom p infer ________.\n\nEx: I rode my scooter today, ________\n \n________________   is a tautology\n\nBlank: pvq Example: So I either rode my scooter or I’m a unicorn."
+    "section": "Rule Card: Generalization [GEN]",
+    "text": "Rule Card: Generalization [GEN]\n\nFrom p infer ________.\n\nEx: I rode my scooter today, ________\n \n________________   is a tautology\n\nBlank: pvq Example: So I either rode my scooter or I’m a unicorn."
   },
   {
     "objectID": "slides/lecture-05_slides.html#rule-card-resolution-res",
     "href": "slides/lecture-05_slides.html#rule-card-resolution-res",
     "title": "Rules of Inference",
-    "section": "Rule Card: Resolution (RES)",
-    "text": "Rule Card: Resolution (RES)\n\nFrom p∨q and ¬p∨r infer ________.\n\nEx:\nEither study or soccer; if study then library. ________\n \n________________   is a tautology\n\nBlank: qvr Example: So soccer or library."
+    "section": "Rule Card: Resolution [RES]",
+    "text": "Rule Card: Resolution [RES]\n\nFrom p∨q and ¬p∨r infer ________.\n\nEx:\nEither study or soccer; if study then library. ________\n \n________________   is a tautology\n\nBlank: qvr Example: So soccer or library."
   },
   {
-    "objectID": "slides/lecture-05_slides.html#rule-card-constructive-dilemma-cd",
-    "href": "slides/lecture-05_slides.html#rule-card-constructive-dilemma-cd",
+    "objectID": "slides/lecture-05_slides.html#rule-card-proof-by-cases-case",
+    "href": "slides/lecture-05_slides.html#rule-card-proof-by-cases-case",
     "title": "Rules of Inference",
-    "section": "Rule Card: Constructive Dilemma (CD)",
-    "text": "Rule Card: Constructive Dilemma (CD)\n\nFrom (p→r), (q→s), (p∨q) infer ________.\n\nEx:\nIf sunny then picnic; if rainy then museum; sunny or rainy; ________\n \n________________   is a tautology\n\nBlank: rvs Example: So picnic or museum."
+    "section": "Rule Card: Proof by Cases [CASE]",
+    "text": "Rule Card: Proof by Cases [CASE]\n\nFrom p→r and q→r infer ________.\n\nEx:\nIf it’s a weekday I take the bus; if it’s raining I take the bus; ________\n \n________________   is a tautology\n\nBlank: (pvq)-&gt;r Example: So if it’s a weekday or raining, I take the bus.\nNote both branches land on the SAME r. That is what makes the conclusion a conditional rather than a disjunction."
+  },
+  {
+    "objectID": "slides/lecture-05_slides.html#rule-card-contradiction-contd",
+    "href": "slides/lecture-05_slides.html#rule-card-contradiction-contd",
+    "title": "Rules of Inference",
+    "section": "Rule Card: Contradiction [CONTD]",
+    "text": "Rule Card: Contradiction [CONTD]\n\nFrom p→F infer ________.\n\nEx:\nIf I’m free Friday, then 1 = 2. ________\n \n________________   is a tautology\n\nBlank: ~p Example: So I’m not free Friday.\nThe one rule with a single premise and a constant in it. If assuming p forces something false, p was false. Say only that much now – Monday this becomes proof by contradiction, and it is the reason CONTD is on the Sheet."
   },
   {
     "objectID": "slides/lecture-05_slides.html#fallacy-cards-flash",
@@ -1706,7 +1713,7 @@
     "href": "slides/lecture-05_slides.html#validity",
     "title": "Rules of Inference",
     "section": "Validity",
-    "text": "Validity\n∧-Elim: \\((p\\wedge q)\\rightarrow p\\) is this always true?"
+    "text": "Validity\nSPEC: \\((p\\wedge q)\\rightarrow p\\) is this always true?"
   },
   {
     "objectID": "slides/lecture-05_slides.html#invalidity",
@@ -1727,14 +1734,14 @@
     "href": "slides/lecture-05_slides.html#micro-rule-cards",
     "title": "Rules of Inference",
     "section": "Micro Rule Cards",
-    "text": "Micro Rule Cards\nKeep these next to you. You will need them Monday.\n\n\n\nMP: from p→q, p infer q\nMT: from p→q, ¬q infer ¬p\nHS: from p→q, q→r infer p→r\nDS: from p∨q, ¬p infer q\n∧-Intro: from p, q infer p∧q\n\n\n\n∧-Elim: from p∧q infer p (or q)\n∨-Intro: from p infer p∨q (any q)\nRES: from p∨q, ¬p∨r infer q∨r\nCD: from (p→r), (q→s), (p∨q) infer r∨s\n\n\nCommon traps:\n\n\n\nAffirming consequent: p→q, q ∴ p ❌\n\n\n\nDenying antecedent: p→q, ¬p ∴ ¬q ❌\n\n\n\nThe reference sheet, now that every rule has been worked. This is the one to screenshot."
+    "text": "Micro Rule Cards\nThese are the ten on your Formula Sheet, in the Sheet’s own names. Keep it next to you. You will need them Monday.\n\n\n\nM.PON: from p→q, p infer q\nM.TOL: from p→q, ¬q infer ¬p\nTRANS: from p→q, q→r infer p→r\nELIM: from p∨q, ¬q infer p\nCONJ: from p, q infer p∧q\n\n\n\nSPEC: from p∧q infer p (or q)\nGEN: from p infer p∨q (any q)\nRES: from p∨q, ¬p∨r infer q∨r\nCASE: from p→r, q→r infer (p∨q)→r\nCONTD: from p→F infer ¬p\n\n\nCommon traps:\n\n\n\nAffirming consequent: p→q, q ∴ p ❌\n\n\n\nDenying antecedent: p→q, ¬p ∴ ¬q ❌\n\n\n\nThe reference sheet, now that every rule has been worked. This is the one to screenshot."
   },
   {
     "objectID": "slides/lecture-05_slides.html#words-and-ideas",
     "href": "slides/lecture-05_slides.html#words-and-ideas",
     "title": "Rules of Inference",
     "section": "Words and Ideas",
-    "text": "Words and Ideas\nRules of Inference\nModus Ponens, Modus Tollens\nHypothetical and Disjunctive Syllogism\nResolution\nFallacies"
+    "text": "Words and Ideas\nRules of Inference\nModus Ponens, Modus Tollens\nTransitivity, Elimination\nConjunction, Specialization, Generalization\nResolution, Proof by Cases, Contradiction\nFallacies"
   },
   {
     "objectID": "slides/lecture-03_slides.html#announcements",
@@ -1986,7 +1993,7 @@
     "href": "index.html#schedule",
     "title": "DSCI 220: Discrete Math for Data Science",
     "section": "Schedule",
-    "text": "Schedule\n\nBy weekBy unit\n\n\n\n\n\n\n\n  \n    \n      \n      \n        Classes\n      \n      \n    \n    \n      \n      \n      \n        Mon\n      \n      \n      \n        Wed\n      \n      \n      \n        Fri\n      \n      \n      \n        Tutorial\n      \n      \n      \n      \n        HWK\n      \n      \n      \n        EX\n      \n    \n    \n      \n      \n      \n      \n      \n      \n      \n      \n      \n    \n  \n  \n    \n      Part 1Topic to be decided\n\n    \n    Week 1starts Sep 7\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 2starts Sep 14\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 3starts Sep 21\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 1Due: Sun Sep 27\n\n    Week 4starts Sep 28\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 5starts Oct 5\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 2Due: Sun Oct 11\n\n    \n      Part 2Topic to be decided\n\n    \n    Week 6starts Oct 12\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 7starts Oct 19\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 8starts Oct 26\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 3Due: Sun Nov 1\n\n    Week 9starts Nov 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 10starts Nov 9\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    \n      Part 3Topic to be decided\n\n    \n    Week 11starts Nov 16\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 4Due: Sun Nov 22\n\n    Week 12starts Nov 23\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 13starts Nov 30\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 5Due: Sun Dec 6\n\n    Week 14starts Dec 7\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFinal examDue: Sun Dec 13\n\n  \n  \n\n\n\n\n\n\n\n  \n    \n      \n      \n        Classes\n      \n      \n    \n    \n      \n      \n      \n        Mon\n      \n      \n      \n        Wed\n      \n      \n      \n        Fri\n      \n      \n      \n        Tutorial\n      \n      \n      \n      \n        HWK\n      \n      \n      \n        EX\n      \n    \n    \n      \n      \n      \n      \n      \n      \n      \n      \n      \n    \n  \n  \n    \n      Part 1Topic to be decided\n\n    \n    Week 1starts Sep 7\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 2starts Sep 14\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 3starts Sep 21\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 1Due: Sun Sep 27\n\n    Week 4starts Sep 28\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 5starts Oct 5\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 2Due: Sun Oct 11\n\n    \n      Part 2Topic to be decided\n\n    \n    Week 6starts Oct 12\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 7starts Oct 19\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 8starts Oct 26\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 3Due: Sun Nov 1\n\n    Week 9starts Nov 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 10starts Nov 9\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    \n      Part 3Topic to be decided\n\n    \n    Week 11starts Nov 16\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 4Due: Sun Nov 22\n\n    Week 12starts Nov 23\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 13starts Nov 30\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 5Due: Sun Dec 6\n\n    Week 14starts Dec 7\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFinal examDue: Sun Dec 13\n\n  \n  \n\n\n\n\n\n\n\n\n\n\n\n  \n    \n      \n      \n      Slides\n      Activity\n      Video\n    \n  \n  \n    \n      Part 1Topic to be decidedWeek 1\n\n    \n    WedSep 9\n\nLecture 1Introduction\n\n\n\n\n    FriSep 11\n\nLecture 2Truth and Propositions\n\n\n\n\n    \n      Week 2\n    \n    MonSep 14\n\nLecture 3Logical Equivalences\n\n\n\n\n    1st slot\n\nPlaceholderTutorial 1\n\n\n\n\n    Due: SunSep 20\n\nPlaceholder Homework 1\n\n\n\n\n  \n  \n\n\n\n\n\n\n\n  \n    \n      \n      \n      Slides\n      Activity\n      Video\n    \n  \n  \n    \n      Part 1Topic to be decidedWeek 1\n\n    \n    WedSep 9\n\nLecture 1Introduction\n\n\n\n\n    FriSep 11\n\nLecture 2Truth and Propositions\n\n\n\n\n    \n      Week 2\n    \n    MonSep 14\n\nLecture 3Logical Equivalences\n\n\n\n\n    1st slot\n\nPlaceholderTutorial 1\n\n\n\n\n    Due: SunSep 20\n\nPlaceholder Homework 1",
+    "text": "Schedule\n\nBy weekBy unit\n\n\n\n\n\n\n\n  \n    \n      \n      \n        Classes\n      \n      \n    \n    \n      \n      \n      \n        Mon\n      \n      \n      \n        Wed\n      \n      \n      \n        Fri\n      \n      \n      \n        Tutorial\n      \n      \n      \n      \n        HWK\n      \n      \n      \n        EX\n      \n    \n    \n      \n      \n      \n      \n      \n      \n      \n      \n      \n    \n  \n  \n    \n      Part 1Topic to be decided\n\n    \n    Week 1starts Sep 7\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 2starts Sep 14\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 3starts Sep 21\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 1Due: Sun Sep 27\n\n    Week 4starts Sep 28\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 5starts Oct 5\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 2Due: Sun Oct 11\n\n    \n      Part 2Topic to be decided\n\n    \n    Week 6starts Oct 12\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 7starts Oct 19\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 8starts Oct 26\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 3Due: Sun Nov 1\n\n    Week 9starts Nov 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 10starts Nov 9\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    \n      Part 3Topic to be decided\n\n    \n    Week 11starts Nov 16\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 4Due: Sun Nov 22\n\n    Week 12starts Nov 23\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 13starts Nov 30\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 5Due: Sun Dec 6\n\n    Week 14starts Dec 7\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFinal examDue: Sun Dec 13\n\n  \n  \n\n\n\n\n\n\n\n  \n    \n      \n      \n        Classes\n      \n      \n    \n    \n      \n      \n      \n        Mon\n      \n      \n      \n        Wed\n      \n      \n      \n        Fri\n      \n      \n      \n        Tutorial\n      \n      \n      \n      \n        HWK\n      \n      \n      \n        EX\n      \n    \n    \n      \n      \n      \n      \n      \n      \n      \n      \n      \n    \n  \n  \n    \n      Part 1Topic to be decided\n\n    \n    Week 1starts Sep 7\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 2starts Sep 14\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 3starts Sep 21\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 1Due: Sun Sep 27\n\n    Week 4starts Sep 28\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 5starts Oct 5\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 2Due: Sun Oct 11\n\n    \n      Part 2Topic to be decided\n\n    \n    Week 6starts Oct 12\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 7starts Oct 19\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 8starts Oct 26\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 3Due: Sun Nov 1\n\n    Week 9starts Nov 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 10starts Nov 9\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    \n      Part 3Topic to be decided\n\n    \n    Week 11starts Nov 16\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 4Due: Sun Nov 22\n\n    Week 12starts Nov 23\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 13starts Nov 30\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 5Due: Sun Dec 6\n\n    Week 14starts Dec 7\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFinal examDue: Sun Dec 13\n\n  \n  \n\n\n\n\n\n\n\n\n\n\n\n  \n    \n      \n      \n      Slides\n      Activity\n      Video\n    \n  \n  \n    \n      Part 1Topic to be decidedWeek 1\n\n    \n    WedSep 9\n\nLecture 1Introduction\n\n\n\n\n    FriSep 11\n\nLecture 2Truth and Propositions\n\n\n\n\n    \n      Week 2\n    \n    MonSep 14\n\nLecture 3Logical Equivalences\n\n\n\n\n    WedSep 16\n\nLecture 4Implication\n\n\n\n\n    1st slot\n\nPlaceholderTutorial 1\n\n\n\n\n    Due: SunSep 20\n\nPlaceholder Homework 1\n\n\n\n\n  \n  \n\n\n\n\n\n\n\n  \n    \n      \n      \n      Slides\n      Activity\n      Video\n    \n  \n  \n    \n      Part 1Topic to be decidedWeek 1\n\n    \n    WedSep 9\n\nLecture 1Introduction\n\n\n\n\n    FriSep 11\n\nLecture 2Truth and Propositions\n\n\n\n\n    \n      Week 2\n    \n    MonSep 14\n\nLecture 3Logical Equivalences\n\n\n\n\n    WedSep 16\n\nLecture 4Implication\n\n\n\n\n    1st slot\n\nPlaceholderTutorial 1\n\n\n\n\n    Due: SunSep 20\n\nPlaceholder Homework 1",
     "crumbs": [
       "Course information",
       "Schedule"

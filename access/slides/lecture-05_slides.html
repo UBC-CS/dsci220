@@ -220,8 +220,8 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="rule-card-modus-ponens-mp" class="slide level2">
-<h2>Rule Card: Modus Ponens (MP)</h2>
+<section id="rule-card-modus-ponens-m.pon" class="slide level2">
+<h2>Rule Card: Modus Ponens [M.PON]</h2>
 <div class="card rule">
 <p>From <code>p→q</code> and <code>p</code>, infer <code>________</code>.</p>
 </div>
@@ -243,8 +243,8 @@ If the bus is full, I’ll walk. The bus is full. <strong>________</strong></p>
           display:block!important;
       }</style></aside>
 </section>
-<section id="rule-card-modus-tollens-mt" class="slide level2">
-<h2>Rule Card: Modus Tollens (MT)</h2>
+<section id="rule-card-modus-tollens-m.tol" class="slide level2">
+<h2>Rule Card: Modus Tollens [M.TOL]</h2>
 <div class="card rule">
 <p>From <code>p→q</code> and <code>¬q</code>, infer <code>________</code>.</p>
 </div>
@@ -266,8 +266,8 @@ If office hours moved, Slack has an announcement. No announcement. <strong>_____
           display:block!important;
       }</style></aside>
 </section>
-<section id="rule-card-hypothetical-syllogism-hs" class="slide level2">
-<h2>Rule Card: Hypothetical Syllogism (HS)</h2>
+<section id="rule-card-transitivity-trans" class="slide level2">
+<h2>Rule Card: Transitivity [TRANS]</h2>
 <div class="card rule">
 <p>From <code>p→q</code> and <code>q→r</code>, infer <code>________</code>.</p>
 </div>
@@ -289,17 +289,17 @@ If tidy then joins are simpler; if simpler joins then faster viz; <strong>______
           display:block!important;
       }</style></aside>
 </section>
-<section id="rule-card-disjunctive-syllogism-ds" class="slide level2">
-<h2>Rule Card: Disjunctive Syllogism (DS)</h2>
+<section id="rule-card-elimination-elim" class="slide level2">
+<h2>Rule Card: Elimination [ELIM]</h2>
 <div class="card rule">
-<p>From <code>p∨q</code> and <code>¬p</code>, infer <code>________</code>.</p>
+<p>From <code>p∨q</code> and <code>¬q</code>, infer <code>________</code>.</p>
 </div>
 <p><strong>Ex:</strong><br>
-Dinner is sushi or tacos. Not sushi. <strong>________</strong></p>
+Dinner is sushi or tacos. Not tacos. <strong>________</strong></p>
 <p>&nbsp;</p>
 <p>____________________   is a tautology</p>
 <aside class="notes">
-<p>Blank: q Example: So tacos.</p>
+<p>Blank: p Example: So sushi.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -312,20 +312,20 @@ Dinner is sushi or tacos. Not sushi. <strong>________</strong></p>
           display:block!important;
       }</style></aside>
 </section>
-<section id="rule-card-conjunction-simplification" class="slide level2">
-<h2>Rule Card: Conjunction / Simplification</h2>
+<section id="rule-card-conjunction-conj-specialization-spec" class="slide level2">
+<h2>Rule Card: Conjunction [CONJ] / Specialization [SPEC]</h2>
 <div class="two-col">
 <div class="card rule">
-<p><strong>∧-Intro</strong>: from <code>p, q</code> infer <code>________</code></p>
+<p><strong>CONJ</strong>: from <code>p, q</code> infer <code>________</code></p>
 </div>
 <div class="card rule">
-<p><strong>∧-Elim</strong>: from <code>p∧q</code> infer <code>________</code></p>
+<p><strong>SPEC</strong>: from <code>p∧q</code> infer <code>________</code></p>
 </div>
 </div>
 <p>&nbsp;</p>
 <p>__________________   and   __________________   are tautologies</p>
 <aside class="notes">
-<p>Blanks: ^-Intro p^q ^-Elim p (or q)</p>
+<p>Blanks: CONJ p^q SPEC p (or q)</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -338,8 +338,8 @@ Dinner is sushi or tacos. Not sushi. <strong>________</strong></p>
           display:block!important;
       }</style></aside>
 </section>
-<section id="rule-card--intro" class="slide level2">
-<h2>Rule Card: ∨-Intro</h2>
+<section id="rule-card-generalization-gen" class="slide level2">
+<h2>Rule Card: Generalization [GEN]</h2>
 <div class="card rule">
 <p>From <code>p</code> infer <code>________</code>.</p>
 </div>
@@ -361,7 +361,7 @@ Dinner is sushi or tacos. Not sushi. <strong>________</strong></p>
       }</style></aside>
 </section>
 <section id="rule-card-resolution-res" class="slide level2">
-<h2>Rule Card: Resolution (RES)</h2>
+<h2>Rule Card: Resolution [RES]</h2>
 <div class="card rule">
 <p>From <code>p∨q</code> and <code>¬p∨r</code> infer <code>________</code>.</p>
 </div>
@@ -383,17 +383,42 @@ Either study or soccer; if study then library. <strong>________</strong></p>
           display:block!important;
       }</style></aside>
 </section>
-<section id="rule-card-constructive-dilemma-cd" class="slide level2">
-<h2>Rule Card: Constructive Dilemma (CD)</h2>
+<section id="rule-card-proof-by-cases-case" class="slide level2">
+<h2>Rule Card: Proof by Cases [CASE]</h2>
 <div class="card rule">
-<p>From <code>(p→r), (q→s), (p∨q)</code> infer <code>________</code>.</p>
+<p>From <code>p→r</code> and <code>q→r</code> infer <code>________</code>.</p>
 </div>
 <p><strong>Ex:</strong><br>
-If sunny then picnic; if rainy then museum; sunny or rainy; <strong>________</strong></p>
+If it’s a weekday I take the bus; if it’s raining I take the bus; <strong>________</strong></p>
 <p>&nbsp;</p>
 <p>________________   is a tautology</p>
 <aside class="notes">
-<p>Blank: rvs Example: So picnic or museum.</p>
+<p>Blank: (pvq)-&gt;r Example: So if it’s a weekday or raining, I take the bus.</p>
+<p>Note both branches land on the SAME r. That is what makes the conclusion a conditional rather than a disjunction.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="rule-card-contradiction-contd" class="slide level2">
+<h2>Rule Card: Contradiction [CONTD]</h2>
+<div class="card rule">
+<p>From <code>p→F</code> infer <code>________</code>.</p>
+</div>
+<p><strong>Ex:</strong><br>
+If I’m free Friday, then 1 = 2. <strong>________</strong></p>
+<p>&nbsp;</p>
+<p>________________   is a tautology</p>
+<aside class="notes">
+<p>Blank: ~p Example: So I’m not free Friday.</p>
+<p>The one rule with a single premise and a constant in it. If assuming p forces something false, p was false. Say only that much now – Monday this becomes proof by contradiction, and it is the reason CONTD is on the Sheet.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -421,7 +446,7 @@ If sunny then picnic; if rainy then museum; sunny or rainy; <strong>________</st
 </section>
 <section id="validity" class="slide level2">
 <h2>Validity</h2>
-<p><strong>∧-Elim</strong>: <span class="math inline">\((p\wedge q)\rightarrow p\)</span> is this always true?</p>
+<p><strong>SPEC</strong>: <span class="math inline">\((p\wedge q)\rightarrow p\)</span> is this always true?</p>
 </section>
 <section id="invalidity" class="slide level2">
 <h2>INValidity</h2>
@@ -492,22 +517,23 @@ If sunny then picnic; if rainy then museum; sunny or rainy; <strong>________</st
 </section>
 <section id="micro-rule-cards" class="slide level2 smaller">
 <h2>Micro Rule Cards</h2>
-<p>Keep these next to you. You will need them Monday.</p>
+<p>These are the ten on your <strong>Formula Sheet</strong>, in the Sheet’s own names. Keep it next to you. You will need them Monday.</p>
 <div class="columns">
 <div class="column" style="width:50%;">
 <ul>
-<li><strong>MP</strong>: from <code>p→q, p</code> infer <code>q</code></li>
-<li><strong>MT</strong>: from <code>p→q, ¬q</code> infer <code>¬p</code></li>
-<li><strong>HS</strong>: from <code>p→q, q→r</code> infer <code>p→r</code></li>
-<li><strong>DS</strong>: from <code>p∨q, ¬p</code> infer <code>q</code></li>
-<li><strong>∧-Intro</strong>: from <code>p, q</code> infer <code>p∧q</code></li>
+<li><strong>M.PON</strong>: from <code>p→q, p</code> infer <code>q</code></li>
+<li><strong>M.TOL</strong>: from <code>p→q, ¬q</code> infer <code>¬p</code></li>
+<li><strong>TRANS</strong>: from <code>p→q, q→r</code> infer <code>p→r</code></li>
+<li><strong>ELIM</strong>: from <code>p∨q, ¬q</code> infer <code>p</code></li>
+<li><strong>CONJ</strong>: from <code>p, q</code> infer <code>p∧q</code></li>
 </ul>
 </div><div class="column" style="width:50%;">
 <ul>
-<li><strong>∧-Elim</strong>: from <code>p∧q</code> infer <code>p</code> (or <code>q</code>)</li>
-<li><strong>∨-Intro</strong>: from <code>p</code> infer <code>p∨q</code> (any <code>q</code>)</li>
+<li><strong>SPEC</strong>: from <code>p∧q</code> infer <code>p</code> (or <code>q</code>)</li>
+<li><strong>GEN</strong>: from <code>p</code> infer <code>p∨q</code> (any <code>q</code>)</li>
 <li><strong>RES</strong>: from <code>p∨q, ¬p∨r</code> infer <code>q∨r</code></li>
-<li><strong>CD</strong>: from <code>(p→r), (q→s), (p∨q)</code> infer <code>r∨s</code></li>
+<li><strong>CASE</strong>: from <code>p→r, q→r</code> infer <code>(p∨q)→r</code></li>
+<li><strong>CONTD</strong>: from <code>p→F</code> infer <code>¬p</code></li>
 </ul>
 </div></div>
 <p><strong>Common traps:</strong></p>
@@ -539,8 +565,9 @@ If sunny then picnic; if rainy then museum; sunny or rainy; <strong>________</st
 <h2>Words and Ideas</h2>
 <p>Rules of Inference</p>
 <p>Modus Ponens, Modus Tollens</p>
-<p>Hypothetical and Disjunctive Syllogism</p>
-<p>Resolution</p>
+<p>Transitivity, Elimination</p>
+<p>Conjunction, Specialization, Generalization</p>
+<p>Resolution, Proof by Cases, Contradiction</p>
 <p>Fallacies</p>
 
 
