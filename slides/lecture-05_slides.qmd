@@ -78,7 +78,7 @@ fact about a kitten rule out Chunkys, and it is the one nobody questions.
 
 ---
 
-## Rule Card: Modus Ponens (MP)
+## Rule Card: Modus Ponens [M.PON]
 
 <div class="card rule">
 From <code>p→q</code> and <code>p</code>, infer <code>________</code>.
@@ -99,7 +99,7 @@ Blank: q      Example: So I'll walk.
 
 ---
 
-## Rule Card: Modus Tollens (MT)
+## Rule Card: Modus Tollens [M.TOL]
 
 <div class="card rule">
 From <code>p→q</code> and <code>¬q</code>, infer <code>________</code>.
@@ -118,7 +118,7 @@ Blank: ~p      Example: So they didn't move.
 
 ---
 
-## Rule Card: Hypothetical Syllogism (HS)
+## Rule Card: Transitivity [TRANS]
 
 <div class="card rule">
 From <code>p→q</code> and <code>q→r</code>, infer <code>________</code>.
@@ -137,34 +137,34 @@ Blank: p->r      Example: So tidy => faster viz.
 
 ---
 
-## Rule Card: Disjunctive Syllogism (DS)
+## Rule Card: Elimination [ELIM]
 
 <div class="card rule">
-From <code>p∨q</code> and <code>¬p</code>, infer <code>________</code>.
+From <code>p∨q</code> and <code>¬q</code>, infer <code>________</code>.
 </div>
 
 **Ex:**  
-Dinner is sushi or tacos. Not sushi. **________**
+Dinner is sushi or tacos. Not tacos. **________**
 
 \ 
 
 \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ &emsp; is a tautology
 
 ::: notes
-Blank: q      Example: So tacos.
+Blank: p      Example: So sushi.
 :::
 
 ---
 
-## Rule Card: Conjunction / Simplification
+## Rule Card: Conjunction [CONJ] / Specialization [SPEC]
 
 <div class="two-col">
 <div class="card rule">
-<strong>∧-Intro</strong>: from <code>p, q</code> infer <code>________</code>
+<strong>CONJ</strong>: from <code>p, q</code> infer <code>________</code>
 </div>
 
 <div class="card rule">
-<strong>∧-Elim</strong>: from <code>p∧q</code> infer <code>________</code>
+<strong>SPEC</strong>: from <code>p∧q</code> infer <code>________</code>
 </div>
 </div>
 
@@ -175,12 +175,12 @@ Blank: q      Example: So tacos.
 
 
 ::: notes
-Blanks: ^-Intro p^q      ^-Elim p (or q)
+Blanks: CONJ p^q      SPEC p (or q)
 :::
 
 ---
 
-## Rule Card: ∨-Intro
+## Rule Card: Generalization [GEN]
 
 <div class="card rule">
 From <code>p</code> infer <code>________</code>.
@@ -200,7 +200,7 @@ Blank: pvq      Example: So I either rode my scooter or I'm a unicorn.
 
 ---
 
-## Rule Card: Resolution (RES)
+## Rule Card: Resolution [RES]
 
 <div class="card rule">
 From <code>p∨q</code> and <code>¬p∨r</code> infer <code>________</code>.
@@ -219,14 +219,14 @@ Blank: qvr      Example: So soccer or library.
 
 ---
 
-## Rule Card: Constructive Dilemma (CD)
+## Rule Card: Proof by Cases [CASE]
 
 <div class="card rule">
-From <code>(p→r), (q→s), (p∨q)</code> infer <code>________</code>.
+From <code>p→r</code> and <code>q→r</code> infer <code>________</code>.
 </div>
 
 **Ex:**  
-If sunny then picnic; if rainy then museum; sunny or rainy; **________**
+If it's a weekday I take the bus; if it's raining I take the bus; **________**
 
 \ 
 
@@ -234,7 +234,33 @@ If sunny then picnic; if rainy then museum; sunny or rainy; **________**
 
 
 ::: notes
-Blank: rvs      Example: So picnic or museum.
+Blank: (pvq)->r      Example: So if it's a weekday or raining, I take the bus.
+
+Note both branches land on the SAME r. That is what makes the conclusion a
+conditional rather than a disjunction.
+:::
+
+---
+
+## Rule Card: Contradiction [CONTD]
+
+<div class="card rule">
+From <code>p→F</code> infer <code>________</code>.
+</div>
+
+**Ex:**  
+If I'm free Friday, then 1 = 2. **________**
+
+\ 
+
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ &emsp; is a tautology
+
+::: notes
+Blank: ~p      Example: So I'm not free Friday.
+
+The one rule with a single premise and a constant in it. If assuming p forces
+something false, p was false. Say only that much now -- Monday this becomes
+proof by contradiction, and it is the reason CONTD is on the Sheet.
 :::
 
 ---
@@ -256,7 +282,7 @@ Blank: rvs      Example: So picnic or museum.
 
 ## Validity
 
-**∧-Elim**: $(p\wedge q)\rightarrow p$ is this always true?
+**SPEC**: $(p\wedge q)\rightarrow p$ is this always true?
 
 
 ## INValidity
@@ -293,22 +319,24 @@ Your friend \_\_\_\_\_\_\_ .
 
 ## Micro Rule Cards {.smaller}
 
-Keep these next to you. You will need them Monday.
+These are the ten on your **Formula Sheet**, in the Sheet's own names. Keep it
+next to you. You will need them Monday.
 
 :::: columns
 ::: {.column width="50%"}
-- **MP**: from `p→q, p` infer `q`
-- **MT**: from `p→q, ¬q` infer `¬p`
-- **HS**: from `p→q, q→r` infer `p→r`
-- **DS**: from `p∨q, ¬p` infer `q`
-- **∧-Intro**: from `p, q` infer `p∧q`
+- **M.PON**: from `p→q, p` infer `q`
+- **M.TOL**: from `p→q, ¬q` infer `¬p`
+- **TRANS**: from `p→q, q→r` infer `p→r`
+- **ELIM**: from `p∨q, ¬q` infer `p`
+- **CONJ**: from `p, q` infer `p∧q`
 :::
 
 ::: {.column width="50%"}
-- **∧-Elim**: from `p∧q` infer `p` (or `q`)
-- **∨-Intro**: from `p` infer `p∨q` (any `q`)
+- **SPEC**: from `p∧q` infer `p` (or `q`)
+- **GEN**: from `p` infer `p∨q` (any `q`)
 - **RES**: from `p∨q, ¬p∨r` infer `q∨r`
-- **CD**: from `(p→r), (q→s), (p∨q)` infer `r∨s`
+- **CASE**: from `p→r, q→r` infer `(p∨q)→r`
+- **CONTD**: from `p→F` infer `¬p`
 :::
 ::::
 
@@ -335,9 +363,11 @@ Rules of Inference
 
 Modus Ponens, Modus Tollens
 
-Hypothetical and Disjunctive Syllogism
+Transitivity, Elimination
 
-Resolution
+Conjunction, Specialization, Generalization
+
+Resolution, Proof by Cases, Contradiction
 
 Fallacies
 
