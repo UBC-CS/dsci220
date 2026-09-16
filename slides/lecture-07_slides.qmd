@@ -6,7 +6,7 @@ subtitle: "Lecture 7, {{< var course.code >}}, {{< var course.term >}}"
 ## Announcements {.smaller}
 
 * Enroll in PrairieTest here:
- <https://us.prairietest.com/pt/student/course/12361/enroll/392674810508>
+ <https://us.prairietest.com/pt/student/course/24076/enroll/238568773340>
 * Sign up for EX1. Practice materials on PL. 
 * Tutorials begin this week!
 

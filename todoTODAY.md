@@ -76,8 +76,9 @@ Built and pushed. **Needs a PrairieLearn sync** — nothing else.
 
 ## Small and stale
 
-- [ ] **Dead 2025 links** in lectures 4, 5, 6, 7, 8 and 16 — the PrairieTest
-      enrolment URL and `course_instance/186238`.
+- [x] ~~PrairieTest enrolment link~~ — 2026W1 is course/24076, replaced in
+      lectures 4-8.
+- [ ] **Dead `course_instance/186238`** still in lectures 4 and 16.
 - [ ] **Lecture 4's announcements** say "class THIS friday" (there isn't one)
       and "tutorials begin next week" (they begin the day before).
 - [x] ~~Tell students the Friday videos are examinable.~~ Week-2 letter: "Note
