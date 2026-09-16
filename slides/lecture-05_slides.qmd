@@ -7,7 +7,7 @@ subtitle: "Lecture 5, {{< var course.code >}}, {{< var course.term >}}"
 
 * **EX1 is next week**, Thu 9/24 through Sun 9/27, self-scheduled in ORCA.
   Enrol on PrairieTest:
- <https://us.prairietest.com/pt/student/course/24076/enroll/238568773340>
+ [https://us.prairietest.com/pt/student/course/24076/enroll/238568773340](https://us.prairietest.com/pt/student/course/24076/enroll/238568773340)
 * **Practice problems are on PrairieLearn now.** Not graded, unlimited retries.
 * **HW1 is due Sunday 9/20, 11:59p.**
 * **This is the last material on EX1.** Everything from Monday on is EX2.
@@ -27,20 +27,54 @@ subtitle: "Lecture 5, {{< var course.code >}}, {{< var course.term >}}"
 
 ## Legal Moves
 
-Treat a valid argument like a *legal move* in a game. Today we collect the
-moves: eight named rules, and the traps that look like rules but are not.
+Treat a valid argument like a *legal move* in a game. 
 
-You will use them on Monday, to spot rules, build proofs, and design traps of
-your own.
+Today we define the
+moves: eight named rules, and two rules?
 
 
 ## Warm Up
 
-A *valid argument* is a *legal inference*. Content can change; form is what makes it valid.
+A *valid argument* is a *legal inference*. 
 
 - If the lab is open, I’ll go. The lab is open. **So I’ll go.** 
 
 - If the exam is today, the forum is quiet. The forum isn’t quiet. **So the exam isn’t today.** 
+
+---
+
+## A Puzzle
+
+Your friend \_\_\_\_\_\_\_ .
+
+1. If BC has Chunkys, they go to BC.
+2. If they go to BC, they miss the kitten.
+3. They did not miss the kitten.
+4. They went out today.
+5. They only go out for Chunkys or for kittens.
+6. Nobody goes out for a kitten unless they love kittens.
+
+\
+
+**Do they love kittens?**
+
+::: notes
+Ask before saying anything. The usual first answers are "they went for the
+cookie" and "you cannot tell", and both are wrong for interesting reasons.
+
+Nothing in the premises mentions how they FEEL until premise 6 -- everything
+before it is about a cookie, and the conclusion is about affection.
+
+Premise 6 is the bridge. Without it the argument gets you "they went out FOR
+the kitten", which is a different proposition from "they love kittens" -- a
+good place to say an atom means one thing all the way through. It is also the
+same disguised conditional as lecture 4's "No song appears on the Hot 100
+without reaching #1": two negation words hiding an implication.
+
+Do not solve it now. Come back to it after the rule cards; by then they will
+have the four rules it needs. The load-bearing premise is 2: it is what lets a
+fact about a kitten rule out Chunkys, and it is the one nobody questions.
+:::
 
 ---
 
@@ -50,9 +84,14 @@ A *valid argument* is a *legal inference*. Content can change; form is what make
 From <code>p→q</code> and <code>p</code>, infer <code>________</code>.
 </div>
 
+
+
 **Ex:**  
 If the bus is full, I’ll walk. The bus is full. **________**
 
+\ 
+
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ &emsp; is a tautology
 
 ::: notes
 Blank: q      Example: So I'll walk.
@@ -69,6 +108,9 @@ From <code>p→q</code> and <code>¬q</code>, infer <code>________</code>.
 **Ex:**  
 If office hours moved, Slack has an announcement. No announcement. **________**
 
+\ 
+
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ &emsp; is a tautology
 
 ::: notes
 Blank: ~p      Example: So they didn't move.
@@ -85,6 +127,9 @@ From <code>p→q</code> and <code>q→r</code>, infer <code>________</code>.
 **Ex:**  
 If tidy then joins are simpler; if simpler joins then faster viz; **________**
 
+\ 
+
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ &emsp; is a tautology
 
 ::: notes
 Blank: p->r      Example: So tidy => faster viz.
@@ -101,6 +146,9 @@ From <code>p∨q</code> and <code>¬p</code>, infer <code>________</code>.
 **Ex:**  
 Dinner is sushi or tacos. Not sushi. **________**
 
+\ 
+
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ &emsp; is a tautology
 
 ::: notes
 Blank: q      Example: So tacos.
@@ -114,10 +162,16 @@ Blank: q      Example: So tacos.
 <div class="card rule">
 <strong>∧-Intro</strong>: from <code>p, q</code> infer <code>________</code>
 </div>
+
 <div class="card rule">
 <strong>∧-Elim</strong>: from <code>p∧q</code> infer <code>________</code>
 </div>
 </div>
+
+\ 
+
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ &emsp; and &emsp; \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ &emsp; are tautologies
+
 
 
 ::: notes
@@ -132,9 +186,12 @@ Blanks: ^-Intro p^q      ^-Elim p (or q)
 From <code>p</code> infer <code>________</code>.
 </div>
 
+
 **Ex:** I rode my scooter today, **________**
 
-**Note** validity cares about *form*, not plausibility of the added disjunct.
+\ 
+
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ &emsp; is a tautology
 
 
 ::: notes
@@ -152,6 +209,9 @@ From <code>p∨q</code> and <code>¬p∨r</code> infer <code>________</code>.
 **Ex:**  
 Either study or soccer; if study then library. **________**
 
+\ 
+
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ &emsp; is a tautology
 
 ::: notes
 Blank: qvr      Example: So soccer or library.
@@ -167,6 +227,10 @@ From <code>(p→r), (q→s), (p∨q)</code> infer <code>________</code>.
 
 **Ex:**  
 If sunny then picnic; if rainy then museum; sunny or rainy; **________**
+
+\ 
+
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ &emsp; is a tautology
 
 
 ::: notes
@@ -207,6 +271,23 @@ Blank: rvs      Example: So picnic or museum.
 | T | F |       |       |       |       
 | T | T |       |       |       |
 
+
+---
+
+## A Puzzle
+
+Your friend \_\_\_\_\_\_\_ .
+
+1. If BC has Chunkys, they go to BC.
+2. If they go to BC, they miss the kitten.
+3. They did not miss the kitten.
+4. They went out today.
+5. They only go out for Chunkys or for kittens.
+6. Nobody goes out for a kitten unless they love kittens.
+
+\
+
+**Do they love kittens?**
 
 ---
 
