@@ -48,21 +48,34 @@ A *valid argument* is a *legal inference*. Content can change; form is what make
 
 Keep these next to you. You will need them Monday.
 
-- **MP**: from `p→q, p` infer `q`  
-- **MT**: from `p→q, ¬q` infer `¬p`  
-- **HS**: from `p→q, q→r` infer `p→r`  
-- **DS**: from `p∨q, ¬p` infer `q`  
-- **∧-Intro**: from `p, q` infer `p∧q`  
-- **∧-Elim**: from `p∧q` infer `p` (or `q`)  
-- **∨-Intro**: from `p` infer `p∨q` (any `q`)  
-- **RES**: from `p∨q, ¬p∨r` infer `q∨r`  
+:::: columns
+::: {.column width="50%"}
+- **MP**: from `p→q, p` infer `q`
+- **MT**: from `p→q, ¬q` infer `¬p`
+- **HS**: from `p→q, q→r` infer `p→r`
+- **DS**: from `p∨q, ¬p` infer `q`
+- **∧-Intro**: from `p, q` infer `p∧q`
+:::
+
+::: {.column width="50%"}
+- **∧-Elim**: from `p∧q` infer `p` (or `q`)
+- **∨-Intro**: from `p` infer `p∨q` (any `q`)
+- **RES**: from `p∨q, ¬p∨r` infer `q∨r`
 - **CD**: from `(p→r), (q→s), (p∨q)` infer `r∨s`
+:::
+::::
 
-**Common traps:**  
+**Common traps:**
 
-- Affirming consequent: `p→q, q ∴ p` ❌  
+:::: columns
+::: {.column width="50%"}
+- Affirming consequent: `p→q, q ∴ p` ❌
+:::
 
+::: {.column width="50%"}
 - Denying antecedent: `p→q, ¬p ∴ ¬q` ❌
+:::
+::::
 
 ---
 
