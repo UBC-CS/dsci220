@@ -92,9 +92,10 @@ Decided 2026-09-12. HW1 (week 2) does data reduction **in pure propositional
 logic, with no mention of dataframes**, so that the data connection is still
 available later as a reveal rather than already spent.
 
-**Stage 1 — HW2, due Sun Oct 4** (moved out of HW1 on 2026-09-12; HW1 was
-running two hours, and stages 1 and 3 are better done after Sep 25 anyway, in
-the context of dataframe filtering). `2026W1/logic/which-conditions-matter`. Students find
+**Stage 1 — HW1, due Sun Sep 20.** Moved out to HW2 on 2026-09-12, when HW1
+was running two hours, then moved back on 2026-09-15: the purely propositional
+versions belong in HW1, and it is the `-df` versions that carry the data context
+into HW2. `2026W1/logic/which-conditions-matter`. Students find
 that $P \wedge (P \vee Q)$ ignores $Q$, name absorption, then reduce
 $(A \vee B) \wedge (A \vee \neg B) \wedge (A \vee C) \wedge (A \vee \neg C)$
 to $A$ by naming four laws. Closes on: a 20-variable truth table needs 1,048,576
@@ -105,7 +106,7 @@ Reveal that the formula was a filter.
 Four conditions per row collapse to one; write both in pandas and run them.
 They predicted this in week 2 from the laws alone.
 
-**Stage 3 — BUILT, and travels with stage 1 into HW2.** It refers back to
+**Stage 3 — BUILT, and travels with stage 1, so it is in HW1 too.** It refers back to
 stage 1's reduction, so the two cannot be separated. `2026W1/logic/missing-truth-values`,
 kept entirely propositional: T/F/U, no dataframes, so the data reveal is still
 unspent. Students build the Kleene operator tables from "answer only when the
