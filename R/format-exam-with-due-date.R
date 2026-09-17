@@ -2,8 +2,7 @@ source(here::here("R", "format-id.R"))
 source(here::here("R", "format-exam-buttons.R"))
 
 format_exam_with_due_date <- function(
-  slot,
-  date,
+  window,
   show_week,
   show_exam,
   id,
@@ -16,7 +15,7 @@ format_exam_with_due_date <- function(
 
   exam_with_due_date <- glue::glue(
     '<div class="exam-label">{id}</div>',
-    '<div class="due-date">Due: {slot} {date}</div>'
+    '<div class="due-date">{window}</div>'
   )
 
   exam_with_due_date_and_buttons <- glue::glue(

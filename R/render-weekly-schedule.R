@@ -1,5 +1,6 @@
 source(here::here("R", "fct-to-lower.R"))
 source(here::here("R", "fct-to-snake.R"))
+source(here::here("R", "format-exam-window.R"))
 source(here::here("R", "format-exam-with-due-date.R"))
 source(here::here("R", "format-resource-as-label.R"))
 source(here::here("R", "format-week-with-start-day.R"))
@@ -34,6 +35,8 @@ render_weekly_schedule <- function() {
   schedule <- get_schedule() |>
     dplyr::filter_out(is.na(type)) |>
     dplyr::mutate(
+      # Before `date` is reformatted to a string -- the window needs the Date.
+      exam_window = format_exam_window(date, id, slot),
       date = gt::vec_fmt_date(date, date_style = "MMMd"),
       label = purrr::pmap_chr(
         list(show_week, id, type, resource),
@@ -43,8 +46,7 @@ render_weekly_schedule <- function() {
         label,
         unit == "week" ~ format_week_with_start_day(date, id, resource),
         unit == "exam" ~ format_exam_with_due_date(
-          slot,
-          date,
+          exam_window,
           show_week,
           show_exam,
           id,
