@@ -65,8 +65,10 @@ Built and pushed. **Needs a PrairieLearn sync** — nothing else.
 
 ## People
 
-- [ ] **Book the weekly staff meeting.** ~~Mon 12-1~~ is office hours now.
-      Proposed **Mon 1-2**. Nobody asked yet.
+- [ ] **Book the weekly staff meeting.** **Mon 12-1 is free again** — office
+      hours moved to Tue 10:30-11:30 on 2026-09-18. Mon 12-1 or Mon 1-2 both
+      work; both sit after Monday's class and before Noah's Tue 2pm lab. Nobody
+      asked yet.
 - [ ] **Re-home L1C's 5 students.** L1D full, L1A has 2 spaces, L1B has 9 — so 3
       of the 5 must take Tue 4–6. You dropped the cancellation line from
       Monday's slide.

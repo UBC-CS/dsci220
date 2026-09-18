@@ -14,7 +14,7 @@ When they disagree, the slide is the one students saw in the room.
 | PrairieLearn | <https://us.prairielearn.com/pl/course_instance/209866> |
 | Canvas | <https://canvas.ubc.ca/courses/191848> |
 | Class | Mon/Wed/Fri 11:00–12:00, BIOL 2200 (Fri is async from week 2) |
-| Office hours | Mon 12–1, ICCS 233. TAs by appointment. |
+| Office hours | Tue 10:30–11:30, ICCS 233. TAs by appointment. |
 
 ---
 
@@ -49,11 +49,44 @@ Cinda and the DSCI220 teaching team Perrie, Noah, and Marko.
 
 ---
 
-⚠ **Before sending:**
-1. The PrairieTest enrolment link for 2026W1 is unknown. Lectures 4–8 still
-   carry the dead 2025 one.
-2. "Bring a laptop" is an assumption — nothing states it, though Tutorial 1 is
-   a PrairieLearn assessment.
+*(Sent Mon Sep 14. Both pre-send warnings are resolved: the PrairieTest
+enrolment link arrived on 2026-09-16 and is on lectures 4 and 5; Tutorial 1 ran
+as a PrairieLearn assessment.)*
+
+---
+
+## Week 3 — Mon Sep 21 to Sun Sep 27
+
+**Draft — facts only, in the order they matter. Cinda writes the voice.**
+
+**Anything that changed.**
+
+- **Office hours move to Tuesday 10:30–11:30, ICCS 233**, from Monday 12–1.
+  Same room, same Zoom link. Worth saying plainly that it moved, since week 2's
+  letter and the first two weeks of class both said Monday.
+
+**What's due.**
+
+- **Examlet 1**, self-scheduled in ORCA, any session **Thu Sep 24 to Sun Sep
+  27**. Covers everything through week 2 — that is lectures 1 to 5, propositional
+  logic entire, ending with the rules of inference in Friday's video.
+- HW1 closed Sun Sep 20. HW2 is due **Sun Oct 4**.
+
+**What's new.**
+
+- **Practice problems for EX1 are up**, released Wed Sep 16 at 11:59p as
+  promised: <https://us.prairielearn.com/pl/course_instance/209866/assessment/2731702>
+  Not graded, and they can be retried as often as they like.
+- Enrol on PrairieTest if they have not:
+  <https://us.prairietest.com/pt/student/course/24076/enroll/238568773340>
+- Tutorial 1's materials stay open all week:
+  <https://us.prairielearn.com/pl/course_instance/209866/assessment/2731493>
+
+**In class this week.** Mon and Wed in person, Friday's video as usual.
+
+⚠ **Before sending:** the Friday video's topic depends on where Monday and
+Wednesday actually get to — lectures past 5 are a holding arrangement, see
+`_sequence.md`.
 
 ## Template for later weeks
 
