@@ -1,102 +1,102 @@
-# Today — Sun 13 Sep 2026
+# Today — Sat 19 Sep 2026
 
-Week 2 runs **Mon 14 – Sun 20 Sep**. Ordered by stake, not by date.
+Week 3 runs **Mon 21 – Sun 27 Sep**. It is EX1 week. Ordered by stake, not by date.
 
 Backlog in `_todo.md`. Sequence decisions in `_sequence.md` (that one is the
 record — this file gets rewritten). Labs in `_labs.md`. Email in `weeklyemail.md`.
+Homework plans in `_homeworks.md`.
 
 ---
 
-## 1 — EX1 does not exist · written Thu–Sun **Sep 24–27** · 10% (1 of 5)
+## 1 — EX1 does not exist · opens **Thu Sep 24** · 10% (1 of 5)
 
-Nothing in `courseInstances/2026W1/assessments/`. No examlets at all for 2026W1,
-nor the final.
+Five days. The only hard deadline on this list.
 
-- [ ] Port from 2025W1 `ex1week3`. Those questions are last year's, so already
-      vetted — this is assembly, not authoring.
-- [ ] **EX1 is propositional logic, entire**: its window closes Fri Sep 18,
-      which is lecture 5, the rules of inference. No predicates.
-- [ ] Needs a PrairieTest sitting. The 2026W1 enrolment link is still unknown;
-      lectures 4–8 carry the dead 2025 one.
+- [ ] **Build it.** Still nothing in `courseInstances/2026W1/assessments/` —
+      no examlets at all, nor the final. Port from 2025W1 `ex1week3`, but that
+      was a different sequence: last year's EX1 had **no inference at all**,
+      and this year's covers lectures 1–5, propositional logic entire, ending
+      with the rules of inference. `practice-ex1`, now 39 questions and reviewed
+      end to end, is the model for what is in scope.
+- [ ] **Rule on functional completeness.** Taught in no lecture — HW1 and only
+      HW1. If it is fair game for EX1, students had one graded attempt and no
+      practice. This decides EX1's content, so it comes first.
+- [ ] **PrairieTest sitting.** The enrolment link is live and on lectures 4
+      and 5, and the website's Book button points at the course. Unknown whether
+      the sitting itself exists for students to book into.
+- [ ] Settings: `type: Exam`, with a points list for diminishing credit. That
+      is the exam idiom — unlike Homework, where `triesPerVariant` does the work
+      and defaults to a single try.
 
-## 2 — Tutorial 1 · opens **tonight 23:59**, due Sun Sep 20 · 1% (1 of 10)
+## 2 — Sunday, once HW1 closes 23:59
 
-- [x] ~~Access window.~~ Set Sep 13: opens tonight with HW1, due Sun Sep 20,
-      submissions after that at credit 0.
-- [ ] Tell the TAs where it is and what they are running.
-- [ ] `data/additional-resources.csv` still has `tutorial-01,activity,TBD`, so
-      the schedule's Tutorial column is greyed out.
+- [ ] **Add `wff-structure` to `practice-ex1`.** Held back because it is a
+      graded HW1 question; free once HW1 closes. Parse trees are the last
+      coverage gap that is not deliberate, and this still leaves four days
+      before EX1.
+- [ ] **Send the week 3 letter.** Draft in `weeklyemail.md` — facts only, needs
+      your voice. It has to announce the **office hours move to Tue
+      10:30–11:30**, since week 2's letter and two weeks of class all said
+      Monday.
 
+## 3 — Week 3 teaching
 
-## 3 — HW1 opens **tonight, 23:59** · due Sun Sep 20 · 2% (1 of 5)
+- [ ] **Lecture 6, Mon Sep 21 — resolution.** 74 minutes of material for a
+      50-minute class, so it runs into lecture 7, and the activity was never set
+      up well. Parked for "next weekend", which is now.
+- [ ] **Lecture 8, Fri Sep 25 — predicates, Boolean masks, quantifiers.** 57
+      min. Boolean masks is the reveal that HW1's reduction was a dataframe
+      filter all along, and HW2 depends on it.
+- [ ] **Record Wednesday 12–1**, as established.
 
-Built and pushed. **Needs a PrairieLearn sync** — nothing else.
+## 4 — People
 
-7 questions, 10 points, about 2 hours, entirely propositional:
-
-| | | |
-|---|--:|---|
-| Warm Up | 1 | Give Truth Values (XOR removed) |
-| Functional Completeness | 3 | A / B / C — taught nowhere else |
-| Well-Formed Formulas | 2 | build one, or show there isn't one |
-| Which conditions matter | 2 | reduce four clauses to one variable |
-| When a truth value is missing | 2 | T / F / U |
-
-- [ ] Sync, then spot-check the two custom-graded ones — `wff-structure` has a
-      hand-written parser and `missing-truth-values` has none of the usual
-      elements. Neither has ever rendered in PrairieLearn.
-- [ ] `homeworks/homework-01_homework.qmd` is still a stub saying "complete it
-      on PrairieLearn" — no link, no problem list.
-
-## 4 — This week's teaching
-
-- [ ] **Lecture 3, Mon 11:00.** Done and live.
-- [ ] **Lecture 4, Wed 11:00.** Done. ~68 min of material in a 50-min class, by
-      design — overflow goes into Friday's video.
-- [x] ~~Recording slot.~~ **Wednesday 12-1**, settled Sep 15 -- straight after class. It is the only
-      time that is both after Wednesday's class (the video absorbs lecture 4's
-      overflow) and early enough for the Thursday-morning posting promised in
-      the week-2 letter.
-- [ ] **Record lecture 5 this Wednesday** — first async video of 13, and
-      **nobody is named to help**.
-- [ ] **PE1 releases Wed 23:59** — 72 questions, done, no action needed.
-
----
-
-## People
-
-- [ ] **Book the weekly staff meeting.** **Mon 12-1 is free again** — office
-      hours moved to Tue 10:30-11:30 on 2026-09-18. Mon 12-1 or Mon 1-2 both
+- [ ] **Book the weekly staff meeting.** **Mon 12–1 is free again** — office
+      hours moved to Tue 10:30–11:30 on 2026-09-18. Mon 12–1 or Mon 1–2 both
       work; both sit after Monday's class and before Noah's Tue 2pm lab. Nobody
       asked yet.
-- [ ] **Re-home L1C's 5 students.** L1D full, L1A has 2 spaces, L1B has 9 — so 3
-      of the 5 must take Tue 4–6. You dropped the cancellation line from
-      Monday's slide.
+- [ ] **Re-home L1C's 5 students.** L1D full, L1A has 2 spaces, L1B has 9 — so
+      3 of the 5 must take Tue 4–6.
 - [ ] **Assign lab owners.** Only Lab 1 has one.
-- [ ] **Who helps with the video.** 13 of them.
-- [ ] **Report the scrolling bug** from giving Marko student-data access.
+- [ ] **Who helps with the videos.** 12 left.
+- [ ] Tell the TAs what they are running each week.
+- [ ] Report the scrolling bug from giving Marko student-data access.
 
-## Small and stale
+## 5 — Small and stale
 
-- [x] ~~PrairieTest enrolment link~~ — 2026W1 is course/24076, replaced in
-      lectures 4-8.
-- [ ] **Dead `course_instance/186238`** still in lectures 4 and 16.
-- [ ] **Lecture 4's announcements** say "class THIS friday" (there isn't one)
-      and "tutorials begin next week" (they begin the day before).
-- [x] ~~Tell students the Friday videos are examinable.~~ Week-2 letter: "Note
-      that this is new material, just like any class meeting."
-- [ ] Course part titles — the live site still says "Topic to be decided".
-- [ ] Final exam date. DSCI Instagram handle (Jayden's).
+- [ ] **Course part titles.** The live site still says "Topic to be decided" in
+      16 places — the most visible unfinished thing on it.
+- [ ] **Dead `course_instance/186238`** in `lecture-16_slides.qmd`. Lecture 4's
+      copy is fixed.
+- [ ] Final exam date, from the Registrar. DSCI Instagram handle (Jayden's).
 
-## Next weekend, deliberately parked
+## 6 — Parked, with reasons
 
-- [ ] **Resolution** — 74 min, two slots, and the activity was not set up well
-      last year.
-- [ ] **A CNF question.** Resolution runs on CNF; nothing in the bank asks for
-      one. DNF is already covered by `functional-completenessA`.
-- [ ] **Build the predicate inference deck.** It does not exist, and no
-      questions for it exist either.
-- [ ] **HW2** — `which-conditions-matter-df`, `missing-truth-values-df` and
-      `equivalence-with-nans`, all after Boolean Masks on Fri Sep 25.
-- [ ] **Easier equivalence proofs** — an Easy band exists and nothing uses it;
-      the grading needs rethinking. See `_todo.md`.
+- [ ] **A CNF question.** Resolution runs on CNF and nothing in the bank asks
+      for one. Would suit HW2 if it needs weight.
+- [ ] **Predicate inference deck.** Does not exist, and no questions either.
+      Needed for lecture 9, Mon Sep 28.
+- [ ] **HW2**, due Sun Oct 4. Assembly, not authoring — every question already
+      exists. See `_homeworks.md`.
+- [ ] **A real parse-tree question** for practice and the examlet. Design
+      agreed: build the tree offline, then ask questions only answerable with
+      it — relationships, not root or depth, which can be shortcut by counting.
+- [ ] **Easier equivalence proofs.** An Easy band exists in `equiv_proofs.py`
+      and nothing uses it.
+- [ ] `converse-contrapositive-inverse` is drill-shaped now; the walkthrough it
+      replaced may belong in a homework.
+
+---
+
+## Cleared since Sep 13
+
+Lectures 3, 4 and 5 built and delivered; lecture 5 recorded Wednesday and its
+rule names aligned to the Formula Sheet. HW1 and Tutorial 1 opened.
+`practice-ex1` reviewed end to end, cut 72 → 39, with two new questions written
+(`valid-or-fallacy`, `converse-contrapositive-inverse`) closing the fallacy and
+converse gaps, and `triesPerVariant` set so a wrong answer no longer ends the
+instance. Website: Friday's deck now reveals with Wednesday's, the examlet Book
+and Practice buttons work, booking windows show as ranges, week 2 recordings and
+the tutorial link are in, office hours moved. `_homeworks.md` started.
+Lecture 4's dead course-instance link and its "class THIS Friday" line are gone,
+and the `homeworks/` stubs were deleted.
