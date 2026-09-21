@@ -9,10 +9,12 @@
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/quarto-contrib/live-runtime/live-runtime.js" type="module"></script>
 <link href="../site_libs/quarto-contrib/live-runtime/live-runtime.css" rel="stylesheet">
+<script src="../site_libs/quarto-contrib/countdown-0.6.0/countdown.js"></script>
+<link href="../site_libs/quarto-contrib/countdown-0.6.0/countdown.css" rel="stylesheet">
 <script src="../site_libs/quarto-contrib/iconify-3.0.0/iconify-icon.min.js"></script><meta charset="utf-8">
   <meta name="generator" content="quarto-1.10.18">
 
-  <title>{{&lt; var course.full-title &gt;}} – Quantifiers, continued</title>
+  <title>{{&lt; var course.full-title &gt;}} – Inference, continued</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -134,10 +136,10 @@
   </style>
   <script type="module" src="../site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
   <link href="../site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
-<meta property="og:title" content="Quantifiers, continued – DSCI 220: Discrete Math for Data Science">
+<meta property="og:title" content="Inference, continued – DSCI 220: Discrete Math for Data Science">
 <meta property="og:description" content="Lecture 6, DSCI 220, 2026W1">
 <meta property="og:site_name" content="DSCI 220: Discrete Math for Data Science">
-<meta name="twitter:title" content="Quantifiers, continued – DSCI 220: Discrete Math for Data Science">
+<meta name="twitter:title" content="Inference, continued – DSCI 220: Discrete Math for Data Science">
 <meta name="twitter:description" content="Lecture 6, DSCI 220, 2026W1">
 <meta name="twitter:card" content="summary">
 </head>
@@ -146,7 +148,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Quantifiers, continued</h1>
+  <h1 class="title">Inference, continued</h1>
   <p class="subtitle">Lecture 6, DSCI 220, 2026W1</p>
 
 <div class="quarto-title-authors">
@@ -156,106 +158,256 @@
 <section id="announcements" class="slide level2 smaller">
 <h2>Announcements</h2>
 <ul>
-<li>Enroll in PrairieTest here: <a href="https://us.prairietest.com/pt/student/course/24076/enroll/238568773340" class="uri">https://us.prairietest.com/pt/student/course/24076/enroll/238568773340</a></li>
+<li>Enroll in PrairieTest here: <a href="https://us.prairietest.com/pt/student/course/24076/enroll/238568773340">https://us.prairietest.com/pt/student/course/24076/enroll/238568773340</a></li>
 <li>Sign up for EX1. Practice materials on PL.</li>
-<li>Tutorials begin this week.</li>
+<li>Tutorials continue this week.</li>
 </ul>
 </section>
-<section>
-<section id="inference-practice" class="title-slide slide level1 center">
-<h1>Inference Practice</h1>
-
+<section id="inference-practice" class="slide level2 activity smaller">
+<h2>Inference Practice</h2>
+<p><a href="https://us.prairielearn.com/pl/course_instance/209866/assessment/2733328">https://us.prairielearn.com/pl/course_instance/209866/assessment/2733328</a></p>
+<countdown-timer id="timer_550f5a465f4233a177359ba4e0ea61f2a19274ce" minutes="05" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+ </countdown-timer>
 </section>
-<section id="spot-the-rule-or-the-trap" class="slide level2">
-<h2>Spot the Rule or the Trap</h2>
-<p><strong>How to play:</strong> post in chat…</p>
-<p><strong>(a)</strong> valid or not, <strong>(b)</strong> if valid, name the rule, <strong>(c)</strong> formal pattern.</p>
-</section>
-<section class="slide level2">
-
-<h3 id="campus">Campus</h3>
-<p>If the lecture live-streams, the chat is busy. The chat is busy. <strong>So it live-streams.</strong></p>
-<p><span class="fragment">❌ Fallacy: Affirming the consequent (<code>p→q, q ∴ p</code>)</span></p>
-</section>
-<section class="slide level2">
-
-<h3 id="sports">Sports</h3>
-<p>If the Canucks win, downtown is loud. Downtown isn’t loud. <strong>So the Canucks didn’t win.</strong></p>
-<p><span class="fragment">✅ MT (<code>p→q, ¬q ∴ ¬p</code>)</span></p>
-</section>
-<section class="slide level2">
-
-<h3 id="food">Food</h3>
-<p>Dinner is sushi or tacos. Not sushi. <strong>So tacos.</strong></p>
-<p><span class="fragment">✅ DS (<code>p∨q, ¬p ∴ q</code>)</span></p>
-</section>
-<section class="slide level2">
-
-<h3 id="travel">Travel</h3>
-<p>If it rains, I’ll bus. If I’m late, I’ll bus. It’s raining or I’m late. <strong>So I’ll bus.</strong></p>
-<p><span class="fragment">✅ CD with <code>r=s=bus</code></span></p>
-</section>
-<section class="slide level2">
-
-<h3 id="movies">Movies</h3>
-<p>If a film is MCU, it has a post-credits scene. This is MCU. <strong>So post-credits.</strong></p>
-<p><span class="fragment">✅ MP (<code>p→q, p ∴ q</code>)</span></p>
-</section>
-<section class="slide level2">
-
-<h3 id="music">Music</h3>
-<p>Either I practice guitar or code. If coding, then coffee. <strong>So either practice or coffee.</strong></p>
-<p><span class="fragment">✅ RES: <code>(g ∨ c)</code> and <code>(f v ¬c)</code></span></p>
-</section>
-<section class="slide level2">
-
-<h3 id="wellness">Wellness</h3>
-<p>I stretched <strong>and</strong> hydrated. <strong>So I stretched.</strong></p>
-<p><span class="fragment">✅ ∧-Elim</span></p>
-</section>
-<section class="slide level2">
-
-<h3 id="data">Data</h3>
-<p>If a dataset is tidy then joins are simpler. If joins are simpler then viz faster. <strong>So if tidy then viz faster.</strong></p>
-<p><span class="fragment">✅ HS</span></p>
-</section>
-<section id="build-a-proof" class="slide level2">
+<section id="build-a-proof" class="slide level2 smaller">
 <h2>Build a proof</h2>
-<p>In the chat, each person adds exactly <strong>one</strong> line using a Rule Card.</p>
-</section>
-<section class="slide level2">
-
-<h3 id="relay-a">Relay A</h3>
-<p><strong>Premises</strong><br>
-1. <code>D→R</code> (deadline ⇒ review session)<br>
-2. <code>R→C</code> (review ⇒ crowded café)<br>
-3. <code>D</code></p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Premises</strong></p>
+<ol type="1">
+<li><code>D→R</code> (deadline ⇒ review session)</li>
+<li><code>R→C</code> (review ⇒ crowded café)</li>
+<li><code>D</code></li>
+</ol>
 <p><strong>Goal</strong>: <code>C</code></p>
-</section>
-<section class="slide level2">
-
-<h3 id="relay-b">Relay B</h3>
-<p><strong>Premises</strong><br>
-1. <code>P∨Q</code> (pizza or quinoa)<br>
-2. <code>¬P∨R</code> (if pizza then ramen)<br>
-3. <code>¬Q</code> (no quinoa)</p>
+</div><div class="column" style="width:50%;">
+<p><strong>Premises</strong></p>
+<ol type="1">
+<li><code>P∨Q</code> (pizza or quinoa)</li>
+<li><code>¬P∨R</code> (not pizza or ramen)</li>
+<li><code>¬Q</code> (no quinoa)</li>
+</ol>
 <p><strong>Goal</strong>: <code>R</code></p>
+</div></div>
 </section>
-<section id="design-a-trap" class="slide level2">
+<section id="design-a-trap" class="slide level2 activity">
 <h2>Design a Trap</h2>
-<p><strong>Your mission:</strong><br>
-- Write one <strong>valid</strong> two-premise argument (any rule).<br>
-- Write a <strong>look-alike fallacy</strong> with the same topic words.<br>
-- Bring to class on Wednesday morning!</p>
-</section>
-<section id="exit-ticket-2-min" class="slide level2">
-<h2>Exit Ticket (2 min)</h2>
-<p>In chat (or poll), complete both:</p>
+<p><strong>Your task:</strong></p>
 <ul>
-<li><strong>One valid rule I can spot in the wild is</strong> ________.<br>
-</li>
-<li><strong>One trap I’ll watch for is</strong> ________.</li>
+<li>Write one <strong>valid</strong> two-premise argument (any rule).</li>
+<li>Write a <strong>fallacy</strong> using the same topic.</li>
 </ul>
+<countdown-timer id="timer_550f5a465f4233a177359ba4e0ea61f2a19274ce" minutes="05" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+ </countdown-timer>
+</section>
+<section id="a-puzzle" class="slide level2 smaller">
+<h2>A Puzzle</h2>
+<p>Your friend _______ .</p>
+<ol type="1">
+<li>If BC has Chunkys, they go to BC.</li>
+<li>If they go to BC, they miss the kitten.</li>
+<li>They did not miss the kitten.</li>
+<li>They went out today.</li>
+<li>They only go out for Chunkys or for kittens.</li>
+<li>Nobody goes out for a kitten unless they love kittens.</li>
+</ol>
+<p><br>
+</p>
+<p><strong>Do they love kittens?</strong></p>
+<aside class="notes">
+<p>Ask before saying anything. The usual first answers are “they went for the cookie” and “you cannot tell”, and both are wrong for interesting reasons.</p>
+<p>Nothing in the premises mentions how they FEEL until premise 6 – everything before it is about a cookie, and the conclusion is about affection.</p>
+<p>Premise 6 is the bridge. Without it the argument gets you “they went out FOR the kitten”, which is a different proposition from “they love kittens” – a good place to say an atom means one thing all the way through. It is also the same disguised conditional as lecture 4’s “No song appears on the Hot 100 without reaching #1”: two negation words hiding an implication.</p>
+<p>Do not solve it now. Come back to it after the rule cards; by then they will have the four rules it needs. The load-bearing premise is 2: it is what lets a fact about a kitten rule out Chunkys, and it is the one nobody questions.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="resolution-revisited" class="slide level2 smaller">
+<h2>Resolution Revisited</h2>
+<div class="card rule">
+<p>From <code>p∨q</code> and <code>¬p∨r</code> infer <code>q∨r</code>.</p>
+</div>
+<p><br>
+</p>
+<p>Both inputs have the same shape, and the result has the same shape.</p>
+<p>&nbsp;</p>
+<aside class="notes">
+<p>An OR of atoms and negated atoms – nothing else. No AND, no -&gt;, no nesting.</p>
+<p>Every other rule on the Sheet takes a different shape of input. RES is the one that takes the same shape it gives back, which is what lets you run it over and over without stopping to check what you have. That is Wednesday.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<p><strong>Vocabulary:</strong></p>
+<p>Literal: ____________________</p>
+<p>Clause: ____________________</p>
+<p><br>
+</p>
+<p>That shape: ________________________</p>
+</section>
+<section id="clauses" class="slide level2">
+<h2>Clauses</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 8%">
+<col style="width: 62%">
+<col style="width: 30%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">#</th>
+<th>Expression</th>
+<th style="text-align: center;">Clause?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td><span class="math inline">\(p \vee \neg q \vee r\)</span></td>
+<td style="text-align: center;">☐</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2</td>
+<td><span class="math inline">\(\neg p\)</span></td>
+<td style="text-align: center;">☐</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">3</td>
+<td><span class="math inline">\(p \wedge \neg q\)</span></td>
+<td style="text-align: center;">☐</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">4</td>
+<td><span class="math inline">\(\neg(p \vee q)\)</span></td>
+<td style="text-align: center;">☐</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">5</td>
+<td><span class="math inline">\(p \vee (q \wedge r)\)</span></td>
+<td style="text-align: center;">☐</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">6</td>
+<td><span class="math inline">\(\neg\neg p \vee q\)</span></td>
+<td style="text-align: center;">☐</td>
+</tr>
+</tbody>
+</table>
+<aside class="notes">
+<p>Literal: an atom, or a negated atom. p and ~p.&nbsp;That is all. Clause: an OR of literals.</p>
+<p>Clauses: p v ~q v r, and ~p on its own – one literal is still an OR, of one thing. The rest are not: ^ is not v; ~(p v q) negates a compound, not an atom; q ^ r is not a literal; <sub></sub>p is not a literal until DNEG is applied, and then it is.</p>
+<p>That last one is the good one to linger on – it is a clause in disguise.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="conjunctive-normal-form" class="slide level2">
+<h2>Conjunctive Normal Form</h2>
+<p>An <strong>AND of clauses</strong>. Every expression has one…</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 65%">
+<col style="width: 35%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Expression</th>
+<th style="text-align: left;">Law</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\neg(p \rightarrow q) \vee r\)</span></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<aside class="notes">
+<p>~(p -&gt; q) v r <sub>(</sub>p v q) v r IMP (p ^ ~q) v r DM, then DNEG (p v r) ^ (~q v r) DIST &lt;- CNF, two clauses</p>
+<p>Verified: all four rows agree on all eight assignments.</p>
+<p>DIST is the one they will not see coming, and it is the step that does the real work – it is what turns one thing into an AND of two.</p>
+<p>IF SOMEONE ASKS “does that always work?” – yes, always, and there are two reasons. Both verified 2026-09-20.</p>
+<p>THE SHORT ONE (semantic, and the one to say out loud). Take the truth table. For every row where the formula is FALSE, write the clause that is false on exactly that row: put ~p in it where p is true in that row, and p where p is false. Every literal is false there, so the clause is false there; any other row differs in some variable, which makes that literal true, so the clause is true everywhere else. AND those clauses together and you have something false on exactly the rows the formula was false on. A tautology has no false rows, so you get the empty conjunction, which is T. Checked on 4000 random formulas over four atoms; every row agrees. Cost: up to 2^n clauses. That blow-up is why real SAT solvers use Tseitin’s transformation instead and settle for equisatisfiable rather than equivalent.</p>
+<p>THE LONG ONE (syntactic – it is the procedure they just did). Three phases, every step a law from the Sheet: 1. kill -&gt; and &lt;-&gt; ………… IMP, BIC 2. push ~ down to the atoms … DM, DNEG (negation normal form) 3. distribute v over ^ …….. DIST until no v sits above a ^ The one subtlety is that phase 3 terminates, since distributing makes the formula BIGGER. Weight each NNF formula: a literal is 2, mu(a ^ b) = mu a + mu b + 1, mu(a v b) = mu a * mu b. Distributing turns mu a * (mu b + mu c + 1) into mu a * mu b + mu a * mu c + 1, a drop of mu a - 1, and every weight is at least 2 – so it strictly decreases every time and cannot run forever. Smallest drop over 20000 random cases was 1. Never 0.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="foreshadowing-wednesday" class="slide level2">
+<h2>Foreshadowing Wednesday</h2>
+<p><strong>Where we started.</strong> Given statements (premises), a conclusion, and ten rules. Pick a rule, pick what to apply it to, repeat until conclusion.</p>
+<p><br>
+</p>
+<p><strong>So why is that hard to hand to a machine?</strong></p>
+<p>________________________________________</p>
+<p><br>
+</p>
+<p>With CNF we only need RES.</p>
+<aside class="notes">
+<p>Ten is a small number, so the rule count is not the problem – push back if someone says it is. The cost is the SEARCH:</p>
+<ul>
+<li>at every step you choose a rule AND which of your facts to feed it, so the branching is the rules times the subsets, not just the rules;</li>
+<li>each rule wants a different shape, so every choice needs a pattern match before you even know whether it applies;</li>
+<li>GEN makes the space infinite on its own – from p you may write p v q for ANY q, so there are always infinitely many legal next moves;</li>
+<li>and nothing tells you which branch reaches the goal. You cannot tell a promising line from a dead one until you are down it.</li>
+</ul>
+<p>That is what CNF buys. One shape, so no matching. One rule, so no choosing. And because resolution returns what it consumes, you can apply it blindly to every pair and stop when nothing new appears – no cleverness anywhere.</p>
+<p>Second blank: unit clause. Wednesday is unit propagation – given (X) and (~X v Y), drop ~X and keep Y. That is DS, which they have had since Friday under the name ELIM. Do not say so now; let them find it Wednesday.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 
 
 <script type="ojs-module-contents">
@@ -272,7 +424,7 @@ eyJjb250ZW50cyI6W119
 <script type="vfs-file">
 W10=
 </script>
-</section></section>
+</section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
