@@ -57,36 +57,53 @@ as a PrairieLearn assessment.)*
 
 ## Week 3 — Mon Sep 21 to Sun Sep 27
 
-**Draft — facts only, in the order they matter. Cinda writes the voice.**
+⚠ **Check before sending**
 
-**Anything that changed.**
+1. **Is EX1 actually bookable on PrairieTest?** There is still no `ex1`
+   assessment in `courseInstances/2026W1/` — only the practice set. The sitting
+   lives in PrairieTest rather than PrairieLearn, so it may well be open, but I
+   cannot see PrairieTest from here. Last week's letter promised "I will let you
+   know the *second* the examlet is available", so item 1 below either delivers
+   on that or has to be softened.
+2. **Monday opens with a PrairieLearn activity** (ACT6, 11:00–11:59), so they
+   need a laptop. Week 2's letter never said to bring one.
+3. **Tutorial 2 is an empty shell** — it exists, but with no questions and no
+   access control, and tutorials meet Tue and Wed. Item 4 assumes it will be
+   ready.
+4. Friday's video topic depends on where Mon and Wed get to.
 
-- **Office hours move to Tuesday 10:30–11:30, ICCS 233**, from Monday 12–1.
-  Same room, same Zoom link. Worth saying plainly that it moved, since week 2's
-  letter and the first two weeks of class both said Monday.
+---
 
-**What's due.**
+Hi everyone,
 
-- **Examlet 1**, self-scheduled in ORCA, any session **Thu Sep 24 to Sun Sep
-  27**. Covers everything through week 2 — that is lectures 1 to 5, propositional
-  logic entire, ending with the rules of inference in Friday's video.
-- HW1 closed Sun Sep 20. HW2 is due **Sun Oct 4**.
+Welcome to week 3 — it's a big one!!
 
-**What's new.**
+The news:
 
-- **Practice problems for EX1 are up**, released Wed Sep 16 at 11:59p as
-  promised: <https://us.prairielearn.com/pl/course_instance/209866/assessment/2731702>
-  Not graded, and they can be retried as often as they like.
-- Enrol on PrairieTest if they have not:
-  <https://us.prairietest.com/pt/student/course/24076/enroll/238568773340>
-- Tutorial 1's materials stay open all week:
-  <https://us.prairielearn.com/pl/course_instance/209866/assessment/2731493>
+1. **Examlet 1 is this week** Thursday 9/24 through Sunday 9/27. Book your
+own session in ORCA. It covers the material through the end of last week — that's
+lectures 1 through 5, all of propositional logic, finishing with the rules of
+inference in Friday's video. Nothing from this week is on it.
 
-**In class this week.** Mon and Wed in person, Friday's video as usual.
+2. **The practice problems are up**:
+<https://us.prairielearn.com/pl/course_instance/209866/assessment/2731702>
+They are not graded and you can retry them as many times as you like. 
+If you have not enrolled on PrairieTest yet, do that first:
+<https://us.prairietest.com/pt/student/course/24076/enroll/238568773340>
 
-⚠ **Before sending:** the Friday video's topic depends on where Monday and
-Wednesday actually get to — lectures past 5 are a holding arrangement, see
-`_sequence.md`.
+3. **My office hours have moved.** They are now **Tuesdays, 10:30–11:30, in
+ICCS 233**. Sorry for the shuffle. Please come say hi!
+
+4. **Tutorial 2** is this week.
+
+As always, you're welcome to email me (cheeren@cs.ubc.ca) or post on Piazza
+(<https://piazza.com/ubc.ca/winterterm12026/dsci220>), and the course website is
+<https://ubc-cs.github.io/dsci220>.
+
+See you tomorrow!
+
+All the best!
+Cinda and the DSCI220 teaching team Perrie, Noah, and Marko.
 
 ## Template for later weeks
 

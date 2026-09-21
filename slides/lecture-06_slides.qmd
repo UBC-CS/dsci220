@@ -1,131 +1,231 @@
 ---
-title: "Quantifiers, continued"
+title: "Inference, continued"
 subtitle: "Lecture 6, {{< var course.code >}}, {{< var course.term >}}"
 ---
 
 ## Announcements {.smaller}
 
 * Enroll in PrairieTest here:
- <https://us.prairietest.com/pt/student/course/24076/enroll/238568773340>
+ [https://us.prairietest.com/pt/student/course/24076/enroll/238568773340](https://us.prairietest.com/pt/student/course/24076/enroll/238568773340)
 * Sign up for EX1. Practice materials on PL. 
-* Tutorials begin this week.
+* Tutorials continue this week.
 
-# Inference Practice
+## Inference Practice {.activity .smaller}
 
-## Spot the Rule or the Trap 
+[https://us.prairielearn.com/pl/course_instance/209866/assessment/2733328
+](https://us.prairielearn.com/pl/course_instance/209866/assessment/2733328)
 
-**How to play:** post in chat...
+{{< countdown minutes=5 >}}
 
-**(a)** valid or not, **(b)** if valid, name the rule, **(c)** formal pattern.
+## Build a proof {.smaller}
 
----
+:::: columns
 
-### Campus
+::: {.column width="50%"}
+**Premises**
 
-If the lecture live-streams, the chat is busy. The chat is busy. **So it live-streams.**
-
-<span class="fragment">❌ Fallacy: Affirming the consequent (<code>p→q, q ∴ p</code>)</span>
-
----
-
-### Sports 
-
-If the Canucks win, downtown is loud. Downtown isn’t loud. **So the Canucks didn’t win.**
-
-<span class="fragment">✅ MT (<code>p→q, ¬q ∴ ¬p</code>)</span>
-
----
-
-### Food
-
-Dinner is sushi or tacos. Not sushi. **So tacos.**
-
-<span class="fragment">✅ DS (<code>p∨q, ¬p ∴ q</code>)</span>
-
----
-
-### Travel
-
-If it rains, I’ll bus. If I’m late, I’ll bus. It’s raining or I’m late. **So I’ll bus.**
-
-<span class="fragment">✅ CD with <code>r=s=bus</code></span>
-
----
-
-### Movies 
-
-If a film is MCU, it has a post-credits scene. This is MCU. **So post-credits.**
-
-<span class="fragment">✅ MP (<code>p→q, p ∴ q</code>)</span>
-
----
-
-### Music 
-
-Either I practice guitar or code. If coding, then coffee. **So either practice or coffee.**
-
-<span class="fragment">✅ RES: <code>(g ∨ c)</code> and <code>(f v ¬c)</code></span>
-
----
-
-### Wellness
-
-I stretched **and** hydrated. **So I stretched.**
-
-<span class="fragment">✅ ∧-Elim</span>
-
----
-
-### Data
-
-If a dataset is tidy then joins are simpler. If joins are simpler then viz faster. **So if tidy then viz faster.**
-
-<span class="fragment">✅ HS</span>
-
----
-
-## Build a proof 
-
-In the chat, each person adds exactly **one** line using a Rule Card.  
-
----
-
-### Relay A 
-
-**Premises**  
-1. `D→R` (deadline ⇒ review session)  
-2. `R→C` (review ⇒ crowded café)  
+1. `D→R` (deadline ⇒ review session)
+2. `R→C` (review ⇒ crowded café)
 3. `D`
 
 **Goal**: `C`
+:::
 
----
+::: {.column width="50%"}
+**Premises**
 
-### Relay B 
-
-**Premises**  
-1. `P∨Q` (pizza or quinoa)  
-2. `¬P∨R` (if pizza then ramen)  
+1. `P∨Q` (pizza or quinoa)
+2. `¬P∨R` (not pizza or ramen)
 3. `¬Q` (no quinoa)
 
 **Goal**: `R`
+:::
 
----
+::::
 
-## Design a Trap
+## Design a Trap {.activity}
 
-**Your mission:**  
-- Write one **valid** two-premise argument (any rule).  
-- Write a **look-alike fallacy** with the same topic words.  
-- Bring to class on Wednesday morning!
+**Your task:**
 
----
+- Write one **valid** two-premise argument (any rule).
+- Write a **fallacy** using the same topic.
 
-## Exit Ticket (2 min)
+{{< countdown minutes=5 >}}
 
-In chat (or poll), complete both:
+## A Puzzle {.smaller}
 
-- **One valid rule I can spot in the wild is** ________.  
-- **One trap I’ll watch for is** ________.
+Your friend \_\_\_\_\_\_\_ .
+
+1. If BC has Chunkys, they go to BC.
+2. If they go to BC, they miss the kitten.
+3. They did not miss the kitten.
+4. They went out today.
+5. They only go out for Chunkys or for kittens.
+6. Nobody goes out for a kitten unless they love kittens.
+
+\
+
+**Do they love kittens?**
+
+::: notes
+Ask before saying anything. The usual first answers are "they went for the
+cookie" and "you cannot tell", and both are wrong for interesting reasons.
+
+Nothing in the premises mentions how they FEEL until premise 6 -- everything
+before it is about a cookie, and the conclusion is about affection.
+
+Premise 6 is the bridge. Without it the argument gets you "they went out FOR
+the kitten", which is a different proposition from "they love kittens" -- a
+good place to say an atom means one thing all the way through. It is also the
+same disguised conditional as lecture 4's "No song appears on the Hot 100
+without reaching #1": two negation words hiding an implication.
+
+Do not solve it now. Come back to it after the rule cards; by then they will
+have the four rules it needs. The load-bearing premise is 2: it is what lets a
+fact about a kitten rule out Chunkys, and it is the one nobody questions.
+:::
+
+## Resolution Revisited {.smaller}
+
+<div class="card rule">
+From <code>p∨q</code> and <code>¬p∨r</code> infer <code>q∨r</code>.
+</div>
+
+\
+
+Both inputs have the same
+shape, and the result has the same shape. 
+
+\ 
+
+::: notes
+An OR of atoms and negated atoms -- nothing else. No AND, no ->, no nesting.
+
+Every other rule on the Sheet takes a different shape of input. RES is the one
+that takes the same shape it gives back, which is what lets you run it over and
+over without stopping to check what you have. That is Wednesday.
+:::
+
+**Vocabulary:**
+
+Literal: \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+Clause: \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+\
+
+That shape: \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 
+## Clauses
+
+| # | Expression | Clause? |
+|:-:|---|:--:|
+| 1 | $p \vee \neg q \vee r$ | ☐ |
+| 2 | $\neg p$ | ☐ |
+| 3 | $p \wedge \neg q$ | ☐ |
+| 4 | $\neg(p \vee q)$ | ☐ |
+| 5 | $p \vee (q \wedge r)$ | ☐ |
+| 6 | $\neg\neg p \vee q$ | ☐ |
+: {tbl-colwidths="[8,62,30]"}
+
+::: notes
+Literal: an atom, or a negated atom. p and ~p. That is all.
+Clause: an OR of literals.
+
+Clauses: p v ~q v r, and ~p on its own -- one literal is still an OR, of one
+thing. The rest are not: ^ is not v; ~(p v q) negates a compound, not an atom;
+q ^ r is not a literal; ~~p is not a literal until DNEG is applied, and then
+it is.
+
+That last one is the good one to linger on -- it is a clause in disguise.
+:::
+
+## Conjunctive Normal Form
+
+An **AND of clauses**. Every expression has one...
+
+| Expression | Law |
+|---|:--|
+| $\neg(p \rightarrow q) \vee r$ | |
+| | |
+| | |
+| | |
+: {tbl-colwidths="[65,35]"}
+
+::: notes
+  ~(p -> q) v r
+  ~(~p v q) v r        IMP
+  (p ^ ~q) v r         DM, then DNEG
+  (p v r) ^ (~q v r)   DIST     <- CNF, two clauses
+
+Verified: all four rows agree on all eight assignments.
+
+DIST is the one they will not see coming, and it is the step that does the
+real work -- it is what turns one thing into an AND of two.
+
+IF SOMEONE ASKS "does that always work?" -- yes, always, and there are two
+reasons. Both verified 2026-09-20.
+
+THE SHORT ONE (semantic, and the one to say out loud). Take the truth table.
+For every row where the formula is FALSE, write the clause that is false on
+exactly that row: put ~p in it where p is true in that row, and p where p is
+false. Every literal is false there, so the clause is false there; any other
+row differs in some variable, which makes that literal true, so the clause is
+true everywhere else. AND those clauses together and you have something false
+on exactly the rows the formula was false on. A tautology has no false rows, so
+you get the empty conjunction, which is T.
+  Checked on 4000 random formulas over four atoms; every row agrees.
+  Cost: up to 2^n clauses. That blow-up is why real SAT solvers use Tseitin's
+  transformation instead and settle for equisatisfiable rather than equivalent.
+
+THE LONG ONE (syntactic -- it is the procedure they just did). Three phases,
+every step a law from the Sheet:
+  1. kill -> and <-> ............ IMP, BIC
+  2. push ~ down to the atoms ... DM, DNEG      (negation normal form)
+  3. distribute v over ^ ........ DIST          until no v sits above a ^
+The one subtlety is that phase 3 terminates, since distributing makes the
+formula BIGGER. Weight each NNF formula: a literal is 2, mu(a ^ b) = mu a +
+mu b + 1, mu(a v b) = mu a * mu b. Distributing turns mu a * (mu b + mu c + 1)
+into mu a * mu b + mu a * mu c + 1, a drop of mu a - 1, and every weight is at
+least 2 -- so it strictly decreases every time and cannot run forever.
+  Smallest drop over 20000 random cases was 1. Never 0.
+:::
+
+## Foreshadowing Wednesday
+
+**Where we started.** Given statements (premises), a conclusion, and ten rules.
+Pick a rule, pick what to apply it to, repeat until conclusion.
+
+\
+
+**So why is that hard to hand to a machine?** 
+
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+\
+
+With CNF we only need RES.
+
+
+::: notes
+Ten is a small number, so the rule count is not the problem -- push back if
+someone says it is. The cost is the SEARCH:
+
+  - at every step you choose a rule AND which of your facts to feed it, so the
+    branching is the rules times the subsets, not just the rules;
+  - each rule wants a different shape, so every choice needs a pattern match
+    before you even know whether it applies;
+  - GEN makes the space infinite on its own -- from p you may write p v q for
+    ANY q, so there are always infinitely many legal next moves;
+  - and nothing tells you which branch reaches the goal. You cannot tell a
+    promising line from a dead one until you are down it.
+
+That is what CNF buys. One shape, so no matching. One rule, so no choosing.
+And because resolution returns what it consumes, you can apply it blindly to
+every pair and stop when nothing new appears -- no cleverness anywhere.
+
+Second blank: unit clause. Wednesday is unit propagation -- given (X) and
+(~X v Y), drop ~X and keep Y. That is DS, which they have had since Friday
+under the name ELIM. Do not say so now; let them find it Wednesday.
+:::
