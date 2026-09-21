@@ -191,6 +191,25 @@ before the lecture.
 ## Still to do
 
 - Resolution needs care — the activity was not set up well last year.
-  *Scheduled for the weekend of Sep 19–20, not this one.*
+  L6 now ends on clauses and CNF (Sep 20), so Wednesday can go straight to unit
+  propagation. The Explore UBC activity itself is still untouched.
 - Build the predicate inference deck. No questions for it exist either.
-- Place the stashed predicate/quantifier material into L8.
+- **There is no stashed predicate/quantifier material.** Checked 2026-09-20:
+  lectures 19, 20 and 23 are Sets, Power Sets, and Regular Expressions, and
+  their ∀/∃ are incidental notation inside set-builder expressions, not a
+  lesson. L8 has to be written.
+
+## L8 opens with the Converses callback
+
+Decided 2026-09-20. `P(x)` notation appears on no slide in lectures 1–8, and
+"predicate", "domain" and "for all" appear only in speaker notes. The usual
+motivation — *x > 3 is not a proposition until you know x* — belongs on the
+propositions list in L1 and was not done there. Putting it into L6 or L7 would
+confuse two different ideas, so it opens L8 instead, after resolution finishes.
+
+The hook is already on a delivered slide. Lecture 4's Converses activity has
+seven rows; rows 3 and 4 are about a fixed "I" and are genuinely propositions,
+while the other five range over a domain. Its speaker note says so and says not
+to name it yet. So L8 opens by asking which of those rows were propositions —
+the students have already filled the table in and had the intuition, and the
+withheld note pays off rather than costing fresh setup time.
