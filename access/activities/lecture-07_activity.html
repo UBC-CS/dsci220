@@ -47,9 +47,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-713b0136666c1ca4047413a70816f99a.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-f26f5703c714ab472eb8427ea8250efc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-97e117909029646cf0e426eae7084f8f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-f26f5703c714ab472eb8427ea8250efc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-e27ab7030da3d799d46fefb18a141a81.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-723b14c0efa3e6e15169a26a1360ec7a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-e27ab7030da3d799d46fefb18a141a81.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script src="../site_libs/quarto-contrib/iconify-3.0.0/iconify-icon.min.js"></script>
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
@@ -480,46 +480,90 @@ window.Quarto = {
 -->
 <section id="what-to-do" class="level1">
 <h1>What to do</h1>
-<p>Every group has a <strong>different</strong> set of clauses. There is no one right answer across the room — that is the point.</p>
-<p>A clause is an OR of literals. All the clauses must hold at once.</p>
+<p>Every group has a <strong>different</strong> argument. There is no one right answer across the room — that is the point.</p>
+<p>You are asked whether a conclusion <strong>follows</strong> from some premises. Rather than chase it forwards, we assume it does <strong>not</strong>: the negated conclusion joins the premises, and we look for a contradiction. If the premises plus the <em>denial</em> of the conclusion cannot all hold, then the conclusion followed all along.</p>
+<p>Everything has already been turned into clauses for you.</p>
 <p><strong>The loop.</strong> Repeat until you cannot:</p>
 <ol type="1">
 <li>Find a clause with <strong>exactly one literal</strong>. That literal must be true. <strong>Circle it</strong> — call it a <strong>unit</strong>.</li>
 <li>Look for that same literal in any other clause. That clause is already satisfied, so <strong>circle the literal there too, and cross the whole clause out.</strong> The circle records why it went.</li>
 <li>In every clause containing the <strong>negation</strong> of your unit, strike out just that one literal. The rest of the clause stays.</li>
-<li>If a clause loses its <strong>last</strong> literal, <strong>circle what is left of it</strong>. That is <strong>⊥</strong>, the empty clause — a clause with no way left to be true. Finding one is the best thing that can happen to you.</li>
+<li>If a clause loses its <strong>last</strong> literal, <strong>circle what is left of it</strong>. That is the <strong>empty clause</strong> — a clause with no way left to be true, so it is <strong>False</strong>. You have found a contradiction, and that is the best thing that can happen to you.</li>
 </ol>
 <p>A circle always marks something you have <strong>established</strong>: a literal that must be true, or — best of all — an empty clause. A crossed-out clause always has a circle in it saying which literal did the work.</p>
-<p><strong>Stop when</strong> one of three things happens, and say which:</p>
+<p><strong>Three ways to stop</strong>, and each says something different about the argument:</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 50%">
 <col style="width: 50%">
 </colgroup>
+<thead>
+<tr class="header">
+<th>You stopped because</th>
+<th>So the conclusion</th>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
-<td>You reach <strong>⊥</strong></td>
-<td>the clauses contradict each other</td>
+<td>you found a <strong>contradiction</strong></td>
+<td><strong>follows.</strong> Denying it was impossible</td>
 </tr>
 <tr class="even">
-<td><strong>No clauses are left</strong></td>
-<td>everything is settled, and consistently</td>
+<td><strong>no clauses were left</strong></td>
+<td><strong>does not follow</strong> — and the units you circled are a counterexample</td>
 </tr>
 <tr class="odd">
-<td><strong>No clause has a single literal</strong>, but clauses remain</td>
-<td>nothing further is forced</td>
+<td><strong>no clause had a single literal</strong></td>
+<td><em>cannot be settled this way.</em> Propagation alone is not enough</td>
 </tr>
 </tbody>
 </table>
-<p>All three are real answers. Finding out which one you have <em>is</em> the exercise.</p>
 <div style="page-break-after: always;"></div>
 <section id="set-1" class="level2">
 <h2 class="anchored" data-anchor-id="set-1">Set 1</h2>
+<p><strong>The argument</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 90%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td><span class="math inline">\(D\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2</td>
+<td><span class="math inline">\(D \rightarrow \neg C\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">3</td>
+<td><span class="math inline">\(\neg C \wedge \neg B \rightarrow \neg E\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">4</td>
+<td><span class="math inline">\(\neg B\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">5</td>
+<td><span class="math inline">\(\neg G \vee \neg F\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\therefore\)</span></td>
+<td><span class="math inline">\(\neg E\)</span></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Does that conclusion follow?</strong> To find out, we assume it does <strong>not</strong> — so <span class="math inline">\(E\)</span> joins the premises — and look for a contradiction.</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 6%">
-<col style="width: 44%">
-<col style="width: 50%">
+<col style="width: 40%">
+<col style="width: 54%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -531,51 +575,90 @@ window.Quarto = {
 <tbody>
 <tr class="odd">
 <td style="text-align: center;">1</td>
-<td><span class="math inline">\(\{\neg A\}\)</span></td>
+<td><span class="math inline">\(\{D\}\)</span></td>
 <td></td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">2</td>
-<td><span class="math inline">\(\{\neg B,\ \neg D,\ \neg G\}\)</span></td>
+<td><span class="math inline">\(\{\neg C,\ \neg D\}\)</span></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;">3</td>
-<td><span class="math inline">\(\{\neg E\}\)</span></td>
+<td><span class="math inline">\(\{B,\ C,\ \neg E\}\)</span></td>
 <td></td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">4</td>
-<td><span class="math inline">\(\{\neg C,\ E,\ F\}\)</span></td>
+<td><span class="math inline">\(\{\neg B\}\)</span></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;">5</td>
-<td><span class="math inline">\(\{A,\ \neg C,\ E,\ \neg F\}\)</span></td>
+<td><span class="math inline">\(\{\neg F,\ \neg G\}\)</span></td>
 <td></td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">6</td>
-<td><span class="math inline">\(\{C,\ E\}\)</span></td>
+<td><span class="math inline">\(\{E\}\)</span> &nbsp; <em>(negated conclusion)</em></td>
 <td></td>
 </tr>
 </tbody>
 </table>
 <p><strong>Units you forced, in order:</strong> &nbsp;</p>
 <p>______ ⇒ ______ ⇒ ______ ⇒ ______ ⇒ ______ ⇒ ______</p>
-<p><strong>What can you conclude?</strong> &nbsp;</p>
-<p>_____________________________________________________</p>
+<p><strong>How did you stop?</strong>   ☐ found a contradiction   ☐ ran out of clauses   ☐ stalled</p>
+<p><strong>So does <span class="math inline">\(\neg E\)</span> follow from the premises?</strong> &nbsp;</p>
+<p>__________________________________________________</p>
 <p><strong>How do you know you are finished?</strong> &nbsp;</p>
-<p>_____________________________________________________</p>
+<p>__________________________________________________</p>
 <div style="page-break-after: always;"></div>
 </section>
 <section id="set-2" class="level2">
 <h2 class="anchored" data-anchor-id="set-2">Set 2</h2>
+<p><strong>The argument</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 90%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td><span class="math inline">\(\neg B\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2</td>
+<td><span class="math inline">\(\neg B \rightarrow G\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">3</td>
+<td><span class="math inline">\(G \wedge \neg C \rightarrow \neg F\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">4</td>
+<td><span class="math inline">\(\neg C\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">5</td>
+<td><span class="math inline">\(D \vee \neg A\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\therefore\)</span></td>
+<td><span class="math inline">\(\neg F\)</span></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Does that conclusion follow?</strong> To find out, we assume it does <strong>not</strong> — so <span class="math inline">\(F\)</span> joins the premises — and look for a contradiction.</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 6%">
-<col style="width: 44%">
-<col style="width: 50%">
+<col style="width: 40%">
+<col style="width: 54%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -587,51 +670,90 @@ window.Quarto = {
 <tbody>
 <tr class="odd">
 <td style="text-align: center;">1</td>
-<td><span class="math inline">\(\{\neg A,\ B,\ \neg D,\ G\}\)</span></td>
-<td></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">2</td>
-<td><span class="math inline">\(\{\neg A,\ B,\ \neg G\}\)</span></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">3</td>
 <td><span class="math inline">\(\{\neg B\}\)</span></td>
 <td></td>
 </tr>
 <tr class="even">
+<td style="text-align: center;">2</td>
+<td><span class="math inline">\(\{B,\ G\}\)</span></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">3</td>
+<td><span class="math inline">\(\{C,\ \neg F,\ \neg G\}\)</span></td>
+<td></td>
+</tr>
+<tr class="even">
 <td style="text-align: center;">4</td>
-<td><span class="math inline">\(\{C,\ \neg E,\ F\}\)</span></td>
+<td><span class="math inline">\(\{\neg C\}\)</span></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;">5</td>
-<td><span class="math inline">\(\{D\}\)</span></td>
+<td><span class="math inline">\(\{\neg A,\ D\}\)</span></td>
 <td></td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">6</td>
-<td><span class="math inline">\(\{A,\ B\}\)</span></td>
+<td><span class="math inline">\(\{F\}\)</span> &nbsp; <em>(negated conclusion)</em></td>
 <td></td>
 </tr>
 </tbody>
 </table>
 <p><strong>Units you forced, in order:</strong> &nbsp;</p>
 <p>______ ⇒ ______ ⇒ ______ ⇒ ______ ⇒ ______ ⇒ ______</p>
-<p><strong>What can you conclude?</strong> &nbsp;</p>
-<p>_____________________________________________________</p>
+<p><strong>How did you stop?</strong>   ☐ found a contradiction   ☐ ran out of clauses   ☐ stalled</p>
+<p><strong>So does <span class="math inline">\(\neg F\)</span> follow from the premises?</strong> &nbsp;</p>
+<p>__________________________________________________</p>
 <p><strong>How do you know you are finished?</strong> &nbsp;</p>
-<p>_____________________________________________________</p>
+<p>__________________________________________________</p>
 <div style="page-break-after: always;"></div>
 </section>
 <section id="set-3" class="level2">
 <h2 class="anchored" data-anchor-id="set-3">Set 3</h2>
+<p><strong>The argument</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 90%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td><span class="math inline">\(B\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2</td>
+<td><span class="math inline">\(B \rightarrow E\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">3</td>
+<td><span class="math inline">\(E \wedge \neg A \rightarrow \neg F\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">4</td>
+<td><span class="math inline">\(\neg A\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">5</td>
+<td><span class="math inline">\(D \vee \neg C\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\therefore\)</span></td>
+<td><span class="math inline">\(\neg F\)</span></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Does that conclusion follow?</strong> To find out, we assume it does <strong>not</strong> — so <span class="math inline">\(F\)</span> joins the premises — and look for a contradiction.</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 6%">
-<col style="width: 44%">
-<col style="width: 50%">
+<col style="width: 40%">
+<col style="width: 54%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -643,51 +765,90 @@ window.Quarto = {
 <tbody>
 <tr class="odd">
 <td style="text-align: center;">1</td>
-<td><span class="math inline">\(\{D\}\)</span></td>
+<td><span class="math inline">\(\{B\}\)</span></td>
 <td></td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">2</td>
-<td><span class="math inline">\(\{C,\ \neg D\}\)</span></td>
+<td><span class="math inline">\(\{\neg B,\ E\}\)</span></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;">3</td>
-<td><span class="math inline">\(\{F\}\)</span></td>
+<td><span class="math inline">\(\{A,\ \neg E,\ \neg F\}\)</span></td>
 <td></td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">4</td>
-<td><span class="math inline">\(\{A,\ \neg C,\ \neg D,\ \neg F\}\)</span></td>
+<td><span class="math inline">\(\{\neg A\}\)</span></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;">5</td>
-<td><span class="math inline">\(\{\neg B,\ \neg E,\ \neg G\}\)</span></td>
+<td><span class="math inline">\(\{\neg C,\ D\}\)</span></td>
 <td></td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">6</td>
-<td><span class="math inline">\(\{\neg A,\ \neg C,\ \neg D\}\)</span></td>
+<td><span class="math inline">\(\{F\}\)</span> &nbsp; <em>(negated conclusion)</em></td>
 <td></td>
 </tr>
 </tbody>
 </table>
 <p><strong>Units you forced, in order:</strong> &nbsp;</p>
 <p>______ ⇒ ______ ⇒ ______ ⇒ ______ ⇒ ______ ⇒ ______</p>
-<p><strong>What can you conclude?</strong> &nbsp;</p>
-<p>_____________________________________________________</p>
+<p><strong>How did you stop?</strong>   ☐ found a contradiction   ☐ ran out of clauses   ☐ stalled</p>
+<p><strong>So does <span class="math inline">\(\neg F\)</span> follow from the premises?</strong> &nbsp;</p>
+<p>__________________________________________________</p>
 <p><strong>How do you know you are finished?</strong> &nbsp;</p>
-<p>_____________________________________________________</p>
+<p>__________________________________________________</p>
 <div style="page-break-after: always;"></div>
 </section>
 <section id="set-4" class="level2">
 <h2 class="anchored" data-anchor-id="set-4">Set 4</h2>
+<p><strong>The argument</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 90%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td><span class="math inline">\(C\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2</td>
+<td><span class="math inline">\(C \rightarrow \neg D\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">3</td>
+<td><span class="math inline">\(\neg D \wedge \neg B \rightarrow A\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">4</td>
+<td><span class="math inline">\(\neg B\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">5</td>
+<td><span class="math inline">\(G \vee F\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\therefore\)</span></td>
+<td><span class="math inline">\(A\)</span></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Does that conclusion follow?</strong> To find out, we assume it does <strong>not</strong> — so <span class="math inline">\(\neg A\)</span> joins the premises — and look for a contradiction.</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 6%">
-<col style="width: 44%">
-<col style="width: 50%">
+<col style="width: 40%">
+<col style="width: 54%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -699,107 +860,90 @@ window.Quarto = {
 <tbody>
 <tr class="odd">
 <td style="text-align: center;">1</td>
-<td><span class="math inline">\(\{A,\ C,\ E\}\)</span></td>
+<td><span class="math inline">\(\{C\}\)</span></td>
 <td></td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">2</td>
-<td><span class="math inline">\(\{G\}\)</span></td>
+<td><span class="math inline">\(\{\neg C,\ \neg D\}\)</span></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;">3</td>
-<td><span class="math inline">\(\{B,\ \neg D,\ F\}\)</span></td>
+<td><span class="math inline">\(\{A,\ B,\ D\}\)</span></td>
 <td></td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">4</td>
-<td><span class="math inline">\(\{B,\ D\}\)</span></td>
+<td><span class="math inline">\(\{\neg B\}\)</span></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;">5</td>
-<td><span class="math inline">\(\{\neg B\}\)</span></td>
+<td><span class="math inline">\(\{F,\ G\}\)</span></td>
 <td></td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">6</td>
-<td><span class="math inline">\(\{B,\ \neg D,\ \neg F,\ \neg G\}\)</span></td>
+<td><span class="math inline">\(\{\neg A\}\)</span> &nbsp; <em>(negated conclusion)</em></td>
 <td></td>
 </tr>
 </tbody>
 </table>
 <p><strong>Units you forced, in order:</strong> &nbsp;</p>
 <p>______ ⇒ ______ ⇒ ______ ⇒ ______ ⇒ ______ ⇒ ______</p>
-<p><strong>What can you conclude?</strong> &nbsp;</p>
-<p>_____________________________________________________</p>
+<p><strong>How did you stop?</strong>   ☐ found a contradiction   ☐ ran out of clauses   ☐ stalled</p>
+<p><strong>So does <span class="math inline">\(A\)</span> follow from the premises?</strong> &nbsp;</p>
+<p>__________________________________________________</p>
 <p><strong>How do you know you are finished?</strong> &nbsp;</p>
-<p>_____________________________________________________</p>
+<p>__________________________________________________</p>
 <div style="page-break-after: always;"></div>
 </section>
 <section id="set-5" class="level2">
 <h2 class="anchored" data-anchor-id="set-5">Set 5</h2>
+<p><strong>The argument</strong></p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 6%">
-<col style="width: 44%">
-<col style="width: 50%">
+<col style="width: 10%">
+<col style="width: 90%">
 </colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: center;"></th>
-<th>Clause</th>
-<th>Working</th>
-</tr>
-</thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: center;">1</td>
-<td><span class="math inline">\(\{\neg E,\ F,\ G\}\)</span></td>
-<td></td>
+<td><span class="math inline">\(\neg D\)</span></td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">2</td>
-<td><span class="math inline">\(\{C\}\)</span></td>
-<td></td>
+<td><span class="math inline">\(\neg D \rightarrow G\)</span></td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;">3</td>
-<td><span class="math inline">\(\{A,\ \neg B,\ \neg C,\ D\}\)</span></td>
-<td></td>
+<td><span class="math inline">\(G \wedge E \rightarrow C\)</span></td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">4</td>
-<td><span class="math inline">\(\{A,\ \neg B,\ \neg D\}\)</span></td>
-<td></td>
+<td><span class="math inline">\(E\)</span></td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;">5</td>
-<td><span class="math inline">\(\{A,\ B\}\)</span></td>
-<td></td>
+<td><span class="math inline">\(F \vee \neg A\)</span></td>
 </tr>
 <tr class="even">
-<td style="text-align: center;">6</td>
-<td><span class="math inline">\(\{\neg A\}\)</span></td>
+<td style="text-align: center;"></td>
 <td></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\therefore\)</span></td>
+<td><span class="math inline">\(C\)</span></td>
 </tr>
 </tbody>
 </table>
-<p><strong>Units you forced, in order:</strong> &nbsp;</p>
-<p>______ ⇒ ______ ⇒ ______ ⇒ ______ ⇒ ______ ⇒ ______</p>
-<p><strong>What can you conclude?</strong> &nbsp;</p>
-<p>_____________________________________________________</p>
-<p><strong>How do you know you are finished?</strong> &nbsp;</p>
-<p>_____________________________________________________</p>
-<div style="page-break-after: always;"></div>
-</section>
-<section id="set-6" class="level2">
-<h2 class="anchored" data-anchor-id="set-6">Set 6</h2>
+<p><strong>Does that conclusion follow?</strong> To find out, we assume it does <strong>not</strong> — so <span class="math inline">\(\neg C\)</span> joins the premises — and look for a contradiction.</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 6%">
-<col style="width: 44%">
-<col style="width: 50%">
+<col style="width: 40%">
+<col style="width: 54%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -811,434 +955,7 @@ window.Quarto = {
 <tbody>
 <tr class="odd">
 <td style="text-align: center;">1</td>
-<td><span class="math inline">\(\{\neg B,\ \neg C,\ F\}\)</span></td>
-<td></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">2</td>
-<td><span class="math inline">\(\{\neg B,\ C\}\)</span></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">3</td>
-<td><span class="math inline">\(\{A,\ E\}\)</span></td>
-<td></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">4</td>
-<td><span class="math inline">\(\{B\}\)</span></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">5</td>
-<td><span class="math inline">\(\{\neg A,\ \neg B,\ \neg C,\ \neg F\}\)</span></td>
-<td></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">6</td>
-<td><span class="math inline">\(\{D,\ \neg E\}\)</span></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">7</td>
-<td><span class="math inline">\(\{\neg A,\ \neg G\}\)</span></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Units you forced, in order:</strong> &nbsp;</p>
-<p>______ ⇒ ______ ⇒ ______ ⇒ ______ ⇒ ______ ⇒ ______</p>
-<p><strong>What can you conclude?</strong> &nbsp;</p>
-<p>_____________________________________________________</p>
-<p><strong>How do you know you are finished?</strong> &nbsp;</p>
-<p>_____________________________________________________</p>
-<div style="page-break-after: always;"></div>
-</section>
-<section id="set-7" class="level2">
-<h2 class="anchored" data-anchor-id="set-7">Set 7</h2>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 6%">
-<col style="width: 44%">
-<col style="width: 50%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: center;"></th>
-<th>Clause</th>
-<th>Working</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">1</td>
-<td><span class="math inline">\(\{\neg C,\ D,\ G\}\)</span></td>
-<td></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">2</td>
-<td><span class="math inline">\(\{E,\ F\}\)</span></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">3</td>
-<td><span class="math inline">\(\{\neg A,\ \neg E\}\)</span></td>
-<td></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">4</td>
-<td><span class="math inline">\(\{\neg B,\ \neg F\}\)</span></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">5</td>
-<td><span class="math inline">\(\{C,\ G\}\)</span></td>
-<td></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">6</td>
-<td><span class="math inline">\(\{\neg G\}\)</span></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">7</td>
-<td><span class="math inline">\(\{\neg C,\ \neg D,\ \neg E,\ G\}\)</span></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Units you forced, in order:</strong> &nbsp;</p>
-<p>______ ⇒ ______ ⇒ ______ ⇒ ______ ⇒ ______ ⇒ ______</p>
-<p><strong>What can you conclude?</strong> &nbsp;</p>
-<p>_____________________________________________________</p>
-<p><strong>How do you know you are finished?</strong> &nbsp;</p>
-<p>_____________________________________________________</p>
-<div style="page-break-after: always;"></div>
-</section>
-<section id="set-8" class="level2">
-<h2 class="anchored" data-anchor-id="set-8">Set 8</h2>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 6%">
-<col style="width: 44%">
-<col style="width: 50%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: center;"></th>
-<th>Clause</th>
-<th>Working</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">1</td>
-<td><span class="math inline">\(\{A,\ C,\ D\}\)</span></td>
-<td></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">2</td>
-<td><span class="math inline">\(\{\neg A\}\)</span></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">3</td>
-<td><span class="math inline">\(\{\neg B,\ \neg G\}\)</span></td>
-<td></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">4</td>
-<td><span class="math inline">\(\{A,\ B,\ \neg C,\ D\}\)</span></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">5</td>
-<td><span class="math inline">\(\{A,\ \neg D\}\)</span></td>
-<td></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">6</td>
-<td><span class="math inline">\(\{B,\ F\}\)</span></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">7</td>
-<td><span class="math inline">\(\{E,\ G\}\)</span></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Units you forced, in order:</strong> &nbsp;</p>
-<p>______ ⇒ ______ ⇒ ______ ⇒ ______ ⇒ ______ ⇒ ______</p>
-<p><strong>What can you conclude?</strong> &nbsp;</p>
-<p>_____________________________________________________</p>
-<p><strong>How do you know you are finished?</strong> &nbsp;</p>
-<p>_____________________________________________________</p>
-<div style="page-break-after: always;"></div>
-</section>
-<section id="set-9" class="level2">
-<h2 class="anchored" data-anchor-id="set-9">Set 9</h2>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 6%">
-<col style="width: 44%">
-<col style="width: 50%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: center;"></th>
-<th>Clause</th>
-<th>Working</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">1</td>
-<td><span class="math inline">\(\{A,\ C,\ \neg D,\ E\}\)</span></td>
-<td></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">2</td>
-<td><span class="math inline">\(\{\neg B,\ \neg E\}\)</span></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">3</td>
-<td><span class="math inline">\(\{E,\ G\}\)</span></td>
-<td></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">4</td>
-<td><span class="math inline">\(\{\neg A\}\)</span></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">5</td>
-<td><span class="math inline">\(\{A,\ D\}\)</span></td>
-<td></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">6</td>
-<td><span class="math inline">\(\{B,\ \neg F\}\)</span></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">7</td>
-<td><span class="math inline">\(\{A,\ \neg C,\ \neg D\}\)</span></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Units you forced, in order:</strong> &nbsp;</p>
-<p>______ ⇒ ______ ⇒ ______ ⇒ ______ ⇒ ______ ⇒ ______</p>
-<p><strong>What can you conclude?</strong> &nbsp;</p>
-<p>_____________________________________________________</p>
-<p><strong>How do you know you are finished?</strong> &nbsp;</p>
-<p>_____________________________________________________</p>
-<div style="page-break-after: always;"></div>
-</section>
-<section id="set-10" class="level2">
-<h2 class="anchored" data-anchor-id="set-10">Set 10</h2>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 6%">
-<col style="width: 44%">
-<col style="width: 50%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: center;"></th>
-<th>Clause</th>
-<th>Working</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">1</td>
-<td><span class="math inline">\(\{\neg B,\ \neg D,\ E\}\)</span></td>
-<td></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">2</td>
-<td><span class="math inline">\(\{C\}\)</span></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">3</td>
-<td><span class="math inline">\(\{\neg B,\ E\}\)</span></td>
-<td></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">4</td>
-<td><span class="math inline">\(\{\neg C,\ F\}\)</span></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">5</td>
-<td><span class="math inline">\(\{B,\ \neg E\}\)</span></td>
-<td></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">6</td>
-<td><span class="math inline">\(\{\neg C,\ \neg F,\ \neg G\}\)</span></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">7</td>
-<td><span class="math inline">\(\{\neg C,\ D,\ \neg F,\ G\}\)</span></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Units you forced, in order:</strong> &nbsp;</p>
-<p>______ ⇒ ______ ⇒ ______ ⇒ ______ ⇒ ______ ⇒ ______</p>
-<p><strong>What can you conclude?</strong> &nbsp;</p>
-<p>_____________________________________________________</p>
-<p><strong>How do you know you are finished?</strong> &nbsp;</p>
-<p>_____________________________________________________</p>
-<div style="page-break-after: always;"></div>
-</section>
-<section id="set-11" class="level2">
-<h2 class="anchored" data-anchor-id="set-11">Set 11</h2>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 6%">
-<col style="width: 44%">
-<col style="width: 50%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: center;"></th>
-<th>Clause</th>
-<th>Working</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">1</td>
-<td><span class="math inline">\(\{\neg A,\ E,\ F\}\)</span></td>
-<td></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">2</td>
-<td><span class="math inline">\(\{\neg B,\ C,\ D,\ \neg F\}\)</span></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">3</td>
-<td><span class="math inline">\(\{\neg A,\ E\}\)</span></td>
-<td></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">4</td>
-<td><span class="math inline">\(\{\neg B,\ \neg C\}\)</span></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">5</td>
-<td><span class="math inline">\(\{B\}\)</span></td>
-<td></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">6</td>
-<td><span class="math inline">\(\{\neg B,\ C,\ \neg D\}\)</span></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">7</td>
-<td><span class="math inline">\(\{A,\ \neg E\}\)</span></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Units you forced, in order:</strong> &nbsp;</p>
-<p>______ ⇒ ______ ⇒ ______ ⇒ ______ ⇒ ______ ⇒ ______</p>
-<p><strong>What can you conclude?</strong> &nbsp;</p>
-<p>_____________________________________________________</p>
-<p><strong>How do you know you are finished?</strong> &nbsp;</p>
-<p>_____________________________________________________</p>
-<div style="page-break-after: always;"></div>
-</section>
-<section id="set-12" class="level2">
-<h2 class="anchored" data-anchor-id="set-12">Set 12</h2>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 6%">
-<col style="width: 44%">
-<col style="width: 50%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: center;"></th>
-<th>Clause</th>
-<th>Working</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">1</td>
-<td><span class="math inline">\(\{A,\ \neg C\}\)</span></td>
-<td></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">2</td>
-<td><span class="math inline">\(\{B,\ E,\ F\}\)</span></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">3</td>
-<td><span class="math inline">\(\{E,\ \neg F\}\)</span></td>
-<td></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">4</td>
-<td><span class="math inline">\(\{\neg A,\ C,\ G\}\)</span></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">5</td>
-<td><span class="math inline">\(\{\neg B,\ E,\ F,\ \neg G\}\)</span></td>
-<td></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">6</td>
-<td><span class="math inline">\(\{\neg E\}\)</span></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">7</td>
-<td><span class="math inline">\(\{\neg A,\ C\}\)</span></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Units you forced, in order:</strong> &nbsp;</p>
-<p>______ ⇒ ______ ⇒ ______ ⇒ ______ ⇒ ______ ⇒ ______</p>
-<p><strong>What can you conclude?</strong> &nbsp;</p>
-<p>_____________________________________________________</p>
-<p><strong>How do you know you are finished?</strong> &nbsp;</p>
-<p>_____________________________________________________</p>
-<div style="page-break-after: always;"></div>
-</section>
-<section id="set-13" class="level2">
-<h2 class="anchored" data-anchor-id="set-13">Set 13</h2>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 6%">
-<col style="width: 44%">
-<col style="width: 50%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: center;"></th>
-<th>Clause</th>
-<th>Working</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">1</td>
-<td><span class="math inline">\(\{A,\ \neg B,\ E,\ \neg F\}\)</span></td>
+<td><span class="math inline">\(\{\neg D\}\)</span></td>
 <td></td>
 </tr>
 <tr class="even">
@@ -1248,37 +965,757 @@ window.Quarto = {
 </tr>
 <tr class="odd">
 <td style="text-align: center;">3</td>
-<td><span class="math inline">\(\{\neg E,\ \neg F\}\)</span></td>
+<td><span class="math inline">\(\{C,\ \neg E,\ \neg G\}\)</span></td>
 <td></td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">4</td>
-<td><span class="math inline">\(\{F\}\)</span></td>
+<td><span class="math inline">\(\{E\}\)</span></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;">5</td>
-<td><span class="math inline">\(\{\neg A,\ E,\ \neg F\}\)</span></td>
+<td><span class="math inline">\(\{\neg A,\ F\}\)</span></td>
 <td></td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">6</td>
-<td><span class="math inline">\(\{B,\ \neg D,\ \neg G\}\)</span></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">7</td>
-<td><span class="math inline">\(\{\neg D,\ \neg G\}\)</span></td>
+<td><span class="math inline">\(\{\neg C\}\)</span> &nbsp; <em>(negated conclusion)</em></td>
 <td></td>
 </tr>
 </tbody>
 </table>
 <p><strong>Units you forced, in order:</strong> &nbsp;</p>
 <p>______ ⇒ ______ ⇒ ______ ⇒ ______ ⇒ ______ ⇒ ______</p>
-<p><strong>What can you conclude?</strong> &nbsp;</p>
-<p>_____________________________________________________</p>
+<p><strong>How did you stop?</strong>   ☐ found a contradiction   ☐ ran out of clauses   ☐ stalled</p>
+<p><strong>So does <span class="math inline">\(C\)</span> follow from the premises?</strong> &nbsp;</p>
+<p>__________________________________________________</p>
 <p><strong>How do you know you are finished?</strong> &nbsp;</p>
-<p>_____________________________________________________</p>
+<p>__________________________________________________</p>
+<div style="page-break-after: always;"></div>
+</section>
+<section id="set-6" class="level2">
+<h2 class="anchored" data-anchor-id="set-6">Set 6</h2>
+<p><strong>The argument</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 90%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td><span class="math inline">\(\neg G\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2</td>
+<td><span class="math inline">\(\neg G \rightarrow A\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">3</td>
+<td><span class="math inline">\(A \rightarrow \neg B\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">4</td>
+<td><span class="math inline">\(D \rightarrow C\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\therefore\)</span></td>
+<td><span class="math inline">\(D\)</span></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Does that conclusion follow?</strong> To find out, we assume it does <strong>not</strong> — so <span class="math inline">\(\neg D\)</span> joins the premises — and look for a contradiction.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 6%">
+<col style="width: 40%">
+<col style="width: 54%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;"></th>
+<th>Clause</th>
+<th>Working</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td><span class="math inline">\(\{\neg G\}\)</span></td>
+<td></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2</td>
+<td><span class="math inline">\(\{A,\ G\}\)</span></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">3</td>
+<td><span class="math inline">\(\{\neg A,\ \neg B\}\)</span></td>
+<td></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">4</td>
+<td><span class="math inline">\(\{C,\ \neg D\}\)</span></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">5</td>
+<td><span class="math inline">\(\{\neg D\}\)</span> &nbsp; <em>(negated conclusion)</em></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Units you forced, in order:</strong> &nbsp;</p>
+<p>______ ⇒ ______ ⇒ ______ ⇒ ______ ⇒ ______ ⇒ ______</p>
+<p><strong>How did you stop?</strong>   ☐ found a contradiction   ☐ ran out of clauses   ☐ stalled</p>
+<p><strong>So does <span class="math inline">\(D\)</span> follow from the premises?</strong> &nbsp;</p>
+<p>__________________________________________________</p>
+<p><strong>How do you know you are finished?</strong> &nbsp;</p>
+<p>__________________________________________________</p>
+<div style="page-break-after: always;"></div>
+</section>
+<section id="set-7" class="level2">
+<h2 class="anchored" data-anchor-id="set-7">Set 7</h2>
+<p><strong>The argument</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 90%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td><span class="math inline">\(G\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2</td>
+<td><span class="math inline">\(G \rightarrow \neg D\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">3</td>
+<td><span class="math inline">\(\neg D \rightarrow A\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">4</td>
+<td><span class="math inline">\(\neg C \rightarrow F\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\therefore\)</span></td>
+<td><span class="math inline">\(\neg C\)</span></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Does that conclusion follow?</strong> To find out, we assume it does <strong>not</strong> — so <span class="math inline">\(C\)</span> joins the premises — and look for a contradiction.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 6%">
+<col style="width: 40%">
+<col style="width: 54%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;"></th>
+<th>Clause</th>
+<th>Working</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td><span class="math inline">\(\{G\}\)</span></td>
+<td></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2</td>
+<td><span class="math inline">\(\{\neg D,\ \neg G\}\)</span></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">3</td>
+<td><span class="math inline">\(\{A,\ D\}\)</span></td>
+<td></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">4</td>
+<td><span class="math inline">\(\{C,\ F\}\)</span></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">5</td>
+<td><span class="math inline">\(\{C\}\)</span> &nbsp; <em>(negated conclusion)</em></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Units you forced, in order:</strong> &nbsp;</p>
+<p>______ ⇒ ______ ⇒ ______ ⇒ ______ ⇒ ______ ⇒ ______</p>
+<p><strong>How did you stop?</strong>   ☐ found a contradiction   ☐ ran out of clauses   ☐ stalled</p>
+<p><strong>So does <span class="math inline">\(\neg C\)</span> follow from the premises?</strong> &nbsp;</p>
+<p>__________________________________________________</p>
+<p><strong>How do you know you are finished?</strong> &nbsp;</p>
+<p>__________________________________________________</p>
+<div style="page-break-after: always;"></div>
+</section>
+<section id="set-8" class="level2">
+<h2 class="anchored" data-anchor-id="set-8">Set 8</h2>
+<p><strong>The argument</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 90%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td><span class="math inline">\(F\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2</td>
+<td><span class="math inline">\(F \rightarrow \neg A\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">3</td>
+<td><span class="math inline">\(\neg A \rightarrow B\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">4</td>
+<td><span class="math inline">\(E \rightarrow \neg G\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\therefore\)</span></td>
+<td><span class="math inline">\(E\)</span></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Does that conclusion follow?</strong> To find out, we assume it does <strong>not</strong> — so <span class="math inline">\(\neg E\)</span> joins the premises — and look for a contradiction.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 6%">
+<col style="width: 40%">
+<col style="width: 54%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;"></th>
+<th>Clause</th>
+<th>Working</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td><span class="math inline">\(\{F\}\)</span></td>
+<td></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2</td>
+<td><span class="math inline">\(\{\neg A,\ \neg F\}\)</span></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">3</td>
+<td><span class="math inline">\(\{A,\ B\}\)</span></td>
+<td></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">4</td>
+<td><span class="math inline">\(\{\neg E,\ \neg G\}\)</span></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">5</td>
+<td><span class="math inline">\(\{\neg E\}\)</span> &nbsp; <em>(negated conclusion)</em></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Units you forced, in order:</strong> &nbsp;</p>
+<p>______ ⇒ ______ ⇒ ______ ⇒ ______ ⇒ ______ ⇒ ______</p>
+<p><strong>How did you stop?</strong>   ☐ found a contradiction   ☐ ran out of clauses   ☐ stalled</p>
+<p><strong>So does <span class="math inline">\(E\)</span> follow from the premises?</strong> &nbsp;</p>
+<p>__________________________________________________</p>
+<p><strong>How do you know you are finished?</strong> &nbsp;</p>
+<p>__________________________________________________</p>
+<div style="page-break-after: always;"></div>
+</section>
+<section id="set-9" class="level2">
+<h2 class="anchored" data-anchor-id="set-9">Set 9</h2>
+<p><strong>The argument</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 90%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td><span class="math inline">\(B\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2</td>
+<td><span class="math inline">\(B \rightarrow D\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">3</td>
+<td><span class="math inline">\(D \rightarrow A\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">4</td>
+<td><span class="math inline">\(F \rightarrow C\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\therefore\)</span></td>
+<td><span class="math inline">\(F\)</span></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Does that conclusion follow?</strong> To find out, we assume it does <strong>not</strong> — so <span class="math inline">\(\neg F\)</span> joins the premises — and look for a contradiction.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 6%">
+<col style="width: 40%">
+<col style="width: 54%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;"></th>
+<th>Clause</th>
+<th>Working</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td><span class="math inline">\(\{B\}\)</span></td>
+<td></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2</td>
+<td><span class="math inline">\(\{\neg B,\ D\}\)</span></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">3</td>
+<td><span class="math inline">\(\{A,\ \neg D\}\)</span></td>
+<td></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">4</td>
+<td><span class="math inline">\(\{C,\ \neg F\}\)</span></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">5</td>
+<td><span class="math inline">\(\{\neg F\}\)</span> &nbsp; <em>(negated conclusion)</em></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Units you forced, in order:</strong> &nbsp;</p>
+<p>______ ⇒ ______ ⇒ ______ ⇒ ______ ⇒ ______ ⇒ ______</p>
+<p><strong>How did you stop?</strong>   ☐ found a contradiction   ☐ ran out of clauses   ☐ stalled</p>
+<p><strong>So does <span class="math inline">\(F\)</span> follow from the premises?</strong> &nbsp;</p>
+<p>__________________________________________________</p>
+<p><strong>How do you know you are finished?</strong> &nbsp;</p>
+<p>__________________________________________________</p>
+<div style="page-break-after: always;"></div>
+</section>
+<section id="set-10" class="level2">
+<h2 class="anchored" data-anchor-id="set-10">Set 10</h2>
+<p><strong>The argument</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 90%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td><span class="math inline">\(\neg A\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2</td>
+<td><span class="math inline">\(\neg A \rightarrow C\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">3</td>
+<td><span class="math inline">\(\neg B \vee \neg E\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">4</td>
+<td><span class="math inline">\(F \vee \neg G\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">5</td>
+<td><span class="math inline">\(\neg B \wedge F \rightarrow \neg D\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\therefore\)</span></td>
+<td><span class="math inline">\(\neg D\)</span></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Does that conclusion follow?</strong> To find out, we assume it does <strong>not</strong> — so <span class="math inline">\(D\)</span> joins the premises — and look for a contradiction.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 6%">
+<col style="width: 40%">
+<col style="width: 54%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;"></th>
+<th>Clause</th>
+<th>Working</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td><span class="math inline">\(\{\neg A\}\)</span></td>
+<td></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2</td>
+<td><span class="math inline">\(\{A,\ C\}\)</span></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">3</td>
+<td><span class="math inline">\(\{\neg B,\ \neg E\}\)</span></td>
+<td></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">4</td>
+<td><span class="math inline">\(\{F,\ \neg G\}\)</span></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">5</td>
+<td><span class="math inline">\(\{B,\ \neg D,\ \neg F\}\)</span></td>
+<td></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">6</td>
+<td><span class="math inline">\(\{D\}\)</span> &nbsp; <em>(negated conclusion)</em></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Units you forced, in order:</strong> &nbsp;</p>
+<p>______ ⇒ ______ ⇒ ______ ⇒ ______ ⇒ ______ ⇒ ______</p>
+<p><strong>How did you stop?</strong>   ☐ found a contradiction   ☐ ran out of clauses   ☐ stalled</p>
+<p><strong>So does <span class="math inline">\(\neg D\)</span> follow from the premises?</strong> &nbsp;</p>
+<p>__________________________________________________</p>
+<p><strong>How do you know you are finished?</strong> &nbsp;</p>
+<p>__________________________________________________</p>
+<div style="page-break-after: always;"></div>
+</section>
+<section id="set-11" class="level2">
+<h2 class="anchored" data-anchor-id="set-11">Set 11</h2>
+<p><strong>The argument</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 90%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td><span class="math inline">\(\neg E\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2</td>
+<td><span class="math inline">\(\neg E \rightarrow F\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">3</td>
+<td><span class="math inline">\(B \vee \neg C\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">4</td>
+<td><span class="math inline">\(\neg D \vee G\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">5</td>
+<td><span class="math inline">\(B \wedge \neg D \rightarrow \neg A\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\therefore\)</span></td>
+<td><span class="math inline">\(\neg A\)</span></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Does that conclusion follow?</strong> To find out, we assume it does <strong>not</strong> — so <span class="math inline">\(A\)</span> joins the premises — and look for a contradiction.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 6%">
+<col style="width: 40%">
+<col style="width: 54%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;"></th>
+<th>Clause</th>
+<th>Working</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td><span class="math inline">\(\{\neg E\}\)</span></td>
+<td></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2</td>
+<td><span class="math inline">\(\{E,\ F\}\)</span></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">3</td>
+<td><span class="math inline">\(\{B,\ \neg C\}\)</span></td>
+<td></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">4</td>
+<td><span class="math inline">\(\{\neg D,\ G\}\)</span></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">5</td>
+<td><span class="math inline">\(\{\neg A,\ \neg B,\ D\}\)</span></td>
+<td></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">6</td>
+<td><span class="math inline">\(\{A\}\)</span> &nbsp; <em>(negated conclusion)</em></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Units you forced, in order:</strong> &nbsp;</p>
+<p>______ ⇒ ______ ⇒ ______ ⇒ ______ ⇒ ______ ⇒ ______</p>
+<p><strong>How did you stop?</strong>   ☐ found a contradiction   ☐ ran out of clauses   ☐ stalled</p>
+<p><strong>So does <span class="math inline">\(\neg A\)</span> follow from the premises?</strong> &nbsp;</p>
+<p>__________________________________________________</p>
+<p><strong>How do you know you are finished?</strong> &nbsp;</p>
+<p>__________________________________________________</p>
+<div style="page-break-after: always;"></div>
+</section>
+<section id="set-12" class="level2">
+<h2 class="anchored" data-anchor-id="set-12">Set 12</h2>
+<p><strong>The argument</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 90%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td><span class="math inline">\(\neg G\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2</td>
+<td><span class="math inline">\(\neg G \rightarrow E\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">3</td>
+<td><span class="math inline">\(\neg B \vee \neg D\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">4</td>
+<td><span class="math inline">\(C \vee \neg A\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">5</td>
+<td><span class="math inline">\(\neg B \wedge C \rightarrow \neg F\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\therefore\)</span></td>
+<td><span class="math inline">\(\neg F\)</span></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Does that conclusion follow?</strong> To find out, we assume it does <strong>not</strong> — so <span class="math inline">\(F\)</span> joins the premises — and look for a contradiction.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 6%">
+<col style="width: 40%">
+<col style="width: 54%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;"></th>
+<th>Clause</th>
+<th>Working</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td><span class="math inline">\(\{\neg G\}\)</span></td>
+<td></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2</td>
+<td><span class="math inline">\(\{E,\ G\}\)</span></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">3</td>
+<td><span class="math inline">\(\{\neg B,\ \neg D\}\)</span></td>
+<td></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">4</td>
+<td><span class="math inline">\(\{\neg A,\ C\}\)</span></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">5</td>
+<td><span class="math inline">\(\{B,\ \neg C,\ \neg F\}\)</span></td>
+<td></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">6</td>
+<td><span class="math inline">\(\{F\}\)</span> &nbsp; <em>(negated conclusion)</em></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Units you forced, in order:</strong> &nbsp;</p>
+<p>______ ⇒ ______ ⇒ ______ ⇒ ______ ⇒ ______ ⇒ ______</p>
+<p><strong>How did you stop?</strong>   ☐ found a contradiction   ☐ ran out of clauses   ☐ stalled</p>
+<p><strong>So does <span class="math inline">\(\neg F\)</span> follow from the premises?</strong> &nbsp;</p>
+<p>__________________________________________________</p>
+<p><strong>How do you know you are finished?</strong> &nbsp;</p>
+<p>__________________________________________________</p>
+<div style="page-break-after: always;"></div>
+</section>
+<section id="set-13" class="level2">
+<h2 class="anchored" data-anchor-id="set-13">Set 13</h2>
+<p><strong>The argument</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 90%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td><span class="math inline">\(C\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2</td>
+<td><span class="math inline">\(C \rightarrow A\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">3</td>
+<td><span class="math inline">\(\neg G \vee F\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">4</td>
+<td><span class="math inline">\(B \vee D\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">5</td>
+<td><span class="math inline">\(\neg G \wedge B \rightarrow \neg E\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\therefore\)</span></td>
+<td><span class="math inline">\(\neg E\)</span></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Does that conclusion follow?</strong> To find out, we assume it does <strong>not</strong> — so <span class="math inline">\(E\)</span> joins the premises — and look for a contradiction.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 6%">
+<col style="width: 40%">
+<col style="width: 54%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;"></th>
+<th>Clause</th>
+<th>Working</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td><span class="math inline">\(\{C\}\)</span></td>
+<td></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2</td>
+<td><span class="math inline">\(\{A,\ \neg C\}\)</span></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">3</td>
+<td><span class="math inline">\(\{F,\ \neg G\}\)</span></td>
+<td></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">4</td>
+<td><span class="math inline">\(\{B,\ D\}\)</span></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">5</td>
+<td><span class="math inline">\(\{\neg B,\ \neg E,\ G\}\)</span></td>
+<td></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">6</td>
+<td><span class="math inline">\(\{E\}\)</span> &nbsp; <em>(negated conclusion)</em></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Units you forced, in order:</strong> &nbsp;</p>
+<p>______ ⇒ ______ ⇒ ______ ⇒ ______ ⇒ ______ ⇒ ______</p>
+<p><strong>How did you stop?</strong>   ☐ found a contradiction   ☐ ran out of clauses   ☐ stalled</p>
+<p><strong>So does <span class="math inline">\(\neg E\)</span> follow from the premises?</strong> &nbsp;</p>
+<p>__________________________________________________</p>
+<p><strong>How do you know you are finished?</strong> &nbsp;</p>
+<p>__________________________________________________</p>
 <div style="page-break-after: always;"></div>
 
 
