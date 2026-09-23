@@ -52,7 +52,7 @@ Pick a rule, pick what to apply it to, repeat until conclusion.
 
 \
 
-With CNF we only need ELIM.
+With CNF we only need ELIM...
 
 
 ::: notes
@@ -77,22 +77,21 @@ Second blank: unit clause. Wednesday is unit propagation -- given (X) and
 under the name ELIM. Do not say so now; let them find it Wednesday.
 :::
 
-# Proving by refuting
 
-## The Trick {.smaller}
+## Proving by refuting {.smaller}
 
 To show a conclusion **follows**, show that denying it is **impossible**.
 
 \
 
 ::: {.fillable}
-| Saying it this way | is saying |
+| Inference |  |
 |---|:-:|
 | the conclusion follows from the premises | |
 | premises $\rightarrow$ conclusion is a \_\_\_\_\_\_\_\_\_\_ | |
 | $\neg($premises $\rightarrow$ conclusion$)$ is a \_\_\_\_\_\_\_\_\_\_ | |
 | premises $\wedge\ \neg$conclusion is \_\_\_\_\_\_\_\_\_\_ | |
-: {tbl-colwidths="[78,22]"}
+: {tbl-colwidths="[60,40]"}
 :::
 
 ::: notes
@@ -105,8 +104,7 @@ and look for the empty clause.
 
 ## Negating the Whole Thing {.smaller}
 
-Three premises and a conclusion is one formula. We want it to be a tautology,
-so we negate it and hope for a contradiction.
+Say we start with an argument like this:
 
 $$\neg\big((A \wedge B \wedge C) \rightarrow D\big)$$
 
@@ -127,8 +125,6 @@ So the premises survive untouched and **only the conclusion flips**.
   ~(~(A^B^C) v D)      IMP
   ~~(A^B^C) ^ ~D       DM
   (A^B^C) ^ ~D         DNEG   (then ASS to drop the brackets)
-
-Verified: all five lines agree on all 16 rows.
 
 THE POINT. This is why the recipe is "keep the premises, negate the goal" --
 it is not a convention, it falls out of the algebra. Negating an implication
@@ -169,17 +165,17 @@ Repeat until you cannot:
 1. Find a clause with **exactly one literal**. It must be true. Circle it.
 2. Cross out every clause that **contains** it --- satisfied, gone.
 3. In every clause containing its **negation**, strike out that literal only.
-4. A clause that loses its **last** literal is **$\bot$**.
+4. A clause that loses its **last** literal must be False--a contradiction.
 
 \
 
-Three ways to stop, and all three are answers:
+Three ways to stop:
 
 | Stop | Means |
 |---|---|
-| you reach $\bot$ | the clauses contradict --- the conclusion follows |
-| no clauses left | all settled, consistently --- it does **not** follow |
-| clauses remain, none is a single literal | nothing more is forced |
+| you reach False | the clauses contradict --- the conclusion follows!! |
+| no clauses left | all variables assigned --- conclusion does **not** follow |
+| clauses remain, none a literal | nothing more is forced |
 : {tbl-colwidths="[40,60]"}
 
 ## Your Turn {.activity}
@@ -226,9 +222,9 @@ two-literal ones.
 ::: {.fillable}
 | Your ending | What it proves |
 |---|---|
-| $\bot$ | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ |
-| no clauses left | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ |
-| stalled | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ |
+| False | |
+| no clauses left |  |
+| stalled |  |
 : {tbl-colwidths="[30,70]"}
 :::
 
@@ -280,8 +276,8 @@ Refutation
 
 Unit clause, unit propagation
 
-The empty clause $\bot$
+The empty clause contradiction
 
 Satisfiable, unsatisfiable
 
-Case split
+

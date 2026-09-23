@@ -9,35 +9,6 @@ subtitle: "Lecture 8, {{< var course.code >}}, {{< var course.term >}}"
 * Office hours are now **Tue 10:30–11:30**, ICCS 233.
 * HW2 is released Sunday, due **Sun Oct 4**.
 
-# Predicates
-
-## Two Weeks Ago {.smaller}
-
-You filled this in, in week 2. Two of these rows are propositions. Five are not.
-
-::: {.fillable}
-| # | Statement | Proposition? |
-|:-:|---|:--:|
-| 1 | If it's a kitten, then it's a cat. | |
-| 2 | If an animal is a mammal, then it is a cat. | |
-| 3 | If I'm an only child, then I have zero siblings. | |
-| 4 | If I eat breakfast, then I ace the quiz. | |
-| 5 | A player is in the NHL only if they are a professional. | |
-| 6 | To be empty, a string must have length 0. | |
-| 7 | No song appears on the Hot 100 without reaching #1. | |
-: {tbl-colwidths="[6,72,22]"}
-:::
-
-::: notes
-3 and 4 only. Both are about a fixed "I" -- one particular person -- so each is
-true or false and that is the end of it.
-
-The other five are not about anything in particular. "If it's a kitten, then
-it's a cat" -- which animal? There is no answer, because the sentence does not
-name one. It is not true and it is not false. It is waiting.
-
-I deliberately did not say this in week 2. Today it gets a name.
-:::
 
 ## Predicates {.smaller}
 
@@ -66,69 +37,10 @@ sentence has a shape -- but it still is not a proposition, because x is still
 loose. That is the next section.
 :::
 
-# Back to Cereal
 
-## Back to Cereal
+## Cereal
 
 {{< video https://youtu.be/CLQ0LZSnJFE?si=jHDBkjZ2OnkfQqwW width="850" height="475">}}
-
-## Which Cheerios? {.smaller}
-
-In week 3 we said: for Cheerios, $\neg(p \vee q)$.
-
-$p$: a cereal has less than 4 units of protein &emsp;&emsp; $q$: a cereal has more than 6 units of sugars
-
-::: {.fillable}
-| Cereal | protein | sugars | $p$ | $q$ | $\neg(p \vee q)$ |
-|---|:-:|:-:|:-:|:-:|:-:|
-| Cheerios | 6 | 1 | | | |
-| Apple Cinnamon Cheerios | 2 | 10 | | | |
-| Honey Nut Cheerios | 3 | 10 | | | |
-| Multi-Grain Cheerios | 2 | 6 | | | |
-: {tbl-colwidths="[40,12,12,12,12,12]"}
-:::
-
-::: notes
-F F T  /  T T F  /  T T F  /  T F F
-
-So the claim was true of exactly one of them. "Cheerios" was never the subject
--- a ROW was. p and q were predicates all along, and each row instantiates
-them.
-
-Ask which row we meant in week 3. The honest answer is that the question was
-not well formed until today.
-
-Real numbers from data/cereal.csv, 77 cereals.
-:::
-
-## Every Row at Once {.smaller}
-
-A dataframe is a domain. Each row instantiates the predicate, and gets a truth
-value of its own.
-
-\
-
-Of the 77 cereals:
-
-::: {.fillable}
-| | Cereals |
-|---|:-:|
-| $p$ — protein $< 4$ | \_\_\_\_ |
-| $q$ — sugars $> 6$ | \_\_\_\_ |
-| $\neg p \wedge \neg q$ | \_\_\_\_ |
-: {tbl-colwidths="[70,30]"}
-:::
-
-::: notes
-66, 39, 9. Counted from the file.
-
-The nine survivors: 100% Bran, All-Bran, All-Bran with Extra Fiber, Cheerios,
-Life, Maypo, Quaker Oat Squares, Quaker Oatmeal, Special K.
-
-A filter is a predicate evaluated once per row, keeping the rows where it comes
-out true. That is all a Boolean mask is, and they have been writing them since
-DSCI 100 without the name.
-:::
 
 ## Boolean Masks
 
@@ -169,8 +81,21 @@ feedback
 Answer: cereals[~p & ~q], or equivalently ~(p | q) -- De Morgan, and worth
 running both to show they agree.
 
-By filtering, they are defining a predicate instantiated by each row and
-evaluating its truth value. Say that sentence.
+THE POINT OF THE SLIDE. By filtering, they are defining a predicate
+instantiated by each row and evaluating its truth value. Say that sentence.
+
+p and q are not propositions here. "A cereal has less than 4 units of protein"
+is not true or false until you say WHICH cereal -- and the frame says which, 77
+times over. Each row fills the blank, and pandas hands back the column of
+answers. That column IS the predicate, evaluated.
+
+In week 3 we asserted ~(p v q) for Cheerios without noticing the problem: there
+are four Cheerios in this file, and it holds for only one of them. Plain
+Cheerios is protein 6, sugars 1. Apple Cinnamon is 2 and 10, Honey Nut 3 and
+10, Multi-Grain 2 and 6. Worth filtering for "Cheerio" in the name if someone
+wants to see it.
+
+Nine of the 77 survive the filter.
 :::
 
 # Quantifiers
@@ -217,7 +142,12 @@ Someone says "all comedians are funny," and you disagree.
 
 |        $\forall x,\ C(x) \rightarrow F(x)$
 
-\
+Refute by negating:
+
+|        $\neg\forall x,\ C(x) \rightarrow F(x)$
+|      $\equiv \exists x,\ \neg(C(x) \rightarrow F(x))$
+|      $\equiv \exists x,\ \neg(F(x) \vee \neg C(x))$
+|      $\equiv \exists x,\ \neg F(x) \wedge C(x)$
 
 Your immediate response: \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
@@ -269,6 +199,70 @@ The aside: C(x) -> F(x) is true whenever C(x) is FALSE, so "there exists x with
 C(x) -> F(x)" is satisfied by any non-comedian. It claims almost nothing. With
 "exists" you want AND; with "for all" you want ->. That pairing catches
 everyone once.
+:::
+
+## Code Patterns
+
+```{pyodide}
+#| exercise: quantifiers
+# --- Data ------------------------------------------------------------
+
+# Unary universe: students and simple properties
+students = ["Alex", "Bea", "Chen", "Devon", "Emi", "Farah"]
+
+Breakfast = {"Alex", "Bea", "Emi"}     # R(x): ate breakfast
+OnCampus  = {"Bea", "Devon"}           # L(x): lives on campus
+Bikes     = {"Alex", "Bea", "Devon"}   # B(x)
+Helmet    = {"Alex", "Bea", "Devon"}   # H(x) 
+
+def R(x): return x in Breakfast     
+def L(x): return x in OnCampus
+def B(x): return x in Bikes
+def H(x): return x in Helmet
+
+# --- Quantifiers with LOOPS ------------------
+
+def forall_X_P(X, P):
+    """Return (truth, counterexample_or_None)."""
+    for x in X:
+        if ______:
+            return ______, ______   
+    return ______, ______
+
+def exists_X_P(X, P):
+    """Return (truth, witness_or_None)."""
+    for x in X:
+        if ______:
+            return ______, ______    
+    return ______, ______
+
+
+# --- Demos -------------------------------
+
+
+print("∀x (B(x) → H(x)) ?  Expect True here.")
+P = lambda x: H(x) or (not B(x))
+truth, cx = forall_X_P(students, P)
+print("  result = ", truth, " counterexample = ", cx, "\n")
+
+print("∃x (L(x) ∧ ¬R(x)) ?  Does anyone live on campus and skipped breakfast?")
+P = lambda x: L(x) and not R(x)
+truth, witness = exists_X_P(students, P)
+print("  result = ", truth, " witness = ", witness)
+
+
+```
+
+::: notes
+The loops ARE the definitions. forall walks the domain looking for a
+counterexample and returns the first it finds; exists walks it looking for a
+witness. Blanks:
+
+  forall:  if not P(x):  return False, x      then  return True,  None
+  exists:  if     P(x):  return True,  x      then  return False, None
+
+Note what each returns on failure -- a counterexample for forall, nothing for
+exists. That asymmetry is the previous two slides, in code.
 :::
 
 ## Words and Ideas
