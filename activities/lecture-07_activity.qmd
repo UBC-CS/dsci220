@@ -1,12 +1,15 @@
 ---
 title: "Unit Propagation"
 subtitle: "DSCI 220 · Lecture 7 activity"
-format:
-  html: default
-  pdf:
-    papersize: letter
-    geometry: margin=0.9in
+format: html
 ---
+
+<!-- PDF is rendered on demand, not by the site build -- the CI runner has no
+     LaTeX and listing a pdf format here fails the whole deploy:
+
+       quarto render activities/lecture-07_activity.qmd --to pdf \
+         -M papersize:letter -M geometry:margin=0.9in
+-->
 
 # What to do
 
