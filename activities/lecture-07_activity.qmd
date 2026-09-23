@@ -18,12 +18,19 @@ A clause is an OR of literals. All the clauses must hold at once.
 **The loop.** Repeat until you cannot:
 
 1. Find a clause with **exactly one literal**. That literal must be true.
-   Circle it — call it a **unit**.
-2. Cross out every clause that **contains** that literal. It is satisfied and
-   can go.
-3. In every clause containing its **negation**, strike out just that negation.
-   The rest of the clause remains.
-4. If a clause loses its **last** literal, you have **⊥** — the empty clause.
+   **Circle it** — call it a **unit**.
+2. Look for that same literal in any other clause. That clause is already
+   satisfied, so **circle the literal there too, and cross the whole clause
+   out.** The circle records why it went.
+3. In every clause containing the **negation** of your unit, strike out just
+   that one literal. The rest of the clause stays.
+4. If a clause loses its **last** literal, **circle what is left of it**. That is
+   **⊥**, the empty clause — a clause with no way left to be true. Finding one is
+   the best thing that can happen to you.
+
+A circle always marks something you have **established**: a literal that must be
+true, or — best of all — an empty clause. A crossed-out clause always has a
+circle in it saying which literal did the work.
 
 **Stop when** one of three things happens, and say which:
 

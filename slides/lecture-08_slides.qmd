@@ -1,335 +1,284 @@
 ---
-title: "Reasoning"
+title: "Predicates and Quantifiers"
 subtitle: "Lecture 8, {{< var course.code >}}, {{< var course.term >}}"
 ---
 
 ## Announcements {.smaller}
 
-* Enroll in PrairieTest here:
- <https://us.prairietest.com/pt/student/course/24076/enroll/238568773340>
-* Sign up for EX1. Practice materials on PL. 
-* Tutorials begin this week!
+* **EX1 is open** — Thu 9/24 through Sun 9/27, self-scheduled in ORCA.
+* Office hours are now **Tue 10:30–11:30**, ICCS 233.
+* HW2 is released Sunday, due **Sun Oct 4**.
 
-# Reasoning
+# Predicates
 
-<!-- Helper classes -->
-<style>
-.small { font-size: 0.9rem; }
-.tiny { font-size: 0.8rem; }
-.rule { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; }
-.card { border: 2px solid #ddd; border-radius: 12px; padding: 14px 16px; margin: 10px 0; }
-.center { text-align: center; }
-.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-.badge { display:inline-block; padding:2px 8px; border:1px solid #bbb; border-radius:10px; font-size:.8rem; }
-</style>
+## Two Weeks Ago {.smaller}
 
-## Design a Trap
+You filled this in, in week 2. Two of these rows are propositions. Five are not.
 
-**Your mission:**  
-- Write one **valid** two-premise argument (any rule).  
-- Write a **look-alike fallacy** with the same topic words.  
-- Bring to class on Wednesday morning!
-
-## Make proofs executable
-
-- Yesterday: valid arguments as **legal inference**
-- Today: address **facts ⇒ conclusion** algorithmically
-- Method: **Refutation** + **Unit propagation** 
-- Big picture: SAT/SMT ideas used in **verification**, **chip design**, **planning**
-- Why now? Logic provides clean **specification layer** even in a 
-probabilistic world
+::: {.fillable}
+| # | Statement | Proposition? |
+|:-:|---|:--:|
+| 1 | If it's a kitten, then it's a cat. | |
+| 2 | If an animal is a mammal, then it is a cat. | |
+| 3 | If I'm an only child, then I have zero siblings. | |
+| 4 | If I eat breakfast, then I ace the quiz. | |
+| 5 | A player is in the NHL only if they are a professional. | |
+| 6 | To be empty, a string must have length 0. | |
+| 7 | No song appears on the Hot 100 without reaching #1. | |
+: {tbl-colwidths="[6,72,22]"}
+:::
 
 ::: notes
-We’ll mechanize yesterday’s arguments. We’ll encode ‘facts ⇒ conclusion’,
-flip the goal, and let unit propagation push us to a contradiction if the
-conclusion really follows. This is the heartbeat of SAT solvers.”
-“If A,B,C are facts and we add ¬D, what should happen if A∧B∧C→D?”
+3 and 4 only. Both are about a fixed "I" -- one particular person -- so each is
+true or false and that is the end of it.
+
+The other five are not about anything in particular. "If it's a kitten, then
+it's a cat" -- which animal? There is no answer, because the sentence does not
+name one. It is not true and it is not false. It is waiting.
+
+I deliberately did not say this in week 2. Today it gets a name.
 :::
 
-## Vocabulary {.smaller}
-
-- **Statement**: something that is either true or false.  
-- **Fact**: a statement we already know is true (we’ll draw it as a single-item parenthesis like $(A)$).  
-- **Rule**: “if these are true, then that is true.” Example: “If A and B, then E.”  
-- **clause** *(OR-group)*: a group joined by “OR”, like $(\neg A \lor \neg B \lor E)$.  
-- **CNF** *(AND of clauses)*: several OR-groups joined by “AND”.  
-- **Unit clause**: a clause with just one item, like $(A)$ or $(\neg D)$.  
-- **Unit propagation**: if you know $(X)$ is true and you also have $(\neg X \lor Y)$, you may **drop** $\neg X$ and keep $Y$. Now $Y$ must be true!
-
-::: notes
-brownie points for the rule at the end -- DS
-:::
-
-<style>
-.two-col { display: grid; grid-template-columns: 1fr 1.4fr; gap: 20px; align-items:start; }
-.tiny { font-size: 0.85rem; color: #555; }
-</style>
-
-## Explore UBC {.smaller}
-
-::::: columns 
-
-:::  {.column width="50%"}
-
-**Variable Definitions**
-
-- **$A$**: Clock Tower is lit up
-- **$B$**: Nest is alight 
-- **$C$**: Koerner Library is illuminated  
-- **$E$**: ICCS doors are unlocked  
-- **$F$**: the Gallery is open  
-- **$D$**: Main Mall is hopping!
-
-:::
-
-:::  {.column width="50%"}
-
-**Rulebook**
-
-1) **$(A\lor B\lor C)$** — At least one of the three landmarks is lit tonight.   
-2) **$A\to E$** — If Clock Tower is lit then ICCS is unlocked.
-3) **$C\to E$** — If Koerner is lit then ICCS is unlocked. 
-4) **$(B\lor F)$** — Either the Nest is lit, or the Gallery opens.  
-5) **$(E\land F)\to D$** — If ICCS unlocked **and** Gal opens then Mall hops. 
-6) **$B\to D$** — If the Nest is lit then Mall hops. 
-
-:::
-:::::
-
-**Goal:** Does **$D$** follow from the rulebook?
-
-## A Smaller Example {.smaller}
-
-::::: columns 
-
-:::  {.column width="50%"}
-
-**Variable Definitions**
-
-- **$A$**: Lions Gate Bridge is illuminated
-- **$B$**: Science World dome is lit up
-- **$D$**: The Canucks are playing at Rogers Arena
-
-:::
-
-:::  {.column width="50%"}
-
-**Rulebook**
-
-1) **$(A\lor B)$** — At least one city landmark is lit tonight.
-2) **$A\to D$** — If Lions Gate is lit, the Canucks are at Rogers.
-3) **$B\to D$** — If the dome is lit, the Canucks are at Rogers.
-
-:::
-:::::
-
-**Goal:** Does **$D$** follow from the rulebook?
-
-## Making a plan
-
-Three ways of thinking about the inference:
-
-* Apply sequences of rules to conclude $D$.
-
-* Show $((A\lor B)\land (A\to D)\land (B\to D)) \to D$ is a Tautology
-
-* Show $\neg (((A\lor B)\land (A\to D)\land (B\to D)) \to D)$ is a Contradiction
-
-Believe it or not, we're going to do the last one!!
-
-## Reframing the goal
-
-$$\neg (((A\lor B)\land (A\to D)\land (B\to D)) \to D)$$
+## Predicates {.smaller}
 
 \
 
-\ 
+$p$: \_\_\_\_\_\_\_\_\_\_\_ ate cereal for breakfast.
 
 \
 
-Conjunctive Normal Form: \_\_\_\_\_\_\_\_\_\_\_\_
+We may want to apply the statement to many students, so we define a **predicate**.
 
-## Resolve Away!
+\
 
-$\{\neg D\}$
+-   $P(x)$: $x$ ate cereal for breakfast.
 
-$\{A, B\}$
+-   $x$ can be *instantiated* to a particular student, or an arbitrary one.
 
-$\{D, \neg A\}$
+-   $P(\underline{\hspace{2em}})$ is a proposition.
 
-$\{D, \neg B\}$
+::: notes
+The blank is the whole idea. A predicate is a proposition with a hole in it,
+and nothing is true or false until the hole is filled.
 
-## Main Mall Midnight {.smaller}
+Go back to row 1 with this: P(x) = x is a kitten, C(x) = x is a cat. Now the
+sentence has a shape -- but it still is not a proposition, because x is still
+loose. That is the next section.
+:::
 
-<div class="two-col">
-<div class="card small">
+# Back to Cereal
 
-**Setup**
+## Back to Cereal
 
-1. Lay out the **rule cards** face up.
-2. Put the **refutation card** $(\neg D)$ in a small **Unit inbox**.
-3. Make three spots: **Clauses** (the rule cards), **Unit inbox**, **Finished units**.
-4. Assign roles: **Reader**, **Marker**, **Checker**, **Scribe**.
+{{< video https://youtu.be/CLQ0LZSnJFE?si=jHDBkjZ2OnkfQqwW width="850" height="475">}}
 
-**Roles**
+## Which Cheerios? {.smaller}
 
-- **Reader**: says the current unit aloud (start with $(\neg D)$).
-- **Marker**: crosses out literals; rewrites reduced clauses.
-- **Checker**: watches for **new units** and **clash**.
-- **Scribe**: records the sequence of units forced (e.g., $\neg D \Rightarrow \neg B \Rightarrow \cdots$).
+In week 3 we said: for Cheerios, $\neg(p \vee q)$.
 
-</div>
-<div class="card small">
+$p$: a cereal has less than 4 units of protein &emsp;&emsp; $q$: a cereal has more than 6 units of sugars
 
-**Gameplay loop (repeat)**
+::: {.fillable}
+| Cereal | protein | sugars | $p$ | $q$ | $\neg(p \vee q)$ |
+|---|:-:|:-:|:-:|:-:|:-:|
+| Cheerios | 6 | 1 | | | |
+| Apple Cinnamon Cheerios | 2 | 10 | | | |
+| Honey Nut Cheerios | 3 | 10 | | | |
+| Multi-Grain Cheerios | 2 | 6 | | | |
+: {tbl-colwidths="[40,12,12,12,12,12]"}
+:::
 
-1. **Pick the next unit** $(u)$ from the inbox (start with $(\neg D)$).
-2. **Sweep every clause once** (one round):
-   - If the clause **contains $u$**: it’s **satisfied**, remove that card.
-   - If the clause **contains $\neg u$**: cross out $\neg u$.
-     - If nothing remains, **$\bot$ (CLASH)** → you **win**.
-     - If **one literal** remains $(v)$, place it in the **Unit inbox**.
-     - If **2+ literals** remain, keep the **reduced clause** on the table.
-   - If it **mentions neither $u$ nor $\neg u$**: leave it as is.
-3. After the sweep, **move $u$ to Finished units**. Go back to step 1.
+::: notes
+F F T  /  T T F  /  T T F  /  T F F
 
-</div>
-</div>
+So the claim was true of exactly one of them. "Cheerios" was never the subject
+-- a ROW was. p and q were predicates all along, and each row instantiates
+them.
 
-**Win condition:** You produce **$\bot$** (empty clause) **or** you later pick a unit that **contradicts** a finished one (e.g., you pick $(B)$ but **Finished** already has $(\neg B)$).
+Ask which row we meant in week 3. The honest answer is that the question was
+not well formed until today.
 
-**If stuck:** The **Unit inbox is empty** and no clause is a single literal → raise your hand (forward chaining has stalled).
+Real numbers from data/cereal.csv, 77 cereals.
+:::
 
-**Scribe line (to turn in):** $\neg D \Rightarrow \ldots \Rightarrow \bot$ (list units in the order you derived them).
+## Every Row at Once {.smaller}
 
+A dataframe is a domain. Each row instantiates the predicate, and gets a truth
+value of its own.
 
+\
 
+Of the 77 cereals:
 
-## today's python
+::: {.fillable}
+| | Cereals |
+|---|:-:|
+| $p$ — protein $< 4$ | \_\_\_\_ |
+| $q$ — sugars $> 6$ | \_\_\_\_ |
+| $\neg p \wedge \neg q$ | \_\_\_\_ |
+: {tbl-colwidths="[70,30]"}
+:::
 
-``` {pyodide}
+::: notes
+66, 39, 9. Counted from the file.
 
-from collections import deque
+The nine survivors: 100% Bran, All-Bran, All-Bran with Extra Fiber, Cheerios,
+Life, Maypo, Quaker Oat Squares, Quaker Oatmeal, Special K.
 
-# ---------- tiny pretty-printers for breadcrumbs ----------
-def lit_str(lit: int) -> str:
-    return f"¬{abs(lit)}" if lit < 0 else f"{lit}"
+A filter is a predicate evaluated once per row, keeping the rows where it comes
+out true. That is all a Boolean mask is, and they have been writing them since
+DSCI 100 without the name.
+:::
 
-def clause_str(cl: set[int]) -> str:
-    return "(" + " ∨ ".join(lit_str(x) for x in sorted(cl, key=lambda z: (abs(z), z < 0))) + ")"
+## Boolean Masks
 
-# ---------- helper: pop the next unit by cycling once through Q ----------
-def pop_next_unit(Q: deque[set[int]], breadcrumbs: list[str]):
-    """
-    Rotate through Q once to find a 1-literal clause.
-    If found: remove it, record breadcrumb, and return its literal; else None.
-    """
-    n = len(Q)
-    for _ in range(n):
-        c = Q.popleft()
-        if len(c) == 1:
-            u = set(c).pop()  # singleton via set.pop()
-            breadcrumbs.append(f"pick unit {lit_str(u)}")
-            return u
-        Q.append(c)
-    return None
+Select all the cereals with at least 4 units of protein and no more than 6 units of sugars.
 
-# ---------- round-based refutation; single unified reduction path ----------
-def refute_rounds(clauses, refuted_literal):
-    """
-    clauses: iterable of clauses (each a set[int], e.g., {1, -2, 5} = A ∨ ¬B ∨ E)
-    refuted_literal: int (e.g., -D). We'll add {refuted_literal} as a clause.
-
-    returns: (queue_of_clauses: list[set[int]], finished_units: set[int],
-              conflict: bool, breadcrumbs: list[str])
-    """
-    # One queue with all clauses + the refutation unit at the front
-    Q = deque(set(c) for c in clauses)
-    Q.appendleft({refuted_literal})
-
-    finished = set()      # units we've fully applied
-    breadcrumbs = []
-
-    while True:
-        # 1) Find next unit
-        u = pop_next_unit(Q, breadcrumbs)
-        if u is None:
-            breadcrumbs.append("no unit found; queue stabilized (no conflict)")
-            return list(Q), finished, False, breadcrumbs
-
-        # Detect clash only when we choose the unit
-        if -u in finished:
-            breadcrumbs.append(f"CLASH: {lit_str(u)} vs {lit_str(-u)} already finished")
-            finished.add(u)
-            return list(Q), finished, True, breadcrumbs
-
-        # 2) One full round with u
-        round_len = len(Q)
-        for _ in range(round_len):
-            clause = Q.popleft()
-
-            if u in clause:
-                breadcrumbs.append(f"satisfy {clause_str(clause)} by {lit_str(u)}")
-                continue # move to next iteration
-
-            if -u in clause:
-                rest = {x for x in clause if x != -u}
-
-                if len(rest) == 0:
-                    breadcrumbs.append(f"EMPTY CLAUSE from {clause_str(clause)} after using {lit_str(u)} → CLASH")
-                    finished.add(u)
-                    return [], finished, True, breadcrumbs # DONE!!
-
-                breadcrumbs.append(f"shrink {clause_str(clause)} by {lit_str(u)} → {clause_str(rest)}")
-                Q.append(rest)
-                continue # move to next iteration
-
-            Q.append(clause)
-
-        # 3) Round complete
-        finished.add(u)
-        breadcrumbs.append(f"finish unit {lit_str(u)}")
-
-# -------------------- tiny sanity checks --------------------
-
-# Map atoms: A=1, B=2, C=3, E=5, F=6, D=4
-A,B,C,E,F,D = 1,2,3,5,6,4
-
-# UBC puzzle (requires refutation; resolves by propagation)
-kb = [
-    {A, B, C},      # (A ∨ B ∨ C)
-    {-A, E},        # (¬A ∨ E)
-    {-C, E},        # (¬C ∨ E)
-    {B, F},         # (B ∨ F)
-    {-E, -F, D},    # (¬E ∨ ¬F ∨ D)
-    {-B, D},        # (¬B ∨ D)
-]
-q, done, conflict, trail = refute_rounds(kb, -D)
-print("conflict:", conflict)
-print("finished:", {lit_str(x) for x in done})
-print("\n".join(trail))
-
-# Non-refuting toy (no conflict expected)
-kb2 = [{-A, B}, {-A, B, C}]
-q2, done2, conflict2, trail2 = refute_rounds(kb2, -B)
-print("\nconflict:", conflict2)
-print("\n".join(trail2))
-
+```{pyodide}
+#| setup: true
+#| exercise: ex_cereal
+import pandas as pd
+cereals = pd.read_csv('https://raw.githubusercontent.com/UBC-CS/dsci220/refs/heads/main/data/cereal.csv')
 ```
 
-## Does this always work? 
+```{pyodide}
+#| exercise: ex_cereal
+p = cereals['protein'] < 4
+q = cereals['sugars'] > 6
+filtered_df = cereals[______]
+filtered_df
+```
 
-**Works great for:** rulebooks where each clause has only 1 positive unit (Horn) 
+```{pyodide}
+#| exercise: ex_cereal
+#| check: true
+correct_answer = cereals[(cereals['protein'] >= 4) & (cereals['sugars'] <= 6)]
+ok = (
+    len(filtered_df) == len(correct_answer)
+    and filtered_df.index.equals(correct_answer.index)
+)
+feedback = (
+    {"correct": True,  "message": "Nine cereals survive. That is a predicate, evaluated 77 times."}
+    if ok else
+    {"correct": False, "message": "Not quite. You want neither p nor q: ~p & ~q."}
+)
+feedback
+```
 
-**Can stall on:** non-Horn, symmetric choice, more complex domains.
+::: notes
+Answer: cereals[~p & ~q], or equivalently ~(p | q) -- De Morgan, and worth
+running both to show they agree.
 
-**Stall example (unsatisfiable, no units):**
-$$
-(A\vee B)\wedge(A\vee \neg B)\wedge(\neg A\vee B)\wedge(\neg A\vee \neg B)
-$$
+By filtering, they are defining a predicate instantiated by each row and
+evaluating its truth value. Say that sentence.
+:::
 
-* No unit clauses → our method can’t start.
-* It’s actually **unsatisfiable** but needs a **branch** to detect. (try \(A\) or \(\neg A\)).
+# Quantifiers
 
-**Takeaway:** Propagation finds what’s **locally forced**.  
-When nothing is locally forced, we need **case splits** or stronger rules.
+## Quantified Predicates {.smaller}
+
+Consider the predicate
+
+|        $H(x)$: $x$ is a hero
+
+Is this a proposition? \_\_\_\_\_\_
+
+\
+
+We add a **quantifier** to bind the variable:
+
+\
+
+|   $\forall$ &emsp; "for every", "for all"
+|   $\exists$ &emsp; "there exists", "there is at least one"
+
+\
+
+|        $\forall x\, H(x)$ &emsp;&emsp; $\exists x\, H(x)$
+
+\
+
+Now? \_\_\_\_\_\_
+
+::: notes
+No, then yes. The variable is free in the first and bound in the second, and
+binding is what closes the hole.
+
+Worth saying: a quantifier needs a domain. "Everyone is a hero" -- everyone in
+what? For the cereal frame the domain was the 77 rows, which is why we could
+just count.
+:::
+
+## Counterexample {.smaller}
+
+Someone says "all comedians are funny," and you disagree.
+
+\
+
+|        $\forall x,\ C(x) \rightarrow F(x)$
+
+\
+
+Your immediate response: \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+\
+
+This evidence of refutation is called a \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_.
+
+::: notes
+"No -- what about THIS one?" You name a comedian who is not funny.
+
+Counterexample. And note what it takes: ONE. To refute a "for all" you need a
+single case, which is why the negation of a universal is an existential:
+
+  ~forall x P(x)  ==  exists x ~P(x)
+
+They met this shape in week 2 without knowing it -- refuting "if you eat
+breakfast you ace the quiz" took exactly one morning where you did and did not.
+:::
+
+## Witness {.smaller}
+
+Someone says "there is a funny comedian," and you disagree.
+
+\
+
+|        $\exists x,\ C(x) \wedge F(x)$
+
+\
+
+Their immediate response: \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+\
+
+This evidence of justification is called a \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_.
+
+\
+
+Aside: why not $\exists x,\ C(x) \rightarrow F(x)$?
+
+::: notes
+They name one. A witness.
+
+So the asymmetry: one case SETTLES an existential and one case DESTROYS a
+universal. Neither can be settled the other way round without checking the
+whole domain -- unless the domain is small enough to exhaust, which is exactly
+the distinction from lecture 1.
+
+The aside: C(x) -> F(x) is true whenever C(x) is FALSE, so "there exists x with
+C(x) -> F(x)" is satisfied by any non-comedian. It claims almost nothing. With
+"exists" you want AND; with "for all" you want ->. That pairing catches
+everyone once.
+:::
+
+## Words and Ideas
+
+Predicate, instantiation
+
+Free and bound variables
+
+Domain
+
+$\forall$, $\exists$
+
+Counterexample, witness
