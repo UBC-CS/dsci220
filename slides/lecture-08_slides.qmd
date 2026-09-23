@@ -10,6 +10,130 @@ subtitle: "Lecture 8, {{< var course.code >}}, {{< var course.term >}}"
 * HW2 is released Sunday, due **Sun Oct 4**.
 
 
+# Three Endings
+
+## Contradiction {.smaller}
+
+::::: columns
+::: {.column width="38%"}
+| | |
+|:-:|---|
+| 1 | $D$ |
+| 2 | $D \rightarrow \neg C$ |
+| 3 | $\neg C \wedge \neg B \rightarrow \neg E$ |
+| 4 | $\neg B$ |
+| 5 | $\neg G \vee \neg F$ |
+| | |
+| $\therefore$ | $\neg E$ |
+: {tbl-colwidths="[14,86]"}
+:::
+
+::: {.column width="4%"}
+:::
+
+::: {.column width="58%"}
+::: {.fillable}
+| | Clause | |
+|:-:|---|---|
+| 1 | $\{D\}$ | |
+| 2 | $\{\neg C,\ \neg D\}$ | |
+| 3 | $\{B,\ C,\ \neg E\}$ | |
+| 4 | $\{\neg B\}$ | |
+| 5 | $\{\neg F,\ \neg G\}$ | |
+| 6 | $\{E\}$ | |
+: {tbl-colwidths="[8,46,46]"}
+:::
+:::
+:::::
+
+::: notes
+Worksheet set 1.
+
+D ⇒ -C ⇒ -B, then -E empties. The conclusion FOLLOWS -- denying it was impossible.
+:::
+
+## Runs Out {.smaller}
+
+::::: columns
+::: {.column width="38%"}
+| | |
+|:-:|---|
+| 1 | $\neg G$ |
+| 2 | $\neg G \rightarrow A$ |
+| 3 | $A \rightarrow \neg B$ |
+| 4 | $D \rightarrow C$ |
+| | |
+| $\therefore$ | $D$ |
+: {tbl-colwidths="[14,86]"}
+:::
+
+::: {.column width="4%"}
+:::
+
+::: {.column width="58%"}
+::: {.fillable}
+| | Clause | |
+|:-:|---|---|
+| 1 | $\{\neg G\}$ | |
+| 2 | $\{A,\ G\}$ | |
+| 3 | $\{\neg A,\ \neg B\}$ | |
+| 4 | $\{C,\ \neg D\}$ | |
+| 5 | $\{\neg D\}$ | |
+: {tbl-colwidths="[8,46,46]"}
+:::
+:::
+:::::
+
+::: notes
+Worksheet set 6.
+
+-G ⇒ A ⇒ -B ⇒ -D, and the last clause is satisfied. Nothing left, no contradiction.
+So the conclusion does NOT follow, and those four units are a counterexample:
+they satisfy every premise while the conclusion is false.
+:::
+
+## Stalls {.smaller}
+
+::::: columns
+::: {.column width="38%"}
+| | |
+|:-:|---|
+| 1 | $\neg A$ |
+| 2 | $\neg A \rightarrow C$ |
+| 3 | $\neg B \vee \neg E$ |
+| 4 | $F \vee \neg G$ |
+| 5 | $\neg B \wedge F \rightarrow \neg D$ |
+| | |
+| $\therefore$ | $\neg D$ |
+: {tbl-colwidths="[14,86]"}
+:::
+
+::: {.column width="4%"}
+:::
+
+::: {.column width="58%"}
+::: {.fillable}
+| | Clause | |
+|:-:|---|---|
+| 1 | $\{\neg A\}$ | |
+| 2 | $\{A,\ C\}$ | |
+| 3 | $\{\neg B,\ \neg E\}$ | |
+| 4 | $\{F,\ \neg G\}$ | |
+| 5 | $\{B,\ \neg D,\ \neg F\}$ | |
+| 6 | $\{D\}$ | |
+: {tbl-colwidths="[8,46,46]"}
+:::
+:::
+:::::
+
+::: notes
+Worksheet set 10.
+
+-A ⇒ C ⇒ D, then {-B,-E} {-G,F} {-F,B} remain and none is a unit.
+Propagation is done and has settled nothing. The conclusion does not follow,
+but we have not shown that -- we have only run out of moves.
+:::
+
 ## Predicates {.smaller}
 
 \
