@@ -13,10 +13,15 @@ format: html
 
 # What to do
 
-Every group has a **different** set of clauses. There is no one right answer
-across the room — that is the point.
+Every group has a **different** argument. There is no one right answer across
+the room — that is the point.
 
-A clause is an OR of literals. All the clauses must hold at once.
+You are asked whether a conclusion **follows** from some premises. Rather than
+chase it forwards, we assume it does **not**: the negated conclusion joins the
+premises, and we look for a contradiction. If the premises plus the *denial* of
+the conclusion cannot all hold, then the conclusion followed all along.
+
+Everything has already been turned into clauses for you.
 
 **The loop.** Repeat until you cannot:
 
@@ -27,381 +32,585 @@ A clause is an OR of literals. All the clauses must hold at once.
    out.** The circle records why it went.
 3. In every clause containing the **negation** of your unit, strike out just
    that one literal. The rest of the clause stays.
-4. If a clause loses its **last** literal, **circle what is left of it**. That is
-   **⊥**, the empty clause — a clause with no way left to be true. Finding one is
-   the best thing that can happen to you.
+4. If a clause loses its **last** literal, **circle what is left of it**. That
+   is the **empty clause** — a clause with no way left to be true, so it is
+   **False**. You have found a contradiction, and that is the best thing that
+   can happen to you.
 
 A circle always marks something you have **established**: a literal that must be
 true, or — best of all — an empty clause. A crossed-out clause always has a
 circle in it saying which literal did the work.
 
-**Stop when** one of three things happens, and say which:
+**Three ways to stop**, and each says something different about the argument:
 
-| | |
+| You stopped because | So the conclusion |
 |---|---|
-| You reach **⊥** | the clauses contradict each other |
-| **No clauses are left** | everything is settled, and consistently |
-| **No clause has a single literal**, but clauses remain | nothing further is forced |
-
-All three are real answers. Finding out which one you have *is* the exercise.
+| you found a **contradiction** | **follows.** Denying it was impossible |
+| **no clauses were left** | **does not follow** — and the units you circled are a counterexample |
+| **no clause had a single literal** | *cannot be settled this way.* Propagation alone is not enough |
 
 {{< pagebreak >}}
 
 ## Set 1
 
+**The argument**
+
+| | |
+|:-:|---|
+| 1 | $D$ |
+| 2 | $D \rightarrow \neg C$ |
+| 3 | $\neg C \wedge \neg B \rightarrow \neg E$ |
+| 4 | $\neg B$ |
+| 5 | $\neg G \vee \neg F$ |
+| | |
+| $\therefore$ | $\neg E$ |
+: {tbl-colwidths="[10,90]"}
+
+**Does that conclusion follow?** To find out, we assume it does **not** —
+so $E$ joins the premises — and look for a contradiction.
+
 | | Clause | Working |
 |:-:|---|---|
-| 1 | $\{\neg A\}$ | |
-| 2 | $\{\neg B,\ \neg D,\ \neg G\}$ | |
-| 3 | $\{\neg E\}$ | |
-| 4 | $\{\neg C,\ E,\ F\}$ | |
-| 5 | $\{A,\ \neg C,\ E,\ \neg F\}$ | |
-| 6 | $\{C,\ E\}$ | |
-: {tbl-colwidths="[6,44,50]"}
+| 1 | $\{D\}$ | |
+| 2 | $\{\neg C,\ \neg D\}$ | |
+| 3 | $\{B,\ C,\ \neg E\}$ | |
+| 4 | $\{\neg B\}$ | |
+| 5 | $\{\neg F,\ \neg G\}$ | |
+| 6 | $\{E\}$ &nbsp; *(negated conclusion)* | |
+: {tbl-colwidths="[6,40,54]"}
 
-**Units you forced, in order:**
-&nbsp;
+**Units you forced, in order:** &nbsp;
 
 \_\_\_\_\_\_ ⇒ \_\_\_\_\_\_ ⇒ \_\_\_\_\_\_ ⇒ \_\_\_\_\_\_ ⇒ \_\_\_\_\_\_ ⇒ \_\_\_\_\_\_
 
-**What can you conclude?** &nbsp;
+**How did you stop?** &emsp; ☐ found a contradiction &emsp; ☐ ran out of clauses &emsp; ☐ stalled
 
-\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+**So does $\neg E$ follow from the premises?** &nbsp;
+
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 **How do you know you are finished?** &nbsp;
 
-\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 {{< pagebreak >}}
 
 ## Set 2
 
+**The argument**
+
+| | |
+|:-:|---|
+| 1 | $\neg B$ |
+| 2 | $\neg B \rightarrow G$ |
+| 3 | $G \wedge \neg C \rightarrow \neg F$ |
+| 4 | $\neg C$ |
+| 5 | $D \vee \neg A$ |
+| | |
+| $\therefore$ | $\neg F$ |
+: {tbl-colwidths="[10,90]"}
+
+**Does that conclusion follow?** To find out, we assume it does **not** —
+so $F$ joins the premises — and look for a contradiction.
+
 | | Clause | Working |
 |:-:|---|---|
-| 1 | $\{\neg A,\ B,\ \neg D,\ G\}$ | |
-| 2 | $\{\neg A,\ B,\ \neg G\}$ | |
-| 3 | $\{\neg B\}$ | |
-| 4 | $\{C,\ \neg E,\ F\}$ | |
-| 5 | $\{D\}$ | |
-| 6 | $\{A,\ B\}$ | |
-: {tbl-colwidths="[6,44,50]"}
+| 1 | $\{\neg B\}$ | |
+| 2 | $\{B,\ G\}$ | |
+| 3 | $\{C,\ \neg F,\ \neg G\}$ | |
+| 4 | $\{\neg C\}$ | |
+| 5 | $\{\neg A,\ D\}$ | |
+| 6 | $\{F\}$ &nbsp; *(negated conclusion)* | |
+: {tbl-colwidths="[6,40,54]"}
 
-**Units you forced, in order:**
-&nbsp;
+**Units you forced, in order:** &nbsp;
 
 \_\_\_\_\_\_ ⇒ \_\_\_\_\_\_ ⇒ \_\_\_\_\_\_ ⇒ \_\_\_\_\_\_ ⇒ \_\_\_\_\_\_ ⇒ \_\_\_\_\_\_
 
-**What can you conclude?** &nbsp;
+**How did you stop?** &emsp; ☐ found a contradiction &emsp; ☐ ran out of clauses &emsp; ☐ stalled
 
-\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+**So does $\neg F$ follow from the premises?** &nbsp;
+
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 **How do you know you are finished?** &nbsp;
 
-\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 {{< pagebreak >}}
 
 ## Set 3
 
+**The argument**
+
+| | |
+|:-:|---|
+| 1 | $B$ |
+| 2 | $B \rightarrow E$ |
+| 3 | $E \wedge \neg A \rightarrow \neg F$ |
+| 4 | $\neg A$ |
+| 5 | $D \vee \neg C$ |
+| | |
+| $\therefore$ | $\neg F$ |
+: {tbl-colwidths="[10,90]"}
+
+**Does that conclusion follow?** To find out, we assume it does **not** —
+so $F$ joins the premises — and look for a contradiction.
+
 | | Clause | Working |
 |:-:|---|---|
-| 1 | $\{D\}$ | |
-| 2 | $\{C,\ \neg D\}$ | |
-| 3 | $\{F\}$ | |
-| 4 | $\{A,\ \neg C,\ \neg D,\ \neg F\}$ | |
-| 5 | $\{\neg B,\ \neg E,\ \neg G\}$ | |
-| 6 | $\{\neg A,\ \neg C,\ \neg D\}$ | |
-: {tbl-colwidths="[6,44,50]"}
+| 1 | $\{B\}$ | |
+| 2 | $\{\neg B,\ E\}$ | |
+| 3 | $\{A,\ \neg E,\ \neg F\}$ | |
+| 4 | $\{\neg A\}$ | |
+| 5 | $\{\neg C,\ D\}$ | |
+| 6 | $\{F\}$ &nbsp; *(negated conclusion)* | |
+: {tbl-colwidths="[6,40,54]"}
 
-**Units you forced, in order:**
-&nbsp;
+**Units you forced, in order:** &nbsp;
 
 \_\_\_\_\_\_ ⇒ \_\_\_\_\_\_ ⇒ \_\_\_\_\_\_ ⇒ \_\_\_\_\_\_ ⇒ \_\_\_\_\_\_ ⇒ \_\_\_\_\_\_
 
-**What can you conclude?** &nbsp;
+**How did you stop?** &emsp; ☐ found a contradiction &emsp; ☐ ran out of clauses &emsp; ☐ stalled
 
-\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+**So does $\neg F$ follow from the premises?** &nbsp;
+
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 **How do you know you are finished?** &nbsp;
 
-\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 {{< pagebreak >}}
 
 ## Set 4
 
+**The argument**
+
+| | |
+|:-:|---|
+| 1 | $C$ |
+| 2 | $C \rightarrow \neg D$ |
+| 3 | $\neg D \wedge \neg B \rightarrow A$ |
+| 4 | $\neg B$ |
+| 5 | $G \vee F$ |
+| | |
+| $\therefore$ | $A$ |
+: {tbl-colwidths="[10,90]"}
+
+**Does that conclusion follow?** To find out, we assume it does **not** —
+so $\neg A$ joins the premises — and look for a contradiction.
+
 | | Clause | Working |
 |:-:|---|---|
-| 1 | $\{A,\ C,\ E\}$ | |
-| 2 | $\{G\}$ | |
-| 3 | $\{B,\ \neg D,\ F\}$ | |
-| 4 | $\{B,\ D\}$ | |
-| 5 | $\{\neg B\}$ | |
-| 6 | $\{B,\ \neg D,\ \neg F,\ \neg G\}$ | |
-: {tbl-colwidths="[6,44,50]"}
+| 1 | $\{C\}$ | |
+| 2 | $\{\neg C,\ \neg D\}$ | |
+| 3 | $\{A,\ B,\ D\}$ | |
+| 4 | $\{\neg B\}$ | |
+| 5 | $\{F,\ G\}$ | |
+| 6 | $\{\neg A\}$ &nbsp; *(negated conclusion)* | |
+: {tbl-colwidths="[6,40,54]"}
 
-**Units you forced, in order:**
-&nbsp;
+**Units you forced, in order:** &nbsp;
 
 \_\_\_\_\_\_ ⇒ \_\_\_\_\_\_ ⇒ \_\_\_\_\_\_ ⇒ \_\_\_\_\_\_ ⇒ \_\_\_\_\_\_ ⇒ \_\_\_\_\_\_
 
-**What can you conclude?** &nbsp;
+**How did you stop?** &emsp; ☐ found a contradiction &emsp; ☐ ran out of clauses &emsp; ☐ stalled
 
-\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+**So does $A$ follow from the premises?** &nbsp;
+
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 **How do you know you are finished?** &nbsp;
 
-\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 {{< pagebreak >}}
 
 ## Set 5
 
+**The argument**
+
+| | |
+|:-:|---|
+| 1 | $\neg D$ |
+| 2 | $\neg D \rightarrow G$ |
+| 3 | $G \wedge E \rightarrow C$ |
+| 4 | $E$ |
+| 5 | $F \vee \neg A$ |
+| | |
+| $\therefore$ | $C$ |
+: {tbl-colwidths="[10,90]"}
+
+**Does that conclusion follow?** To find out, we assume it does **not** —
+so $\neg C$ joins the premises — and look for a contradiction.
+
 | | Clause | Working |
 |:-:|---|---|
-| 1 | $\{\neg E,\ F,\ G\}$ | |
-| 2 | $\{C\}$ | |
-| 3 | $\{A,\ \neg B,\ \neg C,\ D\}$ | |
-| 4 | $\{A,\ \neg B,\ \neg D\}$ | |
-| 5 | $\{A,\ B\}$ | |
-| 6 | $\{\neg A\}$ | |
-: {tbl-colwidths="[6,44,50]"}
+| 1 | $\{\neg D\}$ | |
+| 2 | $\{D,\ G\}$ | |
+| 3 | $\{C,\ \neg E,\ \neg G\}$ | |
+| 4 | $\{E\}$ | |
+| 5 | $\{\neg A,\ F\}$ | |
+| 6 | $\{\neg C\}$ &nbsp; *(negated conclusion)* | |
+: {tbl-colwidths="[6,40,54]"}
 
-**Units you forced, in order:**
-&nbsp;
+**Units you forced, in order:** &nbsp;
 
 \_\_\_\_\_\_ ⇒ \_\_\_\_\_\_ ⇒ \_\_\_\_\_\_ ⇒ \_\_\_\_\_\_ ⇒ \_\_\_\_\_\_ ⇒ \_\_\_\_\_\_
 
-**What can you conclude?** &nbsp;
+**How did you stop?** &emsp; ☐ found a contradiction &emsp; ☐ ran out of clauses &emsp; ☐ stalled
 
-\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+**So does $C$ follow from the premises?** &nbsp;
+
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 **How do you know you are finished?** &nbsp;
 
-\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 {{< pagebreak >}}
 
 ## Set 6
 
+**The argument**
+
+| | |
+|:-:|---|
+| 1 | $\neg G$ |
+| 2 | $\neg G \rightarrow A$ |
+| 3 | $A \rightarrow \neg B$ |
+| 4 | $D \rightarrow C$ |
+| | |
+| $\therefore$ | $D$ |
+: {tbl-colwidths="[10,90]"}
+
+**Does that conclusion follow?** To find out, we assume it does **not** —
+so $\neg D$ joins the premises — and look for a contradiction.
+
 | | Clause | Working |
 |:-:|---|---|
-| 1 | $\{\neg B,\ \neg C,\ F\}$ | |
-| 2 | $\{\neg B,\ C\}$ | |
-| 3 | $\{A,\ E\}$ | |
-| 4 | $\{B\}$ | |
-| 5 | $\{\neg A,\ \neg B,\ \neg C,\ \neg F\}$ | |
-| 6 | $\{D,\ \neg E\}$ | |
-| 7 | $\{\neg A,\ \neg G\}$ | |
-: {tbl-colwidths="[6,44,50]"}
+| 1 | $\{\neg G\}$ | |
+| 2 | $\{A,\ G\}$ | |
+| 3 | $\{\neg A,\ \neg B\}$ | |
+| 4 | $\{C,\ \neg D\}$ | |
+| 5 | $\{\neg D\}$ &nbsp; *(negated conclusion)* | |
+: {tbl-colwidths="[6,40,54]"}
 
-**Units you forced, in order:**
-&nbsp;
+**Units you forced, in order:** &nbsp;
 
 \_\_\_\_\_\_ ⇒ \_\_\_\_\_\_ ⇒ \_\_\_\_\_\_ ⇒ \_\_\_\_\_\_ ⇒ \_\_\_\_\_\_ ⇒ \_\_\_\_\_\_
 
-**What can you conclude?** &nbsp;
+**How did you stop?** &emsp; ☐ found a contradiction &emsp; ☐ ran out of clauses &emsp; ☐ stalled
 
-\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+**So does $D$ follow from the premises?** &nbsp;
+
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 **How do you know you are finished?** &nbsp;
 
-\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 {{< pagebreak >}}
 
 ## Set 7
 
+**The argument**
+
+| | |
+|:-:|---|
+| 1 | $G$ |
+| 2 | $G \rightarrow \neg D$ |
+| 3 | $\neg D \rightarrow A$ |
+| 4 | $\neg C \rightarrow F$ |
+| | |
+| $\therefore$ | $\neg C$ |
+: {tbl-colwidths="[10,90]"}
+
+**Does that conclusion follow?** To find out, we assume it does **not** —
+so $C$ joins the premises — and look for a contradiction.
+
 | | Clause | Working |
 |:-:|---|---|
-| 1 | $\{\neg C,\ D,\ G\}$ | |
-| 2 | $\{E,\ F\}$ | |
-| 3 | $\{\neg A,\ \neg E\}$ | |
-| 4 | $\{\neg B,\ \neg F\}$ | |
-| 5 | $\{C,\ G\}$ | |
-| 6 | $\{\neg G\}$ | |
-| 7 | $\{\neg C,\ \neg D,\ \neg E,\ G\}$ | |
-: {tbl-colwidths="[6,44,50]"}
+| 1 | $\{G\}$ | |
+| 2 | $\{\neg D,\ \neg G\}$ | |
+| 3 | $\{A,\ D\}$ | |
+| 4 | $\{C,\ F\}$ | |
+| 5 | $\{C\}$ &nbsp; *(negated conclusion)* | |
+: {tbl-colwidths="[6,40,54]"}
 
-**Units you forced, in order:**
-&nbsp;
+**Units you forced, in order:** &nbsp;
 
 \_\_\_\_\_\_ ⇒ \_\_\_\_\_\_ ⇒ \_\_\_\_\_\_ ⇒ \_\_\_\_\_\_ ⇒ \_\_\_\_\_\_ ⇒ \_\_\_\_\_\_
 
-**What can you conclude?** &nbsp;
+**How did you stop?** &emsp; ☐ found a contradiction &emsp; ☐ ran out of clauses &emsp; ☐ stalled
 
-\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+**So does $\neg C$ follow from the premises?** &nbsp;
+
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 **How do you know you are finished?** &nbsp;
 
-\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 {{< pagebreak >}}
 
 ## Set 8
 
+**The argument**
+
+| | |
+|:-:|---|
+| 1 | $F$ |
+| 2 | $F \rightarrow \neg A$ |
+| 3 | $\neg A \rightarrow B$ |
+| 4 | $E \rightarrow \neg G$ |
+| | |
+| $\therefore$ | $E$ |
+: {tbl-colwidths="[10,90]"}
+
+**Does that conclusion follow?** To find out, we assume it does **not** —
+so $\neg E$ joins the premises — and look for a contradiction.
+
 | | Clause | Working |
 |:-:|---|---|
-| 1 | $\{A,\ C,\ D\}$ | |
-| 2 | $\{\neg A\}$ | |
-| 3 | $\{\neg B,\ \neg G\}$ | |
-| 4 | $\{A,\ B,\ \neg C,\ D\}$ | |
-| 5 | $\{A,\ \neg D\}$ | |
-| 6 | $\{B,\ F\}$ | |
-| 7 | $\{E,\ G\}$ | |
-: {tbl-colwidths="[6,44,50]"}
+| 1 | $\{F\}$ | |
+| 2 | $\{\neg A,\ \neg F\}$ | |
+| 3 | $\{A,\ B\}$ | |
+| 4 | $\{\neg E,\ \neg G\}$ | |
+| 5 | $\{\neg E\}$ &nbsp; *(negated conclusion)* | |
+: {tbl-colwidths="[6,40,54]"}
 
-**Units you forced, in order:**
-&nbsp;
+**Units you forced, in order:** &nbsp;
 
 \_\_\_\_\_\_ ⇒ \_\_\_\_\_\_ ⇒ \_\_\_\_\_\_ ⇒ \_\_\_\_\_\_ ⇒ \_\_\_\_\_\_ ⇒ \_\_\_\_\_\_
 
-**What can you conclude?** &nbsp;
+**How did you stop?** &emsp; ☐ found a contradiction &emsp; ☐ ran out of clauses &emsp; ☐ stalled
 
-\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+**So does $E$ follow from the premises?** &nbsp;
+
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 **How do you know you are finished?** &nbsp;
 
-\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 {{< pagebreak >}}
 
 ## Set 9
 
+**The argument**
+
+| | |
+|:-:|---|
+| 1 | $B$ |
+| 2 | $B \rightarrow D$ |
+| 3 | $D \rightarrow A$ |
+| 4 | $F \rightarrow C$ |
+| | |
+| $\therefore$ | $F$ |
+: {tbl-colwidths="[10,90]"}
+
+**Does that conclusion follow?** To find out, we assume it does **not** —
+so $\neg F$ joins the premises — and look for a contradiction.
+
 | | Clause | Working |
 |:-:|---|---|
-| 1 | $\{A,\ C,\ \neg D,\ E\}$ | |
-| 2 | $\{\neg B,\ \neg E\}$ | |
-| 3 | $\{E,\ G\}$ | |
-| 4 | $\{\neg A\}$ | |
-| 5 | $\{A,\ D\}$ | |
-| 6 | $\{B,\ \neg F\}$ | |
-| 7 | $\{A,\ \neg C,\ \neg D\}$ | |
-: {tbl-colwidths="[6,44,50]"}
+| 1 | $\{B\}$ | |
+| 2 | $\{\neg B,\ D\}$ | |
+| 3 | $\{A,\ \neg D\}$ | |
+| 4 | $\{C,\ \neg F\}$ | |
+| 5 | $\{\neg F\}$ &nbsp; *(negated conclusion)* | |
+: {tbl-colwidths="[6,40,54]"}
 
-**Units you forced, in order:**
-&nbsp;
+**Units you forced, in order:** &nbsp;
 
 \_\_\_\_\_\_ ⇒ \_\_\_\_\_\_ ⇒ \_\_\_\_\_\_ ⇒ \_\_\_\_\_\_ ⇒ \_\_\_\_\_\_ ⇒ \_\_\_\_\_\_
 
-**What can you conclude?** &nbsp;
+**How did you stop?** &emsp; ☐ found a contradiction &emsp; ☐ ran out of clauses &emsp; ☐ stalled
 
-\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+**So does $F$ follow from the premises?** &nbsp;
+
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 **How do you know you are finished?** &nbsp;
 
-\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 {{< pagebreak >}}
 
 ## Set 10
 
+**The argument**
+
+| | |
+|:-:|---|
+| 1 | $\neg A$ |
+| 2 | $\neg A \rightarrow C$ |
+| 3 | $\neg B \vee \neg E$ |
+| 4 | $F \vee \neg G$ |
+| 5 | $\neg B \wedge F \rightarrow \neg D$ |
+| | |
+| $\therefore$ | $\neg D$ |
+: {tbl-colwidths="[10,90]"}
+
+**Does that conclusion follow?** To find out, we assume it does **not** —
+so $D$ joins the premises — and look for a contradiction.
+
 | | Clause | Working |
 |:-:|---|---|
-| 1 | $\{\neg B,\ \neg D,\ E\}$ | |
-| 2 | $\{C\}$ | |
-| 3 | $\{\neg B,\ E\}$ | |
-| 4 | $\{\neg C,\ F\}$ | |
-| 5 | $\{B,\ \neg E\}$ | |
-| 6 | $\{\neg C,\ \neg F,\ \neg G\}$ | |
-| 7 | $\{\neg C,\ D,\ \neg F,\ G\}$ | |
-: {tbl-colwidths="[6,44,50]"}
+| 1 | $\{\neg A\}$ | |
+| 2 | $\{A,\ C\}$ | |
+| 3 | $\{\neg B,\ \neg E\}$ | |
+| 4 | $\{F,\ \neg G\}$ | |
+| 5 | $\{B,\ \neg D,\ \neg F\}$ | |
+| 6 | $\{D\}$ &nbsp; *(negated conclusion)* | |
+: {tbl-colwidths="[6,40,54]"}
 
-**Units you forced, in order:**
-&nbsp;
+**Units you forced, in order:** &nbsp;
 
 \_\_\_\_\_\_ ⇒ \_\_\_\_\_\_ ⇒ \_\_\_\_\_\_ ⇒ \_\_\_\_\_\_ ⇒ \_\_\_\_\_\_ ⇒ \_\_\_\_\_\_
 
-**What can you conclude?** &nbsp;
+**How did you stop?** &emsp; ☐ found a contradiction &emsp; ☐ ran out of clauses &emsp; ☐ stalled
 
-\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+**So does $\neg D$ follow from the premises?** &nbsp;
+
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 **How do you know you are finished?** &nbsp;
 
-\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 {{< pagebreak >}}
 
 ## Set 11
 
+**The argument**
+
+| | |
+|:-:|---|
+| 1 | $\neg E$ |
+| 2 | $\neg E \rightarrow F$ |
+| 3 | $B \vee \neg C$ |
+| 4 | $\neg D \vee G$ |
+| 5 | $B \wedge \neg D \rightarrow \neg A$ |
+| | |
+| $\therefore$ | $\neg A$ |
+: {tbl-colwidths="[10,90]"}
+
+**Does that conclusion follow?** To find out, we assume it does **not** —
+so $A$ joins the premises — and look for a contradiction.
+
 | | Clause | Working |
 |:-:|---|---|
-| 1 | $\{\neg A,\ E,\ F\}$ | |
-| 2 | $\{\neg B,\ C,\ D,\ \neg F\}$ | |
-| 3 | $\{\neg A,\ E\}$ | |
-| 4 | $\{\neg B,\ \neg C\}$ | |
-| 5 | $\{B\}$ | |
-| 6 | $\{\neg B,\ C,\ \neg D\}$ | |
-| 7 | $\{A,\ \neg E\}$ | |
-: {tbl-colwidths="[6,44,50]"}
+| 1 | $\{\neg E\}$ | |
+| 2 | $\{E,\ F\}$ | |
+| 3 | $\{B,\ \neg C\}$ | |
+| 4 | $\{\neg D,\ G\}$ | |
+| 5 | $\{\neg A,\ \neg B,\ D\}$ | |
+| 6 | $\{A\}$ &nbsp; *(negated conclusion)* | |
+: {tbl-colwidths="[6,40,54]"}
 
-**Units you forced, in order:**
-&nbsp;
+**Units you forced, in order:** &nbsp;
 
 \_\_\_\_\_\_ ⇒ \_\_\_\_\_\_ ⇒ \_\_\_\_\_\_ ⇒ \_\_\_\_\_\_ ⇒ \_\_\_\_\_\_ ⇒ \_\_\_\_\_\_
 
-**What can you conclude?** &nbsp;
+**How did you stop?** &emsp; ☐ found a contradiction &emsp; ☐ ran out of clauses &emsp; ☐ stalled
 
-\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+**So does $\neg A$ follow from the premises?** &nbsp;
+
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 **How do you know you are finished?** &nbsp;
 
-\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 {{< pagebreak >}}
 
 ## Set 12
 
+**The argument**
+
+| | |
+|:-:|---|
+| 1 | $\neg G$ |
+| 2 | $\neg G \rightarrow E$ |
+| 3 | $\neg B \vee \neg D$ |
+| 4 | $C \vee \neg A$ |
+| 5 | $\neg B \wedge C \rightarrow \neg F$ |
+| | |
+| $\therefore$ | $\neg F$ |
+: {tbl-colwidths="[10,90]"}
+
+**Does that conclusion follow?** To find out, we assume it does **not** —
+so $F$ joins the premises — and look for a contradiction.
+
 | | Clause | Working |
 |:-:|---|---|
-| 1 | $\{A,\ \neg C\}$ | |
-| 2 | $\{B,\ E,\ F\}$ | |
-| 3 | $\{E,\ \neg F\}$ | |
-| 4 | $\{\neg A,\ C,\ G\}$ | |
-| 5 | $\{\neg B,\ E,\ F,\ \neg G\}$ | |
-| 6 | $\{\neg E\}$ | |
-| 7 | $\{\neg A,\ C\}$ | |
-: {tbl-colwidths="[6,44,50]"}
+| 1 | $\{\neg G\}$ | |
+| 2 | $\{E,\ G\}$ | |
+| 3 | $\{\neg B,\ \neg D\}$ | |
+| 4 | $\{\neg A,\ C\}$ | |
+| 5 | $\{B,\ \neg C,\ \neg F\}$ | |
+| 6 | $\{F\}$ &nbsp; *(negated conclusion)* | |
+: {tbl-colwidths="[6,40,54]"}
 
-**Units you forced, in order:**
-&nbsp;
+**Units you forced, in order:** &nbsp;
 
 \_\_\_\_\_\_ ⇒ \_\_\_\_\_\_ ⇒ \_\_\_\_\_\_ ⇒ \_\_\_\_\_\_ ⇒ \_\_\_\_\_\_ ⇒ \_\_\_\_\_\_
 
-**What can you conclude?** &nbsp;
+**How did you stop?** &emsp; ☐ found a contradiction &emsp; ☐ ran out of clauses &emsp; ☐ stalled
 
-\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+**So does $\neg F$ follow from the premises?** &nbsp;
+
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 **How do you know you are finished?** &nbsp;
 
-\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 {{< pagebreak >}}
 
 ## Set 13
 
+**The argument**
+
+| | |
+|:-:|---|
+| 1 | $C$ |
+| 2 | $C \rightarrow A$ |
+| 3 | $\neg G \vee F$ |
+| 4 | $B \vee D$ |
+| 5 | $\neg G \wedge B \rightarrow \neg E$ |
+| | |
+| $\therefore$ | $\neg E$ |
+: {tbl-colwidths="[10,90]"}
+
+**Does that conclusion follow?** To find out, we assume it does **not** —
+so $E$ joins the premises — and look for a contradiction.
+
 | | Clause | Working |
 |:-:|---|---|
-| 1 | $\{A,\ \neg B,\ E,\ \neg F\}$ | |
-| 2 | $\{D,\ G\}$ | |
-| 3 | $\{\neg E,\ \neg F\}$ | |
-| 4 | $\{F\}$ | |
-| 5 | $\{\neg A,\ E,\ \neg F\}$ | |
-| 6 | $\{B,\ \neg D,\ \neg G\}$ | |
-| 7 | $\{\neg D,\ \neg G\}$ | |
-: {tbl-colwidths="[6,44,50]"}
+| 1 | $\{C\}$ | |
+| 2 | $\{A,\ \neg C\}$ | |
+| 3 | $\{F,\ \neg G\}$ | |
+| 4 | $\{B,\ D\}$ | |
+| 5 | $\{\neg B,\ \neg E,\ G\}$ | |
+| 6 | $\{E\}$ &nbsp; *(negated conclusion)* | |
+: {tbl-colwidths="[6,40,54]"}
 
-**Units you forced, in order:**
-&nbsp;
+**Units you forced, in order:** &nbsp;
 
 \_\_\_\_\_\_ ⇒ \_\_\_\_\_\_ ⇒ \_\_\_\_\_\_ ⇒ \_\_\_\_\_\_ ⇒ \_\_\_\_\_\_ ⇒ \_\_\_\_\_\_
 
-**What can you conclude?** &nbsp;
+**How did you stop?** &emsp; ☐ found a contradiction &emsp; ☐ ran out of clauses &emsp; ☐ stalled
 
-\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+**So does $\neg E$ follow from the premises?** &nbsp;
+
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 **How do you know you are finished?** &nbsp;
 
-\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 {{< pagebreak >}}

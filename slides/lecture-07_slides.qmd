@@ -197,19 +197,19 @@ out, four stall -- so all three endings are in the room, which is the debrief.
 
 ANSWER KEY -- units in forced order:
 
-  Set  1  -A => -E => C => F             CONTRADICTION
-  Set  2  -B => D => A => G              CONTRADICTION
-  Set  3  D => C => F => A               CONTRADICTION
-  Set  4  G => -B => D => F              CONTRADICTION
-  Set  5  C => -A => B => D              CONTRADICTION
-  Set  6  B => C => F => -A => E => D    RUNS OUT
-  Set  7  -G => C => D => -E => F => -B  RUNS OUT
-  Set  8  -A => -D => C => B => -G => E  RUNS OUT
-  Set  9  -A => D => -C => E => -B => -F RUNS OUT
-  Set 10  C => F => -G => D              STALLS
-  Set 11  B => -C => -D => -F            STALLS
-  Set 12  -E => -F => B => -G            STALLS
-  Set 13  F => -E => -A => -B            STALLS
+  Set  1  D => -C => -B => -E          CONTRADICTION  conclusion FOLLOWS
+  Set  2  -B => G => -C => -F          CONTRADICTION  conclusion FOLLOWS
+  Set  3  B => E => -A => -F           CONTRADICTION  conclusion FOLLOWS
+  Set  4  C => -D => -B => A           CONTRADICTION  conclusion FOLLOWS
+  Set  5  -D => G => E => C            CONTRADICTION  conclusion FOLLOWS
+  Set  6  -G => A => -B => -D          RUNS OUT       conclusion does not follow
+  Set  7  G => -D => A => C            RUNS OUT       conclusion does not follow
+  Set  8  F => -A => B => -E           RUNS OUT       conclusion does not follow
+  Set  9  B => D => A => -F            RUNS OUT       conclusion does not follow
+  Set 10  -A => C => D                 STALLS         conclusion does not follow
+  Set 11  -E => F => A                 STALLS         conclusion does not follow
+  Set 12  -G => E => F                 STALLS         conclusion does not follow
+  Set 13  C => A => E                  STALLS         conclusion does not follow
 
 Every sequence is forced, so a group that gets a different one has made an
 error. The usual slip is a 3- or 4-literal clause: it only becomes a unit once

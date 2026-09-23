@@ -71,7 +71,7 @@ because they ask for "the rows needed in a formal proof". Proofs are lecture 6,
 building lecture 7; too slow for class, but it is a good homework exploration
 because the student can run the experiment rather than be told the answer.
 
-To prove `premises ⊨ C` you add `¬C` and hunt for ⊥. When `C` is a single
+To prove `premises ⊨ C` you add `¬C` and hunt for a contradiction — an empty clause. When `C` is a single
 literal, `¬C` is a *unit*, so propagation always has somewhere to start. When
 `C` is `A ∧ B`, De Morgan makes `¬C` the clause `{¬A, ¬B}` — still perfectly
 good CNF, but no longer fuel. Measured over 435 randomly generated valid
