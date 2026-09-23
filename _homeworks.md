@@ -67,6 +67,25 @@ because they ask for "the rows needed in a formal proof". Proofs are lecture 6,
 - `2026W1/Week3/Validity/prove_valid_truth_table3`
 - `2026W1/Week3/Validity/prove_invalid_truth_table1`
 
+**Conjunctive goals stall, and splitting fixes them.** Raised 2026-09-23 while
+building lecture 7; too slow for class, but it is a good homework exploration
+because the student can run the experiment rather than be told the answer.
+
+To prove `premises ⊨ C` you add `¬C` and hunt for ⊥. When `C` is a single
+literal, `¬C` is a *unit*, so propagation always has somewhere to start. When
+`C` is `A ∧ B`, De Morgan makes `¬C` the clause `{¬A, ¬B}` — still perfectly
+good CNF, but no longer fuel. Measured over 435 randomly generated valid
+arguments: a single-literal goal stalled **0.0%** of the time, a conjunctive
+goal **1.8%**.
+
+The fix is to ask a different question. `premises ⊨ A ∧ B` exactly when
+`premises ⊨ A` and `premises ⊨ B`, so run two refutations, each with a unit
+goal. Of the 8 conjunctive cases that stalled, splitting rescued **all 8**.
+
+Worth having students find both halves themselves — build a case that stalls,
+then split it — since it previews the case split that ends lecture 7. When
+nothing is forced, you make something forced.
+
 **Also available if it needs more weight:** resolution needs a CNF question and
 none exists — resolution runs on CNF and nothing in the bank asks for one.
 

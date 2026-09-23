@@ -1,315 +1,286 @@
 ---
-title: "Rules of Inference"
+title: "Unit Propagation"
 subtitle: "Lecture 7, {{< var course.code >}}, {{< var course.term >}}"
 ---
 
 ## Announcements {.smaller}
 
-* Enroll in PrairieTest here:
- <https://us.prairietest.com/pt/student/course/24076/enroll/238568773340>
-* Sign up for EX1. Practice materials on PL. 
-* Tutorials begin this week!
+* **EX1 opens tomorrow**, Thu 9/24 through Sun 9/27. Self-scheduled in ORCA.
+* Practice problems are on PrairieLearn, ungraded, unlimited retries.
+* Office hours are now **Tue 10:30--11:30**, ICCS 233.
 
-# Inference
+# Where we left off
 
-<!-- Helper classes -->
-<style>
-.small { font-size: 0.9rem; }
-.tiny { font-size: 0.8rem; }
-.rule { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; }
-.card { border: 2px solid #ddd; border-radius: 12px; padding: 14px 16px; margin: 10px 0; }
-.center { text-align: center; }
-.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-.badge { display:inline-block; padding:2px 8px; border:1px solid #bbb; border-radius:10px; font-size:.8rem; }
-</style>
+## Conjunctive Normal Form {.smaller}
 
-## 🎉 Spot the Rule, Dodge the Trap
+An **AND of clauses**. Every expression has one...
 
-**Goal for today:** treat valid logical arguments like *legal moves* in a game.  
+::: {.fillable}
+| Expression | Law |
+|---|:--|
+| $\neg(p \rightarrow q) \vee r$ | |
+| | |
+| | |
+| | |
+: {tbl-colwidths="[65,35]"}
+:::
 
-You’ll identify moves, build quick proofs, and design  traps.
+::: notes
+  ~(p -> q) v r
+  ~(~p v q) v r        IMP
+  (p ^ ~q) v r         DM, then DNEG
+  (p v r) ^ (~q v r)   DIST     <- CNF, two clauses
 
+Verified: all four rows agree on all eight assignments.
 
-## Warm Up (5 min)
+:::
 
-A *valid argument* is a *legal inference*. Content can change; form is what makes it valid.
+## From Monday 
 
-- If the lab is open, I’ll go. The lab is open. **So I’ll go.** 
+**Where we started:** Given statements (premises), a conclusion, and ten(ish) rules.
+Pick a rule, pick what to apply it to, repeat until conclusion.
 
-- If the exam is today, the forum is quiet. The forum isn’t quiet. **So the exam isn’t today.** 
+\
 
----
+**So why is that hard to hand to a machine?** 
 
-## Micro Rule Cards {.smaller}
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
-Use these all class as a reference.
+\
 
-- **MP**: from `p→q, p` infer `q`  
-- **MT**: from `p→q, ¬q` infer `¬p`  
-- **HS**: from `p→q, q→r` infer `p→r`  
-- **DS**: from `p∨q, ¬p` infer `q`  
-- **∧-Intro**: from `p, q` infer `p∧q`  
-- **∧-Elim**: from `p∧q` infer `p` (or `q`)  
-- **∨-Intro**: from `p` infer `p∨q` (any `q`)  
-- **RES**: from `p∨q, ¬p∨r` infer `q∨r`  
-- **CD**: from `(p→r), (q→s), (p∨q)` infer `r∨s`
+With CNF we only need ELIM.
 
-**Common traps:**  
 
-- Affirming consequent: `p→q, q ∴ p` ❌  
+::: notes
+Ten is a small number, so the rule count is not the problem -- push back if
+someone says it is. The cost is the SEARCH:
 
-- Denying antecedent: `p→q, ¬p ∴ ¬q` ❌
+  - at every step you choose a rule AND which of your facts to feed it, so the
+    branching is the rules times the subsets, not just the rules;
+  - each rule wants a different shape, so every choice needs a pattern match
+    before you even know whether it applies;
+  - GEN makes the space infinite on its own -- from p you may write p v q for
+    ANY q, so there are always infinitely many legal next moves;
+  - and nothing tells you which branch reaches the goal. You cannot tell a
+    promising line from a dead one until you are down it.
 
----
+That is what CNF buys. One shape, so no matching. One rule, so no choosing.
+And because resolution returns what it consumes, you can apply it blindly to
+every pair and stop when nothing new appears -- no cleverness anywhere.
 
-## Rule Card: Modus Ponens (MP)
+Second blank: unit clause. Wednesday is unit propagation -- given (X) and
+(~X v Y), drop ~X and keep Y. That is DS, which they have had since Friday
+under the name ELIM. Do not say so now; let them find it Wednesday.
+:::
 
-<div class="card rule">
-From <code>p→q</code> and <code>p</code>, infer <code>q</code>.
-</div>
+## The Smallest Example {.smaller}
 
-**Ex:**  
-If the bus is full, I’ll walk. The bus is full. **So I’ll walk.**
+Premises $p \rightarrow q$ and $p$. Conclusion $q$. &emsp; (You know this one.)
 
----
+\
 
-## Rule Card: Modus Tollens (MT)
+All we ever want to know is whether one formula is a **tautology**:
 
-<div class="card rule">
-From <code>p→q</code> and <code>¬q</code>, infer <code>¬p</code>.
-</div>
+$$\big((p \rightarrow q) \wedge p\big) \rightarrow q$$
 
-**Ex:**  
-If office hours moved, Slack has an announcement. No announcement. **So they didn’t move.**
+\
 
----
+Instead we will negate it, break it into clauses, and hunt for $\bot$.
 
-## Rule Card: Hypothetical Syllogism (HS)
+::: {.fillable}
+| | Clauses | |
+|:-:|---|---|
+| | $\{\neg p,\ q\}$ &emsp; $\{p\}$ &emsp; $\{\neg q\}$ | from $p\rightarrow q$, from $p$, from $\neg q$ |
+| 1 | | |
+| 2 | | |
+:::
 
-<div class="card rule">
-From <code>p→q</code> and <code>q→r</code>, infer <code>p→r</code>.
-</div>
+::: notes
+Point at the three clauses and say where each came from. The third is the only
+new idea on the slide: it is the NEGATED conclusion, and it is there precisely
+so that we can try to break it.
 
-**Ex:**  
-If tidy then joins are simpler; if simpler joins then faster viz; **so tidy ⇒ faster viz.**
+  step 1: unit p. Strike ~p from the first clause, leaving {q}.
+  step 2: unit q. It meets {~q}. The clause empties -- BOTTOM.
 
----
+Two steps, no choices. Verified.
 
-## Rule Card: Disjunctive Syllogism (DS)
+So: the negation is impossible, therefore the conclusion followed all along.
+And what we actually established is that the formula at the top is a tautology
+-- that is all this machinery ever does.
 
-<div class="card rule">
-From <code>p∨q</code> and <code>¬p</code>, infer <code>q</code>.
-</div>
+Worth saying they already knew this argument was valid; it is M.PON. The point
+is not the answer, it is that we got there without choosing anything.
+:::
 
-**Ex:**  
-Dinner is sushi or tacos. Not sushi. **So tacos.**
+# Proving by refuting
 
----
+## The Trick
 
-## Rule Card: Conjunction / Simplification
+To show a conclusion **follows**, show that denying it is **impossible**.
 
-<div class="two-col">
-<div class="card rule">
-<strong>∧-Intro</strong>: from <code>p, q</code> infer <code>p∧q</code>
-</div>
-<div class="card rule">
-<strong>∧-Elim</strong>: from <code>p∧q</code> infer <code>p</code> (or <code>q</code>)
-</div>
-</div>
+\
 
----
+::: {.fillable}
+| Saying it this way | is saying |
+|---|:-:|
+| the conclusion follows from the premises | |
+| premises $\rightarrow$ conclusion is a \_\_\_\_\_\_\_\_\_\_ | |
+| $\neg($premises $\rightarrow$ conclusion$)$ is a \_\_\_\_\_\_\_\_\_\_ | |
+| premises $\wedge\ \neg$conclusion is \_\_\_\_\_\_\_\_\_\_ | |
+: {tbl-colwidths="[78,22]"}
+:::
 
-## Rule Card: ∨-Intro
+::: notes
+tautology / contradiction / unsatisfiable -- three ways of saying one thing,
+and the last is the one a machine can hunt for.
 
-<div class="card rule">
-From <code>p</code> infer <code>p∨q</code>.
-</div>
+So the recipe: negate the goal, add it to the premises, put everything in CNF,
+and look for the empty clause.
+:::
 
-**Ex:** I rode my scooter today, **so I either rode my scooter or I'm a unicorn.**
+## One Rule, Repeated
 
-**Note** validity cares about *form*, not plausibility of the added disjunct.
+You know $(X)$. You also have $(\neg X \vee Y)$.
 
----
+\
 
-## Rule Card: Resolution (RES)
+$\neg X$ is false, so it cannot be what makes that clause true. Strike it.
 
-<div class="card rule">
-From <code>p∨q</code> and <code>¬p∨r</code> infer <code>q∨r</code>.
-</div>
+\
 
-**Ex:**  
-Either study or soccer; if study then library. **So soccer or library.**
+What is left must be true: \_\_\_\_\_\_
 
----
+\
 
-## Rule Card: Constructive Dilemma (CD)
+::: notes
+Y. And they have known this rule since Friday -- it is ELIM on the Sheet,
+disjunctive syllogism. The only new thing is doing it relentlessly instead of
+choosing it.
 
-<div class="card rule">
-From <code>(p→r), (q→s), (p∨q)</code> infer <code>r∨s</code>.
-</div>
+This is unit propagation.
+:::
 
-**Ex:**  
-If sunny then picnic; if rainy then museum; sunny or rainy; **so picnic or museum.**
+## The Loop {.smaller}
 
----
+Repeat until you cannot:
 
-## Fallacy Cards (flash)
+1. Find a clause with **exactly one literal**. It must be true. Circle it.
+2. Cross out every clause that **contains** it --- satisfied, gone.
+3. In every clause containing its **negation**, strike out that literal only.
+4. A clause that loses its **last** literal is **$\bot$**.
 
-<div class="two-col">
-<div class="card rule">
-<strong>Affirming the consequent</strong> ❌  
-<code>from p→q, q infer p</code>
-</div>
-<div class="card rule">
-<strong>Denying the antecedent</strong> ❌  
-<code>from p→q, ¬p infer ¬q</code>
-</div>
-</div>
+\
 
----
+Three ways to stop, and all three are answers:
 
-## Validity
+| Stop | Means |
+|---|---|
+| you reach $\bot$ | the clauses contradict --- the conclusion follows |
+| no clauses left | all settled, consistently --- it does **not** follow |
+| clauses remain, none is a single literal | nothing more is forced |
+: {tbl-colwidths="[40,60]"}
 
-**∧-Elim**: $(p\wedge q)\rightarrow p$ is this always true?
+## Your Turn {.activity}
 
+Every group has a **different** set. Annotate the sheet.
 
-## INValidity
+\
 
-**Affirming Consequent**: $((p\rightarrow q)\wedge q)\rightarrow p$ is this always true?
+Answer two questions:
 
+* What can you conclude?
+* How do you know you are finished?
 
-| $p$ | $q$ | $p\rightarrow q$ | $(p\rightarrow q)\wedge q$ | $((p\rightarrow q)\wedge q)\rightarrow p$ |
-|---|---|:--------:|:--------:|:--------:|
-| F | F |       |      |      |      
-| F | T |       |       |       |       
-| T | F |       |       |       |       
-| T | T |       |       |       |
+{{< countdown minutes=12 >}}
 
+::: notes
+13 sets, in activities/lecture-07_activity.qmd. Five reach BOTTOM, four run
+out, four stall -- so all three endings are in the room, which is the debrief.
 
----
+ANSWER KEY -- units in forced order:
 
-## Spot the Rule or the Trap 
+  Set  1  -A => -E => C => F             CONTRADICTION
+  Set  2  -B => D => A => G              CONTRADICTION
+  Set  3  D => C => F => A               CONTRADICTION
+  Set  4  G => -B => D => F              CONTRADICTION
+  Set  5  C => -A => B => D              CONTRADICTION
+  Set  6  B => C => F => -A => E => D    RUNS OUT
+  Set  7  -G => C => D => -E => F => -B  RUNS OUT
+  Set  8  -A => -D => C => B => -G => E  RUNS OUT
+  Set  9  -A => D => -C => E => -B => -F RUNS OUT
+  Set 10  C => F => -G => D              STALLS
+  Set 11  B => -C => -D => -F            STALLS
+  Set 12  -E => -F => B => -G            STALLS
+  Set 13  F => -E => -A => -B            STALLS
 
-**How to play:** post in chat...
+Every sequence is forced, so a group that gets a different one has made an
+error. The usual slip is a 3- or 4-literal clause: it only becomes a unit once
+two or three of its literals are dead, and it is easy to treat it like the
+two-literal ones.
+:::
 
-**(a)** valid or not, **(b)** if valid, name the rule, **(c)** formal pattern.
+## What Did You Get? {.smaller}
 
----
+::: {.fillable}
+| Your ending | What it proves |
+|---|---|
+| $\bot$ | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ |
+| no clauses left | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ |
+| stalled | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ |
+: {tbl-colwidths="[30,70]"}
+:::
 
-### Campus
+::: notes
+BOTTOM: the premises plus the negated goal cannot all hold, so the argument is
+valid. Proved.
 
-If the lecture live-streams, the chat is busy. The chat is busy. **So it live-streams.**
+NO CLAUSES LEFT: satisfiable, so there IS a way to make the premises true and
+the conclusion false. Invalid -- and the units they derived ARE the
+counterexample. Verified: in all four such sets the derived units satisfy every
+clause, whichever way the one free variable goes. Ask a group to read theirs
+out; it is a witness, not just a failure.
 
-<span class="fragment">❌ Fallacy: Affirming the consequent (<code>p→q, q ∴ p</code>)</span>
+STALLED: proves nothing either way. All four stalling sets are satisfiable --
+two assignments each -- so there was something to find and propagation could
+not find it.
 
----
+That asymmetry is the point of the whole lecture. Reaching bottom proves
+validity. NOT reaching it proves nothing, unless you also ran out of clauses.
+:::
 
-### Sports 
+## When Nothing Is Forced
 
-If the Canucks win, downtown is loud. Downtown isn’t loud. **So the Canucks didn’t win.**
+$$(A\vee B)\ \wedge\ (A \vee \neg B)\ \wedge\ (\neg A \vee B)\ \wedge\ (\neg A \vee \neg B)$$
 
-<span class="fragment">✅ MT (<code>p→q, ¬q ∴ ¬p</code>)</span>
+\
 
----
+No clause has a single literal. The loop cannot even start.
 
-### Food
+\
 
-Dinner is sushi or tacos. Not sushi. **So tacos.**
+And yet: is there any assignment that satisfies all four? \_\_\_\_\_\_
 
-<span class="fragment">✅ DS (<code>p∨q, ¬p ∴ q</code>)</span>
+::: notes
+No -- it is unsatisfiable, and all four rows of the table fail. So the answer
+is THERE, propagation just cannot reach it.
 
----
+What would? Pick a variable and try it both ways. Assume A: clauses 3 and 4
+give B and ~B. Assume ~A: clauses 1 and 2 give B and ~B. Both branches die, so
+it is unsatisfiable.
 
-### Travel
+That case split is where a real SAT solver spends its life, and it is the
+honest limit of what we did today.
+:::
 
-If it rains, I’ll bus. If I’m late, I’ll bus. It’s raining or I’m late. **So I’ll bus.**
+## Words and Ideas
 
-<span class="fragment">✅ CD with <code>r=s=bus</code></span>
+Refutation
 
----
+Unit clause, unit propagation
 
-### Movies 
+The empty clause $\bot$
 
-If a film is MCU, it has a post-credits scene. This is MCU. **So post-credits.**
+Satisfiable, unsatisfiable
 
-<span class="fragment">✅ MP (<code>p→q, p ∴ q</code>)</span>
-
----
-
-### Music 
-
-Either I practice guitar or code. If coding, then coffee. **So either practice or coffee.**
-
-<span class="fragment">✅ RES: <code>(g ∨ c)</code> and <code>(f v ¬c)</code></span>
-
----
-
-### Wellness
-
-I stretched **and** hydrated. **So I stretched.**
-
-<span class="fragment">✅ ∧-Elim</span>
-
----
-
-### Data
-
-If a dataset is tidy then joins are simpler. If joins are simpler then viz faster. **So if tidy then viz faster.**
-
-<span class="fragment">✅ HS</span>
-
----
-
-## Build a proof 
-
-In the chat, each person adds exactly **one** line using a Rule Card.  
-
----
-
-### Relay A 
-
-**Premises**  
-1. `D→R` (deadline ⇒ review session)  
-2. `R→C` (review ⇒ crowded café)  
-3. `D`
-
-**Goal**: `C`
-
----
-
-### Relay B 
-
-**Premises**  
-1. `P∨Q` (pizza or quinoa)  
-2. `¬P∨R` (if pizza then ramen)  
-3. `¬Q` (no quinoa)
-
-**Goal**: `R`
-
----
-
-## Design a Trap
-
-**Your mission:**  
-- Write one **valid** two-premise argument (any rule).  
-- Write a **look-alike fallacy** with the same topic words.  
-- Bring to class on Wednesday morning!
-
----
-
-## Quantifier Teaser
-
-- **UI:** `∀x S(x) ⇒ S(Alex)`  (Universal instantiation)
-- **EG:** `S(Alex) ⇒ ∃x S(x)`  (Existential generalization)
-**Analogy:** mixing ∀/∃ incorrectly creates traps like affirming the consequent/denying the antecedent.
-
----
-
-## Exit Ticket (2 min)
-
-In chat (or poll), complete both:
-
-- **One valid rule I can spot in the wild is** ________.  
-- **One trap I’ll watch for is** ________.
-
-
+Case split

@@ -154,3 +154,33 @@ table caption {
 .reveal .dashed {
   border-bottom: 2px dashed currentColor;
 }
+
+// Tables students write into. An empty cell collapses to no height at all, so
+// blank rows need a floor; and Quarto strips the last row's bottom border, so
+// the shape below has to outrank `.reveal table tbody tr:last-child td`.
+.reveal .fillable table {
+  border-collapse: collapse;
+  width: 100%;
+
+  th {
+    background-color: theme-color("activity");
+    color: #fff;
+    text-align: left;
+    padding: 0.3em 0.7em;
+    border: 1px solid theme-color("activity");
+  }
+
+  td {
+    border: 1px solid rgba(68, 112, 153, 0.55);
+    padding: 0.3em 0.7em;
+    height: 2.1em;
+  }
+
+  tbody tr:nth-child(even) td {
+    background-color: rgba(68, 112, 153, 0.08);
+  }
+
+  tbody tr:last-child td {
+    border-bottom: 1px solid rgba(68, 112, 153, 0.55);
+  }
+}
