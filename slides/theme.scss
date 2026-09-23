@@ -155,6 +155,37 @@ table caption {
   border-bottom: 2px dashed currentColor;
 }
 
+// The classic argument layout: premises stacked, a rule, then the conclusion
+// marked with therefore. Author it as a plain bullet list inside
+// ::: {.inference} -- the LAST item is the conclusion and gets the rule and the
+// symbol automatically, so nothing has to be typed twice.
+.reveal .inference {
+  display: inline-block;
+  margin: 0.3em 0 0.3em 1.2em;
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      margin: 0.1em 0;
+      padding: 0.05em 1.4em 0.05em 1.4em;
+      text-align: left;
+    }
+
+    li:last-child {
+      border-top: 2px solid currentColor;
+      margin-top: 0.25em;
+      padding-top: 0.25em;
+
+      &::before {
+        content: "\2234\00a0\00a0";   // therefore, then two spaces
+      }
+    }
+  }
+}
+
 // Tables students write into. An empty cell collapses to no height at all, so
 // blank rows need a floor; and Quarto strips the last row's bottom border, so
 // the shape below has to outrank `.reveal table tbody tr:last-child td`.

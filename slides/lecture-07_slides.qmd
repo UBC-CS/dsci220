@@ -35,12 +35,16 @@ Verified: all four rows agree on all eight assignments.
 
 :::
 
-## From Monday 
+## Back to Inference {.smaller}
 
 **Where we started:** Given statements (premises), a conclusion, and ten(ish) rules.
 Pick a rule, pick what to apply it to, repeat until conclusion.
 
-\
+::: {.inference}
+- $p \rightarrow q$
+- $p$
+- $q$
+:::
 
 **So why is that hard to hand to a machine?** 
 
@@ -73,49 +77,9 @@ Second blank: unit clause. Wednesday is unit propagation -- given (X) and
 under the name ELIM. Do not say so now; let them find it Wednesday.
 :::
 
-## The Smallest Example {.smaller}
-
-Premises $p \rightarrow q$ and $p$. Conclusion $q$. &emsp; (You know this one.)
-
-\
-
-All we ever want to know is whether one formula is a **tautology**:
-
-$$\big((p \rightarrow q) \wedge p\big) \rightarrow q$$
-
-\
-
-Instead we will negate it, break it into clauses, and hunt for $\bot$.
-
-::: {.fillable}
-| | Clauses | |
-|:-:|---|---|
-| | $\{\neg p,\ q\}$ &emsp; $\{p\}$ &emsp; $\{\neg q\}$ | from $p\rightarrow q$, from $p$, from $\neg q$ |
-| 1 | | |
-| 2 | | |
-:::
-
-::: notes
-Point at the three clauses and say where each came from. The third is the only
-new idea on the slide: it is the NEGATED conclusion, and it is there precisely
-so that we can try to break it.
-
-  step 1: unit p. Strike ~p from the first clause, leaving {q}.
-  step 2: unit q. It meets {~q}. The clause empties -- BOTTOM.
-
-Two steps, no choices. Verified.
-
-So: the negation is impossible, therefore the conclusion followed all along.
-And what we actually established is that the formula at the top is a tautology
--- that is all this machinery ever does.
-
-Worth saying they already knew this argument was valid; it is M.PON. The point
-is not the answer, it is that we got there without choosing anything.
-:::
-
 # Proving by refuting
 
-## The Trick
+## The Trick {.smaller}
 
 To show a conclusion **follows**, show that denying it is **impossible**.
 
@@ -137,6 +101,43 @@ and the last is the one a machine can hunt for.
 
 So the recipe: negate the goal, add it to the premises, put everything in CNF,
 and look for the empty clause.
+:::
+
+## Negating the Whole Thing {.smaller}
+
+Three premises and a conclusion is one formula. We want it to be a tautology,
+so we negate it and hope for a contradiction.
+
+$$\neg\big((A \wedge B \wedge C) \rightarrow D\big)$$
+
+::: {.fillable}
+| Expression | Law |
+|---|:--|
+| $\neg\big(\neg(A \wedge B \wedge C) \vee D\big)$ | |
+| | |
+| | |
+:::
+
+\
+
+So the premises survive untouched and **only the conclusion flips**.
+
+::: notes
+  ~((A^B^C) -> D)
+  ~(~(A^B^C) v D)      IMP
+  ~~(A^B^C) ^ ~D       DM
+  (A^B^C) ^ ~D         DNEG   (then ASS to drop the brackets)
+
+Verified: all five lines agree on all 16 rows.
+
+THE POINT. This is why the recipe is "keep the premises, negate the goal" --
+it is not a convention, it falls out of the algebra. Negating an implication
+never touches the antecedent.
+
+And look at the CNF: A ^ B ^ C ^ ~D is already a conjunction of FOUR UNIT
+CLAUSES, {A} {B} {C} {~D}. Every premise arrives as fuel. That is why these
+problems start so easily, and it is worth pointing at before the worksheet,
+where some sets deliberately do not.
 :::
 
 ## One Rule, Repeated
