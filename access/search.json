@@ -2293,6 +2293,27 @@
     "text": "Announcements\n\nEX1 is open — Thu 9/24 through Sun 9/27, self-scheduled in ORCA.\nOffice hours are now Tue 10:30–11:30, ICCS 233.\nHW2 is released Sunday, due Sun Oct 4."
   },
   {
+    "objectID": "slides/lecture-08_slides.html#contradiction",
+    "href": "slides/lecture-08_slides.html#contradiction",
+    "title": "Predicates and Quantifiers",
+    "section": "Contradiction",
+    "text": "Contradiction\n\n\n\n\n\n\n\n\n\n1\n\\(D\\)\n\n\n2\n\\(D \\rightarrow \\neg C\\)\n\n\n3\n\\(\\neg C \\wedge \\neg B \\rightarrow \\neg E\\)\n\n\n4\n\\(\\neg B\\)\n\n\n5\n\\(\\neg G \\vee \\neg F\\)\n\n\n\n\n\n\n\\(\\therefore\\)\n\\(\\neg E\\)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nClause\n\n\n\n\n\n1\n\\(\\{D\\}\\)\n\n\n\n2\n\\(\\{\\neg C,\\ \\neg D\\}\\)\n\n\n\n3\n\\(\\{B,\\ C,\\ \\neg E\\}\\)\n\n\n\n4\n\\(\\{\\neg B\\}\\)\n\n\n\n5\n\\(\\{\\neg F,\\ \\neg G\\}\\)\n\n\n\n6\n\\(\\{E\\}\\)\n\n\n\n\n\n\n\nWorksheet set 1.\nD ⇒ -C ⇒ -B, then -E empties. The conclusion FOLLOWS – denying it was impossible."
+  },
+  {
+    "objectID": "slides/lecture-08_slides.html#runs-out",
+    "href": "slides/lecture-08_slides.html#runs-out",
+    "title": "Predicates and Quantifiers",
+    "section": "Runs Out",
+    "text": "Runs Out\n\n\n\n\n\n\n\n\n\n1\n\\(\\neg G\\)\n\n\n2\n\\(\\neg G \\rightarrow A\\)\n\n\n3\n\\(A \\rightarrow \\neg B\\)\n\n\n4\n\\(D \\rightarrow C\\)\n\n\n\n\n\n\n\\(\\therefore\\)\n\\(D\\)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nClause\n\n\n\n\n\n1\n\\(\\{\\neg G\\}\\)\n\n\n\n2\n\\(\\{A,\\ G\\}\\)\n\n\n\n3\n\\(\\{\\neg A,\\ \\neg B\\}\\)\n\n\n\n4\n\\(\\{C,\\ \\neg D\\}\\)\n\n\n\n5\n\\(\\{\\neg D\\}\\)\n\n\n\n\n\n\n\nWorksheet set 6.\n-G ⇒ A ⇒ -B ⇒ -D, and the last clause is satisfied. Nothing left, no contradiction. So the conclusion does NOT follow, and those four units are a counterexample: they satisfy every premise while the conclusion is false."
+  },
+  {
+    "objectID": "slides/lecture-08_slides.html#stalls",
+    "href": "slides/lecture-08_slides.html#stalls",
+    "title": "Predicates and Quantifiers",
+    "section": "Stalls",
+    "text": "Stalls\n\n\n\n\n\n\n\n\n\n1\n\\(\\neg A\\)\n\n\n2\n\\(\\neg A \\rightarrow C\\)\n\n\n3\n\\(\\neg B \\vee \\neg E\\)\n\n\n4\n\\(F \\vee \\neg G\\)\n\n\n5\n\\(\\neg B \\wedge F \\rightarrow \\neg D\\)\n\n\n\n\n\n\n\\(\\therefore\\)\n\\(\\neg D\\)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nClause\n\n\n\n\n\n1\n\\(\\{\\neg A\\}\\)\n\n\n\n2\n\\(\\{A,\\ C\\}\\)\n\n\n\n3\n\\(\\{\\neg B,\\ \\neg E\\}\\)\n\n\n\n4\n\\(\\{F,\\ \\neg G\\}\\)\n\n\n\n5\n\\(\\{B,\\ \\neg D,\\ \\neg F\\}\\)\n\n\n\n6\n\\(\\{D\\}\\)\n\n\n\n\n\n\n\nWorksheet set 10.\n-A ⇒ C ⇒ D, then {-B,-E} {-G,F} {-F,B} remain and none is a unit. Propagation is done and has settled nothing. The conclusion does not follow, but we have not shown that – we have only run out of moves."
+  },
+  {
     "objectID": "slides/lecture-08_slides.html#predicates",
     "href": "slides/lecture-08_slides.html#predicates",
     "title": "Predicates and Quantifiers",
