@@ -9,10 +9,12 @@
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/quarto-contrib/live-runtime/live-runtime.js" type="module"></script>
 <link href="../site_libs/quarto-contrib/live-runtime/live-runtime.css" rel="stylesheet">
+<script src="../site_libs/quarto-contrib/countdown-0.6.0/countdown.js"></script>
+<link href="../site_libs/quarto-contrib/countdown-0.6.0/countdown.css" rel="stylesheet">
 <script src="../site_libs/quarto-contrib/iconify-3.0.0/iconify-icon.min.js"></script><meta charset="utf-8">
   <meta name="generator" content="quarto-1.10.18">
 
-  <title>{{&lt; var course.full-title &gt;}}---Accessibility version – Rules of Inference</title>
+  <title>{{&lt; var course.full-title &gt;}}---Accessibility version – Unit Propagation</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -37,7 +39,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-174e53ea35c4976936f67edec17b7262.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-74512bb5178d6588fa4e3a62ad485828.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -134,10 +136,10 @@
   </style>
   <script type="module" src="../site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
   <link href="../site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
-<meta property="og:title" content="Rules of Inference – DSCI 220: Discrete Math for Data Science—Accessibility version">
+<meta property="og:title" content="Unit Propagation – DSCI 220: Discrete Math for Data Science—Accessibility version">
 <meta property="og:description" content="Lecture 7, DSCI 220, 2026W1">
 <meta property="og:site_name" content="DSCI 220: Discrete Math for Data Science—Accessibility version">
-<meta name="twitter:title" content="Rules of Inference – DSCI 220: Discrete Math for Data Science—Accessibility version">
+<meta name="twitter:title" content="Unit Propagation – DSCI 220: Discrete Math for Data Science—Accessibility version">
 <meta name="twitter:description" content="Lecture 7, DSCI 220, 2026W1">
 <meta name="twitter:card" content="summary">
 </head>
@@ -146,7 +148,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Rules of Inference</h1>
+  <h1 class="title">Unit Propagation</h1>
   <p class="subtitle">Lecture 7, DSCI 220, 2026W1</p>
 
 <div class="quarto-title-authors">
@@ -156,299 +158,374 @@
 <section id="announcements" class="slide level2 smaller">
 <h2>Announcements</h2>
 <ul>
-<li>Enroll in PrairieTest here: <a href="https://us.prairietest.com/pt/student/course/24076/enroll/238568773340" class="uri">https://us.prairietest.com/pt/student/course/24076/enroll/238568773340</a></li>
-<li>Sign up for EX1. Practice materials on PL.</li>
-<li>Tutorials begin this week!</li>
+<li><strong>EX1 opens tomorrow</strong>, Thu 9/24 through Sun 9/27. Self-scheduled in ORCA.</li>
+<li>Practice problems are on PrairieLearn, ungraded, unlimited retries.</li>
+<li>Office hours are now <strong>Tue 10:30–11:30</strong>, ICCS 233.</li>
 </ul>
 </section>
 <section>
-<section id="inference" class="title-slide slide level1 center">
-<h1>Inference</h1>
-<!-- Helper classes -->
-<style>
-.small { font-size: 0.9rem; }
-.tiny { font-size: 0.8rem; }
-.rule { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; }
-.card { border: 2px solid #ddd; border-radius: 12px; padding: 14px 16px; margin: 10px 0; }
-.center { text-align: center; }
-.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-.badge { display:inline-block; padding:2px 8px; border:1px solid #bbb; border-radius:10px; font-size:.8rem; }
-</style>
+<section id="where-we-left-off" class="title-slide slide level1 center">
+<h1>Where we left off</h1>
+
 </section>
-<section id="spot-the-rule-dodge-the-trap" class="slide level2">
-<h2>🎉 Spot the Rule, Dodge the Trap</h2>
-<p><strong>Goal for today:</strong> treat valid logical arguments like <em>legal moves</em> in a game.</p>
-<p>You’ll identify moves, build quick proofs, and design traps.</p>
-</section>
-<section id="warm-up-5-min" class="slide level2">
-<h2>Warm Up (5 min)</h2>
-<p>A <em>valid argument</em> is a <em>legal inference</em>. Content can change; form is what makes it valid.</p>
-<ul>
-<li><p>If the lab is open, I’ll go. The lab is open. <strong>So I’ll go.</strong></p></li>
-<li><p>If the exam is today, the forum is quiet. The forum isn’t quiet. <strong>So the exam isn’t today.</strong></p></li>
-</ul>
-</section>
-<section id="micro-rule-cards" class="slide level2 smaller">
-<h2>Micro Rule Cards</h2>
-<p>Use these all class as a reference.</p>
-<ul>
-<li><strong>MP</strong>: from <code>p→q, p</code> infer <code>q</code><br>
-</li>
-<li><strong>MT</strong>: from <code>p→q, ¬q</code> infer <code>¬p</code><br>
-</li>
-<li><strong>HS</strong>: from <code>p→q, q→r</code> infer <code>p→r</code><br>
-</li>
-<li><strong>DS</strong>: from <code>p∨q, ¬p</code> infer <code>q</code><br>
-</li>
-<li><strong>∧-Intro</strong>: from <code>p, q</code> infer <code>p∧q</code><br>
-</li>
-<li><strong>∧-Elim</strong>: from <code>p∧q</code> infer <code>p</code> (or <code>q</code>)<br>
-</li>
-<li><strong>∨-Intro</strong>: from <code>p</code> infer <code>p∨q</code> (any <code>q</code>)<br>
-</li>
-<li><strong>RES</strong>: from <code>p∨q, ¬p∨r</code> infer <code>q∨r</code><br>
-</li>
-<li><strong>CD</strong>: from <code>(p→r), (q→s), (p∨q)</code> infer <code>r∨s</code></li>
-</ul>
-<p><strong>Common traps:</strong></p>
-<ul>
-<li><p>Affirming consequent: <code>p→q, q ∴ p</code> ❌</p></li>
-<li><p>Denying antecedent: <code>p→q, ¬p ∴ ¬q</code> ❌</p></li>
-</ul>
-</section>
-<section id="rule-card-modus-ponens-mp" class="slide level2">
-<h2>Rule Card: Modus Ponens (MP)</h2>
-<div class="card rule">
-<p>From <code>p→q</code> and <code>p</code>, infer <code>q</code>.</p>
-</div>
-<p><strong>Ex:</strong><br>
-If the bus is full, I’ll walk. The bus is full. <strong>So I’ll walk.</strong></p>
-</section>
-<section id="rule-card-modus-tollens-mt" class="slide level2">
-<h2>Rule Card: Modus Tollens (MT)</h2>
-<div class="card rule">
-<p>From <code>p→q</code> and <code>¬q</code>, infer <code>¬p</code>.</p>
-</div>
-<p><strong>Ex:</strong><br>
-If office hours moved, Slack has an announcement. No announcement. <strong>So they didn’t move.</strong></p>
-</section>
-<section id="rule-card-hypothetical-syllogism-hs" class="slide level2">
-<h2>Rule Card: Hypothetical Syllogism (HS)</h2>
-<div class="card rule">
-<p>From <code>p→q</code> and <code>q→r</code>, infer <code>p→r</code>.</p>
-</div>
-<p><strong>Ex:</strong><br>
-If tidy then joins are simpler; if simpler joins then faster viz; <strong>so tidy ⇒ faster viz.</strong></p>
-</section>
-<section id="rule-card-disjunctive-syllogism-ds" class="slide level2">
-<h2>Rule Card: Disjunctive Syllogism (DS)</h2>
-<div class="card rule">
-<p>From <code>p∨q</code> and <code>¬p</code>, infer <code>q</code>.</p>
-</div>
-<p><strong>Ex:</strong><br>
-Dinner is sushi or tacos. Not sushi. <strong>So tacos.</strong></p>
-</section>
-<section id="rule-card-conjunction-simplification" class="slide level2">
-<h2>Rule Card: Conjunction / Simplification</h2>
-<div class="two-col">
-<div class="card rule">
-<p><strong>∧-Intro</strong>: from <code>p, q</code> infer <code>p∧q</code></p>
-</div>
-<div class="card rule">
-<p><strong>∧-Elim</strong>: from <code>p∧q</code> infer <code>p</code> (or <code>q</code>)</p>
-</div>
-</div>
-</section>
-<section id="rule-card--intro" class="slide level2">
-<h2>Rule Card: ∨-Intro</h2>
-<div class="card rule">
-<p>From <code>p</code> infer <code>p∨q</code>.</p>
-</div>
-<p><strong>Ex:</strong> I rode my scooter today, <strong>so I either rode my scooter or I’m a unicorn.</strong></p>
-<p><strong>Note</strong> validity cares about <em>form</em>, not plausibility of the added disjunct.</p>
-</section>
-<section id="rule-card-resolution-res" class="slide level2">
-<h2>Rule Card: Resolution (RES)</h2>
-<div class="card rule">
-<p>From <code>p∨q</code> and <code>¬p∨r</code> infer <code>q∨r</code>.</p>
-</div>
-<p><strong>Ex:</strong><br>
-Either study or soccer; if study then library. <strong>So soccer or library.</strong></p>
-</section>
-<section id="rule-card-constructive-dilemma-cd" class="slide level2">
-<h2>Rule Card: Constructive Dilemma (CD)</h2>
-<div class="card rule">
-<p>From <code>(p→r), (q→s), (p∨q)</code> infer <code>r∨s</code>.</p>
-</div>
-<p><strong>Ex:</strong><br>
-If sunny then picnic; if rainy then museum; sunny or rainy; <strong>so picnic or museum.</strong></p>
-</section>
-<section id="fallacy-cards-flash" class="slide level2">
-<h2>Fallacy Cards (flash)</h2>
-<div class="two-col">
-<div class="card rule">
-<p><strong>Affirming the consequent</strong> ❌<br>
-<code>from p→q, q infer p</code></p>
-</div>
-<div class="card rule">
-<p><strong>Denying the antecedent</strong> ❌<br>
-<code>from p→q, ¬p infer ¬q</code></p>
-</div>
-</div>
-</section>
-<section id="validity" class="slide level2">
-<h2>Validity</h2>
-<p><strong>∧-Elim</strong>: <span class="math inline">\((p\wedge q)\rightarrow p\)</span> is this always true?</p>
-</section>
-<section id="invalidity" class="slide level2">
-<h2>INValidity</h2>
-<p><strong>Affirming Consequent</strong>: <span class="math inline">\(((p\rightarrow q)\wedge q)\rightarrow p\)</span> is this always true?</p>
+<section id="conjunctive-normal-form" class="slide level2 smaller">
+<h2>Conjunctive Normal Form</h2>
+<p>An <strong>AND of clauses</strong>. Every expression has one…</p>
+<div class="fillable">
 <table class="caption-top">
 <colgroup>
-<col style="width: 8%">
-<col style="width: 8%">
-<col style="width: 27%">
-<col style="width: 27%">
-<col style="width: 27%">
+<col style="width: 65%">
+<col style="width: 35%">
 </colgroup>
 <thead>
 <tr class="header">
-<th><span class="math inline">\(p\)</span></th>
-<th><span class="math inline">\(q\)</span></th>
-<th style="text-align: center;"><span class="math inline">\(p\rightarrow q\)</span></th>
-<th style="text-align: center;"><span class="math inline">\((p\rightarrow q)\wedge q\)</span></th>
-<th style="text-align: center;"><span class="math inline">\(((p\rightarrow q)\wedge q)\rightarrow p\)</span></th>
+<th>Expression</th>
+<th style="text-align: left;">Law</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>F</td>
-<td>F</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
+<td><span class="math inline">\(\neg(p \rightarrow q) \vee r\)</span></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<aside class="notes">
+<p>~(p -&gt; q) v r <sub>(</sub>p v q) v r IMP (p ^ ~q) v r DM, then DNEG (p v r) ^ (~q v r) DIST &lt;- CNF, two clauses</p>
+<p>Verified: all four rows agree on all eight assignments.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="back-to-inference" class="slide level2 smaller">
+<h2>Back to Inference</h2>
+<p><strong>Where we started:</strong> Given statements (premises), a conclusion, and ten(ish) rules. Pick a rule, pick what to apply it to, repeat until conclusion.</p>
+<div class="inference">
+<ul>
+<li><span class="math inline">\(p \rightarrow q\)</span></li>
+<li><span class="math inline">\(p\)</span></li>
+<li><span class="math inline">\(q\)</span></li>
+</ul>
+</div>
+<p><strong>So why is that hard to hand to a machine?</strong></p>
+<p>________________________________________</p>
+<p><br>
+</p>
+<p>With CNF we only need ELIM…</p>
+<aside class="notes">
+<p>Ten is a small number, so the rule count is not the problem – push back if someone says it is. The cost is the SEARCH:</p>
+<ul>
+<li>at every step you choose a rule AND which of your facts to feed it, so the branching is the rules times the subsets, not just the rules;</li>
+<li>each rule wants a different shape, so every choice needs a pattern match before you even know whether it applies;</li>
+<li>GEN makes the space infinite on its own – from p you may write p v q for ANY q, so there are always infinitely many legal next moves;</li>
+<li>and nothing tells you which branch reaches the goal. You cannot tell a promising line from a dead one until you are down it.</li>
+</ul>
+<p>That is what CNF buys. One shape, so no matching. One rule, so no choosing. And because resolution returns what it consumes, you can apply it blindly to every pair and stop when nothing new appears – no cleverness anywhere.</p>
+<p>Second blank: unit clause. Wednesday is unit propagation – given (X) and (~X v Y), drop ~X and keep Y. That is DS, which they have had since Friday under the name ELIM. Do not say so now; let them find it Wednesday.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="proving-by-refuting" class="slide level2 smaller">
+<h2>Proving by refuting</h2>
+<p>To show a conclusion <strong>follows</strong>, show that denying it is <strong>impossible</strong>.</p>
+<p><br>
+</p>
+<div class="fillable">
+<table class="caption-top">
+<colgroup>
+<col style="width: 60%">
+<col style="width: 40%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Inference</th>
+<th style="text-align: center;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>the conclusion follows from the premises</td>
 <td style="text-align: center;"></td>
 </tr>
 <tr class="even">
-<td>F</td>
-<td>T</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
+<td>premises <span class="math inline">\(\rightarrow\)</span> conclusion is a __________</td>
 <td style="text-align: center;"></td>
 </tr>
 <tr class="odd">
-<td>T</td>
-<td>F</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
+<td><span class="math inline">\(\neg(\)</span>premises <span class="math inline">\(\rightarrow\)</span> conclusion<span class="math inline">\()\)</span> is a __________</td>
 <td style="text-align: center;"></td>
 </tr>
 <tr class="even">
-<td>T</td>
-<td>T</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
+<td>premises <span class="math inline">\(\wedge\ \neg\)</span>conclusion is __________</td>
 <td style="text-align: center;"></td>
 </tr>
 </tbody>
 </table>
+</div>
+<aside class="notes">
+<p>tautology / contradiction / unsatisfiable – three ways of saying one thing, and the last is the one a machine can hunt for.</p>
+<p>So the recipe: negate the goal, add it to the premises, put everything in CNF, and look for the empty clause.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
-<section id="spot-the-rule-or-the-trap" class="slide level2">
-<h2>Spot the Rule or the Trap</h2>
-<p><strong>How to play:</strong> post in chat…</p>
-<p><strong>(a)</strong> valid or not, <strong>(b)</strong> if valid, name the rule, <strong>(c)</strong> formal pattern.</p>
+<section id="negating-the-whole-thing" class="slide level2 smaller">
+<h2>Negating the Whole Thing</h2>
+<p>Say we start with an argument like this:</p>
+<p><span class="math display">\[\neg\big((A \wedge B \wedge C) \rightarrow D\big)\]</span></p>
+<div class="fillable">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Expression</th>
+<th style="text-align: left;">Law</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\neg\big(\neg(A \wedge B \wedge C) \vee D\big)\)</span></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><br>
+</p>
+<p>So the premises survive untouched and <strong>only the conclusion flips</strong>.</p>
+<aside class="notes">
+<p>~((A<sup>B</sup>C) -&gt; D) <sub>(</sub>(A<sup>B</sup>C) v D) IMP <sub></sub>(A<sup>B</sup>C) ^ ~D DM (A<sup>B</sup>C) ^ ~D DNEG (then ASS to drop the brackets)</p>
+<p>THE POINT. This is why the recipe is “keep the premises, negate the goal” – it is not a convention, it falls out of the algebra. Negating an implication never touches the antecedent.</p>
+<p>And look at the CNF: A ^ B ^ C ^ ~D is already a conjunction of FOUR UNIT CLAUSES, {A} {B} {C} {~D}. Every premise arrives as fuel. That is why these problems start so easily, and it is worth pointing at before the worksheet, where some sets deliberately do not.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
-<section class="slide level2">
-
-<h3 id="campus">Campus</h3>
-<p>If the lecture live-streams, the chat is busy. The chat is busy. <strong>So it live-streams.</strong></p>
-<p><span class="fragment">❌ Fallacy: Affirming the consequent (<code>p→q, q ∴ p</code>)</span></p>
+<section id="one-rule-repeated" class="slide level2">
+<h2>One Rule, Repeated</h2>
+<p>You know <span class="math inline">\((X)\)</span>. You also have <span class="math inline">\((\neg X \vee Y)\)</span>.</p>
+<p><br>
+</p>
+<p><span class="math inline">\(\neg X\)</span> is false, so it cannot be what makes that clause true. Strike it.</p>
+<p><br>
+</p>
+<p>What is left must be true: ______</p>
+<p><br>
+</p>
+<aside class="notes">
+<p>Y. And they have known this rule since Friday – it is ELIM on the Sheet, disjunctive syllogism. The only new thing is doing it relentlessly instead of choosing it.</p>
+<p>This is unit propagation.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
-<section class="slide level2">
-
-<h3 id="sports">Sports</h3>
-<p>If the Canucks win, downtown is loud. Downtown isn’t loud. <strong>So the Canucks didn’t win.</strong></p>
-<p><span class="fragment">✅ MT (<code>p→q, ¬q ∴ ¬p</code>)</span></p>
+<section id="the-loop" class="slide level2 smaller">
+<h2>The Loop</h2>
+<p>Repeat until you cannot:</p>
+<ol type="1">
+<li>Find a clause with <strong>exactly one literal</strong>. It must be true. Circle it.</li>
+<li>Cross out every clause that <strong>contains</strong> it — satisfied, gone.</li>
+<li>In every clause containing its <strong>negation</strong>, strike out that literal only.</li>
+<li>A clause that loses its <strong>last</strong> literal must be False–a contradiction.</li>
+</ol>
+<p><br>
+</p>
+<p>Three ways to stop:</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 40%">
+<col style="width: 60%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Stop</th>
+<th>Means</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>you reach False</td>
+<td>the clauses contradict — the conclusion follows!!</td>
+</tr>
+<tr class="even">
+<td>no clauses left</td>
+<td>all variables assigned — conclusion does <strong>not</strong> follow</td>
+</tr>
+<tr class="odd">
+<td>clauses remain, none a literal</td>
+<td>nothing more is forced</td>
+</tr>
+</tbody>
+</table>
 </section>
-<section class="slide level2">
-
-<h3 id="food">Food</h3>
-<p>Dinner is sushi or tacos. Not sushi. <strong>So tacos.</strong></p>
-<p><span class="fragment">✅ DS (<code>p∨q, ¬p ∴ q</code>)</span></p>
-</section>
-<section class="slide level2">
-
-<h3 id="travel">Travel</h3>
-<p>If it rains, I’ll bus. If I’m late, I’ll bus. It’s raining or I’m late. <strong>So I’ll bus.</strong></p>
-<p><span class="fragment">✅ CD with <code>r=s=bus</code></span></p>
-</section>
-<section class="slide level2">
-
-<h3 id="movies">Movies</h3>
-<p>If a film is MCU, it has a post-credits scene. This is MCU. <strong>So post-credits.</strong></p>
-<p><span class="fragment">✅ MP (<code>p→q, p ∴ q</code>)</span></p>
-</section>
-<section class="slide level2">
-
-<h3 id="music">Music</h3>
-<p>Either I practice guitar or code. If coding, then coffee. <strong>So either practice or coffee.</strong></p>
-<p><span class="fragment">✅ RES: <code>(g ∨ c)</code> and <code>(f v ¬c)</code></span></p>
-</section>
-<section class="slide level2">
-
-<h3 id="wellness">Wellness</h3>
-<p>I stretched <strong>and</strong> hydrated. <strong>So I stretched.</strong></p>
-<p><span class="fragment">✅ ∧-Elim</span></p>
-</section>
-<section class="slide level2">
-
-<h3 id="data">Data</h3>
-<p>If a dataset is tidy then joins are simpler. If joins are simpler then viz faster. <strong>So if tidy then viz faster.</strong></p>
-<p><span class="fragment">✅ HS</span></p>
-</section>
-<section id="build-a-proof" class="slide level2">
-<h2>Build a proof</h2>
-<p>In the chat, each person adds exactly <strong>one</strong> line using a Rule Card.</p>
-</section>
-<section class="slide level2">
-
-<h3 id="relay-a">Relay A</h3>
-<p><strong>Premises</strong><br>
-1. <code>D→R</code> (deadline ⇒ review session)<br>
-2. <code>R→C</code> (review ⇒ crowded café)<br>
-3. <code>D</code></p>
-<p><strong>Goal</strong>: <code>C</code></p>
-</section>
-<section class="slide level2">
-
-<h3 id="relay-b">Relay B</h3>
-<p><strong>Premises</strong><br>
-1. <code>P∨Q</code> (pizza or quinoa)<br>
-2. <code>¬P∨R</code> (if pizza then ramen)<br>
-3. <code>¬Q</code> (no quinoa)</p>
-<p><strong>Goal</strong>: <code>R</code></p>
-</section>
-<section id="design-a-trap" class="slide level2">
-<h2>Design a Trap</h2>
-<p><strong>Your mission:</strong><br>
-- Write one <strong>valid</strong> two-premise argument (any rule).<br>
-- Write a <strong>look-alike fallacy</strong> with the same topic words.<br>
-- Bring to class on Wednesday morning!</p>
-</section>
-<section id="quantifier-teaser" class="slide level2">
-<h2>Quantifier Teaser</h2>
+<section id="your-turn" class="slide level2 activity">
+<h2>Your Turn</h2>
+<p>Every group has a <strong>different</strong> set. Annotate the sheet.</p>
+<p><br>
+</p>
+<p>Answer two questions:</p>
 <ul>
-<li><strong>UI:</strong> <code>∀x S(x) ⇒ S(Alex)</code> (Universal instantiation)</li>
-<li><strong>EG:</strong> <code>S(Alex) ⇒ ∃x S(x)</code> (Existential generalization) <strong>Analogy:</strong> mixing ∀/∃ incorrectly creates traps like affirming the consequent/denying the antecedent.</li>
+<li>What can you conclude?</li>
+<li>How do you know you are finished?</li>
 </ul>
+<countdown-timer id="timer_2777f44b752e38f41830393aeb8baa9b30899868" minutes="12" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+ </countdown-timer>
+<aside class="notes">
+<p>13 sets, in activities/lecture-07_activity.qmd. Five reach BOTTOM, four run out, four stall – so all three endings are in the room, which is the debrief.</p>
+<p>ANSWER KEY – units in forced order:</p>
+<p>Set 1 -A =&gt; -E =&gt; C =&gt; F CONTRADICTION Set 2 -B =&gt; D =&gt; A =&gt; G CONTRADICTION Set 3 D =&gt; C =&gt; F =&gt; A CONTRADICTION Set 4 G =&gt; -B =&gt; D =&gt; F CONTRADICTION Set 5 C =&gt; -A =&gt; B =&gt; D CONTRADICTION Set 6 B =&gt; C =&gt; F =&gt; -A =&gt; E =&gt; D RUNS OUT Set 7 -G =&gt; C =&gt; D =&gt; -E =&gt; F =&gt; -B RUNS OUT Set 8 -A =&gt; -D =&gt; C =&gt; B =&gt; -G =&gt; E RUNS OUT Set 9 -A =&gt; D =&gt; -C =&gt; E =&gt; -B =&gt; -F RUNS OUT Set 10 C =&gt; F =&gt; -G =&gt; D STALLS Set 11 B =&gt; -C =&gt; -D =&gt; -F STALLS Set 12 -E =&gt; -F =&gt; B =&gt; -G STALLS Set 13 F =&gt; -E =&gt; -A =&gt; -B STALLS</p>
+<p>Every sequence is forced, so a group that gets a different one has made an error. The usual slip is a 3- or 4-literal clause: it only becomes a unit once two or three of its literals are dead, and it is easy to treat it like the two-literal ones.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
-<section id="exit-ticket-2-min" class="slide level2">
-<h2>Exit Ticket (2 min)</h2>
-<p>In chat (or poll), complete both:</p>
-<ul>
-<li><strong>One valid rule I can spot in the wild is</strong> ________.<br>
-</li>
-<li><strong>One trap I’ll watch for is</strong> ________.</li>
-</ul>
+<section id="what-did-you-get" class="slide level2 smaller">
+<h2>What Did You Get?</h2>
+<div class="fillable">
+<table class="caption-top">
+<colgroup>
+<col style="width: 30%">
+<col style="width: 70%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Your ending</th>
+<th>What it proves</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>False</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>no clauses left</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>stalled</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<aside class="notes">
+<p>BOTTOM: the premises plus the negated goal cannot all hold, so the argument is valid. Proved.</p>
+<p>NO CLAUSES LEFT: satisfiable, so there IS a way to make the premises true and the conclusion false. Invalid – and the units they derived ARE the counterexample. Verified: in all four such sets the derived units satisfy every clause, whichever way the one free variable goes. Ask a group to read theirs out; it is a witness, not just a failure.</p>
+<p>STALLED: proves nothing either way. All four stalling sets are satisfiable – two assignments each – so there was something to find and propagation could not find it.</p>
+<p>That asymmetry is the point of the whole lecture. Reaching bottom proves validity. NOT reaching it proves nothing, unless you also ran out of clauses.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="when-nothing-is-forced" class="slide level2">
+<h2>When Nothing Is Forced</h2>
+<p><span class="math display">\[(A\vee B)\ \wedge\ (A \vee \neg B)\ \wedge\ (\neg A \vee B)\ \wedge\ (\neg A \vee \neg B)\]</span></p>
+<p><br>
+</p>
+<p>No clause has a single literal. The loop cannot even start.</p>
+<p><br>
+</p>
+<p>And yet: is there any assignment that satisfies all four? ______</p>
+<aside class="notes">
+<p>No – it is unsatisfiable, and all four rows of the table fail. So the answer is THERE, propagation just cannot reach it.</p>
+<p>What would? Pick a variable and try it both ways. Assume A: clauses 3 and 4 give B and ~B. Assume ~A: clauses 1 and 2 give B and ~B. Both branches die, so it is unsatisfiable.</p>
+<p>That case split is where a real SAT solver spends its life, and it is the honest limit of what we did today.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="words-and-ideas" class="slide level2">
+<h2>Words and Ideas</h2>
+<p>Refutation</p>
+<p>Unit clause, unit propagation</p>
+<p>The empty clause contradiction</p>
+<p>Satisfiable, unsatisfiable</p>
 
 
 <script type="ojs-module-contents">

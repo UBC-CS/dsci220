@@ -1473,142 +1473,79 @@
   {
     "objectID": "slides/lecture-07_slides.html#announcements",
     "href": "slides/lecture-07_slides.html#announcements",
-    "title": "Rules of Inference",
+    "title": "Unit Propagation",
     "section": "Announcements",
-    "text": "Announcements\n\nEnroll in PrairieTest here: https://us.prairietest.com/pt/student/course/24076/enroll/238568773340\nSign up for EX1. Practice materials on PL.\nTutorials begin this week!"
+    "text": "Announcements\n\nEX1 opens tomorrow, Thu 9/24 through Sun 9/27. Self-scheduled in ORCA.\nPractice problems are on PrairieLearn, ungraded, unlimited retries.\nOffice hours are now Tue 10:30–11:30, ICCS 233."
   },
   {
-    "objectID": "slides/lecture-07_slides.html#spot-the-rule-dodge-the-trap",
-    "href": "slides/lecture-07_slides.html#spot-the-rule-dodge-the-trap",
-    "title": "Rules of Inference",
-    "section": "🎉 Spot the Rule, Dodge the Trap",
-    "text": "🎉 Spot the Rule, Dodge the Trap\nGoal for today: treat valid logical arguments like legal moves in a game.\nYou’ll identify moves, build quick proofs, and design traps."
+    "objectID": "slides/lecture-07_slides.html#conjunctive-normal-form",
+    "href": "slides/lecture-07_slides.html#conjunctive-normal-form",
+    "title": "Unit Propagation",
+    "section": "Conjunctive Normal Form",
+    "text": "Conjunctive Normal Form\nAn AND of clauses. Every expression has one…\n\n\n\n\n\n\n\n\nExpression\nLaw\n\n\n\n\n\\(\\neg(p \\rightarrow q) \\vee r\\)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n~(p -&gt; q) v r (p v q) v r IMP (p ^ ~q) v r DM, then DNEG (p v r) ^ (~q v r) DIST &lt;- CNF, two clauses\nVerified: all four rows agree on all eight assignments."
   },
   {
-    "objectID": "slides/lecture-07_slides.html#warm-up-5-min",
-    "href": "slides/lecture-07_slides.html#warm-up-5-min",
-    "title": "Rules of Inference",
-    "section": "Warm Up (5 min)",
-    "text": "Warm Up (5 min)\nA valid argument is a legal inference. Content can change; form is what makes it valid.\n\nIf the lab is open, I’ll go. The lab is open. So I’ll go.\nIf the exam is today, the forum is quiet. The forum isn’t quiet. So the exam isn’t today."
+    "objectID": "slides/lecture-07_slides.html#back-to-inference",
+    "href": "slides/lecture-07_slides.html#back-to-inference",
+    "title": "Unit Propagation",
+    "section": "Back to Inference",
+    "text": "Back to Inference\nWhere we started: Given statements (premises), a conclusion, and ten(ish) rules. Pick a rule, pick what to apply it to, repeat until conclusion.\n\n\n\\(p \\rightarrow q\\)\n\\(p\\)\n\\(q\\)\n\n\nSo why is that hard to hand to a machine?\n________________________________________\n\n\nWith CNF we only need ELIM…\n\nTen is a small number, so the rule count is not the problem – push back if someone says it is. The cost is the SEARCH:\n\nat every step you choose a rule AND which of your facts to feed it, so the branching is the rules times the subsets, not just the rules;\neach rule wants a different shape, so every choice needs a pattern match before you even know whether it applies;\nGEN makes the space infinite on its own – from p you may write p v q for ANY q, so there are always infinitely many legal next moves;\nand nothing tells you which branch reaches the goal. You cannot tell a promising line from a dead one until you are down it.\n\nThat is what CNF buys. One shape, so no matching. One rule, so no choosing. And because resolution returns what it consumes, you can apply it blindly to every pair and stop when nothing new appears – no cleverness anywhere.\nSecond blank: unit clause. Wednesday is unit propagation – given (X) and (~X v Y), drop ~X and keep Y. That is DS, which they have had since Friday under the name ELIM. Do not say so now; let them find it Wednesday."
   },
   {
-    "objectID": "slides/lecture-07_slides.html#micro-rule-cards",
-    "href": "slides/lecture-07_slides.html#micro-rule-cards",
-    "title": "Rules of Inference",
-    "section": "Micro Rule Cards",
-    "text": "Micro Rule Cards\nUse these all class as a reference.\n\nMP: from p→q, p infer q\n\nMT: from p→q, ¬q infer ¬p\n\nHS: from p→q, q→r infer p→r\n\nDS: from p∨q, ¬p infer q\n\n∧-Intro: from p, q infer p∧q\n\n∧-Elim: from p∧q infer p (or q)\n\n∨-Intro: from p infer p∨q (any q)\n\nRES: from p∨q, ¬p∨r infer q∨r\n\nCD: from (p→r), (q→s), (p∨q) infer r∨s\n\nCommon traps:\n\nAffirming consequent: p→q, q ∴ p ❌\nDenying antecedent: p→q, ¬p ∴ ¬q ❌"
+    "objectID": "slides/lecture-07_slides.html#proving-by-refuting",
+    "href": "slides/lecture-07_slides.html#proving-by-refuting",
+    "title": "Unit Propagation",
+    "section": "Proving by refuting",
+    "text": "Proving by refuting\nTo show a conclusion follows, show that denying it is impossible.\n\n\n\n\n\n\n\n\n\n\nInference\n\n\n\n\n\nthe conclusion follows from the premises\n\n\n\npremises \\(\\rightarrow\\) conclusion is a __________\n\n\n\n\\(\\neg(\\)premises \\(\\rightarrow\\) conclusion\\()\\) is a __________\n\n\n\npremises \\(\\wedge\\ \\neg\\)conclusion is __________\n\n\n\n\n\n\ntautology / contradiction / unsatisfiable – three ways of saying one thing, and the last is the one a machine can hunt for.\nSo the recipe: negate the goal, add it to the premises, put everything in CNF, and look for the empty clause."
   },
   {
-    "objectID": "slides/lecture-07_slides.html#rule-card-modus-ponens-mp",
-    "href": "slides/lecture-07_slides.html#rule-card-modus-ponens-mp",
-    "title": "Rules of Inference",
-    "section": "Rule Card: Modus Ponens (MP)",
-    "text": "Rule Card: Modus Ponens (MP)\n\nFrom p→q and p, infer q.\n\nEx:\nIf the bus is full, I’ll walk. The bus is full. So I’ll walk."
+    "objectID": "slides/lecture-07_slides.html#negating-the-whole-thing",
+    "href": "slides/lecture-07_slides.html#negating-the-whole-thing",
+    "title": "Unit Propagation",
+    "section": "Negating the Whole Thing",
+    "text": "Negating the Whole Thing\nSay we start with an argument like this:\n\\[\\neg\\big((A \\wedge B \\wedge C) \\rightarrow D\\big)\\]\n\n\n\n\nExpression\nLaw\n\n\n\n\n\\(\\neg\\big(\\neg(A \\wedge B \\wedge C) \\vee D\\big)\\)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSo the premises survive untouched and only the conclusion flips.\n\n~((ABC) -&gt; D) ((ABC) v D) IMP (ABC) ^ ~D DM (ABC) ^ ~D DNEG (then ASS to drop the brackets)\nTHE POINT. This is why the recipe is “keep the premises, negate the goal” – it is not a convention, it falls out of the algebra. Negating an implication never touches the antecedent.\nAnd look at the CNF: A ^ B ^ C ^ ~D is already a conjunction of FOUR UNIT CLAUSES, {A} {B} {C} {~D}. Every premise arrives as fuel. That is why these problems start so easily, and it is worth pointing at before the worksheet, where some sets deliberately do not."
   },
   {
-    "objectID": "slides/lecture-07_slides.html#rule-card-modus-tollens-mt",
-    "href": "slides/lecture-07_slides.html#rule-card-modus-tollens-mt",
-    "title": "Rules of Inference",
-    "section": "Rule Card: Modus Tollens (MT)",
-    "text": "Rule Card: Modus Tollens (MT)\n\nFrom p→q and ¬q, infer ¬p.\n\nEx:\nIf office hours moved, Slack has an announcement. No announcement. So they didn’t move."
+    "objectID": "slides/lecture-07_slides.html#one-rule-repeated",
+    "href": "slides/lecture-07_slides.html#one-rule-repeated",
+    "title": "Unit Propagation",
+    "section": "One Rule, Repeated",
+    "text": "One Rule, Repeated\nYou know \\((X)\\). You also have \\((\\neg X \\vee Y)\\).\n\n\n\\(\\neg X\\) is false, so it cannot be what makes that clause true. Strike it.\n\n\nWhat is left must be true: ______\n\n\n\nY. And they have known this rule since Friday – it is ELIM on the Sheet, disjunctive syllogism. The only new thing is doing it relentlessly instead of choosing it.\nThis is unit propagation."
   },
   {
-    "objectID": "slides/lecture-07_slides.html#rule-card-hypothetical-syllogism-hs",
-    "href": "slides/lecture-07_slides.html#rule-card-hypothetical-syllogism-hs",
-    "title": "Rules of Inference",
-    "section": "Rule Card: Hypothetical Syllogism (HS)",
-    "text": "Rule Card: Hypothetical Syllogism (HS)\n\nFrom p→q and q→r, infer p→r.\n\nEx:\nIf tidy then joins are simpler; if simpler joins then faster viz; so tidy ⇒ faster viz."
+    "objectID": "slides/lecture-07_slides.html#the-loop",
+    "href": "slides/lecture-07_slides.html#the-loop",
+    "title": "Unit Propagation",
+    "section": "The Loop",
+    "text": "The Loop\nRepeat until you cannot:\n\nFind a clause with exactly one literal. It must be true. Circle it.\nCross out every clause that contains it — satisfied, gone.\nIn every clause containing its negation, strike out that literal only.\nA clause that loses its last literal must be False–a contradiction.\n\n\n\nThree ways to stop:\n\n\n\n\n\n\n\nStop\nMeans\n\n\n\n\nyou reach False\nthe clauses contradict — the conclusion follows!!\n\n\nno clauses left\nall variables assigned — conclusion does not follow\n\n\nclauses remain, none a literal\nnothing more is forced"
   },
   {
-    "objectID": "slides/lecture-07_slides.html#rule-card-disjunctive-syllogism-ds",
-    "href": "slides/lecture-07_slides.html#rule-card-disjunctive-syllogism-ds",
-    "title": "Rules of Inference",
-    "section": "Rule Card: Disjunctive Syllogism (DS)",
-    "text": "Rule Card: Disjunctive Syllogism (DS)\n\nFrom p∨q and ¬p, infer q.\n\nEx:\nDinner is sushi or tacos. Not sushi. So tacos."
+    "objectID": "slides/lecture-07_slides.html#your-turn",
+    "href": "slides/lecture-07_slides.html#your-turn",
+    "title": "Unit Propagation",
+    "section": "Your Turn",
+    "text": "Your Turn\nEvery group has a different set. Annotate the sheet.\n\n\nAnswer two questions:\n\nWhat can you conclude?\nHow do you know you are finished?\n\n\n \n\n13 sets, in activities/lecture-07_activity.qmd. Five reach BOTTOM, four run out, four stall – so all three endings are in the room, which is the debrief.\nANSWER KEY – units in forced order:\nSet 1 -A =&gt; -E =&gt; C =&gt; F CONTRADICTION Set 2 -B =&gt; D =&gt; A =&gt; G CONTRADICTION Set 3 D =&gt; C =&gt; F =&gt; A CONTRADICTION Set 4 G =&gt; -B =&gt; D =&gt; F CONTRADICTION Set 5 C =&gt; -A =&gt; B =&gt; D CONTRADICTION Set 6 B =&gt; C =&gt; F =&gt; -A =&gt; E =&gt; D RUNS OUT Set 7 -G =&gt; C =&gt; D =&gt; -E =&gt; F =&gt; -B RUNS OUT Set 8 -A =&gt; -D =&gt; C =&gt; B =&gt; -G =&gt; E RUNS OUT Set 9 -A =&gt; D =&gt; -C =&gt; E =&gt; -B =&gt; -F RUNS OUT Set 10 C =&gt; F =&gt; -G =&gt; D STALLS Set 11 B =&gt; -C =&gt; -D =&gt; -F STALLS Set 12 -E =&gt; -F =&gt; B =&gt; -G STALLS Set 13 F =&gt; -E =&gt; -A =&gt; -B STALLS\nEvery sequence is forced, so a group that gets a different one has made an error. The usual slip is a 3- or 4-literal clause: it only becomes a unit once two or three of its literals are dead, and it is easy to treat it like the two-literal ones."
   },
   {
-    "objectID": "slides/lecture-07_slides.html#rule-card-conjunction-simplification",
-    "href": "slides/lecture-07_slides.html#rule-card-conjunction-simplification",
-    "title": "Rules of Inference",
-    "section": "Rule Card: Conjunction / Simplification",
-    "text": "Rule Card: Conjunction / Simplification\n\n\n∧-Intro: from p, q infer p∧q\n\n\n∧-Elim: from p∧q infer p (or q)"
+    "objectID": "slides/lecture-07_slides.html#what-did-you-get",
+    "href": "slides/lecture-07_slides.html#what-did-you-get",
+    "title": "Unit Propagation",
+    "section": "What Did You Get?",
+    "text": "What Did You Get?\n\n\n\n\n\n\n\n\nYour ending\nWhat it proves\n\n\n\n\nFalse\n\n\n\nno clauses left\n\n\n\nstalled\n\n\n\n\n\n\nBOTTOM: the premises plus the negated goal cannot all hold, so the argument is valid. Proved.\nNO CLAUSES LEFT: satisfiable, so there IS a way to make the premises true and the conclusion false. Invalid – and the units they derived ARE the counterexample. Verified: in all four such sets the derived units satisfy every clause, whichever way the one free variable goes. Ask a group to read theirs out; it is a witness, not just a failure.\nSTALLED: proves nothing either way. All four stalling sets are satisfiable – two assignments each – so there was something to find and propagation could not find it.\nThat asymmetry is the point of the whole lecture. Reaching bottom proves validity. NOT reaching it proves nothing, unless you also ran out of clauses."
   },
   {
-    "objectID": "slides/lecture-07_slides.html#rule-card--intro",
-    "href": "slides/lecture-07_slides.html#rule-card--intro",
-    "title": "Rules of Inference",
-    "section": "Rule Card: ∨-Intro",
-    "text": "Rule Card: ∨-Intro\n\nFrom p infer p∨q.\n\nEx: I rode my scooter today, so I either rode my scooter or I’m a unicorn.\nNote validity cares about form, not plausibility of the added disjunct."
+    "objectID": "slides/lecture-07_slides.html#when-nothing-is-forced",
+    "href": "slides/lecture-07_slides.html#when-nothing-is-forced",
+    "title": "Unit Propagation",
+    "section": "When Nothing Is Forced",
+    "text": "When Nothing Is Forced\n\\[(A\\vee B)\\ \\wedge\\ (A \\vee \\neg B)\\ \\wedge\\ (\\neg A \\vee B)\\ \\wedge\\ (\\neg A \\vee \\neg B)\\]\n\n\nNo clause has a single literal. The loop cannot even start.\n\n\nAnd yet: is there any assignment that satisfies all four? ______\n\nNo – it is unsatisfiable, and all four rows of the table fail. So the answer is THERE, propagation just cannot reach it.\nWhat would? Pick a variable and try it both ways. Assume A: clauses 3 and 4 give B and ~B. Assume ~A: clauses 1 and 2 give B and ~B. Both branches die, so it is unsatisfiable.\nThat case split is where a real SAT solver spends its life, and it is the honest limit of what we did today."
   },
   {
-    "objectID": "slides/lecture-07_slides.html#rule-card-resolution-res",
-    "href": "slides/lecture-07_slides.html#rule-card-resolution-res",
-    "title": "Rules of Inference",
-    "section": "Rule Card: Resolution (RES)",
-    "text": "Rule Card: Resolution (RES)\n\nFrom p∨q and ¬p∨r infer q∨r.\n\nEx:\nEither study or soccer; if study then library. So soccer or library."
-  },
-  {
-    "objectID": "slides/lecture-07_slides.html#rule-card-constructive-dilemma-cd",
-    "href": "slides/lecture-07_slides.html#rule-card-constructive-dilemma-cd",
-    "title": "Rules of Inference",
-    "section": "Rule Card: Constructive Dilemma (CD)",
-    "text": "Rule Card: Constructive Dilemma (CD)\n\nFrom (p→r), (q→s), (p∨q) infer r∨s.\n\nEx:\nIf sunny then picnic; if rainy then museum; sunny or rainy; so picnic or museum."
-  },
-  {
-    "objectID": "slides/lecture-07_slides.html#fallacy-cards-flash",
-    "href": "slides/lecture-07_slides.html#fallacy-cards-flash",
-    "title": "Rules of Inference",
-    "section": "Fallacy Cards (flash)",
-    "text": "Fallacy Cards (flash)\n\n\nAffirming the consequent ❌\nfrom p→q, q infer p\n\n\nDenying the antecedent ❌\nfrom p→q, ¬p infer ¬q"
-  },
-  {
-    "objectID": "slides/lecture-07_slides.html#validity",
-    "href": "slides/lecture-07_slides.html#validity",
-    "title": "Rules of Inference",
-    "section": "Validity",
-    "text": "Validity\n∧-Elim: \\((p\\wedge q)\\rightarrow p\\) is this always true?"
-  },
-  {
-    "objectID": "slides/lecture-07_slides.html#invalidity",
-    "href": "slides/lecture-07_slides.html#invalidity",
-    "title": "Rules of Inference",
-    "section": "INValidity",
-    "text": "INValidity\nAffirming Consequent: \\(((p\\rightarrow q)\\wedge q)\\rightarrow p\\) is this always true?\n\n\n\n\n\n\n\n\n\n\n\\(p\\)\n\\(q\\)\n\\(p\\rightarrow q\\)\n\\((p\\rightarrow q)\\wedge q\\)\n\\(((p\\rightarrow q)\\wedge q)\\rightarrow p\\)\n\n\n\n\nF\nF\n\n\n\n\n\nF\nT\n\n\n\n\n\nT\nF\n\n\n\n\n\nT\nT"
-  },
-  {
-    "objectID": "slides/lecture-07_slides.html#spot-the-rule-or-the-trap",
-    "href": "slides/lecture-07_slides.html#spot-the-rule-or-the-trap",
-    "title": "Rules of Inference",
-    "section": "Spot the Rule or the Trap",
-    "text": "Spot the Rule or the Trap\nHow to play: post in chat…\n(a) valid or not, (b) if valid, name the rule, (c) formal pattern."
-  },
-  {
-    "objectID": "slides/lecture-07_slides.html#build-a-proof",
-    "href": "slides/lecture-07_slides.html#build-a-proof",
-    "title": "Rules of Inference",
-    "section": "Build a proof",
-    "text": "Build a proof\nIn the chat, each person adds exactly one line using a Rule Card."
-  },
-  {
-    "objectID": "slides/lecture-07_slides.html#design-a-trap",
-    "href": "slides/lecture-07_slides.html#design-a-trap",
-    "title": "Rules of Inference",
-    "section": "Design a Trap",
-    "text": "Design a Trap\nYour mission:\n- Write one valid two-premise argument (any rule).\n- Write a look-alike fallacy with the same topic words.\n- Bring to class on Wednesday morning!"
-  },
-  {
-    "objectID": "slides/lecture-07_slides.html#quantifier-teaser",
-    "href": "slides/lecture-07_slides.html#quantifier-teaser",
-    "title": "Rules of Inference",
-    "section": "Quantifier Teaser",
-    "text": "Quantifier Teaser\n\nUI: ∀x S(x) ⇒ S(Alex) (Universal instantiation)\nEG: S(Alex) ⇒ ∃x S(x) (Existential generalization) Analogy: mixing ∀/∃ incorrectly creates traps like affirming the consequent/denying the antecedent."
-  },
-  {
-    "objectID": "slides/lecture-07_slides.html#exit-ticket-2-min",
-    "href": "slides/lecture-07_slides.html#exit-ticket-2-min",
-    "title": "Rules of Inference",
-    "section": "Exit Ticket (2 min)",
-    "text": "Exit Ticket (2 min)\nIn chat (or poll), complete both:\n\nOne valid rule I can spot in the wild is ________.\n\nOne trap I’ll watch for is ________."
+    "objectID": "slides/lecture-07_slides.html#words-and-ideas",
+    "href": "slides/lecture-07_slides.html#words-and-ideas",
+    "title": "Unit Propagation",
+    "section": "Words and Ideas",
+    "text": "Words and Ideas\nRefutation\nUnit clause, unit propagation\nThe empty clause contradiction\nSatisfiable, unsatisfiable"
   },
   {
     "objectID": "slides/lecture-05_slides.html#announcements",
@@ -1940,6 +1877,104 @@
     "text": "I am excited to welcome you to DSCI 220! This short announcement is here to get you oriented to this course website and point out some important resources. The landing page contains the schedule where you can see all the things happening in the weeks to come and the most recent post in announcements. Then take a look at the syllabus to gain an overview of the course and its requirements, but we will discuss it in the first class.\nSee you in the first class on Wednesday, September 9."
   },
   {
+    "objectID": "activities/lecture-07_activity.html",
+    "href": "activities/lecture-07_activity.html",
+    "title": "Unit Propagation",
+    "section": "",
+    "text": "Every group has a different set of clauses. There is no one right answer across the room — that is the point.\nA clause is an OR of literals. All the clauses must hold at once.\nThe loop. Repeat until you cannot:\n\nFind a clause with exactly one literal. That literal must be true. Circle it — call it a unit.\nLook for that same literal in any other clause. That clause is already satisfied, so circle the literal there too, and cross the whole clause out. The circle records why it went.\nIn every clause containing the negation of your unit, strike out just that one literal. The rest of the clause stays.\nIf a clause loses its last literal, circle what is left of it. That is ⊥, the empty clause — a clause with no way left to be true. Finding one is the best thing that can happen to you.\n\nA circle always marks something you have established: a literal that must be true, or — best of all — an empty clause. A crossed-out clause always has a circle in it saying which literal did the work.\nStop when one of three things happens, and say which:\n\n\n\n\n\n\n\nYou reach ⊥\nthe clauses contradict each other\n\n\nNo clauses are left\neverything is settled, and consistently\n\n\nNo clause has a single literal, but clauses remain\nnothing further is forced\n\n\n\nAll three are real answers. Finding out which one you have is the exercise.\n\n\n\n\n\n\n\n\n\n\n\n\nClause\nWorking\n\n\n\n\n1\n\\(\\{\\neg A\\}\\)\n\n\n\n2\n\\(\\{\\neg B,\\ \\neg D,\\ \\neg G\\}\\)\n\n\n\n3\n\\(\\{\\neg E\\}\\)\n\n\n\n4\n\\(\\{\\neg C,\\ E,\\ F\\}\\)\n\n\n\n5\n\\(\\{A,\\ \\neg C,\\ E,\\ \\neg F\\}\\)\n\n\n\n6\n\\(\\{C,\\ E\\}\\)\n\n\n\n\nUnits you forced, in order:  \n______ ⇒ ______ ⇒ ______ ⇒ ______ ⇒ ______ ⇒ ______\nWhat can you conclude?  \n_____________________________________________________\nHow do you know you are finished?  \n_____________________________________________________\n\n\n\n\n\n\n\n\n\n\n\n\n\nClause\nWorking\n\n\n\n\n1\n\\(\\{\\neg A,\\ B,\\ \\neg D,\\ G\\}\\)\n\n\n\n2\n\\(\\{\\neg A,\\ B,\\ \\neg G\\}\\)\n\n\n\n3\n\\(\\{\\neg B\\}\\)\n\n\n\n4\n\\(\\{C,\\ \\neg E,\\ F\\}\\)\n\n\n\n5\n\\(\\{D\\}\\)\n\n\n\n6\n\\(\\{A,\\ B\\}\\)\n\n\n\n\nUnits you forced, in order:  \n______ ⇒ ______ ⇒ ______ ⇒ ______ ⇒ ______ ⇒ ______\nWhat can you conclude?  \n_____________________________________________________\nHow do you know you are finished?  \n_____________________________________________________\n\n\n\n\n\n\n\n\n\n\n\n\n\nClause\nWorking\n\n\n\n\n1\n\\(\\{D\\}\\)\n\n\n\n2\n\\(\\{C,\\ \\neg D\\}\\)\n\n\n\n3\n\\(\\{F\\}\\)\n\n\n\n4\n\\(\\{A,\\ \\neg C,\\ \\neg D,\\ \\neg F\\}\\)\n\n\n\n5\n\\(\\{\\neg B,\\ \\neg E,\\ \\neg G\\}\\)\n\n\n\n6\n\\(\\{\\neg A,\\ \\neg C,\\ \\neg D\\}\\)\n\n\n\n\nUnits you forced, in order:  \n______ ⇒ ______ ⇒ ______ ⇒ ______ ⇒ ______ ⇒ ______\nWhat can you conclude?  \n_____________________________________________________\nHow do you know you are finished?  \n_____________________________________________________\n\n\n\n\n\n\n\n\n\n\n\n\n\nClause\nWorking\n\n\n\n\n1\n\\(\\{A,\\ C,\\ E\\}\\)\n\n\n\n2\n\\(\\{G\\}\\)\n\n\n\n3\n\\(\\{B,\\ \\neg D,\\ F\\}\\)\n\n\n\n4\n\\(\\{B,\\ D\\}\\)\n\n\n\n5\n\\(\\{\\neg B\\}\\)\n\n\n\n6\n\\(\\{B,\\ \\neg D,\\ \\neg F,\\ \\neg G\\}\\)\n\n\n\n\nUnits you forced, in order:  \n______ ⇒ ______ ⇒ ______ ⇒ ______ ⇒ ______ ⇒ ______\nWhat can you conclude?  \n_____________________________________________________\nHow do you know you are finished?  \n_____________________________________________________\n\n\n\n\n\n\n\n\n\n\n\n\n\nClause\nWorking\n\n\n\n\n1\n\\(\\{\\neg E,\\ F,\\ G\\}\\)\n\n\n\n2\n\\(\\{C\\}\\)\n\n\n\n3\n\\(\\{A,\\ \\neg B,\\ \\neg C,\\ D\\}\\)\n\n\n\n4\n\\(\\{A,\\ \\neg B,\\ \\neg D\\}\\)\n\n\n\n5\n\\(\\{A,\\ B\\}\\)\n\n\n\n6\n\\(\\{\\neg A\\}\\)\n\n\n\n\nUnits you forced, in order:  \n______ ⇒ ______ ⇒ ______ ⇒ ______ ⇒ ______ ⇒ ______\nWhat can you conclude?  \n_____________________________________________________\nHow do you know you are finished?  \n_____________________________________________________\n\n\n\n\n\n\n\n\n\n\n\n\n\nClause\nWorking\n\n\n\n\n1\n\\(\\{\\neg B,\\ \\neg C,\\ F\\}\\)\n\n\n\n2\n\\(\\{\\neg B,\\ C\\}\\)\n\n\n\n3\n\\(\\{A,\\ E\\}\\)\n\n\n\n4\n\\(\\{B\\}\\)\n\n\n\n5\n\\(\\{\\neg A,\\ \\neg B,\\ \\neg C,\\ \\neg F\\}\\)\n\n\n\n6\n\\(\\{D,\\ \\neg E\\}\\)\n\n\n\n7\n\\(\\{\\neg A,\\ \\neg G\\}\\)\n\n\n\n\nUnits you forced, in order:  \n______ ⇒ ______ ⇒ ______ ⇒ ______ ⇒ ______ ⇒ ______\nWhat can you conclude?  \n_____________________________________________________\nHow do you know you are finished?  \n_____________________________________________________\n\n\n\n\n\n\n\n\n\n\n\n\n\nClause\nWorking\n\n\n\n\n1\n\\(\\{\\neg C,\\ D,\\ G\\}\\)\n\n\n\n2\n\\(\\{E,\\ F\\}\\)\n\n\n\n3\n\\(\\{\\neg A,\\ \\neg E\\}\\)\n\n\n\n4\n\\(\\{\\neg B,\\ \\neg F\\}\\)\n\n\n\n5\n\\(\\{C,\\ G\\}\\)\n\n\n\n6\n\\(\\{\\neg G\\}\\)\n\n\n\n7\n\\(\\{\\neg C,\\ \\neg D,\\ \\neg E,\\ G\\}\\)\n\n\n\n\nUnits you forced, in order:  \n______ ⇒ ______ ⇒ ______ ⇒ ______ ⇒ ______ ⇒ ______\nWhat can you conclude?  \n_____________________________________________________\nHow do you know you are finished?  \n_____________________________________________________\n\n\n\n\n\n\n\n\n\n\n\n\n\nClause\nWorking\n\n\n\n\n1\n\\(\\{A,\\ C,\\ D\\}\\)\n\n\n\n2\n\\(\\{\\neg A\\}\\)\n\n\n\n3\n\\(\\{\\neg B,\\ \\neg G\\}\\)\n\n\n\n4\n\\(\\{A,\\ B,\\ \\neg C,\\ D\\}\\)\n\n\n\n5\n\\(\\{A,\\ \\neg D\\}\\)\n\n\n\n6\n\\(\\{B,\\ F\\}\\)\n\n\n\n7\n\\(\\{E,\\ G\\}\\)\n\n\n\n\nUnits you forced, in order:  \n______ ⇒ ______ ⇒ ______ ⇒ ______ ⇒ ______ ⇒ ______\nWhat can you conclude?  \n_____________________________________________________\nHow do you know you are finished?  \n_____________________________________________________\n\n\n\n\n\n\n\n\n\n\n\n\n\nClause\nWorking\n\n\n\n\n1\n\\(\\{A,\\ C,\\ \\neg D,\\ E\\}\\)\n\n\n\n2\n\\(\\{\\neg B,\\ \\neg E\\}\\)\n\n\n\n3\n\\(\\{E,\\ G\\}\\)\n\n\n\n4\n\\(\\{\\neg A\\}\\)\n\n\n\n5\n\\(\\{A,\\ D\\}\\)\n\n\n\n6\n\\(\\{B,\\ \\neg F\\}\\)\n\n\n\n7\n\\(\\{A,\\ \\neg C,\\ \\neg D\\}\\)\n\n\n\n\nUnits you forced, in order:  \n______ ⇒ ______ ⇒ ______ ⇒ ______ ⇒ ______ ⇒ ______\nWhat can you conclude?  \n_____________________________________________________\nHow do you know you are finished?  \n_____________________________________________________\n\n\n\n\n\n\n\n\n\n\n\n\n\nClause\nWorking\n\n\n\n\n1\n\\(\\{\\neg B,\\ \\neg D,\\ E\\}\\)\n\n\n\n2\n\\(\\{C\\}\\)\n\n\n\n3\n\\(\\{\\neg B,\\ E\\}\\)\n\n\n\n4\n\\(\\{\\neg C,\\ F\\}\\)\n\n\n\n5\n\\(\\{B,\\ \\neg E\\}\\)\n\n\n\n6\n\\(\\{\\neg C,\\ \\neg F,\\ \\neg G\\}\\)\n\n\n\n7\n\\(\\{\\neg C,\\ D,\\ \\neg F,\\ G\\}\\)\n\n\n\n\nUnits you forced, in order:  \n______ ⇒ ______ ⇒ ______ ⇒ ______ ⇒ ______ ⇒ ______\nWhat can you conclude?  \n_____________________________________________________\nHow do you know you are finished?  \n_____________________________________________________\n\n\n\n\n\n\n\n\n\n\n\n\n\nClause\nWorking\n\n\n\n\n1\n\\(\\{\\neg A,\\ E,\\ F\\}\\)\n\n\n\n2\n\\(\\{\\neg B,\\ C,\\ D,\\ \\neg F\\}\\)\n\n\n\n3\n\\(\\{\\neg A,\\ E\\}\\)\n\n\n\n4\n\\(\\{\\neg B,\\ \\neg C\\}\\)\n\n\n\n5\n\\(\\{B\\}\\)\n\n\n\n6\n\\(\\{\\neg B,\\ C,\\ \\neg D\\}\\)\n\n\n\n7\n\\(\\{A,\\ \\neg E\\}\\)\n\n\n\n\nUnits you forced, in order:  \n______ ⇒ ______ ⇒ ______ ⇒ ______ ⇒ ______ ⇒ ______\nWhat can you conclude?  \n_____________________________________________________\nHow do you know you are finished?  \n_____________________________________________________\n\n\n\n\n\n\n\n\n\n\n\n\n\nClause\nWorking\n\n\n\n\n1\n\\(\\{A,\\ \\neg C\\}\\)\n\n\n\n2\n\\(\\{B,\\ E,\\ F\\}\\)\n\n\n\n3\n\\(\\{E,\\ \\neg F\\}\\)\n\n\n\n4\n\\(\\{\\neg A,\\ C,\\ G\\}\\)\n\n\n\n5\n\\(\\{\\neg B,\\ E,\\ F,\\ \\neg G\\}\\)\n\n\n\n6\n\\(\\{\\neg E\\}\\)\n\n\n\n7\n\\(\\{\\neg A,\\ C\\}\\)\n\n\n\n\nUnits you forced, in order:  \n______ ⇒ ______ ⇒ ______ ⇒ ______ ⇒ ______ ⇒ ______\nWhat can you conclude?  \n_____________________________________________________\nHow do you know you are finished?  \n_____________________________________________________\n\n\n\n\n\n\n\n\n\n\n\n\n\nClause\nWorking\n\n\n\n\n1\n\\(\\{A,\\ \\neg B,\\ E,\\ \\neg F\\}\\)\n\n\n\n2\n\\(\\{D,\\ G\\}\\)\n\n\n\n3\n\\(\\{\\neg E,\\ \\neg F\\}\\)\n\n\n\n4\n\\(\\{F\\}\\)\n\n\n\n5\n\\(\\{\\neg A,\\ E,\\ \\neg F\\}\\)\n\n\n\n6\n\\(\\{B,\\ \\neg D,\\ \\neg G\\}\\)\n\n\n\n7\n\\(\\{\\neg D,\\ \\neg G\\}\\)\n\n\n\n\nUnits you forced, in order:  \n______ ⇒ ______ ⇒ ______ ⇒ ______ ⇒ ______ ⇒ ______\nWhat can you conclude?  \n_____________________________________________________\nHow do you know you are finished?  \n_____________________________________________________"
+  },
+  {
+    "objectID": "activities/lecture-07_activity.html#set-1",
+    "href": "activities/lecture-07_activity.html#set-1",
+    "title": "Unit Propagation",
+    "section": "",
+    "text": "Clause\nWorking\n\n\n\n\n1\n\\(\\{\\neg A\\}\\)\n\n\n\n2\n\\(\\{\\neg B,\\ \\neg D,\\ \\neg G\\}\\)\n\n\n\n3\n\\(\\{\\neg E\\}\\)\n\n\n\n4\n\\(\\{\\neg C,\\ E,\\ F\\}\\)\n\n\n\n5\n\\(\\{A,\\ \\neg C,\\ E,\\ \\neg F\\}\\)\n\n\n\n6\n\\(\\{C,\\ E\\}\\)\n\n\n\n\nUnits you forced, in order:  \n______ ⇒ ______ ⇒ ______ ⇒ ______ ⇒ ______ ⇒ ______\nWhat can you conclude?  \n_____________________________________________________\nHow do you know you are finished?  \n_____________________________________________________"
+  },
+  {
+    "objectID": "activities/lecture-07_activity.html#set-2",
+    "href": "activities/lecture-07_activity.html#set-2",
+    "title": "Unit Propagation",
+    "section": "",
+    "text": "Clause\nWorking\n\n\n\n\n1\n\\(\\{\\neg A,\\ B,\\ \\neg D,\\ G\\}\\)\n\n\n\n2\n\\(\\{\\neg A,\\ B,\\ \\neg G\\}\\)\n\n\n\n3\n\\(\\{\\neg B\\}\\)\n\n\n\n4\n\\(\\{C,\\ \\neg E,\\ F\\}\\)\n\n\n\n5\n\\(\\{D\\}\\)\n\n\n\n6\n\\(\\{A,\\ B\\}\\)\n\n\n\n\nUnits you forced, in order:  \n______ ⇒ ______ ⇒ ______ ⇒ ______ ⇒ ______ ⇒ ______\nWhat can you conclude?  \n_____________________________________________________\nHow do you know you are finished?  \n_____________________________________________________"
+  },
+  {
+    "objectID": "activities/lecture-07_activity.html#set-3",
+    "href": "activities/lecture-07_activity.html#set-3",
+    "title": "Unit Propagation",
+    "section": "",
+    "text": "Clause\nWorking\n\n\n\n\n1\n\\(\\{D\\}\\)\n\n\n\n2\n\\(\\{C,\\ \\neg D\\}\\)\n\n\n\n3\n\\(\\{F\\}\\)\n\n\n\n4\n\\(\\{A,\\ \\neg C,\\ \\neg D,\\ \\neg F\\}\\)\n\n\n\n5\n\\(\\{\\neg B,\\ \\neg E,\\ \\neg G\\}\\)\n\n\n\n6\n\\(\\{\\neg A,\\ \\neg C,\\ \\neg D\\}\\)\n\n\n\n\nUnits you forced, in order:  \n______ ⇒ ______ ⇒ ______ ⇒ ______ ⇒ ______ ⇒ ______\nWhat can you conclude?  \n_____________________________________________________\nHow do you know you are finished?  \n_____________________________________________________"
+  },
+  {
+    "objectID": "activities/lecture-07_activity.html#set-4",
+    "href": "activities/lecture-07_activity.html#set-4",
+    "title": "Unit Propagation",
+    "section": "",
+    "text": "Clause\nWorking\n\n\n\n\n1\n\\(\\{A,\\ C,\\ E\\}\\)\n\n\n\n2\n\\(\\{G\\}\\)\n\n\n\n3\n\\(\\{B,\\ \\neg D,\\ F\\}\\)\n\n\n\n4\n\\(\\{B,\\ D\\}\\)\n\n\n\n5\n\\(\\{\\neg B\\}\\)\n\n\n\n6\n\\(\\{B,\\ \\neg D,\\ \\neg F,\\ \\neg G\\}\\)\n\n\n\n\nUnits you forced, in order:  \n______ ⇒ ______ ⇒ ______ ⇒ ______ ⇒ ______ ⇒ ______\nWhat can you conclude?  \n_____________________________________________________\nHow do you know you are finished?  \n_____________________________________________________"
+  },
+  {
+    "objectID": "activities/lecture-07_activity.html#set-5",
+    "href": "activities/lecture-07_activity.html#set-5",
+    "title": "Unit Propagation",
+    "section": "",
+    "text": "Clause\nWorking\n\n\n\n\n1\n\\(\\{\\neg E,\\ F,\\ G\\}\\)\n\n\n\n2\n\\(\\{C\\}\\)\n\n\n\n3\n\\(\\{A,\\ \\neg B,\\ \\neg C,\\ D\\}\\)\n\n\n\n4\n\\(\\{A,\\ \\neg B,\\ \\neg D\\}\\)\n\n\n\n5\n\\(\\{A,\\ B\\}\\)\n\n\n\n6\n\\(\\{\\neg A\\}\\)\n\n\n\n\nUnits you forced, in order:  \n______ ⇒ ______ ⇒ ______ ⇒ ______ ⇒ ______ ⇒ ______\nWhat can you conclude?  \n_____________________________________________________\nHow do you know you are finished?  \n_____________________________________________________"
+  },
+  {
+    "objectID": "activities/lecture-07_activity.html#set-6",
+    "href": "activities/lecture-07_activity.html#set-6",
+    "title": "Unit Propagation",
+    "section": "",
+    "text": "Clause\nWorking\n\n\n\n\n1\n\\(\\{\\neg B,\\ \\neg C,\\ F\\}\\)\n\n\n\n2\n\\(\\{\\neg B,\\ C\\}\\)\n\n\n\n3\n\\(\\{A,\\ E\\}\\)\n\n\n\n4\n\\(\\{B\\}\\)\n\n\n\n5\n\\(\\{\\neg A,\\ \\neg B,\\ \\neg C,\\ \\neg F\\}\\)\n\n\n\n6\n\\(\\{D,\\ \\neg E\\}\\)\n\n\n\n7\n\\(\\{\\neg A,\\ \\neg G\\}\\)\n\n\n\n\nUnits you forced, in order:  \n______ ⇒ ______ ⇒ ______ ⇒ ______ ⇒ ______ ⇒ ______\nWhat can you conclude?  \n_____________________________________________________\nHow do you know you are finished?  \n_____________________________________________________"
+  },
+  {
+    "objectID": "activities/lecture-07_activity.html#set-7",
+    "href": "activities/lecture-07_activity.html#set-7",
+    "title": "Unit Propagation",
+    "section": "",
+    "text": "Clause\nWorking\n\n\n\n\n1\n\\(\\{\\neg C,\\ D,\\ G\\}\\)\n\n\n\n2\n\\(\\{E,\\ F\\}\\)\n\n\n\n3\n\\(\\{\\neg A,\\ \\neg E\\}\\)\n\n\n\n4\n\\(\\{\\neg B,\\ \\neg F\\}\\)\n\n\n\n5\n\\(\\{C,\\ G\\}\\)\n\n\n\n6\n\\(\\{\\neg G\\}\\)\n\n\n\n7\n\\(\\{\\neg C,\\ \\neg D,\\ \\neg E,\\ G\\}\\)\n\n\n\n\nUnits you forced, in order:  \n______ ⇒ ______ ⇒ ______ ⇒ ______ ⇒ ______ ⇒ ______\nWhat can you conclude?  \n_____________________________________________________\nHow do you know you are finished?  \n_____________________________________________________"
+  },
+  {
+    "objectID": "activities/lecture-07_activity.html#set-8",
+    "href": "activities/lecture-07_activity.html#set-8",
+    "title": "Unit Propagation",
+    "section": "",
+    "text": "Clause\nWorking\n\n\n\n\n1\n\\(\\{A,\\ C,\\ D\\}\\)\n\n\n\n2\n\\(\\{\\neg A\\}\\)\n\n\n\n3\n\\(\\{\\neg B,\\ \\neg G\\}\\)\n\n\n\n4\n\\(\\{A,\\ B,\\ \\neg C,\\ D\\}\\)\n\n\n\n5\n\\(\\{A,\\ \\neg D\\}\\)\n\n\n\n6\n\\(\\{B,\\ F\\}\\)\n\n\n\n7\n\\(\\{E,\\ G\\}\\)\n\n\n\n\nUnits you forced, in order:  \n______ ⇒ ______ ⇒ ______ ⇒ ______ ⇒ ______ ⇒ ______\nWhat can you conclude?  \n_____________________________________________________\nHow do you know you are finished?  \n_____________________________________________________"
+  },
+  {
+    "objectID": "activities/lecture-07_activity.html#set-9",
+    "href": "activities/lecture-07_activity.html#set-9",
+    "title": "Unit Propagation",
+    "section": "",
+    "text": "Clause\nWorking\n\n\n\n\n1\n\\(\\{A,\\ C,\\ \\neg D,\\ E\\}\\)\n\n\n\n2\n\\(\\{\\neg B,\\ \\neg E\\}\\)\n\n\n\n3\n\\(\\{E,\\ G\\}\\)\n\n\n\n4\n\\(\\{\\neg A\\}\\)\n\n\n\n5\n\\(\\{A,\\ D\\}\\)\n\n\n\n6\n\\(\\{B,\\ \\neg F\\}\\)\n\n\n\n7\n\\(\\{A,\\ \\neg C,\\ \\neg D\\}\\)\n\n\n\n\nUnits you forced, in order:  \n______ ⇒ ______ ⇒ ______ ⇒ ______ ⇒ ______ ⇒ ______\nWhat can you conclude?  \n_____________________________________________________\nHow do you know you are finished?  \n_____________________________________________________"
+  },
+  {
+    "objectID": "activities/lecture-07_activity.html#set-10",
+    "href": "activities/lecture-07_activity.html#set-10",
+    "title": "Unit Propagation",
+    "section": "",
+    "text": "Clause\nWorking\n\n\n\n\n1\n\\(\\{\\neg B,\\ \\neg D,\\ E\\}\\)\n\n\n\n2\n\\(\\{C\\}\\)\n\n\n\n3\n\\(\\{\\neg B,\\ E\\}\\)\n\n\n\n4\n\\(\\{\\neg C,\\ F\\}\\)\n\n\n\n5\n\\(\\{B,\\ \\neg E\\}\\)\n\n\n\n6\n\\(\\{\\neg C,\\ \\neg F,\\ \\neg G\\}\\)\n\n\n\n7\n\\(\\{\\neg C,\\ D,\\ \\neg F,\\ G\\}\\)\n\n\n\n\nUnits you forced, in order:  \n______ ⇒ ______ ⇒ ______ ⇒ ______ ⇒ ______ ⇒ ______\nWhat can you conclude?  \n_____________________________________________________\nHow do you know you are finished?  \n_____________________________________________________"
+  },
+  {
+    "objectID": "activities/lecture-07_activity.html#set-11",
+    "href": "activities/lecture-07_activity.html#set-11",
+    "title": "Unit Propagation",
+    "section": "",
+    "text": "Clause\nWorking\n\n\n\n\n1\n\\(\\{\\neg A,\\ E,\\ F\\}\\)\n\n\n\n2\n\\(\\{\\neg B,\\ C,\\ D,\\ \\neg F\\}\\)\n\n\n\n3\n\\(\\{\\neg A,\\ E\\}\\)\n\n\n\n4\n\\(\\{\\neg B,\\ \\neg C\\}\\)\n\n\n\n5\n\\(\\{B\\}\\)\n\n\n\n6\n\\(\\{\\neg B,\\ C,\\ \\neg D\\}\\)\n\n\n\n7\n\\(\\{A,\\ \\neg E\\}\\)\n\n\n\n\nUnits you forced, in order:  \n______ ⇒ ______ ⇒ ______ ⇒ ______ ⇒ ______ ⇒ ______\nWhat can you conclude?  \n_____________________________________________________\nHow do you know you are finished?  \n_____________________________________________________"
+  },
+  {
+    "objectID": "activities/lecture-07_activity.html#set-12",
+    "href": "activities/lecture-07_activity.html#set-12",
+    "title": "Unit Propagation",
+    "section": "",
+    "text": "Clause\nWorking\n\n\n\n\n1\n\\(\\{A,\\ \\neg C\\}\\)\n\n\n\n2\n\\(\\{B,\\ E,\\ F\\}\\)\n\n\n\n3\n\\(\\{E,\\ \\neg F\\}\\)\n\n\n\n4\n\\(\\{\\neg A,\\ C,\\ G\\}\\)\n\n\n\n5\n\\(\\{\\neg B,\\ E,\\ F,\\ \\neg G\\}\\)\n\n\n\n6\n\\(\\{\\neg E\\}\\)\n\n\n\n7\n\\(\\{\\neg A,\\ C\\}\\)\n\n\n\n\nUnits you forced, in order:  \n______ ⇒ ______ ⇒ ______ ⇒ ______ ⇒ ______ ⇒ ______\nWhat can you conclude?  \n_____________________________________________________\nHow do you know you are finished?  \n_____________________________________________________"
+  },
+  {
+    "objectID": "activities/lecture-07_activity.html#set-13",
+    "href": "activities/lecture-07_activity.html#set-13",
+    "title": "Unit Propagation",
+    "section": "",
+    "text": "Clause\nWorking\n\n\n\n\n1\n\\(\\{A,\\ \\neg B,\\ E,\\ \\neg F\\}\\)\n\n\n\n2\n\\(\\{D,\\ G\\}\\)\n\n\n\n3\n\\(\\{\\neg E,\\ \\neg F\\}\\)\n\n\n\n4\n\\(\\{F\\}\\)\n\n\n\n5\n\\(\\{\\neg A,\\ E,\\ \\neg F\\}\\)\n\n\n\n6\n\\(\\{B,\\ \\neg D,\\ \\neg G\\}\\)\n\n\n\n7\n\\(\\{\\neg D,\\ \\neg G\\}\\)\n\n\n\n\nUnits you forced, in order:  \n______ ⇒ ______ ⇒ ______ ⇒ ______ ⇒ ______ ⇒ ______\nWhat can you conclude?  \n_____________________________________________________\nHow do you know you are finished?  \n_____________________________________________________"
+  },
+  {
     "objectID": "about.html",
     "href": "about.html",
     "title": "About",
@@ -1993,7 +2028,7 @@
     "href": "index.html#schedule",
     "title": "DSCI 220: Discrete Math for Data Science",
     "section": "Schedule",
-    "text": "Schedule\n\nBy weekBy unit\n\n\n\n\n\n\n\n  \n    \n      \n      \n        Classes\n      \n      \n    \n    \n      \n      \n      \n        Mon\n      \n      \n      \n        Wed\n      \n      \n      \n        Fri\n      \n      \n      \n        Tutorial\n      \n      \n      \n      \n        HWK\n      \n      \n      \n        EX\n      \n    \n    \n      \n      \n      \n      \n      \n      \n      \n      \n      \n    \n  \n  \n    \n      Part 1Topic to be decided\n\n    \n    Week 1starts Sep 7\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 2starts Sep 14\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 3starts Sep 21\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 1Sep 24–27Book Practice\n\n    Week 4starts Sep 28\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 5starts Oct 5\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 2Oct 8–11\n\n    \n      Part 2Topic to be decided\n\n    \n    Week 6starts Oct 12\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 7starts Oct 19\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 8starts Oct 26\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 3Oct 29 – Nov 1\n\n    Week 9starts Nov 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 10starts Nov 9\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    \n      Part 3Topic to be decided\n\n    \n    Week 11starts Nov 16\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 4Nov 19–22\n\n    Week 12starts Nov 23\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 13starts Nov 30\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 5Dec 3–6\n\n    Week 14starts Dec 7\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFinal examSun Dec 13\n\n  \n  \n\n\n\n\n\n\n\n  \n    \n      \n      \n        Classes\n      \n      \n    \n    \n      \n      \n      \n        Mon\n      \n      \n      \n        Wed\n      \n      \n      \n        Fri\n      \n      \n      \n        Tutorial\n      \n      \n      \n      \n        HWK\n      \n      \n      \n        EX\n      \n    \n    \n      \n      \n      \n      \n      \n      \n      \n      \n      \n    \n  \n  \n    \n      Part 1Topic to be decided\n\n    \n    Week 1starts Sep 7\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 2starts Sep 14\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 3starts Sep 21\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 1Sep 24–27Book Practice\n\n    Week 4starts Sep 28\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 5starts Oct 5\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 2Oct 8–11\n\n    \n      Part 2Topic to be decided\n\n    \n    Week 6starts Oct 12\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 7starts Oct 19\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 8starts Oct 26\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 3Oct 29 – Nov 1\n\n    Week 9starts Nov 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 10starts Nov 9\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    \n      Part 3Topic to be decided\n\n    \n    Week 11starts Nov 16\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 4Nov 19–22\n\n    Week 12starts Nov 23\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 13starts Nov 30\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 5Dec 3–6\n\n    Week 14starts Dec 7\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFinal examSun Dec 13\n\n  \n  \n\n\n\n\n\n\n\n\n\n\n\n  \n    \n      \n      \n      Slides\n      Activity\n      Video\n    \n  \n  \n    \n      Part 1Topic to be decidedWeek 1\n\n    \n    WedSep 9\n\nLecture 1Introduction\n\n\n\n\n    FriSep 11\n\nLecture 2Truth and Propositions\n\n\n\n\n    \n      Week 2\n    \n    MonSep 14\n\nLecture 3Logical Equivalences\n\n\n\n\n    WedSep 16\n\nLecture 4Implication\n\n\n\n\n    FriSep 18\n\nLecture 5Rules of Inference\n\n\n\n\n    1st slot\n\nPlaceholderTutorial 1\n\n\n\n\n    Due: SunSep 20\n\nPlaceholder Homework 1\n\n\n\n\n    \n      Week 3\n    \n    MonSep 21\n\nLecture 6Inference, continued\n\n\n\n\n    1st slot\n\nPlaceholderTutorial 2\n\n\n\n\n    Due: SunSep 27\n\nPlaceholderExam 1 Book Practice\n\n\n\n\n  \n  \n\n\n\n\n\n\n\n  \n    \n      \n      \n      Slides\n      Activity\n      Video\n    \n  \n  \n    \n      Part 1Topic to be decidedWeek 1\n\n    \n    WedSep 9\n\nLecture 1Introduction\n\n\n\n\n    FriSep 11\n\nLecture 2Truth and Propositions\n\n\n\n\n    \n      Week 2\n    \n    MonSep 14\n\nLecture 3Logical Equivalences\n\n\n\n\n    WedSep 16\n\nLecture 4Implication\n\n\n\n\n    FriSep 18\n\nLecture 5Rules of Inference\n\n\n\n\n    1st slot\n\nPlaceholderTutorial 1\n\n\n\n\n    Due: SunSep 20\n\nPlaceholder Homework 1\n\n\n\n\n    \n      Week 3\n    \n    MonSep 21\n\nLecture 6Inference, continued\n\n\n\n\n    1st slot\n\nPlaceholderTutorial 2\n\n\n\n\n    Due: SunSep 27\n\nPlaceholderExam 1 Book Practice",
+    "text": "Schedule\n\nBy weekBy unit\n\n\n\n\n\n\n\n  \n    \n      \n      \n        Classes\n      \n      \n    \n    \n      \n      \n      \n        Mon\n      \n      \n      \n        Wed\n      \n      \n      \n        Fri\n      \n      \n      \n        Tutorial\n      \n      \n      \n      \n        HWK\n      \n      \n      \n        EX\n      \n    \n    \n      \n      \n      \n      \n      \n      \n      \n      \n      \n      \n    \n  \n  \n    \n      Part 1Topic to be decided\n\n    \n    Week 1starts Sep 7\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 2starts Sep 14\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 3starts Sep 21\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 1Sep 24–27Book Practice\n\n    Week 4starts Sep 28\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 5starts Oct 5\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 2Oct 8–11\n\n    \n      Part 2Topic to be decided\n\n    \n    Week 6starts Oct 12\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 7starts Oct 19\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 8starts Oct 26\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 3Oct 29 – Nov 1\n\n    Week 9starts Nov 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 10starts Nov 9\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    \n      Part 3Topic to be decided\n\n    \n    Week 11starts Nov 16\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 4Nov 19–22\n\n    Week 12starts Nov 23\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 13starts Nov 30\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 5Dec 3–6\n\n    Week 14starts Dec 7\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFinal examSun Dec 13\n\n  \n  \n\n\n\n\n\n\n\n  \n    \n      \n      \n        Classes\n      \n      \n    \n    \n      \n      \n      \n        Mon\n      \n      \n      \n        Wed\n      \n      \n      \n        Fri\n      \n      \n      \n        Tutorial\n      \n      \n      \n      \n        HWK\n      \n      \n      \n        EX\n      \n    \n    \n      \n      \n      \n      \n      \n      \n      \n      \n      \n      \n    \n  \n  \n    \n      Part 1Topic to be decided\n\n    \n    Week 1starts Sep 7\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 2starts Sep 14\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 3starts Sep 21\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 1Sep 24–27Book Practice\n\n    Week 4starts Sep 28\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 5starts Oct 5\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 2Oct 8–11\n\n    \n      Part 2Topic to be decided\n\n    \n    Week 6starts Oct 12\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 7starts Oct 19\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 8starts Oct 26\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 3Oct 29 – Nov 1\n\n    Week 9starts Nov 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 10starts Nov 9\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    \n      Part 3Topic to be decided\n\n    \n    Week 11starts Nov 16\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 4Nov 19–22\n\n    Week 12starts Nov 23\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 13starts Nov 30\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 5Dec 3–6\n\n    Week 14starts Dec 7\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFinal examSun Dec 13\n\n  \n  \n\n\n\n\n\n\n\n\n\n\n\n  \n    \n      \n      \n      Slides\n      Activity\n      Video\n    \n  \n  \n    \n      Part 1Topic to be decidedWeek 1\n\n    \n    WedSep 9\n\nLecture 1Introduction\n\n\n\n\n    FriSep 11\n\nLecture 2Truth and Propositions\n\n\n\n\n    \n      Week 2\n    \n    MonSep 14\n\nLecture 3Logical Equivalences\n\n\n\n\n    WedSep 16\n\nLecture 4Implication\n\n\n\n\n    FriSep 18\n\nLecture 5Rules of Inference\n\n\n\n\n    1st slot\n\nPlaceholderTutorial 1\n\n\n\n\n    Due: SunSep 20\n\nPlaceholder Homework 1\n\n\n\n\n    \n      Week 3\n    \n    MonSep 21\n\nLecture 6Inference, continued\n\n\n\n\n    WedSep 23\n\nLecture 7Unit Propagation\n\n\n\n\n    FriSep 25\n\nLecture 8Predicates and Quantifiers\n\n\n\n\n    1st slot\n\nPlaceholderTutorial 2\n\n\n\n\n    Due: SunSep 27\n\nPlaceholderExam 1 Book Practice\n\n\n\n\n  \n  \n\n\n\n\n\n\n\n  \n    \n      \n      \n      Slides\n      Activity\n      Video\n    \n  \n  \n    \n      Part 1Topic to be decidedWeek 1\n\n    \n    WedSep 9\n\nLecture 1Introduction\n\n\n\n\n    FriSep 11\n\nLecture 2Truth and Propositions\n\n\n\n\n    \n      Week 2\n    \n    MonSep 14\n\nLecture 3Logical Equivalences\n\n\n\n\n    WedSep 16\n\nLecture 4Implication\n\n\n\n\n    FriSep 18\n\nLecture 5Rules of Inference\n\n\n\n\n    1st slot\n\nPlaceholderTutorial 1\n\n\n\n\n    Due: SunSep 20\n\nPlaceholder Homework 1\n\n\n\n\n    \n      Week 3\n    \n    MonSep 21\n\nLecture 6Inference, continued\n\n\n\n\n    WedSep 23\n\nLecture 7Unit Propagation\n\n\n\n\n    FriSep 25\n\nLecture 8Predicates and Quantifiers\n\n\n\n\n    1st slot\n\nPlaceholderTutorial 2\n\n\n\n\n    Due: SunSep 27\n\nPlaceholderExam 1 Book Practice",
     "crumbs": [
       "Course information",
       "Schedule"
@@ -2253,86 +2288,65 @@
   {
     "objectID": "slides/lecture-08_slides.html#announcements",
     "href": "slides/lecture-08_slides.html#announcements",
-    "title": "Reasoning",
+    "title": "Predicates and Quantifiers",
     "section": "Announcements",
-    "text": "Announcements\n\nEnroll in PrairieTest here: https://us.prairietest.com/pt/student/course/24076/enroll/238568773340\nSign up for EX1. Practice materials on PL.\nTutorials begin this week!"
+    "text": "Announcements\n\nEX1 is open — Thu 9/24 through Sun 9/27, self-scheduled in ORCA.\nOffice hours are now Tue 10:30–11:30, ICCS 233.\nHW2 is released Sunday, due Sun Oct 4."
   },
   {
-    "objectID": "slides/lecture-08_slides.html#design-a-trap",
-    "href": "slides/lecture-08_slides.html#design-a-trap",
-    "title": "Reasoning",
-    "section": "Design a Trap",
-    "text": "Design a Trap\nYour mission:\n- Write one valid two-premise argument (any rule).\n- Write a look-alike fallacy with the same topic words.\n- Bring to class on Wednesday morning!"
+    "objectID": "slides/lecture-08_slides.html#predicates",
+    "href": "slides/lecture-08_slides.html#predicates",
+    "title": "Predicates and Quantifiers",
+    "section": "Predicates",
+    "text": "Predicates\n\n\n\\(p\\): ___________ ate cereal for breakfast.\n\n\nWe may want to apply the statement to many students, so we define a predicate.\n\n\n\n\\(P(x)\\): \\(x\\) ate cereal for breakfast.\n\\(x\\) can be instantiated to a particular student, or an arbitrary one.\n\\(P(\\underline{\\hspace{2em}})\\) is a proposition.\n\n\nThe blank is the whole idea. A predicate is a proposition with a hole in it, and nothing is true or false until the hole is filled.\nGo back to row 1 with this: P(x) = x is a kitten, C(x) = x is a cat. Now the sentence has a shape – but it still is not a proposition, because x is still loose. That is the next section."
   },
   {
-    "objectID": "slides/lecture-08_slides.html#make-proofs-executable",
-    "href": "slides/lecture-08_slides.html#make-proofs-executable",
-    "title": "Reasoning",
-    "section": "Make proofs executable",
-    "text": "Make proofs executable\n\nYesterday: valid arguments as legal inference\nToday: address facts ⇒ conclusion algorithmically\nMethod: Refutation + Unit propagation\nBig picture: SAT/SMT ideas used in verification, chip design, planning\nWhy now? Logic provides clean specification layer even in a probabilistic world\n\n\nWe’ll mechanize yesterday’s arguments. We’ll encode ‘facts ⇒ conclusion’, flip the goal, and let unit propagation push us to a contradiction if the conclusion really follows. This is the heartbeat of SAT solvers.” “If A,B,C are facts and we add ¬D, what should happen if A∧B∧C→D?”"
+    "objectID": "slides/lecture-08_slides.html#cereal",
+    "href": "slides/lecture-08_slides.html#cereal",
+    "title": "Predicates and Quantifiers",
+    "section": "Cereal",
+    "text": "Cereal"
   },
   {
-    "objectID": "slides/lecture-08_slides.html#vocabulary",
-    "href": "slides/lecture-08_slides.html#vocabulary",
-    "title": "Reasoning",
-    "section": "Vocabulary",
-    "text": "Vocabulary\n\nStatement: something that is either true or false.\n\nFact: a statement we already know is true (we’ll draw it as a single-item parenthesis like \\((A)\\)).\n\nRule: “if these are true, then that is true.” Example: “If A and B, then E.”\n\nclause (OR-group): a group joined by “OR”, like \\((\\neg A \\lor \\neg B \\lor E)\\).\n\nCNF (AND of clauses): several OR-groups joined by “AND”.\n\nUnit clause: a clause with just one item, like \\((A)\\) or \\((\\neg D)\\).\n\nUnit propagation: if you know \\((X)\\) is true and you also have \\((\\neg X \\lor Y)\\), you may drop \\(\\neg X\\) and keep \\(Y\\). Now \\(Y\\) must be true!\n\n\nbrownie points for the rule at the end – DS"
+    "objectID": "slides/lecture-08_slides.html#boolean-masks",
+    "href": "slides/lecture-08_slides.html#boolean-masks",
+    "title": "Predicates and Quantifiers",
+    "section": "Boolean Masks",
+    "text": "Boolean Masks\nSelect all the cereals with at least 4 units of protein and no more than 6 units of sugars.\n\n\n\n\n\n\n\n\n\nAnswer: cereals[~p & ~q], or equivalently ~(p | q) – De Morgan, and worth running both to show they agree.\nTHE POINT OF THE SLIDE. By filtering, they are defining a predicate instantiated by each row and evaluating its truth value. Say that sentence.\np and q are not propositions here. “A cereal has less than 4 units of protein” is not true or false until you say WHICH cereal – and the frame says which, 77 times over. Each row fills the blank, and pandas hands back the column of answers. That column IS the predicate, evaluated.\nIn week 3 we asserted ~(p v q) for Cheerios without noticing the problem: there are four Cheerios in this file, and it holds for only one of them. Plain Cheerios is protein 6, sugars 1. Apple Cinnamon is 2 and 10, Honey Nut 3 and 10, Multi-Grain 2 and 6. Worth filtering for “Cheerio” in the name if someone wants to see it.\nNine of the 77 survive the filter."
   },
   {
-    "objectID": "slides/lecture-08_slides.html#explore-ubc",
-    "href": "slides/lecture-08_slides.html#explore-ubc",
-    "title": "Reasoning",
-    "section": "Explore UBC",
-    "text": "Explore UBC\n\n\nVariable Definitions\n\n\\(A\\): Clock Tower is lit up\n\\(B\\): Nest is alight\n\\(C\\): Koerner Library is illuminated\n\n\\(E\\): ICCS doors are unlocked\n\n\\(F\\): the Gallery is open\n\n\\(D\\): Main Mall is hopping!\n\n\nRulebook\n\n\\((A\\lor B\\lor C)\\) — At least one of the three landmarks is lit tonight.\n\n\\(A\\to E\\) — If Clock Tower is lit then ICCS is unlocked.\n\\(C\\to E\\) — If Koerner is lit then ICCS is unlocked.\n\\((B\\lor F)\\) — Either the Nest is lit, or the Gallery opens.\n\n\\((E\\land F)\\to D\\) — If ICCS unlocked and Gal opens then Mall hops.\n\\(B\\to D\\) — If the Nest is lit then Mall hops.\n\n\nGoal: Does \\(D\\) follow from the rulebook?"
+    "objectID": "slides/lecture-08_slides.html#quantified-predicates",
+    "href": "slides/lecture-08_slides.html#quantified-predicates",
+    "title": "Predicates and Quantifiers",
+    "section": "Quantified Predicates",
+    "text": "Quantified Predicates\nConsider the predicate\n       \\(H(x)\\): \\(x\\) is a hero\nIs this a proposition? ______\n\n\nWe add a quantifier to bind the variable:\n\n\n  \\(\\forall\\)   “for every”, “for all”\n  \\(\\exists\\)   “there exists”, “there is at least one”\n\n\n       \\(\\forall x\\, H(x)\\)    \\(\\exists x\\, H(x)\\)\n\n\nNow? ______\n\nNo, then yes. The variable is free in the first and bound in the second, and binding is what closes the hole.\nWorth saying: a quantifier needs a domain. “Everyone is a hero” – everyone in what? For the cereal frame the domain was the 77 rows, which is why we could just count."
   },
   {
-    "objectID": "slides/lecture-08_slides.html#a-smaller-example",
-    "href": "slides/lecture-08_slides.html#a-smaller-example",
-    "title": "Reasoning",
-    "section": "A Smaller Example",
-    "text": "A Smaller Example\n\n\nVariable Definitions\n\n\\(A\\): Lions Gate Bridge is illuminated\n\\(B\\): Science World dome is lit up\n\\(D\\): The Canucks are playing at Rogers Arena\n\n\nRulebook\n\n\\((A\\lor B)\\) — At least one city landmark is lit tonight.\n\\(A\\to D\\) — If Lions Gate is lit, the Canucks are at Rogers.\n\\(B\\to D\\) — If the dome is lit, the Canucks are at Rogers.\n\n\nGoal: Does \\(D\\) follow from the rulebook?"
+    "objectID": "slides/lecture-08_slides.html#counterexample",
+    "href": "slides/lecture-08_slides.html#counterexample",
+    "title": "Predicates and Quantifiers",
+    "section": "Counterexample",
+    "text": "Counterexample\nSomeone says “all comedians are funny,” and you disagree.\n\n\n       \\(\\forall x,\\ C(x) \\rightarrow F(x)\\)\nRefute by negating:\n       \\(\\neg\\forall x,\\ C(x) \\rightarrow F(x)\\)\n     \\(\\equiv \\exists x,\\ \\neg(C(x) \\rightarrow F(x))\\)\n     \\(\\equiv \\exists x,\\ \\neg(F(x) \\vee \\neg C(x))\\)\n     \\(\\equiv \\exists x,\\ \\neg F(x) \\wedge C(x)\\)\nYour immediate response: ______________________\n\n\nThis evidence of refutation is called a _______________.\n\n“No – what about THIS one?” You name a comedian who is not funny.\nCounterexample. And note what it takes: ONE. To refute a “for all” you need a single case, which is why the negation of a universal is an existential:\n~forall x P(x) == exists x ~P(x)\nThey met this shape in week 2 without knowing it – refuting “if you eat breakfast you ace the quiz” took exactly one morning where you did and did not."
   },
   {
-    "objectID": "slides/lecture-08_slides.html#making-a-plan",
-    "href": "slides/lecture-08_slides.html#making-a-plan",
-    "title": "Reasoning",
-    "section": "Making a plan",
-    "text": "Making a plan\nThree ways of thinking about the inference:\n\nApply sequences of rules to conclude \\(D\\).\nShow \\(((A\\lor B)\\land (A\\to D)\\land (B\\to D)) \\to D\\) is a Tautology\nShow \\(\\neg (((A\\lor B)\\land (A\\to D)\\land (B\\to D)) \\to D)\\) is a Contradiction\n\nBelieve it or not, we’re going to do the last one!!"
+    "objectID": "slides/lecture-08_slides.html#witness",
+    "href": "slides/lecture-08_slides.html#witness",
+    "title": "Predicates and Quantifiers",
+    "section": "Witness",
+    "text": "Witness\nSomeone says “there is a funny comedian,” and you disagree.\n\n\n       \\(\\exists x,\\ C(x) \\wedge F(x)\\)\n\n\nTheir immediate response: ______________________\n\n\nThis evidence of justification is called a _______________.\n\n\nAside: why not \\(\\exists x,\\ C(x) \\rightarrow F(x)\\)?\n\nThey name one. A witness.\nSo the asymmetry: one case SETTLES an existential and one case DESTROYS a universal. Neither can be settled the other way round without checking the whole domain – unless the domain is small enough to exhaust, which is exactly the distinction from lecture 1.\nThe aside: C(x) -&gt; F(x) is true whenever C(x) is FALSE, so “there exists x with C(x) -&gt; F(x)” is satisfied by any non-comedian. It claims almost nothing. With “exists” you want AND; with “for all” you want -&gt;. That pairing catches everyone once."
   },
   {
-    "objectID": "slides/lecture-08_slides.html#reframing-the-goal",
-    "href": "slides/lecture-08_slides.html#reframing-the-goal",
-    "title": "Reasoning",
-    "section": "Reframing the goal",
-    "text": "Reframing the goal\n\\[\\neg (((A\\lor B)\\land (A\\to D)\\land (B\\to D)) \\to D)\\]\n\n\n \n\n\nConjunctive Normal Form: ____________"
+    "objectID": "slides/lecture-08_slides.html#code-patterns",
+    "href": "slides/lecture-08_slides.html#code-patterns",
+    "title": "Predicates and Quantifiers",
+    "section": "Code Patterns",
+    "text": "Code Patterns\n\n\n\n\n\n\n\nThe loops ARE the definitions. forall walks the domain looking for a counterexample and returns the first it finds; exists walks it looking for a witness. Blanks:\nforall: if not P(x): return False, x then return True, None exists: if P(x): return True, x then return False, None\nNote what each returns on failure – a counterexample for forall, nothing for exists. That asymmetry is the previous two slides, in code."
   },
   {
-    "objectID": "slides/lecture-08_slides.html#resolve-away",
-    "href": "slides/lecture-08_slides.html#resolve-away",
-    "title": "Reasoning",
-    "section": "Resolve Away!",
-    "text": "Resolve Away!\n\\(\\{\\neg D\\}\\)\n\\(\\{A, B\\}\\)\n\\(\\{D, \\neg A\\}\\)\n\\(\\{D, \\neg B\\}\\)"
-  },
-  {
-    "objectID": "slides/lecture-08_slides.html#main-mall-midnight",
-    "href": "slides/lecture-08_slides.html#main-mall-midnight",
-    "title": "Reasoning",
-    "section": "Main Mall Midnight",
-    "text": "Main Mall Midnight\n\n\nSetup\n\nLay out the rule cards face up.\nPut the refutation card \\((\\neg D)\\) in a small Unit inbox.\nMake three spots: Clauses (the rule cards), Unit inbox, Finished units.\nAssign roles: Reader, Marker, Checker, Scribe.\n\nRoles\n\nReader: says the current unit aloud (start with \\((\\neg D)\\)).\nMarker: crosses out literals; rewrites reduced clauses.\nChecker: watches for new units and clash.\nScribe: records the sequence of units forced (e.g., \\(\\neg D \\Rightarrow \\neg B \\Rightarrow \\cdots\\)).\n\n\n\nGameplay loop (repeat)\n\nPick the next unit \\((u)\\) from the inbox (start with \\((\\neg D)\\)).\nSweep every clause once (one round):\n\nIf the clause contains \\(u\\): it’s satisfied, remove that card.\nIf the clause contains \\(\\neg u\\): cross out \\(\\neg u\\).\n\nIf nothing remains, \\(\\bot\\) (CLASH) → you win.\nIf one literal remains \\((v)\\), place it in the Unit inbox.\nIf 2+ literals remain, keep the reduced clause on the table.\n\nIf it mentions neither \\(u\\) nor \\(\\neg u\\): leave it as is.\n\nAfter the sweep, move \\(u\\) to Finished units. Go back to step 1.\n\n\n\nWin condition: You produce \\(\\bot\\) (empty clause) or you later pick a unit that contradicts a finished one (e.g., you pick \\((B)\\) but Finished already has \\((\\neg B)\\)).\nIf stuck: The Unit inbox is empty and no clause is a single literal → raise your hand (forward chaining has stalled).\nScribe line (to turn in): \\(\\neg D \\Rightarrow \\ldots \\Rightarrow \\bot\\) (list units in the order you derived them)."
-  },
-  {
-    "objectID": "slides/lecture-08_slides.html#todays-python",
-    "href": "slides/lecture-08_slides.html#todays-python",
-    "title": "Reasoning",
-    "section": "today’s python",
-    "text": "today’s python"
-  },
-  {
-    "objectID": "slides/lecture-08_slides.html#does-this-always-work",
-    "href": "slides/lecture-08_slides.html#does-this-always-work",
-    "title": "Reasoning",
-    "section": "Does this always work?",
-    "text": "Does this always work?\nWorks great for: rulebooks where each clause has only 1 positive unit (Horn)\nCan stall on: non-Horn, symmetric choice, more complex domains.\nStall example (unsatisfiable, no units): \\[\n(A\\vee B)\\wedge(A\\vee \\neg B)\\wedge(\\neg A\\vee B)\\wedge(\\neg A\\vee \\neg B)\n\\]\n\nNo unit clauses → our method can’t start.\nIt’s actually unsatisfiable but needs a branch to detect. (try (A) or (A)).\n\nTakeaway: Propagation finds what’s locally forced.\nWhen nothing is locally forced, we need case splits or stronger rules."
+    "objectID": "slides/lecture-08_slides.html#words-and-ideas",
+    "href": "slides/lecture-08_slides.html#words-and-ideas",
+    "title": "Predicates and Quantifiers",
+    "section": "Words and Ideas",
+    "text": "Words and Ideas\nPredicate, instantiation\nFree and bound variables\nDomain\n\\(\\forall\\), \\(\\exists\\)\nCounterexample, witness"
   },
   {
     "objectID": "slides/lecture-10_slides.html#announcements",
