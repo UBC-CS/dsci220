@@ -107,10 +107,14 @@ get_schedule <- function() {
         .default = FALSE
       ),
       next_exam = dplyr::if_else(unit == "exam", date, NA),
+      # Exam rows surface three weeks ahead so the Book button is there before
+      # students need it. PrairieTest sittings open whenever they are created,
+      # which is not a fixed offset -- 13 days was too tight, and left EX2
+      # bookable for five days before the site offered a link to book it.
       show_exam = dplyr::between(
         next_exam,
         current_date,
-        current_date + lubridate::days(13)
+        current_date + lubridate::days(21)
       ),
       .after = slot
     ) |>
