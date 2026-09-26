@@ -1,0 +1,40 @@
+---
+title: "Stash — the sudoku proof examples"
+subtitle: "Pulled out of lecture 10 on 2026-09-26. Available for week 5 if still wanted."
+---
+
+<!-- Cinda: "the lesson has plenty without sudoku. if it's still relevant (i.e.
+     if we can't think of a better example) we can move to monday."
+
+     Both images are in images/ and render. The direct one asks: for any
+     solution to the mini sudoku, if r1c1 is 2 then r4c4 is 2. The
+     contrapositive one is its partner. They were written for a class slot,
+     not a video. -->
+
+## $\to$ Example Direct
+
+Prove that for any solution to the mini sudoku puzzle below, if the solution has a 2 in the top-left square (r1c1), then it will contain a 2 in the bottom-right square (r4c4).
+
+::: notes
+scrutinize form of statement
+:::
+
+![](/images/sudokupf1.png)
+
+## $\leftrightsquigarrow$ Example Contrapositive
+
+::::: columns
+
+::: {.column width="20%"}
+![](/images/sudokupf2.png)
+:::
+
+::: {.column width="80%"}
+Game rule: each 2x2 box contains one of 1, 2, 3, and 4. 
+
+Theorem: For any valid Sudoku solution, if A and B and C are not 4, then D is 4. 
+:::
+:::::
+
+Contrapositive:
+

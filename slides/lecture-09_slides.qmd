@@ -10,6 +10,9 @@ subtitle: "Lecture 9, {{< var course.code >}}, {{< var course.term >}}"
 * **No class Wednesday** — National Day for Truth and Reconciliation.
 * HW2 is out, due **Sun Oct 4**.
 
+Warm-up: Introduce yourself to a classmate you haven't met yet. Ask them one question about their life, and tell them one thing about yours. 
+
+
 # Nested Quantifiers
 
 ## More Than One
