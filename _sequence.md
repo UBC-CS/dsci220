@@ -40,7 +40,7 @@ propositional inference, then universal generalization. Lecture 9 opens with
 | | | | ⟵ EX1 window closes. **EX1 = propositional logic, entire** |
 | L6–L7 | Sep 21, 23 | class | **Resolution** — 74 min of material, so two slots |
 | L8 | Fri Sep 25 | video | **Predicates + Boolean masks + quantifiers** — 57 min |
-| L9 | Mon Sep 28 | class | **Nested quantifiers** — built 2026-09-26 |
+| L9 | Mon Sep 28 | class | **Nested quantifiers** — opens with L8's Code Patterns cell, which the video ran out before |
 | | Wed Sep 30 | — | Truth and Reconciliation, no class |
 | L10 | Fri Oct 2 | video | **Proofs** — all four techniques. Predicate inference lands here, not L9 |
 | L11 | Mon Oct 5 | class | not written |
