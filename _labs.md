@@ -57,13 +57,28 @@ Both repos are git, so review happens through normal commits and pull requests.
 
 L1C is cancelled.
 
+### Tutorial 3 — L1A does it on their own
+
+Sep 30 is the National Day for Truth and Reconciliation, so **L1A does not
+meet** that week. Decided 2026-09-26: Noah builds tutorial 3, it goes to staff
+meeting Monday Sep 28 and deploys Tuesday Sep 29, and L1A students complete it
+on their own.
+
+That works because a tutorial here is a week-long PrairieLearn assessment with
+a Sunday deadline, not two hours of in-room work — tutorial 1 ran Sep 13–20 and
+tutorial 2 ran Sep 22–27. L1A loses the TA contact, not the marks, so there is
+nothing to do to the gradebook.
+
+**Open for Monday:** the Tutorial 2 pattern would make this due Sun Oct 4,
+which is also when HW2 is due. Oct 6 or 7 avoids the pile-up.
+
 ## Tracker
 
 | Lab | Week | Tue / Wed | Owner | Draft | Signed off | Notes |
 |--:|--:|---|---|---|---|---|
 | 1 | 2 | Sep 15 / Sep 16 | **Cinda** |  |  |  |
 | 2 | 3 | Sep 22 / Sep 23 |  |  |  |  |
-| 3 | 4 | Sep 29 / Sep 30 |  |  |  | Wed section cancelled (Sep 30) |
+| 3 | 4 | Sep 29 / Sep 30 | **Noah** |  |  | See below |
 | 4 | 5 | Oct 6 / Oct 7 |  |  |  |  |
 | 5 | 7 | Oct 20 / Oct 21 |  |  |  |  |
 | 6 | 8 | Oct 27 / Oct 28 |  |  |  |  |
