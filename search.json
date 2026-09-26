@@ -1370,7 +1370,7 @@
     "href": "slides/lecture-09_slides.html#announcements",
     "title": "Nested Quantifiers",
     "section": "Announcements",
-    "text": "Announcements\n\nEX1 is marked. EX2 is Thu 10/8 through Sun 10/11.\nPractice problems for EX2 go up Wednesday night.\nNo class Wednesday — National Day for Truth and Reconciliation.\nHW2 is out, due Sun Oct 4."
+    "text": "Announcements\n\nEX1 is marked. EX2 is Thu 10/8 through Sun 10/11.\nPractice problems for EX2 go up Wednesday night.\nNo class Wednesday — National Day for Truth and Reconciliation.\nHW2 is out, due Sun Oct 4.\n\nWarm-up: Introduce yourself to a classmate you haven’t met yet. Ask them one question about their life, and tell them one thing about yours."
   },
   {
     "objectID": "slides/lecture-09_slides.html#more-than-one",
@@ -2316,79 +2316,65 @@
   {
     "objectID": "slides/lecture-10_slides.html#announcements",
     "href": "slides/lecture-10_slides.html#announcements",
-    "title": "Arguments, continued",
+    "title": "Proofs",
     "section": "Announcements",
-    "text": "Announcements"
+    "text": "Announcements\n\nEX2 is next week, Thu 10/8 through Sun 10/11. It covers through today.\nPractice problems are on PrairieLearn.\nHW2 is due Sun Oct 4."
   },
   {
-    "objectID": "slides/lecture-10_slides.html#todays-goals",
-    "href": "slides/lecture-10_slides.html#todays-goals",
-    "title": "Arguments, continued",
-    "section": "Today’s goals",
-    "text": "Today’s goals\n\nRecognize the form of common proof techniques \\(\\to\\), \\(\\leftrightsquigarrow\\), \\(\\bot\\), ⊞\nWrite short proofs using \\(\\bot\\), and ⊞.\n\n\nKeep everything tiny. Focus on first line (assume/goal), the key move, last line (therefore)."
+    "objectID": "slides/lecture-10_slides.html#you-have-been-writing-them",
+    "href": "slides/lecture-10_slides.html#you-have-been-writing-them",
+    "title": "Proofs",
+    "section": "You Have Been Writing Them",
+    "text": "You Have Been Writing Them\nA proof is a finite chain of statements that\n\nstarts from assumptions and definitions\nmoves by valid rules\nends with the claim\n\n\n\nEvery one of those you already have. The rules are the ten on your Formula Sheet. What is new today is only the shape of the chain.\n\nSay plainly that nothing new arrives today except vocabulary and habit. They have had the rules since Friday of week 2, the quantifiers since week 3, and they spent Monday deciding whether nested statements were true.\nThe one genuinely new idea is on the next two slides: what “for all” does to the START of a proof."
   },
   {
-    "objectID": "slides/lecture-10_slides.html#what-is-a-proof",
-    "href": "slides/lecture-10_slides.html#what-is-a-proof",
-    "title": "Arguments, continued",
-    "section": "What is a proof?",
-    "text": "What is a proof?\nA clear, finite chain of statements that:\n\nstarts from assumptions/definitions\nuses valid rules\nends with the claim\n\nWe’ll practice four approaches for \\(P\\to Q\\) (first 2 earlier, second 2 now):\n\n\\(\\to\\) Direct: assume the hypothesis, derive the conclusion\n\n\\(\\leftrightsquigarrow\\) Contrapositive: prove \\(\\neg Q\\to\\neg P\\) instead of \\(P\\to Q\\)\n\n\\(\\bot\\) Contradiction: assume \\(P\\) and \\(\\neg Q\\); reach False\n\n⊞ Cases: split into exhaustive cases; prove \\(Q\\) for each"
+    "objectID": "slides/lecture-10_slides.html#first-proof",
+    "href": "slides/lecture-10_slides.html#first-proof",
+    "title": "Proofs",
+    "section": "First Proof",
+    "text": "First Proof\nTheorem: For any integers \\(a\\) and \\(b\\), if \\(ab\\) is even, then \\(a\\) is even or \\(b\\) is even.\n\n\nImportant definition:\n   An integer \\(a\\) is even iff ______________________\n\nAn integer a is even iff there is an integer k with a = 2k.\nWrite it as an EXISTENTIAL. They will need it as one on the next slide, and it is the first time a definition has been a quantified statement rather than a word."
   },
   {
-    "objectID": "slides/lecture-10_slides.html#warm-up-1",
-    "href": "slides/lecture-10_slides.html#warm-up-1",
-    "title": "Arguments, continued",
-    "section": "Warm Up 1",
-    "text": "Warm Up 1\nClaim: for all integers \\(a\\) and \\(b\\), if \\((a+b)\\) is odd, then \\(a\\) is odd or \\(b\\) is odd.\n\n\\(\\to\\) or \\(\\leftrightsquigarrow\\)?\n\n\n\n\nProof: Consider…"
+    "objectID": "slides/lecture-10_slides.html#technical-rewrite",
+    "href": "slides/lecture-10_slides.html#technical-rewrite",
+    "title": "Proofs",
+    "section": "Technical Rewrite",
+    "text": "Technical Rewrite\n\n\\(\\forall a,b\\in \\mathbb{Z}\\)\n    \\(( (\\exists k\\in\\mathbb{Z}, ab=2k) \\to ((\\exists j\\in\\mathbb{Z}, a = 2j) \\lor (\\exists j\\in\\mathbb{Z}, b=2j)))\\)\n\n\n\nYou cannot check every pair. So how does a proof of a \\(\\forall\\) statement start?\n\n\n____________________________________________\n\n“Proof: Consider arbitrary integers a and b …”\nTHIS IS THE SLIDE. Nothing about the domain is exhaustible, so you cannot verify a for-all by checking. Instead you take ONE, chosen arbitrarily, and argue about it in a way that uses nothing particular about it – and then the argument applies to every one.\nThat move has a name: universal instantiation going in, universal generalization coming out. Between them sits ordinary propositional inference, which they have had for three weeks.\nSo the whole template is:\ntake arbitrary x  -&gt;  assume P(x)  -&gt;  derive Q(x)  -&gt;  conclude forall x (P(x) -&gt; Q(x))\nSay that out loud, then say that this is what a proof IS. They have had every piece since week 2 and have never seen them assembled."
   },
   {
-    "objectID": "slides/lecture-10_slides.html#warm-up-2",
-    "href": "slides/lecture-10_slides.html#warm-up-2",
-    "title": "Arguments, continued",
-    "section": "Warm Up 2",
-    "text": "Warm Up 2\nClaim: for all integers \\(a\\), if \\(a^2\\) is even, then \\(a\\) is even.\n\n\\(\\to\\) or \\(\\leftrightsquigarrow\\)?\n\n\n\n\nProof: Consider…"
+    "objectID": "slides/lecture-10_slides.html#which-are-valid-arguments",
+    "href": "slides/lecture-10_slides.html#which-are-valid-arguments",
+    "title": "Proofs",
+    "section": "Which are valid arguments?",
+    "text": "Which are valid arguments?\nFour attempts at the theorem above. Stop the video and decide about each before I do.\n\nPf1: Suppose \\(a\\) and \\(b\\) are odd. Then there are integers \\(k\\) and \\(j\\) so \\(a=2k+1\\) and \\(b=2j+1\\). Then \\(ab=(2k+1)(2j+1) = 2(2jk + j + k) +1\\). Since \\(2jk+j+k\\) is an integer, \\(ab\\) is odd.\nPf2: Assume \\(a\\) or \\(b\\) is even. Suppose \\(a\\) is even – the argument is the same if it is \\(b\\). Then \\(ab=2kb\\) for some \\(k\\), and thus \\(ab\\) is even.\nPf3: Suppose that \\(ab\\) is even but \\(a\\) and \\(b\\) are both odd. Namely, \\(ab=2n\\), \\(a=2k+1\\), and \\(b=2j+1\\), for some integers \\(n\\), \\(j\\), and \\(k\\). Then \\(2n=(2k+1)(2j+1)\\) and \\(n = 2jk + k + j + 1/2\\) which is a contradiction.\nPf4: Let \\(ab\\) be an even number, say \\(ab=2n\\), and \\(a\\) be an odd number, say \\(a=2k+1\\). Then \\(2n = (2k+1)b\\) and thus \\(b=2(n-kb)\\) and \\(b\\) is even.\n\n\nexistential instantiation"
   },
   {
     "objectID": "slides/lecture-10_slides.html#proof-skeleton-cards",
     "href": "slides/lecture-10_slides.html#proof-skeleton-cards",
-    "title": "Arguments, continued",
+    "title": "Proofs",
     "section": "Proof Skeleton Cards",
     "text": "Proof Skeleton Cards\n\n\n\\(\\to\\) Direct Proof of \\(P\\to Q\\)\n\nAssume \\(P\\).\nReason – Unpack definitions / apply given rules to derive needed facts from \\(P\\).\n… Therefore \\(Q\\).\n\n\n\n\\(\\leftrightsquigarrow\\) Contrapositive Proof of \\(P\\to Q\\)\n\nAssume \\(\\neg Q\\)\nUse rules/definitions that match \\(\\neg Q\\) to drive toward \\(\\neg P\\).\n… Therefore \\(\\neg Q\\to\\neg P\\), and thus \\(P\\to Q\\).\n\n\n\n\n\n\\(\\bot\\) Contradiction Proof of \\(P\\to Q\\)\n\nAssume \\(P\\) and \\(\\neg Q\\).\nReason – Unpack definitions / apply given rules to derive needed facts from \\(P\\land \\neg Q\\), watch for contradiction (\\(a\\land\\neg a\\)).\n… Therefore \\(\\bot\\), and our assumption of \\(\\neg Q\\) must be false, so \\(P\\to Q\\).\n\n\n\n⊞ Cases Proof of \\(P\\to Q\\)\n\nPartition \\(P\\) into cases \\(P_1\\), \\(P_2\\), etc. covering all possibilities.\nFor each \\(P_k\\), show that \\(P_k\\to Q\\).\n… Therefore, in each case \\(Q\\), and \\(P\\to Q\\)."
   },
   {
-    "objectID": "slides/lecture-10_slides.html#bot-example-contradiction",
-    "href": "slides/lecture-10_slides.html#bot-example-contradiction",
-    "title": "Arguments, continued",
-    "section": "\\(\\bot\\) Example Contradiction",
-    "text": "\\(\\bot\\) Example Contradiction\nProve that any solution to the mini sudoku puzzle below must contain a 3 in the top right corner (r1c4).\n\nscrutinize form of statement"
+    "objectID": "slides/lecture-10_slides.html#to-pause-and-try-direct",
+    "href": "slides/lecture-10_slides.html#to-pause-and-try-direct",
+    "title": "Proofs",
+    "section": "\\(\\to\\) Pause and Try: Direct",
+    "text": "\\(\\to\\) Pause and Try: Direct\nLet \\(T_n = \\frac{n(n+1)}{2}\\) be the \\(n\\)th triangular number, \\(T_1=1\\), \\(T_2=3\\), etc.\nA glow number is any integer that can be written as the sum of two consecutive triangular numbers:\n\\[𝑔=𝑇_𝑘+𝑇_{𝑘+1}\\] ​ Theorem: every glow number is a perfect square.\nStop the video here and try it. Then start it again and we will do it together.\nProof: Consider an arbitrary glow number \\(g\\).\n \n \n \n \n \n \n… therefore \\(g\\) is a perfect square.\n\nis the converse true?"
   },
   {
-    "objectID": "slides/lecture-10_slides.html#bot-our-turn-contradiction",
-    "href": "slides/lecture-10_slides.html#bot-our-turn-contradiction",
-    "title": "Arguments, continued",
-    "section": "\\(\\bot\\) Our Turn Contradiction",
-    "text": "\\(\\bot\\) Our Turn Contradiction\nClaim: \\(\\sqrt 2\\) is irrational.\nProof: (CLASSIC) Suppose by way of contradiction that \\(\\sqrt 2\\) is rational. Then…"
+    "objectID": "slides/lecture-10_slides.html#leftrightsquigarrow-pause-and-try-contrapositive",
+    "href": "slides/lecture-10_slides.html#leftrightsquigarrow-pause-and-try-contrapositive",
+    "title": "Proofs",
+    "section": "\\(\\leftrightsquigarrow\\) Pause and Try: Contrapositive",
+    "text": "\\(\\leftrightsquigarrow\\) Pause and Try: Contrapositive\nDefinitions:\n\nA number \\(n\\) is even if there is an integer \\(k\\) such that \\(n=2k\\).\nA number \\(n\\) is odd if there is an integer \\(k\\) such that \\(n=2k+1\\).\n\nTheorem: If \\(3n+2\\) is odd, then \\(n\\) is odd.\n\n\nStop the video, try it, then come back.\n\nDirect fails: from 3n+2 = 2k+1 you get n = (2k-1)/3, which says nothing useful. The contrapositive is the move – assume n is even, n = 2j, then 3n+2 = 6j+2 = 2(3j+1), which is even. Done.\nWorth saying WHY direct stalls before showing the contrapositive. The point of having four techniques is that the first one you reach for does not always go through."
   },
   {
-    "objectID": "slides/lecture-10_slides.html#example-cases",
-    "href": "slides/lecture-10_slides.html#example-cases",
-    "title": "Arguments, continued",
-    "section": "⊞ Example Cases",
-    "text": "⊞ Example Cases\nClaim: \\(n^3 - n\\) is divisible by ___.\nOverview:"
-  },
-  {
-    "objectID": "slides/lecture-10_slides.html#proof-part-1-divisible-by-___",
-    "href": "slides/lecture-10_slides.html#proof-part-1-divisible-by-___",
-    "title": "Arguments, continued",
-    "section": "⊞ Proof Part 1 (Divisible by ___):",
-    "text": "⊞ Proof Part 1 (Divisible by ___):\nConsider an arbitrary \\(n\\). Then one of the following must be true\n\nCase A: \\(n=3k\\)\n\n\n\n\nCase B: \\(n=3k+1\\)\n\n\n\n\nCase C: \\(n=3k+2\\)\n\n\n\nIn all 3 cases, \\(n^3-n\\) is divisible by ___."
-  },
-  {
-    "objectID": "slides/lecture-10_slides.html#proof-part-2-divisible-by-___",
-    "href": "slides/lecture-10_slides.html#proof-part-2-divisible-by-___",
-    "title": "Arguments, continued",
-    "section": "⊞ Proof Part 2 (Divisible by ___):",
-    "text": "⊞ Proof Part 2 (Divisible by ___):\nConsider an arbitrary \\(n\\). Then one of the following must be true\n\nCase A: \\(n=2k\\)\n\n\n\n\nCase B: \\(n=2k+1\\)\n\n\n\nIn all 2 cases, \\(n^3-n\\) is divisible by ___.\nConclusion: 2 and 3 are factors of \\(n^3-n\\) so 6 must be a factor!"
+    "objectID": "slides/lecture-10_slides.html#words-and-ideas",
+    "href": "slides/lecture-10_slides.html#words-and-ideas",
+    "title": "Proofs",
+    "section": "Words and Ideas",
+    "text": "Words and Ideas\nProof\nArbitrary element\nUniversal instantiation, universal generalization\nDirect proof\nProof by contrapositive"
   },
   {
     "objectID": "slides/lecture-12_slides.html#announcements",
