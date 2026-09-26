@@ -351,6 +351,121 @@
           display:block!important;
       }</style></aside>
 </section>
+<section id="bot-pause-and-try-contradiction" class="slide level2 smaller">
+<h2><span class="math inline">\(\bot\)</span> Pause and Try: Contradiction</h2>
+<p>Claim: <span class="math inline">\(\sqrt 2\)</span> is irrational.</p>
+<p><br>
+</p>
+<p>Proof: Suppose, for contradiction, that <span class="math inline">\(\sqrt 2\)</span> <strong>is</strong> rational. Then there are integers <span class="math inline">\(p\)</span> and <span class="math inline">\(q\)</span>, sharing no common factor, with <span class="math inline">\(\sqrt 2 = p/q\)</span>.</p>
+<p><br>
+</p>
+<p><strong>Stop the video and push it as far as you can.</strong></p>
+<aside class="notes">
+<p>Square both sides: 2 = p<sup>2/q</sup>2, so p^2 = 2q^2, so p^2 is even, so p is even – that last step needs the theorem from the start of this lecture, ab even implies a or b even, with a = b = p.&nbsp;Say so; it is the callback.</p>
+<p>Write p = 2r. Then 4r^2 = 2q^2, so q^2 = 2r^2, so q is even too. But p and q were chosen with no common factor, and both are even. Contradiction.</p>
+<p>The shape to point at: we never showed sqrt 2 is irrational directly. We showed that supposing otherwise breaks. Same move as adding the negated conclusion and hunting for the empty clause – which they did all last week.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="proof-by-cases" class="slide level2 smaller">
+<h2>⊞ Proof by Cases</h2>
+<p>Claim: <span class="math inline">\(n^3 - n\)</span> is divisible by ___ , for every integer <span class="math inline">\(n\)</span>.</p>
+<p><br>
+</p>
+<p>First, factor it: $n^3 - n = $ ____________________</p>
+<p><br>
+</p>
+<p>Overview: ____________________________________</p>
+<aside class="notes">
+<p>Divisible by 6. Factors as n(n-1)(n+1) – three consecutive integers.</p>
+<p>Overview: show 3 divides it, show 2 divides it, and since 3 and 2 share no factor, 6 divides it. Two separate case analyses, which is why the next two slides exist.</p>
+<p>Verified for every n from -20 to 20.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="divisible-by-3" class="slide level2 smaller">
+<h2>⊞ Divisible by 3</h2>
+<p>Consider an arbitrary <span class="math inline">\(n\)</span>. One of these must hold:</p>
+<ul>
+<li>Case A: <span class="math inline">\(n=3k\)</span>    then __________ is divisible by 3</li>
+</ul>
+<p><br>
+</p>
+<ul>
+<li>Case B: <span class="math inline">\(n=3k+1\)</span>   then __________ is divisible by 3</li>
+</ul>
+<p><br>
+</p>
+<ul>
+<li>Case C: <span class="math inline">\(n=3k+2\)</span>   then __________ is divisible by 3</li>
+</ul>
+<p><br>
+</p>
+<p>In all three cases, <span class="math inline">\(n^3-n\)</span> is divisible by 3.</p>
+<aside class="notes">
+<p>A: n itself. B: n-1 = 3k. C: n+1 = 3k+3.</p>
+<p>The cases have to be EXHAUSTIVE, and that is the only thing that makes this work – every integer is one of those three. Worth saying that choosing the right partition is the whole skill.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="divisible-by-2" class="slide level2 smaller">
+<h2>⊞ Divisible by 2</h2>
+<p>Consider an arbitrary <span class="math inline">\(n\)</span>. One of these must hold:</p>
+<ul>
+<li>Case A: <span class="math inline">\(n=2k\)</span>    then __________ is even</li>
+</ul>
+<p><br>
+</p>
+<ul>
+<li>Case B: <span class="math inline">\(n=2k+1\)</span>   then __________ is even</li>
+</ul>
+<p><br>
+</p>
+<p><br>
+</p>
+<p>So 2 and 3 both divide <span class="math inline">\(n^3-n\)</span>, and therefore _______ does.</p>
+<aside class="notes">
+<p>A: n itself. B: both n-1 and n+1.</p>
+<p>Final blank: 6. It needs 2 and 3 to share no common factor – worth saying out loud, because “divisible by 2 and by 3” does not in general give “divisible by 6” if the two numbers share a factor. Compare 4 and 6: divisible by both does not mean divisible by 24.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
 <section id="words-and-ideas" class="slide level2">
 <h2>Words and Ideas</h2>
 <p>Proof</p>
@@ -358,6 +473,8 @@
 <p>Universal instantiation, universal generalization</p>
 <p>Direct proof</p>
 <p>Proof by contrapositive</p>
+<p>Proof by contradiction</p>
+<p>Proof by cases, exhaustive cases</p>
 
 
 <script type="ojs-module-contents">
