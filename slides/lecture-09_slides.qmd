@@ -1,387 +1,171 @@
 ---
-title: "Arguments"
+title: "Nested Quantifiers"
 subtitle: "Lecture 9, {{< var course.code >}}, {{< var course.term >}}"
 ---
 
-## Announcements 
+## Announcements {.smaller}
 
-<https://ubc.ca1.qualtrics.com/jfe/form/SV_3QzmcmE8HZRhwWi>
+* **EX1 is marked.** EX2 is Thu 10/8 through Sun 10/11.
+* Practice problems for EX2 go up **Wednesday night**.
+* **No class Wednesday** — National Day for Truth and Reconciliation.
+* HW2 is out, due **Sun Oct 4**.
 
-{{< qrcode https://ubc.ca1.qualtrics.com/jfe/form/SV_3QzmcmE8HZRhwWi >}}
+# Nested Quantifiers
 
+## More Than One
 
-
-# Reasoning
-
-## Explore UBC {.smaller}
-
-::::: columns 
-
-:::  {.column width="40%"}
-
-**Variable Definitions**
-
-- **$A$**: Clock Tower is lit up
-- **$B$**: Nest is alight 
-- **$C$**: Koerner Library is illuminated  
-- **$E$**: ICCS doors are unlocked  
-- **$F$**: the Gallery is open  
-- **$D$**: Main Mall is hopping!
-
-:::
-
-:::  {.column width="60%"}
-
-**Rulebook**
-
-1) **$(A\lor B\lor C)$** — At least one of the three landmarks is lit tonight.   
-2) **$A\to E$** — If Clock Tower is lit then ICCS is unlocked.
-3) **$C\to E$** — If Koerner is lit then ICCS is unlocked. 
-4) **$(B\lor F)$** — Either the Nest is lit, or the Gallery opens.  
-5) **$(E\land F)\to D$** — If ICCS unlocked **and** Gal opens then Mall hops. 
-6) **$B\to D$** — If the Nest is lit then Mall hops. 
-
-:::
-:::::
-**Goal:** Does **$D$** follow from the rulebook? 
-
-**Answer:** yes, using unit propagation, as illustrated by table activity.
-
-## today's python
-
-``` {pyodide}
-#| setup: true
-#| exercise: ex_prop
-
-from collections import deque
-
-# ---------- tiny pretty-printers for breadcrumbs ----------
-def lit_str(lit: int) -> str:
-    return f"¬{abs(lit)}" if lit < 0 else f"{lit}"
-
-def clause_str(cl: set[int]) -> str:
-    return "(" + " ∨ ".join(lit_str(x) for x in sorted(cl, key=lambda z: (abs(z), z < 0))) + ")"
-```
-
-``` {pyodide}
-#| exercise: ex_prop
-
-# ---------- helper: pop the next unit by cycling once through Q ----------
-def pop_next_unit(Q: deque[set[int]], breadcrumbs: list[str]):
-    """
-    Rotate through Q once to find a 1-literal clause.
-    If found: remove it, record breadcrumb, and return its literal; else None.
-    """
-    n = len(Q)
-    for _ in range(n):
-        c = Q.popleft()
-        if len(c) == 1:
-            u = set(c).pop()  # singleton via set.pop()
-            breadcrumbs.append(f"pick unit {lit_str(u)}")
-            return u
-        Q.append(c)
-    return None
-
-# ---------- round-based refutation; single unified reduction path ----------
-def refute_rounds(clauses, refuted_literal):
-    """
-    clauses: iterable of clauses (each a set[int], e.g., {1, -2, 5} = A ∨ ¬B ∨ E)
-    refuted_literal: int (e.g., -D). We'll add {refuted_literal} as a clause.
-
-    returns: (queue_of_clauses: list[set[int]], finished_units: set[int],
-              conflict: bool, breadcrumbs: list[str])
-    """
-    # One queue with all clauses + the refutation unit at the front
-    Q = deque(set(c) for c in clauses)
-    Q.appendleft({refuted_literal})
-
-    finished = set()      # units we've fully applied
-    breadcrumbs = []
-
-    while True:
-        # 1) Find next unit
-        u = pop_next_unit(Q, breadcrumbs)
-        if u is None:
-            breadcrumbs.append("no unit found; queue stabilized (no conflict)")
-            return list(Q), finished, False, breadcrumbs
-
-        # Detect clash only when we choose the unit
-        if -u in finished:
-            breadcrumbs.append(f"CLASH: {lit_str(u)} vs {lit_str(-u)} already finished")
-            finished.add(u)
-            return list(Q), finished, True, breadcrumbs
-
-        # 2) One full round with u
-        round_len = len(Q)
-        for _ in range(round_len):
-            clause = Q.popleft()
-
-            if u in clause:
-                breadcrumbs.append(f"satisfy {clause_str(clause)} by {lit_str(u)}")
-                continue # move to next iteration
-
-            if -u in clause:
-                rest = {x for x in clause if x != -u}
-
-                if len(rest) == 0:
-                    breadcrumbs.append(f"EMPTY CLAUSE from {clause_str(clause)} after using {lit_str(u)} → CLASH")
-                    finished.add(u)
-                    return [], finished, True, breadcrumbs # DONE!!
-
-                breadcrumbs.append(f"shrink {clause_str(clause)} by {lit_str(u)} → {clause_str(rest)}")
-                Q.append(rest)
-                continue # move to next iteration
-
-            Q.append(clause)
-
-        # 3) Round complete
-        finished.add(u)
-        breadcrumbs.append(f"finish unit {lit_str(u)}")
-
-# -------------------- tiny sanity checks --------------------
-
-# Map atoms: A=1, B=2, C=3, E=5, F=6, D=4
-A,B,C,E,F,D = 1,2,3,5,6,4
-
-# UBC puzzle (requires refutation; resolves by propagation)
-kb = [
-    {A, B, C},      # (A ∨ B ∨ C)
-    {-A, E},        # (¬A ∨ E)
-    {-C, E},        # (¬C ∨ E)
-    {B, F},         # (B ∨ F)
-    {-E, -F, D},    # (¬E ∨ ¬F ∨ D)
-    {-B, D},        # (¬B ∨ D)
-]
-q, done, conflict, trail = refute_rounds(kb, -D)
-print("conflict:", conflict)
-print("finished:", {lit_str(x) for x in done})
-print("\n".join(trail))
-
-# Non-refuting toy (no conflict expected)
-kb2 = [{-A, B}, {-A, B, C}]
-q2, done2, conflict2, trail2 = refute_rounds(kb2, -B)
-print("\nconflict:", conflict2)
-print("\n".join(trail2))
-
-```
-
-## Does this always work? {.smaller}
-
-**Works great for:** rulebooks where each clause has only 1 positive unit (Horn) 
-
-**Can stall on:** non-Horn, symmetric choice, more complex domains.
-
-**Stalling example:**
-$$
-(A\vee B)\wedge(A\vee \neg B)\wedge(\neg A\vee B)\wedge(\neg A\vee \neg B)
-$$
-
-* No unit clauses → our method can’t start.
-* It’s actually **unsatisfiable** but needs a **branch** to detect. (try $A$ or $\neg A$)
-
-**Takeaway 1:** Propagation finds what’s **locally forced**.  
-When nothing is locally forced, we need **case splits** or stronger rules.
-
-**Takeaway 2:** The general problem of boolean function "Satisfiability" (SAT) has no known efficient solution, and is a classic "NP-Complete" problem. 
-
-# Proofs
-
-<style>
-.small { font-size: 0.9rem; }
-.tiny { font-size: 0.8rem; }
-.rule { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; }
-.card { border: 2px solid #ddd; border-radius: 12px; padding: 14px 16px; margin: 10px 0; }
-.center { text-align: center; }
-.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-.badge { display:inline-block; padding:2px 8px; border:1px solid #bbb; border-radius:10px; font-size:.8rem; }
-</style>
-
-## Today’s goals
-
-- Recognize the **form** of common proof techniques $\to$, $\leftrightsquigarrow$, $\bot$, ⊞ 
-- Write short proofs using $\to$, and $\leftrightsquigarrow$.
-
-::: notes
-Keep everything tiny. Focus on first line (assume/goal), the key move, last line (therefore).
-:::
-
-## What is a proof? {.smaller}
-
-A clear, finite chain of statements that:
-
-- starts from **assumptions/definitions**
-- uses **valid rules**
-- ends with the **claim**
-
-We’ll practice four approaches for $P\to Q$ (first 2 today, second 2 on video lesson):
-
-- **$\to$ Direct:** assume the hypothesis, derive the conclusion  
-- **$\leftrightsquigarrow$ Contrapositive:** prove $\neg Q\to\neg P$ instead of $P\to Q$  
-- **$\bot$ Contradiction:** assume $P$ and $\neg Q$; reach False  
-- **⊞ Cases:** split into exhaustive cases; prove $Q$ for each
-
-## Warm Up {.activity}
-
-Solve the Sudoku on the worksheet.
-
-Speculate on an interesting feature of the corners. 
-
-Do all 4x4 Sudoku puzzles have this feature?
-
-{{< countdown minutes=5 >}}
-
-## First Proof
-
-**Theorem:** For any integers $a$ and $b$, if $ab$ is even, then $a$ is even or $b$ is even.
+Friday we bound one variable. Nothing stops us binding two.
 
 \
 
-Important definition:
+|      $\forall x\, \forall y\ \text{Knows}(x,y)$
 
-|    *An integer $a$ is even iff*
+\
 
+|      $\forall x\, \exists y\ \text{Knows}(x,y)$
 
-## Technical Rewrite
+\
 
-|
-| $\forall a,b\in \mathbb{Z}$ 
-|     $( (\exists k\in\mathbb{Z}, ab=2k) \to ((\exists j\in\mathbb{Z}, a = 2j) \lor (\exists j\in\mathbb{Z}, b=2j)))$
-|
+|      $\exists x\, \forall y\ \text{Knows}(x,y)$
 
-\ 
+\
 
-Universal instantiation:
+Say each one out loud. \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 ::: notes
-can't argue "for all" exhaustively, so we choose an arbitrary representative
+Everybody knows everybody. / Everybody knows somebody. / Somebody knows
+everybody.
 
-Write "Proof: Consider arbitrary
-integers $a$ and $b$ ... "
+The third is the one worth slowing on -- it is a claim about ONE person, and it
+is much stronger than the second. That is the whole lecture in one slide, so do
+not resolve it yet; just let them hear that two and three are different.
 :::
 
-## Which are valid arguments? {.smaller}
+## Every Lock Has a Key {.smaller}
 
-* **Pf1:** Suppose $a$ and $b$ are odd. Then there are integers $k$ and $j$ so $a=2k+1$ and $b=2j+1$. Then $ab=(2k+1)(2j+1) = 2(2jk + j + k) +1$. Since $2jk+j+k$ is an integer, $ab$ is odd.
+$K(k, l)$: key $k$ opens lock $l$.
 
-* **Pf2:** Assume $a$ or $b$ is even. Suppose $a$ is even -- the argument is the same if it is $b$. Then $ab=2kb$ for some $k$, and thus $ab$ is even.
+::: {.fillable}
+| | Says what, in English? |
+|---|---|
+| $\forall l\, \exists k\ K(k,l)$ | |
+| $\exists k\, \forall l\ K(k,l)$ | |
+:::
 
-* **Pf3:** Suppose that $ab$ is even but $a$ and $b$ are both odd. Namely, $ab=2n$, $a=2k+1$, and $b=2j+1$, for some integers $n$, $j$, and $k$. Then $2n=(2k+1)(2j+1)$ and $n = 2jk + k + j + 1/2$ which is a contradiction.
+\
 
-* **Pf4:** Let $ab$ be an even number, say $ab=2n$, and $a$ be an odd number, say $a=2k+1$. Then $2n = (2k+1)b$ and thus $b=2(n-kb)$ and $b$ is even. 
+Which one would a locksmith charge you more for? \_\_\_\_\_\_\_\_\_\_\_\_
 
 ::: notes
-existential instantiation
+Top: every lock has some key that opens it. Ordinary.
+Bottom: there is one key that opens every lock. A MASTER KEY.
+
+Same two symbols, same relation, swapped order -- and one of them is worth
+paying for. Nobody needs convincing that these differ once it is a master key.
+
+Then the direction that does hold: a master key IS a key for each lock, so the
+bottom gives you the top. The top gives you nothing about the bottom.
 :::
 
-## Proof Skeleton Cards
+## Does Order Matter? {.smaller}
 
-<div class="two-col">
-<div class="card small">
+::: {.fillable}
+| Swap | Same? |
+|---|:-:|
+| $\forall x\, \forall y\ P(x,y)$ &emsp; vs &emsp; $\forall y\, \forall x\ P(x,y)$ | |
+| $\exists x\, \exists y\ P(x,y)$ &emsp; vs &emsp; $\exists y\, \exists x\ P(x,y)$ | |
+| $\forall x\, \exists y\ P(x,y)$ &emsp; vs &emsp; $\exists y\, \forall x\ P(x,y)$ | |
+:::
 
-$\to$ Direct Proof of $P\to Q$
+\
 
-1. Assume $P$.
-2. Reason -- Unpack definitions / apply given rules to derive needed facts from $P$.
-3. ... Therefore $Q$.
-
-</div>
-<div class="card small">
-
-$\leftrightsquigarrow$ Contrapositive Proof of $P\to Q$ 
-
-1. Assume $\neg Q$
-2. Use rules/definitions that match $\neg Q$ to drive toward $\neg P$.
-3. ... Therefore $\neg Q\to\neg P$, and thus $P\to Q$.
-
-</div>
-</div>
-
-<div class="two-col">
-<div class="card small">
-
-$\bot$ Contradiction Proof of $P\to Q$
-
-1. Assume $P$ and $\neg Q$.
-2. Reason -- Unpack definitions / apply given rules to derive needed facts from $P\land \neg Q$, watch for contradiction ($a\land\neg a$). 
-3. ... Therefore $\bot$, and our assumption of $\neg Q$ must be false, so $P\to Q$.
-
-</div>
-<div class="card small">
-
-⊞ Cases Proof of $P\to Q$ 
-
-1. Partition $P$ into cases $P_1$, $P_2$, etc. covering all possibilities.
-2. For each $P_k$, show that $P_k\to Q$.
-3. ... Therefore, in each case $Q$, and $P\to Q$.
-
-</div>
-</div>
-
-
-## $\to$ Example Direct
-
-Prove that for any solution to the mini sudoku puzzle below, if the solution has a 2 in the top-left square (r1c1), then it will contain a 2 in the bottom-right square (r4c4).
+So the rule is: \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 ::: notes
-scrutinize form of statement
+Yes, yes, NO.
+
+Two quantifiers of the SAME kind commute freely. Two of DIFFERENT kinds do not.
+Verified exhaustively over every relation on a three-element domain.
+
+And the asymmetry is one-way:
+
+    exists y forall x  ==>  forall x exists y        always
+    forall x exists y  ==>  exists y forall x        NOT
+
+Of the 512 relations on a domain of three, 174 satisfy the second and fail the
+first. It is the common case, not a curiosity.
 :::
 
-![](/images/sudokupf1.png)
+## One Picture {.smaller}
 
-## $\to$ Your Turn Direct {.smaller}
+Rows are $x$, columns are $y$. A mark means $P(x,y)$ holds.
 
-Let $T_n = \frac{n(n+1)}{2}$ be the $n$th triangular number, $T_1=1$, $T_2=3$, etc.
-
-A *glow number* is any integer that can be written as the sum of two consecutive triangular numbers:
-
-$$𝑔=𝑇_𝑘+𝑇_{𝑘+1}$$
-	​
-Theorem: every glow number is a perfect square.
-
-Proof: Consider an arbitrary glow number $g$. 
-
-\ 
-
-\ 
-
-\ 
-
-\ 
-
-\ 
-
-\ 
-
-
-... therefore $g$ is a perfect square.
-
-::: note
-is the converse true?
-::: 
-
-## $\leftrightsquigarrow$ Example Contrapositive
-
-::::: columns
-
-::: {.column width="20%"}
-![](/images/sudokupf2.png)
+::: {.fillable}
+| | $y_1$ | $y_2$ | $y_3$ |
+|---|:-:|:-:|:-:|
+| $x_1$ | | | ✓ |
+| $x_2$ | | | ✓ |
+| $x_3$ | | ✓ | |
 :::
 
-::: {.column width="80%"}
-Game rule: each 2x2 box contains one of 1, 2, 3, and 4. 
+\
 
-Theorem: For any valid Sudoku solution, if A and B and C are not 4, then D is 4. 
+Every row has a mark, so \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+No column is all marks, so \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+::: notes
+forall x exists y  is TRUE -- every row has something.
+exists y forall x  is FALSE -- no single column is full.
+
+This is the picture to keep. "Everyone has one" is a statement about ROWS.
+"One works for everyone" is a statement about COLUMNS. Swapping the quantifiers
+swaps which way you read the grid, and a grid can easily have every row covered
+with no column full.
+
+Draw the master key on it: a master key is a FULL COLUMN.
 :::
-:::::
 
-Contrapositive:
+## Your Turn {.activity}
 
-## $\leftrightsquigarrow$ Your Turn Contrapositive
+In pairs, work the worksheet.
 
-Definitions:
+\
 
-* A number $n$ is *even* if there is an integer $k$ such that $n=2k$.
-* A number $n$ is *odd* if there is an integer $k$ such that $n=2k+1$.
+Page 3 is the grid you just saw — except now **you** place the hearts.
 
-Theorem: If $3n+2$ is odd, then $n$ is odd.
+{{< countdown minutes=25 >}}
 
+::: notes
+activities/lecture-09_activity.pdf, four pages, linked from the schedule.
+
+  1  Eight students, seven predicates. For five statements: English, truth
+     value, and the NEGATION. The negations are the part that will slow them.
+  2  They write their own -- one true, one false, two predicates minimum,
+     plus negations.
+  3  Hero/Villain grids. Place hearts to realise a statement using AS FEW AS
+     POSSIBLE, then judge statements against a given grid.
+  4  A new quantifier meaning "there exists exactly 2". Minimum and maximum
+     hearts to make each statement true.
+
+Page 3 is One Picture made constructive: reading a grid is easy, BUILDING the
+sparsest one that satisfies forall-exists forces them to notice it needs one
+mark per row, while exists-forall forces a whole column. Point back to the
+slide when you set them off.
+
+Page 4 is the good one, and it is the reason not to rush. "Exactly 2" is a
+quantifier they have never met, and min/max makes them reason about the SHAPE
+of a satisfying grid rather than recall a rule.
+
+TIMING. Four pages is more than the slot holds. Roughly 25 minutes gets them
+through 1 and 3. If you want page 4 -- and it is the most interesting -- cut
+page 2, which is the most easily set as homework.
+:::
+
+## Words and Ideas
+
+Nested quantifiers
+
+Order of quantifiers
+
+$\forall\exists$ versus $\exists\forall$
