@@ -69,8 +69,9 @@ a Sunday deadline, not two hours of in-room work — tutorial 1 ran Sep 13–20 
 tutorial 2 ran Sep 22–27. L1A loses the TA contact, not the marks, so there is
 nothing to do to the gradebook.
 
-**Open for Monday:** the Tutorial 2 pattern would make this due Sun Oct 4,
-which is also when HW2 is due. Oct 6 or 7 avoids the pile-up.
+Due **Sun Oct 4**, the same day as HW2. Checked and accepted 2026-09-26 — the
+two are different kinds of work and the tutorial is short, so the pile-up is
+not worth moving a deadline for. Do not "fix" this later.
 
 ## Tracker
 
