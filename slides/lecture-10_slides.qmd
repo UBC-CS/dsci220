@@ -39,9 +39,11 @@ the START of a proof.
 
 \
 
-Important definition:
+Important definitions:
 
 |    *An integer $a$ is even iff* \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+|
+|    *For integers $d \neq 0$ and $n$, $d$ divides $n$ (written $d \mid n$) iff* \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 ::: notes
 An integer a is even iff there is an integer k with a = 2k.
@@ -49,6 +51,15 @@ An integer a is even iff there is an integer k with a = 2k.
 Write it as an EXISTENTIAL. They will need it as one on the next slide, and it
 is the first time a definition has been a quantified statement rather than a
 word.
+
+Then d | n iff there is an integer k with n = dk -- the same existential
+shape, and worth saying out loud that EVEN IS THE d = 2 CASE. "a is even" and
+"2 | a" are the same claim. Two definitions, one shape.
+
+Divisibility is needed twice more today, on the Proof by Cases slides, where
+the claim is that n^3 - n is divisible by 3 and by 2. The bar notation is also
+all over the practice set, so introduce it here rather than leaving them to
+guess.
 :::
 
 ## Technical Rewrite {.smaller}
