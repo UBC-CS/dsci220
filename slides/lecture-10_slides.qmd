@@ -129,11 +129,11 @@ $\leftrightsquigarrow$ Contrapositive Proof of $P\to Q$
 <div class="two-col">
 <div class="card small">
 
-$\bot$ Contradiction Proof of $P\to Q$
+↯ Contradiction Proof of $P\to Q$
 
 1. Assume $P$ and $\neg Q$.
 2. Reason -- Unpack definitions / apply given rules to derive needed facts from $P\land \neg Q$, watch for contradiction ($a\land\neg a$). 
-3. ... Therefore $\bot$, and our assumption of $\neg Q$ must be false, so $P\to Q$.
+3. ... Therefore **False**, and our assumption of $\neg Q$ must be false, so $P\to Q$.
 
 </div>
 <div class="card small">
@@ -204,7 +204,7 @@ through.
 :::
 
 
-## $\bot$ Pause and Try: Contradiction {.smaller}
+## ↯ Pause and Try: Contradiction {.smaller}
 
 Claim: $\sqrt 2$ is irrational.
 
