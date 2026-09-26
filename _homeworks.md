@@ -15,10 +15,19 @@ built.
 | HW5 | 12 | Sun Nov 29 | no |
 
 Settings that HW1 established, worth copying: `type: Homework`,
-`autoPoints: 1` per question, `triesPerVariant` set explicitly (PL defaults it
-to **1**, which ends the instance on a single wrong answer), and
-`accessControl` with `afterLastDeadline: {allowSubmissions: true, credit: 0}`
-so late work can still be practised.
+`autoPoints: 1` per question, **`triesPerVariant: 1`**, and `accessControl` with
+`afterLastDeadline: {allowSubmissions: true, credit: 0}` so late work can still
+be practised.
+
+**Homework always runs one try per variant.** Stated 2026-09-26. A student who
+gets it wrong takes a *fresh variant*, not another guess at the same one, so the
+question cannot be brute-forced. Practice sets are the opposite — `practice-ex1`
+and `practice-ex2` both give 10 — because their job is drilling.
+
+For a `singleVariant` walkthrough that means one submission, which is what HW1's
+three walkthroughs did. Partial credit still applies across the elements inside
+it, so a single slip costs its share rather than the question. HW2 was found set
+to 10 on 2026-09-26 and corrected.
 
 ---
 
