@@ -1373,6 +1373,13 @@
     "text": "Announcements\n\nEX1 is marked. EX2 is Thu 10/8 through Sun 10/11.\nPractice problems for EX2 go up Wednesday night.\nNo class Wednesday — National Day for Truth and Reconciliation.\nHW2 is out, due Sun Oct 4.\n\nWarm-up: Introduce yourself to a classmate you haven’t met yet. Ask them one question about their life, and tell them one thing about yours."
   },
   {
+    "objectID": "slides/lecture-09_slides.html#code-patterns",
+    "href": "slides/lecture-09_slides.html#code-patterns",
+    "title": "Nested Quantifiers",
+    "section": "Code Patterns",
+    "text": "Code Patterns\nCarried over from Friday’s video — we did not get to it, so we do it together now.\n\n\n\n\n\n\n\nThe loops ARE the definitions. forall walks the domain looking for a counterexample and returns the first it finds; exists walks it looking for a witness. Blanks:\nforall: if not P(x): return False, x then return True, None exists: if P(x): return True, x then return False, None\nNote what each returns on failure – a counterexample for forall, nothing for exists. That asymmetry is the Counterexample and Witness slides of lecture 8, in code.\nMoved here from the end of lecture 8 on 2026-09-26: the video ran out before it, and it is a better warm-up than a coda. It also sets up nesting – a nested quantifier is one of these loops inside the other."
+  },
+  {
     "objectID": "slides/lecture-09_slides.html#more-than-one",
     "href": "slides/lecture-09_slides.html#more-than-one",
     "title": "Nested Quantifiers",
@@ -2298,13 +2305,6 @@
     "title": "Predicates and Quantifiers",
     "section": "Witness",
     "text": "Witness\nSomeone says “there is a funny comedian,” and you disagree.\n\n\n       \\(\\exists x,\\ C(x) \\wedge F(x)\\)\n\n\nTheir immediate response: ______________________\n\n\nThis evidence of justification is called a _______________.\n\n\nAside: why not \\(\\exists x,\\ C(x) \\rightarrow F(x)\\)?\n\nThey name one. A witness.\nSo the asymmetry: one case SETTLES an existential and one case DESTROYS a universal. Neither can be settled the other way round without checking the whole domain – unless the domain is small enough to exhaust, which is exactly the distinction from lecture 1.\nThe aside: C(x) -&gt; F(x) is true whenever C(x) is FALSE, so “there exists x with C(x) -&gt; F(x)” is satisfied by any non-comedian. It claims almost nothing. With “exists” you want AND; with “for all” you want -&gt;. That pairing catches everyone once."
-  },
-  {
-    "objectID": "slides/lecture-08_slides.html#code-patterns",
-    "href": "slides/lecture-08_slides.html#code-patterns",
-    "title": "Predicates and Quantifiers",
-    "section": "Code Patterns",
-    "text": "Code Patterns\n\n\n\n\n\n\n\nThe loops ARE the definitions. forall walks the domain looking for a counterexample and returns the first it finds; exists walks it looking for a witness. Blanks:\nforall: if not P(x): return False, x then return True, None exists: if P(x): return True, x then return False, None\nNote what each returns on failure – a counterexample for forall, nothing for exists. That asymmetry is the previous two slides, in code."
   },
   {
     "objectID": "slides/lecture-08_slides.html#words-and-ideas",
