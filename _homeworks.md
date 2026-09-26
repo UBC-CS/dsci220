@@ -42,58 +42,51 @@ get one graded attempt and no practice.
 
 ---
 
-## HW2 — due Sun Oct 4 · not built
+## HW2 — due Sun Oct 4 · built
 
-Everything below is already written; HW2 is an assembly job, not an authoring
-one.
+Released Sun Sep 27. Everything is answerable on release day — lectures 1 to 8 —
+so nothing waits on Monday's or Friday's class, and all of it is examinable on
+EX2.
 
-**The dataframe callbacks.** These are the payoff for HW1 keeping quiet about
-data. All three need Boolean masks, which is lecture 8 on **Fri Sep 25** — nine
-days before the due date, so the timing works.
+| Zone | Question |
+|---|---|
+| Which conditions matter, in data | `2026W1/logic/which-conditions-matter-df` |
+| When a truth value is missing, in data | `2026W1/logic/missing-truth-values-df` |
+| When the law itself breaks | `2025W1/logic/equivalence-with-nans` |
+| Does every expression have a CNF? | `2026W1/logic/cnf-always` |
+| When propagation runs out of fuel | `2026W1/logic/stalling-goals` |
 
-- `2026W1/logic/which-conditions-matter-df` — built
-- `2026W1/logic/missing-truth-values-df` — built, two `pl-python` cells
-- `2025W1/logic/equivalence-with-nans` — built. This one is about
-  **trichotomy**, not De Morgan: `¬(a < 4) ≡ (a ≥ 4)` fails under NaN because
-  IEEE 754 makes every NaN comparison False. The 2025 speaker note claiming De
-  Morgan breaks is wrong — De Morgan holds in Kleene and in pandas, verified.
+`cnf-always` proves that every expression has a CNF by checking the smallest
+case and checking that each way of building a bigger one preserves the
+property — **structural induction, done before it is named**, and tied back
+explicitly to HW1's WFF invariant. Both questions now point at the same
+technique, so induction proper has two things to call back to.
 
-**The truth-table proof questions**, moved out of EX1 practice on 2026-09-16
-because they ask for "the rows needed in a formal proof". Proofs are lecture 6,
-**Mon Sep 21**, so they are in scope by Oct 4. Currently parked in
-`practice-ex2`; moving them here means removing them there.
+`stalling-goals` is the conjunctive-goal experiment: three premises, none a
+unit, that entail `A ∧ B`. The conjunctive goal stalls with nothing derived;
+each half closes in two steps.
 
-- `2026W1/Week3/Validity/prove_valid_truth_table1`
-- `2026W1/Week3/Validity/prove_valid_truth_table3`
-- `2026W1/Week3/Validity/prove_invalid_truth_table1`
-
-**Conjunctive goals stall, and splitting fixes them.** Raised 2026-09-23 while
-building lecture 7; too slow for class, but it is a good homework exploration
-because the student can run the experiment rather than be told the answer.
-
-To prove `premises ⊨ C` you add `¬C` and hunt for a contradiction — an empty clause. When `C` is a single
-literal, `¬C` is a *unit*, so propagation always has somewhere to start. When
-`C` is `A ∧ B`, De Morgan makes `¬C` the clause `{¬A, ¬B}` — still perfectly
-good CNF, but no longer fuel. Measured over 435 randomly generated valid
-arguments: a single-literal goal stalled **0.0%** of the time, a conjunctive
-goal **1.8%**.
-
-The fix is to ask a different question. `premises ⊨ A ∧ B` exactly when
-`premises ⊨ A` and `premises ⊨ B`, so run two refutations, each with a unit
-goal. Of the 8 conjunctive cases that stalled, splitting rescued **all 8**.
-
-Worth having students find both halves themselves — build a case that stalls,
-then split it — since it previews the case split that ends lecture 7. When
-nothing is forced, you make something forced.
-
-**Also available if it needs more weight:** resolution needs a CNF question and
-none exists — resolution runs on CNF and nothing in the bank asks for one.
+**No quantifiers here, deliberately** (decided 2026-09-26). L8 introduced them
+and L9 is nested quantifiers on Sep 28 — there is nothing deep to ask yet, and
+the drilling belongs in `practice-ex2`. **Quantifier depth is HW3's job.**
 
 ---
 
 ## HW3 — due Sun Oct 25 · not built
 
-Nothing assigned yet. Covers roughly weeks 5–7.
+Covers roughly weeks 5–7.
+
+**Quantifier depth lands here.** HW2 skipped quantifiers because L8 had only
+introduced them. By HW3 they will have had nested quantifiers (L9), predicate
+inference, and proofs — so this is where a deep quantifier question belongs.
+Candidates already in the bank, all Marko's and none yet used:
+`2026W1/Week2/Predicates/` has 17 questions including `Quantifier_Order--Level01`
+and `02`, `NegatePredicates1` and `2`, and `PredicateEquivalence1` and `2`.
+
+Page 4 of the L9 worksheet is also worth porting: a quantifier meaning "there
+exists exactly 2", asking for the minimum and maximum marks in a grid. Two
+integer inputs, randomises cleanly, and nothing in the course does counting
+quantifiers.
 
 ---
 
