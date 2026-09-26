@@ -2332,7 +2332,7 @@
     "href": "slides/lecture-10_slides.html#first-proof",
     "title": "Proofs",
     "section": "First Proof",
-    "text": "First Proof\nTheorem: For any integers \\(a\\) and \\(b\\), if \\(ab\\) is even, then \\(a\\) is even or \\(b\\) is even.\n\n\nImportant definition:\n   An integer \\(a\\) is even iff ______________________\n\nAn integer a is even iff there is an integer k with a = 2k.\nWrite it as an EXISTENTIAL. They will need it as one on the next slide, and it is the first time a definition has been a quantified statement rather than a word."
+    "text": "First Proof\nTheorem: For any integers \\(a\\) and \\(b\\), if \\(ab\\) is even, then \\(a\\) is even or \\(b\\) is even.\n\n\nImportant definitions:\n   An integer \\(a\\) is even iff ______________________\n\n   For integers \\(d \\neq 0\\) and \\(n\\), \\(d\\) divides \\(n\\) (written \\(d \\mid n\\)) iff __________________\n\nAn integer a is even iff there is an integer k with a = 2k.\nWrite it as an EXISTENTIAL. They will need it as one on the next slide, and it is the first time a definition has been a quantified statement rather than a word.\nThen d | n iff there is an integer k with n = dk – the same existential shape, and worth saying out loud that EVEN IS THE d = 2 CASE. “a is even” and “2 | a” are the same claim. Two definitions, one shape.\nDivisibility is needed twice more today, on the Proof by Cases slides, where the claim is that n^3 - n is divisible by 3 and by 2. The bar notation is also all over the practice set, so introduce it here rather than leaving them to guess."
   },
   {
     "objectID": "slides/lecture-10_slides.html#technical-rewrite",
