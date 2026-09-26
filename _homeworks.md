@@ -78,15 +78,19 @@ Covers roughly weeks 5–7.
 
 **Quantifier depth lands here.** HW2 skipped quantifiers because L8 had only
 introduced them. By HW3 they will have had nested quantifiers (L9), predicate
-inference, and proofs — so this is where a deep quantifier question belongs.
-Candidates already in the bank, all Marko's and none yet used:
-`2026W1/Week2/Predicates/` has 17 questions including `Quantifier_Order--Level01`
-and `02`, `NegatePredicates1` and `2`, and `PredicateEquivalence1` and `2`.
+inference and proofs, so this is where a deep quantifier question belongs.
 
-Page 4 of the L9 worksheet is also worth porting: a quantifier meaning "there
-exists exactly 2", asking for the minimum and maximum marks in a grid. Two
-integer inputs, randomises cleanly, and nothing in the course does counting
-quantifiers.
+It will have to be **written**. Marko's 17 questions in
+`2026W1/Week2/Predicates/` are drills — one judgement each — so they go to
+`practice-ex2`, not here. See [[practice-sets-are-drills]]: the venue decides
+the shape.
+
+The one idea worth building into a walkthrough is **page 4 of the L9
+worksheet**: a quantifier meaning "there exists exactly 2", asking for the
+minimum and maximum marks that make a statement true. Nothing in the course
+does counting quantifiers, it forces reasoning about the shape of a satisfying
+grid rather than recall of a rule, and it extends naturally — exactly one, at
+most two, at least three.
 
 ---
 
