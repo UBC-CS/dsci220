@@ -204,6 +204,105 @@ through.
 :::
 
 
+## $\bot$ Pause and Try: Contradiction {.smaller}
+
+Claim: $\sqrt 2$ is irrational.
+
+\
+
+Proof: Suppose, for contradiction, that $\sqrt 2$ **is** rational. Then there
+are integers $p$ and $q$, sharing no common factor, with $\sqrt 2 = p/q$.
+
+\
+
+**Stop the video and push it as far as you can.**
+
+::: notes
+Square both sides: 2 = p^2/q^2, so p^2 = 2q^2, so p^2 is even, so p is even --
+that last step needs the theorem from the start of this lecture, ab even
+implies a or b even, with a = b = p. Say so; it is the callback.
+
+Write p = 2r. Then 4r^2 = 2q^2, so q^2 = 2r^2, so q is even too. But p and q
+were chosen with no common factor, and both are even. Contradiction.
+
+The shape to point at: we never showed sqrt 2 is irrational directly. We showed
+that supposing otherwise breaks. Same move as adding the negated conclusion and
+hunting for the empty clause -- which they did all last week.
+:::
+
+## ⊞ Proof by Cases {.smaller}
+
+Claim: $n^3 - n$ is divisible by \_\_\_ , for every integer $n$.
+
+\
+
+First, factor it: $n^3 - n = $ \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+\
+
+Overview: \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+::: notes
+Divisible by 6. Factors as n(n-1)(n+1) -- three consecutive integers.
+
+Overview: show 3 divides it, show 2 divides it, and since 3 and 2 share no
+factor, 6 divides it. Two separate case analyses, which is why the next two
+slides exist.
+
+Verified for every n from -20 to 20.
+:::
+
+## ⊞ Divisible by 3 {.smaller}
+
+Consider an arbitrary $n$. One of these must hold:
+
+* Case A: $n=3k$ &emsp;&emsp; then \_\_\_\_\_\_\_\_\_\_ is divisible by 3
+
+\
+
+* Case B: $n=3k+1$ &emsp; then \_\_\_\_\_\_\_\_\_\_ is divisible by 3
+
+\
+
+* Case C: $n=3k+2$ &emsp; then \_\_\_\_\_\_\_\_\_\_ is divisible by 3
+
+\
+
+In all three cases, $n^3-n$ is divisible by 3.
+
+::: notes
+A: n itself.  B: n-1 = 3k.  C: n+1 = 3k+3.
+
+The cases have to be EXHAUSTIVE, and that is the only thing that makes this
+work -- every integer is one of those three. Worth saying that choosing the
+right partition is the whole skill.
+:::
+
+## ⊞ Divisible by 2 {.smaller}
+
+Consider an arbitrary $n$. One of these must hold:
+
+* Case A: $n=2k$ &emsp;&emsp; then \_\_\_\_\_\_\_\_\_\_ is even
+
+\
+
+* Case B: $n=2k+1$ &emsp; then \_\_\_\_\_\_\_\_\_\_ is even
+
+\
+
+\
+
+So 2 and 3 both divide $n^3-n$, and therefore \_\_\_\_\_\_\_ does.
+
+::: notes
+A: n itself.  B: both n-1 and n+1.
+
+Final blank: 6. It needs 2 and 3 to share no common factor -- worth saying out
+loud, because "divisible by 2 and by 3" does not in general give "divisible by
+6" if the two numbers share a factor. Compare 4 and 6: divisible by both does
+not mean divisible by 24.
+:::
+
 ## Words and Ideas
 
 Proof
@@ -215,3 +314,7 @@ Universal instantiation, universal generalization
 Direct proof
 
 Proof by contrapositive
+
+Proof by contradiction
+
+Proof by cases, exhaustive cases
