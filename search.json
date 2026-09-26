@@ -1377,7 +1377,7 @@
     "href": "slides/lecture-09_slides.html#code-patterns",
     "title": "Nested Quantifiers",
     "section": "Code Patterns",
-    "text": "Code Patterns\nCarried over from Friday’s video — we did not get to it, so we do it together now.\n\n\n\n\n\n\n\nThe loops ARE the definitions. forall walks the domain looking for a counterexample and returns the first it finds; exists walks it looking for a witness. Blanks:\nforall: if not P(x): return False, x then return True, None exists: if P(x): return True, x then return False, None\nNote what each returns on failure – a counterexample for forall, nothing for exists. That asymmetry is the Counterexample and Witness slides of lecture 8, in code.\nMoved here from the end of lecture 8 on 2026-09-26: the video ran out before it, and it is a better warm-up than a coda. It also sets up nesting – a nested quantifier is one of these loops inside the other."
+    "text": "Code Patterns\n\n\n\n\n\n\n\nThe loops ARE the definitions. forall walks the domain looking for a counterexample and returns the first it finds; exists walks it looking for a witness. Blanks:\nforall: if not P(x): return False, x then return True, None exists: if P(x): return True, x then return False, None\nNote what each returns on failure – a counterexample for forall, nothing for exists. That asymmetry is the Counterexample and Witness slides of lecture 8, in code."
   },
   {
     "objectID": "slides/lecture-09_slides.html#more-than-one",
