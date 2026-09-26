@@ -15,9 +15,6 @@ Warm-up: Introduce yourself to a classmate you haven't met yet. Ask them one que
 
 ## Code Patterns
 
-*Carried over from Friday's video — we did not get to it, so we do it
-together now.*
-
 ```{pyodide}
 #| exercise: quantifiers
 # --- Data ------------------------------------------------------------
@@ -79,10 +76,6 @@ witness. Blanks:
 Note what each returns on failure -- a counterexample for forall, nothing for
 exists. That asymmetry is the Counterexample and Witness slides of lecture 8,
 in code.
-
-Moved here from the end of lecture 8 on 2026-09-26: the video ran out before
-it, and it is a better warm-up than a coda. It also sets up nesting -- a
-nested quantifier is one of these loops inside the other.
 :::
 
 # Nested Quantifiers
