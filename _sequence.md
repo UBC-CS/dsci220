@@ -40,9 +40,13 @@ propositional inference, then universal generalization. Lecture 9 opens with
 | | | | ⟵ EX1 window closes. **EX1 = propositional logic, entire** |
 | L6–L7 | Sep 21, 23 | class | **Resolution** — 74 min of material, so two slots |
 | L8 | Fri Sep 25 | video | **Predicates + Boolean masks + quantifiers** — 57 min |
-| L9 | Mon Sep 28 | class | **Predicate inference** — deck does not exist |
+| L9 | Mon Sep 28 | class | **Nested quantifiers** — built 2026-09-26 |
 | | Wed Sep 30 | — | Truth and Reconciliation, no class |
-| L10 | Fri Oct 2 | video | Proofs begin ⟵ EX2 window closes |
+| L10 | Fri Oct 2 | video | **Proofs** — all four techniques. Predicate inference lands here, not L9 |
+| L11 | Mon Oct 5 | class | not written |
+| L12 | Wed Oct 7 | class | not written |
+| L13 | Fri Oct 9 | video | not written — *after* the EX2 window opens |
+| | Sun Oct 11 | | ⟵ **EX2 due.** Window Thu Oct 8 – Sun Oct 11 |
 
 **Lectures past 5 are draft.** L4 and L5 are committed; everything after is a
 holding arrangement.
@@ -177,8 +181,14 @@ before the lecture.
 
 ## Known consequences
 
-- **EX2 is lopsided.** Its window covers resolution through the start of proofs
-  — five lectures, the hardest stretch — while EX1 is one clean topic.
+- **EX2 is lopsided.** Corrected 2026-09-26: EX2 is due **Sun Oct 11**, not
+  Oct 2 — this file said otherwise for two weeks. Its window therefore covers
+  L6 through L12, seven lectures and the hardest stretch, while EX1 was one
+  clean topic. L13 (Fri Oct 9) falls *inside* the window and is out of scope.
+- **`practice-ex2` releases Sep 30, before L10–L12 exist.** As assembled it
+  covers L8–L10 (predicates, nested quantifiers, proofs) — 54 questions. It has
+  **nothing for L6/L7**: no drill anywhere in the bank touches clauses, CNF or
+  unit propagation. Those have to be written, not assembled.
 - **Proofs start in a video** unless resolution is trimmed to one slot.
 - **PE1 → 41 questions**, propositional only. The 19 predicate/Boolean-mask
   questions move to PE2.
