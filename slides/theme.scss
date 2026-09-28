@@ -51,6 +51,30 @@ $colors: (
   color: #fff;
 }
 
+// Rule cards and two-column layouts. The 2025W1 decks each defined these in an
+// inline <style> block; lectures 6 and 10 lost theirs in the port and rendered
+// as plain stacked text that ran off the slide. Defined here once, unnested, at
+// the same specificity as those blocks -- so a deck that still carries its own
+// (lecture 5, and 11 onward) keeps it, since an inline block comes later.
+.card {
+  border: 2px solid #ddd;
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin: 10px 0;
+}
+
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.small { font-size: 0.9rem; }
+
+.rule {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+}
+
 .medium-table table {
   font-size: 0.8em;
 }
