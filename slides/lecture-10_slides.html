@@ -259,7 +259,13 @@
 <li><p><strong>Pf4:</strong> Let <span class="math inline">\(ab\)</span> be an even number, say <span class="math inline">\(ab=2n\)</span>, and <span class="math inline">\(a\)</span> be an odd number, say <span class="math inline">\(a=2k+1\)</span>. Then <span class="math inline">\(2n = (2k+1)b\)</span> and thus <span class="math inline">\(b=2(n-kb)\)</span> and <span class="math inline">\(b\)</span> is even.</p></li>
 </ul>
 <aside class="notes">
-<p>existential instantiation</p>
+<p>Write E(x) for “x is even”. The theorem is E(ab) -&gt; E(a) v E(b). Valid: 1, 3, 4. Not a proof of this theorem: 2.</p>
+<p>Pf1 – CONTRAPOSITIVE. Valid. It proves ~E(a) ^ ~E(b) -&gt; ~E(ab). By DM, ~E(a) ^ ~E(b) is ~(E(a) v E(b)), so this is ~(E(a) v E(b)) -&gt; ~E(ab), the contrapositive of the theorem. It never says so: it stops at “ab is odd” and leaves the reader to see that this settles the theorem. Worth saying out loud.</p>
+<p>Pf2 – CONVERSE. Not a proof of this theorem. It proves E(a) v E(b) -&gt; E(ab). That is true, and the proof of it is fine (“the argument is the same if it is b” is a fair shortcut), but it is the converse. Proving the converse is not proving the theorem – lecture 4.</p>
+<p>Pf3 – CONTRADICTION. Valid. It assumes E(ab) ^ ~E(a) ^ ~E(b) and gets n = 2jk + k + j + 1/2. That says n is not an integer, but n was introduced as an integer (ab = 2n). That is the contradiction. The proof just says “which is a contradiction” without naming what contradicts what – ask them to name it.</p>
+<p>Pf4 – DIRECT, of an equivalent form. Valid. It assumes E(ab) and ~E(a), and derives E(b). So it proves E(ab) -&gt; (~E(a) -&gt; E(b)), and ~E(a) -&gt; E(b) is E(a) v E(b) by IMP. This is the usual way to prove an OR: assume one side is false and show the other must be true. (It is also cases on a in disguise: if a is even, done; if a is odd, this shows b is even.) b appears on both sides of b = 2(n - kb). That is fine: it says b is twice the integer n - kb. Expect someone to call it circular.</p>
+<p>Common to 1, 3 and 4: “a is odd, so a = 2k+1 for some integer k” – the definition is an existential, and we name the witness. That is existential instantiation. Each also turns “not even” into “odd”, which uses the fact that every integer is exactly one of even and odd.</p>
+<p>Algebra checked: (2k+1)(2j+1) = 2(2jk + j + k) + 1, and b = 2(n - kb).</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
