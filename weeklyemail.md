@@ -105,6 +105,67 @@ See you tomorrow!
 All the best!
 Cinda and the DSCI220 teaching team Perrie, Noah, and Marko.
 
+## Week 4 — Mon Sep 28 to Sun Oct 4
+
+⚠ **Check before sending**
+
+1. **What does EX2 cover?** The L10 announcements slide says "it covers through
+   today", which is lecture 10. `_sequence.md` says lectures 6 through 12,
+   because the window opens Thu Oct 8, after L11 and L12. The letter below says
+   **through lecture 10**, to match the slide; `practice-ex2` also stops at
+   L10.
+2. **Are EX1 scores visible to students?** The L9 slide says "EX1 is marked",
+   and item 6 below repeats that.
+3. **Tutorial 3** is an empty stub until Noah deploys it on Tuesday. The letter
+   gives its due date as Sun Oct 4, per `_labs.md`, but has no link yet.
+4. **The EX2 practice link** does not exist until Wednesday at 23:59, so the
+   letter says where it will be, not the URL.
+
+---
+
+Hi everyone,
+
+Welcome to week 4! It's a short week: there is no class on Wednesday, for the
+National Day for Truth and Reconciliation.
+
+The news:
+
+1. **HW2 is out**, due Sun Oct 4, 11:59p:
+<https://us.prairielearn.com/pl/course_instance/209866/assessment/2734404>
+There are four questions, and each one works through an idea step by step, so
+give yourself time. You get **one attempt** at each question, so read carefully
+before you submit.
+
+2. **No class on Wednesday.** Friday's lecture (lecture 10, on proofs) is a
+video, as usual. I'll post it by Friday, and possibly earlier in the week. The
+slides for lectures 9 and 10 are already on the course website.
+
+3. **Tutorial 3** meets on Tuesday. The Wednesday section (L1A) does not meet this
+week because of the holiday, so if you are in that section, please work through
+the tutorial on your own. It's on PrairieLearn, due Sun Oct 4.
+
+4. **Examlet 2** is Thu Oct 8 through Sun Oct 11. Please book your session in
+PrairieTest now; the Book button is on the course website. It covers lectures 6
+through 10.
+
+5. **Practice problems for EX2** go up on PrairieLearn on Wednesday night. As
+before, they are not graded, and you can retry them as many times as you like.
+
+6. **EX1 is marked**, and your score is on PrairieLearn.
+
+My office hours are Tuesdays, 10:30–11:30, in ICCS 233.
+
+As always, you're welcome to email me (cheeren@cs.ubc.ca) or post on Piazza
+(<https://piazza.com/ubc.ca/winterterm12026/dsci220>), and the course website is
+<https://ubc-cs.github.io/dsci220>.
+
+See you tomorrow!
+
+All the best!
+Cinda and the DSCI220 teaching team Perrie, Noah, and Marko.
+
+---
+
 ## Template for later weeks
 
 ```
