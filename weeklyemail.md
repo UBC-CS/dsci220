@@ -120,8 +120,9 @@ Cinda and the DSCI220 teaching team Perrie, Noah, and Marko.
 
 Hi everyone,
 
-Welcome to week 4! It's a short week: there is no class on Wednesday, for the
-National Day for Truth and Reconciliation.
+Welcome to week 4! It's a small week: there is no class on Wednesday, for the
+National Day for Truth and Reconciliation. I hope you use the extra time to 
+grab a coffee with your classmates! 
 
 The news:
 
@@ -132,21 +133,21 @@ give yourself time. You get **one attempt** at each question, so read carefully
 before you submit.
 
 2. **No class on Wednesday.** Friday's lecture (lecture 10, on proofs) is a
-video, as usual. I'll post it by Friday, and possibly earlier in the week. The
-slides for lectures 9 and 10 are already on the course website.
+video, as usual. I'll post it by Thursday, and probably earlier in the week. 
 
-3. **Tutorial 3** meets on Tuesday. The Wednesday section (L1A) does not meet this
-week because of the holiday, so if you are in that section, please work through
-the tutorial on your own. It's on PrairieLearn, due Sun Oct 4.
+3. **Tutorial 3** meets on Tuesday but not on Wednesday. Our current plan is to 
+help you work through the homework questions, though we may also create a few
+new practice problems.
 
 4. **Examlet 2** is Thu Oct 8 through Sun Oct 11. Please book your session in
-PrairieTest now; the Book button is on the course website. It covers lectures 6
-through 10.
+PrairieTest now. The examlet covers lectures 6 through 10.
 
 5. **Practice problems for EX2** go up on PrairieLearn on Wednesday night. As
 before, they are not graded, and you can retry them as many times as you like.
 
-6. **EX1 is marked**, and your score is on PrairieLearn.
+6. **EX1 is marked**, and your score is on PrairieLearn. The questions will be released
+on Tuesday, 11:59p. Average and median were both right around 90%. Wow. Thank you for 
+your hard work. (The median duration on the practice problems was nearly 4 hours... it shows!)
 
 My office hours are Tuesdays, 10:30–11:30, in ICCS 233.
 
@@ -158,6 +159,14 @@ See you tomorrow!
 
 All the best!
 Cinda and the DSCI220 teaching team Perrie, Noah, and Marko.
+
+---
+
+*(Sent Sun Sep 27, with Cinda's edits. Changes from the draft that matter
+elsewhere: tutorial 3 is now homework help, and the Wednesday section simply
+does not meet — see `_labs.md`; the L10 video is promised by **Thursday**; and
+the **EX1 questions are promised for release Tue Sep 29, 23:59**, which needs a
+change to the `ex1` assessment in PrairieLearn.)*
 
 ---
 

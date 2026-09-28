@@ -57,21 +57,21 @@ Both repos are git, so review happens through normal commits and pull requests.
 
 L1C is cancelled.
 
-### Tutorial 3 — L1A does it on their own
+### Tutorial 3 — homework help; L1A does not meet
 
 Sep 30 is the National Day for Truth and Reconciliation, so **L1A does not
-meet** that week. Decided 2026-09-26: Noah builds tutorial 3, it goes to staff
-meeting Monday Sep 28 and deploys Tuesday Sep 29, and L1A students complete it
-on their own.
+meet** that week.
 
-That works because a tutorial here is a week-long PrairieLearn assessment with
-a Sunday deadline, not two hours of in-room work — tutorial 1 ran Sep 13–20 and
-tutorial 2 ran Sep 22–27. L1A loses the TA contact, not the marks, so there is
-nothing to do to the gradebook.
+Changed 2026-09-27 in the week 4 letter: the Tuesday sections will **help
+students work through the HW2 questions**, and may add a few new practice
+problems. There is no longer a plan for L1A to do a tutorial on their own.
+(The earlier plan, now superseded: Noah builds a PrairieLearn tutorial, it goes
+to Monday's staff meeting and deploys Tuesday, and L1A completes it alone.)
 
-Due **Sun Oct 4**, the same day as HW2. Checked and accepted 2026-09-26 — the
-two are different kinds of work and the tutorial is short, so the pile-up is
-not worth moving a deadline for. Do not "fix" this later.
+**Open for Monday's staff meeting:** whether tutorial 3 is graded at all. If it
+is, L1A needs something to do; if it is homework help, the `tutorial-3`
+assessment stub may not be needed, and the tutorial count is 9 for everyone
+rather than 9 for L1A only.
 
 ## Tracker
 
@@ -79,7 +79,7 @@ not worth moving a deadline for. Do not "fix" this later.
 |--:|--:|---|---|---|---|---|
 | 1 | 2 | Sep 15 / Sep 16 | **Cinda** |  |  |  |
 | 2 | 3 | Sep 22 / Sep 23 |  |  |  |  |
-| 3 | 4 | Sep 29 / Sep 30 | **Noah** |  |  | See below |
+| 3 | 4 | Sep 29 / Sep 30 | **Noah** |  |  | HW2 help; Wed does not meet — see below |
 | 4 | 5 | Oct 6 / Oct 7 |  |  |  |  |
 | 5 | 7 | Oct 20 / Oct 21 |  |  |  |  |
 | 6 | 8 | Oct 27 / Oct 28 |  |  |  |  |
