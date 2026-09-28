@@ -46,7 +46,7 @@ propositional inference, then universal generalization. Lecture 9 opens with
 | L11 | Mon Oct 5 | class | not written |
 | L12 | Wed Oct 7 | class | not written |
 | L13 | Fri Oct 9 | video | not written — *after* the EX2 window opens |
-| | Sun Oct 11 | | ⟵ **EX2 due.** Window Thu Oct 8 – Sun Oct 11 |
+| | Sun Oct 11 | | ⟵ **EX2 due.** Window Thu Oct 8 – Sun Oct 11. Covers L6–L10 |
 
 **Lectures past 5 are draft.** L4 and L5 are committed; everything after is a
 holding arrangement.
@@ -181,10 +181,13 @@ before the lecture.
 
 ## Known consequences
 
-- **EX2 is lopsided.** Corrected 2026-09-26: EX2 is due **Sun Oct 11**, not
-  Oct 2 — this file said otherwise for two weeks. Its window therefore covers
-  L6 through L12, seven lectures and the hardest stretch, while EX1 was one
-  clean topic. L13 (Fri Oct 9) falls *inside* the window and is out of scope.
+- **EX2 covers L6 through L10.** It is due **Sun Oct 11** (window Thu Oct 8 –
+  Sun Oct 11). An examlet covers everything through the end of the *previous*
+  week, as EX1 did — "nothing from this week is on it." So L11 and L12 (Oct 5,
+  7) and L13 (Oct 9) fall inside the window and are **not** on it. Corrected
+  2026-09-27: this file said L6–L12, inferred from the window dates rather than
+  from that rule. Five lectures, the hardest stretch so far, against EX1's one
+  clean topic.
 - **`practice-ex2` releases Sep 30, before L10–L12 exist.** 64 questions:
   clauses/CNF/unit propagation (L6–L7), predicates (L8), nested quantifiers
   (L9), the four proof techniques (L10). The L6/L7 gap was real — no drill in

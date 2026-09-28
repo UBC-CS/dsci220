@@ -109,16 +109,11 @@ Cinda and the DSCI220 teaching team Perrie, Noah, and Marko.
 
 ⚠ **Check before sending**
 
-1. **What does EX2 cover?** The L10 announcements slide says "it covers through
-   today", which is lecture 10. `_sequence.md` says lectures 6 through 12,
-   because the window opens Thu Oct 8, after L11 and L12. The letter below says
-   **through lecture 10**, to match the slide; `practice-ex2` also stops at
-   L10.
-2. **Are EX1 scores visible to students?** The L9 slide says "EX1 is marked",
+1. **Are EX1 scores visible to students?** The L9 slide says "EX1 is marked",
    and item 6 below repeats that.
-3. **Tutorial 3** is an empty stub until Noah deploys it on Tuesday. The letter
+2. **Tutorial 3** is an empty stub until Noah deploys it on Tuesday. The letter
    gives its due date as Sun Oct 4, per `_labs.md`, but has no link yet.
-4. **The EX2 practice link** does not exist until Wednesday at 23:59, so the
+3. **The EX2 practice link** does not exist until Wednesday at 23:59, so the
    letter says where it will be, not the URL.
 
 ---
