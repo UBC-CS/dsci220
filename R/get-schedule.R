@@ -37,6 +37,15 @@ get_schedule <- function() {
   resources_paths <- lookup$directory |> na.omit()
   resources_paths <- resources_paths[fs::dir_exists(resources_paths)]
 
+  # Decks Cinda wants up before the usual rule would show them -- a holiday
+  # moves a recording, say. This can only bring a reveal FORWARD; anything not
+  # listed keeps the automatic date. One row per id, with a reason.
+  reveal_early <- readr::read_csv(
+    here::here("data", "reveal-early.csv"),
+    col_types = "cDc"
+  ) |>
+    dplyr::select(id, early_reveal = reveal)
+
   schedule <- readr::read_csv(
     here::here("data", "schedule.csv"),
     col_types = "icc"
@@ -79,6 +88,7 @@ get_schedule <- function() {
       by = dplyr::join_by(id),
       relationship = "one-to-many"
     ) |>
+    dplyr::left_join(reveal_early, by = dplyr::join_by(id)) |>
     dplyr::mutate(
       date = convert_to_date(
         monday_of_first_term_week,
@@ -97,6 +107,7 @@ get_schedule <- function() {
         monday + lubridate::days(2),
         date
       ),
+      reveal_date = pmin(reveal_date, early_reveal, na.rm = TRUE),
       show_week = dplyr::case_when(
         !rendering_student_profile ~ TRUE,
         week == 1 ~ TRUE,
@@ -123,7 +134,8 @@ get_schedule <- function() {
     tidyr::fill(next_exam, show_exam, .direction = "up") |>
     dplyr::filter_out(
       rendering_student_profile & type == "lesson-plan"
-    )
+    ) |>
+    dplyr::select(-early_reveal)
 }
 
 is_current_week <- function(date, current_date) {
