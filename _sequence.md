@@ -188,9 +188,11 @@ before the lecture.
   2026-09-27: this file said L6–L12, inferred from the window dates rather than
   from that rule. Five lectures, the hardest stretch so far, against EX1's one
   clean topic.
-- **`practice-ex2` releases Sep 30, before L10–L12 exist.** 64 questions:
-  clauses/CNF/unit propagation (L6–L7), predicates (L8), nested quantifiers
-  (L9), the four proof techniques (L10). The L6/L7 gap was real — no drill in
+- **`practice-ex2` releases Sep 30.** Trimmed 2026-09-27 from 66 to **33** — most proof
+  questions were one template importing different theorem banks. 8 on
+  clauses/CNF/unit propagation (L6–L7), 8 on predicates (L8), 2 on nested
+  quantifiers (L9), 15 on the four proof techniques (L10). Existence proofs went to
+  `practice-ex3`: L10 has no skeleton card for proving an existential. The L6/L7 gap was real — no drill in
   the bank touched it — so ten were written on 2026-09-26. They generate off
   `pl-ubc-dsci220/serverFilesCourse/unit_propagation.py`, which implements the
   lecture's own loop, so a question cannot drift from what was taught.
