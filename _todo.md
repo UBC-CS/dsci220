@@ -2,6 +2,20 @@
 
 Not published (Quarto ignores `_`-prefixed files).
 
+## practice-ex3 — before it releases Wed Oct 21
+
+Deferred 2026-09-27. Give it the pass practice-ex2 got:
+
+- [ ] **`triesPerVariant` is set nowhere** except the Existence proofs zone, so
+      PrairieLearn gives one try per question. Practice sets get 10.
+- [ ] **72 questions.** Trim to one per format and technique; many are one
+      template importing different banks, as in practice-ex2.
+- [ ] **Unscoped theorem draws and all-or-nothing grading** in the Week 5–6
+      questions: 7 and 13 of 32 when last counted. `proof_scope.ex2_pool` is
+      scoped for EX2 — by EX3 mod is taught, so it needs an EX3 scope.
+- [ ] The six existence-proof questions moved in from practice-ex2 need a
+      lecture to stand on. L10 has no skeleton card for proving an existential.
+
 ## Lecture 1 — taught Wed Sep 9, keep for next year
 
 - [ ] **Check Packet 12's fact slip.** If it says *"all spade cards are even"*,
