@@ -21,8 +21,8 @@ A proof is a finite chain of statements that
 
 \
 
-Every one of those you already have. The rules are the ten on your Formula
-Sheet. What is new today is only the **shape** of the chain.
+You've already done each of those pieces. The rules are the ten on your Formula
+Sheet, together with notions of equivalence. What is new today is the story that you tell with the arguments.
 
 ::: notes
 Say plainly that nothing new arrives today except vocabulary and habit. They
@@ -99,7 +99,7 @@ piece since week 2 and have never seen them assembled.
 
 ## Which are valid arguments? {.smaller}
 
-Four attempts at the theorem above. Stop the video and decide about each before I do.
+Four attempts at the theorem above. Stop the video and decide about each.
 
 
 * **Pf1:** Suppose $a$ and $b$ are odd. Then there are integers $k$ and $j$ so $a=2k+1$ and $b=2j+1$. Then $ab=(2k+1)(2j+1) = 2(2jk + j + k) +1$. Since $2jk+j+k$ is an integer, $ab$ is odd.
@@ -197,10 +197,11 @@ $\leftrightsquigarrow$ Contrapositive Proof of $P\to Q$
 
 Let $T_n = \frac{n(n+1)}{2}$ be the $n$th triangular number, $T_1=1$, $T_2=3$, etc.
 
-A *glow number* is any integer that can be written as the sum of two consecutive triangular numbers:
+A *glow number* is the sum of two consecutive triangular numbers: an integer $g$ for
+which there is a positive integer $k$ with $g = T_k + T_{k+1}$.
 
-$$𝑔=𝑇_𝑘+𝑇_{𝑘+1}$$
-	​
+An integer $n$ is a *perfect square* if there is an integer $m$ with $n = m^2$.
+
 Theorem: every glow number is a perfect square.
 
 **Stop the video here and try it.** Then start it again and we will do it together.
@@ -214,11 +215,6 @@ Proof: Consider an arbitrary glow number $g$.
 \ 
 
 \ 
-
-\ 
-
-\ 
-
 
 ... therefore $g$ is a perfect square.
 
