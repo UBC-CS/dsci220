@@ -2360,7 +2360,14 @@
     "href": "slides/lecture-10_slides.html#to-pause-and-try-direct",
     "title": "Proofs",
     "section": "\\(\\to\\) Pause and Try: Direct",
-    "text": "\\(\\to\\) Pause and Try: Direct\nLet \\(T_n = \\frac{n(n+1)}{2}\\) be the \\(n\\)th triangular number, \\(T_1=1\\), \\(T_2=3\\), etc.\nA glow number is the sum of two consecutive triangular numbers: an integer \\(g\\) for which there is a positive integer \\(k\\) with \\(g = T_k + T_{k+1}\\).\nAn integer \\(n\\) is a perfect square if there is an integer \\(m\\) with \\(n = m^2\\).\nTheorem: every glow number is a perfect square.\nStop the video here and try it. Then start it again and we will do it together.\nProof: Consider an arbitrary glow number \\(g\\).\n \n \n \n \n… therefore \\(g\\) is a perfect square.\n\nis the converse true?"
+    "text": "\\(\\to\\) Pause and Try: Direct\nLet \\(T_n = \\frac{n(n+1)}{2}\\) be the \\(n\\)th triangular number, \\(T_1=1\\), \\(T_2=3\\), etc.\nA glow number is the sum of two consecutive triangular numbers: an integer \\(g\\) for which there is a positive integer \\(k\\) with \\(g = T_k + T_{k+1}\\).\nAn integer \\(n\\) is a perfect square if there is an integer \\(m\\) with \\(n = m^2\\).\nTheorem: every glow number is a perfect square.\nStop the video here and try it. Then start it again and we will do it together.\nProof: Consider an arbitrary glow number \\(g\\).\n \n \n \n \n… therefore \\(g\\) is a perfect square."
+  },
+  {
+    "objectID": "slides/lecture-10_slides.html#aside-is-the-converse-true",
+    "href": "slides/lecture-10_slides.html#aside-is-the-converse-true",
+    "title": "Proofs",
+    "section": "Aside: Is the converse true?",
+    "text": "Aside: Is the converse true?\nConverse: every perfect square is a glow number.\n\n\nCome to class Monday with an answer!\n\nNo. With k a positive integer, T_k + T_{k+1} = (k+1)^2 is at least 4, so 1 = 1^2 is a perfect square but not a glow number. 0 is another counterexample.\nEvery perfect square m^2 with m &gt;= 2 IS a glow number: take k = m - 1.\nThe domain of k is what decides it. If k could be any integer, every perfect square would be a glow number and the converse would be true – worth raising if someone’s answer is “yes”."
   },
   {
     "objectID": "slides/lecture-10_slides.html#leftrightsquigarrow-pause-and-try-contrapositive",
