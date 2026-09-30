@@ -195,12 +195,14 @@ $\leftrightsquigarrow$ Contrapositive Proof of $P\to Q$
 
 ## $\to$ Pause and Try: Direct {.smaller}
 
-Let $T_n = \frac{n(n+1)}{2}$ be the $n$th triangular number, $T_1=1$, $T_2=3$, etc.
+Let $T_n = \frac{n(n+1)}{2}$ be the $n$th triangular number: $T_0 = 0$, $T_1 = 1$, $T_2 = 3$, etc.
 
-A *glow number* is the sum of two consecutive triangular numbers: an integer $g$ for
-which there is a positive integer $k$ with $g = T_k + T_{k+1}$.
+The $k$th *glow number* is the sum of two consecutive triangular numbers,
+$G_k = T_{k-1} + T_k$. So $g$ is a glow number if there is a positive integer $k$ with
+$g = G_k$.
 
-An integer $n$ is a *perfect square* if there is an integer $m$ with $n = m^2$.
+A positive integer $n$ is a *perfect square* if there is a positive integer $m$ with
+$n = m^2$.
 
 Theorem: every glow number is a perfect square.
 
@@ -218,6 +220,12 @@ Proof: Consider an arbitrary glow number $g$.
 
 ... therefore $g$ is a perfect square.
 
+::: notes
+g = G_k for some positive integer k (name the k -- existential instantiation).
+G_k = T_{k-1} + T_k = (k-1)k/2 + k(k+1)/2 = k(2k)/2 = k^2.
+So g = m^2 with m = k, which is a positive integer: the witness.
+:::
+
 ## Aside: Is the converse true?
 
 Converse: every perfect square is a glow number.
@@ -227,15 +235,14 @@ Converse: every perfect square is a glow number.
 **Come to class Monday with an answer!**
 
 ::: notes
-No. With k a positive integer, T_k + T_{k+1} = (k+1)^2 is at least 4, so
-1 = 1^2 is a perfect square but not a glow number. 0 is another
-counterexample.
+Yes. A perfect square is m^2 for a positive integer m, and m^2 = G_m, the
+m-th glow number: the witness is k = m.
 
-Every perfect square m^2 with m >= 2 IS a glow number: take k = m - 1.
+So the theorem and its converse together say the glow numbers are exactly the
+perfect squares, and the k-th glow number is k^2.
 
-The domain of k is what decides it. If k could be any integer, every perfect
-square would be a glow number and the converse would be true -- worth raising
-if someone's answer is "yes".
+Nothing sits at the boundary: T_0 = 0 is defined, so G_1 = T_0 + T_1 = 1, and
+perfect squares are defined for positive integers, so 0 is not in question.
 :::
 
 ## $\leftrightsquigarrow$ Pause and Try: Contrapositive
