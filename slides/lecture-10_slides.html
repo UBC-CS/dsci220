@@ -319,9 +319,9 @@
 </section>
 <section id="to-pause-and-try-direct" class="slide level2 smaller">
 <h2><span class="math inline">\(\to\)</span> Pause and Try: Direct</h2>
-<p>Let <span class="math inline">\(T_n = \frac{n(n+1)}{2}\)</span> be the <span class="math inline">\(n\)</span>th triangular number, <span class="math inline">\(T_1=1\)</span>, <span class="math inline">\(T_2=3\)</span>, etc.</p>
-<p>A <em>glow number</em> is the sum of two consecutive triangular numbers: an integer <span class="math inline">\(g\)</span> for which there is a positive integer <span class="math inline">\(k\)</span> with <span class="math inline">\(g = T_k + T_{k+1}\)</span>.</p>
-<p>An integer <span class="math inline">\(n\)</span> is a <em>perfect square</em> if there is an integer <span class="math inline">\(m\)</span> with <span class="math inline">\(n = m^2\)</span>.</p>
+<p>Let <span class="math inline">\(T_n = \frac{n(n+1)}{2}\)</span> be the <span class="math inline">\(n\)</span>th triangular number: <span class="math inline">\(T_0 = 0\)</span>, <span class="math inline">\(T_1 = 1\)</span>, <span class="math inline">\(T_2 = 3\)</span>, etc.</p>
+<p>The <span class="math inline">\(k\)</span>th <em>glow number</em> is the sum of two consecutive triangular numbers, <span class="math inline">\(G_k = T_{k-1} + T_k\)</span>. So <span class="math inline">\(g\)</span> is a glow number if there is a positive integer <span class="math inline">\(k\)</span> with <span class="math inline">\(g = G_k\)</span>.</p>
+<p>A positive integer <span class="math inline">\(n\)</span> is a <em>perfect square</em> if there is a positive integer <span class="math inline">\(m\)</span> with <span class="math inline">\(n = m^2\)</span>.</p>
 <p>Theorem: every glow number is a perfect square.</p>
 <p><strong>Stop the video here and try it.</strong> Then start it again and we will do it together.</p>
 <p>Proof: Consider an arbitrary glow number <span class="math inline">\(g\)</span>.</p>
@@ -330,6 +330,19 @@
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 <p>… therefore <span class="math inline">\(g\)</span> is a perfect square.</p>
+<aside class="notes">
+<p>g = G_k for some positive integer k (name the k – existential instantiation). G_k = T_{k-1} + T_k = (k-1)k/2 + k(k+1)/2 = k(2k)/2 = k^2. So g = m^2 with m = k, which is a positive integer: the witness.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="aside-is-the-converse-true" class="slide level2">
 <h2>Aside: Is the converse true?</h2>
@@ -338,9 +351,9 @@
 </p>
 <p><strong>Come to class Monday with an answer!</strong></p>
 <aside class="notes">
-<p>No.&nbsp;With k a positive integer, T_k + T_{k+1} = (k+1)^2 is at least 4, so 1 = 1^2 is a perfect square but not a glow number. 0 is another counterexample.</p>
-<p>Every perfect square m^2 with m &gt;= 2 IS a glow number: take k = m - 1.</p>
-<p>The domain of k is what decides it. If k could be any integer, every perfect square would be a glow number and the converse would be true – worth raising if someone’s answer is “yes”.</p>
+<p>Yes. A perfect square is m^2 for a positive integer m, and m^2 = G_m, the m-th glow number: the witness is k = m.</p>
+<p>So the theorem and its converse together say the glow numbers are exactly the perfect squares, and the k-th glow number is k^2.</p>
+<p>Nothing sits at the boundary: T_0 = 0 is defined, so G_1 = T_0 + T_1 = 1, and perfect squares are defined for positive integers, so 0 is not in question.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
