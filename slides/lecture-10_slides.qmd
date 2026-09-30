@@ -218,8 +218,24 @@ Proof: Consider an arbitrary glow number $g$.
 
 ... therefore $g$ is a perfect square.
 
-::: note
-is the converse true?
+## Aside: Is the converse true?
+
+Converse: every perfect square is a glow number.
+
+\
+
+**Come to class Monday with an answer!**
+
+::: notes
+No. With k a positive integer, T_k + T_{k+1} = (k+1)^2 is at least 4, so
+1 = 1^2 is a perfect square but not a glow number. 0 is another
+counterexample.
+
+Every perfect square m^2 with m >= 2 IS a glow number: take k = m - 1.
+
+The domain of k is what decides it. If k could be any integer, every perfect
+square would be a glow number and the converse would be true -- worth raising
+if someone's answer is "yes".
 :::
 
 ## $\leftrightsquigarrow$ Pause and Try: Contrapositive
