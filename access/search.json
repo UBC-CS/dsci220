@@ -1321,7 +1321,7 @@
     "href": "slides/lecture-11_slides.html#sudoku-warm-up",
     "title": "Proof by Induction",
     "section": "Sudoku Warm Up",
-    "text": "Sudoku Warm Up\nSolve the Sudoku on the worksheet.\nSpeculate on an interesting feature of the corners.\nDo all 4x4 Sudoku puzzles have this feature?\n\n \n\nThe puzzle has exactly one solution: 2 3 4 1 1 4 2 3 4 1 3 2 3 2 1 4 Its four corners (2, 1, 3, 4) are all different.\nDo all 4x4 sudokus have that? NO – only 168 of the 288. Counterexample: 1 2 3 4 / 3 4 1 2 / 2 1 4 3 / 4 3 2 1 – corners 1, 4, 4, 1.\n“THIS feature” (the a b c d corners against the * centre, page 2): YES, in all 288 – the four corners hold exactly the same numbers as the four centre cells. Proof if anyone asks: rows 1 and 4 plus columns 1 and 4 cover the border with the corners counted twice; the four rows cover the border plus the centre. Each is four copies of {1,2,3,4}, so corners = centre. It never uses the boxes.\nA speculation checked on one example is not a theorem – that is the point to land before the proofs."
+    "text": "Sudoku Warm Up\nIn a 4x4 Sudoku, each row, each column and each 2x2 box contains each of 1, 2, 3 and 4 exactly once.\nSolve the Sudoku on the worksheet.\nSpeculate on an interesting feature of the corners.\nDo all 4x4 Sudoku puzzles have this feature?\n\n \n\nThe puzzle has exactly one solution: 2 3 4 1 1 4 2 3 4 1 3 2 3 2 1 4 Its four corners (2, 1, 3, 4) are all different.\nDo all 4x4 sudokus have that? NO – only 168 of the 288. Counterexample: 1 2 3 4 / 3 4 1 2 / 2 1 4 3 / 4 3 2 1 – corners 1, 4, 4, 1.\n“THIS feature” (the a b c d corners against the * centre, page 2): YES, in all 288 – the four corners hold exactly the same numbers as the four centre cells. Proof if anyone asks: rows 1 and 4 plus columns 1 and 4 cover the border with the corners counted twice; the four rows cover the border plus the centre. Each is four copies of {1,2,3,4}, so corners = centre. It never uses the boxes.\nA speculation checked on one example is not a theorem – that is the point to land before the proofs."
   },
   {
     "objectID": "slides/lecture-11_slides.html#to-sudoku-direct",
@@ -1335,7 +1335,7 @@
     "href": "slides/lecture-11_slides.html#leftrightsquigarrow-sudoku-contrapositive",
     "title": "Proof by Induction",
     "section": "\\(\\leftrightsquigarrow\\) Sudoku: Contrapositive",
-    "text": "\\(\\leftrightsquigarrow\\) Sudoku: Contrapositive\n\n\n\n\nGame rule: each 2x2 box contains one of 1, 2, 3, and 4.\nTheorem: For any valid Sudoku solution, if A and B and C are not 4, then D is 4.\n\nContrapositive:\n\nIf D is not 4, then A or B or C is 4.\nThe negation of “A and B and C are not 4” is “A or B or C is 4” – De Morgan, worth pointing at.\nProof: the box contains a 4 somewhere. It is not D, so it is A, B or C. The contrapositive is the easy direction here: it is just “the 4 has to be somewhere”."
+    "text": "\\(\\leftrightsquigarrow\\) Sudoku: Contrapositive\n\n\n\n\nTheorem: For any valid Sudoku solution, if A and B and C, three cells of one 2x2 box, are not 4, then D, its fourth cell, is 4.\n\nContrapositive:\n\nIf D is not 4, then A or B or C is 4.\nThe negation of “A and B and C are not 4” is “A or B or C is 4” – De Morgan, worth pointing at.\nProof: the box contains a 4 somewhere. It is not D, so it is A, B or C. The contrapositive is the easy direction here: it is just “the 4 has to be somewhere”."
   },
   {
     "objectID": "slides/lecture-11_slides.html#sudoku-contradiction",
