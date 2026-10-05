@@ -170,6 +170,59 @@ change to the `ex1` assessment in PrairieLearn.)*
 
 ---
 
+## Week 5 — Mon Oct 5 to Sun Oct 11
+
+⚠ **Check before sending**
+
+1. **EX2 is not built in PrairieLearn yet.** It has to be published by
+   Wed Oct 7, 23:59, before the window opens Thursday. The letter promises the
+   window, not a link.
+2. **Tutorial 4** exists in PrairieLearn (first lines, drag-and-drop proofs)
+   but has no access rules yet, and the website link is still `TBD`. Confirm
+   the due date with Noah; the letter leaves it out.
+3. **This goes out Monday**, so it says "this week" rather than "tomorrow".
+
+---
+
+Hi everyone,
+
+Welcome to week 5! This is an examlet week, so most of the news is about EX2.
+
+The news:
+
+1. **Examlet 2** is Thu Oct 8 through Sun Oct 11, in the CBTF. If you haven't
+booked your session in PrairieTest, please do it today. EX2 covers lectures 6
+through 10. Nothing from this week's lectures is on it.
+
+2. **Practice problems for EX2** are on PrairieLearn:
+<https://us.prairielearn.com/pl/course_instance/209866/assessment/2731703>
+They are not graded, and you can retry each one as many times as you like.
+
+3. **The lecture 10 video was re-recorded.** The first upload had no audio. If
+you watched it in silence last week, please open it again from the course
+website. The link there now points to the new recording.
+
+4. **Tutorial 4** meets on Tuesday and Wednesday this week. We'll practice
+writing proofs: how to start one, and how to put the steps in the right order.
+
+5. **This week's lectures** start proof by induction. Monday and Wednesday are in
+class, and Friday's lecture is a video, as usual.
+
+6. **No homework this week.** HW3 opens Sun Oct 18.
+
+My office hours are Tuesdays, 10:30–11:30, in ICCS 233.
+
+As always, you're welcome to email me (cheeren@cs.ubc.ca) or post on Piazza
+(<https://piazza.com/ubc.ca/winterterm12026/dsci220>), and the course website is
+<https://ubc-cs.github.io/dsci220>.
+
+Good luck on the examlet!
+
+All the best!
+Cinda and the DSCI220 teaching team Perrie, Noah, and Marko.
+
+---
+
 ## Template for later weeks
 
 ```
