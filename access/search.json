@@ -1300,7 +1300,14 @@
     "href": "slides/lecture-11_slides.html#announcements",
     "title": "Proof by Induction",
     "section": "Announcements",
-    "text": "Announcements"
+    "text": "Announcements\n\nEX2 is Thu 10/8 through Sun 10/11, in ORCA. It covers lectures 6 through 10. Practice problems are on PrairieLearn.\nThe lecture 10 video was re-recorded: the first upload had no audio.\nTutorials meet this week."
+  },
+  {
+    "objectID": "slides/lecture-11_slides.html#fridays-question",
+    "href": "slides/lecture-11_slides.html#fridays-question",
+    "title": "Proof by Induction",
+    "section": "Friday’s Question",
+    "text": "Friday’s Question\nIs the converse true? Is every perfect square a glow number?\n\nYes. A perfect square is m^2 for a positive integer m, and m^2 = T_{m-1} + T_m, so the witness is k = m.\nBoth definitions are for positive integers, so 0 never comes up, and T_0 = 0 is defined, so 1 = T_0 + T_1 is a glow number.\nThe theorem and its converse together: the glow numbers are exactly the perfect squares. Proving the converse means naming a k for a given m – an existential, proved by giving the witness."
   },
   {
     "objectID": "slides/lecture-11_slides.html#todays-goals",
@@ -1314,21 +1321,14 @@
     "href": "slides/lecture-11_slides.html#warm-up",
     "title": "Proof by Induction",
     "section": "Warm Up",
-    "text": "Warm Up\nA Tower is built by stacking 5m red panels, and 7m blue panels.\nWhat tower heights are possible?\n\n \n\nEnd up with a clear claim: For all n &gt; 23, we can build a tower of height n using only 5m red and 7m blue panels.\nSay “claim holds for smaller values”"
+    "text": "Warm Up\nA Tower is built by stacking 5m red panels, and 7m blue panels.\nWhat tower heights are possible? Talk it through with the people around you: which heights can you build, and which can’t you?\n\n \n\nGive this time – it took a while last year. Let them find the last height that cannot be built (23) themselves.\nEnd up with a clear claim: For all n &gt; 23, we can build a tower of height n using only 5m red and 7m blue panels.\nSay “claim holds for smaller values”"
   },
   {
     "objectID": "slides/lecture-11_slides.html#warm-up-continued",
     "href": "slides/lecture-11_slides.html#warm-up-continued",
     "title": "Proof by Induction",
     "section": "Warm Up Continued",
-    "text": "Warm Up Continued\nClaim: for all integers \\(n &gt; 23\\), we can build a tower of height \\(n\\) using only 5m red and 7m blue panels.\n\n\n24:\n\n\n25:\n\n\n26:\n\npoint out universal quantifier, and also least value.\nAlso point out which values follow easily from these… sequences, covering integers."
-  },
-  {
-    "objectID": "slides/lecture-11_slides.html#proof-by-induction-1",
-    "href": "slides/lecture-11_slides.html#proof-by-induction-1",
-    "title": "Proof by Induction",
-    "section": "Proof by Induction",
-    "text": "Proof by Induction\nClaim: For any integer \\(n &gt; 0\\), \\(\\sum\\limits_{k=1}^{n} k^2 = \\frac{n(n+1)(2n+1)}{6}\\).\n\n\nProof: Consider an arbitrary integer \\(n &gt; 0\\).\n\n\nIH: Assume inductively that for any \\(j&lt;n\\), \\(\\sum\\limits_{k=1}^{j} k^2 = \\frac{j(j+1)(2j+1)}{6}\\).\n\n\nEither \\(n=1\\), or \\(n&gt;1\\).\nCase 1 \\((n=1)\\):\n\n\nCase 2 \\((n&gt;1)\\):"
+    "text": "Warm Up Continued\nClaim: for all integers \\(n &gt; 23\\), we can build a tower of height \\(n\\) using only 5m red and 7m blue panels.\n\n\n\n\n\n\n\n\n\nHeight\nRed\nBlue\n\n\n\n\n24\n\n\n\n\n25\n\n\n\n\n26\n\n\n\n\n27\n\n\n\n\n28\n\n\n\n\n\n\nEvery height \\(n \\geq 29\\): ____________________________\n\n24 = 2 red + 2 blue. 25 = 5 red. 26 = 1 red + 3 blue. 27 = 4 red + 1 blue. 28 = 4 blue.\nEvery n &gt;= 29: n - 5 is at least 24, so a tower of height n - 5 can be built. Add one red panel.\nWhy FIVE base cases: each height comes from the height 5 below it, so the first five have to be checked by hand. Three is not enough – 28 would need 23, which cannot be built. (27 would need 22, which can be built, but the claim says nothing about 22.) Worth asking before filling in the table.\nPoint out the universal quantifier, and the least value. This is proof by cases plus one new move: assume it for a smaller value (n - 5). That is induction, before it has a name.\nAside, only if it comes up: 23 = 5*7 - 5 - 7."
   },
   {
     "objectID": "slides/lecture-11_slides.html#inductive-proof-skeleton-card",
@@ -1338,32 +1338,32 @@
     "text": "Inductive Proof Skeleton Card\n\nProof by Induction of \\(\\forall n, P(n)\\)\n\nFirst line: “Consider an arbitrary n.”\nSecond line (IH): “Assume \\(\\forall j &lt; n, P(j)\\).”\nDetermine exhaustive cases for \\(n\\), including one or more base cases and usually one inductive case.\nProve each case, base and inductive, independently. Base case is typically direct, and inductive case will require use of IH."
   },
   {
+    "objectID": "slides/lecture-11_slides.html#you-have-done-this-before",
+    "href": "slides/lecture-11_slides.html#you-have-done-this-before",
+    "title": "Proof by Induction",
+    "section": "You Have Done This Before",
+    "text": "You Have Done This Before\n\n\n\n\n\n\n\n\n\n\nClaim\nThe smaller pieces\n\n\n\n\nHW1\nevery WFF has atoms = binary connectives + 1\n\n\n\nHW2\nevery expression has a CNF\n\n\n\nToday\nevery height \\(n &gt; 23\\) can be built\n\n\n\n\n\nCheck the smallest cases. Assume the claim for the smaller pieces. Show it for the whole.\n\nHW1: the WFFs a formula is built from. HW2: the two expressions joined by an and or an or. Today: the tower of height n - 5.\nThe name is structural induction when the smaller pieces are parts of the thing; induction on n when they are smaller integers. Same skeleton. HW2 promised “we will study it formally in a few weeks” – this is that."
+  },
+  {
+    "objectID": "slides/lecture-11_slides.html#proof-by-induction-1",
+    "href": "slides/lecture-11_slides.html#proof-by-induction-1",
+    "title": "Proof by Induction",
+    "section": "Proof by Induction",
+    "text": "Proof by Induction\nClaim: For any integer \\(n &gt; 0\\), \\(\\sum\\limits_{k=1}^{n} k^2 = \\frac{n(n+1)(2n+1)}{6}\\).\n\n\nProof: Consider an arbitrary integer \\(n &gt; 0\\).\n\n\nIH: Assume inductively that for any \\(j&lt;n\\), \\(\\sum\\limits_{k=1}^{j} k^2 = \\frac{j(j+1)(2j+1)}{6}\\).\n\n\nEither \\(n=1\\), or \\(n&gt;1\\).\nCase 1 \\((n=1)\\):\n\n\nCase 2 \\((n&gt;1)\\):"
+  },
+  {
     "objectID": "slides/lecture-11_slides.html#your-turn",
     "href": "slides/lecture-11_slides.html#your-turn",
     "title": "Proof by Induction",
     "section": "Your turn!",
-    "text": "Your turn!\nClaim: For any \\(n&gt;0\\), \\(\\sum\\limits_{k=1}^n \\frac{1}{(2k-1)(2k+1)} = \\frac{n}{2n+1}\\)."
+    "text": "Your turn!\nClaim: For any \\(n&gt;0\\), \\(\\sum\\limits_{k=1}^n \\frac{1}{(2k-1)(2k+1)} = \\frac{n}{2n+1}\\).\n\n \n\nIf this runs over, it opens Wednesday: the sum telescopes, which is L12’s Trick 2, so prove it by induction here and by telescoping there."
   },
   {
-    "objectID": "slides/lecture-11_slides.html#last-demo",
-    "href": "slides/lecture-11_slides.html#last-demo",
+    "objectID": "slides/lecture-11_slides.html#words-and-ideas",
+    "href": "slides/lecture-11_slides.html#words-and-ideas",
     "title": "Proof by Induction",
-    "section": "Last Demo",
-    "text": "Last Demo\nThis is a tromino:     \nThis is a \\(n\\) by \\(n\\) deficient grid:\n\n       \n\n\n\nClaim: Every \\(2^n\\) by \\(2^n\\) deficient grid can be tiled with trominos."
-  },
-  {
-    "objectID": "slides/lecture-11_slides.html#tile-work",
-    "href": "slides/lecture-11_slides.html#tile-work",
-    "title": "Proof by Induction",
-    "section": "Tile Work",
-    "text": "Tile Work\nClaim: Every \\(2^n\\) by \\(2^n\\) deficient grid can be tiled with trominos.\n \nProof: Line 1:\n\n\nLine 2:\n \nSmall case(s):"
-  },
-  {
-    "objectID": "slides/lecture-11_slides.html#tile-work-1",
-    "href": "slides/lecture-11_slides.html#tile-work-1",
-    "title": "Proof by Induction",
-    "section": "Tile Work",
-    "text": "Tile Work\nClaim: Every \\(2^n\\) by \\(2^n\\) deficient grid can be tiled with trominos.\n \nProof continued… Inductive case:"
+    "section": "Words and Ideas",
+    "text": "Words and Ideas\nInduction, base case, inductive case\nInductive hypothesis (IH)\nStructural induction"
   },
   {
     "objectID": "slides/lecture-09_slides.html#announcements",

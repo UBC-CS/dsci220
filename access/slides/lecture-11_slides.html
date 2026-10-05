@@ -155,8 +155,32 @@
 </div>
 
 </section>
-<section id="announcements" class="slide level2">
+<section id="announcements" class="slide level2 smaller">
 <h2>Announcements</h2>
+<ul>
+<li><strong>EX2</strong> is Thu 10/8 through Sun 10/11, in ORCA. It covers lectures 6 through 10. Practice problems are on PrairieLearn.</li>
+<li>The <strong>lecture 10 video</strong> was re-recorded: the first upload had no audio.</li>
+<li>Tutorials meet this week.</li>
+</ul>
+</section>
+<section id="fridays-question" class="slide level2">
+<h2>Friday’s Question</h2>
+<p>Is the converse true? Is every perfect square a glow number?</p>
+<aside class="notes">
+<p>Yes. A perfect square is m^2 for a positive integer m, and m^2 = T_{m-1} + T_m, so the witness is k = m.</p>
+<p>Both definitions are for positive integers, so 0 never comes up, and T_0 = 0 is defined, so 1 = T_0 + T_1 is a glow number.</p>
+<p>The theorem and its converse together: the glow numbers are exactly the perfect squares. Proving the converse means naming a k for a given m – an existential, proved by giving the witness.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section>
 <section id="proof-by-induction" class="title-slide slide level1 center">
@@ -181,10 +205,11 @@
 <section id="warm-up" class="slide level2 activity">
 <h2>Warm Up</h2>
 <p>A <em>Tower</em> is built by stacking 5m red panels, and 7m blue panels.</p>
-<p>What tower heights are possible?</p>
-<countdown-timer id="timer_5efa5ba3f47a2c96d5b5f57c7ae9e3ffedc7f386" minutes="05" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<p>What tower heights are possible? Talk it through with the people around you: which heights can you build, and which can’t you?</p>
+<countdown-timer id="timer_32ad212ee11b58ac4fa026a8d7735b4d9ef913d1" minutes="10" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
  </countdown-timer>
 <aside class="notes">
+<p>Give this time – it took a while last year. Let them find the last height that cannot be built (23) themselves.</p>
 <p>End up with a clear claim: For all n &gt; 23, we can build a tower of height n using only 5m red and 7m blue panels.</p>
 <p>Say “claim holds for smaller values”</p>
 <style type="text/css">
@@ -202,18 +227,119 @@
 <section id="warm-up-continued" class="slide level2 smaller">
 <h2>Warm Up Continued</h2>
 <p>Claim: for all integers <span class="math inline">\(n &gt; 23\)</span>, we can build a tower of height <span class="math inline">\(n\)</span> using only 5m red and 7m blue panels.</p>
-<p><br>
-</p>
-<p>24:</p>
-<p><br>
-</p>
-<p>25:</p>
-<p><br>
-</p>
-<p>26:</p>
+<div class="fillable">
+<table class="caption-top" style="width:100%;">
+<colgroup>
+<col style="width: 30%">
+<col style="width: 35%">
+<col style="width: 35%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Height</th>
+<th style="text-align: center;">Red</th>
+<th style="text-align: center;">Blue</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">24</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">25</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">26</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">27</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">28</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Every height <span class="math inline">\(n \geq 29\)</span>: ____________________________</p>
 <aside class="notes">
-<p>point out universal quantifier, and also least value.</p>
-<p>Also point out which values follow easily from these… sequences, covering integers.</p>
+<p>24 = 2 red + 2 blue. 25 = 5 red. 26 = 1 red + 3 blue. 27 = 4 red + 1 blue. 28 = 4 blue.</p>
+<p>Every n &gt;= 29: n - 5 is at least 24, so a tower of height n - 5 can be built. Add one red panel.</p>
+<p>Why FIVE base cases: each height comes from the height 5 below it, so the first five have to be checked by hand. Three is not enough – 28 would need 23, which cannot be built. (27 would need 22, which can be built, but the claim says nothing about 22.) Worth asking before filling in the table.</p>
+<p>Point out the universal quantifier, and the least value. This is proof by cases plus one new move: assume it for a smaller value (n - 5). That is induction, before it has a name.</p>
+<p>Aside, only if it comes up: 23 = 5*7 - 5 - 7.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="inductive-proof-skeleton-card" class="slide level2">
+<h2>Inductive Proof Skeleton Card</h2>
+<div class="card">
+<p>Proof by Induction of <span class="math inline">\(\forall n, P(n)\)</span></p>
+<ol type="1">
+<li>First line: “Consider an arbitrary n.”</li>
+<li>Second line (IH): “Assume <span class="math inline">\(\forall j &lt; n, P(j)\)</span>.”</li>
+<li>Determine exhaustive cases for <span class="math inline">\(n\)</span>, including one or more base cases and usually one inductive case.</li>
+<li>Prove each case, base and inductive, independently. Base case is typically direct, and inductive case will require use of IH.</li>
+</ol>
+</div>
+</section>
+<section id="you-have-done-this-before" class="slide level2 smaller">
+<h2>You Have Done This Before</h2>
+<div class="fillable">
+<table class="caption-top">
+<colgroup>
+<col style="width: 12%">
+<col style="width: 57%">
+<col style="width: 30%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>Claim</th>
+<th>The smaller pieces</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>HW1</td>
+<td>every WFF has atoms = binary connectives + 1</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>HW2</td>
+<td>every expression has a CNF</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Today</td>
+<td>every height <span class="math inline">\(n &gt; 23\)</span> can be built</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Check the smallest cases. Assume the claim for the smaller pieces. Show it for the whole.</p>
+<aside class="notes">
+<p>HW1: the WFFs a formula is built from. HW2: the two expressions joined by an and or an or. Today: the tower of height n - 5.</p>
+<p>The name is structural induction when the smaller pieces are parts of the thing; induction on n when they are smaller integers. Same skeleton. HW2 promised “we will study it formally in a few weeks” – this is that.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -243,54 +369,30 @@
 </p>
 <p>Case 2 <span class="math inline">\((n&gt;1)\)</span>:</p>
 </section>
-<section id="inductive-proof-skeleton-card" class="slide level2">
-<h2>Inductive Proof Skeleton Card</h2>
-<div class="card">
-<p>Proof by Induction of <span class="math inline">\(\forall n, P(n)\)</span></p>
-<ol type="1">
-<li>First line: “Consider an arbitrary n.”</li>
-<li>Second line (IH): “Assume <span class="math inline">\(\forall j &lt; n, P(j)\)</span>.”</li>
-<li>Determine exhaustive cases for <span class="math inline">\(n\)</span>, including one or more base cases and usually one inductive case.</li>
-<li>Prove each case, base and inductive, independently. Base case is typically direct, and inductive case will require use of IH.</li>
-</ol>
-</div>
-</section>
 <section id="your-turn" class="slide level2 activity">
 <h2>Your turn!</h2>
 <p>Claim: For any <span class="math inline">\(n&gt;0\)</span>, <span class="math inline">\(\sum\limits_{k=1}^n \frac{1}{(2k-1)(2k+1)} = \frac{n}{2n+1}\)</span>.</p>
-<countdown-timer id="timer_5efa5ba3f47a2c96d5b5f57c7ae9e3ffedc7f386" minutes="10" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<countdown-timer id="timer_32ad212ee11b58ac4fa026a8d7735b4d9ef913d1" minutes="10" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
  </countdown-timer>
+<aside class="notes">
+<p>If this runs over, it opens Wednesday: the sum telescopes, which is L12’s Trick 2, so prove it by induction here and by telescoping there.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
-<section id="last-demo" class="slide level2">
-<h2>Last Demo</h2>
-<p>This is a tromino: <svg viewbox="0 0 48 48" width="48" height="48" fill="currentColor" role="img" aria-label="L tromino"> <rect x="0" y="24" width="23" height="23" rx="3"></rect> <rect x="24" y="24" width="23" height="23" rx="3"></rect> <rect x="0" y="0" width="23" height="23" rx="3"></rect> </svg></p>
-<p>This is a <span class="math inline">\(n\)</span> by <span class="math inline">\(n\)</span> deficient grid:</p>
-<svg viewbox="0 0 200 200" width="240" height="240" role="img" aria-label="10 by 10 grid with one black square at row 6, column 6">
-<defs> <pattern id="grid20" width="20" height="20" patternunits="userSpaceOnUse"> <path d="M20 0H0V20" fill="none" stroke="#bbb" stroke-width="1"></path> </pattern> </defs> <rect x="0" y="0" width="200" height="200" fill="white" stroke="#333" stroke-width="2"></rect> <rect x="0" y="0" width="200" height="200" fill="url(#grid20)"></rect> <rect x="100" y="100" width="20" height="20" fill="black"></rect>
-</svg>
-<p><br>
-</p>
-<p>Claim: Every <span class="math inline">\(2^n\)</span> by <span class="math inline">\(2^n\)</span> deficient grid can be tiled with trominos.</p>
-</section>
-<section id="tile-work" class="slide level2">
-<h2>Tile Work</h2>
-<p>Claim: Every <span class="math inline">\(2^n\)</span> by <span class="math inline">\(2^n\)</span> deficient grid can be tiled with trominos.</p>
-<p>&nbsp;</p>
-<p>Proof: Line 1:</p>
-<p><br>
-</p>
-<p>Line 2:</p>
-<p>&nbsp;</p>
-<p>Small case(s):</p>
-</section>
-<section id="tile-work-1" class="slide level2 smaller">
-<h2>Tile Work</h2>
-<p>Claim: Every <span class="math inline">\(2^n\)</span> by <span class="math inline">\(2^n\)</span> deficient grid can be tiled with trominos.</p>
-<p>&nbsp;</p>
-<p>Proof continued… Inductive case:</p>
-<svg viewbox="0 0 400 400" width="480" height="480" role="img" aria-label="16 by 16 grid with one black square at row 4, column 12">
-<defs> <pattern id="grid25" width="25" height="25" patternunits="userSpaceOnUse"> <path d="M25 0H0V25" fill="none" stroke="#bbb" stroke-width="1"></path> </pattern> </defs> <rect x="0" y="0" width="400" height="400" fill="white" stroke="#333" stroke-width="2"></rect> <rect x="0" y="0" width="400" height="400" fill="url(#grid25)"></rect> <rect x="300" y="150" width="25" height="25" fill="black"></rect>
-</svg>
+<section id="words-and-ideas" class="slide level2">
+<h2>Words and Ideas</h2>
+<p>Induction, base case, inductive case</p>
+<p>Inductive hypothesis (IH)</p>
+<p>Structural induction</p>
 
 
 <script type="ojs-module-contents">
