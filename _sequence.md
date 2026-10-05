@@ -43,7 +43,7 @@ propositional inference, then universal generalization. Lecture 9 opens with
 | L9 | Mon Sep 28 | class | **Nested quantifiers** — opens with L8's Code Patterns cell, which the video ran out before |
 | | Wed Sep 30 | — | Truth and Reconciliation, no class |
 | L10 | Fri Oct 2 | video | **Proofs** — all four techniques. Predicate inference lands here, not L9 |
-| L11 | Mon Oct 5 | class | not written |
+| L11 | Mon Oct 5 | class | **Proof by induction** — opens on Friday's converse; towers (students talk it through, 10 min), base cases 24–28, skeleton card, "You Have Done This Before" (HW1 and HW2 were structural induction), sum of squares, your turn. The tromino stays in L13. If Your Turn overflows, it opens L12: the sum telescopes |
 | L12 | Wed Oct 7 | class | not written |
 | L13 | Fri Oct 9 | video | not written — *after* the EX2 window opens |
 | | Sun Oct 11 | | ⟵ **EX2 due.** Window Thu Oct 8 – Sun Oct 11. Covers L6–L10 |

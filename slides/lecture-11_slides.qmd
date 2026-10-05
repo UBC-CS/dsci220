@@ -3,7 +3,28 @@ title: "Proof by Induction"
 subtitle: "Lecture 11, {{< var course.code >}}, {{< var course.term >}}"
 ---
 
-## Announcements 
+## Announcements {.smaller}
+
+* **EX2** is Thu 10/8 through Sun 10/11, in ORCA. It covers lectures 6 through 10.
+  Practice problems are on PrairieLearn.
+* The **lecture 10 video** was re-recorded: the first upload had no audio.
+* Tutorials meet this week.
+
+## Friday's Question
+
+Is the converse true? Is every perfect square a glow number?
+
+::: notes
+Yes. A perfect square is m^2 for a positive integer m, and
+m^2 = T_{m-1} + T_m, so the witness is k = m.
+
+Both definitions are for positive integers, so 0 never comes up, and T_0 = 0
+is defined, so 1 = T_0 + T_1 is a glow number.
+
+The theorem and its converse together: the glow numbers are exactly the
+perfect squares. Proving the converse means naming a k for a given m -- an
+existential, proved by giving the witness.
+:::
 
 # Proof by Induction
 
@@ -27,11 +48,15 @@ subtitle: "Lecture 11, {{< var course.code >}}, {{< var course.term >}}"
 
 A *Tower* is built by stacking 5m red panels, and 7m blue panels.
 
-What tower heights are possible? 
+What tower heights are possible? Talk it through with the people around you:
+which heights can you build, and which can't you?
 
-{{< countdown minutes=5 >}}
+{{< countdown minutes=10 >}}
 
 ::: notes
+Give this time -- it took a while last year. Let them find the last height
+that cannot be built (23) themselves.
+
 End up with a clear claim: For all n > 23, we can build a tower of
 height n using only 5m red and 7m blue panels.
 
@@ -43,26 +68,74 @@ Say "claim holds for smaller values"
 Claim: for all integers $n > 23$, we can build a tower of height
 $n$ using only 5m red and 7m blue panels.
 
-
-\
-
-24:
-
-\
-
-25:
-
-\
-
-26:
-
-
-::: notes
-point out universal quantifier, and also least value.
-
-Also point out which values follow easily from these... sequences, covering integers.
+::: {.fillable}
+| Height | Red | Blue |
+|:-:|:-:|:-:|
+| 24 | | |
+| 25 | | |
+| 26 | | |
+| 27 | | |
+| 28 | | |
+: {tbl-colwidths="[30,35,35]"}
 :::
 
+Every height $n \geq 29$: \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+::: notes
+24 = 2 red + 2 blue. 25 = 5 red. 26 = 1 red + 3 blue. 27 = 4 red + 1 blue.
+28 = 4 blue.
+
+Every n >= 29: n - 5 is at least 24, so a tower of height n - 5 can be built.
+Add one red panel.
+
+Why FIVE base cases: each height comes from the height 5 below it, so the
+first five have to be checked by hand. Three is not enough -- 28 would need
+23, which cannot be built. (27 would need 22, which can be built, but the claim
+says nothing about 22.) Worth asking before filling in the table.
+
+Point out the universal quantifier, and the least value. This is proof by
+cases plus one new move: assume it for a smaller value (n - 5). That is
+induction, before it has a name.
+
+Aside, only if it comes up: 23 = 5*7 - 5 - 7.
+:::
+
+## Inductive Proof Skeleton Card
+
+
+<div class="card">
+
+Proof by Induction of $\forall n, P(n)$
+
+1. First line: "Consider an arbitrary n." 
+2. Second line (IH): "Assume $\forall j < n, P(j)$."
+3. Determine exhaustive cases for $n$, including one or more base cases and usually one inductive case.
+4. Prove each case, base and inductive, independently. Base case is typically direct, and inductive case will require use of IH.
+
+</div>
+
+## You Have Done This Before {.smaller}
+
+::: {.fillable}
+| | Claim | The smaller pieces |
+|---|---|---|
+| HW1 | every WFF has atoms = binary connectives + 1 | |
+| HW2 | every expression has a CNF | |
+| Today | every height $n > 23$ can be built | |
+: {tbl-colwidths="[12,58,30]"}
+:::
+
+Check the smallest cases. Assume the claim for the smaller pieces. Show it
+for the whole.
+
+::: notes
+HW1: the WFFs a formula is built from. HW2: the two expressions joined by an
+and or an or. Today: the tower of height n - 5.
+
+The name is structural induction when the smaller pieces are parts of the
+thing; induction on n when they are smaller integers. Same skeleton. HW2
+promised "we will study it formally in a few weeks" -- this is that.
+:::
 
 ## Proof by Induction {.smaller}
 
@@ -84,27 +157,7 @@ Case 1 $(n=1)$:
 
 \
 
-Case 2 $(n>1)$: 
-
-
-
-
-
-## Inductive Proof Skeleton Card
-
-
-<div class="card">
-
-Proof by Induction of $\forall n, P(n)$
-
-1. First line: "Consider an arbitrary n." 
-2. Second line (IH): "Assume $\forall j < n, P(j)$."
-3. Determine exhaustive cases for $n$, including one or more base cases and usually one inductive case.
-4. Prove each case, base and inductive, independently. Base case is typically direct, and inductive case will require use of IH.
-
-</div>
-
-
+Case 2 $(n>1)$:
 
 ## Your turn! {.activity}
 
@@ -112,71 +165,15 @@ Claim: For any $n>0$, $\sum\limits_{k=1}^n \frac{1}{(2k-1)(2k+1)} = \frac{n}{2n+
 
 {{< countdown minutes=10 >}}
 
-## Last Demo
+::: notes
+If this runs over, it opens Wednesday: the sum telescopes, which is L12's
+Trick 2, so prove it by induction here and by telescoping there.
+:::
 
-This is a tromino: 
-<svg viewBox="0 0 48 48" width="48" height="48" fill="currentColor" role="img" aria-label="L tromino">
-  <rect x="0"  y="24" width="23" height="23" rx="3" />
-  <rect x="24" y="24" width="23" height="23" rx="3" />
-  <rect x="0"  y="0"  width="23" height="23" rx="3" />
-</svg>
+## Words and Ideas
 
-This is a $n$ by $n$ deficient grid: 
+Induction, base case, inductive case
 
-<svg viewBox="0 0 200 200" width="240" height="240" role="img"
-     aria-label="10 by 10 grid with one black square at row 6, column 6">
-  <defs>
-    <pattern id="grid20" width="20" height="20" patternUnits="userSpaceOnUse">
-      <path d="M20 0H0V20" fill="none" stroke="#bbb" stroke-width="1"/>
-    </pattern>
-  </defs>
-  <rect x="0" y="0" width="200" height="200" fill="white" stroke="#333" stroke-width="2"/>
-  <rect x="0" y="0" width="200" height="200" fill="url(#grid20)"/>
-  <rect x="100" y="100" width="20" height="20" fill="black"/>
-</svg>
+Inductive hypothesis (IH)
 
-\
-
-Claim: Every $2^n$ by $2^n$ deficient grid can be tiled with trominos.
-
-## Tile Work
-
-Claim: Every $2^n$ by $2^n$ deficient grid can be tiled with trominos.
-
-\ 
-
-Proof: 
-Line 1:
-
-\
-
-Line 2: 
-
-\ 
-
-Small case(s):
-
-
-## Tile Work {.smaller}
-
-Claim: Every $2^n$ by $2^n$ deficient grid can be tiled with trominos.
-
-\ 
-
-Proof continued...
-Inductive case:
-
-<svg viewBox="0 0 400 400" width="480" height="480" role="img"
-     aria-label="16 by 16 grid with one black square at row 4, column 12">
-  <defs>
-    <pattern id="grid25" width="25" height="25" patternUnits="userSpaceOnUse">
-      <path d="M25 0H0V25" fill="none" stroke="#bbb" stroke-width="1"/>
-    </pattern>
-  </defs>
-  <rect x="0" y="0" width="400" height="400" fill="white" stroke="#333" stroke-width="2"/>
-  <rect x="0" y="0" width="400" height="400" fill="url(#grid25)"/>
-  <rect x="300" y="150" width="25" height="25" fill="black"/>
-</svg>
-
-
-
+Structural induction
