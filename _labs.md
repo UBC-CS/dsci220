@@ -80,7 +80,7 @@ rather than 9 for L1A only.
 | 1 | 2 | Sep 15 / Sep 16 | **Cinda** |  |  |  |
 | 2 | 3 | Sep 22 / Sep 23 |  |  |  |  |
 | 3 | 4 | Sep 29 / Sep 30 | **Noah** |  |  | HW2 help; Wed does not meet — see below |
-| 4 | 5 | Oct 6 / Oct 7 |  |  |  |  |
+| 4 | 5 | Oct 6 / Oct 7 | **Noah** |  |  | Last term's Tutorial 2 had `sudokuCorners-A` (corners all different ⇒ centre all different); corners = centre is on L11's Corners and Centre slide |
 | 5 | 7 | Oct 20 / Oct 21 |  |  |  |  |
 | 6 | 8 | Oct 27 / Oct 28 |  |  |  |  |
 | 7 | 9 | Nov 3 / Nov 4 |  |  |  |  |
