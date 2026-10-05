@@ -1314,7 +1314,7 @@
     "href": "slides/lecture-11_slides.html#fridays-question",
     "title": "Proof by Induction",
     "section": "Friday’s Question",
-    "text": "Friday’s Question\nIs the converse true? Is every perfect square a glow number?\n\nYes. A perfect square is m^2 for a positive integer m, and m^2 = T_{m-1} + T_m, so the witness is k = m.\nBoth definitions are for positive integers, so 0 never comes up, and T_0 = 0 is defined, so 1 = T_0 + T_1 is a glow number.\nThe theorem and its converse together: the glow numbers are exactly the perfect squares. Proving the converse means naming a k for a given m – an existential, proved by giving the witness."
+    "text": "Friday’s Question\nIs the converse true? Is every perfect square a glow number?\n\n\n                                                               \n\n\n\nYes. A perfect square is m^2 for a positive integer m, and m^2 = T_{m-1} + T_m, so the witness is k = m.\nBoth definitions are for positive integers, so 0 never comes up, and T_0 = 0 is defined, so 1 = T_0 + T_1 is a glow number.\nThe theorem and its converse together: the glow numbers are exactly the perfect squares. Proving the converse means naming a k for a given m – an existential, proved by giving the witness."
   },
   {
     "objectID": "slides/lecture-11_slides.html#sudoku-warm-up",
