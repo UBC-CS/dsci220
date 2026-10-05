@@ -1335,7 +1335,7 @@
     "href": "slides/lecture-11_slides.html#leftrightsquigarrow-sudoku-contrapositive",
     "title": "Proof by Induction",
     "section": "\\(\\leftrightsquigarrow\\) Sudoku: Contrapositive",
-    "text": "\\(\\leftrightsquigarrow\\) Sudoku: Contrapositive\n\n\n\n\nTheorem: For any valid Sudoku solution, if A and B and C, three cells of one 2x2 box, are not 4, then D, its fourth cell, is 4.\n\nContrapositive:\n\nIf D is not 4, then A or B or C is 4.\nThe negation of “A and B and C are not 4” is “A or B or C is 4” – De Morgan, worth pointing at.\nProof: the box contains a 4 somewhere. It is not D, so it is A, B or C. The contrapositive is the easy direction here: it is just “the 4 has to be somewhere”."
+    "text": "\\(\\leftrightsquigarrow\\) Sudoku: Contrapositive\n\n\n\n         A B C D \n\n\nTheorem: For any valid Sudoku solution, if A and B and C are not 4, then D is 4.\n\nContrapositive:\n\nIf D is not 4, then A or B or C is 4.\nThe negation of “A and B and C are not 4” is “A or B or C is 4” – De Morgan, worth pointing at.\nProof: the box contains a 4 somewhere. It is not D, so it is A, B or C. The contrapositive is the easy direction here: it is just “the 4 has to be somewhere”."
   },
   {
     "objectID": "slides/lecture-11_slides.html#sudoku-contradiction",
