@@ -28,6 +28,9 @@ existential, proved by giving the witness.
 
 ## Sudoku Warm Up {.activity}
 
+In a 4x4 Sudoku, each row, each column and each 2x2 box contains each of 1, 2, 3
+and 4 exactly once.
+
 Solve the Sudoku on the worksheet.
 
 Speculate on an interesting feature of the corners.
@@ -88,9 +91,7 @@ where r1c1 = 2, r4c4 = 2.
 :::
 
 ::: {.column width="80%"}
-Game rule: each 2x2 box contains one of 1, 2, 3, and 4.
-
-Theorem: For any valid Sudoku solution, if A and B and C are not 4, then D is 4.
+Theorem: For any valid Sudoku solution, if A and B and C, three cells of one 2x2 box, are not 4, then D, its fourth cell, is 4.
 :::
 :::::
 
