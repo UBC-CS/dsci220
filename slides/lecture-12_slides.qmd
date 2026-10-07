@@ -81,6 +81,43 @@ Proof by Induction of $\forall n, P(n)$
 
 ## Proof by Induction {.smaller}
 
+Claim: For any integer $n > 0$, $\sum\limits_{k=1}^{n} 2^k = 2^{n+1} - 2$.
+
+\
+
+Proof: Consider an arbitrary integer $n > 0$. 
+
+\
+
+IH: Assume inductively that for any $j<n$, $\sum\limits_{k=1}^{j} 2^k = 2^{j+1} - 2$.
+
+\
+
+Either $n=1$, or $n>1$.
+
+Case 1 $(n=1)$:
+
+\
+
+Case 2 $(n>1)$:
+
+::: notes
+Case 1: the sum is 2, and 2^2 - 2 = 2.
+
+Case 2: split off the last term, then use the IH with j = n - 1 (which is
+less than n and at least 1):
+  sum_{k=1}^{n} 2^k = (sum_{k=1}^{n-1} 2^k) + 2^n
+                    = (2^n - 2) + 2^n          by IH
+                    = 2^{n+1} - 2.
+
+Same moves as the towers: one base case, then build n from a smaller value.
+Here the smaller value is n - 1, so one base case is enough.
+
+We use this sum again in Trick 3.
+:::
+
+## Proof by Induction {.smaller}
+
 Claim: For any integer $n > 0$, $\sum\limits_{k=1}^{n} k^2 = \frac{n(n+1)(2n+1)}{6}$.
 
 \
@@ -168,7 +205,18 @@ but the **annotation time per item** grows linearly with the day index.  What’
 **Problem.**  
 $S_n =\sum_{k=1}^{n} k\,2^{k}$
 
-## Trick 3: Shifting 
+::: notes
+S = 1*2 + 2*4 + 3*8 + ... + n*2^n.
+Double it and shift one place right, so each 2^k lines up with a 2^k:
+   S =  1*2 + 2*4 + 3*8 + ... + n*2^n
+  2S =        1*4 + 2*8 + ... + (n-1)*2^n + n*2^{n+1}
+Subtract, 2S - S: the first term gives -2, each middle column gives -2^k,
+and the last term n*2^{n+1} is left over.
+  S = n*2^{n+1} - (2 + 4 + ... + 2^n) = n*2^{n+1} - (2^{n+1} - 2)
+    = (n - 1) 2^{n+1} + 2.
+The geometric sum is the first induction example today.
+Check: n=1: 2. n=2: 10. n=3: 34.
+:::
 
 ## Trick 4: Variable Substitution 
 
