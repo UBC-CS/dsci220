@@ -90,7 +90,7 @@ Inductive case:
 |---|---|---|
 | HW1 | every WFF has atoms = binary connectives + 1 | |
 | HW2 | every expression has a CNF | |
-| Today | every height $n > 23$ can be built | |
+| Towers | every height $n > 23$ can be built | |
 : {tbl-colwidths="[12,58,30]"}
 :::
 
@@ -99,7 +99,7 @@ for the whole.
 
 ::: notes
 HW1: the WFFs a formula is built from. HW2: the two expressions joined by an
-and or an or. Today: the tower of height n - 5.
+and or an or. Towers: the tower of height n - 5.
 
 The name is structural induction when the smaller pieces are parts of the
 thing; induction on n when they are smaller integers. Same skeleton. HW2
@@ -137,6 +137,21 @@ witnesses and the step builds the new witness from them.
 
 # Summations
 
+## Trick 4: Variable Substitution 
+
+\ 
+
+**Story.** Each item $j$ has effort that depends both on its index and how many remain.  
+
+**Problem.**  
+$S = \sum_{j=1}^{n} \big(7 + 3(n-j+1)\big)$
+
+::: notes
+**Hint for later reveal:**  
+Substitute $i = n-j+1$. The sum becomes  
+$\sum_{i=1}^{n} (7 + 3i) $ — exactly the **Linearity** example.
+:::
+
 ## Trick 5: Reindexing 
 
 \ 
@@ -145,6 +160,18 @@ witnesses and the step builds the new witness from them.
 The cost for row $i$ is $2i+1$.  
 
 **Question.** What is the total cost up to row $n$?
+
+::: notes
+The logged rows are i = 3j for j = 1, 2, ..., m, where m = floor(n/3) is the
+number of logged rows. Reindex by j, so the sum runs over consecutive integers:
+  sum_{j=1}^{m} (2(3j) + 1) = sum_{j=1}^{m} (6j + 1)
+                            = 6 * m(m+1)/2 + m      (linearity, then Trick 0)
+                            = 3m(m+1) + m = m(3m + 4).
+Check: n = 3, m = 1: row 3 costs 7, and 1*7 = 7.
+       n = 6, m = 2: 7 + 13 = 20, and 2*10 = 20.
+The answer is in terms of m = floor(n/3), not n. Expect students to try to
+write it in n and get stuck on the floor.
+:::
 
 ## Trick 6: Double Sum 
 
@@ -158,8 +185,20 @@ $T = \displaystyle \sum_{i=1}^{n}\;\sum_{j=i}^{n}\,(4j+1)$
 ::: {.column}
 ![](/images/grid12.png)
 :::
-::::: 
+:::::
 
+::: notes
+Swap the order of summation. In the grid, row i covers j = i..n, so the
+cells are the pairs with i <= j. Read the same cells by column: column j has
+the rows i = 1..j, which is j cells, each costing 4j + 1.
+  T = sum_{j=1}^{n} sum_{i=1}^{j} (4j + 1) = sum_{j=1}^{n} j(4j + 1)
+    = 4 sum j^2 + sum j
+    = 4 * n(n+1)(2n+1)/6 + n(n+1)/2
+    = n(n+1)(8n + 7)/6.
+The inner sum is now easy because 4j + 1 does not depend on i.
+This uses the sum of squares we proved by induction on Wednesday.
+Check: n = 1: 5. n = 2: (5 + 9) + 9 = 23, and 2*3*23/6 = 23.
+:::
 
 # Sequences
 
