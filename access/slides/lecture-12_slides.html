@@ -6,13 +6,15 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/quarto-contrib/live-runtime/live-runtime.js" type="module"></script>
 <link href="../site_libs/quarto-contrib/live-runtime/live-runtime.css" rel="stylesheet">
+<script src="../site_libs/quarto-contrib/countdown-0.6.0/countdown.js"></script>
+<link href="../site_libs/quarto-contrib/countdown-0.6.0/countdown.css" rel="stylesheet">
 <script src="../site_libs/quarto-contrib/iconify-3.0.0/iconify-icon.min.js"></script><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.10.18">
+  <meta name="generator" content="quarto-1.10.19">
 
-  <title>{{&lt; var course.full-title &gt;}}---Accessibility version – Summations</title>
+  <title>{{&lt; var course.full-title &gt;}}---Accessibility version – Proof by Induction, Summations</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -134,10 +136,10 @@
   </style>
   <script type="module" src="../site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
   <link href="../site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
-<meta property="og:title" content="Summations – DSCI 220: Discrete Math for Data Science—Accessibility version">
+<meta property="og:title" content="Proof by Induction, Summations – DSCI 220: Discrete Math for Data Science—Accessibility version">
 <meta property="og:description" content="Lecture 12, DSCI 220, 2026W1">
 <meta property="og:site_name" content="DSCI 220: Discrete Math for Data Science—Accessibility version">
-<meta name="twitter:title" content="Summations – DSCI 220: Discrete Math for Data Science—Accessibility version">
+<meta name="twitter:title" content="Proof by Induction, Summations – DSCI 220: Discrete Math for Data Science—Accessibility version">
 <meta name="twitter:description" content="Lecture 12, DSCI 220, 2026W1">
 <meta name="twitter:card" content="summary">
 </head>
@@ -146,7 +148,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Summations</h1>
+  <h1 class="title">Proof by Induction, Summations</h1>
   <p class="subtitle">Lecture 12, DSCI 220, 2026W1</p>
 
 <div class="quarto-title-authors">
@@ -155,11 +157,139 @@
 </section>
 <section id="announcements" class="slide level2">
 <h2>Announcements</h2>
-<p>Examlet this week.</p>
-<p>Truth and reconciliation tomorrow – Tue lab will not meet.</p>
-<p>Reminder: Joe’s office hour is Fri 11-12, in this room!</p>
-<p>We are shooting video this afternoon, 4p via zoom. You are all welcome!</p>
+<p><strong>EX2</strong> is Thu 10/8 through Sun 10/11. It covers lectures 6 through 10.</p>
 </section>
+<section id="recap-towers" class="slide level2 smaller">
+<h2>Recap: Towers</h2>
+<p>Claim: for all integers <span class="math inline">\(n &gt; 23\)</span>, we can build a tower of height <span class="math inline">\(n\)</span> using only 5m red and 7m blue panels.</p>
+<div class="two-col">
+<div>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: center;">Height</th>
+<th style="text-align: center;">Red</th>
+<th style="text-align: center;">Blue</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">24</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">25</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">26</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">3</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">27</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">28</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">4</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div>
+<p>Every height <span class="math inline">\(n \geq 29\)</span>:</p>
+<p><br>
+</p>
+<p><br>
+</p>
+<p><br>
+</p>
+</div>
+</div>
+<aside class="notes">
+<p>Monday we found the heights by hand and stopped here. The table is filled in so we can go straight to the last line.</p>
+<p>Every n &gt;= 29: n - 5 is at least 24, so a tower of height n - 5 can be built. Add one red panel.</p>
+<p>Why FIVE base cases: each height comes from the height 5 below it, so the first five have to be checked by hand. Three is not enough – 28 would need 23, which cannot be built. (27 would need 22, which can be built, but the claim says nothing about 22.) Worth asking before showing the last line.</p>
+<p>Point out the universal quantifier, and the least value. This is proof by cases plus one new move: assume it for a smaller value (n - 5). That is induction, before it has a name.</p>
+<p>Aside, only if it comes up: 23 = 5*7 - 5 - 7.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section>
+<section id="proof-by-induction" class="title-slide slide level1 center">
+<h1>Proof by Induction</h1>
+
+</section>
+<section id="todays-goals" class="slide level2">
+<h2>Today’s goals</h2>
+<ul>
+<li>Understand role of components of an inductive proof.</li>
+<li>Write short inductive proofs.</li>
+<li>Use some tricks to find closed forms for sums.</li>
+</ul>
+</section>
+<section id="inductive-proof-skeleton-card" class="slide level2">
+<h2>Inductive Proof Skeleton Card</h2>
+<div class="card">
+<p>Proof by Induction of <span class="math inline">\(\forall n, P(n)\)</span></p>
+<ol type="1">
+<li>First line: “Consider an arbitrary n.”</li>
+<li>Second line (IH): “Assume <span class="math inline">\(\forall j &lt; n, P(j)\)</span>.”</li>
+<li>Determine exhaustive cases for <span class="math inline">\(n\)</span>, including one or more base cases and usually one inductive case.</li>
+<li>Prove each case, base and inductive, independently. Base case is typically direct, and inductive case will require use of IH.</li>
+</ol>
+</div>
+</section>
+<section id="proof-by-induction-1" class="slide level2 smaller">
+<h2>Proof by Induction</h2>
+<p>Claim: For any integer <span class="math inline">\(n &gt; 0\)</span>, <span class="math inline">\(\sum\limits_{k=1}^{n} k^2 = \frac{n(n+1)(2n+1)}{6}\)</span>.</p>
+<p><br>
+</p>
+<p>Proof: Consider an arbitrary integer <span class="math inline">\(n &gt; 0\)</span>.</p>
+<p><br>
+</p>
+<p>IH: Assume inductively that for any <span class="math inline">\(j&lt;n\)</span>, <span class="math inline">\(\sum\limits_{k=1}^{j} k^2 = \frac{j(j+1)(2j+1)}{6}\)</span>.</p>
+<p><br>
+</p>
+<p>Either <span class="math inline">\(n=1\)</span>, or <span class="math inline">\(n&gt;1\)</span>.</p>
+<p>Case 1 <span class="math inline">\((n=1)\)</span>:</p>
+<p><br>
+</p>
+<p>Case 2 <span class="math inline">\((n&gt;1)\)</span>:</p>
+</section>
+<section id="your-turn" class="slide level2 activity">
+<h2>Your turn!</h2>
+<p>Claim: For any <span class="math inline">\(n&gt;0\)</span>, <span class="math inline">\(\sum\limits_{k=1}^n \frac{1}{(2k-1)(2k+1)} = \frac{n}{2n+1}\)</span>.</p>
+<countdown-timer id="timer_b9dc208806f7dd210a2c97c4cccea4bf95cf5060" minutes="10" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+ </countdown-timer>
+<aside class="notes">
+<p>The sum telescopes: 1/((2k-1)(2k+1)) = (1/2)(1/(2k-1) - 1/(2k+1)). That is Trick 2 below, so we can come back to this sum by telescoping.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
 <section>
 <section id="summations" class="title-slide slide level1 center">
 <h1>Summations</h1>
@@ -249,6 +379,11 @@ The cost for row <span class="math inline">\(i\)</span> is <span class="math inl
 </div><div class="column">
 <p><img data-src="../images/grid12.png"></p>
 </div></div>
+</section>
+<section id="words-and-ideas" class="slide level2">
+<h2>Words and Ideas</h2>
+<p>Induction, base case, inductive case</p>
+<p>Inductive hypothesis (IH)</p>
 
 
 <script type="ojs-module-contents">

@@ -6,13 +6,13 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/quarto-contrib/live-runtime/live-runtime.js" type="module"></script>
 <link href="../site_libs/quarto-contrib/live-runtime/live-runtime.css" rel="stylesheet">
 <script src="../site_libs/quarto-contrib/countdown-0.6.0/countdown.js"></script>
 <link href="../site_libs/quarto-contrib/countdown-0.6.0/countdown.css" rel="stylesheet">
 <script src="../site_libs/quarto-contrib/iconify-3.0.0/iconify-icon.min.js"></script><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.10.18">
+  <meta name="generator" content="quarto-1.10.19">
 
   <title>{{&lt; var course.full-title &gt;}}---Accessibility version – Proof by Induction</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -193,7 +193,7 @@
 <p>Solve the Sudoku on the worksheet.</p>
 <p>Speculate on an interesting feature of the corners.</p>
 <p>Do all 4x4 Sudoku puzzles have this feature?</p>
-<countdown-timer id="timer_5357a6229013ae4a1cff9c0b52f33dfb9171d22f" minutes="05" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<countdown-timer id="timer_9efcebc024cd80547ebecffeb6a52c867fd33164" minutes="05" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
  </countdown-timer>
 <aside class="notes">
 <p>The puzzle has exactly one solution: 2 3 4 1 1 4 2 3 4 1 3 2 3 2 1 4 Its four corners (2, 1, 3, 4) are all different.</p>
@@ -342,7 +342,7 @@
 <h2>Warm Up</h2>
 <p>A <em>Tower</em> is built by stacking 5m red panels, and 7m blue panels.</p>
 <p>What tower heights are possible? Talk it through with the people around you: which heights can you build, and which can’t you?</p>
-<countdown-timer id="timer_5357a6229013ae4a1cff9c0b52f33dfb9171d22f" minutes="10" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<countdown-timer id="timer_9efcebc024cd80547ebecffeb6a52c867fd33164" minutes="10" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
  </countdown-timer>
 <aside class="notes">
 <p>Give this time – it took a while last year. Let them find the last height that cannot be built (23) themselves.</p>
@@ -359,124 +359,6 @@
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
-</section>
-<section id="warm-up-continued" class="slide level2 smaller">
-<h2>Warm Up Continued</h2>
-<p>Claim: for all integers <span class="math inline">\(n &gt; 23\)</span>, we can build a tower of height <span class="math inline">\(n\)</span> using only 5m red and 7m blue panels.</p>
-<div class="fillable">
-<table class="caption-top" style="width:100%;">
-<colgroup>
-<col style="width: 30%">
-<col style="width: 35%">
-<col style="width: 35%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: center;">Height</th>
-<th style="text-align: center;">Red</th>
-<th style="text-align: center;">Blue</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">24</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">25</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">26</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">27</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">28</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>Every height <span class="math inline">\(n \geq 29\)</span>: ____________________________</p>
-<aside class="notes">
-<p>24 = 2 red + 2 blue. 25 = 5 red. 26 = 1 red + 3 blue. 27 = 4 red + 1 blue. 28 = 4 blue.</p>
-<p>Every n &gt;= 29: n - 5 is at least 24, so a tower of height n - 5 can be built. Add one red panel.</p>
-<p>Why FIVE base cases: each height comes from the height 5 below it, so the first five have to be checked by hand. Three is not enough – 28 would need 23, which cannot be built. (27 would need 22, which can be built, but the claim says nothing about 22.) Worth asking before filling in the table.</p>
-<p>Point out the universal quantifier, and the least value. This is proof by cases plus one new move: assume it for a smaller value (n - 5). That is induction, before it has a name.</p>
-<p>Aside, only if it comes up: 23 = 5*7 - 5 - 7.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="inductive-proof-skeleton-card" class="slide level2">
-<h2>Inductive Proof Skeleton Card</h2>
-<div class="card">
-<p>Proof by Induction of <span class="math inline">\(\forall n, P(n)\)</span></p>
-<ol type="1">
-<li>First line: “Consider an arbitrary n.”</li>
-<li>Second line (IH): “Assume <span class="math inline">\(\forall j &lt; n, P(j)\)</span>.”</li>
-<li>Determine exhaustive cases for <span class="math inline">\(n\)</span>, including one or more base cases and usually one inductive case.</li>
-<li>Prove each case, base and inductive, independently. Base case is typically direct, and inductive case will require use of IH.</li>
-</ol>
-</div>
-</section>
-<section id="proof-by-induction-1" class="slide level2 smaller">
-<h2>Proof by Induction</h2>
-<p>Claim: For any integer <span class="math inline">\(n &gt; 0\)</span>, <span class="math inline">\(\sum\limits_{k=1}^{n} k^2 = \frac{n(n+1)(2n+1)}{6}\)</span>.</p>
-<p><br>
-</p>
-<p>Proof: Consider an arbitrary integer <span class="math inline">\(n &gt; 0\)</span>.</p>
-<p><br>
-</p>
-<p>IH: Assume inductively that for any <span class="math inline">\(j&lt;n\)</span>, <span class="math inline">\(\sum\limits_{k=1}^{j} k^2 = \frac{j(j+1)(2j+1)}{6}\)</span>.</p>
-<p><br>
-</p>
-<p>Either <span class="math inline">\(n=1\)</span>, or <span class="math inline">\(n&gt;1\)</span>.</p>
-<p>Case 1 <span class="math inline">\((n=1)\)</span>:</p>
-<p><br>
-</p>
-<p>Case 2 <span class="math inline">\((n&gt;1)\)</span>:</p>
-</section>
-<section id="your-turn" class="slide level2 activity">
-<h2>Your turn!</h2>
-<p>Claim: For any <span class="math inline">\(n&gt;0\)</span>, <span class="math inline">\(\sum\limits_{k=1}^n \frac{1}{(2k-1)(2k+1)} = \frac{n}{2n+1}\)</span>.</p>
-<countdown-timer id="timer_5357a6229013ae4a1cff9c0b52f33dfb9171d22f" minutes="10" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
- </countdown-timer>
-<aside class="notes">
-<p>If this runs over, it opens Wednesday: the sum telescopes, which is L12’s Trick 2, so prove it by induction here and by telescoping there.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="words-and-ideas" class="slide level2">
-<h2>Words and Ideas</h2>
-<p>Induction, base case, inductive case</p>
-<p>Inductive hypothesis (IH)</p>
 
 
 <script type="ojs-module-contents">

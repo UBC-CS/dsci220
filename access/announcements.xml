@@ -10,7 +10,7 @@
 <atom:link href="https://ubc-cs.github.io/dsci220/announcements.xml" rel="self" type="application/rss+xml"/>
 <description>Course website for {{&lt; var course.code &gt;}}
 </description>
-<generator>quarto-1.10.18</generator>
+<generator>quarto-1.10.19</generator>
 <lastBuildDate>Tue, 08 Sep 2026 00:00:00 GMT</lastBuildDate>
 <item>
   <title>Welcome to DSCI 220!</title>

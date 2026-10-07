@@ -1366,41 +1366,6 @@
     "text": "Warm Up\nA Tower is built by stacking 5m red panels, and 7m blue panels.\nWhat tower heights are possible? Talk it through with the people around you: which heights can you build, and which can’t you?\n\n \n\nGive this time – it took a while last year. Let them find the last height that cannot be built (23) themselves.\nEnd up with a clear claim: For all n &gt; 23, we can build a tower of height n using only 5m red and 7m blue panels.\nSay “claim holds for smaller values”"
   },
   {
-    "objectID": "slides/lecture-11_slides.html#warm-up-continued",
-    "href": "slides/lecture-11_slides.html#warm-up-continued",
-    "title": "Proof by Induction",
-    "section": "Warm Up Continued",
-    "text": "Warm Up Continued\nClaim: for all integers \\(n &gt; 23\\), we can build a tower of height \\(n\\) using only 5m red and 7m blue panels.\n\n\n\n\n\n\n\n\n\nHeight\nRed\nBlue\n\n\n\n\n24\n\n\n\n\n25\n\n\n\n\n26\n\n\n\n\n27\n\n\n\n\n28\n\n\n\n\n\n\nEvery height \\(n \\geq 29\\): ____________________________\n\n24 = 2 red + 2 blue. 25 = 5 red. 26 = 1 red + 3 blue. 27 = 4 red + 1 blue. 28 = 4 blue.\nEvery n &gt;= 29: n - 5 is at least 24, so a tower of height n - 5 can be built. Add one red panel.\nWhy FIVE base cases: each height comes from the height 5 below it, so the first five have to be checked by hand. Three is not enough – 28 would need 23, which cannot be built. (27 would need 22, which can be built, but the claim says nothing about 22.) Worth asking before filling in the table.\nPoint out the universal quantifier, and the least value. This is proof by cases plus one new move: assume it for a smaller value (n - 5). That is induction, before it has a name.\nAside, only if it comes up: 23 = 5*7 - 5 - 7."
-  },
-  {
-    "objectID": "slides/lecture-11_slides.html#inductive-proof-skeleton-card",
-    "href": "slides/lecture-11_slides.html#inductive-proof-skeleton-card",
-    "title": "Proof by Induction",
-    "section": "Inductive Proof Skeleton Card",
-    "text": "Inductive Proof Skeleton Card\n\nProof by Induction of \\(\\forall n, P(n)\\)\n\nFirst line: “Consider an arbitrary n.”\nSecond line (IH): “Assume \\(\\forall j &lt; n, P(j)\\).”\nDetermine exhaustive cases for \\(n\\), including one or more base cases and usually one inductive case.\nProve each case, base and inductive, independently. Base case is typically direct, and inductive case will require use of IH."
-  },
-  {
-    "objectID": "slides/lecture-11_slides.html#proof-by-induction-1",
-    "href": "slides/lecture-11_slides.html#proof-by-induction-1",
-    "title": "Proof by Induction",
-    "section": "Proof by Induction",
-    "text": "Proof by Induction\nClaim: For any integer \\(n &gt; 0\\), \\(\\sum\\limits_{k=1}^{n} k^2 = \\frac{n(n+1)(2n+1)}{6}\\).\n\n\nProof: Consider an arbitrary integer \\(n &gt; 0\\).\n\n\nIH: Assume inductively that for any \\(j&lt;n\\), \\(\\sum\\limits_{k=1}^{j} k^2 = \\frac{j(j+1)(2j+1)}{6}\\).\n\n\nEither \\(n=1\\), or \\(n&gt;1\\).\nCase 1 \\((n=1)\\):\n\n\nCase 2 \\((n&gt;1)\\):"
-  },
-  {
-    "objectID": "slides/lecture-11_slides.html#your-turn",
-    "href": "slides/lecture-11_slides.html#your-turn",
-    "title": "Proof by Induction",
-    "section": "Your turn!",
-    "text": "Your turn!\nClaim: For any \\(n&gt;0\\), \\(\\sum\\limits_{k=1}^n \\frac{1}{(2k-1)(2k+1)} = \\frac{n}{2n+1}\\).\n\n \n\nIf this runs over, it opens Wednesday: the sum telescopes, which is L12’s Trick 2, so prove it by induction here and by telescoping there."
-  },
-  {
-    "objectID": "slides/lecture-11_slides.html#words-and-ideas",
-    "href": "slides/lecture-11_slides.html#words-and-ideas",
-    "title": "Proof by Induction",
-    "section": "Words and Ideas",
-    "text": "Words and Ideas\nInduction, base case, inductive case\nInductive hypothesis (IH)"
-  },
-  {
     "objectID": "slides/lecture-09_slides.html#announcements",
     "href": "slides/lecture-09_slides.html#announcements",
     "title": "Nested Quantifiers",
@@ -2449,65 +2414,107 @@
   {
     "objectID": "slides/lecture-12_slides.html#announcements",
     "href": "slides/lecture-12_slides.html#announcements",
-    "title": "Summations",
+    "title": "Proof by Induction, Summations",
     "section": "Announcements",
-    "text": "Announcements\nExamlet this week.\nTruth and reconciliation tomorrow – Tue lab will not meet.\nReminder: Joe’s office hour is Fri 11-12, in this room!\nWe are shooting video this afternoon, 4p via zoom. You are all welcome!"
+    "text": "Announcements\nEX2 is Thu 10/8 through Sun 10/11. It covers lectures 6 through 10."
+  },
+  {
+    "objectID": "slides/lecture-12_slides.html#recap-towers",
+    "href": "slides/lecture-12_slides.html#recap-towers",
+    "title": "Proof by Induction, Summations",
+    "section": "Recap: Towers",
+    "text": "Recap: Towers\nClaim: for all integers \\(n &gt; 23\\), we can build a tower of height \\(n\\) using only 5m red and 7m blue panels.\n\n\n\n\n\nHeight\nRed\nBlue\n\n\n\n\n24\n2\n2\n\n\n25\n5\n0\n\n\n26\n1\n3\n\n\n27\n4\n1\n\n\n28\n0\n4\n\n\n\n\n\nEvery height \\(n \\geq 29\\):\n\n\n\n\n\n\n\n\n\nMonday we found the heights by hand and stopped here. The table is filled in so we can go straight to the last line.\nEvery n &gt;= 29: n - 5 is at least 24, so a tower of height n - 5 can be built. Add one red panel.\nWhy FIVE base cases: each height comes from the height 5 below it, so the first five have to be checked by hand. Three is not enough – 28 would need 23, which cannot be built. (27 would need 22, which can be built, but the claim says nothing about 22.) Worth asking before showing the last line.\nPoint out the universal quantifier, and the least value. This is proof by cases plus one new move: assume it for a smaller value (n - 5). That is induction, before it has a name.\nAside, only if it comes up: 23 = 5*7 - 5 - 7."
+  },
+  {
+    "objectID": "slides/lecture-12_slides.html#todays-goals",
+    "href": "slides/lecture-12_slides.html#todays-goals",
+    "title": "Proof by Induction, Summations",
+    "section": "Today’s goals",
+    "text": "Today’s goals\n\nUnderstand role of components of an inductive proof.\nWrite short inductive proofs.\nUse some tricks to find closed forms for sums."
+  },
+  {
+    "objectID": "slides/lecture-12_slides.html#inductive-proof-skeleton-card",
+    "href": "slides/lecture-12_slides.html#inductive-proof-skeleton-card",
+    "title": "Proof by Induction, Summations",
+    "section": "Inductive Proof Skeleton Card",
+    "text": "Inductive Proof Skeleton Card\n\nProof by Induction of \\(\\forall n, P(n)\\)\n\nFirst line: “Consider an arbitrary n.”\nSecond line (IH): “Assume \\(\\forall j &lt; n, P(j)\\).”\nDetermine exhaustive cases for \\(n\\), including one or more base cases and usually one inductive case.\nProve each case, base and inductive, independently. Base case is typically direct, and inductive case will require use of IH."
+  },
+  {
+    "objectID": "slides/lecture-12_slides.html#proof-by-induction-1",
+    "href": "slides/lecture-12_slides.html#proof-by-induction-1",
+    "title": "Proof by Induction, Summations",
+    "section": "Proof by Induction",
+    "text": "Proof by Induction\nClaim: For any integer \\(n &gt; 0\\), \\(\\sum\\limits_{k=1}^{n} k^2 = \\frac{n(n+1)(2n+1)}{6}\\).\n\n\nProof: Consider an arbitrary integer \\(n &gt; 0\\).\n\n\nIH: Assume inductively that for any \\(j&lt;n\\), \\(\\sum\\limits_{k=1}^{j} k^2 = \\frac{j(j+1)(2j+1)}{6}\\).\n\n\nEither \\(n=1\\), or \\(n&gt;1\\).\nCase 1 \\((n=1)\\):\n\n\nCase 2 \\((n&gt;1)\\):"
+  },
+  {
+    "objectID": "slides/lecture-12_slides.html#your-turn",
+    "href": "slides/lecture-12_slides.html#your-turn",
+    "title": "Proof by Induction, Summations",
+    "section": "Your turn!",
+    "text": "Your turn!\nClaim: For any \\(n&gt;0\\), \\(\\sum\\limits_{k=1}^n \\frac{1}{(2k-1)(2k+1)} = \\frac{n}{2n+1}\\).\n\n \n\nThe sum telescopes: 1/((2k-1)(2k+1)) = (1/2)(1/(2k-1) - 1/(2k+1)). That is Trick 2 below, so we can come back to this sum by telescoping."
   },
   {
     "objectID": "slides/lecture-12_slides.html#trick-0-warm-up-handshakes",
     "href": "slides/lecture-12_slides.html#trick-0-warm-up-handshakes",
-    "title": "Summations",
+    "title": "Proof by Induction, Summations",
     "section": "Trick 0: Warm Up Handshakes",
     "text": "Trick 0: Warm Up Handshakes\nStory. If each of us (\\(n+1\\)) were to shake hands w everyone else, how many handshakes would there be?\nProblem.\n\\(S(n) = \\sum\\limits_{k=1}^{n} k\\)\n \n \n \nWe’ll need this, and we’ll also need:\n\\(S(n)=\\sum\\limits_{k=1}^{n} k^2 = \\frac{n(n+1)(2n+1)}{6}\\)"
   },
   {
     "objectID": "slides/lecture-12_slides.html#trick-1-linearity",
     "href": "slides/lecture-12_slides.html#trick-1-linearity",
-    "title": "Summations",
+    "title": "Proof by Induction, Summations",
     "section": "Trick 1: Linearity",
     "text": "Trick 1: Linearity\n \nStory. Processing n data rows:\n\neach row has a constant overhead of 7 units,\n\nplus 3 units per column, with column count = row index.\n\nProblem.\n\\(S(n)=\\sum\\limits_{i=1}^{n} (7 + 3i)\\)"
   },
   {
     "objectID": "slides/lecture-12_slides.html#trick-2-telescoping",
     "href": "slides/lecture-12_slides.html#trick-2-telescoping",
-    "title": "Summations",
+    "title": "Proof by Induction, Summations",
     "section": "Trick 2: Telescoping",
     "text": "Trick 2: Telescoping\n\n\nStory. Model accuracy at epoch \\(i\\):\n\nimprovement = \\(\\ln(i+1) - \\ln(i)\\).\n\nProblem.\n\\(S(n)=\\sum_{i=1}^{n} \\big(\\ln(i+1)-\\ln(i)\\big)\\)"
   },
   {
     "objectID": "slides/lecture-12_slides.html#trick-3-shifting",
     "href": "slides/lecture-12_slides.html#trick-3-shifting",
-    "title": "Summations",
+    "title": "Proof by Induction, Summations",
     "section": "Trick 3: Shifting",
     "text": "Trick 3: Shifting\n \nStory. Each day your batch size doubles (like a viral share),\nbut the annotation time per item grows linearly with the day index. What’s the total work after \\(n\\) days?\nProblem.\n\\(S_n =\\sum_{k=1}^{n} k\\,2^{k}\\)"
   },
   {
     "objectID": "slides/lecture-12_slides.html#trick-3-shifting-1",
     "href": "slides/lecture-12_slides.html#trick-3-shifting-1",
-    "title": "Summations",
+    "title": "Proof by Induction, Summations",
     "section": "Trick 3: Shifting",
     "text": "Trick 3: Shifting"
   },
   {
     "objectID": "slides/lecture-12_slides.html#trick-4-variable-substitution",
     "href": "slides/lecture-12_slides.html#trick-4-variable-substitution",
-    "title": "Summations",
+    "title": "Proof by Induction, Summations",
     "section": "Trick 4: Variable Substitution",
     "text": "Trick 4: Variable Substitution\n \nStory. Each item \\(j\\) has effort that depends both on its index and how many remain.\nProblem.\n\\(S = \\sum_{j=1}^{n} \\big(7 + 3(n-j+1)\\big)\\)\n\nHint for later reveal:\nSubstitute \\(i = n-j+1\\). The sum becomes\n$_{i=1}^{n} (7 + 3i) $ — exactly the Linearity example."
   },
   {
     "objectID": "slides/lecture-12_slides.html#trick-5-reindexing",
     "href": "slides/lecture-12_slides.html#trick-5-reindexing",
-    "title": "Summations",
+    "title": "Proof by Induction, Summations",
     "section": "Trick 5: Reindexing",
     "text": "Trick 5: Reindexing\n \nStory. You only log every 3rd data point (rows 3, 6, 9, …).\nThe cost for row \\(i\\) is \\(2i+1\\).\nQuestion. What is the total cost up to row \\(n\\)?"
   },
   {
     "objectID": "slides/lecture-12_slides.html#trick-6-double-sum",
     "href": "slides/lecture-12_slides.html#trick-6-double-sum",
-    "title": "Summations",
+    "title": "Proof by Induction, Summations",
     "section": "Trick 6: Double Sum",
     "text": "Trick 6: Double Sum\nStory. Each item \\(i\\) must be compared with all later items \\(j\\ge i\\). The pairwise cost is \\(c_j = 4j+1\\) (depends only on the later index).\n\n\nProblem.\n\\(T = \\displaystyle \\sum_{i=1}^{n}\\;\\sum_{j=i}^{n}\\,(4j+1)\\)"
+  },
+  {
+    "objectID": "slides/lecture-12_slides.html#words-and-ideas",
+    "href": "slides/lecture-12_slides.html#words-and-ideas",
+    "title": "Proof by Induction, Summations",
+    "section": "Words and Ideas",
+    "text": "Words and Ideas\nInduction, base case, inductive case\nInductive hypothesis (IH)"
   },
   {
     "objectID": "slides/lecture-14_slides.html#announcements",
