@@ -14,7 +14,7 @@
 <script src="../site_libs/quarto-contrib/iconify-3.0.0/iconify-icon.min.js"></script><meta charset="utf-8">
   <meta name="generator" content="quarto-1.10.19">
 
-  <title>{{&lt; var course.full-title &gt;}} – Proof by Induction, Summations</title>
+  <title>{{&lt; var course.full-title &gt;}} – Proof by Induction</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -136,10 +136,10 @@
   </style>
   <script type="module" src="../site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
   <link href="../site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
-<meta property="og:title" content="Proof by Induction, Summations – DSCI 220: Discrete Math for Data Science">
+<meta property="og:title" content="Proof by Induction – DSCI 220: Discrete Math for Data Science">
 <meta property="og:description" content="Lecture 12, DSCI 220, 2026W1">
 <meta property="og:site_name" content="DSCI 220: Discrete Math for Data Science">
-<meta name="twitter:title" content="Proof by Induction, Summations – DSCI 220: Discrete Math for Data Science">
+<meta name="twitter:title" content="Proof by Induction – DSCI 220: Discrete Math for Data Science">
 <meta name="twitter:description" content="Lecture 12, DSCI 220, 2026W1">
 <meta name="twitter:card" content="summary">
 </head>
@@ -148,7 +148,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Proof by Induction, Summations</h1>
+  <h1 class="title">Proof by Induction</h1>
   <p class="subtitle">Lecture 12, DSCI 220, 2026W1</p>
 
 <div class="quarto-title-authors">
@@ -239,7 +239,6 @@
 <ul>
 <li>Understand role of components of an inductive proof.</li>
 <li>Write short inductive proofs.</li>
-<li>Use some tricks to find closed forms for sums.</li>
 </ul>
 </section>
 <section id="inductive-proof-skeleton-card" class="slide level2">
@@ -307,70 +306,10 @@
 <section id="your-turn" class="slide level2 activity">
 <h2>Your turn!</h2>
 <p>Claim: For any <span class="math inline">\(n&gt;0\)</span>, <span class="math inline">\(\sum\limits_{k=1}^n \frac{1}{(2k-1)(2k+1)} = \frac{n}{2n+1}\)</span>.</p>
-<countdown-timer id="timer_e3f272dc6f392b07026494e528bd71f3b1822ff4" minutes="10" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<countdown-timer id="timer_7f8783bde3e5dc073c89e2fbc1460b67db819a66" minutes="10" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
  </countdown-timer>
 <aside class="notes">
-<p>The sum telescopes: 1/((2k-1)(2k+1)) = (1/2)(1/(2k-1) - 1/(2k+1)). That is Trick 2 below, so we can come back to this sum by telescoping.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section></section>
-<section>
-<section id="summations" class="title-slide slide level1 center">
-<h1>Summations</h1>
-
-</section>
-<section id="trick-0-warm-up-handshakes" class="slide level2">
-<h2>Trick 0: Warm Up Handshakes</h2>
-<p><strong>Story.</strong> If each of us (<span class="math inline">\(n+1\)</span>) were to shake hands w everyone else, how many handshakes would there be?</p>
-<p><strong>Problem.</strong></p>
-<p><span class="math inline">\(S(n) = \sum\limits_{k=1}^{n} k\)</span></p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>We’ll need this, and we’ll also need:</p>
-<p><span class="math inline">\(S(n)=\sum\limits_{k=1}^{n} k^2 = \frac{n(n+1)(2n+1)}{6}\)</span></p>
-</section>
-<section id="trick-1-linearity" class="slide level2">
-<h2>Trick 1: Linearity</h2>
-<p>&nbsp;</p>
-<p><strong>Story.</strong> Processing <code>n</code> data rows:</p>
-<ul>
-<li>each row has a constant overhead of 7 units,<br>
-</li>
-<li>plus 3 units per column, with column count = row index.</li>
-</ul>
-<p><strong>Problem.</strong></p>
-<p><span class="math inline">\(S(n)=\sum\limits_{i=1}^{n} (7 + 3i)\)</span></p>
-</section>
-<section id="trick-2-telescoping" class="slide level2">
-<h2>Trick 2: Telescoping</h2>
-<p><br>
-</p>
-<p><strong>Story.</strong> Model accuracy at epoch <span class="math inline">\(i\)</span>:</p>
-<ul>
-<li>improvement = <span class="math inline">\(\ln(i+1) - \ln(i)\)</span>.</li>
-</ul>
-<p><strong>Problem.</strong><br>
-<span class="math inline">\(S(n)=\sum_{i=1}^{n} \big(\ln(i+1)-\ln(i)\big)\)</span></p>
-</section>
-<section id="trick-3-shifting" class="slide level2">
-<h2>Trick 3: Shifting</h2>
-<p>&nbsp;</p>
-<p><strong>Story.</strong> Each day your batch size <strong>doubles</strong> (like a viral share),<br>
-but the <strong>annotation time per item</strong> grows linearly with the day index. What’s the total work after <span class="math inline">\(n\)</span> days?</p>
-<p><strong>Problem.</strong><br>
-<span class="math inline">\(S_n =\sum_{k=1}^{n} k\,2^{k}\)</span></p>
-<aside class="notes">
-<p>S = 1<em>2 + 2</em>4 + 3<em>8 + … + n</em>2^n. Double it and shift one place right, so each 2^k lines up with a 2^k: S = 1<em>2 + 2</em>4 + 3<em>8 + … + n</em>2^n 2S = 1<em>4 + 2</em>8 + … + (n-1)<em>2^n + n</em>2^{n+1} Subtract, 2S - S: the first term gives -2, each middle column gives -2^k, and the last term n<em>2^{n+1} is left over. S = n</em>2^{n+1} - (2 + 4 + … + 2^n) = n*2^{n+1} - (2^{n+1} - 2) = (n - 1) 2^{n+1} + 2. The geometric sum is the first induction example today. Check: n=1: 2. n=2: 10. n=3: 34.</p>
+<p>The sum telescopes: 1/((2k-1)(2k+1)) = (1/2)(1/(2k-1) - 1/(2k+1)). That is Trick 2 in the summations video, so we can come back to this sum by telescoping.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;

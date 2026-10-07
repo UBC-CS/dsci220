@@ -9,12 +9,10 @@
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/quarto-contrib/live-runtime/live-runtime.js" type="module"></script>
 <link href="../site_libs/quarto-contrib/live-runtime/live-runtime.css" rel="stylesheet">
-<script src="../site_libs/quarto-contrib/countdown-0.6.0/countdown.js"></script>
-<link href="../site_libs/quarto-contrib/countdown-0.6.0/countdown.css" rel="stylesheet">
 <script src="../site_libs/quarto-contrib/iconify-3.0.0/iconify-icon.min.js"></script><meta charset="utf-8">
   <meta name="generator" content="quarto-1.10.19">
 
-  <title>{{&lt; var course.full-title &gt;}}---Accessibility version – Proof by Induction</title>
+  <title>{{&lt; var course.full-title &gt;}} – Summations</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -136,11 +134,11 @@
   </style>
   <script type="module" src="../site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
   <link href="../site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
-<meta property="og:title" content="Proof by Induction – DSCI 220: Discrete Math for Data Science—Accessibility version">
-<meta property="og:description" content="Lecture 11, DSCI 220, 2026W1">
-<meta property="og:site_name" content="DSCI 220: Discrete Math for Data Science—Accessibility version">
-<meta name="twitter:title" content="Proof by Induction – DSCI 220: Discrete Math for Data Science—Accessibility version">
-<meta name="twitter:description" content="Lecture 11, DSCI 220, 2026W1">
+<meta property="og:title" content="Summations – DSCI 220: Discrete Math for Data Science">
+<meta property="og:description" content="Lecture 13 (auxiliary), DSCI 220, 2026W1">
+<meta property="og:site_name" content="DSCI 220: Discrete Math for Data Science">
+<meta name="twitter:title" content="Summations – DSCI 220: Discrete Math for Data Science">
+<meta name="twitter:description" content="Lecture 13 (auxiliary), DSCI 220, 2026W1">
 <meta name="twitter:card" content="summary">
 </head>
 <body class="quarto-light">
@@ -148,206 +146,127 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Proof by Induction</h1>
-  <p class="subtitle">Lecture 11, DSCI 220, 2026W1</p>
+  <h1 class="title">Summations</h1>
+  <p class="subtitle">Lecture 13 (auxiliary), DSCI 220, 2026W1</p>
 
 <div class="quarto-title-authors">
 </div>
 
 </section>
-<section id="announcements" class="slide level2 smaller">
-<h2>Announcements</h2>
-<ul>
-<li><strong>EX2</strong> is Thu 10/8 through Sun 10/11, in ORCA. It covers lectures 6 through 10. Practice problems are on PrairieLearn.</li>
-<li>The <strong>lecture 10 video</strong> was re-recorded: the first upload had no audio.</li>
-<li>Tutorials meet this week.</li>
-</ul>
-</section>
-<section id="fridays-question" class="slide level2">
-<h2>Friday’s Question</h2>
-<p>Is the converse true? Is every perfect square a glow number?</p>
-<div style="text-align:center">
-<svg width="400" height="400" viewbox="0 0 400 400" role="img" aria-label="8 by 8 grid of 64 empty circles">
-<circle cx="25" cy="25" r="18" fill="none" stroke="#333" stroke-width="2"></circle> <circle cx="75" cy="25" r="18" fill="none" stroke="#333" stroke-width="2"></circle> <circle cx="125" cy="25" r="18" fill="none" stroke="#333" stroke-width="2"></circle> <circle cx="175" cy="25" r="18" fill="none" stroke="#333" stroke-width="2"></circle> <circle cx="225" cy="25" r="18" fill="none" stroke="#333" stroke-width="2"></circle> <circle cx="275" cy="25" r="18" fill="none" stroke="#333" stroke-width="2"></circle> <circle cx="325" cy="25" r="18" fill="none" stroke="#333" stroke-width="2"></circle> <circle cx="375" cy="25" r="18" fill="none" stroke="#333" stroke-width="2"></circle> <circle cx="25" cy="75" r="18" fill="none" stroke="#333" stroke-width="2"></circle> <circle cx="75" cy="75" r="18" fill="none" stroke="#333" stroke-width="2"></circle> <circle cx="125" cy="75" r="18" fill="none" stroke="#333" stroke-width="2"></circle> <circle cx="175" cy="75" r="18" fill="none" stroke="#333" stroke-width="2"></circle> <circle cx="225" cy="75" r="18" fill="none" stroke="#333" stroke-width="2"></circle> <circle cx="275" cy="75" r="18" fill="none" stroke="#333" stroke-width="2"></circle> <circle cx="325" cy="75" r="18" fill="none" stroke="#333" stroke-width="2"></circle> <circle cx="375" cy="75" r="18" fill="none" stroke="#333" stroke-width="2"></circle> <circle cx="25" cy="125" r="18" fill="none" stroke="#333" stroke-width="2"></circle> <circle cx="75" cy="125" r="18" fill="none" stroke="#333" stroke-width="2"></circle> <circle cx="125" cy="125" r="18" fill="none" stroke="#333" stroke-width="2"></circle> <circle cx="175" cy="125" r="18" fill="none" stroke="#333" stroke-width="2"></circle> <circle cx="225" cy="125" r="18" fill="none" stroke="#333" stroke-width="2"></circle> <circle cx="275" cy="125" r="18" fill="none" stroke="#333" stroke-width="2"></circle> <circle cx="325" cy="125" r="18" fill="none" stroke="#333" stroke-width="2"></circle> <circle cx="375" cy="125" r="18" fill="none" stroke="#333" stroke-width="2"></circle> <circle cx="25" cy="175" r="18" fill="none" stroke="#333" stroke-width="2"></circle> <circle cx="75" cy="175" r="18" fill="none" stroke="#333" stroke-width="2"></circle> <circle cx="125" cy="175" r="18" fill="none" stroke="#333" stroke-width="2"></circle> <circle cx="175" cy="175" r="18" fill="none" stroke="#333" stroke-width="2"></circle> <circle cx="225" cy="175" r="18" fill="none" stroke="#333" stroke-width="2"></circle> <circle cx="275" cy="175" r="18" fill="none" stroke="#333" stroke-width="2"></circle> <circle cx="325" cy="175" r="18" fill="none" stroke="#333" stroke-width="2"></circle> <circle cx="375" cy="175" r="18" fill="none" stroke="#333" stroke-width="2"></circle> <circle cx="25" cy="225" r="18" fill="none" stroke="#333" stroke-width="2"></circle> <circle cx="75" cy="225" r="18" fill="none" stroke="#333" stroke-width="2"></circle> <circle cx="125" cy="225" r="18" fill="none" stroke="#333" stroke-width="2"></circle> <circle cx="175" cy="225" r="18" fill="none" stroke="#333" stroke-width="2"></circle> <circle cx="225" cy="225" r="18" fill="none" stroke="#333" stroke-width="2"></circle> <circle cx="275" cy="225" r="18" fill="none" stroke="#333" stroke-width="2"></circle> <circle cx="325" cy="225" r="18" fill="none" stroke="#333" stroke-width="2"></circle> <circle cx="375" cy="225" r="18" fill="none" stroke="#333" stroke-width="2"></circle> <circle cx="25" cy="275" r="18" fill="none" stroke="#333" stroke-width="2"></circle> <circle cx="75" cy="275" r="18" fill="none" stroke="#333" stroke-width="2"></circle> <circle cx="125" cy="275" r="18" fill="none" stroke="#333" stroke-width="2"></circle> <circle cx="175" cy="275" r="18" fill="none" stroke="#333" stroke-width="2"></circle> <circle cx="225" cy="275" r="18" fill="none" stroke="#333" stroke-width="2"></circle> <circle cx="275" cy="275" r="18" fill="none" stroke="#333" stroke-width="2"></circle> <circle cx="325" cy="275" r="18" fill="none" stroke="#333" stroke-width="2"></circle> <circle cx="375" cy="275" r="18" fill="none" stroke="#333" stroke-width="2"></circle> <circle cx="25" cy="325" r="18" fill="none" stroke="#333" stroke-width="2"></circle> <circle cx="75" cy="325" r="18" fill="none" stroke="#333" stroke-width="2"></circle> <circle cx="125" cy="325" r="18" fill="none" stroke="#333" stroke-width="2"></circle> <circle cx="175" cy="325" r="18" fill="none" stroke="#333" stroke-width="2"></circle> <circle cx="225" cy="325" r="18" fill="none" stroke="#333" stroke-width="2"></circle> <circle cx="275" cy="325" r="18" fill="none" stroke="#333" stroke-width="2"></circle> <circle cx="325" cy="325" r="18" fill="none" stroke="#333" stroke-width="2"></circle> <circle cx="375" cy="325" r="18" fill="none" stroke="#333" stroke-width="2"></circle> <circle cx="25" cy="375" r="18" fill="none" stroke="#333" stroke-width="2"></circle> <circle cx="75" cy="375" r="18" fill="none" stroke="#333" stroke-width="2"></circle> <circle cx="125" cy="375" r="18" fill="none" stroke="#333" stroke-width="2"></circle> <circle cx="175" cy="375" r="18" fill="none" stroke="#333" stroke-width="2"></circle> <circle cx="225" cy="375" r="18" fill="none" stroke="#333" stroke-width="2"></circle> <circle cx="275" cy="375" r="18" fill="none" stroke="#333" stroke-width="2"></circle> <circle cx="325" cy="375" r="18" fill="none" stroke="#333" stroke-width="2"></circle> <circle cx="375" cy="375" r="18" fill="none" stroke="#333" stroke-width="2"></circle>
-</svg>
-</div>
-<aside class="notes">
-<p>Yes. A perfect square is m^2 for a positive integer m, and m^2 = T_{m-1} + T_m, so the witness is k = m.</p>
-<p>Both definitions are for positive integers, so 0 never comes up, and T_0 = 0 is defined, so 1 = T_0 + T_1 is a glow number.</p>
-<p>The theorem and its converse together: the glow numbers are exactly the perfect squares. Proving the converse means naming a k for a given m – an existential, proved by giving the witness.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="sudoku-warm-up" class="slide level2 activity">
-<h2>Sudoku Warm Up</h2>
-<p>In a 4x4 Sudoku, each row, each column and each 2x2 box contains each of 1, 2, 3 and 4 exactly once.</p>
-<p>Solve the Sudoku on the worksheet.</p>
-<p>Speculate on an interesting feature of the corners.</p>
-<p>Do all 4x4 Sudoku puzzles have this feature?</p>
-<countdown-timer id="timer_a4dc079a3f01c73addd11ea5cfa05b42978af011" minutes="05" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
- </countdown-timer>
-<aside class="notes">
-<p>The puzzle has exactly one solution: 2 3 4 1 1 4 2 3 4 1 3 2 3 2 1 4 Its four corners (2, 1, 3, 4) are all different.</p>
-<p>Do all 4x4 sudokus have that? NO – only 168 of the 288. Counterexample: 1 2 3 4 / 3 4 1 2 / 2 1 4 3 / 4 3 2 1 – corners 1, 4, 4, 1.</p>
-<p>“THIS feature” (the a b c d corners against the * centre) is the next slide, Corners and Centre, with the proof in its notes.</p>
-<p>A speculation checked on one example is not a theorem – that is the point to land before the proofs.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="corners-and-centre" class="slide level2">
-<h2>Corners and Centre</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<svg viewbox="0 0 326 326" width="400" height="400" role="img" aria-label="4 by 4 sudoku grid with corners a, b, c, d and the four centre cells starred">
-<g transform="translate(3,3)"> <line x1="80" y1="0" x2="80" y2="320" stroke="#333" stroke-width="1.5"></line> <line x1="0" y1="80" x2="320" y2="80" stroke="#333" stroke-width="1.5"></line> <line x1="160" y1="0" x2="160" y2="320" stroke="#333" stroke-width="5"></line> <line x1="0" y1="160" x2="320" y2="160" stroke="#333" stroke-width="5"></line> <line x1="240" y1="0" x2="240" y2="320" stroke="#333" stroke-width="1.5"></line> <line x1="0" y1="240" x2="320" y2="240" stroke="#333" stroke-width="1.5"></line> <rect x="0" y="0" width="320" height="320" fill="none" stroke="#333" stroke-width="5"></rect> <text x="40.0" y="52.0" text-anchor="middle" font-size="34" font-family="sans-serif" fill="#999">a</text> <text x="280.0" y="52.0" text-anchor="middle" font-size="34" font-family="sans-serif" fill="#999">b</text> <text x="40.0" y="292.0" text-anchor="middle" font-size="34" font-family="sans-serif" fill="#999">c</text> <text x="280.0" y="292.0" text-anchor="middle" font-size="34" font-family="sans-serif" fill="#999">d</text> <text x="120.0" y="132.0" text-anchor="middle" font-size="34" font-family="sans-serif" fill="#999">*</text> <text x="200.0" y="132.0" text-anchor="middle" font-size="34" font-family="sans-serif" fill="#999">*</text> <text x="120.0" y="212.0" text-anchor="middle" font-size="34" font-family="sans-serif" fill="#999">*</text> <text x="200.0" y="212.0" text-anchor="middle" font-size="34" font-family="sans-serif" fill="#999">*</text> </g>
-</svg>
-</div><div class="column" style="width:50%;">
-<p>Do all 4x4 Sudoku puzzles have THIS feature?</p>
-</div></div>
-<aside class="notes">
-<p>YES, in all 288: the four corners (a, b, c, d) hold exactly the same four numbers as the four centre cells (*). Not cell by cell – the four together.</p>
-<p>The proof never looks at a single cell. Rows and columns are the only collections whose contents we know (each is exactly 1, 2, 3, 4), so count with those, and treat each set of cells as a bag of numbers, duplicates kept.</p>
-<p>The four rows: every cell once. = four copies of {1,2,3,4} = corners + border + centre Rows 1 and 4, plus columns 1 and 4: the four edges. The centre is not in them, and each corner is in one of those rows AND one of those columns, so the corners are counted twice. = four copies of {1,2,3,4} = corners + corners + border Same bag, so corners + border + centre = corners + corners + border. Take one copy of the corners and the border off both sides: centre = corners.</p>
-<p>(border = the 8 edge cells that are not corners.)</p>
-<p>Check on the worksheet’s solution 2341 / 1423 / 4132 / 3214: corners 2, 1, 3, 4; centre 4, 2, 1, 3. Same four numbers.</p>
-<p>Not cell by cell: a centre cell is never equal to the corner in its own box, but it can equal any of the other three. In 1234 / 3412 / 2143 / 4321, r2c2 = 4 matches r1c4 and r4c1, not the far corner r4c4 = 1.</p>
-<p>It never uses the boxes: true for all 576 grids whose rows and columns each hold 1-4. (A 9x9 version of the same argument is known as the Phistomefel ring.)</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="to-sudoku-direct" class="slide level2">
-<h2><span class="math inline">\(\to\)</span> Sudoku: Direct</h2>
-<div class="columns">
-<div class="column" style="width:55%;">
-<p>Prove that for any solution to this mini sudoku, if the solution has a 2 in the top-left square (r1c1), then it has a 2 in the bottom-right square (r4c4).</p>
-</div><div class="column" style="width:45%;">
-<p><img data-src="../images/sudokupf1.png"></p>
-</div></div>
-<aside class="notes">
-<p>Scrutinize the form of the statement: for any solution, if P then Q.</p>
-<p>Assume r1c1 = 2. Row 1 then holds 1, 2 and 3, so r1c4 = 4. Column 4 holds 4, 1 and 3, so r4c4 = 2. Done – two steps.</p>
-<p>Checked against all 4x4 sudokus: the puzzle has 6 solutions, and in the 3 where r1c1 = 2, r4c4 = 2.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="leftrightsquigarrow-sudoku-contrapositive" class="slide level2">
-<h2><span class="math inline">\(\leftrightsquigarrow\)</span> Sudoku: Contrapositive</h2>
-<div class="columns">
-<div class="column" style="width:35%;">
-<svg viewbox="0 0 204 204" width="230" height="230" role="img" aria-label="4 by 4 sudoku grid; the top-left 2 by 2 box has cells A, B, C, D">
-<g transform="translate(2,2)"> <rect x="0" y="0" width="100" height="100" fill="#e8eef5"></rect> <line x1="50" y1="0" x2="50" y2="200" stroke="#333" stroke-width="1"></line> <line x1="0" y1="50" x2="200" y2="50" stroke="#333" stroke-width="1"></line> <line x1="100" y1="0" x2="100" y2="200" stroke="#333" stroke-width="4"></line> <line x1="0" y1="100" x2="200" y2="100" stroke="#333" stroke-width="4"></line> <line x1="150" y1="0" x2="150" y2="200" stroke="#333" stroke-width="1"></line> <line x1="0" y1="150" x2="200" y2="150" stroke="#333" stroke-width="1"></line> <rect x="0" y="0" width="200" height="200" fill="none" stroke="#333" stroke-width="4"></rect> <text x="25.0" y="34.0" text-anchor="middle" font-size="26" font-family="sans-serif" fill="#333">A</text> <text x="75.0" y="34.0" text-anchor="middle" font-size="26" font-family="sans-serif" fill="#333">B</text> <text x="25.0" y="84.0" text-anchor="middle" font-size="26" font-family="sans-serif" fill="#333">C</text> <text x="75.0" y="84.0" text-anchor="middle" font-size="26" font-family="sans-serif" fill="#333">D</text> </g>
-</svg>
-</div><div class="column" style="width:65%;">
-<p>Theorem: For any valid Sudoku solution, if A and B and C are not 4, then D is 4.</p>
-</div></div>
-<p>Contrapositive:</p>
-<aside class="notes">
-<p>If D is not 4, then A or B or C is 4.</p>
-<p>The negation of “A and B and C are not 4” is “A or B or C is 4” – De Morgan, worth pointing at.</p>
-<p>Proof: the box contains a 4 somewhere. It is not D, so it is A, B or C. The contrapositive is the easy direction here: it is just “the 4 has to be somewhere”.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="sudoku-contradiction" class="slide level2">
-<h2>↯ Sudoku: Contradiction</h2>
-<div class="columns">
-<div class="column" style="width:55%;">
-<p>Prove that any solution to this mini sudoku has a 3 in the top-right corner (r1c4).</p>
-</div><div class="column" style="width:45%;">
-<p><img data-src="../images/04_tue_argument21.jpg" style="width:80.0%"></p>
-</div></div>
-<aside class="notes">
-<p>Scrutinize the form: “any solution has a 3 at r1c4”.</p>
-<p>Suppose r1c4 is not 3. Row 1 needs a 3. Not c1 (column 1 has the 3 at r3c1), not c2 (that is the 2), not c4 (assumed). So r1c3 = 3.</p>
-<p>The bottom-right box needs a 3. Not in row 3 (row 3 has its 3 at r3c1), and r4c4 is 1, so r4c3 = 3. Now column 3 has two 3s – r1c3 and r4c3. Contradiction.</p>
-<p>Checked: the puzzle has 3 solutions and r1c4 = 3 in all of them; with r1c3 = 3 added there are none.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
 <section>
-<section id="proof-by-induction" class="title-slide slide level1 center">
-<h1>Proof by Induction</h1>
-<style>
-.small { font-size: 0.9rem; }
-.tiny { font-size: 0.8rem; }
-.rule { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; }
-.card { border: 2px solid #ddd; border-radius: 12px; padding: 14px 16px; margin: 10px 0; }
-.center { text-align: center; }
-.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-.badge { display:inline-block; padding:2px 8px; border:1px solid #bbb; border-radius:10px; font-size:.8rem; }
-</style>
+<section id="summations" class="title-slide slide level1 center">
+<h1>Summations</h1>
+
 </section>
-<section id="todays-goals" class="slide level2">
-<h2>Today’s goals</h2>
+<section id="trick-0-warm-up-handshakes" class="slide level2">
+<h2>Trick 0: Warm Up Handshakes</h2>
+<p><strong>Story.</strong> If each of us (<span class="math inline">\(n+1\)</span>) were to shake hands w everyone else, how many handshakes would there be?</p>
+<p><strong>Problem.</strong></p>
+<p><span class="math inline">\(S(n) = \sum\limits_{k=1}^{n} k\)</span></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>We’ll need this, and we’ll also need:</p>
+<p><span class="math inline">\(S(n)=\sum\limits_{k=1}^{n} k^2 = \frac{n(n+1)(2n+1)}{6}\)</span></p>
+</section>
+<section id="trick-1-linearity" class="slide level2">
+<h2>Trick 1: Linearity</h2>
+<p>&nbsp;</p>
+<p><strong>Story.</strong> Processing <code>n</code> data rows:</p>
 <ul>
-<li>Understand role of components of an inductive proof.</li>
-<li>Write short inductive proofs.</li>
+<li>each row has a constant overhead of 7 units,<br>
+</li>
+<li>plus 3 units per column, with column count = row index.</li>
 </ul>
+<p><strong>Problem.</strong></p>
+<p><span class="math inline">\(S(n)=\sum\limits_{i=1}^{n} (7 + 3i)\)</span></p>
 </section>
-<section id="warm-up" class="slide level2 activity">
-<h2>Warm Up</h2>
-<p>A <em>Tower</em> is built by stacking 5m red panels, and 7m blue panels.</p>
-<p>What tower heights are possible? Talk it through with the people around you: which heights can you build, and which can’t you?</p>
-<countdown-timer id="timer_a4dc079a3f01c73addd11ea5cfa05b42978af011" minutes="10" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
- </countdown-timer>
+<section id="trick-2-telescoping" class="slide level2">
+<h2>Trick 2: Telescoping</h2>
+<p><br>
+</p>
+<p><strong>Story.</strong> Model accuracy at epoch <span class="math inline">\(i\)</span>:</p>
+<ul>
+<li>improvement = <span class="math inline">\(\ln(i+1) - \ln(i)\)</span>.</li>
+</ul>
+<p><strong>Problem.</strong><br>
+<span class="math inline">\(S(n)=\sum_{i=1}^{n} \big(\ln(i+1)-\ln(i)\big)\)</span></p>
+</section>
+<section id="trick-3-shifting" class="slide level2">
+<h2>Trick 3: Shifting</h2>
+<p>&nbsp;</p>
+<p><strong>Story.</strong> Each day your batch size <strong>doubles</strong> (like a viral share),<br>
+but the <strong>annotation time per item</strong> grows linearly with the day index. What’s the total work after <span class="math inline">\(n\)</span> days?</p>
+<p><strong>Problem.</strong><br>
+<span class="math inline">\(S_n =\sum_{k=1}^{n} k\,2^{k}\)</span></p>
 <aside class="notes">
-<p>Give this time – it took a while last year. Let them find the last height that cannot be built (23) themselves.</p>
-<p>End up with a clear claim: For all n &gt; 23, we can build a tower of height n using only 5m red and 7m blue panels.</p>
-<p>Say “claim holds for smaller values”</p>
+<p>S = 1<em>2 + 2</em>4 + 3<em>8 + … + n</em>2^n. Double it and shift one place right, so each 2^k lines up with a 2^k: S = 1<em>2 + 2</em>4 + 3<em>8 + … + n</em>2^n 2S = 1<em>4 + 2</em>8 + … + (n-1)<em>2^n + n</em>2^{n+1} Subtract, 2S - S: the first term gives -2, each middle column gives -2^k, and the last term n<em>2^{n+1} is left over. S = n</em>2^{n+1} - (2 + 4 + … + 2^n) = n*2^{n+1} - (2^{n+1} - 2) = (n - 1) 2^{n+1} + 2. The geometric sum was the first induction example in lecture 12. Check: n=1: 2. n=2: 10. n=3: 34.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="trick-4-variable-substitution" class="slide level2">
+<h2>Trick 4: Variable Substitution</h2>
+<p>&nbsp;</p>
+<p><strong>Story.</strong> Each item <span class="math inline">\(j\)</span> has effort that depends both on its index and how many remain.</p>
+<p><strong>Problem.</strong><br>
+<span class="math inline">\(S = \sum_{j=1}^{n} \big(7 + 3(n-j+1)\big)\)</span></p>
+<aside class="notes">
+<p><strong>Hint for later reveal:</strong><br>
+Substitute <span class="math inline">\(i = n-j+1\)</span>. The sum becomes<br>
+$_{i=1}^{n} (7 + 3i) $ — exactly the <strong>Linearity</strong> example.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="trick-5-reindexing" class="slide level2">
+<h2>Trick 5: Reindexing</h2>
+<p>&nbsp;</p>
+<p><strong>Story.</strong> You only log every 3rd data point (rows 3, 6, 9, …).<br>
+The cost for row <span class="math inline">\(i\)</span> is <span class="math inline">\(2i+1\)</span>.</p>
+<p><strong>Question.</strong> What is the total cost up to row <span class="math inline">\(n\)</span>?</p>
+<aside class="notes">
+<p>The logged rows are i = 3j for j = 1, 2, …, m, where m = floor(n/3) is the number of logged rows. Reindex by j, so the sum runs over consecutive integers: sum_{j=1}^{m} (2(3j) + 1) = sum_{j=1}^{m} (6j + 1) = 6 * m(m+1)/2 + m (linearity, then Trick 0) = 3m(m+1) + m = m(3m + 4). Check: n = 3, m = 1: row 3 costs 7, and 1<em>7 = 7. n = 6, m = 2: 7 + 13 = 20, and 2</em>10 = 20. The answer is in terms of m = floor(n/3), not n.&nbsp;Expect students to try to write it in n and get stuck on the floor.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="trick-6-double-sum" class="slide level2">
+<h2>Trick 6: Double Sum</h2>
+<p><strong>Story.</strong> Each item <span class="math inline">\(i\)</span> must be compared with all <em>later</em> items <span class="math inline">\(j\ge i\)</span>. The pairwise cost is <span class="math inline">\(c_j = 4j+1\)</span> (depends only on the later index).</p>
+<div class="columns">
+<div class="column">
+<p><strong>Problem.</strong><br>
+<span class="math inline">\(T = \displaystyle \sum_{i=1}^{n}\;\sum_{j=i}^{n}\,(4j+1)\)</span></p>
+</div><div class="column">
+<p><img data-src="../images/grid12.png"></p>
+</div></div>
+<aside class="notes">
+<p>Swap the order of summation. In the grid, row i covers j = i..n, so the cells are the pairs with i &lt;= j. Read the same cells by column: column j has the rows i = 1..j, which is j cells, each costing 4j + 1. T = sum_{j=1}^{n} sum_{i=1}^{j} (4j + 1) = sum_{j=1}^{n} j(4j + 1) = 4 sum j^2 + sum j = 4 * n(n+1)(2n+1)/6 + n(n+1)/2 = n(n+1)(8n + 7)/6. The inner sum is now easy because 4j + 1 does not depend on i. This uses the sum of squares we proved by induction in lecture 12. Check: n = 1: 5. n = 2: (5 + 9) + 9 = 23, and 2<em>3</em>23/6 = 23.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
