@@ -1,17 +1,116 @@
 ---
-title: "Summations"
+title: "Proof by Induction, Summations"
 subtitle: "Lecture 12, {{< var course.code >}}, {{< var course.term >}}"
 ---
 
 ## Announcements 
 
-Examlet this week. 
+**EX2** is Thu 10/8 through Sun 10/11. It covers lectures 6 through 10.
 
-Truth and reconciliation tomorrow -- Tue lab will not meet.
 
-Reminder: Joe's office hour is Fri 11-12, in this room!
+## Recap: Towers {.smaller}
 
-We are shooting video this afternoon, 4p via zoom. You are all welcome!
+Claim: for all integers $n > 23$, we can build a tower of height
+$n$ using only 5m red and 7m blue panels.
+
+::: {.two-col}
+<div>
+
+| Height | Red | Blue |
+|:-:|:-:|:-:|
+| 24 | 2 | 2 |
+| 25 | 5 | 0 |
+| 26 | 1 | 3 |
+| 27 | 4 | 1 |
+| 28 | 0 | 4 |
+
+</div>
+<div>
+
+Every height $n \geq 29$:
+
+\
+
+\
+
+\
+
+</div>
+:::
+
+::: notes
+Monday we found the heights by hand and stopped here. The table is filled in
+so we can go straight to the last line.
+
+Every n >= 29: n - 5 is at least 24, so a tower of height n - 5 can be built.
+Add one red panel.
+
+Why FIVE base cases: each height comes from the height 5 below it, so the
+first five have to be checked by hand. Three is not enough -- 28 would need
+23, which cannot be built. (27 would need 22, which can be built, but the claim
+says nothing about 22.) Worth asking before showing the last line.
+
+Point out the universal quantifier, and the least value. This is proof by
+cases plus one new move: assume it for a smaller value (n - 5). That is
+induction, before it has a name.
+
+Aside, only if it comes up: 23 = 5*7 - 5 - 7.
+:::
+
+# Proof by Induction
+
+## Today's goals
+
+- Understand role of components of an inductive proof.
+- Write short inductive proofs.
+- Use some tricks to find closed forms for sums.
+
+## Inductive Proof Skeleton Card
+
+
+<div class="card">
+
+Proof by Induction of $\forall n, P(n)$
+
+1. First line: "Consider an arbitrary n." 
+2. Second line (IH): "Assume $\forall j < n, P(j)$."
+3. Determine exhaustive cases for $n$, including one or more base cases and usually one inductive case.
+4. Prove each case, base and inductive, independently. Base case is typically direct, and inductive case will require use of IH.
+
+</div>
+
+## Proof by Induction {.smaller}
+
+Claim: For any integer $n > 0$, $\sum\limits_{k=1}^{n} k^2 = \frac{n(n+1)(2n+1)}{6}$.
+
+\
+
+Proof: Consider an arbitrary integer $n > 0$. 
+
+\
+
+IH: Assume inductively that for any $j<n$, $\sum\limits_{k=1}^{j} k^2 = \frac{j(j+1)(2j+1)}{6}$.
+
+\
+
+Either $n=1$, or $n>1$.
+
+Case 1 $(n=1)$:
+
+\
+
+Case 2 $(n>1)$:
+
+## Your turn! {.activity}
+
+Claim: For any $n>0$, $\sum\limits_{k=1}^n \frac{1}{(2k-1)(2k+1)} = \frac{n}{2n+1}$.
+
+{{< countdown minutes=10 >}}
+
+::: notes
+The sum telescopes: 1/((2k-1)(2k+1)) = (1/2)(1/(2k-1) - 1/(2k+1)). That is
+Trick 2 below, so we can come back to this sum by telescoping.
+:::
 
 # Summations
 
@@ -107,4 +206,10 @@ $T = \displaystyle \sum_{i=1}^{n}\;\sum_{j=i}^{n}\,(4j+1)$
 ::: {.column}
 ![](/images/grid12.png)
 :::
-::::: 
+:::::
+
+## Words and Ideas
+
+Induction, base case, inductive case
+
+Inductive hypothesis (IH)
