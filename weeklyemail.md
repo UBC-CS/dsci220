@@ -186,13 +186,13 @@ change to the `ex1` assessment in PrairieLearn.)*
 
 Hi everyone,
 
-Welcome to week 5! This is an examlet week, so most of the news is about EX2.
+Welcome to week 5! This is an examlet week, so most of the tidbits are about EX2.
 
 The news:
 
-1. **Examlet 2** is Thu Oct 8 through Sun Oct 11, in the CBTF. If you haven't
+1. **Examlet 2** is Thu Oct 8 through Sun Oct 11, in ORCA. If you haven't
 booked your session in PrairieTest, please do it today. EX2 covers lectures 6
-through 10. Nothing from this week's lectures is on it.
+through 10 (last Friday).
 
 2. **Practice problems for EX2** are on PrairieLearn:
 <https://us.prairielearn.com/pl/course_instance/209866/assessment/2731703>
@@ -203,14 +203,14 @@ you watched it in silence last week, please open it again from the course
 website. The link there now points to the new recording.
 
 4. **Tutorial 4** meets on Tuesday and Wednesday this week. We'll practice
-writing proofs: how to start one, and how to put the steps in the right order.
+writing proofs!
 
-5. **This week's lectures** start proof by induction. Monday and Wednesday are in
-class, and Friday's lecture is a video, as usual.
+5. **Thanksgiving Week** Next week is the first of our two
+_quiet_ weeks in the course. There will be no tutorials, no examlets, no class meetings, and no homework. There will be
+two videos lessons for you to watch, and that's it! I will still hold my office
+hour next Tuesday, 10:30–11:30, on Zoom. I'll post the link on Piazza.
 
-6. **No homework this week.** HW3 opens Sun Oct 18.
-
-My office hours are Tuesdays, 10:30–11:30, in ICCS 233.
+My office hour is Tuesday, 10:30–11:30, in ICCS 233.
 
 As always, you're welcome to email me (cheeren@cs.ubc.ca) or post on Piazza
 (<https://piazza.com/ubc.ca/winterterm12026/dsci220>), and the course website is
