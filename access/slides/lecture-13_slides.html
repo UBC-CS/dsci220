@@ -229,7 +229,7 @@
 <td></td>
 </tr>
 <tr class="odd">
-<td>Today</td>
+<td>Towers</td>
 <td>every height <span class="math inline">\(n &gt; 23\)</span> can be built</td>
 <td></td>
 </tr>
@@ -238,7 +238,7 @@
 </div>
 <p>Check the smallest cases. Assume the claim for the smaller pieces. Show it for the whole.</p>
 <aside class="notes">
-<p>HW1: the WFFs a formula is built from. HW2: the two expressions joined by an and or an or. Today: the tower of height n - 5.</p>
+<p>HW1: the WFFs a formula is built from. HW2: the two expressions joined by an and or an or. Towers: the tower of height n - 5.</p>
 <p>The name is structural induction when the smaller pieces are parts of the thing; induction on n when they are smaller integers. Same skeleton. HW2 promised “we will study it formally in a few weeks” – this is that.</p>
 <p>WHERE HW1 USES THE IH – easy to miss. Write a for atoms, b for binary connectives; the claim is a = b + 1. Atom: a = 1, b = 0. No IH. ~A: negation adds neither, so the IH on A gives it directly. (A ^ B): a_T = a_1 + a_2 and b_T = b_1 + b_2 + 1. Those two are just counting – true of any formula, no IH. On their own they prove nothing. Subtract: a_T - b_T = (a_1 - b_1) + (a_2 - b_2) - 1. The claim says that difference is 1. The counting says how the difference COMBINES; the IH supplies the pieces’ values, a_1 - b_1 = a_2 - b_2 = 1, so 1 + 1 - 1 = 1. Without the IH nothing follows: a piece with 5 atoms and no connectives would leave the whole off by 4. The IH is what rules that out. “You used the IH without noticing” – worth saying out loud.</p>
 <p>THE CNF PROOF (HW2), same skeleton. Theorem: for every expression phi there is a CNF psi with phi == psi. A for-all-exists statement – L9’s nested quantifiers. After phases 1 and 2 (remove -&gt; and &lt;-&gt;; push ~ down to the atoms) every expression is built from literals with ^ and v. Prove it for those: Literal: one clause of one literal. No IH. A ^ B: IH gives A == C1<sup>…</sup>Cm and B == D1<sup>…</sup>Dk. Then A ^ B == C1<sup>…</sup>Cm<sup>D1</sup>…^Dk, already an AND of clauses. A v B: same IH. Distribute: A v B == AND over i,j of (Ci v Dj). Each Ci v Dj is an OR of two ORs of literals – a clause. So a CNF. Where the IH is used: in both combining cases. Contrast with HW1: there the IH handed over a NUMBER about each piece (a - b = 1); here it hands over an OBJECT, a CNF for each piece – because the theorem is for-all-exists, the IH supplies witnesses and the step builds the new witness from them.</p>
@@ -259,12 +259,47 @@
 <h1>Summations</h1>
 
 </section>
+<section id="trick-4-variable-substitution" class="slide level2">
+<h2>Trick 4: Variable Substitution</h2>
+<p>&nbsp;</p>
+<p><strong>Story.</strong> Each item <span class="math inline">\(j\)</span> has effort that depends both on its index and how many remain.</p>
+<p><strong>Problem.</strong><br>
+<span class="math inline">\(S = \sum_{j=1}^{n} \big(7 + 3(n-j+1)\big)\)</span></p>
+<aside class="notes">
+<p><strong>Hint for later reveal:</strong><br>
+Substitute <span class="math inline">\(i = n-j+1\)</span>. The sum becomes<br>
+$_{i=1}^{n} (7 + 3i) $ — exactly the <strong>Linearity</strong> example.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
 <section id="trick-5-reindexing" class="slide level2">
 <h2>Trick 5: Reindexing</h2>
 <p>&nbsp;</p>
 <p><strong>Story.</strong> You only log every 3rd data point (rows 3, 6, 9, …).<br>
 The cost for row <span class="math inline">\(i\)</span> is <span class="math inline">\(2i+1\)</span>.</p>
 <p><strong>Question.</strong> What is the total cost up to row <span class="math inline">\(n\)</span>?</p>
+<aside class="notes">
+<p>The logged rows are i = 3j for j = 1, 2, …, m, where m = floor(n/3) is the number of logged rows. Reindex by j, so the sum runs over consecutive integers: sum_{j=1}^{m} (2(3j) + 1) = sum_{j=1}^{m} (6j + 1) = 6 * m(m+1)/2 + m (linearity, then Trick 0) = 3m(m+1) + m = m(3m + 4). Check: n = 3, m = 1: row 3 costs 7, and 1<em>7 = 7. n = 6, m = 2: 7 + 13 = 20, and 2</em>10 = 20. The answer is in terms of m = floor(n/3), not n.&nbsp;Expect students to try to write it in n and get stuck on the floor.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="trick-6-double-sum" class="slide level2">
 <h2>Trick 6: Double Sum</h2>
@@ -276,6 +311,19 @@ The cost for row <span class="math inline">\(i\)</span> is <span class="math inl
 </div><div class="column">
 <p><img data-src="../images/grid12.png"></p>
 </div></div>
+<aside class="notes">
+<p>Swap the order of summation. In the grid, row i covers j = i..n, so the cells are the pairs with i &lt;= j. Read the same cells by column: column j has the rows i = 1..j, which is j cells, each costing 4j + 1. T = sum_{j=1}^{n} sum_{i=1}^{j} (4j + 1) = sum_{j=1}^{n} j(4j + 1) = 4 sum j^2 + sum j = 4 * n(n+1)(2n+1)/6 + n(n+1)/2 = n(n+1)(8n + 7)/6. The inner sum is now easy because 4j + 1 does not depend on i. This uses the sum of squares we proved by induction on Wednesday. Check: n = 1: 5. n = 2: (5 + 9) + 9 = 23, and 2<em>3</em>23/6 = 23.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section></section>
 <section>
 <section id="sequences" class="title-slide slide level1 center">
