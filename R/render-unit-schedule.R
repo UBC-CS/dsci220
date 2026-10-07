@@ -61,7 +61,8 @@ render_unit_schedule <- function() {
       ),
       title = glue::glue('<div class="unit-id-title">{title}</div>')
     ) |>
-    dplyr::select(id, title)
+    # A lecture with an auxiliary deck has two titles; show both.
+    dplyr::summarize(title = paste(title, collapse = ""), .by = id)
 
   units <- schedule |>
     dplyr::select(
@@ -73,18 +74,21 @@ render_unit_schedule <- function() {
       id,
       unit,
       type,
-      resource
+      resource,
+      aux
     ) |>
     dplyr::mutate(
       resource = purrr::pmap_chr(
-        list(show_week, id, type, resource),
+        list(show_week, id, type, resource, aux),
         format_resource_as_label
       ),
       type = fct_to_snake(type)
     ) |>
+    dplyr::select(-aux) |>
     tidyr::pivot_wider(
       names_from = type,
-      values_from = resource
+      values_from = resource,
+      values_fn = \(x) paste(x, collapse = " ")
     ) |>
     dplyr::select(!c(summary, prairielearn))
 

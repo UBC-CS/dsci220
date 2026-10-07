@@ -44,8 +44,9 @@ propositional inference, then universal generalization. Lecture 9 opens with
 | | Wed Sep 30 | — | Truth and Reconciliation, no class |
 | L10 | Fri Oct 2 | video | **Proofs** — all four techniques. Predicate inference lands here, not L9 |
 | L11 | Mon Oct 5 | class | **Proofs review, then the towers warm-up** — Friday's converse, the sudoku worksheet (`activities/lecture-11_activity.pdf`), the direct, contrapositive and contradiction sudoku proofs, and the towers activity. Ended there; everything after towers moved to L12 |
-| L12 | Wed Oct 7 | class | **Proof by induction, then summations** — towers recap (table filled, the n ≥ 29 step live), skeleton card, geometric sum, sum of squares, your turn, then summation tricks 0–3. Tricks 4–6 moved to L13 |
-| L13 | Fri Oct 9 | video | **Structural induction, summations, sequences** — tromino, You Have Done This Before (HW1, HW2, towers), summation tricks 4–6, then sequences. Recorded Wed Oct 7 after class |
+| L12 | Wed Oct 7 | class | **Proof by induction** — towers recap (table filled, the n ≥ 29 step live), skeleton card, geometric sum, sum of squares, your turn. Summations moved to L13 aux |
+| L13 | Fri Oct 9 | video | **Trominoes and recurrences** — tromino, You Have Done This Before (HW1, HW2, towers), then sequences and recurrences. Recorded Wed Oct 7 |
+| L13 aux | Fri Oct 9 | video | **Summations**, tricks 0–6 — an auxiliary video in L13's slot (`slides/lecture-13_aux_slides.qmd`, id `lecture-13_aux` in additional-resources.csv). Recorded Wed Oct 7. Mod starts L14 |
 | | Sun Oct 11 | | ⟵ **EX2 due.** Window Thu Oct 8 – Sun Oct 11. Covers L6–L10 |
 
 **Lectures past 5 are draft.** L4 and L5 are committed; everything after is a

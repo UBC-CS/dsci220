@@ -39,7 +39,7 @@ render_weekly_schedule <- function() {
       exam_window = format_exam_window(date, id, slot),
       date = gt::vec_fmt_date(date, date_style = "MMMd"),
       label = purrr::pmap_chr(
-        list(show_week, id, type, resource),
+        list(show_week, id, type, resource, aux),
         format_resource_as_label
       ),
       label = dplyr::replace_when(
@@ -94,7 +94,10 @@ render_weekly_schedule <- function() {
     tidyr::pivot_wider(
       names_from = c(slot, unit, type),
       names_sep = "_",
-      values_from = label
+      values_from = label,
+      # A lecture with auxiliary material has two decks or two videos: one
+      # icon each, side by side in the same cell.
+      values_fn = \(x) paste(x, collapse = " ")
     ) |>
     ensure_character_columns(c(lecture_col_order, "first_tutorial_activity")) |>
     dplyr::relocate(

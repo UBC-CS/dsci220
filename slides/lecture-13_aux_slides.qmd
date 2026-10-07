@@ -1,0 +1,136 @@
+---
+title: "Summations"
+subtitle: "Lecture 13 (auxiliary), {{< var course.code >}}, {{< var course.term >}}"
+---
+
+# Summations
+
+## Trick 0: Warm Up Handshakes  
+
+**Story.** If each of us ($n+1$) were to shake hands w everyone else, how many 
+handshakes would there be? 
+
+**Problem.**  
+
+$S(n) = \sum\limits_{k=1}^{n} k$
+
+\ 
+
+\ 
+
+\ 
+
+We'll need this, and we'll also need: 
+
+$S(n)=\sum\limits_{k=1}^{n} k^2 = \frac{n(n+1)(2n+1)}{6}$
+
+## Trick 1: Linearity  
+
+\ 
+
+**Story.** Processing `n` data rows:  
+
+- each row has a constant overhead of 7 units,  
+- plus 3 units per column, with column count = row index.
+
+**Problem.**  
+
+$S(n)=\sum\limits_{i=1}^{n} (7 + 3i)$
+
+
+## Trick 2: Telescoping  
+
+\
+
+**Story.** Model accuracy at epoch $i$: 
+
+* improvement = $\ln(i+1) - \ln(i)$.
+
+**Problem.**  
+$S(n)=\sum_{i=1}^{n} \big(\ln(i+1)-\ln(i)\big)$
+
+## Trick 3: Shifting 
+
+\ 
+
+**Story.** Each day your batch size **doubles** (like a viral share),  
+but the **annotation time per item** grows linearly with the day index.  What’s the total work after $n$ days?
+
+**Problem.**  
+$S_n =\sum_{k=1}^{n} k\,2^{k}$
+
+::: notes
+S = 1*2 + 2*4 + 3*8 + ... + n*2^n.
+Double it and shift one place right, so each 2^k lines up with a 2^k:
+   S =  1*2 + 2*4 + 3*8 + ... + n*2^n
+  2S =        1*4 + 2*8 + ... + (n-1)*2^n + n*2^{n+1}
+Subtract, 2S - S: the first term gives -2, each middle column gives -2^k,
+and the last term n*2^{n+1} is left over.
+  S = n*2^{n+1} - (2 + 4 + ... + 2^n) = n*2^{n+1} - (2^{n+1} - 2)
+    = (n - 1) 2^{n+1} + 2.
+The geometric sum was the first induction example in lecture 12.
+Check: n=1: 2. n=2: 10. n=3: 34.
+:::
+
+## Trick 4: Variable Substitution 
+
+\ 
+
+**Story.** Each item $j$ has effort that depends both on its index and how many remain.  
+
+**Problem.**  
+$S = \sum_{j=1}^{n} \big(7 + 3(n-j+1)\big)$
+
+::: notes
+**Hint for later reveal:**  
+Substitute $i = n-j+1$. The sum becomes  
+$\sum_{i=1}^{n} (7 + 3i) $ — exactly the **Linearity** example.
+:::
+
+## Trick 5: Reindexing 
+
+\ 
+
+**Story.** You only log every 3rd data point (rows 3, 6, 9, …).  
+The cost for row $i$ is $2i+1$.  
+
+**Question.** What is the total cost up to row $n$?
+
+::: notes
+The logged rows are i = 3j for j = 1, 2, ..., m, where m = floor(n/3) is the
+number of logged rows. Reindex by j, so the sum runs over consecutive integers:
+  sum_{j=1}^{m} (2(3j) + 1) = sum_{j=1}^{m} (6j + 1)
+                            = 6 * m(m+1)/2 + m      (linearity, then Trick 0)
+                            = 3m(m+1) + m = m(3m + 4).
+Check: n = 3, m = 1: row 3 costs 7, and 1*7 = 7.
+       n = 6, m = 2: 7 + 13 = 20, and 2*10 = 20.
+The answer is in terms of m = floor(n/3), not n. Expect students to try to
+write it in n and get stuck on the floor.
+:::
+
+## Trick 6: Double Sum 
+
+**Story.** Each item $i$ must be compared with all *later* items $j\ge i$.  The pairwise cost is $c_j = 4j+1$ (depends only on the later index).
+
+::::: columns
+::: {.column}
+**Problem.**  
+$T = \displaystyle \sum_{i=1}^{n}\;\sum_{j=i}^{n}\,(4j+1)$
+:::
+::: {.column}
+![](/images/grid12.png)
+:::
+:::::
+
+::: notes
+Swap the order of summation. In the grid, row i covers j = i..n, so the
+cells are the pairs with i <= j. Read the same cells by column: column j has
+the rows i = 1..j, which is j cells, each costing 4j + 1.
+  T = sum_{j=1}^{n} sum_{i=1}^{j} (4j + 1) = sum_{j=1}^{n} j(4j + 1)
+    = 4 sum j^2 + sum j
+    = 4 * n(n+1)(2n+1)/6 + n(n+1)/2
+    = n(n+1)(8n + 7)/6.
+The inner sum is now easy because 4j + 1 does not depend on i.
+This uses the sum of squares we proved by induction in lecture 12.
+Check: n = 1: 5. n = 2: (5 + 9) + 9 = 23, and 2*3*23/6 = 23.
+:::

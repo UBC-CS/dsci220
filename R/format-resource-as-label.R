@@ -1,7 +1,7 @@
 source(here::here("R", "format-id.R"))
 source(here::here("R", "get-id-title.R"))
 
-format_resource_as_label <- function(show_week, id, type, resource) {
+format_resource_as_label <- function(show_week, id, type, resource, aux = FALSE) {
   if (is.na(type)) {
     return(NA)
   }
@@ -17,7 +17,7 @@ format_resource_as_label <- function(show_week, id, type, resource) {
   }
 
   if (type %in% types_as_icons) {
-    return(format_resource_as_icon(show_week, id, type, resource))
+    return(format_resource_as_icon(show_week, id, type, resource, aux))
   }
 
   if (stringr::str_detect(id, "part")) {
@@ -27,7 +27,7 @@ format_resource_as_label <- function(show_week, id, type, resource) {
   glue::glue('<a href="{resource}">{format_id(id)}</a>')
 }
 
-format_resource_as_icon <- function(show_week, id, type, resource) {
+format_resource_as_icon <- function(show_week, id, type, resource, aux = FALSE) {
   id <- format_id(id)
   type <- type |> as.character()
   lookup <- readr::read_csv(
@@ -38,6 +38,7 @@ format_resource_as_icon <- function(show_week, id, type, resource) {
 
   title <- stringr::str_c(
     id,
+    if (isTRUE(aux)) "auxiliary" else NULL,
     type |> dplyr::recode_values(from = lookup$type, to = lookup$label),
     sep = " "
   )

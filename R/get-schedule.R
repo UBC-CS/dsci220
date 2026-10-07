@@ -57,10 +57,18 @@ get_schedule <- function() {
       unit = id |> stringr::str_extract("^[^-]+") |> forcats::fct(),
     )
 
+  # Auxiliary material -- a second deck or video for a lecture slot -- is named
+  # `<id>_aux`: `lecture-13_aux_slides.qmd`, or `lecture-13_aux` as the id in
+  # additional-resources.csv. It joins to its lecture's row and shows as a
+  # second icon in the same cell.
   additional_resources <- readr::read_csv(
     here::here("data", "additional-resources.csv"),
     col_types = "ccc"
-  )
+  ) |>
+    dplyr::mutate(
+      aux = stringr::str_detect(id, "_aux$"),
+      id = stringr::str_remove(id, "_aux$")
+    )
 
   resources <-
     tibble::tibble(
@@ -69,7 +77,8 @@ get_schedule <- function() {
       # too -- which normalises "https://" to "https:/" and breaks every link.
       resource = as.character(fs::dir_ls(resources_paths, glob = "*.qmd")),
       id = get_id_from_resource(resource),
-      type = resource |> fs::path_dir()
+      type = resource |> fs::path_dir(),
+      aux = stringr::str_detect(fs::path_file(resource), "_aux_")
     ) |>
     dplyr::relocate(resource, .after = type)
 
@@ -80,7 +89,7 @@ get_schedule <- function() {
       type = type |>
         forcats::fct(levels = intersect(sorted_types, type))
     ) |>
-    dplyr::arrange(type)
+    dplyr::arrange(type, aux)
 
   schedule |>
     dplyr::left_join(
@@ -130,7 +139,7 @@ get_schedule <- function() {
       .after = slot
     ) |>
     # `arrange()` ensures that fill()` propagates `next_exam` to prior dates
-    dplyr::arrange(week, unit, slot, type) |>
+    dplyr::arrange(week, unit, slot, type, aux) |>
     tidyr::fill(next_exam, show_exam, .direction = "up") |>
     dplyr::filter_out(
       rendering_student_profile & type == "lesson-plan"

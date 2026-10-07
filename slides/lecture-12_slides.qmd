@@ -1,5 +1,5 @@
 ---
-title: "Proof by Induction, Summations"
+title: "Proof by Induction"
 subtitle: "Lecture 12, {{< var course.code >}}, {{< var course.term >}}"
 ---
 
@@ -63,7 +63,6 @@ Aside, only if it comes up: 23 = 5*7 - 5 - 7.
 
 - Understand role of components of an inductive proof.
 - Write short inductive proofs.
-- Use some tricks to find closed forms for sums.
 
 ## Inductive Proof Skeleton Card
 
@@ -146,76 +145,7 @@ Claim: For any $n>0$, $\sum\limits_{k=1}^n \frac{1}{(2k-1)(2k+1)} = \frac{n}{2n+
 
 ::: notes
 The sum telescopes: 1/((2k-1)(2k+1)) = (1/2)(1/(2k-1) - 1/(2k+1)). That is
-Trick 2 below, so we can come back to this sum by telescoping.
-:::
-
-# Summations
-
-## Trick 0: Warm Up Handshakes  
-
-**Story.** If each of us ($n+1$) were to shake hands w everyone else, how many 
-handshakes would there be? 
-
-**Problem.**  
-
-$S(n) = \sum\limits_{k=1}^{n} k$
-
-\ 
-
-\ 
-
-\ 
-
-We'll need this, and we'll also need: 
-
-$S(n)=\sum\limits_{k=1}^{n} k^2 = \frac{n(n+1)(2n+1)}{6}$
-
-## Trick 1: Linearity  
-
-\ 
-
-**Story.** Processing `n` data rows:  
-
-- each row has a constant overhead of 7 units,  
-- plus 3 units per column, with column count = row index.
-
-**Problem.**  
-
-$S(n)=\sum\limits_{i=1}^{n} (7 + 3i)$
-
-
-## Trick 2: Telescoping  
-
-\
-
-**Story.** Model accuracy at epoch $i$: 
-
-* improvement = $\ln(i+1) - \ln(i)$.
-
-**Problem.**  
-$S(n)=\sum_{i=1}^{n} \big(\ln(i+1)-\ln(i)\big)$
-
-## Trick 3: Shifting 
-
-\ 
-
-**Story.** Each day your batch size **doubles** (like a viral share),  
-but the **annotation time per item** grows linearly with the day index.  What’s the total work after $n$ days?
-
-**Problem.**  
-$S_n =\sum_{k=1}^{n} k\,2^{k}$
-
-::: notes
-S = 1*2 + 2*4 + 3*8 + ... + n*2^n.
-Double it and shift one place right, so each 2^k lines up with a 2^k:
-   S =  1*2 + 2*4 + 3*8 + ... + n*2^n
-  2S =        1*4 + 2*8 + ... + (n-1)*2^n + n*2^{n+1}
-Subtract, 2S - S: the first term gives -2, each middle column gives -2^k,
-and the last term n*2^{n+1} is left over.
-  S = n*2^{n+1} - (2 + 4 + ... + 2^n) = n*2^{n+1} - (2^{n+1} - 2)
-    = (n - 1) 2^{n+1} + 2.
-The geometric sum is the first induction example today.
-Check: n=1: 2. n=2: 10. n=3: 34.
+Trick 2 in the summations video, so we can come back to this sum by telescoping.
 :::
 
 ## Words and Ideas
