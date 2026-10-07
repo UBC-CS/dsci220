@@ -2500,14 +2500,14 @@
     "href": "slides/lecture-12_slides.html#trick-5-reindexing",
     "title": "Proof by Induction, Summations",
     "section": "Trick 5: Reindexing",
-    "text": "Trick 5: Reindexing\n \nStory. You only log every 3rd data point (rows 3, 6, 9, …).\nThe cost for row \\(i\\) is \\(2i+1\\).\nQuestion. What is the total cost up to row \\(n\\)?"
+    "text": "Trick 5: Reindexing\n \nStory. You only log every 3rd data point (rows 3, 6, 9, …).\nThe cost for row \\(i\\) is \\(2i+1\\).\nQuestion. What is the total cost up to row \\(n\\)?\n\nThe logged rows are i = 3j for j = 1, 2, …, m, where m = floor(n/3) is the number of logged rows. Reindex by j, so the sum runs over consecutive integers: sum_{j=1}^{m} (2(3j) + 1) = sum_{j=1}^{m} (6j + 1) = 6 * m(m+1)/2 + m (linearity, then Trick 0) = 3m(m+1) + m = m(3m + 4). Check: n = 3, m = 1: row 3 costs 7, and 17 = 7. n = 6, m = 2: 7 + 13 = 20, and 210 = 20. The answer is in terms of m = floor(n/3), not n. Expect students to try to write it in n and get stuck on the floor."
   },
   {
     "objectID": "slides/lecture-12_slides.html#trick-6-double-sum",
     "href": "slides/lecture-12_slides.html#trick-6-double-sum",
     "title": "Proof by Induction, Summations",
     "section": "Trick 6: Double Sum",
-    "text": "Trick 6: Double Sum\nStory. Each item \\(i\\) must be compared with all later items \\(j\\ge i\\). The pairwise cost is \\(c_j = 4j+1\\) (depends only on the later index).\n\n\nProblem.\n\\(T = \\displaystyle \\sum_{i=1}^{n}\\;\\sum_{j=i}^{n}\\,(4j+1)\\)"
+    "text": "Trick 6: Double Sum\nStory. Each item \\(i\\) must be compared with all later items \\(j\\ge i\\). The pairwise cost is \\(c_j = 4j+1\\) (depends only on the later index).\n\n\nProblem.\n\\(T = \\displaystyle \\sum_{i=1}^{n}\\;\\sum_{j=i}^{n}\\,(4j+1)\\)\n\n\n\n\nSwap the order of summation. In the grid, row i covers j = i..n, so the cells are the pairs with i &lt;= j. Read the same cells by column: column j has the rows i = 1..j, which is j cells, each costing 4j + 1. T = sum_{j=1}^{n} sum_{i=1}^{j} (4j + 1) = sum_{j=1}^{n} j(4j + 1) = 4 sum j^2 + sum j = 4 * n(n+1)(2n+1)/6 + n(n+1)/2 = n(n+1)(8n + 7)/6. The inner sum is now easy because 4j + 1 does not depend on i. This uses the sum of squares we proved by induction today. Check: n = 1: 5. n = 2: (5 + 9) + 9 = 23, and 2323/6 = 23."
   },
   {
     "objectID": "slides/lecture-12_slides.html#words-and-ideas",
