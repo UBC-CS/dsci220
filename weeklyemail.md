@@ -223,6 +223,59 @@ Cinda and the DSCI220 teaching team Perrie, Noah, and Marko.
 
 ---
 
+## Week 6 — Mon Oct 12 to Sun Oct 18
+
+⚠ **Check before sending**
+
+1. **The lecture 13 videos.** Neither is recorded yet: trominoes and
+   recurrences, and the auxiliary summations video. With lectures 14 and 15
+   that makes four videos this week. The letter says the lecture 13 videos come
+   "this week"; change that if you have a firmer day.
+2. **EX2 scores.** The letter does not say EX2 is marked, because I don't know.
+   The questions become visible to students Wed Oct 14 at 00:00:01, as set in
+   PrairieLearn.
+3. **This goes out Tuesday**, so the cancelled office hour is today's.
+
+---
+
+Hi everyone,
+
+Welcome to week 6! This is our quiet Thanksgiving week: no class meetings, no
+tutorials, no examlet, and no homework.
+
+The news:
+
+1. **No office hour today.** I'm sorry, but I have to cancel today's Zoom office
+hour because of another meeting. If you have a question, please post it on
+Piazza or email me.
+
+2. **The lecture 13 videos are late.** I haven't recorded last Friday's lesson
+yet. There will be two videos for that slot: one on trominoes and recurrences,
+and a shorter one on summations. I'll post both this week, and they will
+appear next to lecture 13 on the course website.
+
+3. **This week's lessons are videos.** Lectures 14 and 15 (Wednesday and
+Friday) are both videos, and we start modular arithmetic.
+
+4. **EX2 questions** will be visible on PrairieLearn on Wednesday, so you can
+look back at what you saw on the examlet.
+
+5. **Next week we're back to normal.** Classes meet in person on Monday and
+Wednesday, tutorials meet again, and HW3 opens on Sunday, Oct 18.
+
+My office hour next week is Tuesday, 10:30–11:30, in ICCS 233.
+
+As always, you're welcome to email me (cheeren@cs.ubc.ca) or post on Piazza
+(<https://piazza.com/ubc.ca/winterterm12026/dsci220>), and the course website is
+<https://ubc-cs.github.io/dsci220>.
+
+Enjoy the quiet week!
+
+All the best!
+Cinda and the DSCI220 teaching team Perrie, Noah, and Marko.
+
+---
+
 ## Template for later weeks
 
 ```
