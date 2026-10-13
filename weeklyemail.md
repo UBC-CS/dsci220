@@ -231,9 +231,9 @@ Cinda and the DSCI220 teaching team Perrie, Noah, and Marko.
    recurrences, and the auxiliary summations video. With lectures 14 and 15
    that makes four videos this week. The letter says the lecture 13 videos come
    "this week"; change that if you have a firmer day.
-2. **EX2 scores.** The letter does not say EX2 is marked, because I don't know.
-   The questions become visible to students Wed Oct 14 at 00:00:01, as set in
-   PrairieLearn.
+2. **EX2 scores.** Average 84% (Cinda, Oct 13). The letter says scores are on
+   PrairieLearn; check they are released to students. The questions become
+   visible Wed Oct 14 at 00:00:01, as set in PrairieLearn.
 3. **This goes out Tuesday**, so the cancelled office hour is today's.
 
 ---
@@ -257,8 +257,9 @@ appear next to lecture 13 on the course website.
 3. **This week's lessons are videos.** Lectures 14 and 15 (Wednesday and
 Friday) are both videos, and we start modular arithmetic.
 
-4. **EX2 questions** will be visible on PrairieLearn on Wednesday, so you can
-look back at what you saw on the examlet.
+4. **EX2 is marked**, and your score is on PrairieLearn. The average was 84%.
+The questions will be visible on PrairieLearn on Wednesday, so you can look
+back at what you saw on the examlet.
 
 5. **Next week we're back to normal.** Classes meet in person on Monday and
 Wednesday, tutorials meet again, and HW3 opens on Sunday, Oct 18.
