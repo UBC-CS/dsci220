@@ -232,8 +232,8 @@ Cinda and the DSCI220 teaching team Perrie, Noah, and Marko.
    that makes four videos this week. The letter says the lecture 13 videos come
    "this week"; change that if you have a firmer day.
 2. **EX2 scores.** Average 84% (Cinda, Oct 13). The letter says scores are on
-   PrairieLearn; check they are released to students. The questions become
-   visible Wed Oct 14 at 00:00:01, as set in PrairieLearn.
+   PrairieLearn; check they are released to students. The questions are
+   hidden with no release date (removed Oct 13; students still sitting it).
 3. **This goes out Tuesday**, so the cancelled office hour is today's.
 
 ---
@@ -258,8 +258,8 @@ appear next to lecture 13 on the course website.
 Friday) are both videos, and we start modular arithmetic.
 
 4. **EX2 is marked**, and your score is on PrairieLearn. The average was 84%.
-The questions will be visible on PrairieLearn on Wednesday, so you can look
-back at what you saw on the examlet.
+A few students are still writing it, so the questions stay hidden for now. I'll
+let you know when you can look back at them.
 
 5. **Next week we're back to normal.** Classes meet in person on Monday and
 Wednesday, tutorials meet again, and HW3 opens on Sunday, Oct 18.
