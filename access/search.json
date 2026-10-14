@@ -1279,7 +1279,7 @@
     "href": "slides/lecture-13_slides.html#toothpicks",
     "title": "Trominoes and Recurrences",
     "section": "Toothpicks",
-    "text": "Toothpicks\nHow many toothpicks in an \\(n\\cross n\\) grid made of toothpicks?\n\n\nDraw the sequence:\n \nFind the recurrence:\n \nSolve the closed form for the recurrence:\n\nSequence: 4, 12, 24, 40, 60 (n = 1..5). Recurrence: T(1) = 4, and T(n) = T(n-1) + 4n for n &gt; 1. Growing the (n-1)-grid to the n-grid adds a new row of squares along the top and a new column along the right. The new row costs n horizontal toothpicks on top and n vertical ones; the new column costs the same. So 4n new toothpicks. Closed form: T(n) = 4(1 + 2 + … + n) = 4 * n(n+1)/2 = 2n(n+1). Check directly: n+1 horizontal lines of n toothpicks, and n+1 vertical lines of n toothpicks, so 2n(n+1). The closed form needs the sum 1 + … + n, which is Trick 0 in the summations video."
+    "text": "Toothpicks\nHow many toothpicks in an \\(n\\cross n\\) grid made of toothpicks?\n\n\nDraw the sequence:\n \nFind the recurrence:\n \nSolve the closed form for the recurrence:\n\nSequence: 4, 12, 24, 40, 60 (n = 1..5). Recurrence: T(1) = 4, and T(n) = T(n-1) + 4n for n &gt; 1. Why 4n: an n-grid has n+1 horizontal lines of n toothpicks, so n(n+1) horizontal ones. Going from n-1 to n, that grows from (n-1)n to n(n+1), an increase of 2n. The vertical ones grow by the same 2n. So 4n new toothpicks. Closed form: T(n) = 4(1 + 2 + … + n) = 4 * n(n+1)/2 = 2n(n+1). Check directly: n+1 horizontal lines of n toothpicks, and n+1 vertical lines of n toothpicks, so 2n(n+1). The closed form needs the sum 1 + … + n, which is Trick 0 in the summations video."
   },
   {
     "objectID": "slides/lecture-12_slides.html#announcements",
