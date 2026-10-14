@@ -1282,13 +1282,6 @@
     "text": "Toothpicks\nHow many toothpicks in an \\(n\\cross n\\) grid made of toothpicks?\n\n\nDraw the sequence:\n \nFind the recurrence:\n \nSolve the closed form for the recurrence:"
   },
   {
-    "objectID": "slides/lecture-13_slides.html#buds",
-    "href": "slides/lecture-13_slides.html#buds",
-    "title": "Trominoes and Recurrences",
-    "section": "Buds",
-    "text": "Buds"
-  },
-  {
     "objectID": "slides/lecture-12_slides.html#announcements",
     "href": "slides/lecture-12_slides.html#announcements",
     "title": "Proof by Induction",
