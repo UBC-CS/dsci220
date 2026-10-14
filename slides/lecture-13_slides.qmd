@@ -240,3 +240,16 @@ Find the recurrence:
 \ 
 
 Solve the closed form for the recurrence:
+
+::: notes
+Sequence: 4, 12, 24, 40, 60 (n = 1..5).
+Recurrence: T(1) = 4, and T(n) = T(n-1) + 4n for n > 1. Going from an
+(n-1)-grid to an n-grid adds a new row of n toothpicks on top with n+1
+uprights under it... cleaner to count: 2n horizontal plus 2n vertical new
+pieces, so 4n.
+Closed form: T(n) = 4(1 + 2 + ... + n) = 4 * n(n+1)/2 = 2n(n+1).
+Check directly: n+1 horizontal lines of n toothpicks, and n+1 vertical lines
+of n toothpicks, so 2n(n+1).
+The closed form needs the sum 1 + ... + n, which is Trick 0 in the summations
+video.
+:::
