@@ -189,7 +189,9 @@
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 <aside class="notes">
-<p>Data Science Note: Rightmost digit problems are <span class="math inline">\(\pmod {10}\)</span> — exactly the arithmetic behind simple checksums, used to assure data integrity, and hash buckets which we’ll study next week!</p>
+<p>Answer: 7. The last digits of 7, 7^2, 7^3, 7^4 are 7, 9, 3, 1, and then they repeat, because 7^4 ends in 1. 2025 = 4<em>506 + 1, so 7^2025 = (7<sup>4)</sup>506 </em> 7, which ends in 1 * 7 = 7.</p>
+<p>Students do not have the rules yet. That is the point: they will find the cycle by listing powers, and the rest of the lecture explains why it is allowed to throw away everything but the last digit at each step.</p>
+<p>Data Science Note: Rightmost digit problems are <span class="math inline">\(\pmod {10}\)</span> — exactly the arithmetic behind simple checksums, used to assure data integrity, and hash buckets.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -201,7 +203,7 @@
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
-<countdown-timer id="timer_837658c33e878ca9ec9b078214942fa5bdf91168" minutes="05" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<countdown-timer id="timer_d57be6797494c1f7b7ed212ca08ec5786b62dd75" minutes="05" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
  </countdown-timer>
 </section>
 <section id="congruence-bmod-m" class="slide level2">
@@ -220,7 +222,7 @@
 <li><span class="math inline">\(-11\equiv \underline{~~~~~}\quad\pmod 6\)</span></li>
 </ul>
 <aside class="notes">
-<p>Timing: ~3–4 min. Answers: (a) <span class="math inline">\(1\)</span>; (b) <span class="math inline">\(1\)</span>.</p>
+<p>Timing: ~3–4 min. Answers: (a) 1; (b) 1. (a) 29 - 1 = 28 = 7<em>4. (b) -11 - 1 = -12 = 6</em>(-2). The negative one is the one to linger on: the answer is 1, not -5 or 5. Any b with 6 | (-11 - b) is correct (-5 works too), but we report the one in 0..5.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -283,6 +285,21 @@
 <h2>Proof 1: Multiplication</h2>
 <p><strong>Claim:</strong> If <span class="math inline">\(a\equiv b\pmod m\)</span>, and <span class="math inline">\(c\equiv d\pmod m\)</span> then <span class="math inline">\(ac\equiv bd\pmod m\)</span>.</p>
 <p><strong>Proof:</strong></p>
+<aside class="notes">
+<p>Unfold the definition: m | (a - b) and m | (c - d), so a - b = mk and c - d = mj for some integers k, j.</p>
+<p>The trick is to add and subtract ad: ac - bd = ac - ad + ad - bd = a(c - d) + d(a - b) = a(mj) + d(mk) = m(aj + dk). aj + dk is an integer, so m | (ac - bd), which is ac == bd (mod m).</p>
+<p>Direct proof, and both hypotheses are existentials we name witnesses for – the same moves as lecture 10. Addition is easier and worth a sentence: (a + c) - (b + d) = (a - b) + (c - d) = m(k + j).</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="proof-2-exponentiation" class="slide level2">
 <h2>Proof 2: Exponentiation</h2>
@@ -292,54 +309,101 @@
 <p>Case 1 <span class="math inline">\((n=1)\)</span>:</p>
 <p>&nbsp;</p>
 <p>Case 2 <span class="math inline">\((n&gt;1)\)</span>:</p>
+<aside class="notes">
+<p>Same skeleton as lecture 12.</p>
+<p>Case 1 (n = 1): a^1 = a and b^1 = b, and a == b (mod m) is given.</p>
+<p>Case 2 (n &gt; 1): a^n = a * a^(n-1) and b^n = b * b^(n-1). n - 1 &lt; n and n - 1 &gt;= 1, so the IH gives a^(n-1) == b^(n-1) (mod m). We also have a == b (mod m). By Proof 1 (multiplication), with c = a^(n-1) and d = b^(n-1): a * a^(n-1) == b * b^(n-1) (mod m), that is, a^n == b^n (mod m).</p>
+<p>The induction step uses the previous theorem. Worth saying out loud: proofs build on proofs.</p>
+<p>The caution on the card, with numbers: 8 == 1 (mod 7), but 2^8 = 256 == 4 and 2^1 = 2 (mod 7). You may replace the BASE by something congruent, but not the EXPONENT. (For exponents the right modulus is the cycle length – that is what the warm-up and Big Powers use.)</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
-<section id="discovery-inverses-bmod-a-prime" class="slide level2">
+<section id="discovery-inverses-bmod-a-prime" class="slide level2 smaller">
 <h2>Discovery: Inverses <span class="math inline">\(\bmod\)</span> a Prime</h2>
-<p><strong>Task <span class="math inline">\(\pmod 7\)</span>:</strong> Fill this table and find inverses of <span class="math inline">\(1,2,3,4\)</span>.</p>
+<p><strong>Task <span class="math inline">\(\pmod 7\)</span>:</strong> Fill this table and find the inverse of each of <span class="math inline">\(1,\dots,6\)</span>.</p>
+<div class="fillable">
 <table class="caption-top">
 <thead>
 <tr class="header">
-<th><span class="math inline">\(\times\)</span></th>
-<th style="text-align: right;"><span class="math inline">\(1\)</span></th>
-<th style="text-align: right;"><span class="math inline">\(2\)</span></th>
-<th style="text-align: right;"><span class="math inline">\(3\)</span></th>
-<th style="text-align: right;"><span class="math inline">\(4\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(\times\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(1\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(2\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(3\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(4\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(5\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(6\)</span></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><span class="math inline">\(1\)</span></td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"></td>
+<td style="text-align: center;"><span class="math inline">\(1\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
 </tr>
 <tr class="even">
-<td><span class="math inline">\(2\)</span></td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"></td>
+<td style="text-align: center;"><span class="math inline">\(2\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
 </tr>
 <tr class="odd">
-<td><span class="math inline">\(3\)</span></td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"></td>
+<td style="text-align: center;"><span class="math inline">\(3\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
 </tr>
 <tr class="even">
-<td><span class="math inline">\(4\)</span></td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"></td>
+<td style="text-align: center;"><span class="math inline">\(4\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(5\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(6\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
 </tr>
 </tbody>
 </table>
-<p>Then answer: <span class="math inline">\(1^{-1},\,2^{-1},\,3^{-1},\,4^{-1}\ \pmod 7\)</span>.</p>
+</div>
+<p>Then answer: <span class="math inline">\(1^{-1},\,2^{-1},\,\dots,\,6^{-1}\ \pmod 7\)</span>.</p>
 <aside class="notes">
-<p>Timing: ~6–7 min. Answers: <span class="math inline">\(1^{-1}\equiv1,\ 2^{-1}\equiv4,\ 3^{-1}\equiv5\ (\bmod 7)\)</span>. Takeaway: all nonzero residues mod prime <span class="math inline">\(p\)</span> have inverses.</p>
+<p>Timing: ~6–7 min. Answers: 1^-1 = 1, 2^-1 = 4, 3^-1 = 5, 4^-1 = 2, 5^-1 = 3, 6^-1 = 6 (mod 7). The table (row times column, mod 7): 1 2 3 4 5 6 1: 1 2 3 4 5 6 2: 2 4 6 1 3 5 3: 3 6 2 5 1 4 4: 4 1 5 2 6 3 5: 5 3 1 6 4 2 6: 6 5 4 3 2 1 Every row is a rearrangement of 1..6, so every row contains exactly one 1. That is why every nonzero residue has an inverse. Contrast mod 6: the row for 2 is 2 4 0 2 4, which never hits 1 – gcd(2, 6) = 2. (The table used to stop at 4, which left 3^-1 = 5 off the table; widened 2026-10-14.) Takeaway: all nonzero residues mod prime <span class="math inline">\(p\)</span> have inverses.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -364,6 +428,20 @@
 <ul>
 <li><span class="math inline">\(9x\equiv 5\pmod{26}\)</span></li>
 </ul>
+<aside class="notes">
+<p>gcd(9, 26) = 1, so 9 has an inverse mod 26. 9x == 1: try multiples of 9 – 9, 18, 27. 27 = 26 + 1, so 9 * 3 == 1 and x == 3 (mod 26). 9x == 5: multiply both sides by the inverse 3: x == 15 (mod 26). Check: 9 * 15 = 135 = 5 * 26 + 5.</p>
+<p>This is “division” from the card: we never divide by 9, we multiply by 3. (Mod 26 is the affine cipher, if anyone asks.)</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="big-powers-fast" class="slide level2 activity">
 <h2>Big Powers Fast</h2>
@@ -395,7 +473,7 @@
 <h2>Two Dials</h2>
 <p>Find <span class="math inline">\(x\pmod {15}\)</span> such that<br>
 <span class="math inline">\(x\equiv 2\pmod 3\)</span> and <span class="math inline">\(x\equiv 1\pmod 5\)</span>.</p>
-<countdown-timer id="timer_837658c33e878ca9ec9b078214942fa5bdf91168" minutes="05" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<countdown-timer id="timer_d57be6797494c1f7b7ed212ca08ec5786b62dd75" minutes="05" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
  </countdown-timer>
 <aside class="notes">
 <p>Timing: ~6–8 min. Numbers <span class="math inline">\(\equiv1\pmod5\)</span>: <span class="math inline">\(1,6,11,\dots\)</span>; mod <span class="math inline">\(3\)</span> these are <span class="math inline">\(1,0,2,\dots\)</span> → pick <span class="math inline">\(11\)</span>. Unique mod <span class="math inline">\(15\)</span>.</p>
