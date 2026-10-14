@@ -345,6 +345,19 @@
 <p>Find the recurrence:</p>
 <p>&nbsp;</p>
 <p>Solve the closed form for the recurrence:</p>
+<aside class="notes">
+<p>Sequence: 4, 12, 24, 40, 60 (n = 1..5). Recurrence: T(1) = 4, and T(n) = T(n-1) + 4n for n &gt; 1. Growing the (n-1)-grid to the n-grid adds a new row of squares along the top and a new column along the right. The new row costs n horizontal toothpicks on top and n vertical ones; the new column costs the same. So 4n new toothpicks. Closed form: T(n) = 4(1 + 2 + … + n) = 4 * n(n+1)/2 = 2n(n+1). Check directly: n+1 horizontal lines of n toothpicks, and n+1 vertical lines of n toothpicks, so 2n(n+1). The closed form needs the sum 1 + … + n, which is Trick 0 in the summations video.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 
 
 <script type="ojs-module-contents">
