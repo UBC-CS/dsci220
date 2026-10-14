@@ -240,6 +240,3 @@ Find the recurrence:
 \ 
 
 Solve the closed form for the recurrence:
-
-## Buds
-
