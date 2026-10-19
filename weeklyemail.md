@@ -297,20 +297,19 @@ Wednesday.
 
 The news:
 
-1. **Class reunion on Monday!** It's been two weeks since we were all in a room
+1. **Class reunion today!** It's been two weeks since we were all in a room
 together, so this is your reminder that in-person classes are back. See you
-Monday at 11 for asymptotics.
+at 11 for asymptotics.
 
 2. **HW3 is out**, due Sun Oct 25, 11:59p:
 <https://us.prairielearn.com/pl/course_instance/209866/assessment/2740568>
-There are five
-questions, and each one asks you to write a proof by induction on paper and then
+There are five questions, and each one asks you to write a proof by induction on paper and then
 answer questions about your proof. Every one of you gets different numbers, so
 work together, and compare how you got your answers rather than the answers
 themselves. As before, you get **one attempt** at each question, so finish the
 proof before you submit.
 
-3. **The summations video** for lecture 13 goes up on Monday. You'll want it for
+3. **The summations video** for lecture 13 goes up today. You'll want it for
 HW3 and for this week's tutorial.
 
 4. **Tutorial 5** meets on Tuesday and Wednesday. We'll practice sums,
