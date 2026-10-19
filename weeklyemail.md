@@ -277,6 +277,61 @@ Cinda and the DSCI220 teaching team Perrie, Noah, and Marko.
 
 ---
 
+## Week 7 — Mon Oct 19 to Sun Oct 25
+
+⚠ **Check before sending**
+
+1. **HW3 link.** Not on the website yet: sync PrairieLearn, try HW3 as a
+   student, and send Claude the URL. The letter gives the PrairieLearn course
+   page instead of a direct link.
+2. **EX3 booking.** The letter tells students to book. Make sure the PrairieTest
+   sessions for Thu Oct 29 – Sun Nov 1 exist first.
+3. **The summations video** is promised for Monday. HW3's first question and
+   Tutorial 5's first section both use it.
+
+---
+
+Hi everyone,
+
+Welcome to week 7! We're back to our usual rhythm this week: class in person on
+Monday and Wednesday, a video for Friday, and tutorials on Tuesday and
+Wednesday.
+
+The news:
+
+1. **HW3 is out**, due Sun Oct 25, 11:59p. It's on PrairieLearn. There are five
+questions, and each one asks you to write a proof by induction on paper and then
+answer questions about your proof. Every one of you gets different numbers, so
+work together, and compare how you got your answers rather than the answers
+themselves. As before, you get **one attempt** at each question, so finish the
+proof before you submit.
+
+2. **The summations video** for lecture 13 goes up on Monday. You'll want it for
+HW3 and for this week's tutorial.
+
+3. **Tutorial 5** meets on Tuesday and Wednesday. We'll practice sums,
+recurrences, modular arithmetic, and growth of functions.
+
+4. **Examlet 3** is Thu Oct 29 through Sun Nov 1. It covers lectures 11 through 18:
+induction, sums and recurrences, modular arithmetic, asymptotics, and
+representation. Please book your session in PrairieTest now.
+
+5. **Practice problems for EX3** go up on PrairieLearn on Wednesday night. They
+are not graded, and you can retry them as many times as you like.
+
+My office hour is Tuesday, 10:30–11:30, in ICCS 233.
+
+As always, you're welcome to email me (cheeren@cs.ubc.ca) or post on Piazza
+(<https://piazza.com/ubc.ca/winterterm12026/dsci220>), and the course website is
+<https://ubc-cs.github.io/dsci220>.
+
+See you tomorrow!
+
+All the best!
+Cinda and the DSCI220 teaching team Perrie, Noah, and Marko.
+
+---
+
 ## Template for later weeks
 
 ```
