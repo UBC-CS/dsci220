@@ -281,9 +281,7 @@ Cinda and the DSCI220 teaching team Perrie, Noah, and Marko.
 
 ⚠ **Check before sending**
 
-1. **HW3 link.** Not on the website yet: sync PrairieLearn, try HW3 as a
-   student, and send Claude the URL. The letter gives the PrairieLearn course
-   page instead of a direct link.
+1. **HW3 link.** Added to the letter and the website Oct 19.
 2. **EX3 booking.** The letter tells students to book. Make sure the PrairieTest
    sessions for Thu Oct 29 – Sun Nov 1 exist first.
 3. **The summations video** is promised for Monday. HW3's first question and
@@ -303,7 +301,9 @@ The news:
 together, so this is your reminder that in-person classes are back. See you
 Monday at 11 for asymptotics.
 
-2. **HW3 is out**, due Sun Oct 25, 11:59p. It's on PrairieLearn. There are five
+2. **HW3 is out**, due Sun Oct 25, 11:59p:
+<https://us.prairielearn.com/pl/course_instance/209866/assessment/2740568>
+There are five
 questions, and each one asks you to write a proof by induction on paper and then
 answer questions about your proof. Every one of you gets different numbers, so
 work together, and compare how you got your answers rather than the answers
