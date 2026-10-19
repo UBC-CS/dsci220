@@ -329,7 +329,7 @@ As always, you're welcome to email me (cheeren@cs.ubc.ca) or post on Piazza
 (<https://piazza.com/ubc.ca/winterterm12026/dsci220>), and the course website is
 <https://ubc-cs.github.io/dsci220>.
 
-See you tomorrow!
+See you in class!
 
 All the best!
 Cinda and the DSCI220 teaching team Perrie, Noah, and Marko.
