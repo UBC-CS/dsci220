@@ -299,24 +299,28 @@ Wednesday.
 
 The news:
 
-1. **HW3 is out**, due Sun Oct 25, 11:59p. It's on PrairieLearn. There are five
+1. **Class reunion on Monday!** It's been two weeks since we were all in a room
+together, so this is your reminder that in-person classes are back. See you
+Monday at 11 for asymptotics.
+
+2. **HW3 is out**, due Sun Oct 25, 11:59p. It's on PrairieLearn. There are five
 questions, and each one asks you to write a proof by induction on paper and then
 answer questions about your proof. Every one of you gets different numbers, so
 work together, and compare how you got your answers rather than the answers
 themselves. As before, you get **one attempt** at each question, so finish the
 proof before you submit.
 
-2. **The summations video** for lecture 13 goes up on Monday. You'll want it for
+3. **The summations video** for lecture 13 goes up on Monday. You'll want it for
 HW3 and for this week's tutorial.
 
-3. **Tutorial 5** meets on Tuesday and Wednesday. We'll practice sums,
+4. **Tutorial 5** meets on Tuesday and Wednesday. We'll practice sums,
 recurrences, modular arithmetic, and growth of functions.
 
-4. **Examlet 3** is Thu Oct 29 through Sun Nov 1. It covers lectures 11 through 18:
+5. **Examlet 3** is Thu Oct 29 through Sun Nov 1. It covers lectures 11 through 18:
 induction, sums and recurrences, modular arithmetic, asymptotics, and
 representation. Please book your session in PrairieTest now.
 
-5. **Practice problems for EX3** go up on PrairieLearn on Wednesday night. They
+6. **Practice problems for EX3** go up on PrairieLearn on Wednesday night. They
 are not graded, and you can retry them as many times as you like.
 
 My office hour is Tuesday, 10:30–11:30, in ICCS 233.
