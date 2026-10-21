@@ -305,7 +305,7 @@
 </tr>
 </tbody>
 </table>
-<countdown-timer id="timer_a83659bd2842d8617293e90ddf244d4328c96a2a" minutes="03" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<countdown-timer id="timer_0c83ac025541048c57a1796762b36b2b2cfc14e9" minutes="03" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
  </countdown-timer>
 <aside class="notes">
 <p>10, 13, 7.</p>
@@ -333,7 +333,7 @@
 <p><br>
 </p>
 <p>How high can you count on your fingers? And toes?</p>
-<countdown-timer id="timer_a83659bd2842d8617293e90ddf244d4328c96a2a" minutes="03" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<countdown-timer id="timer_0c83ac025541048c57a1796762b36b2b2cfc14e9" minutes="03" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
  </countdown-timer>
 <aside class="notes">
 <p>15 (1111). 7 bits (64 &lt;= 120 &lt; 128). One more bit DOUBLES the count. Fingers: 2^10 - 1 = 1023; fingers and toes: 2^20 - 1 = 1,048,575. Don’t prove anything yet – say: “you just guessed three theorems; the rest of today proves them.” largest with b bits = 2^b - 1 -&gt; Capacity slide (geometric sum) bits needed for 120 -&gt; How Many Bits? + the bound proof one more bit doubles -&gt; Capacity: C(b) = 2 C(b-1)</p>
@@ -360,10 +360,10 @@
 <p><br>
 </p>
 <div class="fragment">
-<p>For every <span class="math inline">\(n \geq 2\)</span>: <span class="math display">\[n \;=\; 2\left\lfloor n/2 \right\rfloor + (n \bmod 2)\]</span> Write <span class="math inline">\(\text{bin}(n)\)</span> for the string of bits that represents <span class="math inline">\(n\)</span>. The last bit of <span class="math inline">\(\text{bin}(n)\)</span> is <span class="math inline">\(n \bmod 2\)</span>, and the bits before it are <span class="math inline">\(\text{bin}(\lfloor n/2 \rfloor)\)</span>.</p>
+<p>For every <span class="math inline">\(n \geq 2\)</span>: <span class="math display">\[n \;=\; 2\left\lfloor n/2 \right\rfloor + (n \bmod 2)\]</span> The last bit is <span class="math inline">\(n \bmod 2\)</span>, and what’s left is <span class="math inline">\(\lfloor n/2 \rfloor\)</span>.</p>
 </div>
 <aside class="notes">
-<p>Keep the two apart, out loud: n is a NUMBER (thirteen); bin(n) is the STRING “1101” that represents it. The equation n = 2 floor(n/2) + (n mod 2) is about numbers; “bin(n) = bin(floor(n/2)) followed by n mod 2” is about strings. (1101)<em>2 means the number whose representation is 1101 – place value turns the string back into a number. Value vs encoding is the whole lesson. 3257 = 10 * 325 + 7: chopping the last digit divides by 10 and keeps the remainder aside. Everyone knows this. (1101)<em>2 = 2 * (110)<em>2 + 1, i.e.&nbsp;13 = 2 * 6 + 1: in base 2, chopping the last bit divides by 2. Why it’s floor(n/2) and n mod 2: n = 2q + r with r in {0, 1} is division by 2 with remainder – the 3k / 3k+1 / 3k+2 cases from lecture 10, and mod from lecture 14. Quotient and remainder are unique, so q = floor(n/2), r = n mod 2. If anyone wants the general version: sum</em>{i=0}^{k-1} b_i 2^i = 2 * ( sum</em>{i=1}^{k-1} b_i 2^{i-1} ) + b_0 = 2 * (b</em>{k-1} … b_1)_2 + b_0 (pulling out the 2 shifts the index – the shifting trick from the summations video). Shift picture, as a backup: slide every bit one place right; each place value halves (eights become fours, …) and the ones bit falls off.</p>
+<p>This slide is about NUMBERS: n = 2 floor(n/2) + (n mod 2). The next slide uses it to DEFINE the string. 3257 = 10 * 325 + 7: chopping the last digit divides by 10 and keeps the remainder aside. Everyone knows this. (1101)<em>2 = 2 * (110)<em>2 + 1, i.e.&nbsp;13 = 2 * 6 + 1: in base 2, chopping the last bit divides by 2. Why it’s floor(n/2) and n mod 2: n = 2q + r with r in {0, 1} is division by 2 with remainder – the 3k / 3k+1 / 3k+2 cases from lecture 10, and mod from lecture 14. Quotient and remainder are unique, so q = floor(n/2), r = n mod 2. If anyone wants the general version: sum</em>{i=0}^{k-1} b_i 2^i = 2 * ( sum</em>{i=1}^{k-1} b_i 2^{i-1} ) + b_0 = 2 * (b_{k-1} … b_1)_2 + b_0 (pulling out the 2 shifts the index – the shifting trick from the summations video). Shift picture, as a backup: slide every bit one place right; each place value halves (eights become fours, …) and the ones bit falls off.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -376,9 +376,11 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="from-the-punchline-to-an-algorithm" class="slide level2 smaller">
-<h2>From the Punchline to an Algorithm</h2>
-<p><span class="math display">\[\text{bin}(n) \;=\; \text{bin}(\lfloor n/2 \rfloor) \text{ followed by the bit } (n \bmod 2), \qquad \text{bin}(1) = 1.\]</span> Say it again for <span class="math inline">\(\lfloor n/2 \rfloor\)</span>, and again…</p>
+<section id="definition-the-sequence-of-mods" class="slide level2 smaller">
+<h2>Definition: the Sequence of Mods</h2>
+<p>Keep halving, and record each remainder. <strong>The binary representation of <span class="math inline">\(n\)</span> is the sequence of remainders, read from the last one back to the first:</strong></p>
+<p><span class="math display">\[\text{bin}(n) \;=\; \dots \;\; (\lfloor n/4 \rfloor \bmod 2) \;\; (\lfloor n/2 \rfloor \bmod 2) \;\; (n \bmod 2)\]</span></p>
+<p>Recursively: <span class="math inline">\(\;\text{bin}(1) = 1\)</span>, <span class="math inline">\(\;\)</span> and <span class="math inline">\(\;\text{bin}(n) = \text{bin}(\lfloor n/2 \rfloor)\)</span> followed by the bit <span class="math inline">\((n \bmod 2)\)</span>.</p>
 <div class="columns">
 <div class="column" style="width:45%;">
 <div class="fillable">
@@ -426,7 +428,7 @@ eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiZGVmIGJpbmFyeShuKTpcbiAg
 </div></div>
 <p>Try it: <span class="math inline">\(37 \to\)</span> ________</p>
 <aside class="notes">
-<p>13 | 6 | 1; 6 | 3 | 0; 3 | 1 | 1; then n = 1 is the base case: write 1. Read the last column from the bottom up after the base case’s 1: 1101. The table IS the recursion unrolled: each row’s floor(n/2) is the next row’s n. The Python is the punchline word for word: binary takes an int and returns a str, and the + joins strings, not numbers: binary(n // 2) followed by n % 2. Stop at a single bit. 37: 18 r1, 9 r0, 4 r1, 2 r0, 1 r0, then 1 -&gt; 100101. The recursive call is on n/2, not n - 1. That’s the case the next proof uses.</p>
+<p>The definition: bin(n) IS the sequence of mods. n is a number (thirteen); bin(n) is the string “1101”. The b_i are b_i = floor(n / 2^i) mod 2. 13 | 6 | 1; 6 | 3 | 0; 3 | 1 | 1; then n = 1 is the base case: write 1. Read the last column from the bottom up after the base case’s 1: 1101. The table IS the recursion unrolled: each row’s floor(n/2) is the next row’s n. The Python is the punchline word for word: binary takes an int and returns a str, and the + joins strings, not numbers: binary(n // 2) followed by n % 2. Stop at a single bit. 37: 18 r1, 9 r0, 4 r1, 2 r0, 1 r0, then 1 -&gt; 100101. The recursive call is on n/2, not n - 1. That’s the case the next proof uses.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -439,16 +441,16 @@ eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiZGVmIGJpbmFyeShuKTpcbiAg
           display:block!important;
       }</style></aside>
 </section>
-<section id="proof-moment-every-n-has-one" class="slide level2">
-<h2>Proof Moment: Every <span class="math inline">\(n\)</span> Has One</h2>
-<p>Claim: every integer <span class="math inline">\(n \geq 1\)</span> can be written as <span class="math inline">\(\sum_{i=0}^{k-1} b_i 2^i\)</span> with each <span class="math inline">\(b_i \in \{0,1\}\)</span>.</p>
+<section id="proof-moment-the-definition-works" class="slide level2">
+<h2>Proof Moment: The Definition Works</h2>
+<p>Claim: the sequence of mods gives back <span class="math inline">\(n\)</span>. That is, for every integer <span class="math inline">\(n \geq 1\)</span>, if <span class="math inline">\(\text{bin}(n) = b_{k-1}\dots b_1 b_0\)</span>, then <span class="math inline">\(n = \sum_{i=0}^{k-1} b_i 2^i\)</span>.</p>
 <p>&nbsp;</p>
 <p>Proof: Consider an arbitrary <span class="math inline">\(n \geq 1\)</span>. IH: assume the claim for every <span class="math inline">\(j\)</span> with <span class="math inline">\(1 \leq j &lt; n\)</span>.</p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 <aside class="notes">
-<p>Case n = 1: 1 = 1 * 2^0. Case n &gt;= 2: let m = floor(n/2) and r = n mod 2, so n = 2m + r, r in {0,1}. 1 &lt;= m &lt; n, so the IH applies to j = m: m = sum_{i=0}^{k-1} c_i 2^i. Then n = 2m + r = sum_{i=0}^{k-1} c_i 2^{i+1} + r = r * 2^0 + sum_{i=1}^{k} c_{i-1} 2^i. That shift of index is the summation trick from the summations video. The IH is used at j = floor(n/2), not n-1. Say so. (Uniqueness is true too; not needed today.)</p>
+<p>Case n = 1: bin(1) = 1, and 1 = 1 * 2^0. Case n &gt;= 2: let m = floor(n/2) and r = n mod 2, so n = 2m + r (slide “Binary, Recursively”). By the definition, bin(n) = bin(m) followed by r, so b_0 = r and bin(m) = b_{k-1} … b_1. 1 &lt;= m &lt; n, so the IH applies to j = m: m = sum_{i=1}^{k-1} b_i 2^{i-1}. Then n = 2m + r = sum_{i=1}^{k-1} b_i 2^i + b_0 = sum_{i=0}^{k-1} b_i 2^i. That shift of index is the summation trick from the summations video. The IH is used at j = floor(n/2), not n-1. Say so. (Uniqueness is true too; not needed today.)</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
