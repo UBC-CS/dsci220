@@ -196,47 +196,33 @@
 </section>
 <section id="place-value" class="slide level2">
 <h2>Place Value</h2>
-<p>What does data look like to a computer?</p>
 <table class="caption-top">
 <tbody>
 <tr class="odd">
-<td>3</td>
-<td>1</td>
-<td>5</td>
-<td>7</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">7</td>
 </tr>
 <tr class="even">
-<td>10<sup>3</sup></td>
-<td>10<sup>2</sup></td>
-<td>10<sup>1</sup></td>
-<td>10<sup>0</sup></td>
+<td style="text-align: center;">thousand</td>
+<td style="text-align: center;">hundred</td>
+<td style="text-align: center;">ten</td>
+<td style="text-align: center;">one</td>
 </tr>
-</tbody>
-</table>
-<table class="caption-top">
-<colgroup>
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-</colgroup>
-<tbody>
 <tr class="odd">
-<td><span class="text-hidden">10<sup>3</sup></span></td>
-<td><span class="text-hidden">10<sup>2</sup></span></td>
-<td><span class="text-hidden">10<sup>1</sup></span></td>
-<td><span class="text-hidden">10<sup>0</sup></span></td>
-</tr>
-<tr class="even">
-<td><span class="text-hidden">2</span><sup>3</sup></td>
-<td><span class="text-hidden">2</span><sup>2</sup></td>
-<td><span class="text-hidden">2</span><sup>1</sup></td>
-<td><span class="text-hidden">2</span><sup>0</sup></td>
+<td style="text-align: center;"><span class="math inline">\(10^3\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(10^2\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(10^1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(10^0\)</span></td>
 </tr>
 </tbody>
 </table>
+<p><br>
+</p>
+<p>“Three <strong>thousand</strong>, two <strong>hundred</strong>, fifty-seven”: the words tell you what each digit means.</p>
 <aside class="notes">
-<p>Charges read as 1 and 0: binary digits, bits. Talk about the BASE. Fill in the second table with a 4-bit number, e.g.&nbsp;1101 = 8 + 4 + 1 = 13. In general, (b_{k-1} … b_1 b_0)_2 = sum b_i 2^i – same as base 10 with 2 in place of 10. Treat all of this as easy. (From CPSC 203, 02_tue_representation.)</p>
+<p>3257 = 3 thousands + 2 hundreds + 5 tens + 7 ones. Each place is worth 10 times the place to its right. We never think about this; the words do it.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -248,6 +234,54 @@
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
+</section>
+<section id="instead-of-10-use-2" class="slide level2">
+<h2>Instead of 10, Use 2</h2>
+<table class="caption-top">
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">eight</td>
+<td style="text-align: center;">four</td>
+<td style="text-align: center;">two</td>
+<td style="text-align: center;">one</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(2^3\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(2^2\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(2^1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(2^0\)</span></td>
+</tr>
+</tbody>
+</table>
+<p><br>
+</p>
+<p>One <strong>eight</strong>, one <strong>four</strong>, no <strong>two</strong>, one <strong>one</strong>: <span class="math inline">\(\;8 + 4 + 1 = 13\)</span>.</p>
+<aside class="notes">
+<p>Same idea, each place worth 2 times the place to its right, and the only digits are 0 and 1 (bits). Data in a computer: charges read as 1 and 0. (Place-value tables from CPSC 203, 02_tue_representation.)</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="place-value-in-general" class="slide level2">
+<h2>Place Value, in General</h2>
+<p>&nbsp; Consider an encoding into <em>binary</em>:</p>
+<p><span class="math display">\[(b_{k-1}\dots b_1 b_0)_2=\sum_{i=0}^{k-1} b_i 2^i,\quad b_i\in\{0,1\}\]</span></p>
+<p>We are not flummoxed by this, because:</p>
+<p><span class="math display">\[(d_{k-1}\dots d_1 d_0)_{10}=\sum_{i=0}^{k-1} d_i 10^i,\quad d_i\in\{0,1,\ldots,9\}\]</span></p>
 </section>
 <section id="your-turn-binary-to-decimal" class="slide level2 activity">
 <h2>Your Turn: Binary to Decimal</h2>
@@ -273,7 +307,7 @@
 </tr>
 </tbody>
 </table>
-<countdown-timer id="timer_8e8a043860f36b8bb7a4d0a8c17d4326e13d7cd3" minutes="03" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<countdown-timer id="timer_9b66dee0d04f9a4776ad419a729553c638a9a9e5" minutes="03" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
  </countdown-timer>
 <aside class="notes">
 <p>10, 13, 7.</p>
@@ -301,7 +335,7 @@
 <p><br>
 </p>
 <p>How high can you count on your fingers? And toes?</p>
-<countdown-timer id="timer_8e8a043860f36b8bb7a4d0a8c17d4326e13d7cd3" minutes="03" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<countdown-timer id="timer_9b66dee0d04f9a4776ad419a729553c638a9a9e5" minutes="03" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
  </countdown-timer>
 <aside class="notes">
 <p>15 (1111). 7 bits (64 &lt;= 120 &lt; 128). One more bit DOUBLES the count. Fingers: 2^10 - 1 = 1023; fingers and toes: 2^20 - 1 = 1,048,575. Don’t prove anything yet – say: “you just guessed three theorems; the rest of today proves them.” largest with b bits = 2^b - 1 -&gt; Capacity slide (geometric sum) bits needed for 120 -&gt; How Many Bits? + the bound proof one more bit doubles -&gt; Capacity: C(b) = 2 C(b-1)</p>
@@ -554,13 +588,6 @@
 <li>Overflow.</li>
 </ul>
 <p><strong>DON’T FORGET THE MAGIC TRICK!</strong></p>
-</section>
-<section id="place-value-1" class="slide level2">
-<h2>Place Value</h2>
-<p>&nbsp; Consider an encoding into <em>binary</em>:</p>
-<p><span class="math display">\[(b_{k-1}\dots b_1 b_0)_2=\sum_{i=0}^{k-1} b_i 2^i,\quad b_i\in\{0,1\}\]</span></p>
-<p>We are not flummoxed by this, because:</p>
-<p><span class="math display">\[(d_{k-1}\dots d_1 d_0)_{10}=\sum_{i=0}^{k-1} d_i 10^i,\quad d_i\in\{0,1,\ldots,9\}\]</span></p>
 </section>
 <section id="quantify-the-length" class="slide level2">
 <h2>Quantify the Length</h2>

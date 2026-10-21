@@ -1069,7 +1069,21 @@
     "href": "slides/lecture-17_slides.html#place-value",
     "title": "Binary: an Application Interlude",
     "section": "Place Value",
-    "text": "Place Value\nWhat does data look like to a computer?\n\n\n\n3\n1\n5\n7\n\n\n103\n102\n101\n100\n\n\n\n\n\n\n\n\n\n\n\n\n103\n102\n101\n100\n\n\n23\n22\n21\n20\n\n\n\n\nCharges read as 1 and 0: binary digits, bits. Talk about the BASE. Fill in the second table with a 4-bit number, e.g. 1101 = 8 + 4 + 1 = 13. In general, (b_{k-1} … b_1 b_0)_2 = sum b_i 2^i – same as base 10 with 2 in place of 10. Treat all of this as easy. (From CPSC 203, 02_tue_representation.)"
+    "text": "Place Value\n\n\n\n3\n2\n5\n7\n\n\nthousand\nhundred\nten\none\n\n\n\\(10^3\\)\n\\(10^2\\)\n\\(10^1\\)\n\\(10^0\\)\n\n\n\n\n\n“Three thousand, two hundred, fifty-seven”: the words tell you what each digit means.\n\n3257 = 3 thousands + 2 hundreds + 5 tens + 7 ones. Each place is worth 10 times the place to its right. We never think about this; the words do it."
+  },
+  {
+    "objectID": "slides/lecture-17_slides.html#instead-of-10-use-2",
+    "href": "slides/lecture-17_slides.html#instead-of-10-use-2",
+    "title": "Binary: an Application Interlude",
+    "section": "Instead of 10, Use 2",
+    "text": "Instead of 10, Use 2\n\n\n\n1\n1\n0\n1\n\n\neight\nfour\ntwo\none\n\n\n\\(2^3\\)\n\\(2^2\\)\n\\(2^1\\)\n\\(2^0\\)\n\n\n\n\n\nOne eight, one four, no two, one one: \\(\\;8 + 4 + 1 = 13\\).\n\nSame idea, each place worth 2 times the place to its right, and the only digits are 0 and 1 (bits). Data in a computer: charges read as 1 and 0. (Place-value tables from CPSC 203, 02_tue_representation.)"
+  },
+  {
+    "objectID": "slides/lecture-17_slides.html#place-value-in-general",
+    "href": "slides/lecture-17_slides.html#place-value-in-general",
+    "title": "Binary: an Application Interlude",
+    "section": "Place Value, in General",
+    "text": "Place Value, in General\n  Consider an encoding into binary:\n\\[(b_{k-1}\\dots b_1 b_0)_2=\\sum_{i=0}^{k-1} b_i 2^i,\\quad b_i\\in\\{0,1\\}\\]\nWe are not flummoxed by this, because:\n\\[(d_{k-1}\\dots d_1 d_0)_{10}=\\sum_{i=0}^{k-1} d_i 10^i,\\quad d_i\\in\\{0,1,\\ldots,9\\}\\]"
   },
   {
     "objectID": "slides/lecture-17_slides.html#your-turn-binary-to-decimal",
@@ -1154,13 +1168,6 @@
     "title": "Binary: an Application Interlude",
     "section": "Goals",
     "text": "Goals\n\nRead/write binary.\nReason about bit length and capacity.\n\nProve: \\(b\\) bits result in \\(2^b\\) codes, with max value \\(2^b-1\\).\n\nOverflow.\n\nDON’T FORGET THE MAGIC TRICK!"
-  },
-  {
-    "objectID": "slides/lecture-17_slides.html#place-value-1",
-    "href": "slides/lecture-17_slides.html#place-value-1",
-    "title": "Binary: an Application Interlude",
-    "section": "Place Value",
-    "text": "Place Value\n  Consider an encoding into binary:\n\\[(b_{k-1}\\dots b_1 b_0)_2=\\sum_{i=0}^{k-1} b_i 2^i,\\quad b_i\\in\\{0,1\\}\\]\nWe are not flummoxed by this, because:\n\\[(d_{k-1}\\dots d_1 d_0)_{10}=\\sum_{i=0}^{k-1} d_i 10^i,\\quad d_i\\in\\{0,1,\\ldots,9\\}\\]"
   },
   {
     "objectID": "slides/lecture-17_slides.html#quantify-the-length",
