@@ -305,7 +305,7 @@
 </tr>
 </tbody>
 </table>
-<countdown-timer id="timer_04848ce4c7b5df1dd320739dd57dcd185a71ffef" minutes="03" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<countdown-timer id="timer_89711cc88e347cb0462b3f5d1a934c47ad9e4a2b" minutes="03" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
  </countdown-timer>
 <aside class="notes">
 <p>10, 13, 7.</p>
@@ -333,7 +333,7 @@
 <p><br>
 </p>
 <p>How high can you count on your fingers? And toes?</p>
-<countdown-timer id="timer_04848ce4c7b5df1dd320739dd57dcd185a71ffef" minutes="03" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<countdown-timer id="timer_89711cc88e347cb0462b3f5d1a934c47ad9e4a2b" minutes="03" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
  </countdown-timer>
 <aside class="notes">
 <p>15 (1111). 7 bits (64 &lt;= 120 &lt; 128). One more bit DOUBLES the count. Fingers: 2^10 - 1 = 1023; fingers and toes: 2^20 - 1 = 1,048,575. Don’t prove anything yet – say: “you just guessed three theorems; the rest of today proves them.” largest with b bits = 2^b - 1 -&gt; Capacity slide (geometric sum) bits needed for 120 -&gt; How Many Bits? + the bound proof one more bit doubles -&gt; Capacity: C(b) = 2 C(b-1)</p>
@@ -532,7 +532,7 @@ eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiZGVmIGJpbmFyeShuKTpcbiAg
 <p>&nbsp;</p>
 <p>So <span class="math inline">\(\text{bits}(n) =\)</span> ____________, and <span class="math inline">\(\text{bits}(n) = O(\)</span>____<span class="math inline">\()\)</span>.</p>
 <aside class="notes">
-<p>Case n = 1: b = bits(1) = 1, and 2^0 &lt;= 1 &lt; 2^1. Case n &gt;= 2: let m = floor(n/2). 1 &lt;= m &lt; n, so the IH applies to j = m: 2^{bits(m)-1} &lt;= m &lt; 2^{bits(m)}. By the recurrence, b = bits(m) + 1. Lower: n = 2m + (n mod 2) &gt;= 2m &gt;= 2 * 2^{bits(m)-1} = 2^{bits(m)} = 2^{b-1}. Upper: m &lt; 2^{bits(m)} and both are integers, so m &lt;= 2^{bits(m)} - 1. Then n = 2m + (n mod 2) &lt;= 2m + 1 &lt;= 2^{bits(m)+1} - 1 &lt; 2^{b}. The equation n = 2m + (n mod 2) is used in both directions: &gt;= 2m below, &lt;= 2m + 1 above. The IH is used at j = floor(n/2) again. Take log2: b - 1 &lt;= log2 n &lt; b, so bits(n) = floor(log2 n) + 1, and bits(n) = O(log n). The size of a number’s representation grows like its log – last week’s asymptotics, in a data type. Checked numerically for n &lt; 5000.</p>
+<p>Case n = 1: b = bits(1) = 1, and 2^0 &lt;= 1 &lt; 2^1. Case n &gt;= 2: let m = floor(n/2). 1 &lt;= m &lt; n, so the IH applies to j = m: 2^{bits(m)-1} &lt;= m &lt; 2^{bits(m)}. By the recurrence: n &gt;= 2, so bits(n) = 1 + bits(floor(n/2)) = 1 + bits(m). That is, b = bits(m) + 1, so bits(m) = b - 1, and the IH line becomes 2^{b-2} &lt;= m &lt; 2^{b-1}. Lower: n = 2m + (n mod 2) &gt;= 2m &gt;= 2 * 2^{b-2} = 2^{b-1}. Upper: m &lt; 2^{b-1} and both are integers, so m &lt;= 2^{b-1} - 1. Then n = 2m + (n mod 2) &lt;= 2m + 1 &lt;= 2(2^{b-1} - 1) + 1 = 2^{b} - 1 &lt; 2^{b}. The equation n = 2m + (n mod 2) is used in both directions: &gt;= 2m below, &lt;= 2m + 1 above. The IH is used at j = floor(n/2) again. Take log2: b - 1 &lt;= log2 n &lt; b, so bits(n) = floor(log2 n) + 1, and bits(n) = O(log n). The size of a number’s representation grows like its log – last week’s asymptotics, in a data type. Checked numerically for n &lt; 5000.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
