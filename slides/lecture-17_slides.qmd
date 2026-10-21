@@ -31,21 +31,66 @@ Do it two or three times, then leave it: we explain it at the end.
 
 ## Place Value
 
-\ 
+What does data look like to a computer?
 
-$$(d_{k-1}\dots d_1 d_0)_{10}=\sum_{i=0}^{k-1} d_i\, 10^i,\quad d_i\in\{0,1,\ldots,9\}$$
+|       |       |       |       |
+|-------|-------|-------|-------|
+| 3     | 1     | 5     | 7     |
+| 10^3^ | 10^2^ | 10^1^ | 10^0^ |
 
-\ 
-
-$$(b_{k-1}\dots b_1 b_0)_2=\sum_{i=0}^{k-1} b_i\, 2^i,\quad b_i\in\{0,1\}$$
-
-\ 
-
-$(1101)_2 = $ \_\_\_\_\_\_ $\qquad$ $37 = (\ \ \ \ \ \ \ \ \ \ )_2$
+|  |  |  |  |
+|------------------|------------------|------------------|------------------|
+| [10^3^]{.text-hidden} | [10^2^]{.text-hidden} | [10^1^]{.text-hidden} | [10^0^]{.text-hidden} |
+| [2]{.text-hidden}^3^ | [2]{.text-hidden}^2^ | [2]{.text-hidden}^1^ | [2]{.text-hidden}^0^ |
 
 ::: notes
-1101 = 8 + 4 + 1 = 13. 37 = 32 + 4 + 1 = 100101.
-Treat it as easy and move on: the interesting part is what we can say ABOUT it.
+Charges read as 1 and 0: binary digits, bits. Talk about the BASE.
+Fill in the second table with a 4-bit number, e.g. 1101 = 8 + 4 + 1 = 13.
+In general, (b_{k-1} ... b_1 b_0)_2 = sum b_i 2^i -- same as base 10 with 2 in
+place of 10. Treat all of this as easy.
+(From CPSC 203, 02_tue_representation.)
+:::
+
+## Your Turn: Binary to Decimal {.activity}
+
+| Binary | Decimal |
+|--------|---------|
+| `1010` | _______ |
+| `1101` | _______ |
+| `0111` | _______ |
+
+{{< countdown minutes=3 >}}
+
+::: notes
+10, 13, 7.
+:::
+
+## Your Turn: Thinking About Bits {.activity}
+
+What's the largest number you can represent with 4 bits? _______
+
+\
+
+How many bits do you need to represent 120? _______
+
+\
+
+If I give you one more bit, what happens to how many numbers you can represent?
+
+\
+
+How high can you count on your fingers? And toes?
+
+{{< countdown minutes=3 >}}
+
+::: notes
+15 (1111). 7 bits (64 <= 120 < 128). One more bit DOUBLES the count.
+Fingers: 2^10 - 1 = 1023; fingers and toes: 2^20 - 1 = 1,048,575.
+Don't prove anything yet -- say: "you just guessed three theorems; the rest
+of today proves them."
+  largest with b bits = 2^b - 1        -> Capacity slide (geometric sum)
+  bits needed for 120                  -> How Many Bits? + the bound proof
+  one more bit doubles                 -> Capacity: C(b) = 2 C(b-1)
 :::
 
 ## Binary, Recursively
