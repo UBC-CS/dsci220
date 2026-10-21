@@ -305,7 +305,7 @@
 </tr>
 </tbody>
 </table>
-<countdown-timer id="timer_8d52475dbaaddcc821cd2b1cedd217f25f4115eb" minutes="03" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<countdown-timer id="timer_6f86e5c1d4cbd0321fe703c9e062d0b976fb97d5" minutes="03" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
  </countdown-timer>
 <aside class="notes">
 <p>10, 13, 7.</p>
@@ -333,7 +333,7 @@
 <p><br>
 </p>
 <p>How high can you count on your fingers? And toes?</p>
-<countdown-timer id="timer_8d52475dbaaddcc821cd2b1cedd217f25f4115eb" minutes="03" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<countdown-timer id="timer_6f86e5c1d4cbd0321fe703c9e062d0b976fb97d5" minutes="03" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
  </countdown-timer>
 <aside class="notes">
 <p>15 (1111). 7 bits (64 &lt;= 120 &lt; 128). One more bit DOUBLES the count. Fingers: 2^10 - 1 = 1023; fingers and toes: 2^20 - 1 = 1,048,575. Don’t prove anything yet – say: “you just guessed three theorems; the rest of today proves them.” largest with b bits = 2^b - 1 -&gt; Capacity slide (geometric sum) bits needed for 120 -&gt; How Many Bits? + the bound proof one more bit doubles -&gt; Capacity: C(b) = 2 C(b-1)</p>
@@ -349,10 +349,38 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="binary-recursively" class="slide level2">
+<section id="binary-recursively" class="slide level2 smaller">
 <h2>Binary, Recursively</h2>
-<p>Every <span class="math inline">\(n \geq 2\)</span> splits as <span class="math display">\[n = 2\left\lfloor n/2 \right\rfloor + (n \bmod 2).\]</span></p>
-<p>So, to write <span class="math inline">\(n\)</span> in binary:</p>
+<p>Take <span class="math inline">\(13 = (1101)_2\)</span> and factor a <span class="math inline">\(2\)</span> out of every term but the last:</p>
+<p><span class="math display">\[13 \;=\; 1\cdot 8 + 1\cdot 4 + 0\cdot 2 + 1\cdot 1 \;=\; 2\,(\underline{\qquad\qquad\qquad}) + \underline{\quad}\]</span></p>
+<p><br>
+</p>
+<p>In general:</p>
+<p><span class="math display">\[(b_{k-1}\dots b_1 b_0)_2 \;=\; \sum_{i=0}^{k-1} b_i 2^i \;=\; 2\,\Big(\underline{\qquad\qquad\qquad}\Big) + \underline{\quad}\]</span></p>
+<p><br>
+</p>
+<ul>
+<li>The last bit <span class="math inline">\(b_0\)</span> is ________ <span class="math inline">\(\quad\)</span> (in terms of <span class="math inline">\(n\)</span>)</li>
+<li>The number left when we chop off the last bit is ________</li>
+</ul>
+<aside class="notes">
+<p>13 = 2(1<em>4 + 1</em>2 + 0<em>1) + 1 = 2 </em> (110)<em>2 + 1 = 2 * 6 + 1. General: sum</em>{i=0}^{k-1} b_i 2^i = b_0 + sum_{i=1}^{k-1} b_i 2^i = 2 * ( sum_{i=1}^{k-1} b_i 2^{i-1} ) + b_0 = 2 * (b_{k-1} … b_1)_2 + b_0. (The reindexing is the shifting trick from the summations video.) So b_0 is n mod 2: 0 if n is even, 1 if odd – the last bit is the parity. And chopping off the last bit gives floor(n/2): 2m + b_0 with b_0 in {0,1} means m is n/2 rounded down. Conclusion, for the next slide: n = 2 floor(n/2) + (n mod 2), and the bits of floor(n/2) are the bits of n without the last one.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="binary-recursively-the-recipe" class="slide level2">
+<h2>Binary, Recursively: the Recipe</h2>
+<p>So every <span class="math inline">\(n \geq 2\)</span> splits as <span class="math display">\[n = 2\left\lfloor n/2 \right\rfloor + (n \bmod 2),\]</span> and the bits of <span class="math inline">\(\lfloor n/2 \rfloor\)</span> are the bits of <span class="math inline">\(n\)</span> without the last one.</p>
+<p>To write <span class="math inline">\(n\)</span> in binary:</p>
 <ul>
 <li>if <span class="math inline">\(n = 1\)</span>: write <span class="math inline">\(1\)</span>.</li>
 <li>otherwise: write <span class="math inline">\(\lfloor n/2 \rfloor\)</span> in binary, then append the bit <span class="math inline">\(n \bmod 2\)</span>.</li>
