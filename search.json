@@ -2710,7 +2710,7 @@
     "href": "slides/lecture-18_slides.html#greying-in-numpy",
     "title": "Binary, Continued: Fixed Width",
     "section": "Greying in NumPy",
-    "text": "Greying in NumPy\n\n\n\n\n\n\n\nRun it. The grey image should be a smooth wash and the white square should stay white. Instead: the white square is dark grey, and the smooth gradient breaks into diagonal bands. numpy also prints “overflow encountered in scalar add” – the clue. 91% of the pixels come out wrong (checked locally)."
+    "text": "Greying in NumPy\n\n\n\n\n\n\n\n\nHidden setup (runs first): builds img, a 120 x 200 uint8 test image – red grows left to right, green grows top to bottom, blue 150, a white square in the middle – and show(before, after), which draws them side by side. Run it. The grey image should be a smooth wash and the white square should stay white. Instead: the white square is dark grey, and the smooth gradient breaks into diagonal bands. numpy also prints “overflow encountered in scalar add” – the clue. 91% of the pixels come out wrong (checked locally)."
   },
   {
     "objectID": "slides/lecture-18_slides.html#what-went-wrong",
