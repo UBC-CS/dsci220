@@ -31,36 +31,37 @@ Do it two or three times, then leave it: we explain it at the end.
 
 ## Place Value
 
+::: {.fillable}
 |            |          |      |      |
 |:----------:|:--------:|:----:|:----:|
 | 3          | 2        | 5    | 7    |
-| thousand   | hundred  | ten  | one  |
-| $10^3$     | $10^2$   | $10^1$ | $10^0$ |
-
-\
-
-"Three **thousand**, two **hundred**, fifty-seven": the words tell you what each digit means.
+|            |          |      |      |
+|            |          |      |      |
+:::
 
 ::: notes
-3257 = 3 thousands + 2 hundreds + 5 tens + 7 ones. Each place is worth 10
-times the place to its right. We never think about this; the words do it.
+Ask a student to SAY the number: "three thousand, two hundred, fifty-seven".
+Write the words under the digits as they say them: thousand, hundred, ten(s),
+one(s). Then the powers: 10^3, 10^2, 10^1, 10^0.
+Point: the words tell you what each digit means. Each place is worth 10 times
+the place to its right.
 :::
 
 ## Instead of 10, Use 2
 
+::: {.fillable}
 |            |          |      |      |
 |:----------:|:--------:|:----:|:----:|
 | 1          | 1        | 0    | 1    |
-| eight      | four     | two  | one  |
-| $2^3$      | $2^2$    | $2^1$ | $2^0$ |
-
-\
-
-One **eight**, one **four**, no **two**, one **one**: $\;8 + 4 + 1 = 13$.
+|            |          |      |      |
+|            |          |      |      |
+:::
 
 ::: notes
-Same idea, each place worth 2 times the place to its right, and the only
-digits are 0 and 1 (bits). Data in a computer: charges read as 1 and 0.
+Same idea with 2: write eight, four, two, one under the digits, then 2^3, 2^2,
+2^1, 2^0. One eight, one four, no two, one one: 8 + 4 + 1 = 13.
+Each place is worth 2 times the place to its right, and the only digits are 0
+and 1 (bits). Data in a computer: charges read as 1 and 0.
 (Place-value tables from CPSC 203, 02_tue_representation.)
 :::
 
