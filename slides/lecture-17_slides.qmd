@@ -137,15 +137,12 @@ $$(1101)_2 \;=\; 2 \cdot \big(\boxed{\phantom{110}}\big)_2 + \boxed{\phantom{1}}
 ::: {.fragment}
 For every $n \geq 2$:
 $$n \;=\; 2\left\lfloor n/2 \right\rfloor + (n \bmod 2)$$
-Write $\text{bin}(n)$ for the string of bits that represents $n$. The last bit of $\text{bin}(n)$ is $n \bmod 2$, and the bits before it are $\text{bin}(\lfloor n/2 \rfloor)$.
+The last bit is $n \bmod 2$, and what's left is $\lfloor n/2 \rfloor$.
 :::
 
 ::: notes
-Keep the two apart, out loud: n is a NUMBER (thirteen); bin(n) is the STRING
-"1101" that represents it. The equation n = 2 floor(n/2) + (n mod 2) is about
-numbers; "bin(n) = bin(floor(n/2)) followed by n mod 2" is about strings.
-(1101)_2 means the number whose representation is 1101 -- place value turns
-the string back into a number. Value vs encoding is the whole lesson.
+This slide is about NUMBERS: n = 2 floor(n/2) + (n mod 2). The next slide
+uses it to DEFINE the string.
 3257 = 10 * 325 + 7: chopping the last digit divides by 10 and keeps the
 remainder aside. Everyone knows this.
 (1101)_2 = 2 * (110)_2 + 1, i.e. 13 = 2 * 6 + 1: in base 2, chopping the last
@@ -161,10 +158,13 @@ Shift picture, as a backup: slide every bit one place right; each place value
 halves (eights become fours, ...) and the ones bit falls off.
 :::
 
-## From the Punchline to an Algorithm {.smaller}
+## Definition: the Sequence of Mods {.smaller}
 
-$$\text{bin}(n) \;=\; \text{bin}(\lfloor n/2 \rfloor) \text{ followed by the bit } (n \bmod 2), \qquad \text{bin}(1) = 1.$$
-Say it again for $\lfloor n/2 \rfloor$, and again...
+Keep halving, and record each remainder. **The binary representation of $n$ is the sequence of remainders, read from the last one back to the first:**
+
+$$\text{bin}(n) \;=\; \dots \;\; (\lfloor n/4 \rfloor \bmod 2) \;\; (\lfloor n/2 \rfloor \bmod 2) \;\; (n \bmod 2)$$
+
+Recursively: $\;\text{bin}(1) = 1$, $\;$ and $\;\text{bin}(n) = \text{bin}(\lfloor n/2 \rfloor)$ followed by the bit $(n \bmod 2)$.
 
 ::: {.columns}
 ::: {.column width="45%"}
@@ -192,6 +192,8 @@ print(binary(13), binary(37))
 Try it: $37 \to$ \_\_\_\_\_\_\_\_
 
 ::: notes
+The definition: bin(n) IS the sequence of mods. n is a number (thirteen);
+bin(n) is the string "1101". The b_i are b_i = floor(n / 2^i) mod 2.
 13 | 6 | 1;  6 | 3 | 0;  3 | 1 | 1;  then n = 1 is the base case: write 1.
 Read the last column from the bottom up after the base case's 1: 1101.
 The table IS the recursion unrolled: each row's floor(n/2) is the next row's n.
@@ -202,9 +204,9 @@ Stop at a single bit.
 The recursive call is on n/2, not n - 1. That's the case the next proof uses.
 :::
 
-## Proof Moment: Every $n$ Has One
+## Proof Moment: The Definition Works
 
-Claim: every integer $n \geq 1$ can be written as $\sum_{i=0}^{k-1} b_i 2^i$ with each $b_i \in \{0,1\}$.
+Claim: the sequence of mods gives back $n$. That is, for every integer $n \geq 1$, if $\text{bin}(n) = b_{k-1}\dots b_1 b_0$, then $n = \sum_{i=0}^{k-1} b_i 2^i$.
 
 \ 
 
@@ -217,10 +219,12 @@ Proof: Consider an arbitrary $n \geq 1$. IH: assume the claim for every $j$ with
 \ 
 
 ::: notes
-Case n = 1: 1 = 1 * 2^0.
-Case n >= 2: let m = floor(n/2) and r = n mod 2, so n = 2m + r, r in {0,1}.
-  1 <= m < n, so the IH applies to j = m: m = sum_{i=0}^{k-1} c_i 2^i.
-  Then n = 2m + r = sum_{i=0}^{k-1} c_i 2^{i+1} + r = r * 2^0 + sum_{i=1}^{k} c_{i-1} 2^i.
+Case n = 1: bin(1) = 1, and 1 = 1 * 2^0.
+Case n >= 2: let m = floor(n/2) and r = n mod 2, so n = 2m + r (slide
+"Binary, Recursively"). By the definition, bin(n) = bin(m) followed by r, so
+b_0 = r and bin(m) = b_{k-1} ... b_1.
+  1 <= m < n, so the IH applies to j = m: m = sum_{i=1}^{k-1} b_i 2^{i-1}.
+  Then n = 2m + r = sum_{i=1}^{k-1} b_i 2^i + b_0 = sum_{i=0}^{k-1} b_i 2^i.
   That shift of index is the summation trick from the summations video.
 The IH is used at j = floor(n/2), not n-1. Say so.
 (Uniqueness is true too; not needed today.)
