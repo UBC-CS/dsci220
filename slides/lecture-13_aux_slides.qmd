@@ -84,7 +84,7 @@ $S = \sum_{j=1}^{n} \big(7 + 3(n-j+1)\big)$
 ::: notes
 **Hint for later reveal:**  
 Substitute $i = n-j+1$. The sum becomes  
-$\sum_{i=1}^{n} (7 + 3i) $ — exactly the **Linearity** example.
+$\sum_{i=1}^{n} (7 + 3i)$ — exactly the **Linearity** example.
 :::
 
 ## Trick 5: Reindexing 

@@ -299,7 +299,7 @@ $$C(1) = 2, \qquad C(b) = \boxed{\phantom{2}} \cdot C(b-1)$$
 
 \ 
 
-So $C(b) = $ \_\_\_\_\_\_. The largest value is $(11\dots1)_2 = \sum_{i=0}^{b-1} 2^i = $ \_\_\_\_\_\_.
+So $C(b) = \boxed{\phantom{2^b}}$. The largest value is $(11\dots1)_2 = \sum_{i=0}^{b-1} 2^i = \boxed{\phantom{2^b - 1}}$.
 
 ::: notes
 C(b) = 2 C(b-1): every (b-1)-bit pattern, followed by a 0 or by a 1.
