@@ -1,44 +1,20 @@
 ---
-title: "Representation as Encoding — Day 2: Binary & Size"
+title: "Binary, Continued: Fixed Width"
 subtitle: "Lecture 18, {{< var course.code >}}, {{< var course.term >}}"
 ---
 
 ## Announcements 
 
-<style>
-.small { font-size: .9rem; }
-.tiny { font-size: .8rem; }
-.card { border: 2px solid #ddd; border-radius: 12px; padding: 14px 16px; margin: 10px 0; }
-</style>
+* **EX3** is Thu 10/29 through Sun 11/1. It covers lectures 11 through 18.
+* **HW3** is due Sunday.
 
-# Binary Numbers
+# Fixed Width
 
 ## Goals
 
-* Prove: $b$ bits result in $2^b$ codes, with max value $2^b-1$.  
-* Overflow.
-
-**DON'T FORGET TO EXPLAIN THE MAGIC TRICK!**
-
-## Place Value
-
-\ 
-Consider an encoding into *binary*:
-
-$$(b_{k-1}\dots b_1 b_0)_2=\sum_{i=0}^{k-1} b_i 2^i,\quad b_i\in\{0,1\}$$
-
-\ 
-
-\
-
-[]{.hexagon-blue}[]{.hexagon-green}[]{.hexagon-yellow}[]{.hexagon-orange}[]{.hexagon-red}
-
-
-## Proof Moment
-
-Claim: With $b$ bits we can represent $2^b$ values.
-
-
+* See what happens when the number of bits is **fixed**: overflow.
+* Recognize overflow as arithmetic $\bmod 2^b$.
+* Find the range of a signed $b$-bit integer.
 
 ## Technical Aside {.smaller}
 
@@ -75,6 +51,9 @@ Consider addition, with 4 bits:
 annotate 1101_2 + 110_2 and ask students to speculate on 1) how addition works, 
 and how they would describe the overflow. (they'll say it's like mod 2^4)
 With $b$ fixed bits, adding wraps $\bmod 2^b$. 
+1101 + 0110 = 10011, and the 5th bit has nowhere to go: 13 + 6 = 19, and
+19 mod 16 = 3 = 0011. Fixed-width arithmetic IS arithmetic mod 2^b --
+lecture 14, in hardware. That's why uint8(255) + 1 is 0 in the demo.
 
 :::
 
@@ -88,7 +67,7 @@ With $b$ fixed bits, adding wraps $\bmod 2^b$.
 
 Punchline: Overflow occurs when the number you 
 want to represent is too big to fit into the
-space you've reserved for it. 
+space you've reserved for it.
 
 ## Signed Integers {.smaller}
 
@@ -109,21 +88,13 @@ but we can still guess the values that can be encoded:
 
 $b$ bits typically represent values \_\_\_\_\_\_\_\_\_\_\_\_.
 
-
-## Activity 
-
-For each, compute **bits needed** or **max value**:
-
-1. Seats in a 500-seat hall.  
-2. 12-bit unsigned max.  
-3. World pop ($\approx 8\cdot10^9$ people) bits for unique IDs.  
-4. Timestamps for next $100$ years at 1-second resolution.
-
 ::: notes
-(1) 9; (2) 4095; (3) $\lceil\log_2(8e9)\rceil=33$; (4) seconds $\approx 3.15e9$  32 bits.
+[-2^{b-1}, 2^{b-1} - 1]: still 2^b values (capacity), half of them negative,
+and 0 counts on the non-negative side, so one more negative than positive.
+If anyone asks how: a negative -x is stored as 2^b - x, which is -x mod 2^b,
+so addition just works mod 2^b. That's why int8(127) + 1 is -128.
 :::
 
-## Exit Ticket
+## Words and Ideas
 
-In words: what does $\lceil\log_2 N\rceil$ tell you?
-
+Bit length, capacity, overflow, fixed width, signed and unsigned

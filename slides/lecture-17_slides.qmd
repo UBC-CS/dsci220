@@ -1,170 +1,212 @@
 ---
-title: "Representation as Encoding — Day 1: Binary & Size"
+title: "Binary: an Application Interlude"
 subtitle: "Lecture 17, {{< var course.code >}}, {{< var course.term >}}"
 ---
 
 ## Announcements 
 
-<style>
-.small { font-size: .9rem; }
-.tiny { font-size: .8rem; }
-.card { border: 2px solid #ddd; border-radius: 12px; padding: 14px 16px; margin: 10px 0; }
-</style>
+* **EX3** is Thu 10/29 through Sun 11/1. It covers lectures 11 through 18.
+* **Practice problems for EX3** open on PrairieLearn tonight.
+* **HW3** is due Sunday.
 
-# Binary Numbers
+# Binary: an Application Interlude
 
 ## Goals
-* Read/write binary.
-* Reason about **bit length** and **capacity**.  
-* Prove: $b$ bits result in $2^b$ codes, with max value $2^b-1$.  
-* Overflow.
 
-**DON'T FORGET THE MAGIC TRICK!**
+* Write numbers in binary. (This part is easy.)
+* Describe binary **recursively**, and prove things about it **by induction**.
+* Find **bounds**: how many bits a number needs, and how much $b$ bits can hold.
+
+## Pick a Number {.activity}
+
+Pick a whole number from $1$ to $31$, and don't tell anyone.
+
+Which cards is it on?
+
+::: notes
+The magic cards (activities/lecture-17_magic-cards-5.pdf, five colours, values
+1, 2, 4, 8, 16 in rainbow order). Add up the values of the colours they name.
+Do it two or three times, then leave it: we explain it at the end.
+:::
 
 ## Place Value
 
 \ 
-Consider an encoding into *binary*:
 
-$$(b_{k-1}\dots b_1 b_0)_2=\sum_{i=0}^{k-1} b_i 2^i,\quad b_i\in\{0,1\}$$
-
-
-
-We are not flummoxed by this, because:
-
-$$(d_{k-1}\dots d_1 d_0)_{10}=\sum_{i=0}^{k-1} d_i 10^i,\quad d_i\in\{0,1,\ldots,9\}$$
-
-## Quantify the Length
+$$(d_{k-1}\dots d_1 d_0)_{10}=\sum_{i=0}^{k-1} d_i\, 10^i,\quad d_i\in\{0,1,\ldots,9\}$$
 
 \ 
 
-How many unique values can we store in $n$ bits?
+$$(b_{k-1}\dots b_1 b_0)_2=\sum_{i=0}^{k-1} b_i\, 2^i,\quad b_i\in\{0,1\}$$
 
 \ 
 
-\ 
-
-How many bits to represent $m$ values?
-
+$(1101)_2 = $ \_\_\_\_\_\_ $\qquad$ $37 = (\ \ \ \ \ \ \ \ \ \ )_2$
 
 ::: notes
-**Bit length:** $L(n)=\lfloor \log_2 n\rfloor+1$ for $n\ge1$.
-Emphasize *size grows like $\log_2$*. Show a quick table for $2^b$.
+1101 = 8 + 4 + 1 = 13. 37 = 32 + 4 + 1 = 100101.
+Treat it as easy and move on: the interesting part is what we can say ABOUT it.
+:::
+
+## Binary, Recursively
+
+Every $n \geq 2$ splits as
+$$n = 2\left\lfloor n/2 \right\rfloor + (n \bmod 2).$$
+
+So, to write $n$ in binary:
+
+* if $n = 1$: write $1$.
+* otherwise: write $\lfloor n/2 \rfloor$ in binary, then append the bit $n \bmod 2$.
+
+\ 
+
+Try it: $13 \to$ \_\_\_\_\_\_ $\qquad$ $37 \to$ \_\_\_\_\_\_
+
+::: notes
+13: 6 r1, 3 r0, 1 r1, 1 -> 1101 (read the remainders back up).
+37: 18 r1, 9 r0, 4 r1, 2 r0, 1 r0, 1 -> 100101.
+Point at the two pieces: the recursive call is on n/2, not n-1. That's the
+case the induction will use.
+:::
+
+## Proof Moment: Every $n$ Has One
+
+Claim: every integer $n \geq 1$ can be written as $\sum_{i=0}^{k-1} b_i 2^i$ with each $b_i \in \{0,1\}$.
+
+\ 
+
+Proof: Consider an arbitrary $n \geq 1$. IH: assume the claim for every $j$ with $1 \leq j < n$.
+
+\ 
+
+\ 
+
+\ 
+
+::: notes
+Case n = 1: 1 = 1 * 2^0.
+Case n >= 2: let m = floor(n/2) and r = n mod 2, so n = 2m + r, r in {0,1}.
+  1 <= m < n, so the IH applies to j = m: m = sum_{i=0}^{k-1} c_i 2^i.
+  Then n = 2m + r = sum_{i=0}^{k-1} c_i 2^{i+1} + r = r * 2^0 + sum_{i=1}^{k} c_{i-1} 2^i.
+  That shift of index is the summation trick from the summations video.
+The IH is used at j = floor(n/2), not n-1. Say so.
+(Uniqueness is true too; not needed today.)
+:::
+
+## How Many Bits? {.smaller}
+
+Let $\text{bits}(n)$ be the number of bits in $n$'s binary representation. The recursion gives
+
+$$\text{bits}(1) = 1, \qquad \text{bits}(n) = 1 + \text{bits}(\lfloor n/2 \rfloor) \text{ for } n \geq 2.$$
+
+::: {.fillable}
+| $n$ | 1 | 2 | 3 | 4 | 7 | 8 | 13 | 16 | 31 | 32 | 100 |
+|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+| bits$(n)$ | | | | | | | | | | | |
+:::
+
+When does bits$(n)$ go up?
+
+::: notes
+1,2,2,3,3,4,4,5,5,6,7.
+It goes up exactly at the powers of 2. Guess: bits(n) = floor(log2 n) + 1.
+:::
+
+## Proof Moment: A Bound {.smaller}
+
+Claim: for every $n \geq 1$, $\quad 2^{\text{bits}(n)-1} \;\leq\; n \;<\; 2^{\text{bits}(n)}$.
+
+\ 
+
+Proof: Consider an arbitrary $n \geq 1$. IH: assume the claim for every $j$ with $1 \leq j < n$.
+
+\ 
+
+\ 
+
+\ 
+
+So $\text{bits}(n) = $ \_\_\_\_\_\_\_\_\_\_\_\_, and $\text{bits}(n) = O($\_\_\_\_$)$.
+
+::: notes
+Case n = 1: bits = 1, and 2^0 <= 1 < 2^1.
+Case n >= 2: m = floor(n/2), 1 <= m < n, IH at j = m:
+  2^{bits(m)-1} <= m < 2^{bits(m)}, and bits(n) = bits(m) + 1.
+  Lower: n >= 2m >= 2 * 2^{bits(m)-1} = 2^{bits(n)-1}.
+  Upper: m < 2^{bits(m)} means m <= 2^{bits(m)} - 1, so
+         n <= 2m + 1 <= 2^{bits(m)+1} - 1 < 2^{bits(n)}.
+Take log2 of the bound: bits(n) - 1 <= log2 n < bits(n), so
+bits(n) = floor(log2 n) + 1, and bits(n) = O(log n). The size of a number's
+representation grows like its log -- last week's asymptotics, in a data type.
+Checked numerically for n < 5000.
+:::
+
+## Capacity {.smaller}
+
+How many different values fit in $b$ bits? Let $C(b)$ be the count.
+
+$$C(1) = 2, \qquad C(b) = \text{\_\_\_\_\_\_} \cdot C(b-1)$$
+
+\ 
+
+So $C(b) = $ \_\_\_\_\_\_. The largest value is $(11\dots1)_2 = \sum_{i=0}^{b-1} 2^i = $ \_\_\_\_\_\_.
+
+::: notes
+C(b) = 2 C(b-1): every (b-1)-bit pattern, followed by a 0 or by a 1.
+C(b) = 2^b, by induction (same shape as the narrow-shelf Hanoi recurrence).
+Largest value: the geometric sum from lecture 12, 2^b - 1. That's also the
+upper bound from the last slide with bits = b.
 :::
 
 ## Capacity Quickies
 
-\ 
+How many values with...
 
-How many codes with...
-
-
-* 8 bits?  
-* 12 bits?  
+* 8 bits? $\qquad$ 12 bits?
 
 \ 
 
 How many bits to count to...
 
-
-* $500$? 
-* $5000$?
-* $1000000$?
+* $500$? $\qquad$ $5000$? $\qquad$ $1{,}000{,}000$?
 
 ::: notes
-*Answers:* $2^8=256$, $2^{12}=4096$, $\lceil\log_2 500\rceil=9$.
+256, 4096. bits(500) = 9, bits(5000) = 13, bits(10^6) = 20 (all checked).
 :::
 
-## Proof Moment
+## Activity {.activity}
 
-Claim: With $b$ bits we can represent $2^b$ values.
+For each, compute the **bits needed** or the **largest value**:
 
-
-
-## Technical Aside {.smaller}
-
-* **`int` (pure Python):** arbitrary precision (variable width) 
-
-* **NumPy / Pandas arrays:** fixed-width datatypes (`int8`, `int32`, `int64`, `uint64`, ...)
+1. Seats in a 500-seat hall.
+2. 12-bit unsigned max.
+3. World population ($\approx 8\cdot10^9$ people): bits for unique IDs.
+4. Timestamps for the next $100$ years at 1-second resolution.
 
 ::: notes
-- Signed range: $[-2^{b-1},\,2^{b-1}-1]$; Unsigned range: $[0,\,2^b-1]$.
-- **Takeaway:** the **container** chooses the encoding (width & signedness).
+(1) 9; (2) 4095; (3) 33; (4) 100 years is about 3.15e9 seconds -> 32 bits.
+All checked.
 :::
 
-**Demo:**
+## The Trick, Explained {.smaller}
 
-``` {pyodide}
-
-# Pure Python int (grows to fit)
-from math import log2, ceil
-n = (1 << 100) + 7
-print("bit_length:", n.bit_length())  
-
-# Fixed-width integers overflow (NumPy)
-import numpy as np
-print("uint8 wrap:", np.uint8(255) + 1)  
-print("int8 wrap:",  np.int8(127) + 1)   
-
-```
-
-## Overflow
-
-Consider addition, with 4 bits:
-
-::: notes
-annotate 1101_2 + 110_2 and ask students to speculate on 1) how addition works, 
-and how they would describe the overflow. (they'll say it's like mod 2^4)
-With $b$ fixed bits, adding wraps $\bmod 2^b$. 
-
-:::
-
-\
+Card $i$ holds exactly the numbers whose bit $i$ is $1$. Its top-left number is $2^i$.
 
 \ 
 
-\
+* Why does adding the top-left numbers give back the number?
 
-\ 
+* Why are there exactly $5$ cards for the numbers $1$ to $31$?
 
-Punchline: Overflow occurs when the number you 
-want to represent is too big to fit into the
-space you've reserved for it. 
-
-## Signed Integers {.smaller}
-
-\
-
-Unsigned integers are represented by their encodings as discussed above.
-
-\
-
-$b$ bits typically represent values $[0..2^b-1]$. 
-
-\
-
-Signed integers have a different encoding (that we won't discuss) 
-but we can still guess the values that can be encoded:
-
-\
-
-$b$ bits typically represent values \_\_\_\_\_\_\_\_\_\_\_\_.
-
-
-## Activity 
-
-For each, compute **bits needed** or **max value**:
-
-1. Seats in a 500-seat hall.  
-2. 12-bit unsigned max.  
-3. World pop ($\approx 8\cdot10^9$ people) bits for unique IDs.  
-4. Timestamps for next $100$ years at 1-second resolution.
+* How many cards would you need for $1$ to $1000$?
 
 ::: notes
-(1) 9; (2) 4095; (3) $\lceil\log_2(8e9)\rceil=33$; (4) seconds $\approx 3.15e9$ → 32 bits.
+Saying which cards it's on is saying which bits are 1. Adding the 2^i for
+those bits is the place-value sum.
+31 = 2^5 - 1 is the largest 5-bit value (capacity slide).
+1000 needs bits(1000) = 10 cards.
 :::
 
 ## Exit Ticket
 
 In words: what does $\lceil\log_2 N\rceil$ tell you?
-

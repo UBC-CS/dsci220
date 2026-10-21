@@ -47,6 +47,8 @@ propositional inference, then universal generalization. Lecture 9 opens with
 | L12 | Wed Oct 7 | class | **Proof by induction** — towers recap (table filled, the n ≥ 29 step live), skeleton card, geometric sum, sum of squares, your turn. Summations moved to L13 aux |
 | L13 | Fri Oct 9 | video | **Trominoes and recurrences** — tromino, You Have Done This Before (HW1, HW2, towers), then sequences and recurrences. Recorded Wed Oct 7 |
 | L13 aux | Fri Oct 9 | video | **Summations**, tricks 0–6 — an auxiliary video in L13's slot (`slides/lecture-13_aux_slides.qmd`, id `lecture-13_aux` in additional-resources.csv). Recorded Wed Oct 7. Mod starts L14 |
+| L17 | Wed Oct 21 | class | **Binary: an application interlude** — magic cards (5-card deck), place value, binary defined recursively (n = 2⌊n/2⌋ + n mod 2), proof every n has a representation (IH at ⌊n/2⌋), bits(n) recurrence and the bound 2^(bits−1) ≤ n < 2^bits, capacity 2^b and max 2^b − 1 (geometric sum), the trick explained. No sets |
+| L18 | Fri Oct 23 | video | **Binary, continued: fixed width** — Python int vs numpy fixed width, overflow as arithmetic mod 2^b, signed range. Replaces the 2025 duplicate of L17. No sets |
 | | Sun Oct 11 | | ⟵ **EX2 due.** Window Thu Oct 8 – Sun Oct 11. Covers L6–L10 |
 
 **Lectures past 5 are draft.** L4 and L5 are committed; everything after is a
