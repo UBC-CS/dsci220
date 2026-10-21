@@ -43,6 +43,66 @@ print("int8 wrap:",  np.int8(127) + 1)
 
 ```
 
+## Colour---representation
+
+Can we use integers to represent colours?
+
+One way: RGB (red, green, blue), where each "component" is in range 0 through 255.
+
+ex. (`255, 0, 127`) == [[]{.swatch-purple} []{.swatch-cyan} []{.swatch-lime} []{.swatch-pink} []{.swatch-apricot}]{style="position: relative; top: 11px;"}
+
+Fun calculator for colour values: <https://colorizer.org>
+
+How many bits for 256 values?
+`4  5  6  7  8  9  10`
+
+## Colour---representation
+
+What colour is
+
+::: small-font-size
+\
+
+`0 1 0 1 1 0 1 1 0 1 0 1 1 0 1 1 0 1 0 1 1 0 1 1`
+
+\
+:::
+
+Easier to read if we use *hexadecimal* representation:
+
+Each component is represented by 2 hex digits `0123456789abcdef`
+
+ex. `#674ea7` []{.swatch-purple} []{.swatch-cyan} []{.swatch-lime} []{.swatch-pink} []{.swatch-orange}
+
+::: notes
+Hex = base 16
+:::
+
+## Colour---hexadecimal
+
+What colour is this 24-bit number?
+
+::: small-font-size
+\
+
+`0110 0111 0100 1110 1010 0111`
+
+\
+:::
+
+Converting to hexadecimal: `#___________`
+
+(Use digits `0123456789abcdef`)
+
+::: notes
+Walk through conversion on board:
+- First 8 bits (0110 0111) = Red channel
+- Next 8 bits (0100 1110) = Green channel
+- Last 8 bits (1010 0111) = Blue channel
+- Convert each 4-bit group to hex digit
+- Result: #674ea7
+:::
+
 ## Greying a Pixel {.smaller}
 
 A colour pixel is three numbers, (red, green, blue), each from $0$ to $255$, each stored as `uint`\_\_\_\_.
