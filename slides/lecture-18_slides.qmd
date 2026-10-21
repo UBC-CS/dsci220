@@ -215,6 +215,24 @@ they come back with questions.
 
 A traveller has a gold chain of $7$ links. The innkeeper wants one link per night, paid each night, for $7$ nights, and can give links back as change.
 
+<div style="text-align:center">
+<svg viewBox="0 0 640 175" width="560" role="img" aria-label="A drooping gold chain of seven links" xmlns="http://www.w3.org/2000/svg">
+<defs><linearGradient id="gold" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f7d774"/><stop offset="0.45" stop-color="#d4a017"/><stop offset="1" stop-color="#8a6212"/></linearGradient>
+<linearGradient id="goldside" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f3cf63"/><stop offset="0.5" stop-color="#c8961a"/><stop offset="1" stop-color="#7a5510"/></linearGradient></defs>
+<g transform="translate(73.6,64.1) rotate(29.0)"><ellipse rx="46" ry="27" fill="none" stroke="url(#gold)" stroke-width="10"/><ellipse rx="46" ry="27" fill="none" stroke="#fff3c4" stroke-width="2" opacity="0.55" transform="translate(-2,-3)"/></g>
+<g transform="translate(237.9,128.5) rotate(7.6)"><ellipse rx="46" ry="27" fill="none" stroke="url(#gold)" stroke-width="10"/><ellipse rx="46" ry="27" fill="none" stroke="#fff3c4" stroke-width="2" opacity="0.55" transform="translate(-2,-3)"/></g>
+<g transform="translate(402.1,128.5) rotate(-7.6)"><ellipse rx="46" ry="27" fill="none" stroke="url(#gold)" stroke-width="10"/><ellipse rx="46" ry="27" fill="none" stroke="#fff3c4" stroke-width="2" opacity="0.55" transform="translate(-2,-3)"/></g>
+<g transform="translate(566.4,64.1) rotate(-29.0)"><ellipse rx="46" ry="27" fill="none" stroke="url(#gold)" stroke-width="10"/><ellipse rx="46" ry="27" fill="none" stroke="#fff3c4" stroke-width="2" opacity="0.55" transform="translate(-2,-3)"/></g>
+<g transform="translate(155.7,106.7) rotate(22.4)"><rect x="-58" y="-8" width="116" height="16" rx="8" fill="url(#goldside)" stroke="#6e4c0e" stroke-width="1.2"/><rect x="-50" y="-5" width="100" height="3" rx="1.5" fill="#fff3c4" opacity="0.5"/></g>
+<g transform="translate(320.0,133.0) rotate(0.0)"><rect x="-58" y="-8" width="116" height="16" rx="8" fill="url(#goldside)" stroke="#6e4c0e" stroke-width="1.2"/><rect x="-50" y="-5" width="100" height="3" rx="1.5" fill="#fff3c4" opacity="0.5"/></g>
+<g transform="translate(484.3,106.7) rotate(-22.4)"><rect x="-58" y="-8" width="116" height="16" rx="8" fill="url(#goldside)" stroke="#6e4c0e" stroke-width="1.2"/><rect x="-50" y="-5" width="100" height="3" rx="1.5" fill="#fff3c4" opacity="0.5"/></g>
+<g transform="translate(73.6,64.1) rotate(29.0)"><path d="M -46 0 A 46 27 0 0 1 46 0" fill="none" stroke="url(#gold)" stroke-width="10" stroke-linecap="round"/><path d="M -44 -3 A 46 27 0 0 1 44 -3" fill="none" stroke="#fff3c4" stroke-width="2" opacity="0.55"/></g>
+<g transform="translate(237.9,128.5) rotate(7.6)"><path d="M -46 0 A 46 27 0 0 1 46 0" fill="none" stroke="url(#gold)" stroke-width="10" stroke-linecap="round"/><path d="M -44 -3 A 46 27 0 0 1 44 -3" fill="none" stroke="#fff3c4" stroke-width="2" opacity="0.55"/></g>
+<g transform="translate(402.1,128.5) rotate(-7.6)"><path d="M -46 0 A 46 27 0 0 1 46 0" fill="none" stroke="url(#gold)" stroke-width="10" stroke-linecap="round"/><path d="M -44 -3 A 46 27 0 0 1 44 -3" fill="none" stroke="#fff3c4" stroke-width="2" opacity="0.55"/></g>
+<g transform="translate(566.4,64.1) rotate(-29.0)"><path d="M -46 0 A 46 27 0 0 1 46 0" fill="none" stroke="url(#gold)" stroke-width="10" stroke-linecap="round"/><path d="M -44 -3 A 46 27 0 0 1 44 -3" fill="none" stroke="#fff3c4" stroke-width="2" opacity="0.55"/></g>
+</svg>
+</div>
+
 \
 
 * What is the fewest number of links you must cut?
