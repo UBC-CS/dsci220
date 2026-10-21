@@ -308,7 +308,7 @@ Largest value: the geometric sum from lecture 12, 2^b - 1. That's also the
 upper bound from the last slide with bits = b.
 :::
 
-## Capacity Quickies
+## Capacity: Quick Ones {.activity}
 
 How many values with...
 
