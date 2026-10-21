@@ -1142,11 +1142,11 @@
     "text": "Capacity\nHow many different values fit in \\(b\\) bits? Let \\(C(b)\\) be the count.\n\\[C(1) = 2, \\qquad C(b) = \\boxed{\\phantom{2}} \\cdot C(b-1)\\]\n \nSo \\(C(b) = \\boxed{\\phantom{2^b}}\\). The largest value is \\((11\\dots1)_2 = \\sum_{i=0}^{b-1} 2^i = \\boxed{\\phantom{2^b - 1}}\\).\n\nC(b) = 2 C(b-1): every (b-1)-bit pattern, followed by a 0 or by a 1. C(b) = 2^b, by induction (same shape as the narrow-shelf Hanoi recurrence). Largest value: the geometric sum from lecture 12, 2^b - 1. That’s also the upper bound from the last slide with bits = b."
   },
   {
-    "objectID": "slides/lecture-17_slides.html#capacity-quickies",
-    "href": "slides/lecture-17_slides.html#capacity-quickies",
+    "objectID": "slides/lecture-17_slides.html#capacity-quick-ones",
+    "href": "slides/lecture-17_slides.html#capacity-quick-ones",
     "title": "Binary: an Application Interlude",
-    "section": "Capacity Quickies",
-    "text": "Capacity Quickies\nHow many values with…\n\n8 bits? \\(\\qquad\\) 12 bits?\n\n \nHow many bits to count to…\n\n\\(500\\)? \\(\\qquad\\) \\(5000\\)? \\(\\qquad\\) \\(1{,}000{,}000\\)?\n\n\n256, 4096. bits(500) = 9, bits(5000) = 13, bits(10^6) = 20 (all checked)."
+    "section": "Capacity: Quick Ones",
+    "text": "Capacity: Quick Ones\nHow many values with…\n\n8 bits? \\(\\qquad\\) 12 bits?\n\n \nHow many bits to count to…\n\n\\(500\\)? \\(\\qquad\\) \\(5000\\)? \\(\\qquad\\) \\(1{,}000{,}000\\)?\n\n\n256, 4096. bits(500) = 9, bits(5000) = 13, bits(10^6) = 20 (all checked)."
   },
   {
     "objectID": "slides/lecture-17_slides.html#activity",
