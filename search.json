@@ -1069,14 +1069,14 @@
     "href": "slides/lecture-17_slides.html#place-value",
     "title": "Binary: an Application Interlude",
     "section": "Place Value",
-    "text": "Place Value\n\n\n\n3\n2\n5\n7\n\n\nthousand\nhundred\nten\none\n\n\n\\(10^3\\)\n\\(10^2\\)\n\\(10^1\\)\n\\(10^0\\)\n\n\n\n\n\n“Three thousand, two hundred, fifty-seven”: the words tell you what each digit means.\n\n3257 = 3 thousands + 2 hundreds + 5 tens + 7 ones. Each place is worth 10 times the place to its right. We never think about this; the words do it."
+    "text": "Place Value\n\n\n\n\n3\n2\n5\n7\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAsk a student to SAY the number: “three thousand, two hundred, fifty-seven”. Write the words under the digits as they say them: thousand, hundred, ten(s), one(s). Then the powers: 10^3, 10^2, 10^1, 10^0. Point: the words tell you what each digit means. Each place is worth 10 times the place to its right."
   },
   {
     "objectID": "slides/lecture-17_slides.html#instead-of-10-use-2",
     "href": "slides/lecture-17_slides.html#instead-of-10-use-2",
     "title": "Binary: an Application Interlude",
     "section": "Instead of 10, Use 2",
-    "text": "Instead of 10, Use 2\n\n\n\n1\n1\n0\n1\n\n\neight\nfour\ntwo\none\n\n\n\\(2^3\\)\n\\(2^2\\)\n\\(2^1\\)\n\\(2^0\\)\n\n\n\n\n\nOne eight, one four, no two, one one: \\(\\;8 + 4 + 1 = 13\\).\n\nSame idea, each place worth 2 times the place to its right, and the only digits are 0 and 1 (bits). Data in a computer: charges read as 1 and 0. (Place-value tables from CPSC 203, 02_tue_representation.)"
+    "text": "Instead of 10, Use 2\n\n\n\n\n1\n1\n0\n1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSame idea with 2: write eight, four, two, one under the digits, then 2^3, 2^2, 2^1, 2^0. One eight, one four, no two, one one: 8 + 4 + 1 = 13. Each place is worth 2 times the place to its right, and the only digits are 0 and 1 (bits). Data in a computer: charges read as 1 and 0. (Place-value tables from CPSC 203, 02_tue_representation.)"
   },
   {
     "objectID": "slides/lecture-17_slides.html#place-value-in-general",
