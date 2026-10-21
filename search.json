@@ -2703,7 +2703,7 @@
     "href": "slides/lecture-18_slides.html#greying-a-pixel",
     "title": "Binary, Continued: Fixed Width",
     "section": "Greying a Pixel",
-    "text": "Greying a Pixel\nA colour pixel is three numbers, (red, green, blue), each from \\(0\\) to \\(255\\): one byte each, stored as uint8.\n\n\nTo turn a pixel grey, set all three channels to their average: \\[\\text{grey} = \\frac{r + g + b}{3}\\]\n\n\nWhat’s the grey for \\((200, 100, 50)\\)? \\(\\quad\\) For white, \\((255, 255, 255)\\)?\n\n116 and 255. Easy – that’s the point. The next slide does it in numpy. (This is the CPSC 203 “make the poppies pop” computation.)"
+    "text": "Greying a Pixel\nA colour pixel is three numbers, (red, green, blue), each from \\(0\\) to \\(255\\), each stored as uint____.\n\n\nTo turn a pixel grey, set all three channels to their average: \\[\\text{grey} = \\frac{r + g + b}{3}\\]\n\n\nWhat’s the grey for \\((200, 100, 50)\\)? \\(\\quad\\) For white, \\((255, 255, 255)\\)?\n\nAsk how many bits 0..255 needs: 256 values = 2^8, so 8 bits (capacity, from lecture 17). Fill in uint8: an unsigned 8-bit integer. 116 and 255. Easy – that’s the point. The next slide does it in numpy. (This is the CPSC 203 “make the poppies pop” computation.)"
   },
   {
     "objectID": "slides/lecture-18_slides.html#greying-in-numpy",
