@@ -305,7 +305,7 @@
 </tr>
 </tbody>
 </table>
-<countdown-timer id="timer_731735b33bc69dd1f45009292e45e6875c6770c6" minutes="03" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<countdown-timer id="timer_705fffc11f0984526e8076601fc1a934d3a699fe" minutes="03" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
  </countdown-timer>
 <aside class="notes">
 <p>10, 13, 7.</p>
@@ -333,7 +333,7 @@
 <p><br>
 </p>
 <p>How high can you count on your fingers? And toes?</p>
-<countdown-timer id="timer_731735b33bc69dd1f45009292e45e6875c6770c6" minutes="03" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<countdown-timer id="timer_705fffc11f0984526e8076601fc1a934d3a699fe" minutes="03" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
  </countdown-timer>
 <aside class="notes">
 <p>15 (1111). 7 bits (64 &lt;= 120 &lt; 128). One more bit DOUBLES the count. Fingers: 2^10 - 1 = 1023; fingers and toes: 2^20 - 1 = 1,048,575. Don’t prove anything yet – say: “you just guessed three theorems; the rest of today proves them.” largest with b bits = 2^b - 1 -&gt; Capacity slide (geometric sum) bits needed for 120 -&gt; How Many Bits? + the bound proof one more bit doubles -&gt; Capacity: C(b) = 2 C(b-1)</p>
@@ -441,17 +441,18 @@ eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiZGVmIGJpbmFyeShuKTpcbiAg
           display:block!important;
       }</style></aside>
 </section>
-<section id="proof-moment-the-definition-works" class="slide level2 smaller">
-<h2>Proof Moment: The Definition Works</h2>
-<p>Claim: the sequence of mods gives back <span class="math inline">\(n\)</span>. That is, for every integer <span class="math inline">\(n \geq 1\)</span>, if <span class="math inline">\(\text{bin}(n) = b_{k-1}\dots b_1 b_0\)</span>, then <span class="math inline">\(n = \sum_{i=0}^{k-1} b_i 2^i\)</span>.</p>
+<section id="the-definition-works" class="slide level2 smaller">
+<h2>The Definition Works</h2>
+<p>Recall: <span class="math inline">\(\;\text{bin}(1) = 1,\; \text{bin}(n) = \text{bin}(\lfloor n/2 \rfloor) \,\|\, (n \bmod 2)\)</span>, <span class="math inline">\(\;\)</span> and <span class="math inline">\(\; n = 2\lfloor n/2 \rfloor + (n \bmod 2)\)</span>.</p>
+<p>Claim: For every integer <span class="math inline">\(n \geq 1\)</span>, if <span class="math inline">\(\text{bin}(n) = b_{k-1}\dots b_1 b_0\)</span>, then <span class="math inline">\(n = \sum_{i=0}^{k-1} b_i 2^i\)</span>.</p>
 <p>&nbsp;</p>
-<p>Proof: Consider an arbitrary <span class="math inline">\(n \geq 1\)</span>.</p>
+<p>Proof: Consider an arbitrary <span class="math inline">\(n \geq 1\)</span>, and let <span class="math inline">\(\text{bin}(n) = b_{k-1}\dots b_1 b_0\)</span>. We show <span class="math inline">\(n = \sum_{i=0}^{k-1} b_i 2^i\)</span>.</p>
 <p>IH: Assume that for every integer <span class="math inline">\(j\)</span> with <span class="math inline">\(1 \leq j &lt; n\)</span>, if <span class="math inline">\(\text{bin}(j) = c_{m-1}\dots c_1 c_0\)</span>, then <span class="math inline">\(j = \sum_{i=0}^{m-1} c_i 2^i\)</span>.</p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 <aside class="notes">
-<p>Case n = 1: bin(1) = 1, and 1 = 1 * 2^0. Case n &gt;= 2: let m = floor(n/2) and r = n mod 2, so n = 2m + r (slide “Binary, Recursively”). By the definition, bin(n) = bin(m) followed by r, so b_0 = r and bin(m) = b_{k-1} … b_1. 1 &lt;= m &lt; n, so the IH applies to j = m: m = sum_{i=1}^{k-1} b_i 2^{i-1}. Then n = 2m + r = sum_{i=1}^{k-1} b_i 2^i + b_0 = sum_{i=0}^{k-1} b_i 2^i. That shift of index is the summation trick from the summations video. The IH is used at j = floor(n/2), not n-1. Say so. (Uniqueness is true too; not needed today.)</p>
+<p>Case n = 1: bin(1) = 1, so k = 1, b_0 = 1, and 1 = 1 * 2^0. Case n &gt;= 2: by the recurrence, bin(n) = bin(floor(n/2)) || (n mod 2), so b_0 = n mod 2, and bin(floor(n/2)) = b_{k-1} … b_1. 1 &lt;= floor(n/2) &lt; n, so the IH applies to j = floor(n/2), whose bits are b_{k-1} … b_1 (c_i = b_{i+1}): floor(n/2) = sum_{i=1}^{k-1} b_i 2^{i-1}. n = 2 floor(n/2) + (n mod 2) (the equation) = 2 * sum_{i=1}^{k-1} b_i 2^{i-1} + b_0 (IH at floor(n/2); b_0 = n mod 2) = sum_{i=0}^{k-1} b_i 2^i (2 inside, shift the index) The equation starts the chain: it’s what produces a floor(n/2) for the IH. The recurrence justifies the middle line: it says which bits floor(n/2) has. IH used at j = floor(n/2), not n - 1. Say so.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
