@@ -9,6 +9,8 @@
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/quarto-contrib/live-runtime/live-runtime.js" type="module"></script>
 <link href="../site_libs/quarto-contrib/live-runtime/live-runtime.css" rel="stylesheet">
+<script src="../site_libs/quarto-contrib/countdown-0.6.0/countdown.js"></script>
+<link href="../site_libs/quarto-contrib/countdown-0.6.0/countdown.css" rel="stylesheet">
 <script src="../site_libs/quarto-contrib/iconify-3.0.0/iconify-icon.min.js"></script><meta charset="utf-8">
   <meta name="generator" content="quarto-1.10.19">
 
@@ -194,14 +196,115 @@
 </section>
 <section id="place-value" class="slide level2">
 <h2>Place Value</h2>
-<p>&nbsp;</p>
-<p><span class="math display">\[(d_{k-1}\dots d_1 d_0)_{10}=\sum_{i=0}^{k-1} d_i\, 10^i,\quad d_i\in\{0,1,\ldots,9\}\]</span></p>
-<p>&nbsp;</p>
-<p><span class="math display">\[(b_{k-1}\dots b_1 b_0)_2=\sum_{i=0}^{k-1} b_i\, 2^i,\quad b_i\in\{0,1\}\]</span></p>
-<p>&nbsp;</p>
-<p>$(1101)_2 = $ ______ <span class="math inline">\(\qquad\)</span> <span class="math inline">\(37 = (\ \ \ \ \ \ \ \ \ \ )_2\)</span></p>
+<p>What does data look like to a computer?</p>
+<table class="caption-top">
+<tbody>
+<tr class="odd">
+<td>3</td>
+<td>1</td>
+<td>5</td>
+<td>7</td>
+</tr>
+<tr class="even">
+<td>10<sup>3</sup></td>
+<td>10<sup>2</sup></td>
+<td>10<sup>1</sup></td>
+<td>10<sup>0</sup></td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><span class="text-hidden">10<sup>3</sup></span></td>
+<td><span class="text-hidden">10<sup>2</sup></span></td>
+<td><span class="text-hidden">10<sup>1</sup></span></td>
+<td><span class="text-hidden">10<sup>0</sup></span></td>
+</tr>
+<tr class="even">
+<td><span class="text-hidden">2</span><sup>3</sup></td>
+<td><span class="text-hidden">2</span><sup>2</sup></td>
+<td><span class="text-hidden">2</span><sup>1</sup></td>
+<td><span class="text-hidden">2</span><sup>0</sup></td>
+</tr>
+</tbody>
+</table>
 <aside class="notes">
-<p>1101 = 8 + 4 + 1 = 13. 37 = 32 + 4 + 1 = 100101. Treat it as easy and move on: the interesting part is what we can say ABOUT it.</p>
+<p>Charges read as 1 and 0: binary digits, bits. Talk about the BASE. Fill in the second table with a 4-bit number, e.g.&nbsp;1101 = 8 + 4 + 1 = 13. In general, (b_{k-1} … b_1 b_0)_2 = sum b_i 2^i – same as base 10 with 2 in place of 10. Treat all of this as easy. (From CPSC 203, 02_tue_representation.)</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="your-turn-binary-to-decimal" class="slide level2 activity">
+<h2>Your Turn: Binary to Decimal</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Binary</th>
+<th>Decimal</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>1010</code></td>
+<td>_______</td>
+</tr>
+<tr class="even">
+<td><code>1101</code></td>
+<td>_______</td>
+</tr>
+<tr class="odd">
+<td><code>0111</code></td>
+<td>_______</td>
+</tr>
+</tbody>
+</table>
+<countdown-timer id="timer_4fc7bd3e34631f3b1200b0b4a3645f417c953331" minutes="03" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+ </countdown-timer>
+<aside class="notes">
+<p>10, 13, 7.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="your-turn-thinking-about-bits" class="slide level2 activity">
+<h2>Your Turn: Thinking About Bits</h2>
+<p>What’s the largest number you can represent with 4 bits? _______</p>
+<p><br>
+</p>
+<p>How many bits do you need to represent 120? _______</p>
+<p><br>
+</p>
+<p>If I give you one more bit, what happens to how many numbers you can represent?</p>
+<p><br>
+</p>
+<p>How high can you count on your fingers? And toes?</p>
+<countdown-timer id="timer_4fc7bd3e34631f3b1200b0b4a3645f417c953331" minutes="03" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+ </countdown-timer>
+<aside class="notes">
+<p>15 (1111). 7 bits (64 &lt;= 120 &lt; 128). One more bit DOUBLES the count. Fingers: 2^10 - 1 = 1023; fingers and toes: 2^20 - 1 = 1,048,575. Don’t prove anything yet – say: “you just guessed three theorems; the rest of today proves them.” largest with b bits = 2^b - 1 -&gt; Capacity slide (geometric sum) bits needed for 120 -&gt; How Many Bits? + the bound proof one more bit doubles -&gt; Capacity: C(b) = 2 C(b-1)</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;

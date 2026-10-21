@@ -1069,7 +1069,21 @@
     "href": "slides/lecture-17_slides.html#place-value",
     "title": "Binary: an Application Interlude",
     "section": "Place Value",
-    "text": "Place Value\n \n\\[(d_{k-1}\\dots d_1 d_0)_{10}=\\sum_{i=0}^{k-1} d_i\\, 10^i,\\quad d_i\\in\\{0,1,\\ldots,9\\}\\]\n \n\\[(b_{k-1}\\dots b_1 b_0)_2=\\sum_{i=0}^{k-1} b_i\\, 2^i,\\quad b_i\\in\\{0,1\\}\\]\n \n$(1101)_2 = $ ______ \\(\\qquad\\) \\(37 = (\\ \\ \\ \\ \\ \\ \\ \\ \\ \\ )_2\\)\n\n1101 = 8 + 4 + 1 = 13. 37 = 32 + 4 + 1 = 100101. Treat it as easy and move on: the interesting part is what we can say ABOUT it."
+    "text": "Place Value\nWhat does data look like to a computer?\n\n\n\n3\n1\n5\n7\n\n\n103\n102\n101\n100\n\n\n\n\n\n\n\n\n\n\n\n\n103\n102\n101\n100\n\n\n23\n22\n21\n20\n\n\n\n\nCharges read as 1 and 0: binary digits, bits. Talk about the BASE. Fill in the second table with a 4-bit number, e.g. 1101 = 8 + 4 + 1 = 13. In general, (b_{k-1} … b_1 b_0)_2 = sum b_i 2^i – same as base 10 with 2 in place of 10. Treat all of this as easy. (From CPSC 203, 02_tue_representation.)"
+  },
+  {
+    "objectID": "slides/lecture-17_slides.html#your-turn-binary-to-decimal",
+    "href": "slides/lecture-17_slides.html#your-turn-binary-to-decimal",
+    "title": "Binary: an Application Interlude",
+    "section": "Your Turn: Binary to Decimal",
+    "text": "Your Turn: Binary to Decimal\n\n\n\nBinary\nDecimal\n\n\n\n\n1010\n_______\n\n\n1101\n_______\n\n\n0111\n_______\n\n\n\n\n \n\n10, 13, 7."
+  },
+  {
+    "objectID": "slides/lecture-17_slides.html#your-turn-thinking-about-bits",
+    "href": "slides/lecture-17_slides.html#your-turn-thinking-about-bits",
+    "title": "Binary: an Application Interlude",
+    "section": "Your Turn: Thinking About Bits",
+    "text": "Your Turn: Thinking About Bits\nWhat’s the largest number you can represent with 4 bits? _______\n\n\nHow many bits do you need to represent 120? _______\n\n\nIf I give you one more bit, what happens to how many numbers you can represent?\n\n\nHow high can you count on your fingers? And toes?\n\n \n\n15 (1111). 7 bits (64 &lt;= 120 &lt; 128). One more bit DOUBLES the count. Fingers: 2^10 - 1 = 1023; fingers and toes: 2^20 - 1 = 1,048,575. Don’t prove anything yet – say: “you just guessed three theorems; the rest of today proves them.” largest with b bits = 2^b - 1 -&gt; Capacity slide (geometric sum) bits needed for 120 -&gt; How Many Bits? + the bound proof one more bit doubles -&gt; Capacity: C(b) = 2 C(b-1)"
   },
   {
     "objectID": "slides/lecture-17_slides.html#binary-recursively",
