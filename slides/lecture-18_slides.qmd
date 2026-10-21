@@ -66,6 +66,8 @@ lecture 17). Fill in uint8: an unsigned 8-bit integer.
 ## Greying in NumPy {.smaller}
 
 ```{pyodide}
+#| setup: true
+#| exercise: ex_grey
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -78,6 +80,17 @@ img[:, :, 1] = np.linspace(0, 255, H)[:, None]
 img[:, :, 2] = 150
 img[40:80, 80:120] = 255
 
+def show(before, after):
+    fig, ax = plt.subplots(1, 2, figsize=(8, 3))
+    ax[0].imshow(before); ax[0].set_title("original")
+    ax[1].imshow(after); ax[1].set_title("grey?")
+    for a in ax:
+        a.axis("off")
+    plt.show()
+```
+
+```{pyodide}
+#| exercise: ex_grey
 def grey(p):
     r, g, b = p[0], p[1], p[2]
     avg = (r + g + b) // 3
@@ -88,14 +101,13 @@ for row in range(H):
     for col in range(W):
         out[row, col] = grey(img[row, col])
 
-fig, ax = plt.subplots(1, 2, figsize=(8, 3))
-ax[0].imshow(img); ax[0].set_title("original")
-ax[1].imshow(out); ax[1].set_title("grey?")
-for a in ax: a.axis("off")
-plt.show()
+show(img, out)
 ```
 
 ::: notes
+Hidden setup (runs first): builds img, a 120 x 200 uint8 test image -- red
+grows left to right, green grows top to bottom, blue 150, a white square in
+the middle -- and show(before, after), which draws them side by side.
 Run it. The grey image should be a smooth wash and the white square should
 stay white. Instead: the white square is dark grey, and the smooth gradient
 breaks into diagonal bands. numpy also prints "overflow encountered in scalar
