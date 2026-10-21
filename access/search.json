@@ -2689,7 +2689,7 @@
     "href": "slides/lecture-18_slides.html#goals",
     "title": "Binary, Continued: Fixed Width",
     "section": "Goals",
-    "text": "Goals\n\nSee what goes wrong when the number of bits is fixed: overflow.\nRecognize overflow as arithmetic \\(\\bmod 2^b\\).\nTake away a puzzle about a gold chain."
+    "text": "Goals\n\nSee what goes wrong when the number of bits is fixed: overflow.\nRecognize overflow as arithmetic \\(\\bmod 2^b\\).\nUse powers of 2 to solve a puzzle about a gold chain."
   },
   {
     "objectID": "slides/lecture-18_slides.html#technical-aside",
@@ -2734,11 +2734,11 @@
     "text": "Signed Integers\n\n\n\\(b\\) bits give \\(2^b\\) patterns, whatever we decide they mean.\n\n\nUnsigned: the patterns mean \\(0, 1, \\dots, 2^b - 1\\).\n\n\nSigned: the same \\(2^b\\) patterns, half of them given to negative numbers. We won’t look at how, but we can count: \\(b\\) bits represent ____________.\n\nSpend almost no time here. The point is information, not encoding: b bits can only ever name 2^b things, so giving some to negatives takes them away from positives. [-2^{b-1}, 2^{b-1} - 1]: still 2^b values (capacity), half of them negative, and 0 counts on the non-negative side, so one more negative than positive. If anyone asks how: a negative -x is stored as 2^b - x, which is -x mod 2^b, so addition just works mod 2^b. That’s why int8(127) + 1 is -128."
   },
   {
-    "objectID": "slides/lecture-18_slides.html#something-to-think-about-the-gold-chain",
-    "href": "slides/lecture-18_slides.html#something-to-think-about-the-gold-chain",
+    "objectID": "slides/lecture-18_slides.html#the-gold-chain",
+    "href": "slides/lecture-18_slides.html#the-gold-chain",
     "title": "Binary, Continued: Fixed Width",
-    "section": "Something to Think About: The Gold Chain",
-    "text": "Something to Think About: The Gold Chain\nA traveller has a gold chain of \\(7\\) links. The innkeeper wants one link per night, paid each night, for \\(7\\) nights, and can give links back as change.\n\n\n\nWhat is the fewest number of links you must cut?\nWith \\(2\\) cuts, how long a chain could you pay out this way? With \\(k\\) cuts?\nWhat does this have to do with binary?\n\n\nFor you, if it comes up next class – not on the slide on purpose. 1 cut: cut link 3 (or 5), leaving pieces 1 (the cut link), 2 and 4. Pay the 1; pay the 2 and take back the 1; pay the 1; pay the 4 and take back 1 and 2; … Every amount 1..7 is a sum of distinct pieces of {1, 2, 4}: binary. 2 cuts: 23 links (cut links 4 and 11): pieces 1, 1, 3, 6, 12. k cuts: k single links, then pieces (k+1), 2(k+1), …, 2^k (k+1), for a chain of k + (k+1)(2^{k+1} - 1) = (k+1) 2^{k+1} - 1 (geometric sum, lecture 12). Brute force over every way to cut agrees: longest chains 1, 7, 23 for 0, 1, 2. Why the pieces double: if the pieces so far pay every amount 1..T, the next can be T + 1; the k singles cover 1..k, so k+1, then 2(k+1), 4(k+1), … Each piece is one more than everything before it, like 1, 2, 4, 8. (Puzzle from mathalon, Oct 9; planning/question-ideas.md.)"
+    "section": "The Gold Chain",
+    "text": "The Gold Chain\nA traveller has a gold chain of \\(7\\) links. The innkeeper wants one link per night, paid each night, for \\(7\\) nights, and can give links back as change.\n\n\n\nWhat is the fewest number of links you must cut?\nWith \\(2\\) cuts, how long a chain could you pay out this way? With \\(k\\) cuts?\nWhat does this have to do with binary?\n\n\nFor you, if it comes up next class – not on the slide on purpose. 1 cut: cut link 3 (or 5), leaving pieces 1 (the cut link), 2 and 4. Pay the 1; pay the 2 and take back the 1; pay the 1; pay the 4 and take back 1 and 2; … Every amount 1..7 is a sum of distinct pieces of {1, 2, 4}: binary. 2 cuts: 23 links (cut links 4 and 11): pieces 1, 1, 3, 6, 12. k cuts: k single links, then pieces (k+1), 2(k+1), …, 2^k (k+1), for a chain of k + (k+1)(2^{k+1} - 1) = (k+1) 2^{k+1} - 1 (geometric sum, lecture 12). Brute force over every way to cut agrees: longest chains 1, 7, 23 for 0, 1, 2. Why the pieces double: if the pieces so far pay every amount 1..T, the next can be T + 1; the k singles cover 1..k, so k+1, then 2(k+1), 4(k+1), … Each piece is one more than everything before it, like 1, 2, 4, 8. (Puzzle from mathalon, Oct 9; planning/question-ideas.md.)"
   },
   {
     "objectID": "slides/lecture-18_slides.html#words-and-ideas",
