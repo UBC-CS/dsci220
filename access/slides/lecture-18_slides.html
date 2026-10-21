@@ -385,7 +385,7 @@ eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWUsImV4ZXJjaXNlIjoiZXhfZ3JleSJ9LCJjb2Rl
 </section>
 <section id="puzzle-2-nim" class="slide level2 activity smaller">
 <h2>Puzzle 2: Nim</h2>
-<p>There are some piles of sticks: any number of piles, each with any number of sticks. On your turn, take as many sticks as you like from <strong>one</strong> pile (at least one). Whoever takes the <strong>last</strong> stick wins.</p>
+<p>There are some piles of sticks: any number of piles, each with any number of sticks. On your turn, take at least one stick from any one pile. Whoever takes the <strong>last</strong> stick wins.</p>
 <div id="nim-widget" class="nim-widget">
 <style>
 .nim-widget { font-size: 0.55em; text-align: left; }
@@ -394,6 +394,9 @@ eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWUsImV4ZXJjaXNlIjoiZXhfZ3JleSJ9LCJjb2Rl
 .nim-controls button { padding: 0.15em 0.6em; border: 1px solid #888; border-radius: 6px; background: #f6f6f6; cursor: pointer; }
 .nim-pile { display: flex; align-items: center; gap: 0.6em; min-height: 1.7em; margin: 0.15em 0; }
 .nim-label { width: 4.5em; color: #555; }
+.nim-bits { display: flex; gap: 0.3em; margin-right: 0.6em; }
+.nim-bit { width: 0.75em; height: 0.75em; border-radius: 50%; border: 2px solid #555; box-sizing: border-box; }
+.nim-bit.on { background: #333; }
 .nim-stick { width: 0.55em; height: 1.4em; background: #c8962a; border-radius: 3px; cursor: pointer; border: 1px solid #8a6514; }
 .nim-stick.hot { background: #e4572e; border-color: #a33a1c; }
 .nim-status { margin-top: 0.5em; min-height: 1.4em; }
@@ -435,6 +438,12 @@ eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWUsImV4ZXJjaXNlIjoiZXhfZ3JleSJ9LCJjb2Rl
     piles.forEach(function (p, i) {
       var row = document.createElement("div"); row.className = "nim-pile";
       var lab = document.createElement("span"); lab.className = "nim-label"; lab.textContent = "Pile " + (i + 1) + ": " + p; row.appendChild(lab);
+      // the pile size in binary, one dot per bit, filled for a 1
+      var dots = document.createElement("span"); dots.className = "nim-bits";
+      bits(p).split("").forEach(function (ch) {
+        var d = document.createElement("span"); d.className = "nim-bit" + (ch === "1" ? " on" : ""); dots.appendChild(d);
+      });
+      row.appendChild(dots);
       var sticks = [];
       for (var k = 0; k < p; k++) {
         (function (k) {
