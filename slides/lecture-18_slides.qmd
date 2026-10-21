@@ -194,7 +194,7 @@ so addition just works mod 2^b. That's why int8(127) + 1 is -128.
 
 # Three Puzzles for You
 
-## Three Puzzles for You
+## Three Puzzles for You {.activity}
 
 Each of these has a solution that comes down to powers of 2. Work them out.
 
@@ -240,7 +240,7 @@ Each piece is one more than everything before it, like 1, 2, 4, 8.
 
 ## Puzzle 2: Nim {.activity .smaller}
 
-There are some piles of sticks. On your turn, take as many sticks as you like from **one** pile (at least one). Whoever takes the **last** stick wins.
+There are some piles of sticks: any number of piles, each with any number of sticks. On your turn, take as many sticks as you like from **one** pile (at least one). Whoever takes the **last** stick wins.
 
 <div id="nim-widget" class="nim-widget">
 <style>
@@ -349,8 +349,8 @@ There are some piles of sticks. On your turn, take as many sticks as you like fr
 
   root.querySelector(".nim-new-classic").addEventListener("click", function () { reset([1, 3, 5, 7]); });
   root.querySelector(".nim-new-random").addEventListener("click", function () {
-    var n = 3 + Math.floor(Math.random() * 2), ps = [];
-    for (var k = 0; k < n; k++) ps.push(1 + Math.floor(Math.random() * 9));
+    var n = 2 + Math.floor(Math.random() * 4), ps = [];
+    for (var k = 0; k < n; k++) ps.push(1 + Math.floor(Math.random() * 12));
     reset(ps);
   });
   var radios = root.querySelectorAll("input[name=nim-mode]");
@@ -365,7 +365,8 @@ There are some piles of sticks. On your turn, take as many sticks as you like fr
 
 ::: notes
 The playground: click a stick to take it and everything to its right. Modes:
-you first, computer first, two players; "New piles" for random 3-4 piles.
+you first, computer first, two players; "New piles" for 2-5 random piles of
+1-12 sticks. The strategy works for any number of piles of any sizes.
 The computer plays perfectly. On 1, 3, 5, 7, going first you will lose (tested:
 20 of 20 random games). Let the computer go first and you can win.
 THE ANSWER (not for the slide): write the pile sizes in binary, one under the
