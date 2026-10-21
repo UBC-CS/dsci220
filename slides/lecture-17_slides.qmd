@@ -239,7 +239,7 @@ IH used at j = floor(n/2), not n - 1. Say so.
 
 ## How Many Bits? {.smaller}
 
-Let $\text{bits}(n)$ be the number of bits in $n$'s binary representation. The recursion gives
+Let $\text{bits}(n)$ be the length of $\text{bin}(n)$: the $k$ in $b_{k-1}\dots b_1 b_0$. Since $\text{bin}(n) = \text{bin}(\lfloor n/2 \rfloor) \,\|\, (n \bmod 2)$ adds one bit,
 
 $$\text{bits}(1) = 1, \qquad \text{bits}(n) = 1 + \text{bits}(\lfloor n/2 \rfloor) \text{ for } n \geq 2.$$
 
@@ -256,32 +256,38 @@ When does bits$(n)$ go up?
 It goes up exactly at the powers of 2. Guess: bits(n) = floor(log2 n) + 1.
 :::
 
-## Proof Moment: A Bound {.smaller}
+## A Bound on bits$(n)$ {.smaller}
 
-Claim: for every $n \geq 1$, $\quad 2^{\text{bits}(n)-1} \;\leq\; n \;<\; 2^{\text{bits}(n)}$.
+Recall: $\;\text{bits}(1) = 1,\; \text{bits}(n) = 1 + \text{bits}(\lfloor n/2 \rfloor)$, $\;$ and $\; n = 2\lfloor n/2 \rfloor + (n \bmod 2)$.
 
-\ 
-
-Proof: Consider an arbitrary $n \geq 1$. IH: assume the claim for every $j$ with $1 \leq j < n$.
+Claim: For every integer $n \geq 1$, $\quad 2^{\text{bits}(n)-1} \;\leq\; n \;<\; 2^{\text{bits}(n)}$.
 
 \ 
 
+Proof: Consider an arbitrary $n \geq 1$, and let $b = \text{bits}(n)$. We show $2^{b-1} \leq n < 2^{b}$.
+
+IH: Assume that for every integer $j$ with $1 \leq j < n$, $\; 2^{\text{bits}(j)-1} \leq j < 2^{\text{bits}(j)}$.
+
+\ 
+
 \ 
 
 \ 
 
-So $\text{bits}(n) = $ \_\_\_\_\_\_\_\_\_\_\_\_, and $\text{bits}(n) = O($\_\_\_\_$)$.
+So $\text{bits}(n) =$ \_\_\_\_\_\_\_\_\_\_\_\_, and $\text{bits}(n) = O($\_\_\_\_$)$.
 
 ::: notes
-Case n = 1: bits = 1, and 2^0 <= 1 < 2^1.
-Case n >= 2: m = floor(n/2), 1 <= m < n, IH at j = m:
-  2^{bits(m)-1} <= m < 2^{bits(m)}, and bits(n) = bits(m) + 1.
-  Lower: n >= 2m >= 2 * 2^{bits(m)-1} = 2^{bits(n)-1}.
-  Upper: m < 2^{bits(m)} means m <= 2^{bits(m)} - 1, so
-         n <= 2m + 1 <= 2^{bits(m)+1} - 1 < 2^{bits(n)}.
-Take log2 of the bound: bits(n) - 1 <= log2 n < bits(n), so
-bits(n) = floor(log2 n) + 1, and bits(n) = O(log n). The size of a number's
-representation grows like its log -- last week's asymptotics, in a data type.
+Case n = 1: b = bits(1) = 1, and 2^0 <= 1 < 2^1.
+Case n >= 2: let m = floor(n/2). 1 <= m < n, so the IH applies to j = m:
+  2^{bits(m)-1} <= m < 2^{bits(m)}.  By the recurrence, b = bits(m) + 1.
+  Lower:  n = 2m + (n mod 2) >= 2m >= 2 * 2^{bits(m)-1} = 2^{bits(m)} = 2^{b-1}.
+  Upper:  m < 2^{bits(m)} and both are integers, so m <= 2^{bits(m)} - 1. Then
+          n = 2m + (n mod 2) <= 2m + 1 <= 2^{bits(m)+1} - 1 < 2^{b}.
+The equation n = 2m + (n mod 2) is used in both directions: >= 2m below,
+<= 2m + 1 above. The IH is used at j = floor(n/2) again.
+Take log2: b - 1 <= log2 n < b, so bits(n) = floor(log2 n) + 1, and
+bits(n) = O(log n). The size of a number's representation grows like its
+log -- last week's asymptotics, in a data type.
 Checked numerically for n < 5000.
 :::
 
