@@ -164,7 +164,8 @@ Keep halving, and record each remainder. **The binary representation of $n$ is t
 
 $$\text{bin}(n) \;=\; \dots \;\; (\lfloor n/4 \rfloor \bmod 2) \;\; (\lfloor n/2 \rfloor \bmod 2) \;\; (n \bmod 2)$$
 
-Recursively: $\;\text{bin}(1) = 1$, $\;$ and $\;\text{bin}(n) = \text{bin}(\lfloor n/2 \rfloor)$ followed by the bit $(n \bmod 2)$.
+Recursively, writing $\|$ for "followed by":
+$$\text{bin}(1) = 1, \qquad \text{bin}(n) = \text{bin}(\lfloor n/2 \rfloor) \,\|\, (n \bmod 2).$$
 
 ::: {.columns}
 ::: {.column width="45%"}
