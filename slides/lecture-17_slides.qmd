@@ -205,13 +205,15 @@ Stop at a single bit.
 The recursive call is on n/2, not n - 1. That's the case the next proof uses.
 :::
 
-## Proof Moment: The Definition Works
+## Proof Moment: The Definition Works {.smaller}
 
 Claim: the sequence of mods gives back $n$. That is, for every integer $n \geq 1$, if $\text{bin}(n) = b_{k-1}\dots b_1 b_0$, then $n = \sum_{i=0}^{k-1} b_i 2^i$.
 
 \ 
 
-Proof: Consider an arbitrary $n \geq 1$. IH: assume the claim for every $j$ with $1 \leq j < n$.
+Proof: Consider an arbitrary $n \geq 1$.
+
+IH: Assume that for every integer $j$ with $1 \leq j < n$, if $\text{bin}(j) = c_{m-1}\dots c_1 c_0$, then $j = \sum_{i=0}^{m-1} c_i 2^i$.
 
 \ 
 
