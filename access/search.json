@@ -1139,7 +1139,7 @@
     "href": "slides/lecture-17_slides.html#capacity",
     "title": "Binary: an Application Interlude",
     "section": "Capacity",
-    "text": "Capacity\nHow many different values fit in \\(b\\) bits? Let \\(C(b)\\) be the count.\n\\[C(1) = 2, \\qquad C(b) = \\text{\\_\\_\\_\\_\\_\\_} \\cdot C(b-1)\\]\n \nSo $C(b) = $ ______. The largest value is $(111)2 = {i=0}^{b-1} 2^i = $ ______.\n\nC(b) = 2 C(b-1): every (b-1)-bit pattern, followed by a 0 or by a 1. C(b) = 2^b, by induction (same shape as the narrow-shelf Hanoi recurrence). Largest value: the geometric sum from lecture 12, 2^b - 1. That’s also the upper bound from the last slide with bits = b."
+    "text": "Capacity\nHow many different values fit in \\(b\\) bits? Let \\(C(b)\\) be the count.\n\\[C(1) = 2, \\qquad C(b) = \\boxed{\\phantom{2}} \\cdot C(b-1)\\]\n \nSo $C(b) = $ ______. The largest value is $(111)2 = {i=0}^{b-1} 2^i = $ ______.\n\nC(b) = 2 C(b-1): every (b-1)-bit pattern, followed by a 0 or by a 1. C(b) = 2^b, by induction (same shape as the narrow-shelf Hanoi recurrence). Largest value: the geometric sum from lecture 12, 2^b - 1. That’s also the upper bound from the last slide with bits = b."
   },
   {
     "objectID": "slides/lecture-17_slides.html#capacity-quickies",
