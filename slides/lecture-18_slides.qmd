@@ -14,7 +14,7 @@ subtitle: "Lecture 18, {{< var course.code >}}, {{< var course.term >}}"
 
 * See what goes wrong when the number of bits is **fixed**: overflow.
 * Recognize overflow as arithmetic $\bmod 2^b$.
-* Take away a puzzle about a gold chain.
+* Use powers of 2 to solve a puzzle about a gold chain.
 
 ## Technical Aside {.smaller}
 
@@ -192,7 +192,7 @@ If anyone asks how: a negative -x is stored as 2^b - x, which is -x mod 2^b,
 so addition just works mod 2^b. That's why int8(127) + 1 is -128.
 :::
 
-## Something to Think About: The Gold Chain {.smaller}
+## The Gold Chain {.activity .smaller}
 
 A traveller has a gold chain of $7$ links. The innkeeper wants one link per night, paid each night, for $7$ nights, and can give links back as change.
 
