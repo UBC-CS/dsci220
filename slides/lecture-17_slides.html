@@ -305,7 +305,7 @@
 </tr>
 </tbody>
 </table>
-<countdown-timer id="timer_686c9d5e371748503e2419fbea49fbc624002372" minutes="03" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<countdown-timer id="timer_a7a43217a1082b891ea19397ccf8148773541853" minutes="03" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
  </countdown-timer>
 <aside class="notes">
 <p>10, 13, 7.</p>
@@ -333,7 +333,7 @@
 <p><br>
 </p>
 <p>How high can you count on your fingers? And toes?</p>
-<countdown-timer id="timer_686c9d5e371748503e2419fbea49fbc624002372" minutes="03" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<countdown-timer id="timer_a7a43217a1082b891ea19397ccf8148773541853" minutes="03" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
  </countdown-timer>
 <aside class="notes">
 <p>15 (1111). 7 bits (64 &lt;= 120 &lt; 128). One more bit DOUBLES the count. Fingers: 2^10 - 1 = 1023; fingers and toes: 2^20 - 1 = 1,048,575. Don’t prove anything yet – say: “you just guessed three theorems; the rest of today proves them.” largest with b bits = 2^b - 1 -&gt; Capacity slide (geometric sum) bits needed for 120 -&gt; How Many Bits? + the bound proof one more bit doubles -&gt; Capacity: C(b) = 2 C(b-1)</p>
@@ -352,11 +352,11 @@
 <section id="binary-recursively" class="slide level2 smaller">
 <h2>Binary, Recursively</h2>
 <p>Take <span class="math inline">\(13 = (1101)_2\)</span> and factor a <span class="math inline">\(2\)</span> out of every term but the last:</p>
-<p><span class="math display">\[13 \;=\; 1\cdot 8 + 1\cdot 4 + 0\cdot 2 + 1\cdot 1 \;=\; 2\,(\underline{\qquad\qquad\qquad}) + \underline{\quad}\]</span></p>
+<p><span class="math display">\[13 \;=\; 1\cdot 8 + 1\cdot 4 + 0\cdot 2 + 1\cdot 1 \;=\; 2\,\big(\boxed{\phantom{1\cdot 4 + 1\cdot 2 + 0\cdot 1}}\big) + \boxed{\phantom{1}}\]</span></p>
 <p><br>
 </p>
 <p>In general:</p>
-<p><span class="math display">\[(b_{k-1}\dots b_1 b_0)_2 \;=\; \sum_{i=0}^{k-1} b_i 2^i \;=\; 2\,\Big(\underline{\qquad\qquad\qquad}\Big) + \underline{\quad}\]</span></p>
+<p><span class="math display">\[(b_{k-1}\dots b_1 b_0)_2 \;=\; \sum_{i=0}^{k-1} b_i 2^i \;=\; 2\,\Big(\boxed{\phantom{\textstyle\sum_{i=1}^{k-1} b_i 2^{i-1}}}\Big) + \boxed{\phantom{b_0}}\]</span></p>
 <p><br>
 </p>
 <ul>
