@@ -279,10 +279,13 @@ So $\text{bits}(n) =$ \_\_\_\_\_\_\_\_\_\_\_\_, and $\text{bits}(n) = O($\_\_\_\
 ::: notes
 Case n = 1: b = bits(1) = 1, and 2^0 <= 1 < 2^1.
 Case n >= 2: let m = floor(n/2). 1 <= m < n, so the IH applies to j = m:
-  2^{bits(m)-1} <= m < 2^{bits(m)}.  By the recurrence, b = bits(m) + 1.
-  Lower:  n = 2m + (n mod 2) >= 2m >= 2 * 2^{bits(m)-1} = 2^{bits(m)} = 2^{b-1}.
-  Upper:  m < 2^{bits(m)} and both are integers, so m <= 2^{bits(m)} - 1. Then
-          n = 2m + (n mod 2) <= 2m + 1 <= 2^{bits(m)+1} - 1 < 2^{b}.
+  2^{bits(m)-1} <= m < 2^{bits(m)}.
+  By the recurrence: n >= 2, so bits(n) = 1 + bits(floor(n/2)) = 1 + bits(m).
+  That is, b = bits(m) + 1, so bits(m) = b - 1, and the IH line becomes
+  2^{b-2} <= m < 2^{b-1}.
+  Lower:  n = 2m + (n mod 2) >= 2m >= 2 * 2^{b-2} = 2^{b-1}.
+  Upper:  m < 2^{b-1} and both are integers, so m <= 2^{b-1} - 1. Then
+          n = 2m + (n mod 2) <= 2m + 1 <= 2(2^{b-1} - 1) + 1 = 2^{b} - 1 < 2^{b}.
 The equation n = 2m + (n mod 2) is used in both directions: >= 2m below,
 <= 2m + 1 above. The IH is used at j = floor(n/2) again.
 Take log2: b - 1 <= log2 n < b, so bits(n) = floor(log2 n) + 1, and
