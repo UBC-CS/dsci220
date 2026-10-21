@@ -1149,6 +1149,34 @@
     "text": "Exit Ticket\nIn words: what does \\(\\lceil\\log_2 N\\rceil\\) tell you?"
   },
   {
+    "objectID": "slides/lecture-17_slides.html#goals-1",
+    "href": "slides/lecture-17_slides.html#goals-1",
+    "title": "Binary: an Application Interlude",
+    "section": "Goals",
+    "text": "Goals\n\nRead/write binary.\nReason about bit length and capacity.\n\nProve: \\(b\\) bits result in \\(2^b\\) codes, with max value \\(2^b-1\\).\n\nOverflow.\n\nDON’T FORGET THE MAGIC TRICK!"
+  },
+  {
+    "objectID": "slides/lecture-17_slides.html#place-value-1",
+    "href": "slides/lecture-17_slides.html#place-value-1",
+    "title": "Binary: an Application Interlude",
+    "section": "Place Value",
+    "text": "Place Value\n  Consider an encoding into binary:\n\\[(b_{k-1}\\dots b_1 b_0)_2=\\sum_{i=0}^{k-1} b_i 2^i,\\quad b_i\\in\\{0,1\\}\\]\nWe are not flummoxed by this, because:\n\\[(d_{k-1}\\dots d_1 d_0)_{10}=\\sum_{i=0}^{k-1} d_i 10^i,\\quad d_i\\in\\{0,1,\\ldots,9\\}\\]"
+  },
+  {
+    "objectID": "slides/lecture-17_slides.html#quantify-the-length",
+    "href": "slides/lecture-17_slides.html#quantify-the-length",
+    "title": "Binary: an Application Interlude",
+    "section": "Quantify the Length",
+    "text": "Quantify the Length\n \nHow many unique values can we store in \\(n\\) bits?\n \n \nHow many bits to represent \\(m\\) values?\n\nBit length: \\(L(n)=\\lfloor \\log_2 n\\rfloor+1\\) for \\(n\\ge1\\). Emphasize size grows like \\(\\log_2\\). Show a quick table for \\(2^b\\)."
+  },
+  {
+    "objectID": "slides/lecture-17_slides.html#proof-moment",
+    "href": "slides/lecture-17_slides.html#proof-moment",
+    "title": "Binary: an Application Interlude",
+    "section": "Proof Moment",
+    "text": "Proof Moment\nClaim: With \\(b\\) bits we can represent \\(2^b\\) values."
+  },
+  {
     "objectID": "slides/lecture-15_slides.html#announcements",
     "href": "slides/lecture-15_slides.html#announcements",
     "title": "Asymptotics",
@@ -2697,6 +2725,41 @@
     "title": "Binary, Continued: Fixed Width",
     "section": "Words and Ideas",
     "text": "Words and Ideas\nBit length, capacity, overflow, fixed width, signed and unsigned"
+  },
+  {
+    "objectID": "slides/lecture-18_slides.html#goals-1",
+    "href": "slides/lecture-18_slides.html#goals-1",
+    "title": "Binary, Continued: Fixed Width",
+    "section": "Goals",
+    "text": "Goals\n\nProve: \\(b\\) bits result in \\(2^b\\) codes, with max value \\(2^b-1\\).\n\nOverflow.\n\nDON’T FORGET TO EXPLAIN THE MAGIC TRICK!"
+  },
+  {
+    "objectID": "slides/lecture-18_slides.html#place-value",
+    "href": "slides/lecture-18_slides.html#place-value",
+    "title": "Binary, Continued: Fixed Width",
+    "section": "Place Value",
+    "text": "Place Value\n  Consider an encoding into binary:\n\\[(b_{k-1}\\dots b_1 b_0)_2=\\sum_{i=0}^{k-1} b_i 2^i,\\quad b_i\\in\\{0,1\\}\\]"
+  },
+  {
+    "objectID": "slides/lecture-18_slides.html#proof-moment",
+    "href": "slides/lecture-18_slides.html#proof-moment",
+    "title": "Binary, Continued: Fixed Width",
+    "section": "Proof Moment",
+    "text": "Proof Moment\nClaim: With \\(b\\) bits we can represent \\(2^b\\) values."
+  },
+  {
+    "objectID": "slides/lecture-18_slides.html#activity",
+    "href": "slides/lecture-18_slides.html#activity",
+    "title": "Binary, Continued: Fixed Width",
+    "section": "Activity",
+    "text": "Activity\nFor each, compute bits needed or max value:\n\nSeats in a 500-seat hall.\n\n12-bit unsigned max.\n\nWorld pop (\\(\\approx 8\\cdot10^9\\) people) bits for unique IDs.\n\nTimestamps for next \\(100\\) years at 1-second resolution.\n\n\n\n9; (2) 4095; (3) \\(\\lceil\\log_2(8e9)\\rceil=33\\); (4) seconds \\(\\approx 3.15e9\\) 32 bits."
+  },
+  {
+    "objectID": "slides/lecture-18_slides.html#exit-ticket",
+    "href": "slides/lecture-18_slides.html#exit-ticket",
+    "title": "Binary, Continued: Fixed Width",
+    "section": "Exit Ticket",
+    "text": "Exit Ticket\nIn words: what does \\(\\lceil\\log_2 N\\rceil\\) tell you?"
   },
   {
     "objectID": "slides/lecture-20_slides.html#announcements",
