@@ -43,9 +43,9 @@ print("int8 wrap:",  np.int8(127) + 1)
 
 ```
 
-## Greying a Pixel
+## Greying a Pixel {.smaller}
 
-A colour pixel is three numbers, (red, green, blue), each from $0$ to $255$: one byte each, stored as `uint8`.
+A colour pixel is three numbers, (red, green, blue), each from $0$ to $255$, each stored as `uint`\_\_\_\_.
 
 \
 
@@ -57,6 +57,8 @@ $$\text{grey} = \frac{r + g + b}{3}$$
 What's the grey for $(200, 100, 50)$? $\quad$ For white, $(255, 255, 255)$?
 
 ::: notes
+Ask how many bits 0..255 needs: 256 values = 2^8, so 8 bits (capacity, from
+lecture 17). Fill in uint8: an unsigned 8-bit integer.
 116 and 255. Easy -- that's the point. The next slide does it in numpy.
 (This is the CPSC 203 "make the poppies pop" computation.)
 :::
