@@ -170,7 +170,7 @@
 <ul>
 <li>See what goes wrong when the number of bits is <strong>fixed</strong>: overflow.</li>
 <li>Recognize overflow as arithmetic <span class="math inline">\(\bmod 2^b\)</span>.</li>
-<li>Use powers of 2 to solve a puzzle about a gold chain.</li>
+<li>Take away a puzzle about a gold chain.</li>
 </ul>
 </section>
 <section id="technical-aside" class="slide level2 smaller">
@@ -302,41 +302,18 @@ eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiaW1wb3J0IG51bXB5IGFzIG5w
           display:block!important;
       }</style></aside>
 </section>
-<section id="the-gold-chain" class="slide level2 activity">
-<h2>The Gold Chain</h2>
+<section id="something-to-think-about-the-gold-chain" class="slide level2 smaller">
+<h2>Something to Think About: The Gold Chain</h2>
 <p>A traveller has a gold chain of <span class="math inline">\(7\)</span> links. The innkeeper wants one link per night, paid each night, for <span class="math inline">\(7\)</span> nights, and can give links back as change.</p>
 <p><br>
 </p>
-<p>What is the fewest number of links you must cut?</p>
-<aside class="notes">
-<p>One cut: cut link 3 (or 5). That leaves pieces of 1 (the cut link), 2 and 4. Night 1: pay the 1. Night 2: pay the 2, take back the 1. Night 3: pay the 1. Night 4: pay the 4, take back the 1 and 2. And so on to 7. Every amount 1..7 is a sum of distinct pieces from {1, 2, 4}: that’s binary. (Puzzle from mathalon, Oct 9; planning/question-ideas.md.)</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="the-gold-chain-longer" class="slide level2 smaller">
-<h2>The Gold Chain, Longer</h2>
-<p>With <span class="math inline">\(k\)</span> cuts, how long can the chain be?</p>
-<p><br>
-</p>
 <ul>
-<li><span class="math inline">\(1\)</span> cut: pieces <span class="math inline">\(1, 2, 4\)</span>. <span class="math inline">\(\quad\)</span> Chain of <span class="math inline">\(7\)</span>.</li>
-<li><span class="math inline">\(2\)</span> cuts: two single links, then pieces of sizes <span class="math inline">\(3, 6, 12\)</span>. <span class="math inline">\(\quad\)</span> Chain of _____.</li>
-<li><span class="math inline">\(k\)</span> cuts: <span class="math inline">\(k\)</span> single links, then pieces of sizes <span class="math inline">\((k+1), 2(k+1), 4(k+1), \dots, 2^k(k+1)\)</span>. <span class="math inline">\(\quad\)</span> Chain of ________.</li>
+<li><p>What is the fewest number of links you must cut?</p></li>
+<li><p>With <span class="math inline">\(2\)</span> cuts, how long a chain could you pay out this way? With <span class="math inline">\(k\)</span> cuts?</p></li>
+<li><p>What does this have to do with binary?</p></li>
 </ul>
-<p><br>
-</p>
-<p>Why do the pieces double?</p>
 <aside class="notes">
-<p>2 cuts: 1 + 1 + 3 + 6 + 12 = 23 (cut links 4 and 11). Brute force over every way to cut agrees: the longest chains for 0, 1, 2 cuts are 1, 7, 23. k cuts: k + (k+1)(1 + 2 + … + 2^k) = k + (k+1)(2^{k+1} - 1) = (k+1) 2^{k+1} - 1 (geometric sum, lecture 12). Why double: if the pieces so far can pay every amount from 1 to T, the next piece can be as big as T + 1 – then it pays T + 1 alone and T + 2 .. 2T + 1 with change from the others. The k singles cover 1..k, so the first piece is k + 1; now T = 2k + 1, so the next is 2k + 2 = 2(k + 1); and so on. Each piece is one more than everything before it – the same reason 1, 2, 4, 8 work in binary (1 + 2 + 4 = 7, so the next is 8).</p>
+<p>For you, if it comes up next class – not on the slide on purpose. 1 cut: cut link 3 (or 5), leaving pieces 1 (the cut link), 2 and 4. Pay the 1; pay the 2 and take back the 1; pay the 1; pay the 4 and take back 1 and 2; … Every amount 1..7 is a sum of distinct pieces of {1, 2, 4}: binary. 2 cuts: 23 links (cut links 4 and 11): pieces 1, 1, 3, 6, 12. k cuts: k single links, then pieces (k+1), 2(k+1), …, 2^k (k+1), for a chain of k + (k+1)(2^{k+1} - 1) = (k+1) 2^{k+1} - 1 (geometric sum, lecture 12). Brute force over every way to cut agrees: longest chains 1, 7, 23 for 0, 1, 2. Why the pieces double: if the pieces so far pay every amount 1..T, the next can be T + 1; the k singles cover 1..k, so k+1, then 2(k+1), 4(k+1), … Each piece is one more than everything before it, like 1, 2, 4, 8. (Puzzle from mathalon, Oct 9; planning/question-ideas.md.)</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
