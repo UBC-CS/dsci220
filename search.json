@@ -2731,7 +2731,7 @@
     "href": "slides/lecture-18_slides.html#the-gold-chain",
     "title": "Binary, Continued: Fixed Width",
     "section": "The Gold Chain",
-    "text": "The Gold Chain\nA traveller has a gold chain of \\(7\\) links. The innkeeper wants one link per night, paid each night, for \\(7\\) nights, and can give links back as change.\n\n\nWhat is the fewest number of links you must cut?\n\n \n\nOne cut: cut link 3 (or 5). That leaves pieces of 1 (the cut link), 2 and 4. Night 1: pay the 1. Night 2: pay the 2, take back the 1. Night 3: pay the 1. Night 4: pay the 4, take back the 1 and 2. And so on to 7. Every amount 1..7 is a sum of distinct pieces from {1, 2, 4}: that’s binary. (Puzzle from mathalon, Oct 9; planning/question-ideas.md.)"
+    "text": "The Gold Chain\nA traveller has a gold chain of \\(7\\) links. The innkeeper wants one link per night, paid each night, for \\(7\\) nights, and can give links back as change.\n\n\nWhat is the fewest number of links you must cut?\n\nOne cut: cut link 3 (or 5). That leaves pieces of 1 (the cut link), 2 and 4. Night 1: pay the 1. Night 2: pay the 2, take back the 1. Night 3: pay the 1. Night 4: pay the 4, take back the 1 and 2. And so on to 7. Every amount 1..7 is a sum of distinct pieces from {1, 2, 4}: that’s binary. (Puzzle from mathalon, Oct 9; planning/question-ideas.md.)"
   },
   {
     "objectID": "slides/lecture-18_slides.html#the-gold-chain-longer",
