@@ -124,7 +124,7 @@ of today proves them."
 
 Take $13 = (1101)_2$ and factor a $2$ out of every term but the last:
 
-$$13 \;=\; 1\cdot 8 + 1\cdot 4 + 0\cdot 2 + 1\cdot 1 \;=\; 2\,\big(\boxed{\phantom{1\cdot 4 + 1\cdot 2 + 0\cdot 1}}\big) + \boxed{\phantom{1}}$$
+$$13 \;=\; 1{\cdot}8 + 1{\cdot}4 + 0{\cdot}2 + 1{\cdot}1 \;=\; 2\,\big(\boxed{\phantom{1{\cdot}4 + 1{\cdot}2 + 0{\cdot}1}}\big) + \boxed{\phantom{1}}$$
 
 \
 
