@@ -149,8 +149,6 @@ A traveller has a gold chain of $7$ links. The innkeeper wants one link per nigh
 
 What is the fewest number of links you must cut?
 
-{{< countdown minutes=5 >}}
-
 ::: notes
 One cut: cut link 3 (or 5). That leaves pieces of 1 (the cut link), 2 and 4.
 Night 1: pay the 1. Night 2: pay the 2, take back the 1. Night 3: pay the 1.
