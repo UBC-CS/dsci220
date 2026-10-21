@@ -235,12 +235,32 @@ eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiXG4jIFB1cmUgUHl0aG9uIGlu
 
 </div>
 <script type="pyodide-2-contents">
-eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiaW1wb3J0IG51bXB5IGFzIG5wXG5cbiMgdGhyZWUgcGl4ZWxzLCAociwgZywgYiksIHN0b3JlZCB0aGUgd2F5IGltYWdlcyBhcmU6IHVpbnQ4XG5waXhlbHMgPSBucC5hcnJheShbWzIwMCwgMTAwLCAgNTBdLFxuICAgICAgICAgICAgICAgICAgIFsgOTAsIDE4MCwgMjQwXSxcbiAgICAgICAgICAgICAgICAgICBbMjU1LCAyNTUsIDI1NV1dLCBkdHlwZT1ucC51aW50OClcbnIsIGcsIGIgPSBwaXhlbHNbOiwgMF0sIHBpeGVsc1s6LCAxXSwgcGl4ZWxzWzosIDJdXG5cbnByaW50KFwiZ3JleTpcIiwgKHIgKyBnICsgYikgLy8gMykifQ==
+eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiaW1wb3J0IG51bXB5IGFzIG5wXG5pbXBvcnQgbWF0cGxvdGxpYi5weXBsb3QgYXMgcGx0XG5cbiMgQSB0ZXN0IGltYWdlOiByZWQgZ3Jvd3MgbGVmdCB0byByaWdodCwgZ3JlZW4gZ3Jvd3MgdG9wIHRvIGJvdHRvbSxcbiMgd2l0aCBhIHdoaXRlIHNxdWFyZSBpbiB0aGUgbWlkZGxlLiBTdG9yZWQgdGhlIHdheSBpbWFnZXMgYXJlOiB1aW50OC5cbkgsIFcgPSAxMjAsIDIwMFxuaW1nID0gbnAuemVyb3MoKEgsIFcsIDMpLCBkdHlwZT1ucC51aW50OClcbmltZ1s6LCA6LCAwXSA9IG5wLmxpbnNwYWNlKDAsIDI1NSwgVylbTm9uZSwgOl1cbmltZ1s6LCA6LCAxXSA9IG5wLmxpbnNwYWNlKDAsIDI1NSwgSClbOiwgTm9uZV1cbmltZ1s6LCA6LCAyXSA9IDE1MFxuaW1nWzQwOjgwLCA4MDoxMjBdID0gMjU1XG5cbmRlZiBncmV5KHApOlxuICAgIHIsIGcsIGIgPSBwWzBdLCBwWzFdLCBwWzJdXG4gICAgYXZnID0gKHIgKyBnICsgYikgLy8gM1xuICAgIHJldHVybiAoYXZnLCBhdmcsIGF2Zylcblxub3V0ID0gaW1nLmNvcHkoKVxuZm9yIHJvdyBpbiByYW5nZShIKTpcbiAgICBmb3IgY29sIGluIHJhbmdlKFcpOlxuICAgICAgICBvdXRbcm93LCBjb2xdID0gZ3JleShpbWdbcm93LCBjb2xdKVxuXG5maWcsIGF4ID0gcGx0LnN1YnBsb3RzKDEsIDIsIGZpZ3NpemU9KDgsIDMpKVxuYXhbMF0uaW1zaG93KGltZyk7IGF4WzBdLnNldF90aXRsZShcIm9yaWdpbmFsXCIpXG5heFsxXS5pbXNob3cob3V0KTsgYXhbMV0uc2V0X3RpdGxlKFwiZ3JleT9cIilcbmZvciBhIGluIGF4OiBhLmF4aXMoXCJvZmZcIilcbnBsdC5zaG93KCkifQ==
 </script>
 </div>
-<p>What went wrong? Why <span class="math inline">\(31\)</span>? Why does white come out <strong>dark grey</strong>?</p>
 <aside class="notes">
-<p>Prints [31 84 84]. Right answers: [116 170 255]. 200 + 100 + 50 = 350, but a uint8 holds 0..255: 350 mod 256 = 94, and 94 // 3 = 31. 90+180+240 = 510 -&gt; 254 -&gt; 84. White: 765 -&gt; 253 -&gt; 84. White turns dark grey: the bug is invisible in the code and obvious in the picture. Fixes, if asked: (r.astype(int) + g.astype(int) + b.astype(int)) // 3, which is why the CPSC 203 code does int(p[0]) first. Subtle: pixels.sum(axis=1) gets it RIGHT – numpy’s sum quietly widens to uint64 – but + between uint8 arrays does not. Same data, two answers.</p>
+<p>Run it. The grey image should be a smooth wash and the white square should stay white. Instead: the white square is dark grey, and the smooth gradient breaks into diagonal bands. numpy also prints “overflow encountered in scalar add” – the clue. 91% of the pixels come out wrong (checked locally).</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="what-went-wrong" class="slide level2">
+<h2>What Went Wrong?</h2>
+<ul>
+<li><p>The white square was <span class="math inline">\((255, 255, 255)\)</span>. Why is it dark grey?</p></li>
+<li><p>Why does a smooth gradient turn into <strong>bands</strong>?</p></li>
+<li><p>Where are the edges of the bands?</p></li>
+</ul>
+<aside class="notes">
+<p>White: 255 + 255 + 255 = 765, and a uint8 keeps 765 mod 256 = 253; 253 // 3 = 84. So white becomes (84, 84, 84). The bands: r + g + b rises smoothly across the picture, but each time it passes 256 (and again at 512) it wraps back to 0, so the grey drops to black and climbs again. The band edges are the lines r + g + b = 256 and 512 – diagonal, because red grows rightward and green grows downward. The picture IS mod 256. The fix, live: in grey, write r, g, b = int(p[0]), int(p[1]), int(p[2]). Python ints don’t overflow; rerun and the bands and the dark square are gone. That’s why the CPSC 203 poppies code converts each channel to int first. Subtle: numpy’s img.sum(axis=2) would have been right – sum quietly widens to a bigger type – but + between uint8 values does not.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -257,7 +277,7 @@ eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiaW1wb3J0IG51bXB5IGFzIG5w
 <h2>Overflow</h2>
 <p>Consider addition, with 4 bits:</p>
 <aside class="notes">
-<p>annotate 1101_2 + 110_2 and ask students to speculate on 1) how addition works, and how they would describe the overflow. (they’ll say it’s like mod 2^4) With <span class="math inline">\(b\)</span> fixed bits, adding wraps <span class="math inline">\(\bmod 2^b\)</span>. 1101 + 0110 = 10011, and the 5th bit has nowhere to go: 13 + 6 = 19, and 19 mod 16 = 3 = 0011. Fixed-width arithmetic IS arithmetic mod 2^b – lecture 14, in hardware. That’s why uint8(255) + 1 is 0 in the demo. Back to the pixel: 350 = 1 0101 1110 in binary. A uint8 keeps the low 8 bits, 0101 1110 = 94 = 350 mod 256. That’s the 31.</p>
+<p>annotate 1101_2 + 110_2 and ask students to speculate on 1) how addition works, and how they would describe the overflow. (they’ll say it’s like mod 2^4) With <span class="math inline">\(b\)</span> fixed bits, adding wraps <span class="math inline">\(\bmod 2^b\)</span>. 1101 + 0110 = 10011, and the 5th bit has nowhere to go: 13 + 6 = 19, and 19 mod 16 = 3 = 0011. Fixed-width arithmetic IS arithmetic mod 2^b – lecture 14, in hardware. That’s why uint8(255) + 1 is 0 in the demo. Back to the pixels: 200 + 100 + 50 = 350 = 1 0101 1110 in binary. A uint8 keeps the low 8 bits, 0101 1110 = 94 = 350 mod 256. White: 765 -&gt; 253.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
