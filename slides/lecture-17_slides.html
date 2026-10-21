@@ -305,7 +305,7 @@
 </tr>
 </tbody>
 </table>
-<countdown-timer id="timer_e4b4e8c32949d921749a45bcef605b072c87ef8e" minutes="03" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<countdown-timer id="timer_ae490e32a8d225a90dead822f5e86223ae3a66bf" minutes="03" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
  </countdown-timer>
 <aside class="notes">
 <p>10, 13, 7.</p>
@@ -333,7 +333,7 @@
 <p><br>
 </p>
 <p>How high can you count on your fingers? And toes?</p>
-<countdown-timer id="timer_e4b4e8c32949d921749a45bcef605b072c87ef8e" minutes="03" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<countdown-timer id="timer_ae490e32a8d225a90dead822f5e86223ae3a66bf" minutes="03" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
  </countdown-timer>
 <aside class="notes">
 <p>15 (1111). 7 bits (64 &lt;= 120 &lt; 128). One more bit DOUBLES the count. Fingers: 2^10 - 1 = 1023; fingers and toes: 2^20 - 1 = 1,048,575. Don’t prove anything yet – say: “you just guessed three theorems; the rest of today proves them.” largest with b bits = 2^b - 1 -&gt; Capacity slide (geometric sum) bits needed for 120 -&gt; How Many Bits? + the bound proof one more bit doubles -&gt; Capacity: C(b) = 2 C(b-1)</p>
@@ -380,7 +380,7 @@
 <h2>Definition: the Sequence of Mods</h2>
 <p>Keep halving, and record each remainder. <strong>The binary representation of <span class="math inline">\(n\)</span> is the sequence of remainders, read from the last one back to the first:</strong></p>
 <p><span class="math display">\[\text{bin}(n) \;=\; \dots \;\; (\lfloor n/4 \rfloor \bmod 2) \;\; (\lfloor n/2 \rfloor \bmod 2) \;\; (n \bmod 2)\]</span></p>
-<p>Recursively: <span class="math inline">\(\;\text{bin}(1) = 1\)</span>, <span class="math inline">\(\;\)</span> and <span class="math inline">\(\;\text{bin}(n) = \text{bin}(\lfloor n/2 \rfloor)\)</span> followed by the bit <span class="math inline">\((n \bmod 2)\)</span>.</p>
+<p>Recursively, writing <span class="math inline">\(\|\)</span> for “followed by”: <span class="math display">\[\text{bin}(1) = 1, \qquad \text{bin}(n) = \text{bin}(\lfloor n/2 \rfloor) \,\|\, (n \bmod 2).\]</span></p>
 <div class="columns">
 <div class="column" style="width:45%;">
 <div class="fillable compact">
