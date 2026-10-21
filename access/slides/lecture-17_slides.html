@@ -305,7 +305,7 @@
 </tr>
 </tbody>
 </table>
-<countdown-timer id="timer_76a2e0ede57044e6617d8975674e47896fe593c2" minutes="03" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<countdown-timer id="timer_229604b383c2ffcfcc6eab8641991fe9e5d988d8" minutes="03" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
  </countdown-timer>
 <aside class="notes">
 <p>10, 13, 7.</p>
@@ -333,7 +333,7 @@
 <p><br>
 </p>
 <p>How high can you count on your fingers? And toes?</p>
-<countdown-timer id="timer_76a2e0ede57044e6617d8975674e47896fe593c2" minutes="03" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<countdown-timer id="timer_229604b383c2ffcfcc6eab8641991fe9e5d988d8" minutes="03" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
  </countdown-timer>
 <aside class="notes">
 <p>15 (1111). 7 bits (64 &lt;= 120 &lt; 128). One more bit DOUBLES the count. Fingers: 2^10 - 1 = 1023; fingers and toes: 2^20 - 1 = 1,048,575. Don’t prove anything yet – say: “you just guessed three theorems; the rest of today proves them.” largest with b bits = 2^b - 1 -&gt; Capacity slide (geometric sum) bits needed for 120 -&gt; How Many Bits? + the bound proof one more bit doubles -&gt; Capacity: C(b) = 2 C(b-1)</p>
@@ -641,48 +641,6 @@ eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiZGVmIGJpbmFyeShuKTpcbiAg
 <section id="exit-ticket" class="slide level2">
 <h2>Exit Ticket</h2>
 <p>In words: what does <span class="math inline">\(\lceil\log_2 N\rceil\)</span> tell you?</p>
-</section></section>
-<section>
-<section id="from-the-2025-deck" class="title-slide slide level1 center">
-<h1>From the 2025 deck</h1>
-
-</section>
-<section id="goals-1" class="slide level2">
-<h2>Goals</h2>
-<ul>
-<li>Read/write binary.</li>
-<li>Reason about <strong>bit length</strong> and <strong>capacity</strong>.<br>
-</li>
-<li>Prove: <span class="math inline">\(b\)</span> bits result in <span class="math inline">\(2^b\)</span> codes, with max value <span class="math inline">\(2^b-1\)</span>.<br>
-</li>
-<li>Overflow.</li>
-</ul>
-<p><strong>DON’T FORGET THE MAGIC TRICK!</strong></p>
-</section>
-<section id="quantify-the-length" class="slide level2">
-<h2>Quantify the Length</h2>
-<p>&nbsp;</p>
-<p>How many unique values can we store in <span class="math inline">\(n\)</span> bits?</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>How many bits to represent <span class="math inline">\(m\)</span> values?</p>
-<aside class="notes">
-<p><strong>Bit length:</strong> <span class="math inline">\(L(n)=\lfloor \log_2 n\rfloor+1\)</span> for <span class="math inline">\(n\ge1\)</span>. Emphasize <em>size grows like <span class="math inline">\(\log_2\)</span></em>. Show a quick table for <span class="math inline">\(2^b\)</span>.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="proof-moment" class="slide level2">
-<h2>Proof Moment</h2>
-<p>Claim: With <span class="math inline">\(b\)</span> bits we can represent <span class="math inline">\(2^b\)</span> values.</p>
 
 
 <script type="pyodide-data">
