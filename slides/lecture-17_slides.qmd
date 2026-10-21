@@ -360,35 +360,3 @@ those bits is the place-value sum.
 ## Exit Ticket
 
 In words: what does $\lceil\log_2 N\rceil$ tell you?
-
-# From the 2025 deck
-
-## Goals
-* Read/write binary.
-* Reason about **bit length** and **capacity**.  
-* Prove: $b$ bits result in $2^b$ codes, with max value $2^b-1$.  
-* Overflow.
-
-**DON'T FORGET THE MAGIC TRICK!**
-
-## Quantify the Length
-
-\ 
-
-How many unique values can we store in $n$ bits?
-
-\ 
-
-\ 
-
-How many bits to represent $m$ values?
-
-
-::: notes
-**Bit length:** $L(n)=\lfloor \log_2 n\rfloor+1$ for $n\ge1$.
-Emphasize *size grows like $\log_2$*. Show a quick table for $2^b$.
-:::
-
-## Proof Moment
-
-Claim: With $b$ bits we can represent $2^b$ values.
