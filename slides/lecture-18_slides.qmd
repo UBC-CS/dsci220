@@ -65,28 +65,62 @@ What's the grey for $(200, 100, 50)$? $\quad$ For white, $(255, 255, 255)$?
 
 ```{pyodide}
 import numpy as np
+import matplotlib.pyplot as plt
 
-# three pixels, (r, g, b), stored the way images are: uint8
-pixels = np.array([[200, 100,  50],
-                   [ 90, 180, 240],
-                   [255, 255, 255]], dtype=np.uint8)
-r, g, b = pixels[:, 0], pixels[:, 1], pixels[:, 2]
+# A test image: red grows left to right, green grows top to bottom,
+# with a white square in the middle. Stored the way images are: uint8.
+H, W = 120, 200
+img = np.zeros((H, W, 3), dtype=np.uint8)
+img[:, :, 0] = np.linspace(0, 255, W)[None, :]
+img[:, :, 1] = np.linspace(0, 255, H)[:, None]
+img[:, :, 2] = 150
+img[40:80, 80:120] = 255
 
-print("grey:", (r + g + b) // 3)
+def grey(p):
+    r, g, b = p[0], p[1], p[2]
+    avg = (r + g + b) // 3
+    return (avg, avg, avg)
+
+out = img.copy()
+for row in range(H):
+    for col in range(W):
+        out[row, col] = grey(img[row, col])
+
+fig, ax = plt.subplots(1, 2, figsize=(8, 3))
+ax[0].imshow(img); ax[0].set_title("original")
+ax[1].imshow(out); ax[1].set_title("grey?")
+for a in ax: a.axis("off")
+plt.show()
 ```
 
-What went wrong? Why $31$? Why does white come out **dark grey**?
+::: notes
+Run it. The grey image should be a smooth wash and the white square should
+stay white. Instead: the white square is dark grey, and the smooth gradient
+breaks into diagonal bands. numpy also prints "overflow encountered in scalar
+add" -- the clue. 91% of the pixels come out wrong (checked locally).
+:::
+
+## What Went Wrong?
+
+* The white square was $(255, 255, 255)$. Why is it dark grey?
+
+* Why does a smooth gradient turn into **bands**?
+
+* Where are the edges of the bands?
 
 ::: notes
-Prints [31 84 84]. Right answers: [116 170 255].
-200 + 100 + 50 = 350, but a uint8 holds 0..255: 350 mod 256 = 94, and
-94 // 3 = 31. 90+180+240 = 510 -> 254 -> 84. White: 765 -> 253 -> 84.
-White turns dark grey: the bug is invisible in the code and obvious in the
-picture.
-Fixes, if asked: (r.astype(int) + g.astype(int) + b.astype(int)) // 3, which is
-why the CPSC 203 code does int(p[0]) first. Subtle: pixels.sum(axis=1) gets it
-RIGHT -- numpy's sum quietly widens to uint64 -- but + between uint8 arrays
-does not. Same data, two answers.
+White: 255 + 255 + 255 = 765, and a uint8 keeps 765 mod 256 = 253; 253 // 3 = 84.
+So white becomes (84, 84, 84).
+The bands: r + g + b rises smoothly across the picture, but each time it
+passes 256 (and again at 512) it wraps back to 0, so the grey drops to black
+and climbs again. The band edges are the lines r + g + b = 256 and 512 --
+diagonal, because red grows rightward and green grows downward. The picture
+IS mod 256.
+The fix, live: in grey, write r, g, b = int(p[0]), int(p[1]), int(p[2]).
+Python ints don't overflow; rerun and the bands and the dark square are gone.
+That's why the CPSC 203 poppies code converts each channel to int first.
+Subtle: numpy's img.sum(axis=2) would have been right -- sum quietly widens to
+a bigger type -- but + between uint8 values does not.
 :::
 
 ## Overflow
@@ -100,8 +134,8 @@ With $b$ fixed bits, adding wraps $\bmod 2^b$.
 1101 + 0110 = 10011, and the 5th bit has nowhere to go: 13 + 6 = 19, and
 19 mod 16 = 3 = 0011. Fixed-width arithmetic IS arithmetic mod 2^b --
 lecture 14, in hardware. That's why uint8(255) + 1 is 0 in the demo.
-Back to the pixel: 350 = 1 0101 1110 in binary. A uint8 keeps the low 8 bits,
-0101 1110 = 94 = 350 mod 256. That's the 31.
+Back to the pixels: 200 + 100 + 50 = 350 = 1 0101 1110 in binary. A uint8 keeps
+the low 8 bits, 0101 1110 = 94 = 350 mod 256. White: 765 -> 253.
 
 :::
 
