@@ -70,6 +70,7 @@ lecture 17). Fill in uint8: an unsigned 8-bit integer.
 #| exercise: ex_grey
 import numpy as np
 import matplotlib.pyplot as plt
+np.seterr(over="ignore")   # no overflow warning: let the picture show the bug
 
 # A test image: red grows left to right, green grows top to bottom,
 # with a white square in the middle. Stored the way images are: uint8.
@@ -111,8 +112,9 @@ grows left to right, green grows top to bottom, blue 150, a white square in
 the middle -- and show(before, after), which draws them side by side.
 Run it. The grey image should be a smooth wash and the white square should
 stay white. Instead: the white square is dark grey, and the smooth gradient
-breaks into diagonal bands. numpy also prints "overflow encountered in scalar
-add" -- the clue. 91% of the pixels come out wrong (checked locally).
+breaks into diagonal bands. (The hidden setup turns off numpy's "overflow
+encountered" warning, so the picture is the only clue.) 91% of the pixels come
+out wrong (checked locally).
 :::
 
 ## What Went Wrong?
