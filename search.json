@@ -2689,7 +2689,7 @@
     "href": "slides/lecture-18_slides.html#goals",
     "title": "Binary, Continued: Fixed Width",
     "section": "Goals",
-    "text": "Goals\n\nSee what goes wrong when the number of bits is fixed: overflow.\nRecognize overflow as arithmetic \\(\\bmod 2^b\\).\nUse powers of 2 to solve a puzzle about a gold chain."
+    "text": "Goals\n\nSee what goes wrong when the number of bits is fixed: overflow.\nRecognize overflow as arithmetic \\(\\bmod 2^b\\).\nThree puzzles to take away."
   },
   {
     "objectID": "slides/lecture-18_slides.html#technical-aside",
@@ -2734,11 +2734,32 @@
     "text": "Signed Integers\n\n\n\\(b\\) bits give \\(2^b\\) patterns, whatever we decide they mean.\n\n\nUnsigned: the patterns mean \\(0, 1, \\dots, 2^b - 1\\).\n\n\nSigned: the same \\(2^b\\) patterns, half of them given to negative numbers. We won’t look at how, but we can count: \\(b\\) bits represent ____________.\n\nSpend almost no time here. The point is information, not encoding: b bits can only ever name 2^b things, so giving some to negatives takes them away from positives. [-2^{b-1}, 2^{b-1} - 1]: still 2^b values (capacity), half of them negative, and 0 counts on the non-negative side, so one more negative than positive. If anyone asks how: a negative -x is stored as 2^b - x, which is -x mod 2^b, so addition just works mod 2^b. That’s why int8(127) + 1 is -128."
   },
   {
-    "objectID": "slides/lecture-18_slides.html#the-gold-chain",
-    "href": "slides/lecture-18_slides.html#the-gold-chain",
+    "objectID": "slides/lecture-18_slides.html#three-puzzles-for-you-1",
+    "href": "slides/lecture-18_slides.html#three-puzzles-for-you-1",
     "title": "Binary, Continued: Fixed Width",
-    "section": "The Gold Chain",
-    "text": "The Gold Chain\nA traveller has a gold chain of \\(7\\) links. The innkeeper wants one link per night, paid each night, for \\(7\\) nights, and can give links back as change.\n\n\n\nWhat is the fewest number of links you must cut?\nWith \\(2\\) cuts, how long a chain could you pay out this way? With \\(k\\) cuts?\nWhat does this have to do with binary?\n\n\nFor you, if it comes up next class – not on the slide on purpose. 1 cut: cut link 3 (or 5), leaving pieces 1 (the cut link), 2 and 4. Pay the 1; pay the 2 and take back the 1; pay the 1; pay the 4 and take back 1 and 2; … Every amount 1..7 is a sum of distinct pieces of {1, 2, 4}: binary. 2 cuts: 23 links (cut links 4 and 11): pieces 1, 1, 3, 6, 12. k cuts: k single links, then pieces (k+1), 2(k+1), …, 2^k (k+1), for a chain of k + (k+1)(2^{k+1} - 1) = (k+1) 2^{k+1} - 1 (geometric sum, lecture 12). Brute force over every way to cut agrees: longest chains 1, 7, 23 for 0, 1, 2. Why the pieces double: if the pieces so far pay every amount 1..T, the next can be T + 1; the k singles cover 1..k, so k+1, then 2(k+1), 4(k+1), … Each piece is one more than everything before it, like 1, 2, 4, 8. (Puzzle from mathalon, Oct 9; planning/question-ideas.md.)"
+    "section": "Three Puzzles for You",
+    "text": "Three Puzzles for You\nEach of these has a solution that comes down to powers of 2. Work them out.\n\n\n\nThe gold chain: paying an innkeeper.\nNim: a game you can learn to never lose.\nThe poisoned wine: finding one bad bottle in a thousand.\n\n\nIntroduce all three; solve none. Answers are in each slide’s notes, for when they come back with questions."
+  },
+  {
+    "objectID": "slides/lecture-18_slides.html#puzzle-1-the-gold-chain",
+    "href": "slides/lecture-18_slides.html#puzzle-1-the-gold-chain",
+    "title": "Binary, Continued: Fixed Width",
+    "section": "Puzzle 1: The Gold Chain",
+    "text": "Puzzle 1: The Gold Chain\nA traveller has a gold chain of \\(7\\) links. The innkeeper wants one link per night, paid each night, for \\(7\\) nights, and can give links back as change.\n\n\n\nWhat is the fewest number of links you must cut?\nWith \\(2\\) cuts, how long a chain could you pay out this way? With \\(k\\) cuts?\nWhat does this have to do with binary?\n\n\nFor you, if it comes up next class – not on the slide on purpose. 1 cut: cut link 3 (or 5), leaving pieces 1 (the cut link), 2 and 4. Pay the 1; pay the 2 and take back the 1; pay the 1; pay the 4 and take back 1 and 2; … Every amount 1..7 is a sum of distinct pieces of {1, 2, 4}: binary. 2 cuts: 23 links (cut links 4 and 11): pieces 1, 1, 3, 6, 12. k cuts: k single links, then pieces (k+1), 2(k+1), …, 2^k (k+1), for a chain of k + (k+1)(2^{k+1} - 1) = (k+1) 2^{k+1} - 1 (geometric sum, lecture 12). Brute force over every way to cut agrees: longest chains 1, 7, 23 for 0, 1, 2. Why the pieces double: if the pieces so far pay every amount 1..T, the next can be T + 1; the k singles cover 1..k, so k+1, then 2(k+1), 4(k+1), … Each piece is one more than everything before it, like 1, 2, 4, 8. (Puzzle from mathalon, Oct 9; planning/question-ideas.md.)"
+  },
+  {
+    "objectID": "slides/lecture-18_slides.html#puzzle-2-nim",
+    "href": "slides/lecture-18_slides.html#puzzle-2-nim",
+    "title": "Binary, Continued: Fixed Width",
+    "section": "Puzzle 2: Nim",
+    "text": "Puzzle 2: Nim\nThere are some piles of sticks. On your turn, take as many sticks as you like from one pile (at least one). Whoever takes the last stick wins.\n\n\n\n1, 3, 5, 7 New piles  You go first  Computer goes first  Two players\n\n\n\n\n\n\n\n\n\n\nWith piles \\(1, 3, 5, 7\\): should you go first, or let the computer go first?\nCan you find a way to win every time you start from a good position? Try new piles too.\n\n\nThe playground: click a stick to take it and everything to its right. Modes: you first, computer first, two players; “New piles” for random 3-4 piles. The computer plays perfectly. On 1, 3, 5, 7, going first you will lose (tested: 20 of 20 random games). Let the computer go first and you can win. THE ANSWER (not for the slide): write the pile sizes in binary, one under the other. If every column has an even number of 1s (XOR of the piles is 0), the player to move loses against good play; otherwise there is a move that makes every column even, and you should make it. 1, 3, 5, 7 = 001, 011, 101, 111: columns have 2, 2, 4 ones – all even, so go second. Why it works (induction on the total number of sticks): from an all-even position, every move changes one pile, so some column becomes odd; from a position with an odd column, take from a pile with a 1 in the leftmost odd column to make all columns even; the empty position is all-even, so the player who always leaves all-even takes the last stick. Checked by brute force for every 3-pile game with piles up to 5. Example: 3, 4, 5 -&gt; take 2 from the 3, leaving 1, 4, 5. Last Year at Marienbad (1961) is the film where one player never loses at 1, 3, 5, 7."
+  },
+  {
+    "objectID": "slides/lecture-18_slides.html#puzzle-3-the-poisoned-wine",
+    "href": "slides/lecture-18_slides.html#puzzle-3-the-poisoned-wine",
+    "title": "Binary, Continued: Fixed Width",
+    "section": "Puzzle 3: The Poisoned Wine",
+    "text": "Puzzle 3: The Poisoned Wine\nA king has \\(1000\\) bottles of wine for a party, and learns that exactly one is poisoned. The poison makes someone ill exactly one day after they taste it, even a drop, and the party is tomorrow.\n\n\nHe has servants who can taste the wine tonight. What is the fewest number of tasters he needs to find the poisoned bottle by tomorrow?\n\nAnswer: 10. Number the bottles 0..999 in binary (10 bits, since 999 &lt; 1024 = 2^10). Taster i tastes every bottle whose bit i is 1. Tomorrow, the set of ill tasters spells out the poisoned bottle’s number in binary. This IS the magic trick: each taster is a card, holding the numbers with a 1 in that bit; “which cards is your number on?” is “which tasters got ill?” Full circle to lecture 17. Fewer than 10 can’t work: 9 tasters give only 2^9 = 512 different outcomes, fewer than 1000 bottles (capacity again)."
   },
   {
     "objectID": "slides/lecture-18_slides.html#words-and-ideas",

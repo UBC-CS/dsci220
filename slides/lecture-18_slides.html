@@ -170,7 +170,7 @@
 <ul>
 <li>See what goes wrong when the number of bits is <strong>fixed</strong>: overflow.</li>
 <li>Recognize overflow as arithmetic <span class="math inline">\(\bmod 2^b\)</span>.</li>
-<li>Use powers of 2 to solve a puzzle about a gold chain.</li>
+<li>Three puzzles to take away.</li>
 </ul>
 </section>
 <section id="technical-aside" class="slide level2 smaller">
@@ -324,9 +324,38 @@ eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWUsImV4ZXJjaXNlIjoiZXhfZ3JleSJ9LCJjb2Rl
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
+</section></section>
+<section>
+<section id="three-puzzles-for-you" class="title-slide slide level1 center">
+<h1>Three Puzzles for You</h1>
+
 </section>
-<section id="the-gold-chain" class="slide level2 activity smaller">
-<h2>The Gold Chain</h2>
+<section id="three-puzzles-for-you-1" class="slide level2">
+<h2>Three Puzzles for You</h2>
+<p>Each of these has a solution that comes down to powers of 2. Work them out.</p>
+<p><br>
+</p>
+<ol type="1">
+<li><p><strong>The gold chain:</strong> paying an innkeeper.</p></li>
+<li><p><strong>Nim:</strong> a game you can learn to never lose.</p></li>
+<li><p><strong>The poisoned wine:</strong> finding one bad bottle in a thousand.</p></li>
+</ol>
+<aside class="notes">
+<p>Introduce all three; solve none. Answers are in each slide’s notes, for when they come back with questions.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="puzzle-1-the-gold-chain" class="slide level2 activity smaller">
+<h2>Puzzle 1: The Gold Chain</h2>
 <p>A traveller has a gold chain of <span class="math inline">\(7\)</span> links. The innkeeper wants one link per night, paid each night, for <span class="math inline">\(7\)</span> nights, and can give links back as change.</p>
 <p><br>
 </p>
@@ -337,6 +366,163 @@ eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWUsImV4ZXJjaXNlIjoiZXhfZ3JleSJ9LCJjb2Rl
 </ul>
 <aside class="notes">
 <p>For you, if it comes up next class – not on the slide on purpose. 1 cut: cut link 3 (or 5), leaving pieces 1 (the cut link), 2 and 4. Pay the 1; pay the 2 and take back the 1; pay the 1; pay the 4 and take back 1 and 2; … Every amount 1..7 is a sum of distinct pieces of {1, 2, 4}: binary. 2 cuts: 23 links (cut links 4 and 11): pieces 1, 1, 3, 6, 12. k cuts: k single links, then pieces (k+1), 2(k+1), …, 2^k (k+1), for a chain of k + (k+1)(2^{k+1} - 1) = (k+1) 2^{k+1} - 1 (geometric sum, lecture 12). Brute force over every way to cut agrees: longest chains 1, 7, 23 for 0, 1, 2. Why the pieces double: if the pieces so far pay every amount 1..T, the next can be T + 1; the k singles cover 1..k, so k+1, then 2(k+1), 4(k+1), … Each piece is one more than everything before it, like 1, 2, 4, 8. (Puzzle from mathalon, Oct 9; planning/question-ideas.md.)</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="puzzle-2-nim" class="slide level2 activity smaller">
+<h2>Puzzle 2: Nim</h2>
+<p>There are some piles of sticks. On your turn, take as many sticks as you like from <strong>one</strong> pile (at least one). Whoever takes the <strong>last</strong> stick wins.</p>
+<div id="nim-widget" class="nim-widget">
+<style>
+.nim-widget { font-size: 0.55em; text-align: left; }
+.nim-controls { display: flex; flex-wrap: wrap; gap: 0.6em; align-items: center; margin-bottom: 0.5em; }
+.nim-controls button, .nim-controls label { font-size: 0.9em; }
+.nim-controls button { padding: 0.15em 0.6em; border: 1px solid #888; border-radius: 6px; background: #f6f6f6; cursor: pointer; }
+.nim-pile { display: flex; align-items: center; gap: 0.6em; min-height: 1.7em; margin: 0.15em 0; }
+.nim-label { width: 4.5em; color: #555; }
+.nim-stick { width: 0.55em; height: 1.4em; background: #c8962a; border-radius: 3px; cursor: pointer; border: 1px solid #8a6514; }
+.nim-stick.hot { background: #e4572e; border-color: #a33a1c; }
+.nim-status { margin-top: 0.5em; min-height: 1.4em; }
+.nim-win { color: #2a7a2a; font-weight: bold; }
+.nim-lose { color: #b03030; font-weight: bold; }
+</style>
+<div class="nim-controls">
+<p><button type="button" class="nim-new-classic">1, 3, 5, 7</button> <button type="button" class="nim-new-random">New piles</button> <label><input type="radio" name="nim-mode" value="you" checked=""> You go first</label> <label><input type="radio" name="nim-mode" value="cpu"> Computer goes first</label> <label><input type="radio" name="nim-mode" value="two"> Two players</label></p>
+</div>
+<div class="nim-board">
+
+</div>
+<div class="nim-status">
+
+</div>
+</div>
+<script>
+(function () {
+  var root = document.getElementById("nim-widget");
+  if (!root || root.dataset.ready) return;
+  root.dataset.ready = "1";
+  var board = root.querySelector(".nim-board"), status = root.querySelector(".nim-status");
+  var piles = [1, 3, 5, 7], start = piles.slice(), turn = 0, over = false, busy = false;
+
+  function mode() { return root.querySelector("input[name=nim-mode]:checked").value; }
+  function xor(ps) { return ps.reduce(function (a, b) { return a ^ b; }, 0); }
+  function width() { var m = Math.max.apply(null, start.concat([1])); return m.toString(2).length; }
+  function bits(n) { var s = n.toString(2); while (s.length < width()) s = "0" + s; return s; }
+  function name(t) {
+    if (mode() === "two") return "Player " + (t + 1);
+    return (mode() === "you") === (t === 0) ? "You" : "Computer";
+  }
+  function isCpu(t) { return mode() !== "two" && !((mode() === "you") === (t === 0)); }
+
+  function say(text, cls) { status.textContent = text; status.className = "nim-status " + (cls || ""); }
+
+  function draw() {
+    while (board.firstChild) board.removeChild(board.firstChild);
+    piles.forEach(function (p, i) {
+      var row = document.createElement("div"); row.className = "nim-pile";
+      var lab = document.createElement("span"); lab.className = "nim-label"; lab.textContent = "Pile " + (i + 1) + ": " + p; row.appendChild(lab);
+      var sticks = [];
+      for (var k = 0; k < p; k++) {
+        (function (k) {
+          var st = document.createElement("span"); st.className = "nim-stick";
+          st.title = "take " + (p - k) + " from pile " + (i + 1);
+          st.addEventListener("mouseenter", function () { for (var j = 0; j < sticks.length; j++) sticks[j].classList.toggle("hot", j >= k); });
+          st.addEventListener("mouseleave", function () { for (var j = 0; j < sticks.length; j++) sticks[j].classList.remove("hot"); });
+          st.addEventListener("click", function () { humanMove(i, p - k); });
+          sticks.push(st); row.appendChild(st);
+        })(k);
+      }
+      board.appendChild(row);
+    });
+  }
+
+  function afterMove() {
+    draw();
+    if (piles.every(function (p) { return p === 0; })) {
+      over = true;
+      var w = name(turn);
+      say(w + " took the last stick and " + (w === "You" ? "win!" : w === "Computer" ? "wins." : "wins!"), w === "Computer" ? "nim-lose" : "nim-win");
+      return;
+    }
+    turn = 1 - turn;
+    prompt();
+  }
+
+  function prompt() {
+    if (over) return;
+    if (isCpu(turn)) { say("Computer is thinking..."); busy = true; setTimeout(cpuMove, 700); }
+    else say(name(turn) + ": click a stick to take it and every stick to its right.");
+  }
+
+  function humanMove(i, take) {
+    if (over || busy || isCpu(turn) || take < 1 || take > piles[i]) return;
+    piles[i] -= take; afterMove();
+  }
+
+  function cpuMove() {
+    busy = false;
+    var x = xor(piles), i, take;
+    if (x !== 0) {
+      for (i = 0; i < piles.length; i++) if ((piles[i] ^ x) < piles[i]) { take = piles[i] - (piles[i] ^ x); break; }
+    } else {
+      i = piles.indexOf(Math.max.apply(null, piles)); take = 1;
+    }
+    piles[i] -= take;
+    say("Computer took " + take + " from pile " + (i + 1) + ".");
+    setTimeout(afterMove, 500);
+  }
+
+  function reset(ps) {
+    piles = ps.slice(); start = ps.slice(); turn = 0; over = false; busy = false;
+    draw(); prompt();
+  }
+
+  root.querySelector(".nim-new-classic").addEventListener("click", function () { reset([1, 3, 5, 7]); });
+  root.querySelector(".nim-new-random").addEventListener("click", function () {
+    var n = 3 + Math.floor(Math.random() * 2), ps = [];
+    for (var k = 0; k < n; k++) ps.push(1 + Math.floor(Math.random() * 9));
+    reset(ps);
+  });
+  var radios = root.querySelectorAll("input[name=nim-mode]");
+  for (var r = 0; r < radios.length; r++) radios[r].addEventListener("change", function () { reset(start); });
+  reset([1, 3, 5, 7]);
+})();
+</script>
+<ul>
+<li>With piles <span class="math inline">\(1, 3, 5, 7\)</span>: should you go first, or let the computer go first?</li>
+<li>Can you find a way to win every time you start from a good position? Try new piles too.</li>
+</ul>
+<aside class="notes">
+<p>The playground: click a stick to take it and everything to its right. Modes: you first, computer first, two players; “New piles” for random 3-4 piles. The computer plays perfectly. On 1, 3, 5, 7, going first you will lose (tested: 20 of 20 random games). Let the computer go first and you can win. THE ANSWER (not for the slide): write the pile sizes in binary, one under the other. If every column has an even number of 1s (XOR of the piles is 0), the player to move loses against good play; otherwise there is a move that makes every column even, and you should make it. 1, 3, 5, 7 = 001, 011, 101, 111: columns have 2, 2, 4 ones – all even, so go second. Why it works (induction on the total number of sticks): from an all-even position, every move changes one pile, so some column becomes odd; from a position with an odd column, take from a pile with a 1 in the leftmost odd column to make all columns even; the empty position is all-even, so the player who always leaves all-even takes the last stick. Checked by brute force for every 3-pile game with piles up to 5. Example: 3, 4, 5 -&gt; take 2 from the 3, leaving 1, 4, 5. Last Year at Marienbad (1961) is the film where one player never loses at 1, 3, 5, 7.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="puzzle-3-the-poisoned-wine" class="slide level2 activity smaller">
+<h2>Puzzle 3: The Poisoned Wine</h2>
+<p>A king has <span class="math inline">\(1000\)</span> bottles of wine for a party, and learns that exactly one is poisoned. The poison makes someone ill exactly one day after they taste it, even a drop, and the party is tomorrow.</p>
+<p><br>
+</p>
+<p>He has servants who can taste the wine tonight. What is the fewest number of tasters he needs to find the poisoned bottle by tomorrow?</p>
+<aside class="notes">
+<p>Answer: 10. Number the bottles 0..999 in binary (10 bits, since 999 &lt; 1024 = 2^10). Taster i tastes every bottle whose bit i is 1. Tomorrow, the set of ill tasters spells out the poisoned bottle’s number in binary. This IS the magic trick: each taster is a card, holding the numbers with a 1 in that bit; “which cards is your number on?” is “which tasters got ill?” Full circle to lecture 17. Fewer than 10 can’t work: 9 tasters give only 2^9 = 512 different outcomes, fewer than 1000 bottles (capacity again).</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
