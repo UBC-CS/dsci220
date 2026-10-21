@@ -137,10 +137,15 @@ $$(1101)_2 \;=\; 2 \cdot \big(\boxed{\phantom{110}}\big)_2 + \boxed{\phantom{1}}
 ::: {.fragment}
 For every $n \geq 2$:
 $$n \;=\; 2\left\lfloor n/2 \right\rfloor + (n \bmod 2)$$
-The last bit of $n$ is $n \bmod 2$, and the bits before it are the bits of $\lfloor n/2 \rfloor$.
+Write $\text{bin}(n)$ for the string of bits that represents $n$. The last bit of $\text{bin}(n)$ is $n \bmod 2$, and the bits before it are $\text{bin}(\lfloor n/2 \rfloor)$.
 :::
 
 ::: notes
+Keep the two apart, out loud: n is a NUMBER (thirteen); bin(n) is the STRING
+"1101" that represents it. The equation n = 2 floor(n/2) + (n mod 2) is about
+numbers; "bin(n) = bin(floor(n/2)) followed by n mod 2" is about strings.
+(1101)_2 means the number whose representation is 1101 -- place value turns
+the string back into a number. Value vs encoding is the whole lesson.
 3257 = 10 * 325 + 7: chopping the last digit divides by 10 and keeps the
 remainder aside. Everyone knows this.
 (1101)_2 = 2 * (110)_2 + 1, i.e. 13 = 2 * 6 + 1: in base 2, chopping the last
@@ -158,7 +163,8 @@ halves (eights become fours, ...) and the ones bit falls off.
 
 ## From the Punchline to an Algorithm {.smaller}
 
-The bits of $n$ are the bits of $\lfloor n/2 \rfloor$, followed by $n \bmod 2$. Say it again for $\lfloor n/2 \rfloor$, and again...
+$$\text{bin}(n) \;=\; \text{bin}(\lfloor n/2 \rfloor) \text{ followed by the bit } (n \bmod 2), \qquad \text{bin}(1) = 1.$$
+Say it again for $\lfloor n/2 \rfloor$, and again...
 
 ::: {.columns}
 ::: {.column width="45%"}
@@ -189,8 +195,9 @@ Try it: $37 \to$ \_\_\_\_\_\_\_\_
 13 | 6 | 1;  6 | 3 | 0;  3 | 1 | 1;  then n = 1 is the base case: write 1.
 Read the last column from the bottom up after the base case's 1: 1101.
 The table IS the recursion unrolled: each row's floor(n/2) is the next row's n.
-The Python is the punchline word for word: the bits of n are binary(n // 2)
-followed by n % 2; stop at a single bit.
+The Python is the punchline word for word: binary takes an int and returns a
+str, and the + joins strings, not numbers: binary(n // 2) followed by n % 2.
+Stop at a single bit.
 37: 18 r1, 9 r0, 4 r1, 2 r0, 1 r0, then 1 -> 100101.
 The recursive call is on n/2, not n - 1. That's the case the next proof uses.
 :::
