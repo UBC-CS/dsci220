@@ -258,7 +258,7 @@ Each piece is one more than everything before it, like 1, 2, 4, 8.
 
 ## Puzzle 2: Nim {.activity .smaller}
 
-There are some piles of sticks: any number of piles, each with any number of sticks. On your turn, take as many sticks as you like from **one** pile (at least one). Whoever takes the **last** stick wins.
+There are some piles of sticks: any number of piles, each with any number of sticks. On your turn, take at least one stick from any one pile. Whoever takes the **last** stick wins.
 
 <div id="nim-widget" class="nim-widget">
 <style>
