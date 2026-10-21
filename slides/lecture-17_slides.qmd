@@ -295,7 +295,7 @@ Checked numerically for n < 5000.
 
 How many different values fit in $b$ bits? Let $C(b)$ be the count.
 
-$$C(1) = 2, \qquad C(b) = \text{\_\_\_\_\_\_} \cdot C(b-1)$$
+$$C(1) = 2, \qquad C(b) = \boxed{\phantom{2}} \cdot C(b-1)$$
 
 \ 
 
