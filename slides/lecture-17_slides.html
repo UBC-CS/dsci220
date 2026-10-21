@@ -305,7 +305,7 @@
 </tr>
 </tbody>
 </table>
-<countdown-timer id="timer_e9dc5a04454cf1be398efede79204767ffc77bdf" minutes="03" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<countdown-timer id="timer_538d0fdb76a22ff211bb80488151853fc9eebe30" minutes="03" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
  </countdown-timer>
 <aside class="notes">
 <p>10, 13, 7.</p>
@@ -333,7 +333,7 @@
 <p><br>
 </p>
 <p>How high can you count on your fingers? And toes?</p>
-<countdown-timer id="timer_e9dc5a04454cf1be398efede79204767ffc77bdf" minutes="03" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<countdown-timer id="timer_538d0fdb76a22ff211bb80488151853fc9eebe30" minutes="03" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
  </countdown-timer>
 <aside class="notes">
 <p>15 (1111). 7 bits (64 &lt;= 120 &lt; 128). One more bit DOUBLES the count. Fingers: 2^10 - 1 = 1023; fingers and toes: 2^20 - 1 = 1,048,575. Don’t prove anything yet – say: “you just guessed three theorems; the rest of today proves them.” largest with b bits = 2^b - 1 -&gt; Capacity slide (geometric sum) bits needed for 120 -&gt; How Many Bits? + the bound proof one more bit doubles -&gt; Capacity: C(b) = 2 C(b-1)</p>
@@ -351,20 +351,19 @@
 </section>
 <section id="binary-recursively" class="slide level2 smaller">
 <h2>Binary, Recursively</h2>
-<p>Take <span class="math inline">\(13 = (1101)_2\)</span> and factor a <span class="math inline">\(2\)</span> out of every term but the last:</p>
-<p><span class="math display">\[13 \;=\; 1{\cdot}8 + 1{\cdot}4 + 0{\cdot}2 + 1{\cdot}1 \;=\; 2\,\big(\boxed{\phantom{1{\cdot}4 + 1{\cdot}2 + 0{\cdot}1}}\big) + \boxed{\phantom{1}}\]</span></p>
+<p>Chop the last digit off <span class="math inline">\(3257\)</span>:</p>
+<p><span class="math display">\[3257 \;=\; 10 \cdot \boxed{\phantom{325}} + \boxed{\phantom{7}}\]</span></p>
 <p><br>
 </p>
-<p>In general:</p>
-<p><span class="math display">\[(b_{k-1}\dots b_1 b_0)_2 \;=\; \sum_{i=0}^{k-1} b_i 2^i \;=\; 2\,\Big(\boxed{\phantom{\textstyle\sum_{i=1}^{k-1} b_i 2^{i-1}}}\Big) + \boxed{\phantom{b_0}}\]</span></p>
+<p>Chop the last bit off <span class="math inline">\(13 = (1101)_2\)</span>:</p>
+<p><span class="math display">\[(1101)_2 \;=\; 2 \cdot \big(\boxed{\phantom{110}}\big)_2 + \boxed{\phantom{1}} \qquad\text{that is,}\qquad 13 \;=\; 2 \cdot \boxed{\phantom{6}} + \boxed{\phantom{1}}\]</span></p>
 <p><br>
 </p>
-<ul>
-<li>The last bit <span class="math inline">\(b_0\)</span> is ________ <span class="math inline">\(\quad\)</span> (in terms of <span class="math inline">\(n\)</span>)</li>
-<li>The number left when we chop off the last bit is ________</li>
-</ul>
+<div class="fragment">
+<p>For every <span class="math inline">\(n \geq 2\)</span>: <span class="math display">\[n \;=\; 2\left\lfloor n/2 \right\rfloor + (n \bmod 2)\]</span> The last bit of <span class="math inline">\(n\)</span> is <span class="math inline">\(n \bmod 2\)</span>, and the bits before it are the bits of <span class="math inline">\(\lfloor n/2 \rfloor\)</span>.</p>
+</div>
 <aside class="notes">
-<p>13 = 2(1<em>4 + 1</em>2 + 0<em>1) + 1 = 2 </em> (110)<em>2 + 1 = 2 * 6 + 1. General: sum</em>{i=0}^{k-1} b_i 2^i = b_0 + sum_{i=1}^{k-1} b_i 2^i = 2 * ( sum_{i=1}^{k-1} b_i 2^{i-1} ) + b_0 = 2 * (b_{k-1} … b_1)_2 + b_0. (The reindexing is the shifting trick from the summations video.) So b_0 is n mod 2: 0 if n is even, 1 if odd – the last bit is the parity. And chopping off the last bit gives floor(n/2): 2m + b_0 with b_0 in {0,1} means m is n/2 rounded down. Conclusion, for the next slide: n = 2 floor(n/2) + (n mod 2), and the bits of floor(n/2) are the bits of n without the last one.</p>
+<p>3257 = 10 * 325 + 7: chopping the last digit divides by 10 and keeps the remainder aside. Everyone knows this. (1101)<em>2 = 2 * (110)<em>2 + 1, i.e.&nbsp;13 = 2 * 6 + 1: in base 2, chopping the last bit divides by 2. Why it’s floor(n/2) and n mod 2: n = 2q + r with r in {0, 1} is division by 2 with remainder – the 3k / 3k+1 / 3k+2 cases from lecture 10, and mod from lecture 14. Quotient and remainder are unique, so q = floor(n/2), r = n mod 2. If anyone wants the general version: sum</em>{i=0}^{k-1} b_i 2^i = 2 * ( sum</em>{i=1}^{k-1} b_i 2^{i-1} ) + b_0 = 2 * (b_{k-1} … b_1)_2 + b_0 (pulling out the 2 shifts the index – the shifting trick from the summations video). Shift picture, as a backup: slide every bit one place right; each place value halves (eights become fours, …) and the ones bit falls off.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -377,18 +376,57 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="binary-recursively-the-recipe" class="slide level2">
-<h2>Binary, Recursively: the Recipe</h2>
-<p>So every <span class="math inline">\(n \geq 2\)</span> splits as <span class="math display">\[n = 2\left\lfloor n/2 \right\rfloor + (n \bmod 2),\]</span> and the bits of <span class="math inline">\(\lfloor n/2 \rfloor\)</span> are the bits of <span class="math inline">\(n\)</span> without the last one.</p>
-<p>To write <span class="math inline">\(n\)</span> in binary:</p>
-<ul>
-<li>if <span class="math inline">\(n = 1\)</span>: write <span class="math inline">\(1\)</span>.</li>
-<li>otherwise: write <span class="math inline">\(\lfloor n/2 \rfloor\)</span> in binary, then append the bit <span class="math inline">\(n \bmod 2\)</span>.</li>
-</ul>
-<p>&nbsp;</p>
-<p>Try it: <span class="math inline">\(13 \to\)</span> ______ <span class="math inline">\(\qquad\)</span> <span class="math inline">\(37 \to\)</span> ______</p>
+<section id="from-the-punchline-to-an-algorithm" class="slide level2 smaller">
+<h2>From the Punchline to an Algorithm</h2>
+<p>The bits of <span class="math inline">\(n\)</span> are the bits of <span class="math inline">\(\lfloor n/2 \rfloor\)</span>, followed by <span class="math inline">\(n \bmod 2\)</span>. Say it again for <span class="math inline">\(\lfloor n/2 \rfloor\)</span>, and again…</p>
+<div class="columns">
+<div class="column" style="width:45%;">
+<div class="fillable">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="math inline">\(n\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(\lfloor n/2 \rfloor\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(n \bmod 2\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">13</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div><div class="column" style="width:55%;">
+<div>
+<div id="pyodide-1" class="exercise-cell">
+
+</div>
+<script type="pyodide-1-contents">
+eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiZGVmIGJpbmFyeShuKTpcbiAgICBpZiBuIDwgMjpcbiAgICAgICAgcmV0dXJuIHN0cihuKVxuICAgIHJldHVybiBiaW5hcnkobiAvLyAyKSArIHN0cihuICUgMilcblxucHJpbnQoYmluYXJ5KDEzKSwgYmluYXJ5KDM3KSkifQ==
+</script>
+</div>
+</div></div>
+<p>Try it: <span class="math inline">\(37 \to\)</span> ________</p>
 <aside class="notes">
-<p>13: 6 r1, 3 r0, 1 r1, 1 -&gt; 1101 (read the remainders back up). 37: 18 r1, 9 r0, 4 r1, 2 r0, 1 r0, 1 -&gt; 100101. Point at the two pieces: the recursive call is on n/2, not n-1. That’s the case the induction will use.</p>
+<p>13 | 6 | 1; 6 | 3 | 0; 3 | 1 | 1; then n = 1 is the base case: write 1. Read the last column from the bottom up after the base case’s 1: 1101. The table IS the recursion unrolled: each row’s floor(n/2) is the next row’s n. The Python is the punchline word for word: the bits of n are binary(n // 2) followed by n % 2; stop at a single bit. 37: 18 r1, 9 r0, 4 r1, 2 r0, 1 r0, then 1 -&gt; 100101. The recursive call is on n/2, not n - 1. That’s the case the next proof uses.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -641,8 +679,11 @@
 <p>Claim: With <span class="math inline">\(b\)</span> bits we can represent <span class="math inline">\(2^b\)</span> values.</p>
 
 
+<script type="pyodide-data">
+eyJvcHRpb25zIjp7ImVudiI6eyJQTE9UTFlfUkVOREVSRVIiOiJwbG90bHlfbWltZXR5cGUifSwiaW5kZXhVUkwiOiJodHRwczovL2Nkbi5qc2RlbGl2ci5uZXQvcHlvZGlkZS92MC4yOC4xL2Z1bGwvIn0sInBhY2thZ2VzIjp7InBrZ3MiOlsicHlvZGlkZV9odHRwIiwibWljcm9waXAiLCJpcHl0aG9uIl19fQ==
+</script>
 <script type="ojs-module-contents">
-eyJjb250ZW50cyI6W119
+eyJjb250ZW50cyI6W3siY2VsbE5hbWUiOiJweW9kaWRlLTEiLCJpbmxpbmUiOmZhbHNlLCJtZXRob2ROYW1lIjoiaW50ZXJwcmV0Iiwic291cmNlIjoidmlld29mIF9weW9kaWRlX2VkaXRvcl8xID0ge1xuICBjb25zdCB7IFB5b2RpZGVFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuXG4gIGNvbnN0IHNjcmlwdENvbnRlbnQgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKGBzY3JpcHRbdHlwZT1cXFwicHlvZGlkZS0xLWNvbnRlbnRzXFxcIl1gKS50ZXh0Q29udGVudDtcbiAgY29uc3QgYmxvY2sgPSBKU09OLnBhcnNlKGI2NERlY29kZShzY3JpcHRDb250ZW50KSk7XG5cbiAgY29uc3Qgb3B0aW9ucyA9IE9iamVjdC5hc3NpZ24oeyBpZDogYHB5b2RpZGUtMS1jb250ZW50c2AgfSwgYmxvY2suYXR0cik7XG4gIGNvbnN0IGVkaXRvciA9IG5ldyBQeW9kaWRlRXhlcmNpc2VFZGl0b3IoXG4gICAgcHlvZGlkZU9qcy5weW9kaWRlUHJvbWlzZSxcbiAgICBibG9jay5jb2RlLFxuICAgIG9wdGlvbnNcbiAgKTtcblxuICByZXR1cm4gZWRpdG9yLmNvbnRhaW5lcjtcbn1cbl9weW9kaWRlX3ZhbHVlXzEgPSBweW9kaWRlT2pzLnByb2Nlc3MoX3B5b2RpZGVfZWRpdG9yXzEsIHt9KTtcbiJ9LHsiY2VsbE5hbWUiOiJweW9kaWRlLXByZWx1ZGUiLCJpbmxpbmUiOmZhbHNlLCJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJweW9kaWRlT2pzID0ge1xuICBjb25zdCB7XG4gICAgUHlvZGlkZUV2YWx1YXRvcixcbiAgICBQeW9kaWRlRW52aXJvbm1lbnRNYW5hZ2VyLFxuICAgIHNldHVwUHl0aG9uLFxuICAgIHN0YXJ0UHlvZGlkZVdvcmtlcixcbiAgICBiNjREZWNvZGUsXG4gICAgY29sbGFwc2VQYXRoLFxuICB9ID0gd2luZG93Ll9leGVyY2lzZV9vanNfcnVudGltZTtcblxuICBjb25zdCBzdGF0dXNDb250YWluZXIgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZChcImV4ZXJjaXNlLWxvYWRpbmctc3RhdHVzXCIpO1xuICBjb25zdCBpbmRpY2F0b3JDb250YWluZXIgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZChcImV4ZXJjaXNlLWxvYWRpbmctaW5kaWNhdG9yXCIpO1xuICBpbmRpY2F0b3JDb250YWluZXIuY2xhc3NMaXN0LnJlbW92ZShcImQtbm9uZVwiKTtcblxuICBsZXQgc3RhdHVzVGV4dCA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoXCJkaXZcIilcbiAgc3RhdHVzVGV4dC5jbGFzc0xpc3QgPSBcImV4ZXJjaXNlLWxvYWRpbmctZGV0YWlsc1wiO1xuICBzdGF0dXNUZXh0ID0gc3RhdHVzQ29udGFpbmVyLmFwcGVuZENoaWxkKHN0YXR1c1RleHQpO1xuICBzdGF0dXNUZXh0LnRleHRDb250ZW50ID0gYEluaXRpYWxpc2VgO1xuXG4gIC8vIEhvaXN0IGluZGljYXRvciBvdXQgZnJvbSBmaW5hbCBzbGlkZSB3aGVuIHJ1bm5pbmcgdW5kZXIgcmV2ZWFsXG4gIGNvbnN0IHJldmVhbFN0YXR1cyA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoXCIucmV2ZWFsIC5leGVyY2lzZS1sb2FkaW5nLWluZGljYXRvclwiKTtcbiAgaWYgKHJldmVhbFN0YXR1cykge1xuICAgIHJldmVhbFN0YXR1cy5yZW1vdmUoKTtcbiAgICBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKFwiLnJldmVhbCA+IC5zbGlkZXNcIikuYXBwZW5kQ2hpbGQocmV2ZWFsU3RhdHVzKTtcbiAgfVxuXG4gIC8vIE1ha2UgYW55IHJldmVhbCBzbGlkZXMgd2l0aCBsaXZlIGNlbGxzIHNjcm9sbGFibGVcbiAgZG9jdW1lbnQucXVlcnlTZWxlY3RvckFsbChcIi5yZXZlYWwgLmV4ZXJjaXNlLWNlbGxcIikuZm9yRWFjaCgoZWwpID0+IHtcbiAgICBlbC5jbG9zZXN0KCdzZWN0aW9uLnNsaWRlJykuY2xhc3NMaXN0LmFkZChcInNjcm9sbGFibGVcIik7XG4gIH0pXG5cbiAgLy8gUHlvZGlkZSBzdXBwbGVtZW50YWwgZGF0YSBhbmQgb3B0aW9uc1xuICBjb25zdCBkYXRhQ29udGVudCA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoYHNjcmlwdFt0eXBlPVxcXCJweW9kaWRlLWRhdGFcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBkYXRhID0gSlNPTi5wYXJzZShiNjREZWNvZGUoZGF0YUNvbnRlbnQpKTtcblxuICAvLyBHcmFiIGxpc3Qgb2YgcmVzb3VyY2VzIHRvIGJlIGRvd25sb2FkZWRcbiAgY29uc3QgZmlsZXNDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcInZmcy1maWxlXFxcIl1gKS50ZXh0Q29udGVudDtcbiAgY29uc3QgZmlsZXMgPSBKU09OLnBhcnNlKGI2NERlY29kZShmaWxlc0NvbnRlbnQpKTtcblxuICBsZXQgcHlvZGlkZVByb21pc2UgPSAoYXN5bmMgKCkgPT4ge1xuICAgIHN0YXR1c1RleHQudGV4dENvbnRlbnQgPSBgRG93bmxvYWRpbmcgUHlvZGlkZWA7XG4gICAgY29uc3QgcHlvZGlkZSA9IGF3YWl0IHN0YXJ0UHlvZGlkZVdvcmtlcihkYXRhLm9wdGlvbnMpO1xuXG4gICAgc3RhdHVzVGV4dC50ZXh0Q29udGVudCA9IGBEb3dubG9hZGluZyBwYWNrYWdlOiBtaWNyb3BpcGA7XG4gICAgYXdhaXQgcHlvZGlkZS5sb2FkUGFja2FnZShcIm1pY3JvcGlwXCIpO1xuICAgIGNvbnN0IG1pY3JvcGlwID0gYXdhaXQgcHlvZGlkZS5weWltcG9ydChcIm1pY3JvcGlwXCIpO1xuICAgIGF3YWl0IGRhdGEucGFja2FnZXMucGtncy5tYXAoKHBrZykgPT4gKCkgPT4ge1xuICAgICAgc3RhdHVzVGV4dC50ZXh0Q29udGVudCA9IGBEb3dubG9hZGluZyBwYWNrYWdlOiAke3BrZ31gO1xuICAgICAgcmV0dXJuIG1pY3JvcGlwLmluc3RhbGwocGtnKTtcbiAgICB9KS5yZWR1Y2UoKGN1ciwgbmV4dCkgPT4gY3VyLnRoZW4obmV4dCksIFByb21pc2UucmVzb2x2ZSgpKTtcbiAgICBhd2FpdCBtaWNyb3BpcC5kZXN0cm95KCk7XG5cbiAgICAvLyBEb3dubG9hZCBhbmQgaW5zdGFsbCByZXNvdXJjZXNcbiAgICBhd2FpdCBmaWxlcy5tYXAoKGZpbGUpID0+IGFzeW5jICgpID0+IHtcbiAgICAgIGNvbnN0IG5hbWUgPSBmaWxlLnN1YnN0cmluZyhmaWxlLmxhc3RJbmRleE9mKCcvJykgKyAxKTtcbiAgICAgIHN0YXR1c1RleHQudGV4dENvbnRlbnQgPSBgRG93bmxvYWRpbmcgcmVzb3VyY2U6ICR7bmFtZX1gO1xuICAgICAgY29uc3QgcmVzcG9uc2UgPSBhd2FpdCBmZXRjaChmaWxlKTtcbiAgICAgIGlmICghcmVzcG9uc2Uub2spIHtcbiAgICAgICAgdGhyb3cgbmV3IEVycm9yKGBDYW4ndCBkb3dubG9hZCBcXGAke2ZpbGV9XFxgLiBFcnJvciAke3Jlc3BvbnNlLnN0YXR1c306IFwiJHtyZXNwb25zZS5zdGF0dXNUZXh0fVwiLmApO1xuICAgICAgfVxuICAgICAgY29uc3QgZGF0YSA9IGF3YWl0IHJlc3BvbnNlLmFycmF5QnVmZmVyKCk7XG5cbiAgICAgIC8vIFN0b3JlIFVSTHMgaW4gdGhlIGN3ZCB3aXRob3V0IGFueSBzdWJkaXJlY3Rvcnkgc3RydWN0dXJlXG4gICAgICBpZiAoZmlsZS5pbmNsdWRlcyhcIjovL1wiKSkge1xuICAgICAgICBmaWxlID0gbmFtZTtcbiAgICAgIH1cblxuICAgICAgLy8gQ29sbGFwc2UgaGlnaGVyIGRpcmVjdG9yeSBzdHJ1Y3R1cmVcbiAgICAgIGZpbGUgPSBjb2xsYXBzZVBhdGgoZmlsZSk7XG5cbiAgICAgIC8vIENyZWF0ZSBkaXJlY3RvcnkgdHJlZSwgaWdub3JpbmcgXCJkaXJlY3RvcnkgZXhpc3RzXCIgVkZTIGVycm9yc1xuICAgICAgY29uc3QgcGFydHMgPSBmaWxlLnNwbGl0KCcvJykuc2xpY2UoMCwgLTEpO1xuICAgICAgbGV0IHBhdGggPSAnJztcbiAgICAgIHdoaWxlIChwYXJ0cy5sZW5ndGggPiAwKSB7XG4gICAgICAgIHBhdGggKz0gcGFydHMuc2hpZnQoKSArICcvJztcbiAgICAgICAgdHJ5IHtcbiAgICAgICAgICBhd2FpdCBweW9kaWRlLkZTLm1rZGlyKHBhdGgpO1xuICAgICAgICB9IGNhdGNoIChlKSB7XG4gICAgICAgICAgaWYgKGUubmFtZSAhPT0gXCJFcnJub0Vycm9yXCIpIHRocm93IGU7XG4gICAgICAgICAgaWYgKGUuZXJybm8gIT09IDIwKSB7XG4gICAgICAgICAgICBjb25zdCBlcnJvclRleHRQdHIgPSBhd2FpdCBweW9kaWRlLl9tb2R1bGUuX3N0cmVycm9yKGUuZXJybm8pO1xuICAgICAgICAgICAgY29uc3QgZXJyb3JUZXh0ID0gYXdhaXQgcHlvZGlkZS5fbW9kdWxlLlVURjhUb1N0cmluZyhlcnJvclRleHRQdHIpO1xuICAgICAgICAgICAgdGhyb3cgbmV3IEVycm9yKGBGaWxlc3lzdGVtIEVycm9yICR7ZS5lcnJub30gXCIke2Vycm9yVGV4dH1cIi5gKTtcbiAgICAgICAgICB9XG4gICAgICAgIH1cbiAgICAgIH1cblxuICAgICAgLy8gV3JpdGUgdGhpcyBmaWxlIHRvIHRoZSBWRlNcbiAgICAgIHRyeSB7XG4gICAgICAgIHJldHVybiBhd2FpdCBweW9kaWRlLkZTLndyaXRlRmlsZShmaWxlLCBuZXcgVWludDhBcnJheShkYXRhKSk7XG4gICAgICB9IGNhdGNoIChlKSB7XG4gICAgICAgIGlmIChlLm5hbWUgIT09IFwiRXJybm9FcnJvclwiKSB0aHJvdyBlO1xuICAgICAgICBjb25zdCBlcnJvclRleHRQdHIgPSBhd2FpdCBweW9kaWRlLl9tb2R1bGUuX3N0cmVycm9yKGUuZXJybm8pO1xuICAgICAgICBjb25zdCBlcnJvclRleHQgPSBhd2FpdCBweW9kaWRlLl9tb2R1bGUuVVRGOFRvU3RyaW5nKGVycm9yVGV4dFB0cik7XG4gICAgICAgIHRocm93IG5ldyBFcnJvcihgRmlsZXN5c3RlbSBFcnJvciAke2UuZXJybm99IFwiJHtlcnJvclRleHR9XCIuYCk7XG4gICAgICB9XG4gICAgfSkucmVkdWNlKChjdXIsIG5leHQpID0+IGN1ci50aGVuKG5leHQpLCBQcm9taXNlLnJlc29sdmUoKSk7XG5cbiAgICBzdGF0dXNUZXh0LnRleHRDb250ZW50ID0gYFB5b2RpZGUgZW52aXJvbm1lbnQgc2V0dXBgO1xuICAgIGF3YWl0IHNldHVwUHl0aG9uKHB5b2RpZGUpO1xuXG4gICAgc3RhdHVzVGV4dC5yZW1vdmUoKTtcbiAgICBpZiAoc3RhdHVzQ29udGFpbmVyLmNoaWxkcmVuLmxlbmd0aCA9PSAwKSB7XG4gICAgICBzdGF0dXNDb250YWluZXIucGFyZW50Tm9kZS5yZW1vdmUoKTtcbiAgICB9XG4gICAgcmV0dXJuIHB5b2RpZGU7XG4gIH0pKCkuY2F0Y2goKGVycikgPT4ge1xuICAgIHN0YXR1c1RleHQuc3R5bGUuY29sb3IgPSBcInZhcigtLWV4ZXJjaXNlLWVkaXRvci1obC1lciwgI0FEMDAwMClcIjtcbiAgICBzdGF0dXNUZXh0LnRleHRDb250ZW50ID0gZXJyLm1lc3NhZ2U7XG4gICAgLy9pbmRpY2F0b3JDb250YWluZXIucXVlcnlTZWxlY3RvcihcIi5zcGlubmVyLWdyb3dcIikuY2xhc3NMaXN0LmFkZChcImQtbm9uZVwiKTtcbiAgICB0aHJvdyBlcnI7XG4gIH0pO1xuXG4gIC8vIEtlZXAgdHJhY2sgb2YgaW5pdGlhbCBPSlMgYmxvY2sgcmVuZGVyXG4gIGNvbnN0IHJlbmRlcmVkT2pzID0ge307XG5cbiAgY29uc3QgcHJvY2VzcyA9IGFzeW5jIChjb250ZXh0LCBpbnB1dHMpID0+IHtcbiAgICBjb25zdCBweW9kaWRlID0gYXdhaXQgcHlvZGlkZVByb21pc2U7XG4gICAgY29uc3QgZXZhbHVhdG9yID0gbmV3IFB5b2RpZGVFdmFsdWF0b3IocHlvZGlkZSwgY29udGV4dCk7XG4gICAgYXdhaXQgZXZhbHVhdG9yLnByb2Nlc3MoaW5wdXRzKTtcbiAgICByZXR1cm4gZXZhbHVhdG9yLmNvbnRhaW5lcjtcbiAgfVxuXG4gIHJldHVybiB7XG4gICAgcHlvZGlkZVByb21pc2UsXG4gICAgcmVuZGVyZWRPanMsXG4gICAgcHJvY2VzcyxcbiAgfTtcbn1cbiJ9XX0=
 </script>
 <div id="exercise-loading-indicator" class="exercise-loading-indicator d-none d-flex align-items-center gap-2">
 <div id="exercise-loading-status" class="d-flex gap-2">
