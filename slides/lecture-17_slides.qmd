@@ -124,13 +124,13 @@ of today proves them."
 
 Take $13 = (1101)_2$ and factor a $2$ out of every term but the last:
 
-$$13 \;=\; 1\cdot 8 + 1\cdot 4 + 0\cdot 2 + 1\cdot 1 \;=\; 2\,(\underline{\qquad\qquad\qquad}) + \underline{\quad}$$
+$$13 \;=\; 1\cdot 8 + 1\cdot 4 + 0\cdot 2 + 1\cdot 1 \;=\; 2\,\big(\boxed{\phantom{1\cdot 4 + 1\cdot 2 + 0\cdot 1}}\big) + \boxed{\phantom{1}}$$
 
 \
 
 In general:
 
-$$(b_{k-1}\dots b_1 b_0)_2 \;=\; \sum_{i=0}^{k-1} b_i 2^i \;=\; 2\,\Big(\underline{\qquad\qquad\qquad}\Big) + \underline{\quad}$$
+$$(b_{k-1}\dots b_1 b_0)_2 \;=\; \sum_{i=0}^{k-1} b_i 2^i \;=\; 2\,\Big(\boxed{\phantom{\textstyle\sum_{i=1}^{k-1} b_i 2^{i-1}}}\Big) + \boxed{\phantom{b_0}}$$
 
 \
 
