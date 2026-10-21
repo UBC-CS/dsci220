@@ -14,7 +14,7 @@ subtitle: "Lecture 18, {{< var course.code >}}, {{< var course.term >}}"
 
 * See what goes wrong when the number of bits is **fixed**: overflow.
 * Recognize overflow as arithmetic $\bmod 2^b$.
-* Use powers of 2 to solve a puzzle about a gold chain.
+* Take away a puzzle about a gold chain.
 
 ## Technical Aside {.smaller}
 
@@ -141,47 +141,31 @@ If anyone asks how: a negative -x is stored as 2^b - x, which is -x mod 2^b,
 so addition just works mod 2^b. That's why int8(127) + 1 is -128.
 :::
 
-## The Gold Chain {.activity}
+## Something to Think About: The Gold Chain {.smaller}
 
 A traveller has a gold chain of $7$ links. The innkeeper wants one link per night, paid each night, for $7$ nights, and can give links back as change.
 
 \
 
-What is the fewest number of links you must cut?
+* What is the fewest number of links you must cut?
+
+* With $2$ cuts, how long a chain could you pay out this way? With $k$ cuts?
+
+* What does this have to do with binary?
 
 ::: notes
-One cut: cut link 3 (or 5). That leaves pieces of 1 (the cut link), 2 and 4.
-Night 1: pay the 1. Night 2: pay the 2, take back the 1. Night 3: pay the 1.
-Night 4: pay the 4, take back the 1 and 2. And so on to 7.
-Every amount 1..7 is a sum of distinct pieces from {1, 2, 4}: that's binary.
+For you, if it comes up next class -- not on the slide on purpose.
+1 cut: cut link 3 (or 5), leaving pieces 1 (the cut link), 2 and 4. Pay the 1;
+pay the 2 and take back the 1; pay the 1; pay the 4 and take back 1 and 2; ...
+Every amount 1..7 is a sum of distinct pieces of {1, 2, 4}: binary.
+2 cuts: 23 links (cut links 4 and 11): pieces 1, 1, 3, 6, 12.
+k cuts: k single links, then pieces (k+1), 2(k+1), ..., 2^k (k+1), for a chain
+of k + (k+1)(2^{k+1} - 1) = (k+1) 2^{k+1} - 1 (geometric sum, lecture 12).
+Brute force over every way to cut agrees: longest chains 1, 7, 23 for 0, 1, 2.
+Why the pieces double: if the pieces so far pay every amount 1..T, the next
+can be T + 1; the k singles cover 1..k, so k+1, then 2(k+1), 4(k+1), ...
+Each piece is one more than everything before it, like 1, 2, 4, 8.
 (Puzzle from mathalon, Oct 9; planning/question-ideas.md.)
-:::
-
-## The Gold Chain, Longer {.smaller}
-
-With $k$ cuts, how long can the chain be?
-
-\
-
-* $1$ cut: pieces $1, 2, 4$. $\quad$ Chain of $7$.
-* $2$ cuts: two single links, then pieces of sizes $3, 6, 12$. $\quad$ Chain of \_\_\_\_\_.
-* $k$ cuts: $k$ single links, then pieces of sizes $(k+1), 2(k+1), 4(k+1), \dots, 2^k(k+1)$. $\quad$ Chain of \_\_\_\_\_\_\_\_.
-
-\
-
-Why do the pieces double?
-
-::: notes
-2 cuts: 1 + 1 + 3 + 6 + 12 = 23 (cut links 4 and 11). Brute force over every
-way to cut agrees: the longest chains for 0, 1, 2 cuts are 1, 7, 23.
-k cuts: k + (k+1)(1 + 2 + ... + 2^k) = k + (k+1)(2^{k+1} - 1)
-      = (k+1) 2^{k+1} - 1        (geometric sum, lecture 12).
-Why double: if the pieces so far can pay every amount from 1 to T, the next
-piece can be as big as T + 1 -- then it pays T + 1 alone and T + 2 .. 2T + 1
-with change from the others. The k singles cover 1..k, so the first piece is
-k + 1; now T = 2k + 1, so the next is 2k + 2 = 2(k + 1); and so on. Each piece
-is one more than everything before it -- the same reason 1, 2, 4, 8 work in
-binary (1 + 2 + 4 = 7, so the next is 8).
 :::
 
 ## Words and Ideas
