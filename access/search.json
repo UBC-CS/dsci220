@@ -2699,6 +2699,27 @@
     "text": "Technical Aside\n\nint (pure Python): arbitrary precision (variable width)\nNumPy / Pandas arrays: fixed-width datatypes (int8, int32, int64, uint64, …)\n\n\n\nSigned range: \\([-2^{b-1},\\,2^{b-1}-1]\\); Unsigned range: \\([0,\\,2^b-1]\\).\nTakeaway: the container chooses the encoding (width & signedness).\n\n\nDemo:"
   },
   {
+    "objectID": "slides/lecture-18_slides.html#colourrepresentation",
+    "href": "slides/lecture-18_slides.html#colourrepresentation",
+    "title": "Binary, Continued: Fixed Width",
+    "section": "Colour—representation",
+    "text": "Colour—representation\nCan we use integers to represent colours?\nOne way: RGB (red, green, blue), where each “component” is in range 0 through 255.\nex. (255, 0, 127) ==     \nFun calculator for colour values: https://colorizer.org\nHow many bits for 256 values? 4  5  6  7  8  9  10"
+  },
+  {
+    "objectID": "slides/lecture-18_slides.html#colourrepresentation-1",
+    "href": "slides/lecture-18_slides.html#colourrepresentation-1",
+    "title": "Binary, Continued: Fixed Width",
+    "section": "Colour—representation",
+    "text": "Colour—representation\nWhat colour is\n\n\n\n0 1 0 1 1 0 1 1 0 1 0 1 1 0 1 1 0 1 0 1 1 0 1 1\n\n\n\nEasier to read if we use hexadecimal representation:\nEach component is represented by 2 hex digits 0123456789abcdef\nex. #674ea7     \n\nHex = base 16"
+  },
+  {
+    "objectID": "slides/lecture-18_slides.html#colourhexadecimal",
+    "href": "slides/lecture-18_slides.html#colourhexadecimal",
+    "title": "Binary, Continued: Fixed Width",
+    "section": "Colour—hexadecimal",
+    "text": "Colour—hexadecimal\nWhat colour is this 24-bit number?\n\n\n\n0110 0111 0100 1110 1010 0111\n\n\n\nConverting to hexadecimal: #___________\n(Use digits 0123456789abcdef)\n\nWalk through conversion on board: - First 8 bits (0110 0111) = Red channel - Next 8 bits (0100 1110) = Green channel - Last 8 bits (1010 0111) = Blue channel - Convert each 4-bit group to hex digit - Result: #674ea7"
+  },
+  {
     "objectID": "slides/lecture-18_slides.html#greying-a-pixel",
     "href": "slides/lecture-18_slides.html#greying-a-pixel",
     "title": "Binary, Continued: Fixed Width",

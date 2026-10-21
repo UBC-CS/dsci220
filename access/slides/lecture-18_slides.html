@@ -205,6 +205,67 @@ eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiXG4jIFB1cmUgUHl0aG9uIGlu
 </script>
 </div>
 </section>
+<section id="colourrepresentation" class="slide level2">
+<h2>Colour—representation</h2>
+<p>Can we use integers to represent colours?</p>
+<p>One way: RGB (red, green, blue), where each “component” is in range 0 through 255.</p>
+<p>ex. (<code>255, 0, 127</code>) == <span style="position: relative; top: 11px;"><span class="swatch-purple"></span> <span class="swatch-cyan"></span> <span class="swatch-lime"></span> <span class="swatch-pink"></span> <span class="swatch-apricot"></span></span></p>
+<p>Fun calculator for colour values: <a href="https://colorizer.org" class="uri">https://colorizer.org</a></p>
+<p>How many bits for 256 values? <code>4  5  6  7  8  9  10</code></p>
+</section>
+<section id="colourrepresentation-1" class="slide level2">
+<h2>Colour—representation</h2>
+<p>What colour is</p>
+<div class="small-font-size">
+<p><br>
+</p>
+<p><code>0 1 0 1 1 0 1 1 0 1 0 1 1 0 1 1 0 1 0 1 1 0 1 1</code></p>
+<p><br>
+</p>
+</div>
+<p>Easier to read if we use <em>hexadecimal</em> representation:</p>
+<p>Each component is represented by 2 hex digits <code>0123456789abcdef</code></p>
+<p>ex. <code>#674ea7</code> <span class="swatch-purple"></span> <span class="swatch-cyan"></span> <span class="swatch-lime"></span> <span class="swatch-pink"></span> <span class="swatch-orange"></span></p>
+<aside class="notes">
+<p>Hex = base 16</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="colourhexadecimal" class="slide level2">
+<h2>Colour—hexadecimal</h2>
+<p>What colour is this 24-bit number?</p>
+<div class="small-font-size">
+<p><br>
+</p>
+<p><code>0110 0111 0100 1110 1010 0111</code></p>
+<p><br>
+</p>
+</div>
+<p>Converting to hexadecimal: <code>#___________</code></p>
+<p>(Use digits <code>0123456789abcdef</code>)</p>
+<aside class="notes">
+<p>Walk through conversion on board: - First 8 bits (0110 0111) = Red channel - Next 8 bits (0100 1110) = Green channel - Last 8 bits (1010 0111) = Blue channel - Convert each 4-bit group to hex digit - Result: #674ea7</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
 <section id="greying-a-pixel" class="slide level2 smaller">
 <h2>Greying a Pixel</h2>
 <p>A colour pixel is three numbers, (red, green, blue), each from <span class="math inline">\(0\)</span> to <span class="math inline">\(255\)</span>, each stored as <code>uint</code>____.</p>
