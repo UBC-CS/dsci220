@@ -12,7 +12,7 @@
 <script src="../site_libs/quarto-contrib/iconify-3.0.0/iconify-icon.min.js"></script><meta charset="utf-8">
   <meta name="generator" content="quarto-1.10.19">
 
-  <title>{{&lt; var course.full-title &gt;}} – Representation as Encoding — Day 1: Binary &amp; Size</title>
+  <title>{{&lt; var course.full-title &gt;}} – Binary: an Application Interlude</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -134,10 +134,10 @@
   </style>
   <script type="module" src="../site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
   <link href="../site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
-<meta property="og:title" content="Representation as Encoding — Day 1: Binary &amp; Size – DSCI 220: Discrete Math for Data Science">
+<meta property="og:title" content="Binary: an Application Interlude – DSCI 220: Discrete Math for Data Science">
 <meta property="og:description" content="Lecture 17, DSCI 220, 2026W1">
 <meta property="og:site_name" content="DSCI 220: Discrete Math for Data Science">
-<meta name="twitter:title" content="Representation as Encoding — Day 1: Binary &amp; Size – DSCI 220: Discrete Math for Data Science">
+<meta name="twitter:title" content="Binary: an Application Interlude – DSCI 220: Discrete Math for Data Science">
 <meta name="twitter:description" content="Lecture 17, DSCI 220, 2026W1">
 <meta name="twitter:card" content="summary">
 </head>
@@ -146,7 +146,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Representation as Encoding — Day 1: Binary &amp; Size</h1>
+  <h1 class="title">Binary: an Application Interlude</h1>
   <p class="subtitle">Lecture 17, DSCI 220, 2026W1</p>
 
 <div class="quarto-title-authors">
@@ -155,45 +155,197 @@
 </section>
 <section id="announcements" class="slide level2">
 <h2>Announcements</h2>
-<style>
-.small { font-size: .9rem; }
-.tiny { font-size: .8rem; }
-.card { border: 2px solid #ddd; border-radius: 12px; padding: 14px 16px; margin: 10px 0; }
-</style>
+<ul>
+<li><strong>EX3</strong> is Thu 10/29 through Sun 11/1. It covers lectures 11 through 18.</li>
+<li><strong>Practice problems for EX3</strong> open on PrairieLearn tonight.</li>
+<li><strong>HW3</strong> is due Sunday.</li>
+</ul>
 </section>
 <section>
-<section id="binary-numbers" class="title-slide slide level1 center">
-<h1>Binary Numbers</h1>
+<section id="binary-an-application-interlude" class="title-slide slide level1 center">
+<h1>Binary: an Application Interlude</h1>
 
 </section>
 <section id="goals" class="slide level2">
 <h2>Goals</h2>
 <ul>
-<li>Read/write binary.</li>
-<li>Reason about <strong>bit length</strong> and <strong>capacity</strong>.<br>
-</li>
-<li>Prove: <span class="math inline">\(b\)</span> bits result in <span class="math inline">\(2^b\)</span> codes, with max value <span class="math inline">\(2^b-1\)</span>.<br>
-</li>
-<li>Overflow.</li>
+<li>Write numbers in binary. (This part is easy.)</li>
+<li>Describe binary <strong>recursively</strong>, and prove things about it <strong>by induction</strong>.</li>
+<li>Find <strong>bounds</strong>: how many bits a number needs, and how much <span class="math inline">\(b\)</span> bits can hold.</li>
 </ul>
-<p><strong>DON’T FORGET THE MAGIC TRICK!</strong></p>
+</section>
+<section id="pick-a-number" class="slide level2 activity">
+<h2>Pick a Number</h2>
+<p>Pick a whole number from <span class="math inline">\(1\)</span> to <span class="math inline">\(31\)</span>, and don’t tell anyone.</p>
+<p>Which cards is it on?</p>
+<aside class="notes">
+<p>The magic cards (activities/lecture-17_magic-cards-5.pdf, five colours, values 1, 2, 4, 8, 16 in rainbow order). Add up the values of the colours they name. Do it two or three times, then leave it: we explain it at the end.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="place-value" class="slide level2">
 <h2>Place Value</h2>
-<p>&nbsp; Consider an encoding into <em>binary</em>:</p>
-<p><span class="math display">\[(b_{k-1}\dots b_1 b_0)_2=\sum_{i=0}^{k-1} b_i 2^i,\quad b_i\in\{0,1\}\]</span></p>
-<p>We are not flummoxed by this, because:</p>
-<p><span class="math display">\[(d_{k-1}\dots d_1 d_0)_{10}=\sum_{i=0}^{k-1} d_i 10^i,\quad d_i\in\{0,1,\ldots,9\}\]</span></p>
-</section>
-<section id="quantify-the-length" class="slide level2">
-<h2>Quantify the Length</h2>
 <p>&nbsp;</p>
-<p>How many unique values can we store in <span class="math inline">\(n\)</span> bits?</p>
+<p><span class="math display">\[(d_{k-1}\dots d_1 d_0)_{10}=\sum_{i=0}^{k-1} d_i\, 10^i,\quad d_i\in\{0,1,\ldots,9\}\]</span></p>
 <p>&nbsp;</p>
+<p><span class="math display">\[(b_{k-1}\dots b_1 b_0)_2=\sum_{i=0}^{k-1} b_i\, 2^i,\quad b_i\in\{0,1\}\]</span></p>
 <p>&nbsp;</p>
-<p>How many bits to represent <span class="math inline">\(m\)</span> values?</p>
+<p>$(1101)_2 = $ ______ <span class="math inline">\(\qquad\)</span> <span class="math inline">\(37 = (\ \ \ \ \ \ \ \ \ \ )_2\)</span></p>
 <aside class="notes">
-<p><strong>Bit length:</strong> <span class="math inline">\(L(n)=\lfloor \log_2 n\rfloor+1\)</span> for <span class="math inline">\(n\ge1\)</span>. Emphasize <em>size grows like <span class="math inline">\(\log_2\)</span></em>. Show a quick table for <span class="math inline">\(2^b\)</span>.</p>
+<p>1101 = 8 + 4 + 1 = 13. 37 = 32 + 4 + 1 = 100101. Treat it as easy and move on: the interesting part is what we can say ABOUT it.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="binary-recursively" class="slide level2">
+<h2>Binary, Recursively</h2>
+<p>Every <span class="math inline">\(n \geq 2\)</span> splits as <span class="math display">\[n = 2\left\lfloor n/2 \right\rfloor + (n \bmod 2).\]</span></p>
+<p>So, to write <span class="math inline">\(n\)</span> in binary:</p>
+<ul>
+<li>if <span class="math inline">\(n = 1\)</span>: write <span class="math inline">\(1\)</span>.</li>
+<li>otherwise: write <span class="math inline">\(\lfloor n/2 \rfloor\)</span> in binary, then append the bit <span class="math inline">\(n \bmod 2\)</span>.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Try it: <span class="math inline">\(13 \to\)</span> ______ <span class="math inline">\(\qquad\)</span> <span class="math inline">\(37 \to\)</span> ______</p>
+<aside class="notes">
+<p>13: 6 r1, 3 r0, 1 r1, 1 -&gt; 1101 (read the remainders back up). 37: 18 r1, 9 r0, 4 r1, 2 r0, 1 r0, 1 -&gt; 100101. Point at the two pieces: the recursive call is on n/2, not n-1. That’s the case the induction will use.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="proof-moment-every-n-has-one" class="slide level2">
+<h2>Proof Moment: Every <span class="math inline">\(n\)</span> Has One</h2>
+<p>Claim: every integer <span class="math inline">\(n \geq 1\)</span> can be written as <span class="math inline">\(\sum_{i=0}^{k-1} b_i 2^i\)</span> with each <span class="math inline">\(b_i \in \{0,1\}\)</span>.</p>
+<p>&nbsp;</p>
+<p>Proof: Consider an arbitrary <span class="math inline">\(n \geq 1\)</span>. IH: assume the claim for every <span class="math inline">\(j\)</span> with <span class="math inline">\(1 \leq j &lt; n\)</span>.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<aside class="notes">
+<p>Case n = 1: 1 = 1 * 2^0. Case n &gt;= 2: let m = floor(n/2) and r = n mod 2, so n = 2m + r, r in {0,1}. 1 &lt;= m &lt; n, so the IH applies to j = m: m = sum_{i=0}^{k-1} c_i 2^i. Then n = 2m + r = sum_{i=0}^{k-1} c_i 2^{i+1} + r = r * 2^0 + sum_{i=1}^{k} c_{i-1} 2^i. That shift of index is the summation trick from the summations video. The IH is used at j = floor(n/2), not n-1. Say so. (Uniqueness is true too; not needed today.)</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="how-many-bits" class="slide level2 smaller">
+<h2>How Many Bits?</h2>
+<p>Let <span class="math inline">\(\text{bits}(n)\)</span> be the number of bits in <span class="math inline">\(n\)</span>’s binary representation. The recursion gives</p>
+<p><span class="math display">\[\text{bits}(1) = 1, \qquad \text{bits}(n) = 1 + \text{bits}(\lfloor n/2 \rfloor) \text{ for } n \geq 2.\]</span></p>
+<div class="fillable">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="math inline">\(n\)</span></th>
+<th style="text-align: center;">1</th>
+<th style="text-align: center;">2</th>
+<th style="text-align: center;">3</th>
+<th style="text-align: center;">4</th>
+<th style="text-align: center;">7</th>
+<th style="text-align: center;">8</th>
+<th style="text-align: center;">13</th>
+<th style="text-align: center;">16</th>
+<th style="text-align: center;">31</th>
+<th style="text-align: center;">32</th>
+<th style="text-align: center;">100</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">bits<span class="math inline">\((n)\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>When does bits<span class="math inline">\((n)\)</span> go up?</p>
+<aside class="notes">
+<p>1,2,2,3,3,4,4,5,5,6,7. It goes up exactly at the powers of 2. Guess: bits(n) = floor(log2 n) + 1.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="proof-moment-a-bound" class="slide level2 smaller">
+<h2>Proof Moment: A Bound</h2>
+<p>Claim: for every <span class="math inline">\(n \geq 1\)</span>, <span class="math inline">\(\quad 2^{\text{bits}(n)-1} \;\leq\; n \;&lt;\; 2^{\text{bits}(n)}\)</span>.</p>
+<p>&nbsp;</p>
+<p>Proof: Consider an arbitrary <span class="math inline">\(n \geq 1\)</span>. IH: assume the claim for every <span class="math inline">\(j\)</span> with <span class="math inline">\(1 \leq j &lt; n\)</span>.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>So $(n) = $ ____________, and <span class="math inline">\(\text{bits}(n) = O(\)</span>____<span class="math inline">\()\)</span>.</p>
+<aside class="notes">
+<p>Case n = 1: bits = 1, and 2^0 &lt;= 1 &lt; 2^1. Case n &gt;= 2: m = floor(n/2), 1 &lt;= m &lt; n, IH at j = m: 2^{bits(m)-1} &lt;= m &lt; 2^{bits(m)}, and bits(n) = bits(m) + 1. Lower: n &gt;= 2m &gt;= 2 * 2^{bits(m)-1} = 2^{bits(n)-1}. Upper: m &lt; 2^{bits(m)} means m &lt;= 2^{bits(m)} - 1, so n &lt;= 2m + 1 &lt;= 2^{bits(m)+1} - 1 &lt; 2^{bits(n)}. Take log2 of the bound: bits(n) - 1 &lt;= log2 n &lt; bits(n), so bits(n) = floor(log2 n) + 1, and bits(n) = O(log n). The size of a number’s representation grows like its log – last week’s asymptotics, in a data type. Checked numerically for n &lt; 5000.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="capacity" class="slide level2 smaller">
+<h2>Capacity</h2>
+<p>How many different values fit in <span class="math inline">\(b\)</span> bits? Let <span class="math inline">\(C(b)\)</span> be the count.</p>
+<p><span class="math display">\[C(1) = 2, \qquad C(b) = \text{\_\_\_\_\_\_} \cdot C(b-1)\]</span></p>
+<p>&nbsp;</p>
+<p>So $C(b) = $ ______. The largest value is $(111)<em>2 = </em>{i=0}^{b-1} 2^i = $ ______.</p>
+<aside class="notes">
+<p>C(b) = 2 C(b-1): every (b-1)-bit pattern, followed by a 0 or by a 1. C(b) = 2^b, by induction (same shape as the narrow-shelf Hanoi recurrence). Largest value: the geometric sum from lecture 12, 2^b - 1. That’s also the upper bound from the last slide with bits = b.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -208,22 +360,17 @@
 </section>
 <section id="capacity-quickies" class="slide level2">
 <h2>Capacity Quickies</h2>
-<p>&nbsp;</p>
-<p>How many codes with…</p>
+<p>How many values with…</p>
 <ul>
-<li>8 bits?<br>
-</li>
-<li>12 bits?</li>
+<li>8 bits? <span class="math inline">\(\qquad\)</span> 12 bits?</li>
 </ul>
 <p>&nbsp;</p>
 <p>How many bits to count to…</p>
 <ul>
-<li><span class="math inline">\(500\)</span>?</li>
-<li><span class="math inline">\(5000\)</span>?</li>
-<li><span class="math inline">\(1000000\)</span>?</li>
+<li><span class="math inline">\(500\)</span>? <span class="math inline">\(\qquad\)</span> <span class="math inline">\(5000\)</span>? <span class="math inline">\(\qquad\)</span> <span class="math inline">\(1{,}000{,}000\)</span>?</li>
 </ul>
 <aside class="notes">
-<p><em>Answers:</em> <span class="math inline">\(2^8=256\)</span>, <span class="math inline">\(2^{12}=4096\)</span>, <span class="math inline">\(\lceil\log_2 500\rceil=9\)</span>.</p>
+<p>256, 4096. bits(500) = 9, bits(5000) = 13, bits(10^6) = 20 (all checked).</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -236,97 +383,42 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="proof-moment" class="slide level2">
-<h2>Proof Moment</h2>
-<p>Claim: With <span class="math inline">\(b\)</span> bits we can represent <span class="math inline">\(2^b\)</span> values.</p>
-</section>
-<section id="technical-aside" class="slide level2 smaller">
-<h2>Technical Aside</h2>
-<ul>
-<li><p><strong><code>int</code> (pure Python):</strong> arbitrary precision (variable width)</p></li>
-<li><p><strong>NumPy / Pandas arrays:</strong> fixed-width datatypes (<code>int8</code>, <code>int32</code>, <code>int64</code>, <code>uint64</code>, …)</p></li>
-</ul>
-<aside class="notes">
-<ul>
-<li>Signed range: <span class="math inline">\([-2^{b-1},\,2^{b-1}-1]\)</span>; Unsigned range: <span class="math inline">\([0,\,2^b-1]\)</span>.</li>
-<li><strong>Takeaway:</strong> the <strong>container</strong> chooses the encoding (width &amp; signedness).</li>
-</ul>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-<p><strong>Demo:</strong></p>
-<div>
-<div id="pyodide-1" class="exercise-cell">
-
-</div>
-<script type="pyodide-1-contents">
-eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiXG4jIFB1cmUgUHl0aG9uIGludCAoZ3Jvd3MgdG8gZml0KVxuZnJvbSBtYXRoIGltcG9ydCBsb2cyLCBjZWlsXG5uID0gKDEgPDwgMTAwKSArIDdcbnByaW50KFwiYml0X2xlbmd0aDpcIiwgbi5iaXRfbGVuZ3RoKCkpICBcblxuIyBGaXhlZC13aWR0aCBpbnRlZ2VycyBvdmVyZmxvdyAoTnVtUHkpXG5pbXBvcnQgbnVtcHkgYXMgbnBcbnByaW50KFwidWludDggd3JhcDpcIiwgbnAudWludDgoMjU1KSArIDEpICBcbnByaW50KFwiaW50OCB3cmFwOlwiLCAgbnAuaW50OCgxMjcpICsgMSkgICAifQ==
-</script>
-</div>
-</section>
-<section id="overflow" class="slide level2">
-<h2>Overflow</h2>
-<p>Consider addition, with 4 bits:</p>
-<aside class="notes">
-<p>annotate 1101_2 + 110_2 and ask students to speculate on 1) how addition works, and how they would describe the overflow. (they’ll say it’s like mod 2^4) With <span class="math inline">\(b\)</span> fixed bits, adding wraps <span class="math inline">\(\bmod 2^b\)</span>.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-<p><br>
-</p>
-<p>&nbsp;</p>
-<p><br>
-</p>
-<p>&nbsp;</p>
-<p>Punchline: Overflow occurs when the number you want to represent is too big to fit into the space you’ve reserved for it.</p>
-</section>
-<section id="signed-integers" class="slide level2 smaller">
-<h2>Signed Integers</h2>
-<p><br>
-</p>
-<p>Unsigned integers are represented by their encodings as discussed above.</p>
-<p><br>
-</p>
-<p><span class="math inline">\(b\)</span> bits typically represent values <span class="math inline">\([0..2^b-1]\)</span>.</p>
-<p><br>
-</p>
-<p>Signed integers have a different encoding (that we won’t discuss) but we can still guess the values that can be encoded:</p>
-<p><br>
-</p>
-<p><span class="math inline">\(b\)</span> bits typically represent values ____________.</p>
-</section>
-<section id="activity" class="slide level2">
+<section id="activity" class="slide level2 activity">
 <h2>Activity</h2>
-<p>For each, compute <strong>bits needed</strong> or <strong>max value</strong>:</p>
+<p>For each, compute the <strong>bits needed</strong> or the <strong>largest value</strong>:</p>
 <ol type="1">
-<li>Seats in a 500-seat hall.<br>
-</li>
-<li>12-bit unsigned max.<br>
-</li>
-<li>World pop (<span class="math inline">\(\approx 8\cdot10^9\)</span> people) bits for unique IDs.<br>
-</li>
-<li>Timestamps for next <span class="math inline">\(100\)</span> years at 1-second resolution.</li>
+<li>Seats in a 500-seat hall.</li>
+<li>12-bit unsigned max.</li>
+<li>World population (<span class="math inline">\(\approx 8\cdot10^9\)</span> people): bits for unique IDs.</li>
+<li>Timestamps for the next <span class="math inline">\(100\)</span> years at 1-second resolution.</li>
 </ol>
 <aside class="notes">
 <ol type="1">
-<li>9; (2) 4095; (3) <span class="math inline">\(\lceil\log_2(8e9)\rceil=33\)</span>; (4) seconds <span class="math inline">\(\approx 3.15e9\)</span> → 32 bits.</li>
+<li>9; (2) 4095; (3) 33; (4) 100 years is about 3.15e9 seconds -&gt; 32 bits. All checked.</li>
 </ol>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="the-trick-explained" class="slide level2 smaller">
+<h2>The Trick, Explained</h2>
+<p>Card <span class="math inline">\(i\)</span> holds exactly the numbers whose bit <span class="math inline">\(i\)</span> is <span class="math inline">\(1\)</span>. Its top-left number is <span class="math inline">\(2^i\)</span>.</p>
+<p>&nbsp;</p>
+<ul>
+<li><p>Why does adding the top-left numbers give back the number?</p></li>
+<li><p>Why are there exactly <span class="math inline">\(5\)</span> cards for the numbers <span class="math inline">\(1\)</span> to <span class="math inline">\(31\)</span>?</p></li>
+<li><p>How many cards would you need for <span class="math inline">\(1\)</span> to <span class="math inline">\(1000\)</span>?</p></li>
+</ul>
+<aside class="notes">
+<p>Saying which cards it’s on is saying which bits are 1. Adding the 2^i for those bits is the place-value sum. 31 = 2^5 - 1 is the largest 5-bit value (capacity slide). 1000 needs bits(1000) = 10 cards.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -344,11 +436,8 @@ eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiXG4jIFB1cmUgUHl0aG9uIGlu
 <p>In words: what does <span class="math inline">\(\lceil\log_2 N\rceil\)</span> tell you?</p>
 
 
-<script type="pyodide-data">
-eyJvcHRpb25zIjp7ImVudiI6eyJQTE9UTFlfUkVOREVSRVIiOiJwbG90bHlfbWltZXR5cGUifSwiaW5kZXhVUkwiOiJodHRwczovL2Nkbi5qc2RlbGl2ci5uZXQvcHlvZGlkZS92MC4yOC4xL2Z1bGwvIn0sInBhY2thZ2VzIjp7InBrZ3MiOlsicHlvZGlkZV9odHRwIiwibWljcm9waXAiLCJpcHl0aG9uIl19fQ==
-</script>
 <script type="ojs-module-contents">
-eyJjb250ZW50cyI6W3siY2VsbE5hbWUiOiJweW9kaWRlLTEiLCJpbmxpbmUiOmZhbHNlLCJtZXRob2ROYW1lIjoiaW50ZXJwcmV0Iiwic291cmNlIjoidmlld29mIF9weW9kaWRlX2VkaXRvcl8xID0ge1xuICBjb25zdCB7IFB5b2RpZGVFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuXG4gIGNvbnN0IHNjcmlwdENvbnRlbnQgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKGBzY3JpcHRbdHlwZT1cXFwicHlvZGlkZS0xLWNvbnRlbnRzXFxcIl1gKS50ZXh0Q29udGVudDtcbiAgY29uc3QgYmxvY2sgPSBKU09OLnBhcnNlKGI2NERlY29kZShzY3JpcHRDb250ZW50KSk7XG5cbiAgY29uc3Qgb3B0aW9ucyA9IE9iamVjdC5hc3NpZ24oeyBpZDogYHB5b2RpZGUtMS1jb250ZW50c2AgfSwgYmxvY2suYXR0cik7XG4gIGNvbnN0IGVkaXRvciA9IG5ldyBQeW9kaWRlRXhlcmNpc2VFZGl0b3IoXG4gICAgcHlvZGlkZU9qcy5weW9kaWRlUHJvbWlzZSxcbiAgICBibG9jay5jb2RlLFxuICAgIG9wdGlvbnNcbiAgKTtcblxuICByZXR1cm4gZWRpdG9yLmNvbnRhaW5lcjtcbn1cbl9weW9kaWRlX3ZhbHVlXzEgPSBweW9kaWRlT2pzLnByb2Nlc3MoX3B5b2RpZGVfZWRpdG9yXzEsIHt9KTtcbiJ9LHsiY2VsbE5hbWUiOiJweW9kaWRlLXByZWx1ZGUiLCJpbmxpbmUiOmZhbHNlLCJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJweW9kaWRlT2pzID0ge1xuICBjb25zdCB7XG4gICAgUHlvZGlkZUV2YWx1YXRvcixcbiAgICBQeW9kaWRlRW52aXJvbm1lbnRNYW5hZ2VyLFxuICAgIHNldHVwUHl0aG9uLFxuICAgIHN0YXJ0UHlvZGlkZVdvcmtlcixcbiAgICBiNjREZWNvZGUsXG4gICAgY29sbGFwc2VQYXRoLFxuICB9ID0gd2luZG93Ll9leGVyY2lzZV9vanNfcnVudGltZTtcblxuICBjb25zdCBzdGF0dXNDb250YWluZXIgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZChcImV4ZXJjaXNlLWxvYWRpbmctc3RhdHVzXCIpO1xuICBjb25zdCBpbmRpY2F0b3JDb250YWluZXIgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZChcImV4ZXJjaXNlLWxvYWRpbmctaW5kaWNhdG9yXCIpO1xuICBpbmRpY2F0b3JDb250YWluZXIuY2xhc3NMaXN0LnJlbW92ZShcImQtbm9uZVwiKTtcblxuICBsZXQgc3RhdHVzVGV4dCA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoXCJkaXZcIilcbiAgc3RhdHVzVGV4dC5jbGFzc0xpc3QgPSBcImV4ZXJjaXNlLWxvYWRpbmctZGV0YWlsc1wiO1xuICBzdGF0dXNUZXh0ID0gc3RhdHVzQ29udGFpbmVyLmFwcGVuZENoaWxkKHN0YXR1c1RleHQpO1xuICBzdGF0dXNUZXh0LnRleHRDb250ZW50ID0gYEluaXRpYWxpc2VgO1xuXG4gIC8vIEhvaXN0IGluZGljYXRvciBvdXQgZnJvbSBmaW5hbCBzbGlkZSB3aGVuIHJ1bm5pbmcgdW5kZXIgcmV2ZWFsXG4gIGNvbnN0IHJldmVhbFN0YXR1cyA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoXCIucmV2ZWFsIC5leGVyY2lzZS1sb2FkaW5nLWluZGljYXRvclwiKTtcbiAgaWYgKHJldmVhbFN0YXR1cykge1xuICAgIHJldmVhbFN0YXR1cy5yZW1vdmUoKTtcbiAgICBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKFwiLnJldmVhbCA+IC5zbGlkZXNcIikuYXBwZW5kQ2hpbGQocmV2ZWFsU3RhdHVzKTtcbiAgfVxuXG4gIC8vIE1ha2UgYW55IHJldmVhbCBzbGlkZXMgd2l0aCBsaXZlIGNlbGxzIHNjcm9sbGFibGVcbiAgZG9jdW1lbnQucXVlcnlTZWxlY3RvckFsbChcIi5yZXZlYWwgLmV4ZXJjaXNlLWNlbGxcIikuZm9yRWFjaCgoZWwpID0+IHtcbiAgICBlbC5jbG9zZXN0KCdzZWN0aW9uLnNsaWRlJykuY2xhc3NMaXN0LmFkZChcInNjcm9sbGFibGVcIik7XG4gIH0pXG5cbiAgLy8gUHlvZGlkZSBzdXBwbGVtZW50YWwgZGF0YSBhbmQgb3B0aW9uc1xuICBjb25zdCBkYXRhQ29udGVudCA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoYHNjcmlwdFt0eXBlPVxcXCJweW9kaWRlLWRhdGFcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBkYXRhID0gSlNPTi5wYXJzZShiNjREZWNvZGUoZGF0YUNvbnRlbnQpKTtcblxuICAvLyBHcmFiIGxpc3Qgb2YgcmVzb3VyY2VzIHRvIGJlIGRvd25sb2FkZWRcbiAgY29uc3QgZmlsZXNDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcInZmcy1maWxlXFxcIl1gKS50ZXh0Q29udGVudDtcbiAgY29uc3QgZmlsZXMgPSBKU09OLnBhcnNlKGI2NERlY29kZShmaWxlc0NvbnRlbnQpKTtcblxuICBsZXQgcHlvZGlkZVByb21pc2UgPSAoYXN5bmMgKCkgPT4ge1xuICAgIHN0YXR1c1RleHQudGV4dENvbnRlbnQgPSBgRG93bmxvYWRpbmcgUHlvZGlkZWA7XG4gICAgY29uc3QgcHlvZGlkZSA9IGF3YWl0IHN0YXJ0UHlvZGlkZVdvcmtlcihkYXRhLm9wdGlvbnMpO1xuXG4gICAgc3RhdHVzVGV4dC50ZXh0Q29udGVudCA9IGBEb3dubG9hZGluZyBwYWNrYWdlOiBtaWNyb3BpcGA7XG4gICAgYXdhaXQgcHlvZGlkZS5sb2FkUGFja2FnZShcIm1pY3JvcGlwXCIpO1xuICAgIGNvbnN0IG1pY3JvcGlwID0gYXdhaXQgcHlvZGlkZS5weWltcG9ydChcIm1pY3JvcGlwXCIpO1xuICAgIGF3YWl0IGRhdGEucGFja2FnZXMucGtncy5tYXAoKHBrZykgPT4gKCkgPT4ge1xuICAgICAgc3RhdHVzVGV4dC50ZXh0Q29udGVudCA9IGBEb3dubG9hZGluZyBwYWNrYWdlOiAke3BrZ31gO1xuICAgICAgcmV0dXJuIG1pY3JvcGlwLmluc3RhbGwocGtnKTtcbiAgICB9KS5yZWR1Y2UoKGN1ciwgbmV4dCkgPT4gY3VyLnRoZW4obmV4dCksIFByb21pc2UucmVzb2x2ZSgpKTtcbiAgICBhd2FpdCBtaWNyb3BpcC5kZXN0cm95KCk7XG5cbiAgICAvLyBEb3dubG9hZCBhbmQgaW5zdGFsbCByZXNvdXJjZXNcbiAgICBhd2FpdCBmaWxlcy5tYXAoKGZpbGUpID0+IGFzeW5jICgpID0+IHtcbiAgICAgIGNvbnN0IG5hbWUgPSBmaWxlLnN1YnN0cmluZyhmaWxlLmxhc3RJbmRleE9mKCcvJykgKyAxKTtcbiAgICAgIHN0YXR1c1RleHQudGV4dENvbnRlbnQgPSBgRG93bmxvYWRpbmcgcmVzb3VyY2U6ICR7bmFtZX1gO1xuICAgICAgY29uc3QgcmVzcG9uc2UgPSBhd2FpdCBmZXRjaChmaWxlKTtcbiAgICAgIGlmICghcmVzcG9uc2Uub2spIHtcbiAgICAgICAgdGhyb3cgbmV3IEVycm9yKGBDYW4ndCBkb3dubG9hZCBcXGAke2ZpbGV9XFxgLiBFcnJvciAke3Jlc3BvbnNlLnN0YXR1c306IFwiJHtyZXNwb25zZS5zdGF0dXNUZXh0fVwiLmApO1xuICAgICAgfVxuICAgICAgY29uc3QgZGF0YSA9IGF3YWl0IHJlc3BvbnNlLmFycmF5QnVmZmVyKCk7XG5cbiAgICAgIC8vIFN0b3JlIFVSTHMgaW4gdGhlIGN3ZCB3aXRob3V0IGFueSBzdWJkaXJlY3Rvcnkgc3RydWN0dXJlXG4gICAgICBpZiAoZmlsZS5pbmNsdWRlcyhcIjovL1wiKSkge1xuICAgICAgICBmaWxlID0gbmFtZTtcbiAgICAgIH1cblxuICAgICAgLy8gQ29sbGFwc2UgaGlnaGVyIGRpcmVjdG9yeSBzdHJ1Y3R1cmVcbiAgICAgIGZpbGUgPSBjb2xsYXBzZVBhdGgoZmlsZSk7XG5cbiAgICAgIC8vIENyZWF0ZSBkaXJlY3RvcnkgdHJlZSwgaWdub3JpbmcgXCJkaXJlY3RvcnkgZXhpc3RzXCIgVkZTIGVycm9yc1xuICAgICAgY29uc3QgcGFydHMgPSBmaWxlLnNwbGl0KCcvJykuc2xpY2UoMCwgLTEpO1xuICAgICAgbGV0IHBhdGggPSAnJztcbiAgICAgIHdoaWxlIChwYXJ0cy5sZW5ndGggPiAwKSB7XG4gICAgICAgIHBhdGggKz0gcGFydHMuc2hpZnQoKSArICcvJztcbiAgICAgICAgdHJ5IHtcbiAgICAgICAgICBhd2FpdCBweW9kaWRlLkZTLm1rZGlyKHBhdGgpO1xuICAgICAgICB9IGNhdGNoIChlKSB7XG4gICAgICAgICAgaWYgKGUubmFtZSAhPT0gXCJFcnJub0Vycm9yXCIpIHRocm93IGU7XG4gICAgICAgICAgaWYgKGUuZXJybm8gIT09IDIwKSB7XG4gICAgICAgICAgICBjb25zdCBlcnJvclRleHRQdHIgPSBhd2FpdCBweW9kaWRlLl9tb2R1bGUuX3N0cmVycm9yKGUuZXJybm8pO1xuICAgICAgICAgICAgY29uc3QgZXJyb3JUZXh0ID0gYXdhaXQgcHlvZGlkZS5fbW9kdWxlLlVURjhUb1N0cmluZyhlcnJvclRleHRQdHIpO1xuICAgICAgICAgICAgdGhyb3cgbmV3IEVycm9yKGBGaWxlc3lzdGVtIEVycm9yICR7ZS5lcnJub30gXCIke2Vycm9yVGV4dH1cIi5gKTtcbiAgICAgICAgICB9XG4gICAgICAgIH1cbiAgICAgIH1cblxuICAgICAgLy8gV3JpdGUgdGhpcyBmaWxlIHRvIHRoZSBWRlNcbiAgICAgIHRyeSB7XG4gICAgICAgIHJldHVybiBhd2FpdCBweW9kaWRlLkZTLndyaXRlRmlsZShmaWxlLCBuZXcgVWludDhBcnJheShkYXRhKSk7XG4gICAgICB9IGNhdGNoIChlKSB7XG4gICAgICAgIGlmIChlLm5hbWUgIT09IFwiRXJybm9FcnJvclwiKSB0aHJvdyBlO1xuICAgICAgICBjb25zdCBlcnJvclRleHRQdHIgPSBhd2FpdCBweW9kaWRlLl9tb2R1bGUuX3N0cmVycm9yKGUuZXJybm8pO1xuICAgICAgICBjb25zdCBlcnJvclRleHQgPSBhd2FpdCBweW9kaWRlLl9tb2R1bGUuVVRGOFRvU3RyaW5nKGVycm9yVGV4dFB0cik7XG4gICAgICAgIHRocm93IG5ldyBFcnJvcihgRmlsZXN5c3RlbSBFcnJvciAke2UuZXJybm99IFwiJHtlcnJvclRleHR9XCIuYCk7XG4gICAgICB9XG4gICAgfSkucmVkdWNlKChjdXIsIG5leHQpID0+IGN1ci50aGVuKG5leHQpLCBQcm9taXNlLnJlc29sdmUoKSk7XG5cbiAgICBzdGF0dXNUZXh0LnRleHRDb250ZW50ID0gYFB5b2RpZGUgZW52aXJvbm1lbnQgc2V0dXBgO1xuICAgIGF3YWl0IHNldHVwUHl0aG9uKHB5b2RpZGUpO1xuXG4gICAgc3RhdHVzVGV4dC5yZW1vdmUoKTtcbiAgICBpZiAoc3RhdHVzQ29udGFpbmVyLmNoaWxkcmVuLmxlbmd0aCA9PSAwKSB7XG4gICAgICBzdGF0dXNDb250YWluZXIucGFyZW50Tm9kZS5yZW1vdmUoKTtcbiAgICB9XG4gICAgcmV0dXJuIHB5b2RpZGU7XG4gIH0pKCkuY2F0Y2goKGVycikgPT4ge1xuICAgIHN0YXR1c1RleHQuc3R5bGUuY29sb3IgPSBcInZhcigtLWV4ZXJjaXNlLWVkaXRvci1obC1lciwgI0FEMDAwMClcIjtcbiAgICBzdGF0dXNUZXh0LnRleHRDb250ZW50ID0gZXJyLm1lc3NhZ2U7XG4gICAgLy9pbmRpY2F0b3JDb250YWluZXIucXVlcnlTZWxlY3RvcihcIi5zcGlubmVyLWdyb3dcIikuY2xhc3NMaXN0LmFkZChcImQtbm9uZVwiKTtcbiAgICB0aHJvdyBlcnI7XG4gIH0pO1xuXG4gIC8vIEtlZXAgdHJhY2sgb2YgaW5pdGlhbCBPSlMgYmxvY2sgcmVuZGVyXG4gIGNvbnN0IHJlbmRlcmVkT2pzID0ge307XG5cbiAgY29uc3QgcHJvY2VzcyA9IGFzeW5jIChjb250ZXh0LCBpbnB1dHMpID0+IHtcbiAgICBjb25zdCBweW9kaWRlID0gYXdhaXQgcHlvZGlkZVByb21pc2U7XG4gICAgY29uc3QgZXZhbHVhdG9yID0gbmV3IFB5b2RpZGVFdmFsdWF0b3IocHlvZGlkZSwgY29udGV4dCk7XG4gICAgYXdhaXQgZXZhbHVhdG9yLnByb2Nlc3MoaW5wdXRzKTtcbiAgICByZXR1cm4gZXZhbHVhdG9yLmNvbnRhaW5lcjtcbiAgfVxuXG4gIHJldHVybiB7XG4gICAgcHlvZGlkZVByb21pc2UsXG4gICAgcmVuZGVyZWRPanMsXG4gICAgcHJvY2VzcyxcbiAgfTtcbn1cbiJ9XX0=
+eyJjb250ZW50cyI6W119
 </script>
 <div id="exercise-loading-indicator" class="exercise-loading-indicator d-none d-flex align-items-center gap-2">
 <div id="exercise-loading-status" class="d-flex gap-2">

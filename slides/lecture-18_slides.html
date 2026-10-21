@@ -12,7 +12,7 @@
 <script src="../site_libs/quarto-contrib/iconify-3.0.0/iconify-icon.min.js"></script><meta charset="utf-8">
   <meta name="generator" content="quarto-1.10.19">
 
-  <title>{{&lt; var course.full-title &gt;}} – Representation as Encoding — Day 2: Binary &amp; Size</title>
+  <title>{{&lt; var course.full-title &gt;}} – Binary, Continued: Fixed Width</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -134,10 +134,10 @@
   </style>
   <script type="module" src="../site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
   <link href="../site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
-<meta property="og:title" content="Representation as Encoding — Day 2: Binary &amp; Size – DSCI 220: Discrete Math for Data Science">
+<meta property="og:title" content="Binary, Continued: Fixed Width – DSCI 220: Discrete Math for Data Science">
 <meta property="og:description" content="Lecture 18, DSCI 220, 2026W1">
 <meta property="og:site_name" content="DSCI 220: Discrete Math for Data Science">
-<meta name="twitter:title" content="Representation as Encoding — Day 2: Binary &amp; Size – DSCI 220: Discrete Math for Data Science">
+<meta name="twitter:title" content="Binary, Continued: Fixed Width – DSCI 220: Discrete Math for Data Science">
 <meta name="twitter:description" content="Lecture 18, DSCI 220, 2026W1">
 <meta name="twitter:card" content="summary">
 </head>
@@ -146,7 +146,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Representation as Encoding — Day 2: Binary &amp; Size</h1>
+  <h1 class="title">Binary, Continued: Fixed Width</h1>
   <p class="subtitle">Lecture 18, DSCI 220, 2026W1</p>
 
 <div class="quarto-title-authors">
@@ -155,38 +155,23 @@
 </section>
 <section id="announcements" class="slide level2">
 <h2>Announcements</h2>
-<style>
-.small { font-size: .9rem; }
-.tiny { font-size: .8rem; }
-.card { border: 2px solid #ddd; border-radius: 12px; padding: 14px 16px; margin: 10px 0; }
-</style>
+<ul>
+<li><strong>EX3</strong> is Thu 10/29 through Sun 11/1. It covers lectures 11 through 18.</li>
+<li><strong>HW3</strong> is due Sunday.</li>
+</ul>
 </section>
 <section>
-<section id="binary-numbers" class="title-slide slide level1 center">
-<h1>Binary Numbers</h1>
+<section id="fixed-width" class="title-slide slide level1 center">
+<h1>Fixed Width</h1>
 
 </section>
 <section id="goals" class="slide level2">
 <h2>Goals</h2>
 <ul>
-<li>Prove: <span class="math inline">\(b\)</span> bits result in <span class="math inline">\(2^b\)</span> codes, with max value <span class="math inline">\(2^b-1\)</span>.<br>
-</li>
-<li>Overflow.</li>
+<li>See what happens when the number of bits is <strong>fixed</strong>: overflow.</li>
+<li>Recognize overflow as arithmetic <span class="math inline">\(\bmod 2^b\)</span>.</li>
+<li>Find the range of a signed <span class="math inline">\(b\)</span>-bit integer.</li>
 </ul>
-<p><strong>DON’T FORGET TO EXPLAIN THE MAGIC TRICK!</strong></p>
-</section>
-<section id="place-value" class="slide level2">
-<h2>Place Value</h2>
-<p>&nbsp; Consider an encoding into <em>binary</em>:</p>
-<p><span class="math display">\[(b_{k-1}\dots b_1 b_0)_2=\sum_{i=0}^{k-1} b_i 2^i,\quad b_i\in\{0,1\}\]</span></p>
-<p>&nbsp;</p>
-<p><br>
-</p>
-<p><span class="hexagon-blue"></span><span class="hexagon-green"></span><span class="hexagon-yellow"></span><span class="hexagon-orange"></span><span class="hexagon-red"></span></p>
-</section>
-<section id="proof-moment" class="slide level2">
-<h2>Proof Moment</h2>
-<p>Claim: With <span class="math inline">\(b\)</span> bits we can represent <span class="math inline">\(2^b\)</span> values.</p>
 </section>
 <section id="technical-aside" class="slide level2 smaller">
 <h2>Technical Aside</h2>
@@ -224,7 +209,7 @@ eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiXG4jIFB1cmUgUHl0aG9uIGlu
 <h2>Overflow</h2>
 <p>Consider addition, with 4 bits:</p>
 <aside class="notes">
-<p>annotate 1101_2 + 110_2 and ask students to speculate on 1) how addition works, and how they would describe the overflow. (they’ll say it’s like mod 2^4) With <span class="math inline">\(b\)</span> fixed bits, adding wraps <span class="math inline">\(\bmod 2^b\)</span>.</p>
+<p>annotate 1101_2 + 110_2 and ask students to speculate on 1) how addition works, and how they would describe the overflow. (they’ll say it’s like mod 2^4) With <span class="math inline">\(b\)</span> fixed bits, adding wraps <span class="math inline">\(\bmod 2^b\)</span>. 1101 + 0110 = 10011, and the 5th bit has nowhere to go: 13 + 6 = 19, and 19 mod 16 = 3 = 0011. Fixed-width arithmetic IS arithmetic mod 2^b – lecture 14, in hardware. That’s why uint8(255) + 1 is 0 in the demo.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -258,23 +243,8 @@ eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiXG4jIFB1cmUgUHl0aG9uIGlu
 <p><br>
 </p>
 <p><span class="math inline">\(b\)</span> bits typically represent values ____________.</p>
-</section>
-<section id="activity" class="slide level2">
-<h2>Activity</h2>
-<p>For each, compute <strong>bits needed</strong> or <strong>max value</strong>:</p>
-<ol type="1">
-<li>Seats in a 500-seat hall.<br>
-</li>
-<li>12-bit unsigned max.<br>
-</li>
-<li>World pop (<span class="math inline">\(\approx 8\cdot10^9\)</span> people) bits for unique IDs.<br>
-</li>
-<li>Timestamps for next <span class="math inline">\(100\)</span> years at 1-second resolution.</li>
-</ol>
 <aside class="notes">
-<ol type="1">
-<li>9; (2) 4095; (3) <span class="math inline">\(\lceil\log_2(8e9)\rceil=33\)</span>; (4) seconds <span class="math inline">\(\approx 3.15e9\)</span> 32 bits.</li>
-</ol>
+<p>[-2^{b-1}, 2^{b-1} - 1]: still 2^b values (capacity), half of them negative, and 0 counts on the non-negative side, so one more negative than positive. If anyone asks how: a negative -x is stored as 2^b - x, which is -x mod 2^b, so addition just works mod 2^b. That’s why int8(127) + 1 is -128.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -287,9 +257,9 @@ eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiXG4jIFB1cmUgUHl0aG9uIGlu
           display:block!important;
       }</style></aside>
 </section>
-<section id="exit-ticket" class="slide level2">
-<h2>Exit Ticket</h2>
-<p>In words: what does <span class="math inline">\(\lceil\log_2 N\rceil\)</span> tell you?</p>
+<section id="words-and-ideas" class="slide level2">
+<h2>Words and Ideas</h2>
+<p>Bit length, capacity, overflow, fixed width, signed and unsigned</p>
 
 
 <script type="pyodide-data">
