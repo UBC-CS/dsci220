@@ -168,7 +168,7 @@ Recursively: $\;\text{bin}(1) = 1$, $\;$ and $\;\text{bin}(n) = \text{bin}(\lflo
 
 ::: {.columns}
 ::: {.column width="45%"}
-::: {.fillable}
+::: {.fillable .compact}
 | $n$ | $\lfloor n/2 \rfloor$ | $n \bmod 2$ |
 |:-:|:-:|:-:|
 | 13 | | |

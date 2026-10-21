@@ -239,3 +239,9 @@ table caption {
     border-bottom: 1px solid rgba(68, 112, 153, 0.55);
   }
 }
+
+// Shorter rows, for a fill-in table that has to share a slide.
+.reveal .fillable.compact table {
+  th, td { padding: 0.12em 0.6em; }
+  td { height: 1.45em; }
+}
