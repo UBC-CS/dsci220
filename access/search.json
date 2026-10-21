@@ -1139,7 +1139,7 @@
     "href": "slides/lecture-17_slides.html#capacity",
     "title": "Binary: an Application Interlude",
     "section": "Capacity",
-    "text": "Capacity\nHow many different values fit in \\(b\\) bits? Let \\(C(b)\\) be the count.\n\\[C(1) = 2, \\qquad C(b) = \\boxed{\\phantom{2}} \\cdot C(b-1)\\]\n \nSo $C(b) = $ ______. The largest value is $(111)2 = {i=0}^{b-1} 2^i = $ ______.\n\nC(b) = 2 C(b-1): every (b-1)-bit pattern, followed by a 0 or by a 1. C(b) = 2^b, by induction (same shape as the narrow-shelf Hanoi recurrence). Largest value: the geometric sum from lecture 12, 2^b - 1. That’s also the upper bound from the last slide with bits = b."
+    "text": "Capacity\nHow many different values fit in \\(b\\) bits? Let \\(C(b)\\) be the count.\n\\[C(1) = 2, \\qquad C(b) = \\boxed{\\phantom{2}} \\cdot C(b-1)\\]\n \nSo \\(C(b) = \\boxed{\\phantom{2^b}}\\). The largest value is \\((11\\dots1)_2 = \\sum_{i=0}^{b-1} 2^i = \\boxed{\\phantom{2^b - 1}}\\).\n\nC(b) = 2 C(b-1): every (b-1)-bit pattern, followed by a 0 or by a 1. C(b) = 2^b, by induction (same shape as the narrow-shelf Hanoi recurrence). Largest value: the geometric sum from lecture 12, 2^b - 1. That’s also the upper bound from the last slide with bits = b."
   },
   {
     "objectID": "slides/lecture-17_slides.html#capacity-quickies",
@@ -2549,7 +2549,7 @@
     "href": "slides/lecture-13_aux_slides.html#trick-4-variable-substitution",
     "title": "Summations",
     "section": "Trick 4: Variable Substitution",
-    "text": "Trick 4: Variable Substitution\n \nStory. Each item \\(j\\) has effort that depends both on its index and how many remain.\nProblem.\n\\(S = \\sum_{j=1}^{n} \\big(7 + 3(n-j+1)\\big)\\)\n\nHint for later reveal:\nSubstitute \\(i = n-j+1\\). The sum becomes\n$_{i=1}^{n} (7 + 3i) $ — exactly the Linearity example."
+    "text": "Trick 4: Variable Substitution\n \nStory. Each item \\(j\\) has effort that depends both on its index and how many remain.\nProblem.\n\\(S = \\sum_{j=1}^{n} \\big(7 + 3(n-j+1)\\big)\\)\n\nHint for later reveal:\nSubstitute \\(i = n-j+1\\). The sum becomes\n\\(\\sum_{i=1}^{n} (7 + 3i)\\) — exactly the Linearity example."
   },
   {
     "objectID": "slides/lecture-13_aux_slides.html#trick-5-reindexing",

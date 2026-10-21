@@ -305,7 +305,7 @@
 </tr>
 </tbody>
 </table>
-<countdown-timer id="timer_6bbd382e35411d38334effd469a687c2f7246adb" minutes="03" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<countdown-timer id="timer_a7791b45bf2fb135895a2c9bd83963f0d8066e15" minutes="03" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
  </countdown-timer>
 <aside class="notes">
 <p>10, 13, 7.</p>
@@ -333,7 +333,7 @@
 <p><br>
 </p>
 <p>How high can you count on your fingers? And toes?</p>
-<countdown-timer id="timer_6bbd382e35411d38334effd469a687c2f7246adb" minutes="03" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<countdown-timer id="timer_a7791b45bf2fb135895a2c9bd83963f0d8066e15" minutes="03" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
  </countdown-timer>
 <aside class="notes">
 <p>15 (1111). 7 bits (64 &lt;= 120 &lt; 128). One more bit DOUBLES the count. Fingers: 2^10 - 1 = 1023; fingers and toes: 2^20 - 1 = 1,048,575. Don’t prove anything yet – say: “you just guessed three theorems; the rest of today proves them.” largest with b bits = 2^b - 1 -&gt; Capacity slide (geometric sum) bits needed for 120 -&gt; How Many Bits? + the bound proof one more bit doubles -&gt; Capacity: C(b) = 2 C(b-1)</p>
@@ -550,7 +550,7 @@ eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiZGVmIGJpbmFyeShuKTpcbiAg
 <p>How many different values fit in <span class="math inline">\(b\)</span> bits? Let <span class="math inline">\(C(b)\)</span> be the count.</p>
 <p><span class="math display">\[C(1) = 2, \qquad C(b) = \boxed{\phantom{2}} \cdot C(b-1)\]</span></p>
 <p>&nbsp;</p>
-<p>So $C(b) = $ ______. The largest value is $(111)<em>2 = </em>{i=0}^{b-1} 2^i = $ ______.</p>
+<p>So <span class="math inline">\(C(b) = \boxed{\phantom{2^b}}\)</span>. The largest value is <span class="math inline">\((11\dots1)_2 = \sum_{i=0}^{b-1} 2^i = \boxed{\phantom{2^b - 1}}\)</span>.</p>
 <aside class="notes">
 <p>C(b) = 2 C(b-1): every (b-1)-bit pattern, followed by a 0 or by a 1. C(b) = 2^b, by induction (same shape as the narrow-shelf Hanoi recurrence). Largest value: the geometric sum from lecture 12, 2^b - 1. That’s also the upper bound from the last slide with bits = b.</p>
 <style type="text/css">
