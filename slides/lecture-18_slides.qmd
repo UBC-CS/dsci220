@@ -5,7 +5,8 @@ subtitle: "Lecture 18, {{< var course.code >}}, {{< var course.term >}}"
 
 ## Announcements 
 
-* **EX3** is Thu 10/29 through Sun 11/1. It covers lectures 11 through 18.
+* **EX3** is Thu 10/29 through Sun 11/1. It covers lectures 11 through 18. Book your session in PrairieTest.
+* **Practice problems for EX3** are open on PrairieLearn.
 * **HW3** is due Sunday.
 
 # Fixed Width
