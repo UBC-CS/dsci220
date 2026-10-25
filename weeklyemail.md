@@ -335,6 +335,58 @@ Cinda and the DSCI220 teaching team Perrie, Noah, and Marko.
 
 ---
 
+## Week 8 — Mon Oct 26 to Sun Nov 1
+
+⚠ **Check before sending**
+
+1. **Tutorial 6** — the letter says it meets; confirm it's built and who owns
+   it (the website link is still TBD).
+2. **EX3 sessions** exist in PrairieTest for Thu Oct 29 – Sun Nov 1.
+3. **Monday's class** — the letter asks everyone to come without saying why.
+   Add more if you want to.
+
+---
+
+Hi everyone,
+
+Welcome to week 8! We start sets this week, and we have a busy few days.
+
+The news:
+
+1. **Please come to class on Monday.** We're starting sets, and we'll spend
+much of the hour doing things together that don't work in a recording. I hope to
+see all of you there.
+
+2. **HW3 is due tonight**, Sun Oct 25, 11:59p.
+
+3. **Examlet 3** is Thu Oct 29 through Sun Nov 1. It covers lectures 11 through
+18: induction, sums and recurrences, modular arithmetic, asymptotics, and
+representation. If you haven't booked your session in PrairieTest, please do it
+today.
+
+4. **Practice problems for EX3** are on PrairieLearn:
+<https://us.prairielearn.com/pl/course_instance/209866/assessment/2731704>
+They are not graded, and you can retry each one as many times as you like.
+
+5. **The lecture 18 video is long**, about an hour and a half. The last part is
+three puzzles for you to think about: they're not on the examlet, but they're
+fun.
+
+6. **Tutorial 6** meets on Tuesday and Wednesday.
+
+My office hour is Tuesday, 10:30–11:30, in ICCS 233.
+
+As always, you're welcome to email me (cheeren@cs.ubc.ca) or post on Piazza
+(<https://piazza.com/ubc.ca/winterterm12026/dsci220>), and the course website is
+<https://ubc-cs.github.io/dsci220>.
+
+See you tomorrow!
+
+All the best!
+Cinda and the DSCI220 teaching team Perrie, Noah, and Marko.
+
+---
+
 ## Template for later weeks
 
 ```
