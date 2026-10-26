@@ -967,6 +967,13 @@
     "text": "While I’m Out of the Room\nPick a new number from \\(1\\) to \\(31\\). Colour one box with the colour of each card your number is on.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLeave the iPad on this slide and step out. A student picks a number, uses the previous slide to see which cards it’s on, and colours one box per card in that card’s colour (any boxes, any order; leave the rest empty). Come back, look only at this slide, and add up: red = 1, orange = 2, yellow = 4, green = 8, blue = 16."
   },
   {
+    "objectID": "slides/lecture-19_slides.html#how-the-trick-works",
+    "href": "slides/lecture-19_slides.html#how-the-trick-works",
+    "title": "Sets",
+    "section": "How the Trick Works",
+    "text": "How the Trick Works\n\n\n16171819202122232425262728293031\n\n\n891011121314152425262728293031\n\n\n4567121314152021222328293031\n\n\n2367101114151819222326273031\n\n\n135791113151719212325272931\n\n\n\n\nThe cards in place-value order, left to right: blue = 16, green = 8, yellow = 4, orange = 2, red = 1 – the order of the bits in a 5-bit number. Point at each card’s top-left number: it’s the card’s value, and every number on the card has a 1 in that place."
+  },
+  {
     "objectID": "slides/lecture-19_slides.html#the-trick-explained",
     "href": "slides/lecture-19_slides.html#the-trick-explained",
     "title": "Sets",
