@@ -56,6 +56,21 @@ look only at this slide, and add up: red = 1, orange = 2, yellow = 4,
 green = 8, blue = 16.
 :::
 
+## How the Trick Works
+
+<div class="magic-row magic-explain" style="gap:12px;"><div class="magic-card" style="border-color:#2e86de;background:#2e86de22"><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span><span>29</span><span>30</span><span>31</span></div><div class="magic-card" style="border-color:#3d9970;background:#3d997022"><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span><span>29</span><span>30</span><span>31</span></div><div class="magic-card" style="border-color:#f1c40f;background:#f1c40f22"><span>4</span><span>5</span><span>6</span><span>7</span><span>12</span><span>13</span><span>14</span><span>15</span><span>20</span><span>21</span><span>22</span><span>23</span><span>28</span><span>29</span><span>30</span><span>31</span></div><div class="magic-card" style="border-color:#f39c12;background:#f39c1222"><span>2</span><span>3</span><span>6</span><span>7</span><span>10</span><span>11</span><span>14</span><span>15</span><span>18</span><span>19</span><span>22</span><span>23</span><span>26</span><span>27</span><span>30</span><span>31</span></div><div class="magic-card" style="border-color:#e4572e;background:#e4572e22"><span>1</span><span>3</span><span>5</span><span>7</span><span>9</span><span>11</span><span>13</span><span>15</span><span>17</span><span>19</span><span>21</span><span>23</span><span>25</span><span>27</span><span>29</span><span>31</span></div></div>
+
+<style>
+.magic-explain .magic-card { font-size: 0.6em; gap: 0 10px; padding: 6px 10px; }
+</style>
+
+::: notes
+The cards in place-value order, left to right: blue = 16, green = 8,
+yellow = 4, orange = 2, red = 1 -- the order of the bits in a 5-bit number.
+Point at each card's top-left number: it's the card's value, and every number
+on the card has a 1 in that place.
+:::
+
 ## The Trick, Explained
 
 The yellow card holds exactly the numbers with a $1$ in the $4$s place.
