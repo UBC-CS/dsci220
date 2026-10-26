@@ -81,9 +81,9 @@ rather than 9 for L1A only.
 | 2 | 3 | Sep 22 / Sep 23 |  |  |  |  |
 | 3 | 4 | Sep 29 / Sep 30 | **Noah** |  |  | HW2 help; Wed does not meet — see below |
 | 4 | 5 | Oct 6 / Oct 7 | **Noah** |  |  | Last term's Tutorial 2 had `sudokuCorners-A` (corners all different ⇒ centre all different); corners = centre is on L11's Corners and Centre slide |
-| 5 | 7 | Oct 20 / Oct 21 |  |  |  |  |
-| 6 | 8 | Oct 27 / Oct 28 |  |  |  |  |
-| 7 | 9 | Nov 3 / Nov 4 |  |  |  |  |
+| 5 | 7 | Oct 20 / Oct 21 | **Perrie, Noah** |  |  | Sums and recurrences, modular arithmetic, growth of functions |
+| 6 | 8 | Oct 27 / Oct 28 | **Marko** |  |  | Binary and big O |
+| 7 | 9 | Nov 3 / Nov 4 |  |  |  | Planned: **finding duplicates** in the L19 imaginary class (`data/imaginary_class.csv`) — pairwise O(n²) = n(n−1)/2 comparisons, sort-then-scan O(n log n), profile number as a hash key O(n); time all three; pandas `duplicated` / `groupby(F).size()`, uniqueness and k-anonymity; simulate classes of 50 over 128 profiles (birthday paradox). Owner TBD |
 | 8 | 11 | Nov 17 / Nov 18 |  |  |  |  |
 | 9 | 12 | Nov 24 / Nov 25 |  |  |  |  |
 | 10 | 13 | Dec 1 / Dec 2 |  |  |  |  |
