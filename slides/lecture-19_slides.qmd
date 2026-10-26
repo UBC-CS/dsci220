@@ -36,6 +36,26 @@ Values by colour: red = 1, orange = 2, yellow = 4, green = 8, blue = 16 (the
 name. Do it two or three times.
 :::
 
+## While I'm Out of the Room {.activity}
+
+Pick a new number from $1$ to $31$. Colour one box with the colour of each card your number is on.
+
+<div style="display:flex; gap:28px; justify-content:center; margin-top:60px;">
+<div style="width:120px; height:120px; border:4px solid #000; border-radius:10px;"></div>
+<div style="width:120px; height:120px; border:4px solid #000; border-radius:10px;"></div>
+<div style="width:120px; height:120px; border:4px solid #000; border-radius:10px;"></div>
+<div style="width:120px; height:120px; border:4px solid #000; border-radius:10px;"></div>
+<div style="width:120px; height:120px; border:4px solid #000; border-radius:10px;"></div>
+</div>
+
+::: notes
+Leave the iPad on this slide and step out. A student picks a number, uses the
+previous slide to see which cards it's on, and colours one box per card in
+that card's colour (any boxes, any order; leave the rest empty). Come back,
+look only at this slide, and add up: red = 1, orange = 2, yellow = 4,
+green = 8, blue = 16.
+:::
+
 ## The Trick, Explained
 
 The yellow card holds exactly the numbers with a $1$ in the $4$s place.
