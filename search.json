@@ -950,7 +950,42 @@
     "href": "slides/lecture-19_slides.html#announcements",
     "title": "Sets",
     "section": "Announcements",
-    "text": "Announcements"
+    "text": "Announcements\n\n\nEX3 is Thu 10/29 through Sun 11/1. It covers lectures 11 through 18. Book your session in PrairieTest.\nPractice problems for EX3 are open on PrairieLearn.\nTutorial 6 this week: binary and big O."
+  },
+  {
+    "objectID": "slides/lecture-19_slides.html#pick-a-number",
+    "href": "slides/lecture-19_slides.html#pick-a-number",
+    "title": "Sets",
+    "section": "Pick a Number",
+    "text": "Pick a Number\nPick a whole number from \\(1\\) to \\(31\\), and don’t tell anyone. Which colours is it on?\n\n\n\n135791113151719212325272931\n\n\n2367101114151819222326273031\n\n\n4567121314152021222328293031\n\n\n891011121314152425262728293031\n\n\n16171819202122232425262728293031\n\n\n\nCards, left to right: red = 1, orange = 2, yellow = 4, green = 8, blue = 16 (the 5-card magic deck, in rainbow order). Add up the values of the colours they name. Do it two or three times."
+  },
+  {
+    "objectID": "slides/lecture-19_slides.html#the-trick-explained",
+    "href": "slides/lecture-19_slides.html#the-trick-explained",
+    "title": "Sets",
+    "section": "The Trick, Explained",
+    "text": "The Trick, Explained\nThe yellow card holds exactly the numbers with a \\(1\\) in the \\(4\\)s place.\n\n\n\nWhich numbers are on the red card? \\(\\quad\\) The green card?\nSo when you tell me your colours, what are you really telling me?\n\n\nRed: a 1 in the 1s place (the odd numbers). Green: a 1 in the 8s place. Telling me the colours tells me where the 1s are in your number’s binary representation, so adding the cards’ values gives back the number (lecture 17). Each card is a SET. Your number is characterized by which sets it belongs to."
+  },
+  {
+    "objectID": "slides/lecture-19_slides.html#the-word-set",
+    "href": "slides/lecture-19_slides.html#the-word-set",
+    "title": "Sets",
+    "section": "The Word “Set”",
+    "text": "The Word “Set”\nA set is a collection of distinct items.\n\nOrder doesn’t matter, and nothing is counted twice: \\(\\{1, 2, 3\\} = \\{3, 1, 2\\} = \\{1, 2, 2, 3\\}\\).\nCompare: a list or a string (order matters), the rows of a dataframe (rows can repeat).\n\n\n\nA set is often defined by a rule: \\[\\text{yellow} = \\{\\, n \\in \\{1, \\dots, 31\\} : n \\text{ has a } 1 \\text{ in the } 4\\text{s place} \\,\\}\\]\n\n\nWhich sets an item belongs to can tell us exactly what the item is.\n\nThe rule is a predicate (lecture 8), and in pandas a predicate is a mask. That’s the bridge for the rest of the hour."
+  },
+  {
+    "objectID": "slides/lecture-19_slides.html#meet-the-class",
+    "href": "slides/lecture-19_slides.html#meet-the-class",
+    "title": "Sets",
+    "section": "Meet the Class",
+    "text": "Meet the Class\nEveryone gets an ID card. You are now one of the \\(64\\) students in an imaginary DSCI 220.\n\n\n\n\\(U\\) = all \\(64\\) students: the universe.\n\\(\\text{Room}\\) = the students whose cards are here today. \\(\\quad \\text{Room} \\subseteq U\\).\n\n\n\nEach card answers seven yes/no questions. Each question defines a set: \\(\\text{Coffee} = \\{\\, s \\in U : s \\text{ drinks coffee most days} \\,\\}\\).\n\nHand out the printed cards (activities/lecture-19_id-cards.pdf, 36 cards). If more than 36 come, pair up. Hand out Amara, Ravi, Leila and Hana first if you want the twins in the room. The other 28 of the 64 exist only in the data (data/imaginary_class.csv)."
+  },
+  {
+    "objectID": "slides/lecture-19_slides.html#hold-up-your-card",
+    "href": "slides/lecture-19_slides.html#hold-up-your-card",
+    "title": "Sets",
+    "section": "Hold Up Your Card",
+    "text": "Hold Up Your Card\nHold up your card if your person…\n\n\n\n\n\nIn the room\nIn all of \\(U\\)\n\n\n\n\ndrinks coffee: \\(C\\)\n\n\n\n\nis a morning person: \\(M\\)\n\n\n\n\ndrinks coffee and is a morning person: \\(C \\cap M\\)\n\n\n\n\ndrinks coffee or is a morning person: \\(C \\cup M\\)\n\n\n\n\ndrinks coffee but is not a morning person: \\(C - M\\)\n\n\n\n\nis not a coffee drinker: \\(\\overline{C}\\)\n\n\n\n\n\n\n\nCount the raised cards for the room column; the U column comes from the code on the next slides. Whole class (all 64): C = 37, M = 29, C and M = 20, C or M = 46, C - M = 17, not C = 27. (The room numbers depend on who came.) Ask before the fourth row: can we predict C or M from the first three rows? 37 + 29 - 20 = 46 – inclusion-exclusion, in the room too."
   },
   {
     "objectID": "slides/lecture-19_slides.html#sets-filters-on-rows",
@@ -958,13 +993,6 @@
     "title": "Sets",
     "section": "Sets = Filters on Rows",
     "text": "Sets = Filters on Rows\n \nLet \\(U\\) be all rows of a dataframe df.\n\nA set \\(A\\subseteq U\\) selects rows by a predicate \\(P_A(x)\\).\nIn code, a set is a Boolean mask: A_mask = P_A(row).\n\n \nKey Ideas\n\nMembership: \\(x\\in A \\iff P_A(x)\\iff\\) row mask on \\(x\\) is True\nCardinality: \\(|A| = \\sum_{x\\in U} \\mathbf{1}_A(x)\\iff\\) A_mask.sum()\nSubset: \\(A\\subseteq B \\iff \\forall x, P_A(x)\\Rightarrow P_B(x)\\iff\\) ((A & ~B).sum()==0)\n\n\nSay: “We’ll reason with three parallel languages: math sets, logical predicates, and dataframe masks. They’re equivalent.”"
-  },
-  {
-    "objectID": "slides/lecture-19_slides.html#from-subsets-to-dataframe-masks",
-    "href": "slides/lecture-19_slides.html#from-subsets-to-dataframe-masks",
-    "title": "Sets",
-    "section": "From subsets to dataframe masks",
-    "text": "From subsets to dataframe masks\nA Boolean mask over rows is an indicator vector \\(\\in\\{0,1\\}^{|U|}\\).\n\nChoosing rows is the same as selecting a subset of the universe \\(U\\).\n\\(|\\)mask\\(|\\) (sum of Trues) = cardinality of that subset."
   },
   {
     "objectID": "slides/lecture-19_slides.html#math-predicate-mask",
@@ -979,6 +1007,48 @@
     "title": "Sets",
     "section": "Operations: Three Ways to Say the Same Thing",
     "text": "Operations: Three Ways to Say the Same Thing\nLet \\(A,B\\subseteq U\\).\n\n\n\n\n\n\n\n\n\nOperation\nMath (set)\nPredicate (logic)\nDataframe (mask)\n\n\n\n\nUnion\n\\(A\\cup B\\)\n\\(\\{x: P_A(x)\\lor P_B(x)\\}\\)\n(A | B)\n\n\nIntersection\n\\(A\\cap B\\)\n\\(\\{x: P_A(x)\\land P_B(x)\\}\\)\n(A & B)\n\n\nDifference\n\\(A-B\\)\n\\(\\{x: P_A(x)\\land \\neg P_B(x)\\}\\)\n(A & ~B)\n\n\nComplement\n\\(A^c\\)\n\\(\\{x: \\neg P_A(x)\\}\\)\n~A\n\n\nSymm. diff.\n\\(A\\triangle B\\)\n\\(\\{x:(P_A\\lor P_B)\\land \\neg(P_A\\land P_B)\\}\\)\nA ^ B\n\n\n\nPrecedence note: use &, |, ~ with parentheses: (A & B) | (~C)."
+  },
+  {
+    "objectID": "slides/lecture-19_slides.html#the-class-in-code",
+    "href": "slides/lecture-19_slides.html#the-class-in-code",
+    "title": "Sets",
+    "section": "The Class in Code",
+    "text": "The Class in Code\n\n\n\n\n\n\n\nFill in the “all of U” column from this. Columns: coffee, morning, pet, games, countries, cats, instrument (all True/False), plus name, tagline, profile, card."
+  },
+  {
+    "objectID": "slides/lecture-19_slides.html#inclusion-exclusion",
+    "href": "slides/lecture-19_slides.html#inclusion-exclusion",
+    "title": "Sets",
+    "section": "Inclusion-Exclusion",
+    "text": "Inclusion-Exclusion\nExperiment using the code below, and then complete the observation:\nFor any sets \\(A\\) and \\(B\\): \\(|A\\cup B| = \\boxed{\\phantom{|A| + |B| - |A \\cap B|}}\\)"
+  },
+  {
+    "objectID": "slides/lecture-19_slides.html#design-a-set",
+    "href": "slides/lecture-19_slides.html#design-a-set",
+    "title": "Sets",
+    "section": "Design a Set",
+    "text": "Design a Set\nUsing only the seven questions, write a mask that selects:\n\nexactly the person on your card;\nexactly your person and your neighbour’s;\nnobody at all.\n\n\n\n\n\n\n\n\n\nAn AND of all seven answers (or fewer, if fewer already pin them down). Some can’t be isolated: Amara & Ravi, and Leila & Hana, have identical cards.\nUsually no single AND works – you need an OR of two ANDs (each person’s exact description). Any group can be written this way: an OR of ANDs, the DNF counterpart of lectures 6-7’s CNF.\nTwo kinds of nobody: coffee & ~coffee is empty by logic (a contradiction); morning & ~coffee & instrument is empty only in THIS data. Run it."
+  },
+  {
+    "objectID": "slides/lecture-19_slides.html#who-can-be-singled-out",
+    "href": "slides/lecture-19_slides.html#who-can-be-singled-out",
+    "title": "Sets",
+    "section": "Who Can Be Singled Out?",
+    "text": "Who Can Be Singled Out?\nSeven yes/no questions give \\(2^7 = 128\\) possible cards.\n\n\n\n\n\n\n\nHow big would a class have to be before two students must share a card?\nIn real data: zip code, birth date and sex together identify most people in the US.\n\n\n60 of the 64 are unique; Amara & Ravi and Leila & Hana are the only twins. Must share: 129 (the pigeonhole principle; capacity from lecture 17). Even with 64 &lt; 128, some twins are almost certain (the birthday paradox – probability, later). The real-data fact is Latanya Sweeney’s re-identification work. The data-science response: k-anonymity – release data only if every row shares its profile with at least k - 1 others. Our class is not even 2-anonymous. Finding the twins efficiently is next week’s tutorial… (set aside for now)."
+  },
+  {
+    "objectID": "slides/lecture-19_slides.html#exit-ticket",
+    "href": "slides/lecture-19_slides.html#exit-ticket",
+    "title": "Sets",
+    "section": "Exit Ticket",
+    "text": "Exit Ticket\nWhat does knowing which sets someone belongs to tell you about them?"
+  },
+  {
+    "objectID": "slides/lecture-19_slides.html#from-subsets-to-dataframe-masks",
+    "href": "slides/lecture-19_slides.html#from-subsets-to-dataframe-masks",
+    "title": "Sets",
+    "section": "From subsets to dataframe masks",
+    "text": "From subsets to dataframe masks\nA Boolean mask over rows is an indicator vector \\(\\in\\{0,1\\}^{|U|}\\).\n\nChoosing rows is the same as selecting a subset of the universe \\(U\\).\n\\(|\\)mask\\(|\\) (sum of Trues) = cardinality of that subset."
   },
   {
     "objectID": "slides/lecture-19_slides.html#union-example",
@@ -1007,13 +1077,6 @@
     "title": "Sets",
     "section": "Identity",
     "text": "Identity\nExperiment using the code below, and then complete the observation:\nFor any sets \\(A\\), and \\(B\\): ___________ = ___________"
-  },
-  {
-    "objectID": "slides/lecture-19_slides.html#inclusion-exclusion",
-    "href": "slides/lecture-19_slides.html#inclusion-exclusion",
-    "title": "Sets",
-    "section": "Inclusion-Exclusion",
-    "text": "Inclusion-Exclusion\nExperiment using the code below, and then complete the observation:\nFor any sets \\(A\\) and \\(B\\): \\(|A\\cup B| =\\) _____________"
   },
   {
     "objectID": "slides/lecture-19_slides.html#equality",
