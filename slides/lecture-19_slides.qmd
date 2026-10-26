@@ -85,10 +85,10 @@ Everyone gets an ID card. You are now one of the $64$ students in an imaginary D
 Each card answers seven yes/no questions. Each question defines a set: $\text{Coffee} = \{\, s \in U : s \text{ drinks coffee most days} \,\}$.
 
 ::: notes
-Hand out the printed cards (activities/lecture-19_id-cards.pdf, 36 cards). If
-more than 36 come, pair up. Hand out Amara, Ravi, Leila and Hana first if you
-want the twins in the room. The other 28 of the 64 exist only in the data
-(data/imaginary_class.csv).
+Deal the printed cards (activities/lecture-19_id-cards.pdf, all 64 students)
+from a shuffled stack: whoever comes gets one, and the cards left over are the
+students who "didn't come today" -- still in U, not in Room. Put Amara, Ravi,
+Leila and Hana on top if you want the twins in the room.
 :::
 
 ## Hold Up Your Card {.activity}
