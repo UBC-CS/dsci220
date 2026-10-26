@@ -1,4 +1,4 @@
-name,tagline,coffee,morning,pet,python,countries,cats,instrument,profile
+name,tagline,coffee,morning,pet,games,countries,cats,instrument,profile
 Priya,up before the sun,True,True,True,False,False,False,True,113
 Mateo,"a cat person, firmly",False,False,True,False,False,True,False,18
 Aiko,has lived on two continents,True,True,True,True,True,True,False,126
@@ -9,7 +9,7 @@ Zara,"a dog person, loudly",True,True,True,True,False,False,False,120
 Diego,"tea only, thanks",False,False,False,False,False,True,True,3
 Mei,"a dog person, loudly",True,True,False,True,True,False,False,108
 Theo,third latte of the day,True,True,False,False,False,True,True,99
-Amara,has opinions about tabs,True,True,True,True,False,False,True,121
+Amara,speedruns on weekends,True,True,True,True,False,False,True,121
 Noah,has photos of the pet ready,True,False,True,True,True,False,True,93
 Sofia,has lived on two continents,True,True,True,False,True,False,False,116
 Kenji,does their best work at 2am,False,False,True,True,False,True,False,26
@@ -18,13 +18,13 @@ Owen,has lived on two continents,False,False,False,False,True,False,False,4
 Isla,"a dog person, loudly",True,False,False,True,True,False,False,76
 Ravi,"a dog person, loudly",True,True,True,True,False,False,True,121
 Chloe,"a cat person, firmly",True,True,False,False,False,True,False,98
-Tariq,wrote their first loop in September,True,True,True,False,True,False,True,117
+Tariq,has never finished a video game,True,True,True,False,True,False,True,117
 Hana,"a cat person, firmly",True,False,True,True,True,True,True,95
 Felix,does their best work at 2am,False,False,False,True,False,True,False,10
 Nadia,does their best work at 2am,False,False,True,False,True,False,False,20
 Arjun,does their best work at 2am,False,False,False,False,True,True,False,6
 Elena,"a dog person, loudly",False,False,True,True,False,False,False,24
-Kofi,has opinions about tabs,False,False,True,True,False,False,True,25
+Kofi,speedruns on weekends,False,False,True,True,False,False,True,25
 Yuna,"a dog person, loudly",True,False,True,False,True,False,True,85
 Sam,third latte of the day,True,False,False,False,True,False,True,69
 Lucia,plays in a band on weekends,True,True,True,False,False,True,True,115
@@ -33,5 +33,5 @@ Ines,"tea only, thanks",False,False,False,True,True,False,False,12
 Malik,does their best work at 2am,False,False,True,True,True,False,True,29
 Rosa,plays in a band on weekends,True,False,False,False,False,True,True,67
 Hugo,"tea only, thanks",False,True,False,True,True,False,False,44
-Anya,wrote their first loop in September,True,True,False,False,True,True,False,102
+Anya,has never finished a video game,True,True,False,False,True,True,False,102
 Dev,"tea only, thanks",False,True,False,False,False,False,False,32
