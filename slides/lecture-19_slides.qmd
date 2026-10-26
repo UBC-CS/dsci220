@@ -18,9 +18,9 @@ subtitle: "Lecture 19, {{< var course.code >}}, {{< var course.term >}}"
 
 # Sets
 
-## Pick a Number {.activity}
+## Colorful Magic {.activity}
 
-Pick a whole number from $1$ to $31$, and don't tell anyone. Which colours is it on?
+Together, agree on a whole number from $1$ to $31$. Determine which cards it's on, and show me the cards by coloring corresponding squares on the next slide. 
 
 <style>
 .magic-row { display:flex; gap:22px; justify-content:center; margin-bottom:14px; }
@@ -36,9 +36,9 @@ Values by colour: red = 1, orange = 2, yellow = 4, green = 8, blue = 16 (the
 name. Do it two or three times.
 :::
 
-## While I'm Out of the Room {.activity}
+## Colorful Magic {.activity}
 
-Pick a new number from $1$ to $31$. Colour one box with the colour of each card your number is on.
+Colour one box for each card your number is on. 
 
 <div style="display:flex; gap:28px; justify-content:center; margin-top:60px;">
 <div style="width:120px; height:120px; border:4px solid #000; border-radius:10px;"></div>
@@ -56,7 +56,7 @@ look only at this slide, and add up: red = 1, orange = 2, yellow = 4,
 green = 8, blue = 16.
 :::
 
-## How the Trick Works
+## How it works:
 
 <div class="magic-row magic-explain" style="gap:12px;"><div class="magic-card" style="border-color:#2e86de;background:#2e86de22"><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span><span>29</span><span>30</span><span>31</span></div><div class="magic-card" style="border-color:#3d9970;background:#3d997022"><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span><span>29</span><span>30</span><span>31</span></div><div class="magic-card" style="border-color:#f1c40f;background:#f1c40f22"><span>4</span><span>5</span><span>6</span><span>7</span><span>12</span><span>13</span><span>14</span><span>15</span><span>20</span><span>21</span><span>22</span><span>23</span><span>28</span><span>29</span><span>30</span><span>31</span></div><div class="magic-card" style="border-color:#f39c12;background:#f39c1222"><span>2</span><span>3</span><span>6</span><span>7</span><span>10</span><span>11</span><span>14</span><span>15</span><span>18</span><span>19</span><span>22</span><span>23</span><span>26</span><span>27</span><span>30</span><span>31</span></div><div class="magic-card" style="border-color:#e4572e;background:#e4572e22"><span>1</span><span>3</span><span>5</span><span>7</span><span>9</span><span>11</span><span>13</span><span>15</span><span>17</span><span>19</span><span>21</span><span>23</span><span>25</span><span>27</span><span>29</span><span>31</span></div></div>
 
@@ -69,86 +69,99 @@ The cards in place-value order, left to right: blue = 16, green = 8,
 yellow = 4, orange = 2, red = 1 -- the order of the bits in a 5-bit number.
 Point at each card's top-left number: it's the card's value, and every number
 on the card has a 1 in that place.
-:::
 
-## The Trick, Explained
+Be sure to annotate -- the red card is the set of numbers with a 1 in the 1s place...
 
-The yellow card holds exactly the numbers with a $1$ in the $4$s place.
-
-\
-
-* Which numbers are on the red card? $\quad$ The green card?
-* So when you tell me your colours, what are you really telling me?
-
-::: notes
 Red: a 1 in the 1s place (the odd numbers). Green: a 1 in the 8s place.
 Telling me the colours tells me where the 1s are in your number's binary
 representation, so adding the cards' values gives back the number (lecture 17).
 Each card is a SET. Your number is characterized by which sets it belongs to.
 :::
 
-## The Word "Set"
+## The Word "Set" {.smaller}
 
-A **set** is a collection of distinct items.
+A **set** is an unordered collection of distinct items.
 
-* Order doesn't matter, and nothing is counted twice: $\{1, 2, 3\} = \{3, 1, 2\} = \{1, 2, 2, 3\}$.
-* Compare: a list or a string (order matters), the rows of a dataframe (rows can repeat).
-
-\
-
-A set is often defined by a rule:
-$$\text{yellow} = \{\, n \in \{1, \dots, 31\} : n \text{ has a } 1 \text{ in the } 4\text{s place} \,\}$$
+* $\{1, 2, 3\} = \{3, 1, 2\} = \{1, 2, 2, 3\}$.
 
 \
 
-Which sets an item belongs to can tell us exactly what the item is.
+A set is often defined by a rule, $S = \{x : P(x)\}$.
+$$\color{#3d9970}{\textbf{green}} = \{\, x : x \in \{1, \dots, 31\} \text{ and } x \text{ has a } 1 \text{ in the } 8\text{s place} \,\}$$
+
+\
+
+The items in a set are its **elements**: $x \in S$ exactly when $P(x)$ is true.
+
+\ 
+
+$24 \in \color{#3d9970}{\textbf{green}}$, because $24 = (11000)_2$. $\quad$ 
+$18 \notin \color{#3d9970}{\textbf{green}}$, because $18 = (10010)_2$.
 
 ::: notes
+For green, P(x) is "x is in 1..31 and x has a 1 in the 8s place".
+24 = 16 + 8 = (11000)_2: a 1 in the 8s place, so 24 is on the green card.
+5 = (101)_2: a 0 in the 8s place, so P(5) is false and 5 is not on it.
 The rule is a predicate (lecture 8), and in pandas a predicate is a mask.
 That's the bridge for the rest of the hour.
 :::
 
-## Meet the Class
+## Meet the Class {.smaller}
 
-Everyone gets an ID card. You are now one of the $64$ students in an imaginary DSCI 220.
+Everyone gets an ID card. You are now one of the $100$ students in an imaginary DSCI 220.
 
 \
 
-* $U$ = all $64$ students: the **universe**.
+* $U$ = all $100$ students: the **universe**.
 * $\text{Room}$ = the students whose cards are here today. $\quad \text{Room} \subseteq U$.
 
 \
 
-Each card answers seven yes/no questions. Each question defines a set: $\text{Coffee} = \{\, s \in U : s \text{ drinks coffee most days} \,\}$.
+Each card answers six yes/no questions. Each question defines a set: $\text{Coffee} = \{\, s \in U : s \text{ drinks coffee most days} \,\}$.
 
 ::: notes
-Deal the printed cards (activities/lecture-19_id-cards.pdf, all 64 students)
+Deal the printed cards (activities/lecture-19_id-cards.pdf, all 100 students)
 from a shuffled stack: whoever comes gets one, and the cards left over are the
 students who "didn't come today" -- still in U, not in Room. Put Amara, Ravi,
 Leila and Hana on top if you want the twins in the room.
+
+Define subset here.
 :::
 
-## Hold Up Your Card {.activity}
+## Hold Up Your Card {.smaller .activity}
 
-Hold up your card if your person...
+Hold up your card if your person... 
 
-::: {.fillable}
-| | In the room | In all of $U$ |
+::: {.pen-table}
+| | In the room: | In all of $U$: |
 |---|:-:|:-:|
 | drinks coffee: $C$ | | |
 | is a morning person: $M$ | | |
 | drinks coffee **and** is a morning person: $C \cap M$ | | |
 | drinks coffee **or** is a morning person: $C \cup M$ | | |
-| drinks coffee but is **not** a morning person: $C - M$ | | |
-| is **not** a coffee drinker: $\overline{C}$ | | |
-:::
+| drinks coffee, **not** a morning person: $C - M$ | | |
+| is **not** a coffee drinker: $C^c$ | | |
+: {tbl-colwidths="[56,22,22]"}
+
+::: 
+
+
+<style>
+.reveal .pen-table table { width: 100%; }
+.reveal .pen-table td, .reveal .pen-table th { border: 1px solid rgba(255,255,255,0.55); }
+.reveal .pen-table tbody tr:last-child td { border-bottom: 1px solid rgba(255,255,255,0.55) !important; }
+</style>
+
+**cardinality**: the number of elements in a set
+
 
 ::: notes
-Count the raised cards for the room column; the U column comes from the code on
-the next slides. Whole class (all 64): C = 37, M = 29, C and M = 20,
-C or M = 46, C - M = 17, not C = 27. (The room numbers depend on who came.)
+Cardinality is introduced here: every number in the table is the size of a
+set. Count the raised cards for the room column; the U column comes from the code on
+the next slides. Whole class (all 100): C = 56, M = 45, C and M = 31,
+C or M = 70, C - M = 25, not C = 44. (The room numbers depend on who came.)
 Ask before the fourth row: can we predict C or M from the first three rows?
-37 + 29 - 20 = 46 -- inclusion-exclusion, in the room too.
+56 + 45 - 31 = 70 -- inclusion-exclusion, in the room too.
 :::
 
 ## Sets = Filters on Rows {.smaller}
@@ -164,7 +177,7 @@ Let $U$ be **all rows** of a dataframe `df`.
 
 **Key Ideas**
 
-- **Membership:** $x\in A \iff P_A(x)\iff$  row mask on $x$ is `True`
+- **Membership:** $x\in A \iff P_A(x)\iff$  mask on row $x$ is `True`
 - **Cardinality:** $|A| = \sum_{x\in U} \mathbf{1}_A(x)\iff$ `A_mask.sum()`
 - **Subset:** $A\subseteq B \iff \forall x, P_A(x)\Rightarrow P_B(x)\iff$ `((A & ~B).sum()==0)`
 
@@ -172,31 +185,32 @@ Let $U$ be **all rows** of a dataframe `df`.
 Say: “We’ll reason with three parallel languages: math sets, logical predicates, and dataframe masks. They’re equivalent.”
 :::
 
-## Math ⇄ Predicate ⇄ Mask {.smaller}
+## Math ⇄ Predicate ⇄ Dataframe {.smaller}
 
-Let $U$ be all rows in `df`.
+$U$ is all the rows of `df`: the $100$ students in our class.
 
-- **Math (set):** a subset $A\subseteq U$  
-- **Predicate:** $A=\{\,x\in U \mid P_A(x)\,\}$  
-- **Dataframe:** `A_mask = P_A(row)` then `A_df = df[A_mask]`
+::: {.nowrap-code}
+| Set | Set-builder | In pandas |
+|---|---|---|
+| $C$ | $\{\,x : \mathrm{coffee}(x)\,\}$ | `df[df['coffee']]` |
+| $M$ | $\{\,x : \mathrm{morning}(x)\,\}$ | `df[df['morning']]` |
+| $C \cap M$ | $\{\,x : \mathrm{coffee}(x) \text{ and } \mathrm{morning}(x)\,\}$ | `df[df['coffee'] & df['morning']]` |
+: {tbl-colwidths="[9,37,54]"}
+:::
 
-**We’ll use these café predicates:**
+<style>.reveal .nowrap-code code { white-space: nowrap; }</style>
 
-- $A=$ “Iced drinks”  
-  $A=\{x\in U \mid x.\mathrm{is\_iced}=\text{True}\}$  
-  `A = df['is_iced']`
 
-- $B=$ “Non-dairy milk (Oat or Almond)”  
-  $B=\{x\in U \mid x.\mathrm{milk}\in\{\text{'Oat','Almond'}\}\}$  
-  `B = df['milk'].str.strip().isin(['Oat','Almond'])`
-
-- $C=$ “High caffeine (≥150 mg)”  
-  $C=\{x\in U \mid x.\mathrm{caffeine\_mg}\ge 150\}$  
-  `C = df['caffeine_mg'] >= 150`
-
-- $D=$ “Low calorie (≤150 cal)”  
-  $D=\{x\in U \mid x.\mathrm{calories} \le 150\}$  
-  `D = df['calories'] <= 150`
+::: notes
+The set-builder drops "x in U": once the universe is clear we don't always
+write it (contrast the green card, which spelled out x in {1, ..., 31}).
+Same class as the cards. C and M are the sets from Hold Up Your Card, and the
+third row is their intersection: the set C cap M, "and" in the set-builder,
+& in pandas. The predicate sits inside the braces in math and inside the
+brackets in pandas (df['coffee'] is the predicate as a True/False column); the
+rows that come out are the set. In the class: |C| = 56, |M| = 45,
+|C cap M| = 31.
+:::
 
 ## Operations: Three Ways to Say the Same Thing {.smaller}
 
@@ -212,22 +226,112 @@ Let $A,B\subseteq U$.
 
 **Precedence note:** use `&`, `|`, `~` with **parentheses**: `(A & B) | (~C)`.
 
-## The Class in Code {.smaller}
+## The Class in Code {.smaller .activity}
+
+Fill in the "In all of $U$" column of the Hold Up Your Card table. 
 
 ```{pyodide}
+#| echo: false
+#| output: false
 import pandas as pd
-df = pd.read_csv('https://raw.githubusercontent.com/UBC-CS/dsci220/refs/heads/main/data/imaginary_class.csv')
+df = pd.read_csv("https://raw.githubusercontent.com/UBC-CS/dsci220/refs/heads/main/data/imaginary_class.csv")
+```
 
+```{pyodide}
 C = df['coffee']
 M = df['morning']
-print("C:", C.sum(), "  M:", M.sum(), "  C & M:", (C & M).sum(), "  C | M:", (C | M).sum())
-df[C & ~M]['name'].tolist()
+
+print("|C|     =", len(df[C]))
+print("|M|     =", len(df[M]))
+print("|C n M| =", len(df[C & M]))
+print("|C u M| =", len(df[C | M]))
+# your turn: |C - M| and the complement of C
+
+print("|C| again:", C.sum())   # the same number: count the Trues
 ```
 
 ::: notes
-Fill in the "all of U" column from this. Columns: coffee, morning, pet, games,
-countries, cats, instrument (all True/False), plus name, tagline, profile, card.
+Say once: len(df[C]) and C.sum() are the same number. len counts the rows of
+the set; C.sum() counts the Trues in the mask (True is 1) -- the indicator sum
+|A| = sum of 1_A(x) on Sets = Filters on Rows. Later slides use .sum(); it's
+what students will see in real pandas code, and it never builds the subset.
+A hidden cell above this one loads the class into df when the page opens (no
+code or output shown); every later cell uses that df.
+Answers for all 100: |C| = 56, |M| = 45, |C n M| = 31, |C u M| = 70,
+|C - M| = 25 (len(df[C & ~M])), |C^c| = 44 (len(df[~C])).
+Columns in df: name, tagline, coffee, morning, pet, games, cats, instrument
+(all True/False), profile, card.
 :::
+
+## Set Design {.activity .smaller}
+
+Get into groups of 4 with your cards.
+
+::: {.write-space}
+1. What is the fewest questions that give all 4 of you different answers? Which ones?
+2. Find a question all 4 of you answer the same way.
+3. What's special about **your** group? Write a rule $\{\, x : P(x) \,\}$ that includes all 4 of you and nobody else in the room.
+:::
+
+<style>.reveal .write-space li { margin-bottom: 3.5em !important; }</style>
+
+::: notes
+Each question is a set; two people are told apart when they are not in exactly
+the same sets. One question splits a group into at most 2, so 4 people need at
+least 2 questions (2^2 = 4 answer pairs). A group holding a twin pair (Amara &
+Ravi, Leila & Hana, and others: 78 of the 100 share a card) can never be told
+apart -- that is the next slide, for the whole class.
+2. A shared answer puts the whole group inside one set: all in C, or all in
+   C^c. Some groups share nothing -- also worth saying out loud.
+3. Start from the shared answers (an AND); check who else in the room fits by
+   asking them to stand. If no AND works, an OR of the four exact descriptions
+   always does -- unless someone outside the group holds the same card as
+   someone inside it. "Describe a group and nobody else" is a marketing
+   segment, and it is the same question as the next slide.
+Chose a set of columns all at once, not ask-then-branch: no decision trees
+(DSCI 221).
+:::
+
+## Who Can Be Identified? {.smaller}
+
+Six yes/no questions give $2^6 = 64$ possible cards.
+
+* We have $100$ students and only $64$ possible cards. What does that guarantee?
+* In real data, a few "questions" with many possible answers are enough:
+
+| What identifies you | Out of | Identified |
+|---|---|---|
+| 4 phone location pings (which tower, which hour) | 1.5 million people | 95% |
+| 4 credit-card purchases (which shop, which day) | 1.1 million people | 90% |
+| about 8 movie ratings, with approximate dates | Netflix subscribers | 99% |
+: {tbl-colwidths="[58,27,15]"}
+
+::: notes
+Only 22 of the 100 are alone on their card; the class uses 54 of the 64
+possible cards, and the biggest group shares one card four ways.
+Guaranteed: 100 students, 64 cards, so at least two share a card -- in fact at
+most 64 can be alone, so at least 36 share (the pigeonhole principle; capacity
+from lecture 17). We come back to this dataset for the pigeonhole principle.
+Sources: de Montjoye et al., "Unique in the Crowd", Scientific Reports 2013
+(phone); de Montjoye et al., "Unique in the shopping mall", Science 2015
+(credit cards); Narayanan & Shmatikov 2008 (Netflix Prize). The classic is
+Sweeney (ZIP, birth date, sex) -- left off the slide on purpose. The
+data-science response: k-anonymity -- release data only if every row shares
+its profile with at least k - 1 others. Our class is not even 2-anonymous
+(22 students are unique).
+Why 4 pings beat 6 questions: a ping isn't yes/no -- it is one of thousands
+of towers times thousands of hours, millions of possible answers. Four of them
+give vastly more possible cards than people; we have 64 cards (6 bits) for
+100 people. Fraction alone ~ e^(-n/m): e^(-100/64) ~ 21 students (actual 22).
+Finding the twins efficiently is next week's tutorial... (set
+aside for now).
+:::
+
+## Exit Ticket
+
+What does knowing which sets someone belongs to tell you about them?
+
+# For Wednesday
 
 ## Inclusion-Exclusion
 
@@ -243,7 +347,7 @@ print(lhs, guess)
 
 ## Design a Set {.activity .smaller}
 
-Using only the seven questions, write a mask that selects:
+Using only the six questions, write a mask that selects:
 
 1. **exactly** the person on your card;
 2. exactly your person **and** your neighbour's;
@@ -255,41 +359,15 @@ df[me]['name'].tolist()
 ```
 
 ::: notes
-1. An AND of all seven answers (or fewer, if fewer already pin them down). Some
-   can't be isolated: Amara & Ravi, and Leila & Hana, have identical cards.
+1. An AND of all six answers (or fewer, if fewer already pin them down). Some
+   can't be isolated: 78 of the 100 share their card with someone (Amara & Ravi,
+   Leila & Hana, and many more).
 2. Usually no single AND works -- you need an OR of two ANDs (each person's
    exact description). Any group can be written this way: an OR of ANDs, the
    DNF counterpart of lectures 6-7's CNF.
 3. Two kinds of nobody: coffee & ~coffee is empty by logic (a contradiction);
    morning & ~coffee & instrument is empty only in THIS data. Run it.
 :::
-
-## Who Can Be Singled Out?
-
-Seven yes/no questions give $2^7 = 128$ possible cards.
-
-```{pyodide}
-counts = df.groupby(['coffee','morning','pet','games','countries','cats','instrument']).size()
-print("students alone on their card:", (counts == 1).sum(), "of", len(df))
-```
-
-* How big would a class have to be before two students **must** share a card?
-* In real data: zip code, birth date and sex together identify most people in the US.
-
-::: notes
-60 of the 64 are unique; Amara & Ravi and Leila & Hana are the only twins.
-Must share: 129 (the pigeonhole principle; capacity from lecture 17).
-Even with 64 < 128, some twins are almost certain (the birthday paradox --
-probability, later). The real-data fact is Latanya Sweeney's re-identification
-work. The data-science response: k-anonymity -- release data only if every
-row shares its profile with at least k - 1 others. Our class is not even
-2-anonymous. Finding the twins efficiently is next week's tutorial... (set
-aside for now).
-:::
-
-## Exit Ticket
-
-What does knowing which sets someone belongs to tell you about them?
 
 # From the 2025 deck
 

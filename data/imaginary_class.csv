@@ -1,65 +1,101 @@
-name,tagline,coffee,morning,pet,games,countries,cats,instrument,profile,card
-Priya,up before the sun,True,True,True,False,False,False,True,113,True
-Mateo,"a cat person, firmly",False,False,True,False,False,True,False,18,True
-Aiko,has lived on two continents,True,True,True,True,True,True,False,126,True
-Jonah,does their best work at 2am,False,False,False,False,False,False,False,0,True
-Fatima,has photos of the pet ready,False,True,True,True,True,False,False,60,True
-Liam,"a cat person, firmly",True,True,False,True,False,True,False,106,True
-Zara,"a dog person, loudly",True,True,True,True,False,False,False,120,True
-Diego,"tea only, thanks",False,False,False,False,False,True,True,3,True
-Mei,"a dog person, loudly",True,True,False,True,True,False,False,108,True
-Theo,third latte of the day,True,True,False,False,False,True,True,99,True
-Amara,speedruns on weekends,True,True,True,True,False,False,True,121,True
-Noah,has photos of the pet ready,True,False,True,True,True,False,True,93,True
-Sofia,has lived on two continents,True,True,True,False,True,False,False,116,True
-Kenji,does their best work at 2am,False,False,True,True,False,True,False,26,True
-Leila,does their best work at 2am,True,False,True,True,True,True,True,95,True
-Owen,has lived on two continents,False,False,False,False,True,False,False,4,True
-Isla,"a dog person, loudly",True,False,False,True,True,False,False,76,True
-Ravi,"a dog person, loudly",True,True,True,True,False,False,True,121,True
-Chloe,"a cat person, firmly",True,True,False,False,False,True,False,98,True
-Tariq,has never finished a video game,True,True,True,False,True,False,True,117,True
-Hana,"a cat person, firmly",True,False,True,True,True,True,True,95,True
-Felix,does their best work at 2am,False,False,False,True,False,True,False,10,True
-Nadia,does their best work at 2am,False,False,True,False,True,False,False,20,True
-Arjun,does their best work at 2am,False,False,False,False,True,True,False,6,True
-Elena,"a dog person, loudly",False,False,True,True,False,False,False,24,True
-Kofi,speedruns on weekends,False,False,True,True,False,False,True,25,True
-Yuna,"a dog person, loudly",True,False,True,False,True,False,True,85,True
-Sam,third latte of the day,True,False,False,False,True,False,True,69,True
-Lucia,plays in a band on weekends,True,True,True,False,False,True,True,115,True
-Ethan,plays in a band on weekends,True,True,True,True,True,True,True,127,True
-Ines,"tea only, thanks",False,False,False,True,True,False,False,12,True
-Malik,does their best work at 2am,False,False,True,True,True,False,True,29,True
-Rosa,plays in a band on weekends,True,False,False,False,False,True,True,67,True
-Hugo,"tea only, thanks",False,True,False,True,True,False,False,44,True
-Anya,has never finished a video game,True,True,False,False,True,True,False,102,True
-Dev,"tea only, thanks",False,True,False,False,False,False,False,32,True
-Wren,third latte of the day,True,True,True,False,True,True,False,118,True
-Kai,does their best work at 2am,True,False,False,False,True,True,False,70,True
-Maya,does their best work at 2am,True,False,False,True,True,True,False,78,True
-Omar,speedruns on weekends,True,False,False,True,False,True,True,75,True
-Lena,has lived on two continents,False,True,True,False,True,False,False,52,True
-Rafael,does their best work at 2am,True,False,True,True,False,False,False,88,True
-Suki,"tea only, thanks",False,False,True,True,True,True,True,31,True
-Bea,does their best work at 2am,True,False,True,False,True,False,False,84,True
-Jun,up before the sun,False,True,False,True,False,False,False,40,True
-Iris,"a dog person, loudly",False,False,False,False,False,False,True,1,True
-Marco,has never finished a video game,True,False,False,False,False,True,False,66,True
-Zoe,plays in a band on weekends,True,True,False,False,True,True,True,103,True
-Ari,has lived on two continents,False,True,False,False,True,False,False,36,True
-Nina,plays in a band on weekends,True,False,True,True,False,True,True,91,True
-Tomas,has never finished a video game,True,False,True,False,False,True,False,82,True
-Ada,has never finished a video game,True,False,False,False,False,False,True,65,True
-Yusuf,does their best work at 2am,False,False,True,False,False,False,True,17,True
-Clara,has never finished a video game,False,False,True,False,False,False,False,16,True
-Rin,speedruns on weekends,True,True,True,True,True,False,True,125,True
-Gabe,has lived on two continents,False,False,False,True,True,True,True,15,True
-Noor,"a cat person, firmly",False,True,True,False,False,True,False,50,True
-Ivy,has photos of the pet ready,False,True,True,True,False,False,False,56,True
-Luca,speedruns on weekends,False,True,True,True,False,True,False,58,True
-Esme,has photos of the pet ready,True,True,True,True,True,False,False,124,True
-Sami,third latte of the day,True,True,False,True,True,True,True,111,True
-June,has photos of the pet ready,False,False,True,True,True,True,False,30,True
-Paolo,plays in a band on weekends,True,True,False,False,False,False,True,97,True
-Dina,"a cat person, firmly",True,False,True,False,False,True,True,83,True
+name,tagline,coffee,morning,pet,games,cats,instrument,profile,card
+Priya,up before the sun,True,True,True,False,False,True,57,True
+Mateo,"a cat person, firmly",False,False,True,False,True,False,10,True
+Aiko,up before the sun,True,True,True,True,True,False,62,True
+Jonah,does their best work at 2am,False,False,False,False,False,False,0,True
+Fatima,has photos of the pet ready,False,True,True,True,False,False,28,True
+Liam,"a cat person, firmly",True,True,False,True,True,False,54,True
+Zara,"a dog person, loudly",True,True,True,True,False,False,60,True
+Diego,"tea only, thanks",False,False,False,False,True,True,3,True
+Mei,"a dog person, loudly",True,True,False,True,False,False,52,True
+Theo,third latte of the day,True,True,False,False,True,True,51,True
+Amara,speedruns on weekends,True,True,True,True,False,True,61,True
+Noah,has photos of the pet ready,True,False,True,True,False,True,45,True
+Sofia,has never finished a video game,True,True,True,False,False,False,56,True
+Kenji,does their best work at 2am,False,False,True,True,True,False,14,True
+Leila,does their best work at 2am,True,False,True,True,True,True,47,True
+Owen,"a dog person, loudly",False,False,False,False,False,False,0,True
+Isla,"a dog person, loudly",True,False,False,True,False,False,36,True
+Ravi,"a dog person, loudly",True,True,True,True,False,True,61,True
+Chloe,"a cat person, firmly",True,True,False,False,True,False,50,True
+Tariq,has never finished a video game,True,True,True,False,False,True,57,True
+Hana,"a cat person, firmly",True,False,True,True,True,True,47,True
+Felix,does their best work at 2am,False,False,False,True,True,False,6,True
+Nadia,does their best work at 2am,False,False,True,False,False,False,8,True
+Arjun,does their best work at 2am,False,False,False,False,True,False,2,True
+Elena,"a dog person, loudly",False,False,True,True,False,False,12,True
+Kofi,speedruns on weekends,False,False,True,True,False,True,13,True
+Yuna,"a dog person, loudly",True,False,True,False,False,True,41,True
+Sam,third latte of the day,True,False,False,False,False,True,33,True
+Lucia,plays in a band on weekends,True,True,True,False,True,True,59,True
+Ethan,plays in a band on weekends,True,True,True,True,True,True,63,True
+Ines,"tea only, thanks",False,False,False,True,False,False,4,True
+Malik,does their best work at 2am,False,False,True,True,False,True,13,True
+Rosa,plays in a band on weekends,True,False,False,False,True,True,35,True
+Hugo,"tea only, thanks",False,True,False,True,False,False,20,True
+Anya,has never finished a video game,True,True,False,False,True,False,50,True
+Dev,"tea only, thanks",False,True,False,False,False,False,16,True
+Wren,third latte of the day,True,True,True,False,True,False,58,True
+Kai,does their best work at 2am,True,False,False,False,True,False,34,True
+Maya,does their best work at 2am,True,False,False,True,True,False,38,True
+Omar,speedruns on weekends,True,False,False,True,True,True,39,True
+Lena,up before the sun,False,True,True,False,False,False,24,True
+Rafael,does their best work at 2am,True,False,True,True,False,False,44,True
+Suki,"tea only, thanks",False,False,True,True,True,True,15,True
+Bea,does their best work at 2am,True,False,True,False,False,False,40,True
+Jun,up before the sun,False,True,False,True,False,False,20,True
+Iris,"a dog person, loudly",False,False,False,False,False,True,1,True
+Marco,has never finished a video game,True,False,False,False,True,False,34,True
+Zoe,plays in a band on weekends,True,True,False,False,True,True,51,True
+Ari,"a dog person, loudly",False,True,False,False,False,False,16,True
+Nina,plays in a band on weekends,True,False,True,True,True,True,47,True
+Tomas,has never finished a video game,True,False,True,False,True,False,42,True
+Ada,has never finished a video game,True,False,False,False,False,True,33,True
+Yusuf,does their best work at 2am,False,False,True,False,False,True,9,True
+Clara,has never finished a video game,False,False,True,False,False,False,8,True
+Rin,speedruns on weekends,True,True,True,True,False,True,61,True
+Gabe,speedruns on weekends,False,False,False,True,True,True,7,True
+Noor,"a cat person, firmly",False,True,True,False,True,False,26,True
+Ivy,has photos of the pet ready,False,True,True,True,False,False,28,True
+Luca,speedruns on weekends,False,True,True,True,True,False,30,True
+Esme,has photos of the pet ready,True,True,True,True,False,False,60,True
+Sami,third latte of the day,True,True,False,True,True,True,55,True
+June,has photos of the pet ready,False,False,True,True,True,False,14,True
+Paolo,plays in a band on weekends,True,True,False,False,False,True,49,True
+Dina,"a cat person, firmly",True,False,True,False,True,True,43,True
+Hiro,"a dog person, loudly",True,True,False,True,False,True,53,True
+Ana,up before the sun,False,True,False,False,True,False,18,True
+Ben,third latte of the day,True,True,True,False,False,True,57,True
+Cyrus,up before the sun,True,True,False,True,False,True,53,True
+Daria,"a cat person, firmly",False,False,True,False,True,False,10,True
+Emil,"a cat person, firmly",False,True,False,False,True,False,18,True
+Farah,does their best work at 2am,False,False,False,True,False,True,5,True
+Gus,plays in a band on weekends,False,False,True,True,False,True,13,True
+Halle,has photos of the pet ready,True,False,True,False,True,True,43,True
+Idris,"tea only, thanks",False,False,True,True,False,False,12,True
+Jade,has photos of the pet ready,False,True,True,False,True,False,26,True
+Karl,speedruns on weekends,False,False,False,True,False,True,5,True
+Lila,third latte of the day,True,False,False,True,False,False,36,True
+Milo,does their best work at 2am,True,False,False,True,False,True,37,True
+Nell,plays in a band on weekends,True,True,False,True,True,True,55,True
+Oren,plays in a band on weekends,False,False,False,False,False,True,1,True
+Pia,plays in a band on weekends,False,False,True,True,False,True,13,True
+Quinn,third latte of the day,True,True,False,False,False,True,49,True
+Reza,up before the sun,False,True,False,True,True,False,22,True
+Sana,"a dog person, loudly",True,False,True,False,False,True,41,True
+Tess,has never finished a video game,False,False,True,False,False,False,8,True
+Uma,"a cat person, firmly",True,False,True,False,True,False,42,True
+Vik,has photos of the pet ready,False,True,True,True,False,False,28,True
+Wes,third latte of the day,True,True,True,True,True,True,63,True
+Xin,plays in a band on weekends,True,False,False,False,True,True,35,True
+Yara,has never finished a video game,True,False,False,False,False,False,32,True
+Zed,does their best work at 2am,False,False,False,False,True,True,3,True
+Alba,"a cat person, firmly",True,True,False,True,True,False,54,True
+Bo,speedruns on weekends,False,False,True,True,False,False,12,True
+Cleo,"a cat person, firmly",True,True,False,False,True,False,50,True
+Dax,third latte of the day,True,False,True,True,True,True,47,True
+Eve,"tea only, thanks",False,False,True,False,True,False,10,True
+Finn,up before the sun,True,True,True,False,False,True,57,True
+Gia,"tea only, thanks",False,False,False,False,False,True,1,True
+Hal,has photos of the pet ready,True,True,True,True,False,True,61,True
+Ines B.,up before the sun,True,True,False,False,False,False,48,True
