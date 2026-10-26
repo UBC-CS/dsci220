@@ -12,7 +12,107 @@ subtitle: "Lecture 19, {{< var course.code >}}, {{< var course.term >}}"
 .center { text-align:center; }
 </style>
 
-# Sets 
+* **EX3** is Thu 10/29 through Sun 11/1. It covers lectures 11 through 18. Book your session in PrairieTest.
+* **Practice problems for EX3** are open on PrairieLearn.
+* **Tutorial 6** this week: binary and big O.
+
+# Sets
+
+## Pick a Number {.activity}
+
+Pick a whole number from $1$ to $31$, and don't tell anyone. Which colours is it on?
+
+<style>
+.magic-row { display:flex; gap:14px; justify-content:center; }
+.magic-card { display:grid; grid-template-columns:repeat(4,1fr); gap:2px 10px; border:5px solid; border-radius:10px; padding:8px 10px; font-size:0.62em; text-align:center; }
+</style>
+<div class="magic-row"><div class="magic-card" style="border-color:#e4572e;background:#e4572e22"><span>1</span><span>3</span><span>5</span><span>7</span><span>9</span><span>11</span><span>13</span><span>15</span><span>17</span><span>19</span><span>21</span><span>23</span><span>25</span><span>27</span><span>29</span><span>31</span></div><div class="magic-card" style="border-color:#f39c12;background:#f39c1222"><span>2</span><span>3</span><span>6</span><span>7</span><span>10</span><span>11</span><span>14</span><span>15</span><span>18</span><span>19</span><span>22</span><span>23</span><span>26</span><span>27</span><span>30</span><span>31</span></div><div class="magic-card" style="border-color:#f1c40f;background:#f1c40f22"><span>4</span><span>5</span><span>6</span><span>7</span><span>12</span><span>13</span><span>14</span><span>15</span><span>20</span><span>21</span><span>22</span><span>23</span><span>28</span><span>29</span><span>30</span><span>31</span></div><div class="magic-card" style="border-color:#3d9970;background:#3d997022"><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span><span>29</span><span>30</span><span>31</span></div><div class="magic-card" style="border-color:#2e86de;background:#2e86de22"><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span><span>29</span><span>30</span><span>31</span></div></div>
+
+::: notes
+Cards, left to right: red = 1, orange = 2, yellow = 4, green = 8, blue = 16 (the
+5-card magic deck, in rainbow order). Add up the values of the colours they
+name. Do it two or three times.
+:::
+
+## The Trick, Explained
+
+The yellow card holds exactly the numbers with a $1$ in the $4$s place.
+
+\
+
+* Which numbers are on the red card? $\quad$ The green card?
+* So when you tell me your colours, what are you really telling me?
+
+::: notes
+Red: a 1 in the 1s place (the odd numbers). Green: a 1 in the 8s place.
+Telling me the colours tells me where the 1s are in your number's binary
+representation, so adding the cards' values gives back the number (lecture 17).
+Each card is a SET. Your number is characterized by which sets it belongs to.
+:::
+
+## The Word "Set"
+
+A **set** is a collection of distinct items.
+
+* Order doesn't matter, and nothing is counted twice: $\{1, 2, 3\} = \{3, 1, 2\} = \{1, 2, 2, 3\}$.
+* Compare: a list or a string (order matters), the rows of a dataframe (rows can repeat).
+
+\
+
+A set is often defined by a rule:
+$$\text{yellow} = \{\, n \in \{1, \dots, 31\} : n \text{ has a } 1 \text{ in the } 4\text{s place} \,\}$$
+
+\
+
+Which sets an item belongs to can tell us exactly what the item is.
+
+::: notes
+The rule is a predicate (lecture 8), and in pandas a predicate is a mask.
+That's the bridge for the rest of the hour.
+:::
+
+## Meet the Class
+
+Everyone gets an ID card. You are now one of the $64$ students in an imaginary DSCI 220.
+
+\
+
+* $U$ = all $64$ students: the **universe**.
+* $\text{Room}$ = the students whose cards are here today. $\quad \text{Room} \subseteq U$.
+
+\
+
+Each card answers seven yes/no questions. Each question defines a set: $\text{Coffee} = \{\, s \in U : s \text{ drinks coffee most days} \,\}$.
+
+::: notes
+Hand out the printed cards (activities/lecture-19_id-cards.pdf, 36 cards). If
+more than 36 come, pair up. Hand out Amara, Ravi, Leila and Hana first if you
+want the twins in the room. The other 28 of the 64 exist only in the data
+(data/imaginary_class.csv).
+:::
+
+## Hold Up Your Card {.activity}
+
+Hold up your card if your person...
+
+::: {.fillable}
+| | In the room | In all of $U$ |
+|---|:-:|:-:|
+| drinks coffee: $C$ | | |
+| is a morning person: $M$ | | |
+| drinks coffee **and** is a morning person: $C \cap M$ | | |
+| drinks coffee **or** is a morning person: $C \cup M$ | | |
+| drinks coffee but is **not** a morning person: $C - M$ | | |
+| is **not** a coffee drinker: $\overline{C}$ | | |
+:::
+
+::: notes
+Count the raised cards for the room column; the U column comes from the code on
+the next slides. Whole class (all 64): C = 37, M = 29, C and M = 20,
+C or M = 46, C - M = 17, not C = 27. (The room numbers depend on who came.)
+Ask before the fourth row: can we predict C or M from the first three rows?
+37 + 29 - 20 = 46 -- inclusion-exclusion, in the room too.
+:::
 
 ## Sets = Filters on Rows {.smaller}
 
@@ -34,13 +134,6 @@ Let $U$ be **all rows** of a dataframe `df`.
 ::: notes
 Say: “We’ll reason with three parallel languages: math sets, logical predicates, and dataframe masks. They’re equivalent.”
 :::
-
-## From subsets to dataframe masks 
-
-A Boolean **mask** over rows is an indicator vector $\in\{0,1\}^{|U|}$.
-
-- Choosing rows is the same as selecting a **subset** of the universe $U$.
-- $|$mask$|$ (sum of Trues) = cardinality of that subset.
 
 ## Math ⇄ Predicate ⇄ Mask {.smaller}
 
@@ -82,6 +175,94 @@ Let $A,B\subseteq U$.
 
 **Precedence note:** use `&`, `|`, `~` with **parentheses**: `(A & B) | (~C)`.
 
+## The Class in Code {.smaller}
+
+```{pyodide}
+import pandas as pd
+df = pd.read_csv('https://raw.githubusercontent.com/UBC-CS/dsci220/refs/heads/main/data/imaginary_class.csv')
+
+C = df['coffee']
+M = df['morning']
+print("C:", C.sum(), "  M:", M.sum(), "  C & M:", (C & M).sum(), "  C | M:", (C | M).sum())
+df[C & ~M]['name'].tolist()
+```
+
+::: notes
+Fill in the "all of U" column from this. Columns: coffee, morning, pet, games,
+countries, cats, instrument (all True/False), plus name, tagline, profile, card.
+:::
+
+## Inclusion-Exclusion
+
+Experiment using the code below, and then complete the observation:
+
+For any sets $A$ and $B$: $|A\cup B| = \boxed{\phantom{|A| + |B| - |A \cap B|}}$
+
+```{pyodide}
+lhs = (C | M).sum()
+guess = C.sum() + M.sum()
+print(lhs, guess)
+```
+
+## Design a Set {.activity .smaller}
+
+Using only the seven questions, write a mask that selects:
+
+1. **exactly** the person on your card;
+2. exactly your person **and** your neighbour's;
+3. **nobody** at all.
+
+```{pyodide}
+me = df['coffee'] & ~df['morning']      # keep going...
+df[me]['name'].tolist()
+```
+
+::: notes
+1. An AND of all seven answers (or fewer, if fewer already pin them down). Some
+   can't be isolated: Amara & Ravi, and Leila & Hana, have identical cards.
+2. Usually no single AND works -- you need an OR of two ANDs (each person's
+   exact description). Any group can be written this way: an OR of ANDs, the
+   DNF counterpart of lectures 6-7's CNF.
+3. Two kinds of nobody: coffee & ~coffee is empty by logic (a contradiction);
+   morning & ~coffee & instrument is empty only in THIS data. Run it.
+:::
+
+## Who Can Be Singled Out?
+
+Seven yes/no questions give $2^7 = 128$ possible cards.
+
+```{pyodide}
+counts = df.groupby(['coffee','morning','pet','games','countries','cats','instrument']).size()
+print("students alone on their card:", (counts == 1).sum(), "of", len(df))
+```
+
+* How big would a class have to be before two students **must** share a card?
+* In real data: zip code, birth date and sex together identify most people in the US.
+
+::: notes
+60 of the 64 are unique; Amara & Ravi and Leila & Hana are the only twins.
+Must share: 129 (the pigeonhole principle; capacity from lecture 17).
+Even with 64 < 128, some twins are almost certain (the birthday paradox --
+probability, later). The real-data fact is Latanya Sweeney's re-identification
+work. The data-science response: k-anonymity -- release data only if every
+row shares its profile with at least k - 1 others. Our class is not even
+2-anonymous. Finding the twins efficiently is next week's tutorial... (set
+aside for now).
+:::
+
+## Exit Ticket
+
+What does knowing which sets someone belongs to tell you about them?
+
+# From the 2025 deck
+
+## From subsets to dataframe masks 
+
+A Boolean **mask** over rows is an indicator vector $\in\{0,1\}^{|U|}$.
+
+- Choosing rows is the same as selecting a **subset** of the universe $U$.
+- $|$mask$|$ (sum of Trues) = cardinality of that subset.
+
 ## Union Example {.smaller}
 
 Let  
@@ -108,7 +289,8 @@ D = df['calories'] <= 150
 
 ```{pyodide}
 
-# Find the cardinalities of the following sets: 
+# Find the cardinalities of the following sets:
+
 # A, B, C, D, A U B, A\cap B, A-B, (A U B)^C 
 
 nA = A.sum()
@@ -125,22 +307,10 @@ For any sets $A$, and $B$:
 
 ```{pyodide}
 
-# Find the data frames corresponding to the following sets: 
+# Find the data frames corresponding to the following sets:
+
 # (A U B)^c, (A^c \cap B^c)
 
-
-```
-
-## Inclusion-Exclusion
-
-Experiment using the code below, and then complete the observation:
-
-For any sets $A$ and $B$: $|A\cup B| =$ \_\_\_\_\_\_\_\_\_\_\_\_\_
-
-```{pyodide}
-
-lhs = (A | B).sum()  
-try = A.sum() + B.sum()
 
 ```
 
@@ -215,5 +385,4 @@ Give upper and lower bounds on $|A\cap B|$ for any $A,B\subseteq U$.
   <text x="60"  y="455"               fill="#555555" font-size="24" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial">U - (A ∪ B)</text>
 </svg>
 </center>
-
 
