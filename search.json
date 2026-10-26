@@ -957,7 +957,7 @@
     "href": "slides/lecture-19_slides.html#pick-a-number",
     "title": "Sets",
     "section": "Pick a Number",
-    "text": "Pick a Number\nPick a whole number from \\(1\\) to \\(31\\), and don’t tell anyone. Which colours is it on?\n\n\n\n135791113151719212325272931\n\n\n2367101114151819222326273031\n\n\n4567121314152021222328293031\n\n\n891011121314152425262728293031\n\n\n16171819202122232425262728293031\n\n\n\nCards, left to right: red = 1, orange = 2, yellow = 4, green = 8, blue = 16 (the 5-card magic deck, in rainbow order). Add up the values of the colours they name. Do it two or three times."
+    "text": "Pick a Number\nPick a whole number from \\(1\\) to \\(31\\), and don’t tell anyone. Which colours is it on?\n\n\n\n891011121314152425262728293031\n\n\n135791113151719212325272931\n\n\n16171819202122232425262728293031\n\n\n\n\n4567121314152021222328293031\n\n\n2367101114151819222326273031\n\n\n\nCards on screen: top row green, red, blue; bottom row yellow, orange. Values by colour: red = 1, orange = 2, yellow = 4, green = 8, blue = 16 (the 5-card magic deck’s colours). Add up the values of the colours they name. Do it two or three times."
   },
   {
     "objectID": "slides/lecture-19_slides.html#the-trick-explained",
