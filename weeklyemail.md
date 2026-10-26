@@ -339,8 +339,8 @@ Cinda and the DSCI220 teaching team Perrie, Noah, and Marko.
 
 ⚠ **Check before sending**
 
-1. **Tutorial 6** — the letter says it meets; confirm it's built and who owns
-   it (the website link is still TBD).
+1. **Tutorial 6** is Marko's (binary and big O). Confirm it's built in
+   PrairieLearn; the website link is still TBD.
 2. **EX3 sessions** exist in PrairieTest for Thu Oct 29 – Sun Nov 1.
 3. **Monday's class** — the letter asks everyone to come without saying why.
    Add more if you want to.
@@ -372,7 +372,8 @@ They are not graded, and you can retry each one as many times as you like.
 three puzzles for you to think about: they're not on the examlet, but they're
 fun.
 
-6. **Tutorial 6** meets on Tuesday and Wednesday.
+6. **Tutorial 6** meets on Tuesday and Wednesday. We'll practice binary and big O,
+which is good preparation for the examlet.
 
 My office hour is Tuesday, 10:30–11:30, in ICCS 233.
 
