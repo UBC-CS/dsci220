@@ -1023,104 +1023,6 @@
     "text": "The Class in Code\nFill in the “In all of \\(U\\)” column of the Hold Up Your Card table.\n\n\n\n\n\n\n\n\n\n\n\n\n\nSay once: len(df[C]) and C.sum() are the same number. len counts the rows of the set; C.sum() counts the Trues in the mask (True is 1) – the indicator sum |A| = sum of 1_A(x) on Sets = Filters on Rows. Later slides use .sum(); it’s what students will see in real pandas code, and it never builds the subset. A hidden cell above this one loads the class into df when the page opens (no code or output shown); every later cell uses that df. Answers for all 100: |C| = 56, |M| = 45, |C n M| = 31, |C u M| = 70, |C - M| = 25 (len(df[C & ~M])), |C^c| = 44 (len(df[~C])). Columns in df: name, tagline, coffee, morning, pet, games, cats, instrument (all True/False), profile, card."
   },
   {
-    "objectID": "slides/lecture-19_slides.html#set-design",
-    "href": "slides/lecture-19_slides.html#set-design",
-    "title": "Sets",
-    "section": "Set Design",
-    "text": "Set Design\nGet into groups of 4 with your cards.\n\n\nWhat is the fewest questions that give all 4 of you different answers? Which ones?\nFind a question all 4 of you answer the same way.\nWhat’s special about your group? Write a rule \\(\\{\\, x : P(x) \\,\\}\\) that includes all 4 of you and nobody else in the room.\n\n\n\n\nEach question is a set; two people are told apart when they are not in exactly the same sets. One question splits a group into at most 2, so 4 people need at least 2 questions (2^2 = 4 answer pairs). A group holding a twin pair (Amara & Ravi, Leila & Hana, and others: 78 of the 100 share a card) can never be told apart – that is the next slide, for the whole class. 2. A shared answer puts the whole group inside one set: all in C, or all in C^c. Some groups share nothing – also worth saying out loud. 3. Start from the shared answers (an AND); check who else in the room fits by asking them to stand. If no AND works, an OR of the four exact descriptions always does – unless someone outside the group holds the same card as someone inside it. “Describe a group and nobody else” is a marketing segment, and it is the same question as the next slide. Chose a set of columns all at once, not ask-then-branch: no decision trees (DSCI 221)."
-  },
-  {
-    "objectID": "slides/lecture-19_slides.html#who-can-be-identified",
-    "href": "slides/lecture-19_slides.html#who-can-be-identified",
-    "title": "Sets",
-    "section": "Who Can Be Identified?",
-    "text": "Who Can Be Identified?\nSix yes/no questions give \\(2^6 = 64\\) possible cards.\n\nWe have \\(100\\) students and only \\(64\\) possible cards. What does that guarantee?\nIn real data, a few “questions” with many possible answers are enough:\n\n\n\n\n\n\n\n\n\nWhat identifies you\nOut of\nIdentified\n\n\n\n\n4 phone location pings (which tower, which hour)\n1.5 million people\n95%\n\n\n4 credit-card purchases (which shop, which day)\n1.1 million people\n90%\n\n\nabout 8 movie ratings, with approximate dates\nNetflix subscribers\n99%\n\n\n\n\nOnly 22 of the 100 are alone on their card; the class uses 54 of the 64 possible cards, and the biggest group shares one card four ways. Guaranteed: 100 students, 64 cards, so at least two share a card – in fact at most 64 can be alone, so at least 36 share (the pigeonhole principle; capacity from lecture 17). We come back to this dataset for the pigeonhole principle. Sources: de Montjoye et al., “Unique in the Crowd”, Scientific Reports 2013 (phone); de Montjoye et al., “Unique in the shopping mall”, Science 2015 (credit cards); Narayanan & Shmatikov 2008 (Netflix Prize). The classic is Sweeney (ZIP, birth date, sex) – left off the slide on purpose. The data-science response: k-anonymity – release data only if every row shares its profile with at least k - 1 others. Our class is not even 2-anonymous (22 students are unique). Why 4 pings beat 6 questions: a ping isn’t yes/no – it is one of thousands of towers times thousands of hours, millions of possible answers. Four of them give vastly more possible cards than people; we have 64 cards (6 bits) for 100 people. Fraction alone ~ e^(-n/m): e^(-100/64) ~ 21 students (actual 22). Finding the twins efficiently is next week’s tutorial… (set aside for now)."
-  },
-  {
-    "objectID": "slides/lecture-19_slides.html#exit-ticket",
-    "href": "slides/lecture-19_slides.html#exit-ticket",
-    "title": "Sets",
-    "section": "Exit Ticket",
-    "text": "Exit Ticket\nWhat does knowing which sets someone belongs to tell you about them?"
-  },
-  {
-    "objectID": "slides/lecture-19_slides.html#inclusion-exclusion",
-    "href": "slides/lecture-19_slides.html#inclusion-exclusion",
-    "title": "Sets",
-    "section": "Inclusion-Exclusion",
-    "text": "Inclusion-Exclusion\nExperiment using the code below, and then complete the observation:\nFor any sets \\(A\\) and \\(B\\): \\(|A\\cup B| = \\boxed{\\phantom{|A| + |B| - |A \\cap B|}}\\)"
-  },
-  {
-    "objectID": "slides/lecture-19_slides.html#design-a-set",
-    "href": "slides/lecture-19_slides.html#design-a-set",
-    "title": "Sets",
-    "section": "Design a Set",
-    "text": "Design a Set\nUsing only the six questions, write a mask that selects:\n\nexactly the person on your card;\nexactly your person and your neighbour’s;\nnobody at all.\n\n\n\n\n\n\n\n\n\nAn AND of all six answers (or fewer, if fewer already pin them down). Some can’t be isolated: 78 of the 100 share their card with someone (Amara & Ravi, Leila & Hana, and many more).\nUsually no single AND works – you need an OR of two ANDs (each person’s exact description). Any group can be written this way: an OR of ANDs, the DNF counterpart of lectures 6-7’s CNF.\nTwo kinds of nobody: coffee & ~coffee is empty by logic (a contradiction); morning & ~coffee & instrument is empty only in THIS data. Run it."
-  },
-  {
-    "objectID": "slides/lecture-19_slides.html#from-subsets-to-dataframe-masks",
-    "href": "slides/lecture-19_slides.html#from-subsets-to-dataframe-masks",
-    "title": "Sets",
-    "section": "From subsets to dataframe masks",
-    "text": "From subsets to dataframe masks\nA Boolean mask over rows is an indicator vector \\(\\in\\{0,1\\}^{|U|}\\).\n\nChoosing rows is the same as selecting a subset of the universe \\(U\\).\n\\(|\\)mask\\(|\\) (sum of Trues) = cardinality of that subset."
-  },
-  {
-    "objectID": "slides/lecture-19_slides.html#union-example",
-    "href": "slides/lecture-19_slides.html#union-example",
-    "title": "Sets",
-    "section": "Union Example",
-    "text": "Union Example\nLet\n\\(A=\\{x\\mid x.\\mathrm{is\\_iced}\\}\\) and\n\\(B=\\{x\\mid x.\\mathrm{milk}\\in\\{\\text{Oat, Almond}\\}\\}\\).\n\nMath: \\(A\\cup B\\)\n\nPredicate: \\(\\{\\,x\\in U \\mid x.\\mathrm{is\\_iced}\\ \\lor\\ x.\\mathrm{milk}\\in\\{\\text{Oat, Almond}\\}\\,\\}\\)\n\nMask: (df['is_iced']) | (df['milk'].str.strip().isin(['Oat','Almond']))"
-  },
-  {
-    "objectID": "slides/lecture-19_slides.html#café-orders",
-    "href": "slides/lecture-19_slides.html#café-orders",
-    "title": "Sets",
-    "section": "Café Orders",
-    "text": "Café Orders"
-  },
-  {
-    "objectID": "slides/lecture-19_slides.html#cardinality",
-    "href": "slides/lecture-19_slides.html#cardinality",
-    "title": "Sets",
-    "section": "Cardinality",
-    "text": "Cardinality"
-  },
-  {
-    "objectID": "slides/lecture-19_slides.html#identity",
-    "href": "slides/lecture-19_slides.html#identity",
-    "title": "Sets",
-    "section": "Identity",
-    "text": "Identity\nExperiment using the code below, and then complete the observation:\nFor any sets \\(A\\), and \\(B\\): ___________ = ___________"
-  },
-  {
-    "objectID": "slides/lecture-19_slides.html#equality",
-    "href": "slides/lecture-19_slides.html#equality",
-    "title": "Sets",
-    "section": "Equality?",
-    "text": "Equality?\nTwo sets are equal if they contain exactly the same elements. Think of a way to test set equality using set operations.\nAre sets \\(X\\) and \\(Y\\) equal?"
-  },
-  {
-    "objectID": "slides/lecture-19_slides.html#subsets",
-    "href": "slides/lecture-19_slides.html#subsets",
-    "title": "Sets",
-    "section": "Subsets",
-    "text": "Subsets\n\\(A\\subseteq B \\iff \\forall x, P_A(x)\\Rightarrow P_B(x)\\iff\\) ((A & ~B).sum()==0)\nAre any of our sets \\(A\\), \\(B\\), \\(C\\), or \\(D\\) subsets of one another?"
-  },
-  {
-    "objectID": "slides/lecture-19_slides.html#a-venn-puzzle",
-    "href": "slides/lecture-19_slides.html#a-venn-puzzle",
-    "title": "Sets",
-    "section": "A Venn Puzzle",
-    "text": "A Venn Puzzle\nFill in the Venn Diagram using the values for \\(|U|\\), \\(|A|\\), \\(|B|\\), \\(|A\\cup B|\\). Verify your counts are correct by finding \\(|A-B|\\), \\(|A\\cap B|\\), \\(|B-A|\\), and \\(|U-(A\\cup B)|\\), via code.\n\n U A B   A - B A ∩ B B - A U - (A ∪ B)"
-  },
-  {
-    "objectID": "slides/lecture-19_slides.html#bounds-on-acap-b",
-    "href": "slides/lecture-19_slides.html#bounds-on-acap-b",
-    "title": "Sets",
-    "section": "Bounds on \\(|A\\cap B|\\)",
-    "text": "Bounds on \\(|A\\cap B|\\)\nGive upper and lower bounds on \\(|A\\cap B|\\) for any \\(A,B\\subseteq U\\).\n \n__________________ \\(\\leq |A\\cap B|\\leq\\) __________________\n \n\n\n U A B   A - B A ∩ B B - A U - (A ∪ B)"
-  },
-  {
     "objectID": "slides/lecture-17_slides.html#announcements",
     "href": "slides/lecture-17_slides.html#announcements",
     "title": "Binary: an Application Interlude",
@@ -2878,7 +2780,42 @@
     "href": "slides/lecture-20_slides.html#goals",
     "title": "Sets, Power Sets, and Cross Products",
     "section": "Goals",
-    "text": "Goals\n\nExplore the Empty Set.\nDistinguish element (\\(\\in\\)) vs subset (\\(\\subseteq\\)).\nDefine the power set \\(\\mathcal{P}(S)\\) and its cardinality.\nDefine Cartesian product \\(A\\times B\\)."
+    "text": "Goals\n\nUse sets to describe groups of people, and ask who can be singled out.\nCount a union without double counting: inclusion-exclusion.\nExplore the Empty Set.\nDistinguish element (\\(\\in\\)) vs subset (\\(\\subseteq\\)).\nDefine the power set \\(\\mathcal{P}(S)\\) and its cardinality.\nDefine Cartesian product \\(A\\times B\\)."
+  },
+  {
+    "objectID": "slides/lecture-20_slides.html#set-design",
+    "href": "slides/lecture-20_slides.html#set-design",
+    "title": "Sets, Power Sets, and Cross Products",
+    "section": "Set Design",
+    "text": "Set Design\nGet into groups of 4 with your cards.\n\n\nWhat is the fewest questions that give all 4 of you different answers? Which ones?\nFind a question all 4 of you answer the same way.\nWhat’s special about your group? Write a rule \\(\\{\\, x : P(x) \\,\\}\\) that includes all 4 of you and nobody else in the room.\n\n\n\n\nEach question is a set; two people are told apart when they are not in exactly the same sets. One question splits a group into at most 2, so 4 people need at least 2 questions (2^2 = 4 answer pairs). A group holding a twin pair (Amara & Ravi, Leila & Hana, and others: 78 of the 100 share a card) can never be told apart – that is the next slide, for the whole class. 2. A shared answer puts the whole group inside one set: all in C, or all in C^c. Some groups share nothing – also worth saying out loud. 3. Start from the shared answers (an AND); check who else in the room fits by asking them to stand. If no AND works, an OR of the four exact descriptions always does – unless someone outside the group holds the same card as someone inside it. “Describe a group and nobody else” is a marketing segment, and it is the same question as the next slide. Chose a set of columns all at once, not ask-then-branch: no decision trees (DSCI 221)."
+  },
+  {
+    "objectID": "slides/lecture-20_slides.html#who-can-be-identified",
+    "href": "slides/lecture-20_slides.html#who-can-be-identified",
+    "title": "Sets, Power Sets, and Cross Products",
+    "section": "Who Can Be Identified?",
+    "text": "Who Can Be Identified?\nSix yes/no questions give \\(2^6 = 64\\) possible cards.\n\nWe have \\(100\\) students and only \\(64\\) possible cards. What does that guarantee?\nIn real data, a few “questions” with many possible answers are enough:\n\n\n\n\n\n\n\n\n\nWhat identifies you\nOut of\nIdentified\n\n\n\n\n4 phone location pings (which tower, which hour)\n1.5 million people\n95%\n\n\n4 credit-card purchases (which shop, which day)\n1.1 million people\n90%\n\n\nabout 8 movie ratings, with approximate dates\nNetflix subscribers\n99%\n\n\n\n\nOnly 22 of the 100 are alone on their card; the class uses 54 of the 64 possible cards, and the biggest group shares one card four ways. Guaranteed: 100 students, 64 cards, so at least two share a card – in fact at most 64 can be alone, so at least 36 share (the pigeonhole principle; capacity from lecture 17). We come back to this dataset for the pigeonhole principle. Sources: de Montjoye et al., “Unique in the Crowd”, Scientific Reports 2013 (phone); de Montjoye et al., “Unique in the shopping mall”, Science 2015 (credit cards); Narayanan & Shmatikov 2008 (Netflix Prize). The classic is Sweeney (ZIP, birth date, sex) – left off the slide on purpose. The data-science response: k-anonymity – release data only if every row shares its profile with at least k - 1 others. Our class is not even 2-anonymous (22 students are unique). Why 4 pings beat 6 questions: a ping isn’t yes/no – it is one of thousands of towers times thousands of hours, millions of possible answers. Four of them give vastly more possible cards than people; we have 64 cards (6 bits) for 100 people. Fraction alone ~ e^(-n/m): e^(-100/64) ~ 21 students (actual 22). Finding the twins efficiently is next week’s tutorial… (set aside for now)."
+  },
+  {
+    "objectID": "slides/lecture-20_slides.html#inclusion-exclusion",
+    "href": "slides/lecture-20_slides.html#inclusion-exclusion",
+    "title": "Sets, Power Sets, and Cross Products",
+    "section": "Inclusion-Exclusion",
+    "text": "Inclusion-Exclusion\nExperiment using the code below, and then complete the observation:\nFor any sets \\(A\\) and \\(B\\): \\(|A\\cup B| = \\boxed{\\phantom{|A| + |B| - |A \\cap B|}}\\)\n\n\n\n\n\n\n\n\n\n\n\n\n\nStart from Monday’s table: |C| + |M| = 56 + 45 = 101, but |C u M| = 70. The 31 students in C n M were counted twice – once in C, once in M – so subtract them once: 56 + 45 - 31 = 70. A hidden cell on this slide loads the imaginary class and defines C, M, P (pet) and I (instrument) as masks. Later cells use those names, so they keep working even after the cafe cell replaces df."
+  },
+  {
+    "objectID": "slides/lecture-20_slides.html#a-three-set-puzzle",
+    "href": "slides/lecture-20_slides.html#a-three-set-puzzle",
+    "title": "Sets, Power Sets, and Cross Products",
+    "section": "A Three-Set Puzzle",
+    "text": "A Three-Set Puzzle\n\n\n\n U    C M P          \n\n\nIn all of \\(U\\) (\\(100\\) students), with \\(P\\) = has a pet:\n\n\n\n\n\n\n\n\\(\\lvert C\\rvert\\), \\(\\lvert M\\rvert\\), \\(\\lvert P\\rvert\\)\n\\(56\\), \\(45\\), \\(53\\)\n\n\n\\(\\lvert C\\cap M\\rvert\\)\n\\(31\\)\n\n\n\\(\\lvert C\\cap P\\rvert\\)\n\\(29\\)\n\n\n\\(\\lvert M\\cap P\\rvert\\)\n\\(23\\)\n\n\n\\(\\lvert C\\cap M\\cap P\\rvert\\)\n\\(16\\)\n\n\n\nFill in all eight regions. How many students are in none of the three?\n\n\nWork from the middle out: centre 16; then the pairs minus the centre: C n M only 15, C n P only 13, M n P only 7; then each set minus its three inner regions: C only 12, M only 7, P only 17; total in C u M u P = 87, so none = 13. Check: 12+15+16+13+7+7+17+13 = 100. The three-set formula falls out: |C u M u P| = 56+45+53 - 31-29-23 + 16 = 87. Each region is one combination of yes/no answers on three of the six questions – the Venn regions are the cards, restricted to three columns."
+  },
+  {
+    "objectID": "slides/lecture-20_slides.html#check-your-regions",
+    "href": "slides/lecture-20_slides.html#check-your-regions",
+    "title": "Sets, Power Sets, and Cross Products",
+    "section": "Check Your Regions",
+    "text": "Check Your Regions\nEach region is a mask. Write one for each region and compare with your diagram.\n\n\n\n\n\n\nFor any sets \\(A\\), \\(B\\), \\(C\\): \\(|A\\cup B\\cup C| = \\boxed{\\phantom{|A|+|B|+|C| - |A\\cap B| - |A\\cap C| - |B\\cap C| + |A\\cap B\\cap C|}}\\)\n\nAnswers: C&M&P 12, C&M&P 7, C&M&P 17, C&M&~P 15, C&~M&P 13, ~C&M&P 7, C&M&P 16, C&M&~P 13. The blank: |A|+|B|+|C| - |AnB| - |AnC| - |BnC| + |AnBnC|."
   },
   {
     "objectID": "slides/lecture-20_slides.html#the-empty-set-varnothing",
@@ -2893,6 +2830,13 @@
     "title": "Sets, Power Sets, and Cross Products",
     "section": "Operations with \\(\\varnothing\\)",
     "text": "Operations with \\(\\varnothing\\)\nFor any set \\(A\\):\n\nUnion: \\(A\\cup\\varnothing = A\\)\nIntersection: \\(A\\cap\\varnothing = \\varnothing\\)\nDifference: \\(A - \\varnothing = A\\), \\(\\ \\varnothing\\setminus A = \\varnothing\\)\nComplement (in \\(U\\)): \\(U - \\varnothing = U\\)\nCardinalities: \\(|A\\cup\\varnothing|=|A|\\), \\(|A\\cap\\varnothing|=0\\)\n\n\nQuick demo with a tiny set on the board or in code; emphasize “subset vs element.”"
+  },
+  {
+    "objectID": "slides/lecture-20_slides.html#selecting-nobody",
+    "href": "slides/lecture-20_slides.html#selecting-nobody",
+    "title": "Sets, Power Sets, and Cross Products",
+    "section": "Selecting Nobody",
+    "text": "Selecting Nobody\nBoth of these masks select nobody. Run them.\n\n\n\n\n\n\nWhich one would select nobody in any class? Which one is empty only in this class?\n\nC & ~C is a contradiction: false in every row of its truth table (lectures 5-6), so it is empty for every dataset. M & ~C & I (morning, no coffee, plays an instrument) is empty only because no student in this class fits – add one such student and it isn’t. Both are the empty set here; only one is empty by logic. This is the “nobody” question from the old Design a Set slide, which Monday’s deck didn’t reach."
   },
   {
     "objectID": "slides/lecture-20_slides.html#dataframemask-view-of-varnothing",
@@ -2927,7 +2871,7 @@
     "href": "slides/lecture-20_slides.html#why-2n",
     "title": "Sets, Power Sets, and Cross Products",
     "section": "Why \\(2^n\\)?",
-    "text": "Why \\(2^n\\)?\nBitstring encoding:\nConsider \\(S=\\{s_1,\\dots,s_n\\}\\). For each subset \\(T\\subseteq S\\) define an indicator of membership: \\[(b_1,\\dots,b_n)\\ \\text{where } b_i=\\begin{cases}1,& s_i\\in T\\\\ 0,& s_i\\notin T\\end{cases}.\\]\nHow many subsets of a set of size \\(n\\)?\n\nConnect to yesterday’s “\\(b\\) bits \\(\\Rightarrow 2^b\\) codes.” Subsets \\(\\leftrightarrow\\) \\(n\\)-bit strings."
+    "text": "Why \\(2^n\\)?\nBitstring encoding:\nConsider \\(S=\\{s_1,\\dots,s_n\\}\\). For each subset \\(T\\subseteq S\\) define an indicator of membership: \\[(b_1,\\dots,b_n)\\ \\text{where } b_i=\\begin{cases}1,& s_i\\in T\\\\ 0,& s_i\\notin T\\end{cases}.\\]\nHow many subsets of a set of size \\(n\\)?\n\nConnect to yesterday’s “\\(b\\) bits \\(\\Rightarrow 2^b\\) codes.” Subsets \\(\\leftrightarrow\\) \\(n\\)-bit strings. The ID cards are the example: each card is the set of questions that person answered yes to, a subset of the six questions. So the 64 possible cards are exactly P(six questions), and the card’s 6-bit # is its bitstring."
   },
   {
     "objectID": "slides/lecture-20_slides.html#quick-check",
@@ -2944,6 +2888,13 @@
     "text": "Empty Sets and Power Sets\n\n\\(\\varnothing\\in \\mathcal{P}(A)\\) (since \\(\\varnothing\\subseteq A\\))\n\n\\(\\mathcal{P}(\\varnothing)=\\{\\varnothing\\}\\) and \\(|\\mathcal{P}(\\varnothing)|=1\\)"
   },
   {
+    "objectID": "slides/lecture-20_slides.html#exit-ticket",
+    "href": "slides/lecture-20_slides.html#exit-ticket",
+    "title": "Sets, Power Sets, and Cross Products",
+    "section": "Exit Ticket",
+    "text": "Exit Ticket\nWhat does knowing which sets someone belongs to tell you about them?"
+  },
+  {
     "objectID": "slides/lecture-20_slides.html#cartesian-product-atimes-b",
     "href": "slides/lecture-20_slides.html#cartesian-product-atimes-b",
     "title": "Sets, Power Sets, and Cross Products",
@@ -2956,6 +2907,76 @@
     "title": "Sets, Power Sets, and Cross Products",
     "section": "Code",
     "text": "Code"
+  },
+  {
+    "objectID": "slides/lecture-20_slides.html#from-subsets-to-dataframe-masks",
+    "href": "slides/lecture-20_slides.html#from-subsets-to-dataframe-masks",
+    "title": "Sets, Power Sets, and Cross Products",
+    "section": "From subsets to dataframe masks",
+    "text": "From subsets to dataframe masks\nA Boolean mask over rows is an indicator vector \\(\\in\\{0,1\\}^{|U|}\\).\n\nChoosing rows is the same as selecting a subset of the universe \\(U\\).\n\\(|\\)mask\\(|\\) (sum of Trues) = cardinality of that subset."
+  },
+  {
+    "objectID": "slides/lecture-20_slides.html#union-example",
+    "href": "slides/lecture-20_slides.html#union-example",
+    "title": "Sets, Power Sets, and Cross Products",
+    "section": "Union Example",
+    "text": "Union Example\nLet\n\\(A=\\{x\\mid x.\\mathrm{is\\_iced}\\}\\) and\n\\(B=\\{x\\mid x.\\mathrm{milk}\\in\\{\\text{Oat, Almond}\\}\\}\\).\n\nMath: \\(A\\cup B\\)\n\nPredicate: \\(\\{\\,x\\in U \\mid x.\\mathrm{is\\_iced}\\ \\lor\\ x.\\mathrm{milk}\\in\\{\\text{Oat, Almond}\\}\\,\\}\\)\n\nMask: (df['is_iced']) | (df['milk'].str.strip().isin(['Oat','Almond']))"
+  },
+  {
+    "objectID": "slides/lecture-20_slides.html#café-orders",
+    "href": "slides/lecture-20_slides.html#café-orders",
+    "title": "Sets, Power Sets, and Cross Products",
+    "section": "Café Orders",
+    "text": "Café Orders"
+  },
+  {
+    "objectID": "slides/lecture-20_slides.html#cardinality",
+    "href": "slides/lecture-20_slides.html#cardinality",
+    "title": "Sets, Power Sets, and Cross Products",
+    "section": "Cardinality",
+    "text": "Cardinality"
+  },
+  {
+    "objectID": "slides/lecture-20_slides.html#identity",
+    "href": "slides/lecture-20_slides.html#identity",
+    "title": "Sets, Power Sets, and Cross Products",
+    "section": "Identity",
+    "text": "Identity\nExperiment using the code below, and then complete the observation:\nFor any sets \\(A\\), and \\(B\\): ___________ = ___________"
+  },
+  {
+    "objectID": "slides/lecture-20_slides.html#equality",
+    "href": "slides/lecture-20_slides.html#equality",
+    "title": "Sets, Power Sets, and Cross Products",
+    "section": "Equality?",
+    "text": "Equality?\nTwo sets are equal if they contain exactly the same elements. Think of a way to test set equality using set operations.\nAre sets \\(X\\) and \\(Y\\) equal?"
+  },
+  {
+    "objectID": "slides/lecture-20_slides.html#subsets",
+    "href": "slides/lecture-20_slides.html#subsets",
+    "title": "Sets, Power Sets, and Cross Products",
+    "section": "Subsets",
+    "text": "Subsets\n\\(A\\subseteq B \\iff \\forall x, P_A(x)\\Rightarrow P_B(x)\\iff\\) ((A & ~B).sum()==0)\nAre any of our sets \\(A\\), \\(B\\), \\(C\\), or \\(D\\) subsets of one another?"
+  },
+  {
+    "objectID": "slides/lecture-20_slides.html#a-venn-puzzle",
+    "href": "slides/lecture-20_slides.html#a-venn-puzzle",
+    "title": "Sets, Power Sets, and Cross Products",
+    "section": "A Venn Puzzle",
+    "text": "A Venn Puzzle\nFill in the Venn Diagram using the values for \\(|U|\\), \\(|A|\\), \\(|B|\\), \\(|A\\cup B|\\). Verify your counts are correct by finding \\(|A-B|\\), \\(|A\\cap B|\\), \\(|B-A|\\), and \\(|U-(A\\cup B)|\\), via code.\n\n U A B   A - B A ∩ B B - A U - (A ∪ B)"
+  },
+  {
+    "objectID": "slides/lecture-20_slides.html#bounds-on-acap-b",
+    "href": "slides/lecture-20_slides.html#bounds-on-acap-b",
+    "title": "Sets, Power Sets, and Cross Products",
+    "section": "Bounds on \\(|A\\cap B|\\)",
+    "text": "Bounds on \\(|A\\cap B|\\)\nGive upper and lower bounds on \\(|A\\cap B|\\) for any \\(A,B\\subseteq U\\).\n \n__________________ \\(\\leq |A\\cap B|\\leq\\) __________________\n \n\n\n U A B   A - B A ∩ B B - A U - (A ∪ B)"
+  },
+  {
+    "objectID": "slides/lecture-20_slides.html#design-a-set",
+    "href": "slides/lecture-20_slides.html#design-a-set",
+    "title": "Sets, Power Sets, and Cross Products",
+    "section": "Design a Set",
+    "text": "Design a Set\nUsing only the six questions, write a mask that selects:\n\nexactly the person on your card;\nexactly your person and your neighbour’s;\nnobody at all.\n\n\n\n\n\n\n\n\n\nAn AND of all six answers (or fewer, if fewer already pin them down). Some can’t be isolated: 78 of the 100 share their card with someone (Amara & Ravi, Leila & Hana, and many more).\nUsually no single AND works – you need an OR of two ANDs (each person’s exact description). Any group can be written this way: an OR of ANDs, the DNF counterpart of lectures 6-7’s CNF.\nTwo kinds of nobody: coffee & ~coffee is empty by logic (a contradiction); morning & ~coffee & instrument is empty only in THIS data. Run it."
   },
   {
     "objectID": "slides/lecture-22_slides.html#announcements",
