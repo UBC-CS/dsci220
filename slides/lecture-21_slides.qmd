@@ -158,8 +158,8 @@ H = df['caffeine_mg'] >= 150
 
 ## DeMorgan for Sets {.smaller}
 
-By observation, you discovered that $(C\cup M)^c = C^c\cap M^c$. But is this
-_always_ true?
+In the class data, $(C\cup M)^c$ and $C^c\cap M^c$ select exactly the same
+students. But is this _always_ true?
 
 \ 
 
@@ -352,3 +352,22 @@ everything, so showing nothing is in it is the whole job.)
 Techniques: element-chasing for =, proof by cases (in N or not -- excluded
 middle), proof by contradiction for "= empty set".
 :::
+
+## Partition Identity Proof: Nothing in Both {.smaller}
+
+The **empty set** $\varnothing$ is the set with no elements. To show a set is
+$\varnothing$, we show that nothing is in it.
+
+**Claim:** $(I\cap N)\ \cap\ (I\cap N^{c}) = \varnothing$.
+
+**Proof** (by contradiction)**:** Suppose some $x$ is in both $I\cap N$ and
+$I\cap N^c$.
+
+* Since $x\in I\cap N$, we have $x\in N$.
+* Since $x\in I\cap N^c$, we have $x\in N^c$, so $x\notin N$.
+
+So $x\in N$ and $x\notin N$, which is a contradiction. No $x$ is in both, and
+the intersection is $\varnothing$. $\blacksquare$
+
+In code, this is a mask that selects nobody: `((I & N) & (I & ~N)).sum()` is
+always 0.
