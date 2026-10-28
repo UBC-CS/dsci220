@@ -24,6 +24,43 @@ subtitle: "Lecture 20, {{< var course.code >}}, {{< var course.term >}}"
 - Define the **power set** $\mathcal{P}(S)$ and its **cardinality**.
 - Define **Cartesian product** $A\times B$.
 
+## The Class in Code {.smaller .activity}
+
+Fill in the "In all of $U$" column of the Hold Up Your Card table. 
+
+```{pyodide}
+#| echo: false
+#| output: false
+import pandas as pd
+df = pd.read_csv("https://raw.githubusercontent.com/UBC-CS/dsci220/refs/heads/main/data/imaginary_class.csv")
+```
+
+```{pyodide}
+C = df['coffee']
+M = df['morning']
+
+print("|C|     =", len(df[C]))
+print("|M|     =", len(df[M]))
+print("|C n M| =", len(df[C & M]))
+print("|C u M| =", len(df[C | M]))
+# your turn: |C - M| and the complement of C
+
+print("|C| again:", C.sum())   # the same number: count the Trues
+```
+
+::: notes
+Say once: len(df[C]) and C.sum() are the same number. len counts the rows of
+the set; C.sum() counts the Trues in the mask (True is 1) -- the indicator sum
+|A| = sum of 1_A(x) on Sets = Filters on Rows. Later slides use .sum(); it's
+what students will see in real pandas code, and it never builds the subset.
+A hidden cell above this one loads the class into df when the page opens (no
+code or output shown); every later cell uses that df.
+Answers for all 100: |C| = 56, |M| = 45, |C n M| = 31, |C u M| = 70,
+|C - M| = 25 (len(df[C & ~M])), |C^c| = 44 (len(df[~C])).
+Columns in df: name, tagline, coffee, morning, pet, games, cats, instrument
+(all True/False), profile, card.
+:::
+
 # Who Are We?
 
 ## Set Design {.activity .smaller}
