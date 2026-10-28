@@ -99,7 +99,7 @@ Let $S=\{A,B,C\}$.
 
 
 
-## Cartesian Product $A\times B$ 
+## Cartesian Product $A\times B$ {.smaller}
 
 **Definition:** $A\times B=\{(a,b)\mid a\in A,\ b\in B\}$ 
 
