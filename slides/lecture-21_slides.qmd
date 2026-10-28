@@ -337,3 +337,18 @@ $$
 $$
 
 **Proof:**  
+
+::: notes
+Consider arbitrary sets I and N.
+Union, two subsets.
+(subset) Let x be in (I n N) u (I n N^c). Then x is in I n N or in I n N^c;
+in either case x is in I.
+(superset) Let x be in I. By cases on x and N: if x is in N, then x is in
+I n N; if not, x is in N^c, so x is in I n N^c. Either way x is in the union.
+Intersection. Suppose some x is in both I n N and I n N^c. Then x is in N
+and x is in N^c, i.e. x is in N and x is not in N -- a contradiction. So no
+x is in both: the intersection is the empty set. (Empty set is a subset of
+everything, so showing nothing is in it is the whole job.)
+Techniques: element-chasing for =, proof by cases (in N or not -- excluded
+middle), proof by contradiction for "= empty set".
+:::
