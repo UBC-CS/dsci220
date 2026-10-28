@@ -17,10 +17,12 @@ subtitle: "Lecture 20, {{< var course.code >}}, {{< var course.term >}}"
 
 ## Goals
 
-- Use sets to describe groups of people, and ask who can be singled out.
-- Count a union without double counting: **inclusion-exclusion**.
-- Explore the Empty Set.
-- Distinguish **element** ($\in$) vs **subset** ($\subseteq$).
+- See every set as a mask: a column of Trues and Falses, one per student.
+- Use sets to describe people, and ask who can be singled out.
+- Count a union without double counting, and bound an intersection.
+- Test subset and equality with masks: true in **this** class, or in **every** class?
+
+# Sets Are Rows
 
 ## The Class in Code {.smaller .activity}
 
@@ -57,6 +59,19 @@ Answers for all 100: |C| = 56, |M| = 45, |C n M| = 31, |C u M| = 70,
 |C - M| = 25 (len(df[C & ~M])), |C^c| = 44 (len(df[~C])).
 Columns in df: name, tagline, coffee, morning, pet, games, cats, instrument
 (all True/False), profile, card.
+:::
+
+## From subsets to dataframe masks 
+
+A Boolean **mask** over rows is an indicator vector $\in\{0,1\}^{|U|}$.
+
+- Choosing rows is the same as selecting a **subset** of the universe $U$.
+- $|$mask$|$ (sum of Trues) = cardinality of that subset.
+
+::: notes
+This names what The Class in Code just did: C is a column of 100 Trues and
+Falses, and |C| is the number of Trues. Friday's power set picks this up:
+a mask over U is a |U|-bit string, so there are 2^|U| possible sets.
 :::
 
 # Who Are We?
@@ -125,7 +140,7 @@ Finding the twins efficiently is next week's tutorial... (set
 aside for now).
 :::
 
-# Counting a Union
+# Counting
 
 ## Inclusion-Exclusion
 
@@ -155,6 +170,158 @@ A hidden cell on this slide loads the imaginary class and defines C, M, P
 (pet) and I (instrument) as masks. Later cells use those names, so they keep
 working even after the cafe cell replaces df.
 :::
+
+## Bounds on $|A\cap B|$ {.smaller}
+
+Give upper and lower bounds on $|A\cap B|$ for any $A,B\subseteq U$. 
+
+\ 
+
+$\boxed{\phantom{\max(0,\ |A|+|B|-|U|)}} \leq |A\cap B| \leq \boxed{\phantom{\min(|A|,\ |B|)}}$
+
+\ 
+
+<center>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="42%" role="img" aria-label="Two-set Venn diagram for sets A and B">
+  <rect x="10" y="10" width="780" height="480" rx="16" ry="16" fill="#ffffff" stroke="#333333" stroke-width="2"/>
+  <text x="26" y="40" fill="#111111" font-size="32" font-weight="600" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial">U</text>
+  <text x="300" y="90" text-anchor="middle" fill="#111111" font-size="32" font-weight="600" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial">A</text>
+  <text x="500" y="90" text-anchor="middle" fill="#111111" font-size="32" font-weight="600" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial">B</text>
+  <circle cx="300" cy="260" r="180" fill="#5B8DEF" fill-opacity="0.28" stroke="#2b4ea2" stroke-width="2"/>
+  <circle cx="500" cy="260" r="180" fill="#FF8A65" fill-opacity="0.28" stroke="#bf4e2c" stroke-width="2"/>
+  <text x="230" y="265" text-anchor="middle" fill="#222222" font-size="24" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial">A - B</text>
+  <text x="400" y="265" text-anchor="middle" fill="#222222" font-size="24" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial">A ∩ B</text>
+  <text x="570" y="265" text-anchor="middle" fill="#222222" font-size="24" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial">B - A</text>
+  <text x="60"  y="455"               fill="#555555" font-size="24" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial">U - (A ∪ B)</text>
+</svg>
+</center>
+
+::: notes
+Answer: max(0, |A| + |B| - |U|) <= |A n B| <= min(|A|, |B|).
+Upper: A n B is inside A and inside B, so it is no bigger than either.
+Lower: inclusion-exclusion rearranged, |A n B| = |A| + |B| - |A u B|, and
+|A u B| <= |U|. If |A| + |B| <= |U| the bound is 0.
+Our class: max(0, 56 + 45 - 100) = 1 <= |C n M| = 31 <= min(56, 45) = 45.
+From the counts alone, at least one student MUST drink coffee and be a
+morning person -- the pigeonhole idea again, now for two sets. Privacy hook:
+published counts alone tell you things about individuals.
+Both bounds are achievable: push C and M apart (overlap 1) or put M inside C
+(overlap 45). Ask which arrangement gives each.
+:::
+
+# True Here, or True Everywhere?
+
+## The Empty Set ($\varnothing$) {.smaller}
+
+**Definition:** $\varnothing$ (a.k.a. $\{\}$) is the **unique set with no elements**.
+
+- **Cardinality:** $|\varnothing|=0$.
+- **Universal subset fact:** For any set $A$, $\varnothing\subseteq A$.
+- **But membership is different:** $\varnothing\in A$ only if $A$ literally contains the empty set as an element.
+
+**Examples**
+
+- If $S=\{a,b\}$:  $\varnothing\subseteq S$, but NOT $\varnothing\in S$.  
+- If $T=\{\varnothing,\{a\}\}$:  $\varnothing\in T$.
+
+## Operations with $\varnothing$  {.smaller}
+
+For any set $A$:
+
+- **Union:** $A\cup\varnothing = \boxed{\phantom{|A|\,}}$
+- **Intersection:** $A\cap\varnothing = \boxed{\phantom{|A|\,}}$
+- **Difference:** $A - \varnothing = \boxed{\phantom{|A|\,}}$, $\ \varnothing - A = \boxed{\phantom{|A|\,}}$
+- **Complement (in $U$):** $U - \varnothing = \boxed{\phantom{|A|\,}}$
+- **Cardinalities:** $|A\cup\varnothing| = \boxed{\phantom{|A|\,}}$, $|A\cap\varnothing| = \boxed{\phantom{|A|\,}}$
+
+::: notes
+Answers: A; the empty set; A; the empty set; U; |A|; 0.
+Quick demo with a tiny set on the board or in code; emphasize “subset vs element.”
+:::
+
+## Selecting Nobody {.activity .smaller}
+
+Both of these masks select **nobody**. Run them.
+
+```{pyodide}
+print(( C & ~C ).sum())
+print(( M & ~C & I ).sum())
+```
+
+::: notes
+C & ~C is a contradiction: false in every row of its truth table (lectures
+5-6), so it is empty for every dataset. M & ~C & I (morning, no coffee, plays
+an instrument) is empty only because no student in this class fits -- add one
+such student and it isn't. Both are the empty set here; only one is empty by
+logic. This is the "nobody" question from the old Design a Set slide, which
+Monday's deck didn't reach.
+:::
+
+## Subsets {.smaller}
+
+$A\subseteq B \iff \forall x, P_A(x)\Rightarrow P_B(x)\iff$ `((A & ~B).sum()==0)`
+
+In words: $A \subseteq B$ when "in $A$ but not in $B$" selects nobody.
+
+Is $M\cap I$ (morning people who play an instrument) a subset of $C$?
+
+```{pyodide}
+print(((M & I) & ~C).sum() == 0)
+```
+
+::: notes
+True: (M & I) & ~C is the M & ~C & I mask from Selecting Nobody. All 19
+morning instrument players drink coffee. True in THIS class only -- add one
+tea-drinking morning violinist and it fails.
+The 2025 version asked "are any of our sets subsets of one another?" For the
+six columns the answer is no: no single question's set sits inside another's.
+:::
+
+## Equality? {.smaller}
+
+Two sets are equal if they contain exactly the same elements. Think of a way to test set equality using set operations.
+
+Are sets $X$ and $Y$ equal?
+
+```{pyodide}
+X = M & I
+Y = M & I & C
+```
+
+::: notes
+X = Y exactly when each is a subset of the other: (X & ~Y) and (Y & ~X) both
+select nobody. One line: ((X & ~Y) | (Y & ~X)).sum() == 0, or (X ^ Y).sum() == 0.
+Here they are equal (19 students each) -- because M n I is a subset of C
+(previous slide). Two different-looking rules, the same set, in THIS class.
+:::
+
+## Identity {.smaller}
+
+Experiment using the code below, and then complete the observation:
+
+For any sets $A$ and $B$: $\boxed{\phantom{(A\cup B)^c}} = \boxed{\phantom{A^c\cap B^c}}$
+
+```{pyodide}
+# Find the sets (C u M)^c and C^c n M^c. Are they equal?
+# Then try two other columns.
+
+
+```
+
+::: notes
+(A u B)^c = A^c n B^c: De Morgan for sets. Equal for every pair of columns,
+and in every class -- unlike Subsets and Equality?, which held only in ours.
+In code: (~(C | M) ^ (~C & ~M)).sum() == 0. 30 students are in neither C nor M.
+Code checks one dataset; proving it for every dataset is Friday (L21,
+DeMorgan for Sets).
+:::
+
+## Exit Ticket
+
+1. What does knowing which sets someone belongs to tell you about them?
+2. Code can check one dataset. How would you know something is true for **every** dataset?
+
+# From the 2025 deck
 
 ## A Three-Set Puzzle {.activity .smaller}
 
@@ -225,76 +392,6 @@ Answers: C&~M&~P 12, ~C&M&~P 7, ~C&~M&P 17, C&M&~P 15, C&~M&P 13, ~C&M&P 7,
 C&M&P 16, ~C&~M&~P 13. The blank: |A|+|B|+|C| - |AnB| - |AnC| - |BnC| + |AnBnC|.
 :::
 
-# The Empty Set and Subsets
-
-## The Empty Set ($\varnothing$) {.smaller}
-
-**Definition:** $\varnothing$ (a.k.a. $\{\}$) is the **unique set with no elements**.
-
-- **Cardinality:** $|\varnothing|=0$.
-- **Universal subset fact:** For any set $A$, $\varnothing\subseteq A$.
-- **But membership is different:** $\varnothing\in A$ only if $A$ literally contains the empty set as an element.
-
-**Examples**
-
-- If $S=\{a,b\}$:  $\varnothing\subseteq S$, but NOT $\varnothing\in S$.  
-- If $T=\{\varnothing,\{a\}\}$:  $\varnothing\in T$.
-
-
-
-## Operations with $\varnothing$  {.smaller}
-
-For any set $A$:
-
-- **Union:** $A\cup\varnothing = \boxed{\phantom{|A|\,}}$
-- **Intersection:** $A\cap\varnothing = \boxed{\phantom{|A|\,}}$
-- **Difference:** $A - \varnothing = \boxed{\phantom{|A|\,}}$, $\ \varnothing - A = \boxed{\phantom{|A|\,}}$
-- **Complement (in $U$):** $U - \varnothing = \boxed{\phantom{|A|\,}}$
-- **Cardinalities:** $|A\cup\varnothing| = \boxed{\phantom{|A|\,}}$, $|A\cap\varnothing| = \boxed{\phantom{|A|\,}}$
-
-::: notes
-Answers: A; the empty set; A; the empty set; U; |A|; 0.
-Quick demo with a tiny set on the board or in code; emphasize “subset vs element.”
-:::
-
-
-## Selecting Nobody {.activity .smaller}
-
-Both of these masks select **nobody**. Run them.
-
-```{pyodide}
-print(( C & ~C ).sum())
-print(( M & ~C & I ).sum())
-```
-
-::: notes
-C & ~C is a contradiction: false in every row of its truth table (lectures
-5-6), so it is empty for every dataset. M & ~C & I (morning, no coffee, plays
-an instrument) is empty only because no student in this class fits -- add one
-such student and it isn't. Both are the empty set here; only one is empty by
-logic. This is the "nobody" question from the old Design a Set slide, which
-Monday's deck didn't reach.
-:::
-
-## DataFrame/Mask view of $\varnothing$ {.smaller}
-
-Think: **empty mask** = all `False` (selects **no rows**).
-
-```{pyodide}
-
-import pandas as pd
-df = pd.read_csv('https://raw.githubusercontent.com/UBC-CS/dsci220/refs/heads/main/data/cafe_orders.csv')
-
-# Example masks (from cafe dataset)
-A = df['is_iced']     # some True/False
-EMPTY = (df['order_id'] < 0)          # always False thus empty set
-A_or_empty  = (A | EMPTY)
-A_and_empty = (A & EMPTY)
-len(df[A_or_empty]), len(df[A_and_empty])
-
-```
-
-
 ## Element vs Subset {.smaller}
 
 - $x\in S$ means **$x$ is one item** in $S$.
@@ -326,19 +423,23 @@ Let $S=\{\texttt{tea},\texttt{coffee},\texttt{juice}\}$.
 Answers: 1✓, 2✗, 3✓, 4✓, 5✗.
 :::
 
+## DataFrame/Mask view of $\varnothing$ {.smaller}
 
-## Exit Ticket
+Think: **empty mask** = all `False` (selects **no rows**).
 
-What does knowing which sets someone belongs to tell you about them?
+```{pyodide}
 
-# From the 2025 deck
+import pandas as pd
+df = pd.read_csv('https://raw.githubusercontent.com/UBC-CS/dsci220/refs/heads/main/data/cafe_orders.csv')
 
-## From subsets to dataframe masks 
+# Example masks (from cafe dataset)
+A = df['is_iced']     # some True/False
+EMPTY = (df['order_id'] < 0)          # always False thus empty set
+A_or_empty  = (A | EMPTY)
+A_and_empty = (A & EMPTY)
+len(df[A_or_empty]), len(df[A_and_empty])
 
-A Boolean **mask** over rows is an indicator vector $\in\{0,1\}^{|U|}$.
-
-- Choosing rows is the same as selecting a **subset** of the universe $U$.
-- $|$mask$|$ (sum of Trues) = cardinality of that subset.
+```
 
 ## Union Example {.smaller}
 
@@ -437,31 +538,6 @@ Fill in the Venn Diagram using the values for $|U|$, $|A|$, $|B|$, $|A\cup B|$. 
 nAminusB=(A & (~B)).sum()
 print(nAminusB)
 ```
-
-## Bounds on $|A\cap B|$
-
-Give upper and lower bounds on $|A\cap B|$ for any $A,B\subseteq U$. 
-
-\ 
-
-\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ $\leq |A\cap B|\leq$ \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
-
-\ 
-
-<center>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="60%" role="img" aria-label="Two-set Venn diagram for sets A and B">
-  <rect x="10" y="10" width="780" height="480" rx="16" ry="16" fill="#ffffff" stroke="#333333" stroke-width="2"/>
-  <text x="26" y="40" fill="#111111" font-size="32" font-weight="600" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial">U</text>
-  <text x="300" y="90" text-anchor="middle" fill="#111111" font-size="32" font-weight="600" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial">A</text>
-  <text x="500" y="90" text-anchor="middle" fill="#111111" font-size="32" font-weight="600" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial">B</text>
-  <circle cx="300" cy="260" r="180" fill="#5B8DEF" fill-opacity="0.28" stroke="#2b4ea2" stroke-width="2"/>
-  <circle cx="500" cy="260" r="180" fill="#FF8A65" fill-opacity="0.28" stroke="#bf4e2c" stroke-width="2"/>
-  <text x="230" y="265" text-anchor="middle" fill="#222222" font-size="24" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial">A - B</text>
-  <text x="400" y="265" text-anchor="middle" fill="#222222" font-size="24" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial">A ∩ B</text>
-  <text x="570" y="265" text-anchor="middle" fill="#222222" font-size="24" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial">B - A</text>
-  <text x="60"  y="455"               fill="#555555" font-size="24" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial">U - (A ∪ B)</text>
-</svg>
-</center>
 
 ## Design a Set {.activity .smaller}
 
