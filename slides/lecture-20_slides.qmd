@@ -321,6 +321,23 @@ DeMorgan for Sets).
 1. What does knowing which sets someone belongs to tell you about them?
 2. Code can check one dataset. How would you know something is true for **every** dataset?
 
+::: notes
+1. Each set someone is in is one answer about them, so knowing their sets is
+   knowing their row. Enough sets together can single them out (Set Design,
+   Who Can Be Identified?). And sets you know imply sets you don't: in our
+   class, a morning person who plays an instrument must drink coffee
+   (M n I is a subset of C). Even counts alone force facts: |C| + |M| > |U|
+   means someone is in both.
+2. Not by running more datasets -- there are infinitely many. But one
+   dataset CAN show a claim is false: add a tea-drinking morning violinist
+   and "M n I is a subset of C" fails. To show a claim is always true, argue
+   about one arbitrary student x: x is in (C u M)^c iff not (x in C or x in M)
+   iff (x not in C) and (x not in M) iff x is in C^c n M^c -- De Morgan's
+   law for propositions, one row at a time. Equivalently, a student can only
+   be one of 4 kinds (in C or not, in M or not); check all 4 -- that's a
+   truth table, and it covers every dataset at once. Friday's proofs do this.
+:::
+
 # From the 2025 deck
 
 ## A Three-Set Puzzle {.activity .smaller}
