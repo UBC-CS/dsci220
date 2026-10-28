@@ -246,13 +246,14 @@ C&M&P 16, ~C&~M&~P 13. The blank: |A|+|B|+|C| - |AnB| - |AnC| - |BnC| + |AnBnC|.
 
 For any set $A$:
 
-- **Union:** $A\cup\varnothing = A$
-- **Intersection:** $A\cap\varnothing = \varnothing$
-- **Difference:** $A - \varnothing = A$,  $\ \varnothing\setminus A = \varnothing$
-- **Complement (in $U$):** $U - \varnothing = U$
-- **Cardinalities:** $|A\cup\varnothing|=|A|$, $|A\cap\varnothing|=0$
+- **Union:** $A\cup\varnothing = \boxed{\phantom{|A|\,}}$
+- **Intersection:** $A\cap\varnothing = \boxed{\phantom{|A|\,}}$
+- **Difference:** $A - \varnothing = \boxed{\phantom{|A|\,}}$, $\ \varnothing - A = \boxed{\phantom{|A|\,}}$
+- **Complement (in $U$):** $U - \varnothing = \boxed{\phantom{|A|\,}}$
+- **Cardinalities:** $|A\cup\varnothing| = \boxed{\phantom{|A|\,}}$, $|A\cap\varnothing| = \boxed{\phantom{|A|\,}}$
 
 ::: notes
+Answers: A; the empty set; A; the empty set; U; |A|; 0.
 Quick demo with a tiny set on the board or in code; emphasize “subset vs element.”
 :::
 
