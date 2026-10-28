@@ -267,8 +267,6 @@ print(( C & ~C ).sum())
 print(( M & ~C & I ).sum())
 ```
 
-Which one would select nobody in **any** class? Which one is empty only in **this** class?
-
 ::: notes
 C & ~C is a contradiction: false in every row of its truth table (lectures
 5-6), so it is empty for every dataset. M & ~C & I (morning, no coffee, plays
