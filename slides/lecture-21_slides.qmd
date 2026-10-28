@@ -17,6 +17,8 @@ subtitle: "Lecture 21, {{< var course.code >}}, {{< var course.term >}}"
 
 ## Goals
 
+- Define the **power set** $\mathcal{P}(S)$ and its **cardinality**.
+- Define **Cartesian product** $A\times B$.
 - Gallery through proofs
 
 ## Warm Up {.activity}
@@ -39,6 +41,85 @@ Suppose $A = \{1, \{2\}\}$
 10. Is $\emptyset \subseteq A$?
 :::
 :::::
+
+# Power Sets and Cartesian Products
+
+## Power Set 
+
+**Definition:** $\mathcal{P}(S)$ = the set of **all subsets** of $S$.
+
+\
+
+Example: 
+
+If $S=\{a,b\}$,
+$\ \mathcal{P}(S)=$ \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+\ 
+
+**Cardinality:** 
+
+If $|S|=n$, then $|\mathcal{P}(S)|=$ \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+## Why $2^n$? 
+
+**Bitstring encoding:**  
+Consider $S=\{s_1,\dots,s_n\}$. For each subset $T\subseteq S$ define an indicator of membership:
+$$(b_1,\dots,b_n)\ \text{where } b_i=\begin{cases}1,& s_i\in T\\ 0,& s_i\notin T\end{cases}.$$
+
+How many subsets of a set of size $n$?
+
+::: notes
+Connect to yesterday’s “$b$ bits $\Rightarrow 2^b$ codes.” Subsets $\leftrightarrow$ $n$-bit strings.
+The ID cards are the example: each card is the set of questions that person
+answered yes to, a subset of the six questions. So the 64 possible cards are
+exactly P(six questions), and the card's 6-bit # is its bitstring.
+:::
+
+## Quick Check: 
+
+Let $S=\{A,B,C\}$.
+
+- Bitstring $101$ corresponds to subset $\{\_\_\_\_\}$.
+- Subset $\{B\}$ corresponds to bitstring $\_\_\_\_\_\_$.
+
+
+## Empty Sets and Power Sets
+
+
+- $\varnothing\in \mathcal{P}(A)$ (since $\varnothing\subseteq A$)  
+- $\mathcal{P}(\varnothing)=\{\varnothing\}$ and $|\mathcal{P}(\varnothing)|=1$
+
+
+
+## Cartesian Product $A\times B$ 
+
+**Definition:** $A\times B=\{(a,b)\mid a\in A,\ b\in B\}$ 
+
+**Cardinality:** $|A\times B|=|A|\cdot|B|$.
+
+**Example:** $A=\{\texttt{iced},\texttt{hot}\}$, $B=\{\texttt{Latte},\texttt{Tea},\texttt{Mocha}\}$.
+
+\ 
+
+Then
+$$A\times B=
+\{(\texttt{iced},\texttt{Latte}),(\texttt{iced},\texttt{Tea}),(\texttt{iced},\texttt{Mocha}),$$
+$$(\texttt{hot},\texttt{Latte}),(\texttt{hot},\texttt{Tea}),(\texttt{hot},\texttt{Mocha})\},$$
+
+and $|A\times B|=2\cdot 3=6$.
+
+
+## Code
+
+```{pyodide}
+
+import itertools
+A = ['iced','hot']
+B = ['Latte','Tea','Mocha']
+list(itertools.product(A,B))
+
+```
 
 # Set Proofs
 
