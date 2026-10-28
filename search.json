@@ -2783,6 +2783,13 @@
     "text": "Goals\n\nUse sets to describe groups of people, and ask who can be singled out.\nCount a union without double counting: inclusion-exclusion.\nExplore the Empty Set.\nDistinguish element (\\(\\in\\)) vs subset (\\(\\subseteq\\)).\nDefine the power set \\(\\mathcal{P}(S)\\) and its cardinality.\nDefine Cartesian product \\(A\\times B\\)."
   },
   {
+    "objectID": "slides/lecture-20_slides.html#the-class-in-code",
+    "href": "slides/lecture-20_slides.html#the-class-in-code",
+    "title": "Sets, Power Sets, and Cross Products",
+    "section": "The Class in Code",
+    "text": "The Class in Code\nFill in the “In all of \\(U\\)” column of the Hold Up Your Card table.\n\n\n\n\n\n\n\n\n\n\n\n\n\nSay once: len(df[C]) and C.sum() are the same number. len counts the rows of the set; C.sum() counts the Trues in the mask (True is 1) – the indicator sum |A| = sum of 1_A(x) on Sets = Filters on Rows. Later slides use .sum(); it’s what students will see in real pandas code, and it never builds the subset. A hidden cell above this one loads the class into df when the page opens (no code or output shown); every later cell uses that df. Answers for all 100: |C| = 56, |M| = 45, |C n M| = 31, |C u M| = 70, |C - M| = 25 (len(df[C & ~M])), |C^c| = 44 (len(df[~C])). Columns in df: name, tagline, coffee, morning, pet, games, cats, instrument (all True/False), profile, card."
+  },
+  {
     "objectID": "slides/lecture-20_slides.html#set-design",
     "href": "slides/lecture-20_slides.html#set-design",
     "title": "Sets, Power Sets, and Cross Products",
