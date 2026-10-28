@@ -929,7 +929,7 @@
     "href": "slides/lecture-21_slides.html#demorgan-for-sets",
     "title": "Sets, continued",
     "section": "DeMorgan for Sets",
-    "text": "DeMorgan for Sets\nBy observation, you discovered that \\((C\\cup M)^c = C^c\\cap M^c\\). But is this always true?\n \nClaim: For any sets \\(A\\) and \\(B\\), \\((A\\cup B)^c = A^c\\cap B^c\\).\n \nObservations, before we begin:\n\nuniversally quantified statement requires arbitrary instantiation of variables.\nset equality \\(A=B\\) actually requires 2 proofs: \\(A\\subseteq B\\) and \\(B\\subseteq A\\).\nto prove \\(A\\subseteq B\\) we rely on the definition: For any \\(x\\), \\(x\\in A\\rightarrow x\\in B\\).\nfollowing the form of the definition, we consider an arbitrary \\(x\\), assume \\(x\\in A\\) and show \\(x\\in B\\)."
+    "text": "DeMorgan for Sets\nIn the class data, \\((C\\cup M)^c\\) and \\(C^c\\cap M^c\\) select exactly the same students. But is this always true?\n \nClaim: For any sets \\(A\\) and \\(B\\), \\((A\\cup B)^c = A^c\\cap B^c\\).\n \nObservations, before we begin:\n\nuniversally quantified statement requires arbitrary instantiation of variables.\nset equality \\(A=B\\) actually requires 2 proofs: \\(A\\subseteq B\\) and \\(B\\subseteq A\\).\nto prove \\(A\\subseteq B\\) we rely on the definition: For any \\(x\\), \\(x\\in A\\rightarrow x\\in B\\).\nfollowing the form of the definition, we consider an arbitrary \\(x\\), assume \\(x\\in A\\) and show \\(x\\in B\\)."
   },
   {
     "objectID": "slides/lecture-21_slides.html#demorgan-for-sets-proof",
@@ -986,6 +986,13 @@
     "title": "Sets, continued",
     "section": "Partition Identity Proof",
     "text": "Partition Identity Proof\nTheorem: For any sets \\(I\\) and \\(N\\), \\[\n(I\\cap N)\\ \\cup\\ (I\\cap N^{c}) \\;=\\; I\n\\quad\\text{and}\\quad\n(I\\cap N)\\ \\cap\\ (I\\cap N^{c}) \\;=\\; \\varnothing.\n\\]\nProof:\n\nConsider arbitrary sets I and N. Union, two subsets. (subset) Let x be in (I n N) u (I n N^c). Then x is in I n N or in I n N^c; in either case x is in I. (superset) Let x be in I. By cases on x and N: if x is in N, then x is in I n N; if not, x is in N^c, so x is in I n N^c. Either way x is in the union. Intersection. Suppose some x is in both I n N and I n N^c. Then x is in N and x is in N^c, i.e. x is in N and x is not in N – a contradiction. So no x is in both: the intersection is the empty set. (Empty set is a subset of everything, so showing nothing is in it is the whole job.) Techniques: element-chasing for =, proof by cases (in N or not – excluded middle), proof by contradiction for “= empty set”."
+  },
+  {
+    "objectID": "slides/lecture-21_slides.html#partition-identity-proof-nothing-in-both",
+    "href": "slides/lecture-21_slides.html#partition-identity-proof-nothing-in-both",
+    "title": "Sets, continued",
+    "section": "Partition Identity Proof: Nothing in Both",
+    "text": "Partition Identity Proof: Nothing in Both\nThe empty set \\(\\varnothing\\) is the set with no elements. To show a set is \\(\\varnothing\\), we show that nothing is in it.\nClaim: \\((I\\cap N)\\ \\cap\\ (I\\cap N^{c}) = \\varnothing\\).\nProof (by contradiction): Suppose some \\(x\\) is in both \\(I\\cap N\\) and \\(I\\cap N^c\\).\n\nSince \\(x\\in I\\cap N\\), we have \\(x\\in N\\).\nSince \\(x\\in I\\cap N^c\\), we have \\(x\\in N^c\\), so \\(x\\notin N\\).\n\nSo \\(x\\in N\\) and \\(x\\notin N\\), which is a contradiction. No \\(x\\) is in both, and the intersection is \\(\\varnothing\\). \\(\\blacksquare\\)\nIn code, this is a mask that selects nobody: ((I & N) & (I & ~N)).sum() is always 0."
   },
   {
     "objectID": "slides/lecture-19_slides.html#announcements",

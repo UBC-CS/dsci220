@@ -301,7 +301,7 @@ eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiaW1wb3J0IHBhbmRhcyBhcyBw
 </section>
 <section id="demorgan-for-sets" class="slide level2 smaller">
 <h2>DeMorgan for Sets</h2>
-<p>By observation, you discovered that <span class="math inline">\((C\cup M)^c = C^c\cap M^c\)</span>. But is this <em>always</em> true?</p>
+<p>In the class data, <span class="math inline">\((C\cup M)^c\)</span> and <span class="math inline">\(C^c\cap M^c\)</span> select exactly the same students. But is this <em>always</em> true?</p>
 <p>&nbsp;</p>
 <p>Claim: For any sets <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, <span class="math inline">\((A\cup B)^c = A^c\cap B^c\)</span>.</p>
 <p>&nbsp;</p>
@@ -475,6 +475,18 @@ eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiIyBTYW5pdHkgY2hlY2sgb24g
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
+</section>
+<section id="partition-identity-proof-nothing-in-both" class="slide level2 smaller">
+<h2>Partition Identity Proof: Nothing in Both</h2>
+<p>The <strong>empty set</strong> <span class="math inline">\(\varnothing\)</span> is the set with no elements. To show a set is <span class="math inline">\(\varnothing\)</span>, we show that nothing is in it.</p>
+<p><strong>Claim:</strong> <span class="math inline">\((I\cap N)\ \cap\ (I\cap N^{c}) = \varnothing\)</span>.</p>
+<p><strong>Proof</strong> (by contradiction)<strong>:</strong> Suppose some <span class="math inline">\(x\)</span> is in both <span class="math inline">\(I\cap N\)</span> and <span class="math inline">\(I\cap N^c\)</span>.</p>
+<ul>
+<li>Since <span class="math inline">\(x\in I\cap N\)</span>, we have <span class="math inline">\(x\in N\)</span>.</li>
+<li>Since <span class="math inline">\(x\in I\cap N^c\)</span>, we have <span class="math inline">\(x\in N^c\)</span>, so <span class="math inline">\(x\notin N\)</span>.</li>
+</ul>
+<p>So <span class="math inline">\(x\in N\)</span> and <span class="math inline">\(x\notin N\)</span>, which is a contradiction. No <span class="math inline">\(x\)</span> is in both, and the intersection is <span class="math inline">\(\varnothing\)</span>. <span class="math inline">\(\blacksquare\)</span></p>
+<p>In code, this is a mask that selects nobody: <code>((I &amp; N) &amp; (I &amp; ~N)).sum()</code> is always 0.</p>
 
 
 <script type="pyodide-data">
