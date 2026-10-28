@@ -295,7 +295,7 @@ len(df[A_or_empty]), len(df[A_and_empty])
 ```
 
 
-## Element vs Subset
+## Element vs Subset {.smaller}
 
 - $x\in S$ means **$x$ is one item** in $S$.
 - $A\subseteq S$ means **every element of $A$** is in $S$.
