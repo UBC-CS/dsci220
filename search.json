@@ -2885,7 +2885,7 @@
     "href": "slides/lecture-20_slides.html#selecting-nobody",
     "title": "Sets, continued",
     "section": "Selecting Nobody",
-    "text": "Selecting Nobody\nBoth of these masks select nobody. Run them.\n\n\n\n\n\n\nWhich one would select nobody in any class? Which one is empty only in this class?\n\nC & ~C is a contradiction: false in every row of its truth table (lectures 5-6), so it is empty for every dataset. M & ~C & I (morning, no coffee, plays an instrument) is empty only because no student in this class fits – add one such student and it isn’t. Both are the empty set here; only one is empty by logic. This is the “nobody” question from the old Design a Set slide, which Monday’s deck didn’t reach."
+    "text": "Selecting Nobody\nBoth of these masks select nobody. Run them.\n\n\n\n\n\n\n\nC & ~C is a contradiction: false in every row of its truth table (lectures 5-6), so it is empty for every dataset. M & ~C & I (morning, no coffee, plays an instrument) is empty only because no student in this class fits – add one such student and it isn’t. Both are the empty set here; only one is empty by logic. This is the “nobody” question from the old Design a Set slide, which Monday’s deck didn’t reach."
   },
   {
     "objectID": "slides/lecture-20_slides.html#dataframemask-view-of-varnothing",
