@@ -2878,7 +2878,7 @@
     "href": "slides/lecture-20_slides.html#operations-with-varnothing",
     "title": "Sets, continued",
     "section": "Operations with \\(\\varnothing\\)",
-    "text": "Operations with \\(\\varnothing\\)\nFor any set \\(A\\):\n\nUnion: \\(A\\cup\\varnothing = A\\)\nIntersection: \\(A\\cap\\varnothing = \\varnothing\\)\nDifference: \\(A - \\varnothing = A\\), \\(\\ \\varnothing\\setminus A = \\varnothing\\)\nComplement (in \\(U\\)): \\(U - \\varnothing = U\\)\nCardinalities: \\(|A\\cup\\varnothing|=|A|\\), \\(|A\\cap\\varnothing|=0\\)\n\n\nQuick demo with a tiny set on the board or in code; emphasize “subset vs element.”"
+    "text": "Operations with \\(\\varnothing\\)\nFor any set \\(A\\):\n\nUnion: \\(A\\cup\\varnothing = \\boxed{\\phantom{|A|\\,}}\\)\nIntersection: \\(A\\cap\\varnothing = \\boxed{\\phantom{|A|\\,}}\\)\nDifference: \\(A - \\varnothing = \\boxed{\\phantom{|A|\\,}}\\), \\(\\ \\varnothing - A = \\boxed{\\phantom{|A|\\,}}\\)\nComplement (in \\(U\\)): \\(U - \\varnothing = \\boxed{\\phantom{|A|\\,}}\\)\nCardinalities: \\(|A\\cup\\varnothing| = \\boxed{\\phantom{|A|\\,}}\\), \\(|A\\cap\\varnothing| = \\boxed{\\phantom{|A|\\,}}\\)\n\n\nAnswers: A; the empty set; A; the empty set; U; |A|; 0. Quick demo with a tiny set on the board or in code; emphasize “subset vs element.”"
   },
   {
     "objectID": "slides/lecture-20_slides.html#selecting-nobody",
