@@ -158,7 +158,7 @@ H = df['caffeine_mg'] >= 150
 
 ## DeMorgan for Sets {.smaller}
 
-By observation, you discovered that $(I\cup N)^c = I^c\cap N^c$. But is this
+By observation, you discovered that $(C\cup M)^c = C^c\cap M^c$. But is this
 _always_ true?
 
 \ 
