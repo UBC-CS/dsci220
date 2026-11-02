@@ -386,6 +386,52 @@ Cinda and the DSCI220 teaching team Perrie, Noah, and Marko.
 
 ---
 
+## Week 9 — Mon Nov 2 to Sun Nov 8
+
+⚠ **Check before sending**
+
+1. **Tutorial 7 has no dates in PrairieLearn.** Noah built the pizza-shop
+   questions on Oct 31, but `accessControl` is empty, so students can't open it.
+   It needs a release (Mon night) and a due date (Sun Nov 8 23:59) before the
+   Tuesday sections. The website link is still TBD.
+2. **Four students sit EX3 on Monday**, so the letter says nothing about the
+   examlet beyond thanks.
+3. **Friday's video** depends on where Monday and Wednesday get to. I've
+   written "DFAs", which is L24's deck.
+
+---
+
+Hi everyone,
+
+Welcome to week 9! We finish sets on Monday and start regular expressions, which
+is Marko's favorite topic!
+
+The news:
+
+1. **Homework 4** is open on PrairieLearn, due Sun Nov 8 at 11:59p. It probably won't take you long! You get one attempt at each question, so work it out your solutions on paper before you submit.
+
+2. **Tutorial 7** meets on Tuesday and Wednesday. It's good practice for the homework.
+
+3. **In class this week.** Monday: proofs about sets, then regular expressions.
+Wednesday: regular expressions as filters on dataframes. Friday's video: automating Regex.
+
+4. **Examlet 3** is still in flight. More soon.
+
+5. **Next week is a quiet week.** There's no class, no tutorial, no assignment, no examlet. There will be one video, posted by Friday.
+
+My office hour is Tuesday, 10:30–11:30, in ICCS 233. I SWEAR I will be there this week!
+
+As always, you're welcome to email me (cheeren@cs.ubc.ca) or post on Piazza
+(<https://piazza.com/ubc.ca/winterterm12026/dsci220>), and the course website is
+<https://ubc-cs.github.io/dsci220>.
+
+See you at 11! 
+
+All the best!
+Cinda and the DSCI220 teaching team Perrie, Noah, and Marko.
+
+---
+
 ## Template for later weeks
 
 ```
