@@ -176,7 +176,9 @@ $x\notin N\rightarrow x\notin O$, which is the whole theorem in one line.
 
 # Regular Expressions
 
-## Regular Expressions: Languages and Filters
+## Regular Expressions {.smaller}
+
+**Languages and Filters**
 
 Goals:
 
