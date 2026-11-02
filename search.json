@@ -3035,11 +3035,11 @@
     "text": "Partition Identity Proof\nTheorem: For any sets \\(I\\) and \\(N\\), \\[\n(I\\cap N)\\ \\cup\\ (I\\cap N^{c}) \\;=\\; I\n\\quad\\text{and}\\quad\n(I\\cap N)\\ \\cap\\ (I\\cap N^{c}) \\;=\\; \\varnothing.\n\\]\nProof:\n\nConsider arbitrary sets I and N. Union, two subsets. (subset) Let x be in (I n N) u (I n N^c). Then x is in I n N or in I n N^c; in either case x is in I. (superset) Let x be in I. By cases on x and N: if x is in N, then x is in I n N; if not, x is in N^c, so x is in I n N^c. Either way x is in the union. Intersection. Suppose some x is in both I n N and I n N^c. Then x is in N and x is in N^c, i.e. x is in N and x is not in N – a contradiction. So no x is in both: the intersection is the empty set. (Empty set is a subset of everything, so showing nothing is in it is the whole job.) Techniques: element-chasing for =, proof by cases (in N or not – excluded middle), proof by contradiction for “= empty set”."
   },
   {
-    "objectID": "slides/lecture-22_slides.html#partition-identity-proof-nothing-in-both",
-    "href": "slides/lecture-22_slides.html#partition-identity-proof-nothing-in-both",
+    "objectID": "slides/lecture-22_slides.html#partition-identity-proof-continued",
+    "href": "slides/lecture-22_slides.html#partition-identity-proof-continued",
     "title": "Sets, continued (2)",
-    "section": "Partition Identity Proof: Nothing in Both",
-    "text": "Partition Identity Proof: Nothing in Both\nThe empty set \\(\\varnothing\\) is the set with no elements. To show a set is \\(\\varnothing\\), we show that nothing is in it.\nClaim: \\((I\\cap N)\\ \\cap\\ (I\\cap N^{c}) = \\varnothing\\).\nProof (by contradiction): Suppose some \\(x\\) is in both \\(I\\cap N\\) and \\(I\\cap N^c\\).\n\nSince \\(x\\in I\\cap N\\), we have \\(x\\in N\\).\nSince \\(x\\in I\\cap N^c\\), we have \\(x\\in N^c\\), so \\(x\\notin N\\).\n\nSo \\(x\\in N\\) and \\(x\\notin N\\), which is a contradiction. No \\(x\\) is in both, and the intersection is \\(\\varnothing\\). \\(\\blacksquare\\)\nIn code, this is a mask that selects nobody: ((I & N) & (I & ~N)).sum() is always 0."
+    "section": "Partition Identity Proof, continued",
+    "text": "Partition Identity Proof, continued\nThe empty set \\(\\varnothing\\) is the set with no elements. To show a set is \\(\\varnothing\\), we show that nothing is in it.\nClaim: \\((I\\cap N)\\ \\cap\\ (I\\cap N^{c}) = \\varnothing\\).\nProof (by contradiction): Suppose some \\(x\\) is in both \\(I\\cap N\\) and \\(I\\cap N^c\\).\n\nSince \\(x\\in I\\cap N\\), we have \\(x\\in N\\).\nSince \\(x\\in I\\cap N^c\\), we have \\(x\\in N^c\\), so \\(x\\notin N\\).\n\nSo \\(x\\in N\\) and \\(x\\notin N\\), which is a contradiction. No \\(x\\) is in both, and the intersection is \\(\\varnothing\\). \\(\\blacksquare\\)\nIn code, this is a mask that selects nobody: ((I & N) & (I & ~N)).sum() is always 0."
   },
   {
     "objectID": "slides/lecture-22_slides.html#complement-flips-the-order-by-contradiction",
