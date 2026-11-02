@@ -12,7 +12,7 @@
 <script src="../site_libs/quarto-contrib/iconify-3.0.0/iconify-icon.min.js"></script><meta charset="utf-8">
   <meta name="generator" content="quarto-1.10.20">
 
-  <title>{{&lt; var course.full-title &gt;}}---Accessibility version – Sets, continued (2)</title>
+  <title>{{&lt; var course.full-title &gt;}}---Accessibility version – Sets, Regex</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -134,10 +134,10 @@
   </style>
   <script type="module" src="../site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
   <link href="../site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
-<meta property="og:title" content="Sets, continued (2) – DSCI 220: Discrete Math for Data Science—Accessibility version">
+<meta property="og:title" content="Sets, Regex – DSCI 220: Discrete Math for Data Science—Accessibility version">
 <meta property="og:description" content="Lecture 22, DSCI 220, 2026W1">
 <meta property="og:site_name" content="DSCI 220: Discrete Math for Data Science—Accessibility version">
-<meta name="twitter:title" content="Sets, continued (2) – DSCI 220: Discrete Math for Data Science—Accessibility version">
+<meta name="twitter:title" content="Sets, Regex – DSCI 220: Discrete Math for Data Science—Accessibility version">
 <meta name="twitter:description" content="Lecture 22, DSCI 220, 2026W1">
 <meta name="twitter:card" content="summary">
 </head>
@@ -146,7 +146,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Sets, continued (2)</h1>
+  <h1 class="title">Sets, Regex</h1>
   <p class="subtitle">Lecture 22, DSCI 220, 2026W1</p>
 
 <div class="quarto-title-authors">
@@ -167,12 +167,6 @@
 <section id="sets-continued" class="title-slide slide level1 center">
 <h1>Sets Continued</h1>
 
-</section>
-<section id="goals" class="slide level2">
-<h2>Goals</h2>
-<ul>
-<li>Gallery through proofs</li>
-</ul>
 </section>
 <section id="warm-up" class="slide level2 activity smaller">
 <h2>Warm Up</h2>
@@ -286,18 +280,11 @@ eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiIyBTYW5pdHkgY2hlY2sgb24g
 <section id="complement-flips-the-order-by-contradiction" class="slide level2 smaller">
 <h2>Complement Flips the Order, by Contradiction</h2>
 <p><strong>Theorem:</strong> If <span class="math inline">\(O\subseteq N\)</span>, then <span class="math inline">\(N^{c}\subseteq O^{c}\)</span>.</p>
-<p><strong>Proof</strong> (by contradiction)<strong>:</strong> Suppose <span class="math inline">\(O\subseteq N\)</span>. Consider an arbitrary <span class="math inline">\(x\in N^c\)</span>, so <span class="math inline">\(x\notin N\)</span>. We show <span class="math inline">\(x\in O^c\)</span>.</p>
-<div class="fragment">
-<p>Suppose, for contradiction, that <span class="math inline">\(x\notin O^c\)</span>. Then <span class="math inline">\(x\in O\)</span>.</p>
-</div>
-<div class="fragment">
-<p>Since <span class="math inline">\(O\subseteq N\)</span> and <span class="math inline">\(x\in O\)</span>, we have <span class="math inline">\(x\in N\)</span>.</p>
-</div>
-<div class="fragment">
-<p>So <span class="math inline">\(x\in N\)</span> and <span class="math inline">\(x\notin N\)</span>, which is a contradiction. Hence <span class="math inline">\(x\in O^c\)</span>, and <span class="math inline">\(N^c\subseteq O^c\)</span>. <span class="math inline">\(\blacksquare\)</span></p>
-</div>
-<div class="fragment">
-<p>Compare: the contrapositive of <span class="math inline">\(x\in O\rightarrow x\in N\)</span> is <span class="math inline">\(x\notin N\rightarrow x\notin O\)</span>, which is the whole theorem in one line.</p>
+<p><strong>Proof</strong> (by contradiction)<strong>:</strong></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
 <div>
 <div id="pyodide-3" class="exercise-cell">
 
@@ -306,7 +293,19 @@ eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiIyBTYW5pdHkgY2hlY2sgb24g
 eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiKH5OICYgTykuc3VtKCkgICAjIHNob3VsZCBiZSAwIGlmIE5eYyDiioYgT15jIChlcXVpdmFsZW50bHksIG5vIHJvdyBpcyB+TiBBTkQgTykifQ==
 </script>
 </div>
-</div>
+<aside class="notes">
+<p>Suppose O is a subset of N. Consider an arbitrary x in N^c, so x is not in N. We show x is in O^c.&nbsp;Suppose, for contradiction, that x is not in O^c.&nbsp;Then x is in O. Since O is a subset of N, x is in N. So x is in N and x is not in N, a contradiction. Hence x is in O^c, and N^c is a subset of O^c. Compare: the contrapositive of (x in O -&gt; x in N) is (x not in N -&gt; x not in O), which is the whole theorem in one line.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section></section>
 <section>
 <section id="regular-expressions" class="title-slide slide level1 center">
@@ -337,17 +336,27 @@ eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiKH5OICYgTykuc3VtKCkgICAj
           display:block!important;
       }</style></aside>
 </section>
-<section id="patterns-spell-it-out" class="slide level2 smaller">
-<h2>Patterns: Spell It Out</h2>
+<section id="patterns" class="slide level2 smaller">
+<h2>Patterns:</h2>
 <p>A pattern describes a set of strings. For now, a string <strong>matches</strong> a pattern when the <em>whole</em> string fits it.</p>
 <p>&nbsp;</p>
 <p><strong>Concatenation:</strong> write pieces next to each other.</p>
 <p><code>cat</code> matches <code>cat</code>, and nothing else: not <code>ca</code>, not <code>cats</code>, not <code>Cat</code>.</p>
 <p>&nbsp;</p>
 <p>Does <code>dsci</code> match <code>dsci</code>? <code>DSCI</code>? <code>dsci220</code>?</p>
-<div class="fragment">
+<aside class="notes">
 <p>Yes. No (case matters). No (the whole string has to fit).</p>
-</div>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="choice" class="slide level2 smaller">
 <h2>Choice: <code>|</code></h2>
@@ -356,9 +365,19 @@ eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiKH5OICYgTykuc3VtKCkgICAj
 <p>Parentheses group: <code>c(a|o)t</code> matches <code>cat</code> and <code>cot</code>, but not <code>ct</code> or <code>caot</code>.</p>
 <p>&nbsp;</p>
 <p>Which strings does <code>(c|b)(a|u)t</code> match?</p>
-<div class="fragment">
-<p><code>cat</code>, <code>cut</code>, <code>bat</code>, <code>but</code>: one choice from each group, so <span class="math inline">\(2\times 2 = 4\)</span> strings. (A Cartesian product!)</p>
-</div>
+<aside class="notes">
+<p>cat, cut, bat, but: one choice from each group, so 2 x 2 = 4 strings. (A Cartesian product!)</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="repetition" class="slide level2 smaller">
 <h2>Repetition: <code>*</code></h2>
@@ -366,23 +385,15 @@ eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiKH5OICYgTykuc3VtKCkgICAj
 <p>&nbsp;</p>
 <p><code>*</code> repeats the one thing just before it:</p>
 <ul>
-<li><code>ha*</code> matches <code>h</code>, <code>ha</code>, <code>haa</code>, … but not <code>haha</code>.</li>
-</ul>
-<div class="fragment">
-<ul>
-<li><code>(ha)*</code> matches <span class="math inline">\(\varepsilon\)</span>, <code>ha</code>, <code>haha</code>, <code>hahaha</code>, …</li>
-</ul>
-</div>
-<div class="fragment">
-<ul>
-<li><code>(a|b)*</code> matches every string of <code>a</code>’s and <code>b</code>’s, including <span class="math inline">\(\varepsilon\)</span>.</li>
+<li><p><code>ha*</code> matches <code>h</code>, <code>ha</code>, <code>haa</code>, … but not <code>haha</code>.</p></li>
+<li><p><code>(ha)*</code> matches <span class="math inline">\(\varepsilon\)</span>, <code>ha</code>, <code>haha</code>, <code>hahaha</code>, …</p></li>
+<li><p><code>(a|b)*</code> matches every string of <code>a</code>’s and <code>b</code>’s, including <span class="math inline">\(\varepsilon\)</span>.</p></li>
 </ul>
 <p>&nbsp;</p>
 <p>Our first patterns that match infinitely many strings.</p>
-</div>
 </section>
-<section id="your-turn-just-the-core" class="slide level2 activity smaller">
-<h2>Your Turn: Just the Core</h2>
+<section id="your-turn" class="slide level2 activity smaller">
+<h2>Your Turn:</h2>
 <p>Use only concatenation, <code>|</code>, <code>*</code> and parentheses.</p>
 <ol type="1">
 <li>Strings of <code>a</code>’s and <code>b</code>’s with exactly one <code>b</code>.</li>
@@ -390,14 +401,21 @@ eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiKH5OICYgTykuc3VtKCkgICAj
 <li>Strings of <code>a</code>’s with an even number of <code>a</code>’s (zero counts).</li>
 <li><code>lol</code>, <code>lolol</code>, <code>lololol</code>, …</li>
 </ol>
-<div class="fragment">
+<aside class="notes">
 <ol type="1">
-<li><code>a*ba*</code></li>
-<li><code>(0|1)*1</code></li>
-<li><code>(aa)*</code></li>
-<li><code>lol(ol)*</code></li>
+<li>a<em>ba</em> 2. (0|1)<em>1 3. (aa)</em> 4. lol(ol)*</li>
 </ol>
-</div>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="shorthand-how-many" class="slide level2 smaller">
 <h2>Shorthand: How Many</h2>
@@ -525,14 +543,8 @@ eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiKH5OICYgTykuc3VtKCkgICAj
 eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiaW1wb3J0IHBhbmRhcyBhcyBwZFxuZGYgPSBwZC5yZWFkX2NzdignaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL1VCQy1DUy9kc2NpMjIwL3JlZnMvaGVhZHMvbWFpbi9kYXRhL2NhZmVfb3JkZXJzLmNzdicpXG5cbnBhdHRlcm4gPSAnTGF0dGUnXG5wcmludChkZlsnZHJpbmsnXS5zdHIuZnVsbG1hdGNoKHBhdHRlcm4pLnN1bSgpKSAgICMgd2hvbGUgc3RyaW5nIGlzIGluIExcbnByaW50KGRmWydkcmluayddLnN0ci5tYXRjaChwYXR0ZXJuKS5zdW0oKSkgICAgICAgIyBzdHJpbmcgc3RhcnRzIHdpdGggc29tZXRoaW5nIGluIExcbnByaW50KGRmWydkcmluayddLnN0ci5jb250YWlucyhwYXR0ZXJuKS5zdW0oKSkgICAgIyBzb21lIHBhcnQgb2YgdGhlIHN0cmluZyBpcyBpbiBMIn0=
 </script>
 </div>
-<div class="fragment">
-<ul>
-<li><code>fullmatch</code> is <strong>membership</strong> in <span class="math inline">\(L\)</span>: only <code>Latte</code> itself.</li>
-<li><code>contains</code> is a <strong>filter</strong>: it also keeps <code>Iced Latte</code>, <code>Chai Latte</code>, <code>Matcha Latte</code>. Those strings are not in <span class="math inline">\(L\)</span>. They are in <span class="math inline">\(\Sigma^* L\, \Sigma^*\)</span>, the strings with a part in <span class="math inline">\(L\)</span>.</li>
-<li>Anchors turn a filter back into membership: <code>contains('^Latte$')</code> keeps the same rows as <code>fullmatch('Latte')</code>.</li>
-</ul>
 <aside class="notes">
-<p>Counts: 2, 2, 5. Try pattern = ‘Iced’ too: 0, 2, 2. The DS2200 callback from the warm-up: not in L, but contains keeps it.</p>
+<p>fullmatch is membership in L: only Latte itself. contains is a filter: it also keeps Iced Latte, Chai Latte, Matcha Latte. Those strings are not in L; they are in Sigma* L Sigma*, the strings with a part in L. Anchors turn a filter back into membership: contains(‘^Latte$’) keeps the same rows as fullmatch(‘Latte’). Counts: 2, 2, 5. Try pattern = ‘Iced’ too: 0, 2, 2. The DS2200 callback from the warm-up: not in L, but contains keeps it.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -544,7 +556,6 @@ eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiaW1wb3J0IHBhbmRhcyBhcyBw
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
-</div>
 </section>
 <section id="back-to-the-cafe" class="slide level2">
 <h2>Back to the Cafe</h2>
@@ -579,7 +590,7 @@ eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiaW1wb3J0IHBhbmRhcyBhcyBw
 <span class="rule"> r’(?i)\b(espresso|americano|latte|cappuccino)\b’</span>
 </center>
 </section>
-<section id="your-turn" class="slide level2 activity">
+<section id="your-turn-1" class="slide level2 activity">
 <h2>Your Turn</h2>
 <p>Filter for:</p>
 <ol type="1">
@@ -588,7 +599,7 @@ eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiaW1wb3J0IHBhbmRhcyBhcyBw
 <li><p>Drinks that <strong>do not</strong> contain “Iced” but end with “Tea” (hint: ________________)</p></li>
 </ol>
 </section>
-<section id="your-turn-1" class="slide level2 activity">
+<section id="your-turn-2" class="slide level2 activity">
 <h2>Your Turn</h2>
 <div>
 <div id="pyodide-6" class="exercise-cell">
