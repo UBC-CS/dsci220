@@ -120,7 +120,7 @@ Techniques: element-chasing for =, proof by cases (in N or not -- excluded
 middle), proof by contradiction for "= empty set".
 :::
 
-## Partition Identity Proof: Nothing in Both {.smaller}
+## Partition Identity Proof, continued {.smaller}
 
 The **empty set** $\varnothing$ is the set with no elements. To show a set is
 $\varnothing$, we show that nothing is in it.
