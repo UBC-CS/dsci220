@@ -3049,11 +3049,11 @@
     "text": "Complement Flips the Order, by Contradiction\nTheorem: If \\(O\\subseteq N\\), then \\(N^{c}\\subseteq O^{c}\\).\nProof (by contradiction): Suppose \\(O\\subseteq N\\). Consider an arbitrary \\(x\\in N^c\\), so \\(x\\notin N\\). We show \\(x\\in O^c\\).\n\nSuppose, for contradiction, that \\(x\\notin O^c\\). Then \\(x\\in O\\).\n\n\nSince \\(O\\subseteq N\\) and \\(x\\in O\\), we have \\(x\\in N\\).\n\n\nSo \\(x\\in N\\) and \\(x\\notin N\\), which is a contradiction. Hence \\(x\\in O^c\\), and \\(N^c\\subseteq O^c\\). \\(\\blacksquare\\)\n\n\nCompare: the contrapositive of \\(x\\in O\\rightarrow x\\in N\\) is \\(x\\notin N\\rightarrow x\\notin O\\), which is the whole theorem in one line."
   },
   {
-    "objectID": "slides/lecture-22_slides.html#regular-expressions-languages-and-filters",
-    "href": "slides/lecture-22_slides.html#regular-expressions-languages-and-filters",
+    "objectID": "slides/lecture-22_slides.html#regular-expressions-1",
+    "href": "slides/lecture-22_slides.html#regular-expressions-1",
     "title": "Sets, continued (2)",
-    "section": "Regular Expressions: Languages and Filters",
-    "text": "Regular Expressions: Languages and Filters\nGoals:\n\nSee a regex as a set descriptor (a language over an alphabet).\nRead/write the core regex operators.\nUse regex to filter rows in a DataFrame: df['col'].str.contains(pattern).\nTell the two apart: a language is a set of strings; a filter gives a set of rows.\n\n\nBridge from sets: a subset is just a predicate. Regex gives us predicates on strings."
+    "section": "Regular Expressions",
+    "text": "Regular Expressions\nLanguages and Filters\nGoals:\n\nSee a regex as a set descriptor (a language over an alphabet).\nRead/write the core regex operators.\nUse regex to filter rows in a DataFrame: df['col'].str.contains(pattern).\nTell the two apart: a language is a set of strings; a filter gives a set of rows.\n\n\nBridge from sets: a subset is just a predicate. Regex gives us predicates on strings."
   },
   {
     "objectID": "slides/lecture-22_slides.html#from-sets-to-strings",
