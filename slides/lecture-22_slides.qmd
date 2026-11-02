@@ -194,25 +194,109 @@ Goals:
 Bridge from sets: a subset is just a predicate. Regex gives us predicates on strings.
 :::
 
-## From Sets to Strings {.smaller}
+## Patterns: Spell It Out {.smaller}
 
-Sets: $A=\{x\in U: P(x)\}$
+A pattern describes a set of strings. For now, a string **matches** a pattern
+when the _whole_ string fits it.
 
-\
+\ 
 
-A regular expression $r$ does two different jobs.
+**Concatenation:** write pieces next to each other.
 
-* **Language.** $L(r)=\{w\in\Sigma^*: \text{the whole of } w \text{ matches } r\}$.
-  A set of _strings_, usually infinite.
-  In Python: `re.fullmatch(r, w)`. In pandas: `df['col'].str.fullmatch(r)`.
+`cat` matches `cat`, and nothing else: not `ca`, not `cats`, not `Cat`.
 
-* **Filter.** Keep the rows whose string has _some part_ that matches $r$.
-  A set of _rows_, a subset of the dataframe.
-  In pandas: `df['col'].str.contains(r)`.
+\ 
 
-\
+Does `dsci` match `dsci`? `DSCI`? `dsci220`?
 
-Today: languages first, then filters.
+. . .
+
+Yes. No (case matters). No (the whole string has to fit).
+
+## Choice: `|` {.smaller}
+
+`cat|dog` matches `cat` or `dog`.
+
+\ 
+
+Parentheses group: `c(a|o)t` matches `cat` and `cot`, but not `ct` or `caot`.
+
+\ 
+
+Which strings does `(c|b)(a|u)t` match?
+
+. . .
+
+`cat`, `cut`, `bat`, `but`: one choice from each group, so $2\times 2 = 4$
+strings. (A Cartesian product!)
+
+## Repetition: `*` {.smaller}
+
+`a*` means zero or more `a`'s: the empty string $\varepsilon$, `a`, `aa`, `aaa`, …
+
+\ 
+
+`*` repeats the one thing just before it:
+
+* `ha*` matches `h`, `ha`, `haa`, … but not `haha`.
+
+. . .
+
+* `(ha)*` matches $\varepsilon$, `ha`, `haha`, `hahaha`, …
+
+. . .
+
+* `(a|b)*` matches every string of `a`'s and `b`'s, including $\varepsilon$.
+
+\ 
+
+Our first patterns that match infinitely many strings.
+
+## Your Turn: Just the Core {.activity .smaller}
+
+Use only concatenation, `|`, `*` and parentheses.
+
+1. Strings of `a`'s and `b`'s with exactly one `b`.
+2. Binary strings that end in `1`.
+3. Strings of `a`'s with an even number of `a`'s (zero counts).
+4. `lol`, `lolol`, `lololol`, …
+
+. . .
+
+1. `a*ba*` 
+2. `(0|1)*1` 
+3. `(aa)*` 
+4. `lol(ol)*`
+
+## Shorthand: How Many {.smaller}
+
+Everything from here on is shorthand for something you can already write.
+
+* `a+`: one or more. Same as `aa*`.
+* `a?`: zero or one. Same as "`a` or nothing".
+* `a{3}`: exactly three. Same as `aaa`.
+* `a{2,4}`: two to four. Same as `aa|aaa|aaaa`.
+
+\ 
+
+`colou?r` matches `color` and `colour`.
+
+`ha+` matches `ha`, `haa`, … but not `h`.
+
+## Shorthand: Which Character {.smaller}
+
+* `[aeiou]`: one character from the list. Same as `(a|e|i|o|u)`.
+* `[a-z]`, `[A-Z]`, `[0-9]`: one character from a range. `\d` means `[0-9]`.
+* `.`: any one character.
+* `[^aeiou]`: one character **not** in the list.
+
+\ 
+
+`[A-Z][a-z]*` matches `Tea` and `Latte`, but not `latte`, `LATTE`, or `Iced Latte` (the space!).
+
+`c[^aeiou]t` matches `c9t` and `cxt`, but not `cat` or `ct`.
+
+`...` matches any string of exactly three characters.
 
 ## Warm-Up: In or Out? {.activity}
 
@@ -261,6 +345,26 @@ Escapes: `\.` literal dot
 
 Groups: `(  )` captures, `(?:  )` non-capturing
 
+
+## From Sets to Strings {.smaller}
+
+Sets: $A=\{x\in U: P(x)\}$
+
+\
+
+A regular expression $r$ does two different jobs.
+
+* **Language.** $L(r)=\{w\in\Sigma^*: \text{the whole of } w \text{ matches } r\}$.
+  A set of _strings_, usually infinite.
+  In Python: `re.fullmatch(r, w)`. In pandas: `df['col'].str.fullmatch(r)`.
+
+* **Filter.** Keep the rows whose string has _some part_ that matches $r$.
+  A set of _rows_, a subset of the dataframe.
+  In pandas: `df['col'].str.contains(r)`.
+
+\
+
+Today: languages first, then filters.
 
 ## Regex vs. Language {.smaller}
 
