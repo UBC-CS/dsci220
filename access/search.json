@@ -974,27 +974,6 @@
     "text": "Complement Flips the Order\nStory: Since oat \\(\\subseteq\\) non-dairy, anyone not non-dairy is certainly not oat.\nTheorem: If \\(O\\subseteq N\\), then \\(N^{c}\\subseteq O^{c}\\).\nProof:\n\n\n \n \nApply: Negating a broader class yields a subset in the reverse direction.\n\n\n\n\n\n\n\nTake \\(x\\in N^c\\) so \\(x\\notin N\\). If \\(x\\in O\\) then (because \\(O\\subseteq N\\)) we’d have \\(x\\in N\\)—contradiction. Hence \\(x\\notin O\\), i.e., \\(x\\in O^c\\). \\(\\square\\)"
   },
   {
-    "objectID": "slides/lecture-21_slides.html#partition-identity",
-    "href": "slides/lecture-21_slides.html#partition-identity",
-    "title": "Sets, continued",
-    "section": "Partition Identity",
-    "text": "Partition Identity\nStory: Split iced orders by whether they’re non-dairy (\\(N\\)) or not (\\(N^c\\)). We should neither lose nor double-count any iced orders.\nTheorem: For any sets \\(I\\) and \\(N\\), \\[\n(I\\cap N)\\ \\cup\\ (I\\cap N^{c}) \\;=\\; I\n\\quad\\text{and}\\quad\n(I\\cap N)\\ \\cap\\ (I\\cap N^{c}) \\;=\\; \\varnothing.\n\\]\nApply:\n\nBecause the union is “disjoint”, \\(|I| \\;=\\; |I\\cap N| \\;+\\; |I\\cap N^c|\\)\nThis is the basis for the “Law of Total Probability,” which you will see someday!"
-  },
-  {
-    "objectID": "slides/lecture-21_slides.html#partition-identity-proof",
-    "href": "slides/lecture-21_slides.html#partition-identity-proof",
-    "title": "Sets, continued",
-    "section": "Partition Identity Proof",
-    "text": "Partition Identity Proof\nTheorem: For any sets \\(I\\) and \\(N\\), \\[\n(I\\cap N)\\ \\cup\\ (I\\cap N^{c}) \\;=\\; I\n\\quad\\text{and}\\quad\n(I\\cap N)\\ \\cap\\ (I\\cap N^{c}) \\;=\\; \\varnothing.\n\\]\nProof:\n\nConsider arbitrary sets I and N. Union, two subsets. (subset) Let x be in (I n N) u (I n N^c). Then x is in I n N or in I n N^c; in either case x is in I. (superset) Let x be in I. By cases on x and N: if x is in N, then x is in I n N; if not, x is in N^c, so x is in I n N^c. Either way x is in the union. Intersection. Suppose some x is in both I n N and I n N^c. Then x is in N and x is in N^c, i.e. x is in N and x is not in N – a contradiction. So no x is in both: the intersection is the empty set. (Empty set is a subset of everything, so showing nothing is in it is the whole job.) Techniques: element-chasing for =, proof by cases (in N or not – excluded middle), proof by contradiction for “= empty set”."
-  },
-  {
-    "objectID": "slides/lecture-21_slides.html#partition-identity-proof-nothing-in-both",
-    "href": "slides/lecture-21_slides.html#partition-identity-proof-nothing-in-both",
-    "title": "Sets, continued",
-    "section": "Partition Identity Proof: Nothing in Both",
-    "text": "Partition Identity Proof: Nothing in Both\nThe empty set \\(\\varnothing\\) is the set with no elements. To show a set is \\(\\varnothing\\), we show that nothing is in it.\nClaim: \\((I\\cap N)\\ \\cap\\ (I\\cap N^{c}) = \\varnothing\\).\nProof (by contradiction): Suppose some \\(x\\) is in both \\(I\\cap N\\) and \\(I\\cap N^c\\).\n\nSince \\(x\\in I\\cap N\\), we have \\(x\\in N\\).\nSince \\(x\\in I\\cap N^c\\), we have \\(x\\in N^c\\), so \\(x\\notin N\\).\n\nSo \\(x\\in N\\) and \\(x\\notin N\\), which is a contradiction. No \\(x\\) is in both, and the intersection is \\(\\varnothing\\). \\(\\blacksquare\\)\nIn code, this is a mask that selects nobody: ((I & N) & (I & ~N)).sum() is always 0."
-  },
-  {
     "objectID": "slides/lecture-19_slides.html#announcements",
     "href": "slides/lecture-19_slides.html#announcements",
     "title": "Sets",
@@ -3032,7 +3011,7 @@
     "href": "slides/lecture-22_slides.html#warm-up",
     "title": "Sets, continued (2)",
     "section": "Warm Up",
-    "text": "Warm Up\nSuppose \\(A = \\{1, \\{2\\}\\}\\)\n\n\n\nIs \\(1\\in A\\)?\nIs \\(\\{1\\} \\subseteq A\\)?\nIs \\(1 \\subseteq A\\)?\nIs \\(\\{1\\} \\in A\\)?\nIs \\(2\\in A\\)?\n\n\n\nIs \\(\\{2\\} \\subseteq A\\)?\nIs \\(2 \\subseteq A\\)?\nIs \\(\\{2\\} \\in A\\)?\nIs \\(\\emptyset \\in A\\)?\nIs \\(\\emptyset \\subseteq A\\)?"
+    "text": "Warm Up\nDescribe each set in words, and in set-builder notation if you can.\n\n\n\n\\(\\{x\\in\\mathbb{Z} : 3 \\mid x\\} \\cap \\{x\\in\\mathbb{Z} : 2 \\mid x\\}\\)\n\\(\\{x\\in\\mathbb{Z} : 4 \\mid x\\} \\cap \\{x\\in\\mathbb{Z} : 6 \\mid x\\}\\)\n\\(\\{x\\in\\mathbb{Z} : 3 \\mid x\\} \\cap \\{x\\in\\mathbb{Z} : 9 \\mid x\\}\\)\n\n\n\n\\(\\{x\\in\\mathbb{Z} : 3 \\mid x\\} \\cup \\{x\\in\\mathbb{Z} : 9 \\mid x\\}\\)\n\\(\\{x\\in\\mathbb{Z} : 3 \\mid x\\} \\cup \\{x\\in\\mathbb{Z} : 2 \\mid x\\}\\). Is it the multiples of anything?\n\n\n\n\nMultiples of 6.\nMultiples of 12, not 24: 12 is the smallest number both 4 and 6 divide.\nMultiples of 9. Every multiple of 9 is a multiple of 3, so intersecting with the multiples of 3 removes nothing.\nMultiples of 3. Adding the multiples of 9 adds nothing new.\nNo. It contains 2 and 3, so it could only be the multiples of 1, but it doesn’t contain 5. Unions of “multiples of” sets usually aren’t one. 3 and 4 lead into the proofs: if B is a subset of A, then A n B = B and A u B = A."
   },
   {
     "objectID": "slides/lecture-22_slides.html#setup",
@@ -3040,34 +3019,6 @@
     "title": "Sets, continued (2)",
     "section": "Setup",
     "text": "Setup\nWe’ll use these café sets:\n\\(I\\) = “iced orders” ( df['is_iced'])\n\\(N\\) = “non-dairy milk” (df['milk']=='Oat' | df['milk'] == 'Almond')\n\\(O\\) = “oat-milk orders” (df['milk'] == 'Oat')\n\\(A\\) = “almond-milk orders” (df['milk'] == 'Almond')\n\\(H\\) = “high-caffeine” (df['caffeine_mg'] &gt;= 150)\n\\(L\\) = “low-calorie” (df['calories'] &lt;= 150)"
-  },
-  {
-    "objectID": "slides/lecture-22_slides.html#demorgan-for-sets",
-    "href": "slides/lecture-22_slides.html#demorgan-for-sets",
-    "title": "Sets, continued (2)",
-    "section": "DeMorgan for Sets",
-    "text": "DeMorgan for Sets\nBy observation, you discovered that \\((I\\cup N)^c = I^c\\cap N^c\\). But is this always true?\n \nClaim: For any sets \\(A\\) and \\(B\\), \\((A\\cup B)^c = A^c\\cap B^c\\).\n \nObservations, before we begin:\n\nuniversally quantified statement requires arbitrary instantiation of variables.\nset equality \\(A=B\\) actually requires 2 proofs: \\(A\\subseteq B\\) and \\(B\\subseteq A\\).\nto prove \\(A\\subseteq B\\) we rely on the definition: For any \\(x\\), \\(x\\in A\\rightarrow x\\in B\\).\nfollowing the form of the definition, we consider an arbitrary \\(x\\), assume \\(x\\in A\\) and show \\(x\\in B\\)."
-  },
-  {
-    "objectID": "slides/lecture-22_slides.html#union-widens",
-    "href": "slides/lecture-22_slides.html#union-widens",
-    "title": "Sets, continued (2)",
-    "section": "Union Widens",
-    "text": "Union Widens\nStory: Broadening a filter to “non-dairy or iced” can’t lose non-dairy orders.\nTheorem: \\(N \\subseteq N\\cup I\\).\nProof:\n \n \nApply:\n\n\\(|N|\\le |N\\cup I|\\)\nevery non-dairy row still passes the broader filter."
-  },
-  {
-    "objectID": "slides/lecture-22_slides.html#union-is-monotone",
-    "href": "slides/lecture-22_slides.html#union-is-monotone",
-    "title": "Sets, continued (2)",
-    "section": "Union is Monotone",
-    "text": "Union is Monotone\nStory: Every oat drink is non-dairy. Then “oat or high-caffeine” is contained in “non-dairy or high-caffeine”.\nTheorem: If \\(O\\subseteq N\\), then \\(O\\cup H \\subseteq N\\cup H\\).\nProof: Let \\(x\\in O\\cup H\\). Then \\(x\\in H\\) or \\(x\\in O\\).\n\nIf \\(x\\in H\\), then \\(x\\in N\\cup H\\).\n\nIf \\(x\\in O\\), then \\(x\\in N\\) (since \\(O\\subseteq N\\)), so \\(x\\in N\\cup H\\).\n\nApply: Replacing a condition by a superset inside an OR cannot shrink results."
-  },
-  {
-    "objectID": "slides/lecture-22_slides.html#complement-flips-the-order",
-    "href": "slides/lecture-22_slides.html#complement-flips-the-order",
-    "title": "Sets, continued (2)",
-    "section": "Complement Flips the Order",
-    "text": "Complement Flips the Order\nStory: Since oat \\(\\subseteq\\) non-dairy, anyone not non-dairy is certainly not oat.\nTheorem: If \\(O\\subseteq N\\), then \\(N^{c}\\subseteq O^{c}\\).\nProof:\n\n\n \n \nApply: Negating a broader class yields a subset in the reverse direction.\n\n\n\n\n\n\n\nTake \\(x\\in N^c\\) so \\(x\\notin N\\). If \\(x\\in O\\) then (because \\(O\\subseteq N\\)) we’d have \\(x\\in N\\)—contradiction. Hence \\(x\\notin O\\), i.e., \\(x\\in O^c\\). \\(\\square\\)"
   },
   {
     "objectID": "slides/lecture-22_slides.html#partition-identity",
@@ -3081,7 +3032,112 @@
     "href": "slides/lecture-22_slides.html#partition-identity-proof",
     "title": "Sets, continued (2)",
     "section": "Partition Identity Proof",
-    "text": "Partition Identity Proof\nTheorem: For any sets \\(I\\) and \\(N\\), \\[\n(I\\cap N)\\ \\cup\\ (I\\cap N^{c}) \\;=\\; I\n\\quad\\text{and}\\quad\n(I\\cap N)\\ \\cap\\ (I\\cap N^{c}) \\;=\\; \\varnothing.\n\\]\nProof:"
+    "text": "Partition Identity Proof\nTheorem: For any sets \\(I\\) and \\(N\\), \\[\n(I\\cap N)\\ \\cup\\ (I\\cap N^{c}) \\;=\\; I\n\\quad\\text{and}\\quad\n(I\\cap N)\\ \\cap\\ (I\\cap N^{c}) \\;=\\; \\varnothing.\n\\]\nProof:\n\nConsider arbitrary sets I and N. Union, two subsets. (subset) Let x be in (I n N) u (I n N^c). Then x is in I n N or in I n N^c; in either case x is in I. (superset) Let x be in I. By cases on x and N: if x is in N, then x is in I n N; if not, x is in N^c, so x is in I n N^c. Either way x is in the union. Intersection. Suppose some x is in both I n N and I n N^c. Then x is in N and x is in N^c, i.e. x is in N and x is not in N – a contradiction. So no x is in both: the intersection is the empty set. (Empty set is a subset of everything, so showing nothing is in it is the whole job.) Techniques: element-chasing for =, proof by cases (in N or not – excluded middle), proof by contradiction for “= empty set”."
+  },
+  {
+    "objectID": "slides/lecture-22_slides.html#partition-identity-proof-nothing-in-both",
+    "href": "slides/lecture-22_slides.html#partition-identity-proof-nothing-in-both",
+    "title": "Sets, continued (2)",
+    "section": "Partition Identity Proof: Nothing in Both",
+    "text": "Partition Identity Proof: Nothing in Both\nThe empty set \\(\\varnothing\\) is the set with no elements. To show a set is \\(\\varnothing\\), we show that nothing is in it.\nClaim: \\((I\\cap N)\\ \\cap\\ (I\\cap N^{c}) = \\varnothing\\).\nProof (by contradiction): Suppose some \\(x\\) is in both \\(I\\cap N\\) and \\(I\\cap N^c\\).\n\nSince \\(x\\in I\\cap N\\), we have \\(x\\in N\\).\nSince \\(x\\in I\\cap N^c\\), we have \\(x\\in N^c\\), so \\(x\\notin N\\).\n\nSo \\(x\\in N\\) and \\(x\\notin N\\), which is a contradiction. No \\(x\\) is in both, and the intersection is \\(\\varnothing\\). \\(\\blacksquare\\)\nIn code, this is a mask that selects nobody: ((I & N) & (I & ~N)).sum() is always 0."
+  },
+  {
+    "objectID": "slides/lecture-22_slides.html#complement-flips-the-order-by-contradiction",
+    "href": "slides/lecture-22_slides.html#complement-flips-the-order-by-contradiction",
+    "title": "Sets, continued (2)",
+    "section": "Complement Flips the Order, by Contradiction",
+    "text": "Complement Flips the Order, by Contradiction\nTheorem: If \\(O\\subseteq N\\), then \\(N^{c}\\subseteq O^{c}\\).\nProof (by contradiction): Suppose \\(O\\subseteq N\\). Consider an arbitrary \\(x\\in N^c\\), so \\(x\\notin N\\). We show \\(x\\in O^c\\).\n\nSuppose, for contradiction, that \\(x\\notin O^c\\). Then \\(x\\in O\\).\n\n\nSince \\(O\\subseteq N\\) and \\(x\\in O\\), we have \\(x\\in N\\).\n\n\nSo \\(x\\in N\\) and \\(x\\notin N\\), which is a contradiction. Hence \\(x\\in O^c\\), and \\(N^c\\subseteq O^c\\). \\(\\blacksquare\\)\n\n\nCompare: the contrapositive of \\(x\\in O\\rightarrow x\\in N\\) is \\(x\\notin N\\rightarrow x\\notin O\\), which is the whole theorem in one line."
+  },
+  {
+    "objectID": "slides/lecture-22_slides.html#regular-expressions-languages-and-filters",
+    "href": "slides/lecture-22_slides.html#regular-expressions-languages-and-filters",
+    "title": "Sets, continued (2)",
+    "section": "Regular Expressions: Languages and Filters",
+    "text": "Regular Expressions: Languages and Filters\nGoals:\n\nSee a regex as a set descriptor (a language over an alphabet).\nRead/write the core regex operators.\nUse regex to filter rows in a DataFrame: df['col'].str.contains(pattern).\nTell the two apart: a language is a set of strings; a filter gives a set of rows.\n\n\nBridge from sets: a subset is just a predicate. Regex gives us predicates on strings."
+  },
+  {
+    "objectID": "slides/lecture-22_slides.html#from-sets-to-strings",
+    "href": "slides/lecture-22_slides.html#from-sets-to-strings",
+    "title": "Sets, continued (2)",
+    "section": "From Sets to Strings",
+    "text": "From Sets to Strings\nSets: \\(A=\\{x\\in U: P(x)\\}\\)\n\n\nA regular expression \\(r\\) does two different jobs.\n\nLanguage. \\(L(r)=\\{w\\in\\Sigma^*: \\text{the whole of } w \\text{ matches } r\\}\\). A set of strings, usually infinite. In Python: re.fullmatch(r, w). In pandas: df['col'].str.fullmatch(r).\nFilter. Keep the rows whose string has some part that matches \\(r\\). A set of rows, a subset of the dataframe. In pandas: df['col'].str.contains(r).\n\n\n\nToday: languages first, then filters."
+  },
+  {
+    "objectID": "slides/lecture-22_slides.html#warm-up-in-or-out",
+    "href": "slides/lecture-22_slides.html#warm-up-in-or-out",
+    "title": "Sets, continued (2)",
+    "section": "Warm-Up: In or Out?",
+    "text": "Warm-Up: In or Out?\npattern = [A-Z]{2}\\d{3} \\(L = L(\\)pattern\\()\\), so the whole string must match.\n \nWhich strings are in the set \\(L\\)?\n \nCS110\nab123\nDS2200\nMA101\n\n\n\nThis pattern says: 2 capital letters, then 3 digits, and nothing else. In: CS110, MA101. Out: ab123 (lower case), DS2200 (four digits). Save DS2200: as a filter, contains keeps it, because DS220 is a part of it."
+  },
+  {
+    "objectID": "slides/lecture-22_slides.html#standard-operators",
+    "href": "slides/lecture-22_slides.html#standard-operators",
+    "title": "Sets, continued (2)",
+    "section": "Standard Operators",
+    "text": "Standard Operators\nLiterals: cat\nDot: . any char (except newline)\nClass: [aeiou] or ranges like [A-Z0-9]\nNegated class: [^,] anything but comma\nAlternation: (cat|dog)\nQuantifiers: a* 0 or more, a+ or more, a? 0 or 1, {m,n} range\nAnchors (filters only): ^ start, $ end\nEscapes: \\. literal dot\nGroups: (  ) captures, (?:  ) non-capturing"
+  },
+  {
+    "objectID": "slides/lecture-22_slides.html#regex-vs.-language",
+    "href": "slides/lecture-22_slides.html#regex-vs.-language",
+    "title": "Sets, continued (2)",
+    "section": "Regex vs. Language",
+    "text": "Regex vs. Language\nFix an alphabet of characters, \\(\\Sigma\\).\nThen a pattern \\(r\\) denotes the language \\(L(r)=\\{w\\in\\Sigma^*: \\text{the whole of } w \\text{ matches } r\\}\\)\n\nif no string matches the pattern, \\(L=\\varnothing\\)\nthe empty pattern matches only the empty string ⇒ \\(L=\\{\\varepsilon\\}\\)\npattern a means \\(L=\\{\\)a\\(\\}\\)\nConcatenated patterns AB means \\(L(A)L(B)=\\{xy:x\\in L(A),y\\in L(B)\\}\\)\nUnion of patterns: A|B means \\(L(A)\\cup L(B)\\)\nKleene Star: A* means all finite concatenations from \\(L(A)\\) (incl. \\(\\varepsilon\\))\n\n\nSame spirit as set algebra: union / product / closure. No anchors here: a language always means the whole string."
+  },
+  {
+    "objectID": "slides/lecture-22_slides.html#say-the-set",
+    "href": "slides/lecture-22_slides.html#say-the-set",
+    "title": "Sets, continued (2)",
+    "section": "Say the Set",
+    "text": "Say the Set\n \n(ab|ba)*: strings over {a,b} that are concatenations of ab or ba.\n\n\n(0|1)*11(0|1)*: all binary strings containing 11 as a substring.\n\n\n1(01|10)*0: binary strings that start with 1, end with 0, and are filled with {0,1} pairs that flip from 1 to 0 or vice versa."
+  },
+  {
+    "objectID": "slides/lecture-22_slides.html#same-pattern-two-jobs",
+    "href": "slides/lecture-22_slides.html#same-pattern-two-jobs",
+    "title": "Sets, continued (2)",
+    "section": "Same Pattern, Two Jobs",
+    "text": "Same Pattern, Two Jobs\npattern = 'Latte', so \\(L(\\)pattern\\()=\\{\\)Latte\\(\\}\\). How many café orders does each line keep? Predict, then run.\n\n\n\n\n\n\n\n\nfullmatch is membership in \\(L\\): only Latte itself.\ncontains is a filter: it also keeps Iced Latte, Chai Latte, Matcha Latte. Those strings are not in \\(L\\). They are in \\(\\Sigma^* L\\, \\Sigma^*\\), the strings with a part in \\(L\\).\nAnchors turn a filter back into membership: contains('^Latte$') keeps the same rows as fullmatch('Latte').\n\n\nCounts: 2, 2, 5. Try pattern = ‘Iced’ too: 0, 2, 2. The DS2200 callback from the warm-up: not in L, but contains keeps it."
+  },
+  {
+    "objectID": "slides/lecture-22_slides.html#back-to-the-cafe",
+    "href": "slides/lecture-22_slides.html#back-to-the-cafe",
+    "title": "Sets, continued (2)",
+    "section": "Back to the Cafe",
+    "text": "Back to the Cafe\nSuppose a column drink has values like: “Iced Latte”, “Drip Coffee”, “Americano”, “Chai Latte”, “Tea”, “Espresso”\n \nGoals:\n\nKeep espresso-style drinks: “espresso”, “americano”, “latte”, or “cappuccino”\n“Iced” appears as a whole word\nDrinks that end with “Tea”"
+  },
+  {
+    "objectID": "slides/lecture-22_slides.html#cafe-continued",
+    "href": "slides/lecture-22_slides.html#cafe-continued",
+    "title": "Sets, continued (2)",
+    "section": "Cafe continued",
+    "text": "Cafe continued"
+  },
+  {
+    "objectID": "slides/lecture-22_slides.html#typical-patterns",
+    "href": "slides/lecture-22_slides.html#typical-patterns",
+    "title": "Sets, continued (2)",
+    "section": "Typical Patterns",
+    "text": "Typical Patterns\nWhole word: r’\\biced\\b’\nStarts with: r’^Iced’\nEnds with: r’Tea$’\nOptional word: r’^(Iced )?Latte$’\nOne of set (case-insensitive):\n\n r’(?i)\\b(espresso|americano|latte|cappuccino)\\b’"
+  },
+  {
+    "objectID": "slides/lecture-22_slides.html#your-turn",
+    "href": "slides/lecture-22_slides.html#your-turn",
+    "title": "Sets, continued (2)",
+    "section": "Your Turn",
+    "text": "Your Turn\nFilter for:\n\nDrinks exactly “Iced Latte” (any case)\nDrinks containing either “Americano” or “Espresso” (whole words, any case)\nDrinks that do not contain “Iced” but end with “Tea” (hint: ________________)"
+  },
+  {
+    "objectID": "slides/lecture-22_slides.html#your-turn-1",
+    "href": "slides/lecture-22_slides.html#your-turn-1",
+    "title": "Sets, continued (2)",
+    "section": "Your Turn",
+    "text": "Your Turn"
+  },
+  {
+    "objectID": "slides/lecture-22_slides.html#reminder-from-filter-to-language",
+    "href": "slides/lecture-22_slides.html#reminder-from-filter-to-language",
+    "title": "Sets, continued (2)",
+    "section": "Reminder: From Filter to Language",
+    "text": "Reminder: From Filter to Language\nLet \\(\\Sigma\\) = letters, numbers, and spaces.\nPattern (?i)(espresso|americano|latte|cappuccino) denotes a language \\(L\\subseteq \\Sigma^*\\).\nThis parallels:\nSet: \\(L=\\{\\,w\\in\\Sigma^*: \\text{the whole of } w \\text{ matches the pattern}\\,\\}\\)\nPredicate: \\(P(w)=\\texttt{fullmatch}(\\text{pattern}, w)\\)\nMask: df[‘drink’].str.fullmatch(pattern)\n\n\nA filter with str.contains(pattern) is a membership test too, for a bigger language: \\(\\Sigma^* L\\, \\Sigma^*\\), the strings that have a part in \\(L\\).\nYou’ve been doing language membership tests all class, with filters."
   },
   {
     "objectID": "slides/lecture-24_slides.html#announcements",
