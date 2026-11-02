@@ -124,7 +124,10 @@ a concept: do the thing, notice the pattern, then name it. Practice sets are
 worked with peers and a TA.
 
 A walkthrough that does not fit a practice set belongs in a homework, not
-shrunk. Models to copy: `which-conditions-matter`, `wff-structure`,
+shrunk.
+
+**Arithmetico-geometric sums are homework only** (sums like $\sum i\,r^i$).
+Stated 2026-11-02, for future terms: not on practice sets or examlets. Models to copy: `which-conditions-matter`, `wff-structure`,
 `2026W1/logic/converse-contrapositive-inverse` (currently in EX1 practice, but
 walkthrough-shaped — a candidate to move here).
 
