@@ -21,24 +21,31 @@ subtitle: "Lecture 22, {{< var course.code >}}, {{< var course.term >}}"
 
 ## Warm Up {.activity}
 
-Suppose $A = \{1, \{2\}\}$
+Describe each set in words, and in set-builder notation if you can.
 
-::::: columns 
+::::: columns
 ::: {.column}
-1. Is $1\in A$?
-2. Is $\{1\} \subseteq A$?
-3. Is $1 \subseteq A$?
-4. Is $\{1\} \in A$?
-5. Is $2\in A$?
+1. $\{x\in\mathbb{Z} : 3 \mid x\} \cap \{x\in\mathbb{Z} : 2 \mid x\}$
+2. $\{x\in\mathbb{Z} : 4 \mid x\} \cap \{x\in\mathbb{Z} : 6 \mid x\}$
+3. $\{x\in\mathbb{Z} : 3 \mid x\} \cap \{x\in\mathbb{Z} : 9 \mid x\}$
 :::
 ::: {.column}
-6. Is $\{2\} \subseteq A$?
-7. Is $2 \subseteq A$?
-8. Is $\{2\} \in A$?
-9. Is $\emptyset \in A$?
-10. Is $\emptyset \subseteq A$?
+4. $\{x\in\mathbb{Z} : 3 \mid x\} \cup \{x\in\mathbb{Z} : 9 \mid x\}$
+5. $\{x\in\mathbb{Z} : 3 \mid x\} \cup \{x\in\mathbb{Z} : 2 \mid x\}$. Is it the multiples of anything?
 :::
 :::::
+
+::: notes
+1. Multiples of 6.
+2. Multiples of 12, not 24: 12 is the smallest number both 4 and 6 divide.
+3. Multiples of 9. Every multiple of 9 is a multiple of 3, so intersecting
+   with the multiples of 3 removes nothing.
+4. Multiples of 3. Adding the multiples of 9 adds nothing new.
+5. No. It contains 2 and 3, so it could only be the multiples of 1, but it
+   doesn't contain 5. Unions of "multiples of" sets usually aren't one.
+3 and 4 lead into the proofs: if B is a subset of A, then A n B = B and
+A u B = A.
+:::
 
 # Set Proofs
 
@@ -67,95 +74,6 @@ N = df['milk'].str.strip().isin(['Oat','Almond'])
 O = df['milk'].str.strip().eq('Oat')
 H = df['caffeine_mg'] >= 150
 ```
-
-## DeMorgan for Sets {.smaller}
-
-By observation, you discovered that $(I\cup N)^c = I^c\cap N^c$. But is this
-_always_ true?
-
-\ 
-
-Claim: For any sets $A$ and $B$, $(A\cup B)^c = A^c\cap B^c$. 
-
-\ 
-
-Observations, before we begin:
-
-* universally quantified statement requires arbitrary instantiation of variables.
-* set equality $A=B$ actually requires 2 proofs: $A\subseteq B$ and $B\subseteq A$. 
-* to prove $A\subseteq B$ we rely on the definition: For any $x$, $x\in A\rightarrow x\in B$. 
-* following the form of the definition, we consider an arbitrary $x$, assume $x\in A$ and show $x\in B$. 
-
-## Union Widens {.smaller}
-
-**Story:** Broadening a filter to "non-dairy **or** iced" can’t lose non-dairy orders.
-
-**Theorem:** $N \subseteq N\cup I$.
-
-**Proof:** 
-
-\ 
-
-\ 
-
-**Apply:** 
-
-* $|N|\le |N\cup I|$ 
-* every non-dairy row still passes the broader filter.
-
-```{pyodide}
-
-(N & ~(N | I)).sum()   # should be 0 if N ⊆ (N ∪ I)
-```
-
-
-
-## Union is Monotone {.smaller}
-
-**Story:** Every **oat** drink is **non-dairy**. Then "oat **or** high-caffeine" is contained in "non-dairy **or** high-caffeine".
-
-**Theorem:** If $O\subseteq N$, then $O\cup H \subseteq N\cup H$.
-
-**Proof:** Let $x\in O\cup H$. Then
-$x\in H$ or $x\in O$.
-
-* If $x\in H$, then $x\in N\cup H$.  
-* If $x\in O$, then $x\in N$ (since $O\subseteq N$), so $x\in N\cup H$. 
-
-**Apply:** Replacing a condition by a **superset** inside an OR cannot shrink results.
-
-```{pyodide}
-# O = df['milk'].str.strip().eq('Oat')
-# H = df['caffeine_mg'] >= 150
-subset_OK = ((O & ~N).sum() == 0)          # sanity: O ⊆ N
-violations = ((O | H) & ~(N | H)).sum()    # should be 0
-subset_OK, violations
-```
-
-## Complement Flips the Order {.smaller}
-
-**Story:** Since **oat** $\subseteq$ **non-dairy**, anyone **not non-dairy** is certainly **not oat**.
-
-**Theorem:** If $O\subseteq N$, then $N^{c}\subseteq O^{c}$.
-
-**Proof:** 
-
-\
-
-\ 
-
-\ 
-
-**Apply:** Negating a broader class yields a subset in the **reverse** direction.
-
-```{pyodide}
-(~N & O).sum()   # should be 0 if N^c ⊆ O^c (equivalently, no row is ~N AND O)
-```
-
-::: notes
-Take $x\in N^c$ so $x\notin N$. If $x\in O$ then (because $O\subseteq N$) we’d have $x\in N$—contradiction. Hence $x\notin O$, i.e., $x\in O^c$. $\square$
-:::
-
 
 ## Partition Identity {.smaller}
 
@@ -192,3 +110,323 @@ $$
 $$
 
 **Proof:**  
+
+::: notes
+Consider arbitrary sets I and N.
+Union, two subsets.
+(subset) Let x be in (I n N) u (I n N^c). Then x is in I n N or in I n N^c;
+in either case x is in I.
+(superset) Let x be in I. By cases on x and N: if x is in N, then x is in
+I n N; if not, x is in N^c, so x is in I n N^c. Either way x is in the union.
+Intersection. Suppose some x is in both I n N and I n N^c. Then x is in N
+and x is in N^c, i.e. x is in N and x is not in N -- a contradiction. So no
+x is in both: the intersection is the empty set. (Empty set is a subset of
+everything, so showing nothing is in it is the whole job.)
+Techniques: element-chasing for =, proof by cases (in N or not -- excluded
+middle), proof by contradiction for "= empty set".
+:::
+
+## Partition Identity Proof: Nothing in Both {.smaller}
+
+The **empty set** $\varnothing$ is the set with no elements. To show a set is
+$\varnothing$, we show that nothing is in it.
+
+**Claim:** $(I\cap N)\ \cap\ (I\cap N^{c}) = \varnothing$.
+
+**Proof** (by contradiction)**:** Suppose some $x$ is in both $I\cap N$ and
+$I\cap N^c$.
+
+* Since $x\in I\cap N$, we have $x\in N$.
+* Since $x\in I\cap N^c$, we have $x\in N^c$, so $x\notin N$.
+
+So $x\in N$ and $x\notin N$, which is a contradiction. No $x$ is in both, and
+the intersection is $\varnothing$. $\blacksquare$
+
+In code, this is a mask that selects nobody: `((I & N) & (I & ~N)).sum()` is
+always 0.
+
+## Complement Flips the Order, by Contradiction {.smaller}
+
+**Theorem:** If $O\subseteq N$, then $N^{c}\subseteq O^{c}$.
+
+**Proof** (by contradiction)**:** Suppose $O\subseteq N$. Consider an arbitrary
+$x\in N^c$, so $x\notin N$. We show $x\in O^c$.
+
+. . .
+
+Suppose, for contradiction, that $x\notin O^c$. Then $x\in O$.
+
+. . .
+
+Since $O\subseteq N$ and $x\in O$, we have $x\in N$.
+
+. . .
+
+So $x\in N$ and $x\notin N$, which is a contradiction. Hence $x\in O^c$, and
+$N^c\subseteq O^c$. $\blacksquare$
+
+. . .
+
+Compare: the contrapositive of $x\in O\rightarrow x\in N$ is
+$x\notin N\rightarrow x\notin O$, which is the whole theorem in one line.
+
+```{pyodide}
+(~N & O).sum()   # should be 0 if N^c ⊆ O^c (equivalently, no row is ~N AND O)
+```
+
+# Regular Expressions
+
+## Regular Expressions: Languages and Filters
+
+Goals:
+
+* See a regex as a set descriptor (a language over an alphabet).
+
+* Read/write the core regex operators.
+
+* Use regex to filter rows in a DataFrame: `df['col'].str.contains(pattern)`.
+
+* Tell the two apart: a **language** is a set of strings; a **filter** gives a set of rows.
+
+::: notes
+Bridge from sets: a subset is just a predicate. Regex gives us predicates on strings.
+:::
+
+## From Sets to Strings {.smaller}
+
+Sets: $A=\{x\in U: P(x)\}$
+
+\
+
+A regular expression $r$ does two different jobs.
+
+* **Language.** $L(r)=\{w\in\Sigma^*: \text{the whole of } w \text{ matches } r\}$.
+  A set of _strings_, usually infinite.
+  In Python: `re.fullmatch(r, w)`. In pandas: `df['col'].str.fullmatch(r)`.
+
+* **Filter.** Keep the rows whose string has _some part_ that matches $r$.
+  A set of _rows_, a subset of the dataframe.
+  In pandas: `df['col'].str.contains(r)`.
+
+\
+
+Today: languages first, then filters.
+
+## Warm-Up: In or Out? {.activity}
+
+`pattern = [A-Z]{2}\d{3}`
+$L = L($`pattern`$)$, so the whole string must match.
+
+\ 
+
+Which strings are in the set $L$?
+
+\ 
+
+`CS110`
+
+`ab123`
+
+`DS2200`
+
+`MA101`
+
+\
+
+::: notes
+This pattern says: 2 capital letters, then 3 digits, and nothing else.
+In: CS110, MA101. Out: ab123 (lower case), DS2200 (four digits).
+Save DS2200: as a filter, contains keeps it, because DS220 is a part of it.
+:::
+
+## Standard Operators {.smaller}
+
+Literals: `cat`
+
+Dot: `.` any char (except newline)
+
+Class: `[aeiou]` or ranges like `[A-Z0-9]`
+
+Negated class: `[^,]` anything but comma
+
+Alternation: `(cat|dog)`
+
+Quantifiers: `a*` 0 or more, `a+` or more, `a?` 0 or 1, `{m,n}` range
+
+Anchors (filters only): `^` start, `$` end
+
+Escapes: `\.` literal dot
+
+Groups: `(  )` captures, `(?:  )` non-capturing
+
+
+## Regex vs. Language {.smaller}
+
+Fix an alphabet of characters, $\Sigma$.
+
+Then a pattern $r$ denotes the language $L(r)=\{w\in\Sigma^*: \text{the whole of } w \text{ matches } r\}$
+
+* if no string matches the pattern,  $L=\varnothing$
+
+* the empty pattern matches only the empty string ⇒ $L=\{\varepsilon\}$
+
+* pattern `a` means $L=\{$`a`$\}$
+
+* Concatenated patterns `AB` means $L(A)L(B)=\{xy:x\in L(A),y\in L(B)\}$
+
+* Union of patterns: `A|B` means $L(A)\cup L(B)$
+
+* Kleene Star: `A*` means all finite concatenations from $L(A)$ (incl. $\varepsilon$)
+
+::: notes
+Same spirit as set algebra: union / product / closure.
+No anchors here: a language always means the whole string.
+:::
+
+## Say the Set 
+
+\ 
+
+`(ab|ba)*`: strings over `{a,b}` that are concatenations of `ab` or `ba`.
+
+\
+
+`(0|1)*11(0|1)*`: all binary strings containing 11 as a substring.
+
+\
+
+`1(01|10)*0`: binary strings that start with 1, end with 0, and are filled with `{0,1}` pairs that flip from `1` to `0` or vice versa.
+
+## Same Pattern, Two Jobs {.smaller}
+
+`pattern = 'Latte'`, so $L($`pattern`$)=\{$`Latte`$\}$. How many café orders does each line keep? Predict, then run.
+
+```{pyodide}
+import pandas as pd
+df = pd.read_csv('https://raw.githubusercontent.com/UBC-CS/dsci220/refs/heads/main/data/cafe_orders.csv')
+
+pattern = 'Latte'
+print(df['drink'].str.fullmatch(pattern).sum())   # whole string is in L
+print(df['drink'].str.match(pattern).sum())       # string starts with something in L
+print(df['drink'].str.contains(pattern).sum())    # some part of the string is in L
+```
+
+. . .
+
+* `fullmatch` is **membership** in $L$: only `Latte` itself.
+* `contains` is a **filter**: it also keeps `Iced Latte`, `Chai Latte`, `Matcha Latte`.
+  Those strings are not in $L$. They are in $\Sigma^* L\, \Sigma^*$, the strings with a part in $L$.
+* Anchors turn a filter back into membership: `contains('^Latte$')` keeps the same rows as `fullmatch('Latte')`.
+
+::: notes
+Counts: 2, 2, 5. Try pattern = 'Iced' too: 0, 2, 2.
+The DS2200 callback from the warm-up: not in L, but contains keeps it.
+:::
+
+
+## Back to the Cafe
+
+Suppose a column `drink` has values like:
+<span class="rule">"Iced Latte", "Drip Coffee", "Americano", "Chai Latte", "Tea", "Espresso"</span>
+
+\ 
+
+Goals:
+
+1. Keep espresso-style drinks: "espresso", "americano", "latte", or "cappuccino"
+
+2. "Iced" appears as a whole word
+
+3. Drinks that end with “Tea”
+
+## Cafe continued
+
+```{pyodide}
+import pandas as pd
+df = pd.read_csv('https://raw.githubusercontent.com/UBC-CS/dsci220/refs/heads/main/data/cafe_orders.csv')
+
+# regex
+esprestr = r'(?i)\b(espresso|americano|latte|cappuccino)\b'
+icedrestr = r'(?i)\biced\b'
+tearestr = r'(?i)tea$'
+
+# masks
+espressoish = df['drink'].str.contains(esprestr, regex=True, na=False)
+iced       = df['drink'].str.contains(icedrestr, regex=True, na=False)
+teas       = df['drink'].str.contains(tearestr,  regex=True, na=False)
+
+# Set algebra on masks:
+E_or_I   = espressoish | iced          # union
+I_and_T  = iced & teas                 # intersection
+not_I    = ~iced                       # complement
+
+# Project the data:
+subset = df[E_or_I]
+subset
+```
+
+## Typical Patterns
+
+
+Whole word: <span class="rule">r'\\biced\\b'</span>
+
+Starts with: <span class="rule">r'^Iced'</span>
+
+Ends with: <span class="rule">r'Tea$'</span>
+
+Optional word: <span class="rule">r'^(Iced )?Latte$'</span>
+
+One of set (case-insensitive):  
+
+<center>
+<span class="rule"> r'(?i)\\b(espresso|americano|latte|cappuccino)\\b'</span>
+</center>
+
+## Your Turn {.activity}
+
+Filter for:
+
+1. Drinks exactly “Iced Latte” (any case)
+
+2. Drinks containing either “Americano” or “Espresso” (whole words, any case)
+
+3. Drinks that **do not** contain “Iced” but end with “Tea” (hint: \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_)
+
+## Your Turn {.activity}
+
+```{pyodide}
+
+q1restr = r'______'
+q2restr = r'______'
+q3arestr = r'______'
+q3brestr = r'______'
+
+m1 = df['drink'].str.contains(q1restr, regex=True, na=False)
+m2 = df['drink'].str.contains(q2restr, regex=True, na=False)
+m3a = df['drink'].str.contains(q3arestr, regex=True, na=False)
+m3b = df['drink'].str.contains(q3brestr, regex=True, na=False)
+m3 = 
+
+# project rows of dataframe
+```
+
+## Reminder: From Filter to Language {.smaller}
+
+Let $\Sigma$ = letters, numbers, and spaces.
+
+Pattern <span class="rule">(?i)(espresso|americano|latte|cappuccino)</span> denotes a language $L\subseteq \Sigma^*$.
+
+This parallels:
+
+Set: $L=\{\,w\in\Sigma^*: \text{the whole of } w \text{ matches the pattern}\,\}$
+
+Predicate: $P(w)=\texttt{fullmatch}(\text{pattern}, w)$
+
+Mask: <span class="rule">df['drink'].str.fullmatch(pattern)</span>
+
+\
+
+A filter with <span class="rule">str.contains(pattern)</span> is a membership test too, for a
+bigger language: $\Sigma^* L\, \Sigma^*$, the strings that have a part in $L$.
+
+You’ve been doing language membership tests all class, with filters.
