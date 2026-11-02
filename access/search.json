@@ -3056,11 +3056,46 @@
     "text": "Regular Expressions\nLanguages and Filters\nGoals:\n\nSee a regex as a set descriptor (a language over an alphabet).\nRead/write the core regex operators.\nUse regex to filter rows in a DataFrame: df['col'].str.contains(pattern).\nTell the two apart: a language is a set of strings; a filter gives a set of rows.\n\n\nBridge from sets: a subset is just a predicate. Regex gives us predicates on strings."
   },
   {
-    "objectID": "slides/lecture-22_slides.html#from-sets-to-strings",
-    "href": "slides/lecture-22_slides.html#from-sets-to-strings",
+    "objectID": "slides/lecture-22_slides.html#patterns-spell-it-out",
+    "href": "slides/lecture-22_slides.html#patterns-spell-it-out",
     "title": "Sets, continued (2)",
-    "section": "From Sets to Strings",
-    "text": "From Sets to Strings\nSets: \\(A=\\{x\\in U: P(x)\\}\\)\n\n\nA regular expression \\(r\\) does two different jobs.\n\nLanguage. \\(L(r)=\\{w\\in\\Sigma^*: \\text{the whole of } w \\text{ matches } r\\}\\). A set of strings, usually infinite. In Python: re.fullmatch(r, w). In pandas: df['col'].str.fullmatch(r).\nFilter. Keep the rows whose string has some part that matches \\(r\\). A set of rows, a subset of the dataframe. In pandas: df['col'].str.contains(r).\n\n\n\nToday: languages first, then filters."
+    "section": "Patterns: Spell It Out",
+    "text": "Patterns: Spell It Out\nA pattern describes a set of strings. For now, a string matches a pattern when the whole string fits it.\n \nConcatenation: write pieces next to each other.\ncat matches cat, and nothing else: not ca, not cats, not Cat.\n \nDoes dsci match dsci? DSCI? dsci220?\n\nYes. No (case matters). No (the whole string has to fit)."
+  },
+  {
+    "objectID": "slides/lecture-22_slides.html#choice",
+    "href": "slides/lecture-22_slides.html#choice",
+    "title": "Sets, continued (2)",
+    "section": "Choice: |",
+    "text": "Choice: |\ncat|dog matches cat or dog.\n \nParentheses group: c(a|o)t matches cat and cot, but not ct or caot.\n \nWhich strings does (c|b)(a|u)t match?\n\ncat, cut, bat, but: one choice from each group, so \\(2\\times 2 = 4\\) strings. (A Cartesian product!)"
+  },
+  {
+    "objectID": "slides/lecture-22_slides.html#repetition",
+    "href": "slides/lecture-22_slides.html#repetition",
+    "title": "Sets, continued (2)",
+    "section": "Repetition: *",
+    "text": "Repetition: *\na* means zero or more a’s: the empty string \\(\\varepsilon\\), a, aa, aaa, …\n \n* repeats the one thing just before it:\n\nha* matches h, ha, haa, … but not haha.\n\n\n\n(ha)* matches \\(\\varepsilon\\), ha, haha, hahaha, …\n\n\n\n\n(a|b)* matches every string of a’s and b’s, including \\(\\varepsilon\\).\n\n \nOur first patterns that match infinitely many strings."
+  },
+  {
+    "objectID": "slides/lecture-22_slides.html#your-turn-just-the-core",
+    "href": "slides/lecture-22_slides.html#your-turn-just-the-core",
+    "title": "Sets, continued (2)",
+    "section": "Your Turn: Just the Core",
+    "text": "Your Turn: Just the Core\nUse only concatenation, |, * and parentheses.\n\nStrings of a’s and b’s with exactly one b.\nBinary strings that end in 1.\nStrings of a’s with an even number of a’s (zero counts).\nlol, lolol, lololol, …\n\n\n\na*ba*\n(0|1)*1\n(aa)*\nlol(ol)*"
+  },
+  {
+    "objectID": "slides/lecture-22_slides.html#shorthand-how-many",
+    "href": "slides/lecture-22_slides.html#shorthand-how-many",
+    "title": "Sets, continued (2)",
+    "section": "Shorthand: How Many",
+    "text": "Shorthand: How Many\nEverything from here on is shorthand for something you can already write.\n\na+: one or more. Same as aa*.\na?: zero or one. Same as “a or nothing”.\na{3}: exactly three. Same as aaa.\na{2,4}: two to four. Same as aa|aaa|aaaa.\n\n \ncolou?r matches color and colour.\nha+ matches ha, haa, … but not h."
+  },
+  {
+    "objectID": "slides/lecture-22_slides.html#shorthand-which-character",
+    "href": "slides/lecture-22_slides.html#shorthand-which-character",
+    "title": "Sets, continued (2)",
+    "section": "Shorthand: Which Character",
+    "text": "Shorthand: Which Character\n\n[aeiou]: one character from the list. Same as (a|e|i|o|u).\n[a-z], [A-Z], [0-9]: one character from a range. \\d means [0-9].\n.: any one character.\n[^aeiou]: one character not in the list.\n\n \n[A-Z][a-z]* matches Tea and Latte, but not latte, LATTE, or Iced Latte (the space!).\nc[^aeiou]t matches c9t and cxt, but not cat or ct.\n... matches any string of exactly three characters."
   },
   {
     "objectID": "slides/lecture-22_slides.html#warm-up-in-or-out",
@@ -3075,6 +3110,13 @@
     "title": "Sets, continued (2)",
     "section": "Standard Operators",
     "text": "Standard Operators\nLiterals: cat\nDot: . any char (except newline)\nClass: [aeiou] or ranges like [A-Z0-9]\nNegated class: [^,] anything but comma\nAlternation: (cat|dog)\nQuantifiers: a* 0 or more, a+ or more, a? 0 or 1, {m,n} range\nAnchors (filters only): ^ start, $ end\nEscapes: \\. literal dot\nGroups: (  ) captures, (?:  ) non-capturing"
+  },
+  {
+    "objectID": "slides/lecture-22_slides.html#from-sets-to-strings",
+    "href": "slides/lecture-22_slides.html#from-sets-to-strings",
+    "title": "Sets, continued (2)",
+    "section": "From Sets to Strings",
+    "text": "From Sets to Strings\nSets: \\(A=\\{x\\in U: P(x)\\}\\)\n\n\nA regular expression \\(r\\) does two different jobs.\n\nLanguage. \\(L(r)=\\{w\\in\\Sigma^*: \\text{the whole of } w \\text{ matches } r\\}\\). A set of strings, usually infinite. In Python: re.fullmatch(r, w). In pandas: df['col'].str.fullmatch(r).\nFilter. Keep the rows whose string has some part that matches \\(r\\). A set of rows, a subset of the dataframe. In pandas: df['col'].str.contains(r).\n\n\n\nToday: languages first, then filters."
   },
   {
     "objectID": "slides/lecture-22_slides.html#regex-vs.-language",

@@ -343,19 +343,93 @@ eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiKH5OICYgTykuc3VtKCkgICAj
           display:block!important;
       }</style></aside>
 </section>
-<section id="from-sets-to-strings" class="slide level2 smaller">
-<h2>From Sets to Strings</h2>
-<p>Sets: <span class="math inline">\(A=\{x\in U: P(x)\}\)</span></p>
-<p><br>
-</p>
-<p>A regular expression <span class="math inline">\(r\)</span> does two different jobs.</p>
+<section id="patterns-spell-it-out" class="slide level2 smaller">
+<h2>Patterns: Spell It Out</h2>
+<p>A pattern describes a set of strings. For now, a string <strong>matches</strong> a pattern when the <em>whole</em> string fits it.</p>
+<p>&nbsp;</p>
+<p><strong>Concatenation:</strong> write pieces next to each other.</p>
+<p><code>cat</code> matches <code>cat</code>, and nothing else: not <code>ca</code>, not <code>cats</code>, not <code>Cat</code>.</p>
+<p>&nbsp;</p>
+<p>Does <code>dsci</code> match <code>dsci</code>? <code>DSCI</code>? <code>dsci220</code>?</p>
+<div class="fragment">
+<p>Yes. No (case matters). No (the whole string has to fit).</p>
+</div>
+</section>
+<section id="choice" class="slide level2 smaller">
+<h2>Choice: <code>|</code></h2>
+<p><code>cat|dog</code> matches <code>cat</code> or <code>dog</code>.</p>
+<p>&nbsp;</p>
+<p>Parentheses group: <code>c(a|o)t</code> matches <code>cat</code> and <code>cot</code>, but not <code>ct</code> or <code>caot</code>.</p>
+<p>&nbsp;</p>
+<p>Which strings does <code>(c|b)(a|u)t</code> match?</p>
+<div class="fragment">
+<p><code>cat</code>, <code>cut</code>, <code>bat</code>, <code>but</code>: one choice from each group, so <span class="math inline">\(2\times 2 = 4\)</span> strings. (A Cartesian product!)</p>
+</div>
+</section>
+<section id="repetition" class="slide level2 smaller">
+<h2>Repetition: <code>*</code></h2>
+<p><code>a*</code> means zero or more <code>a</code>’s: the empty string <span class="math inline">\(\varepsilon\)</span>, <code>a</code>, <code>aa</code>, <code>aaa</code>, …</p>
+<p>&nbsp;</p>
+<p><code>*</code> repeats the one thing just before it:</p>
 <ul>
-<li><p><strong>Language.</strong> <span class="math inline">\(L(r)=\{w\in\Sigma^*: \text{the whole of } w \text{ matches } r\}\)</span>. A set of <em>strings</em>, usually infinite. In Python: <code>re.fullmatch(r, w)</code>. In pandas: <code>df['col'].str.fullmatch(r)</code>.</p></li>
-<li><p><strong>Filter.</strong> Keep the rows whose string has <em>some part</em> that matches <span class="math inline">\(r\)</span>. A set of <em>rows</em>, a subset of the dataframe. In pandas: <code>df['col'].str.contains(r)</code>.</p></li>
+<li><code>ha*</code> matches <code>h</code>, <code>ha</code>, <code>haa</code>, … but not <code>haha</code>.</li>
 </ul>
-<p><br>
-</p>
-<p>Today: languages first, then filters.</p>
+<div class="fragment">
+<ul>
+<li><code>(ha)*</code> matches <span class="math inline">\(\varepsilon\)</span>, <code>ha</code>, <code>haha</code>, <code>hahaha</code>, …</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li><code>(a|b)*</code> matches every string of <code>a</code>’s and <code>b</code>’s, including <span class="math inline">\(\varepsilon\)</span>.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Our first patterns that match infinitely many strings.</p>
+</div>
+</section>
+<section id="your-turn-just-the-core" class="slide level2 activity smaller">
+<h2>Your Turn: Just the Core</h2>
+<p>Use only concatenation, <code>|</code>, <code>*</code> and parentheses.</p>
+<ol type="1">
+<li>Strings of <code>a</code>’s and <code>b</code>’s with exactly one <code>b</code>.</li>
+<li>Binary strings that end in <code>1</code>.</li>
+<li>Strings of <code>a</code>’s with an even number of <code>a</code>’s (zero counts).</li>
+<li><code>lol</code>, <code>lolol</code>, <code>lololol</code>, …</li>
+</ol>
+<div class="fragment">
+<ol type="1">
+<li><code>a*ba*</code></li>
+<li><code>(0|1)*1</code></li>
+<li><code>(aa)*</code></li>
+<li><code>lol(ol)*</code></li>
+</ol>
+</div>
+</section>
+<section id="shorthand-how-many" class="slide level2 smaller">
+<h2>Shorthand: How Many</h2>
+<p>Everything from here on is shorthand for something you can already write.</p>
+<ul>
+<li><code>a+</code>: one or more. Same as <code>aa*</code>.</li>
+<li><code>a?</code>: zero or one. Same as “<code>a</code> or nothing”.</li>
+<li><code>a{3}</code>: exactly three. Same as <code>aaa</code>.</li>
+<li><code>a{2,4}</code>: two to four. Same as <code>aa|aaa|aaaa</code>.</li>
+</ul>
+<p>&nbsp;</p>
+<p><code>colou?r</code> matches <code>color</code> and <code>colour</code>.</p>
+<p><code>ha+</code> matches <code>ha</code>, <code>haa</code>, … but not <code>h</code>.</p>
+</section>
+<section id="shorthand-which-character" class="slide level2 smaller">
+<h2>Shorthand: Which Character</h2>
+<ul>
+<li><code>[aeiou]</code>: one character from the list. Same as <code>(a|e|i|o|u)</code>.</li>
+<li><code>[a-z]</code>, <code>[A-Z]</code>, <code>[0-9]</code>: one character from a range. <code>\d</code> means <code>[0-9]</code>.</li>
+<li><code>.</code>: any one character.</li>
+<li><code>[^aeiou]</code>: one character <strong>not</strong> in the list.</li>
+</ul>
+<p>&nbsp;</p>
+<p><code>[A-Z][a-z]*</code> matches <code>Tea</code> and <code>Latte</code>, but not <code>latte</code>, <code>LATTE</code>, or <code>Iced Latte</code> (the space!).</p>
+<p><code>c[^aeiou]t</code> matches <code>c9t</code> and <code>cxt</code>, but not <code>cat</code> or <code>ct</code>.</p>
+<p><code>...</code> matches any string of exactly three characters.</p>
 </section>
 <section id="warm-up-in-or-out" class="slide level2 activity">
 <h2>Warm-Up: In or Out?</h2>
@@ -394,6 +468,20 @@ eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiKH5OICYgTykuc3VtKCkgICAj
 <p>Anchors (filters only): <code>^</code> start, <code>$</code> end</p>
 <p>Escapes: <code>\.</code> literal dot</p>
 <p>Groups: <code>(  )</code> captures, <code>(?:  )</code> non-capturing</p>
+</section>
+<section id="from-sets-to-strings" class="slide level2 smaller">
+<h2>From Sets to Strings</h2>
+<p>Sets: <span class="math inline">\(A=\{x\in U: P(x)\}\)</span></p>
+<p><br>
+</p>
+<p>A regular expression <span class="math inline">\(r\)</span> does two different jobs.</p>
+<ul>
+<li><p><strong>Language.</strong> <span class="math inline">\(L(r)=\{w\in\Sigma^*: \text{the whole of } w \text{ matches } r\}\)</span>. A set of <em>strings</em>, usually infinite. In Python: <code>re.fullmatch(r, w)</code>. In pandas: <code>df['col'].str.fullmatch(r)</code>.</p></li>
+<li><p><strong>Filter.</strong> Keep the rows whose string has <em>some part</em> that matches <span class="math inline">\(r\)</span>. A set of <em>rows</em>, a subset of the dataframe. In pandas: <code>df['col'].str.contains(r)</code>.</p></li>
+</ul>
+<p><br>
+</p>
+<p>Today: languages first, then filters.</p>
 </section>
 <section id="regex-vs.-language" class="slide level2 smaller">
 <h2>Regex vs.&nbsp;Language</h2>
