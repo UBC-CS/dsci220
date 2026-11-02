@@ -19,7 +19,7 @@ subtitle: "Lecture 22, {{< var course.code >}}, {{< var course.term >}}"
 
 - Gallery through proofs
 
-## Warm Up {.activity}
+## Warm Up {.activity .smaller}
 
 Describe each set in words, and in set-builder notation if you can.
 
