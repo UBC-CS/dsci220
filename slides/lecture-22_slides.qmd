@@ -23,17 +23,11 @@ subtitle: "Lecture 22, {{< var course.code >}}, {{< var course.term >}}"
 
 Describe each set in words, and in set-builder notation if you can.
 
-::::: columns
-::: {.column}
 1. $\{x\in\mathbb{Z} : 3 \mid x\} \cap \{x\in\mathbb{Z} : 2 \mid x\}$
 2. $\{x\in\mathbb{Z} : 4 \mid x\} \cap \{x\in\mathbb{Z} : 6 \mid x\}$
 3. $\{x\in\mathbb{Z} : 3 \mid x\} \cap \{x\in\mathbb{Z} : 9 \mid x\}$
-:::
-::: {.column}
 4. $\{x\in\mathbb{Z} : 3 \mid x\} \cup \{x\in\mathbb{Z} : 9 \mid x\}$
 5. $\{x\in\mathbb{Z} : 3 \mid x\} \cup \{x\in\mathbb{Z} : 2 \mid x\}$. Is it the multiples of anything?
-:::
-:::::
 
 ::: notes
 1. Multiples of 6.
