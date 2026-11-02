@@ -1,5 +1,5 @@
 ---
-title: "Sets, continued (2)"
+title: "Sets, Regex"
 subtitle: "Lecture 22, {{< var course.code >}}, {{< var course.term >}}"
 ---
 
@@ -14,10 +14,6 @@ subtitle: "Lecture 22, {{< var course.code >}}, {{< var course.term >}}"
 </style>
 
 # Sets Continued
-
-## Goals
-
-- Gallery through proofs
 
 ## Warm Up {.activity .smaller}
 
@@ -143,30 +139,28 @@ always 0.
 
 **Theorem:** If $O\subseteq N$, then $N^{c}\subseteq O^{c}$.
 
-**Proof** (by contradiction)**:** Suppose $O\subseteq N$. Consider an arbitrary
-$x\in N^c$, so $x\notin N$. We show $x\in O^c$.
+**Proof** (by contradiction)**:**
 
-. . .
+\ 
 
-Suppose, for contradiction, that $x\notin O^c$. Then $x\in O$.
+\ 
 
-. . .
+\ 
 
-Since $O\subseteq N$ and $x\in O$, we have $x\in N$.
-
-. . .
-
-So $x\in N$ and $x\notin N$, which is a contradiction. Hence $x\in O^c$, and
-$N^c\subseteq O^c$. $\blacksquare$
-
-. . .
-
-Compare: the contrapositive of $x\in O\rightarrow x\in N$ is
-$x\notin N\rightarrow x\notin O$, which is the whole theorem in one line.
+\ 
 
 ```{pyodide}
 (~N & O).sum()   # should be 0 if N^c ⊆ O^c (equivalently, no row is ~N AND O)
 ```
+
+::: notes
+Suppose O is a subset of N. Consider an arbitrary x in N^c, so x is not in N.
+We show x is in O^c. Suppose, for contradiction, that x is not in O^c. Then x
+is in O. Since O is a subset of N, x is in N. So x is in N and x is not in N,
+a contradiction. Hence x is in O^c, and N^c is a subset of O^c.
+Compare: the contrapositive of (x in O -> x in N) is (x not in N -> x not in
+O), which is the whole theorem in one line.
+:::
 
 # Regular Expressions
 
@@ -188,7 +182,7 @@ Goals:
 Bridge from sets: a subset is just a predicate. Regex gives us predicates on strings.
 :::
 
-## Patterns: Spell It Out {.smaller}
+## Patterns:  {.smaller}
 
 A pattern describes a set of strings. For now, a string **matches** a pattern
 when the _whole_ string fits it.
@@ -203,9 +197,9 @@ when the _whole_ string fits it.
 
 Does `dsci` match `dsci`? `DSCI`? `dsci220`?
 
-. . .
-
+::: notes
 Yes. No (case matters). No (the whole string has to fit).
+:::
 
 ## Choice: `|` {.smaller}
 
@@ -219,10 +213,10 @@ Parentheses group: `c(a|o)t` matches `cat` and `cot`, but not `ct` or `caot`.
 
 Which strings does `(c|b)(a|u)t` match?
 
-. . .
-
-`cat`, `cut`, `bat`, `but`: one choice from each group, so $2\times 2 = 4$
-strings. (A Cartesian product!)
+::: notes
+cat, cut, bat, but: one choice from each group, so 2 x 2 = 4 strings.
+(A Cartesian product!)
+:::
 
 ## Repetition: `*` {.smaller}
 
@@ -234,11 +228,7 @@ strings. (A Cartesian product!)
 
 * `ha*` matches `h`, `ha`, `haa`, … but not `haha`.
 
-. . .
-
 * `(ha)*` matches $\varepsilon$, `ha`, `haha`, `hahaha`, …
-
-. . .
 
 * `(a|b)*` matches every string of `a`'s and `b`'s, including $\varepsilon$.
 
@@ -246,7 +236,7 @@ strings. (A Cartesian product!)
 
 Our first patterns that match infinitely many strings.
 
-## Your Turn: Just the Core {.activity .smaller}
+## Your Turn: {.activity .smaller}
 
 Use only concatenation, `|`, `*` and parentheses.
 
@@ -255,12 +245,9 @@ Use only concatenation, `|`, `*` and parentheses.
 3. Strings of `a`'s with an even number of `a`'s (zero counts).
 4. `lol`, `lolol`, `lololol`, …
 
-. . .
-
-1. `a*ba*` 
-2. `(0|1)*1` 
-3. `(aa)*` 
-4. `lol(ol)*`
+::: notes
+1. a*ba*   2. (0|1)*1   3. (aa)*   4. lol(ol)*
+:::
 
 ## Shorthand: How Many {.smaller}
 
@@ -411,14 +398,12 @@ print(df['drink'].str.match(pattern).sum())       # string starts with something
 print(df['drink'].str.contains(pattern).sum())    # some part of the string is in L
 ```
 
-. . .
-
-* `fullmatch` is **membership** in $L$: only `Latte` itself.
-* `contains` is a **filter**: it also keeps `Iced Latte`, `Chai Latte`, `Matcha Latte`.
-  Those strings are not in $L$. They are in $\Sigma^* L\, \Sigma^*$, the strings with a part in $L$.
-* Anchors turn a filter back into membership: `contains('^Latte$')` keeps the same rows as `fullmatch('Latte')`.
-
 ::: notes
+fullmatch is membership in L: only Latte itself. contains is a filter: it also
+keeps Iced Latte, Chai Latte, Matcha Latte. Those strings are not in L; they
+are in Sigma* L Sigma*, the strings with a part in L. Anchors turn a filter
+back into membership: contains('^Latte$') keeps the same rows as
+fullmatch('Latte').
 Counts: 2, 2, 5. Try pattern = 'Iced' too: 0, 2, 2.
 The DS2200 callback from the warm-up: not in L, but contains keeps it.
 :::
