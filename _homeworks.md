@@ -103,15 +103,47 @@ most two, at least three.
 
 ---
 
-## HW4 — due Sun Nov 8 · not built
+## HW4 — due Sun Nov 8 · built
 
-Nothing assigned yet. Covers roughly weeks 8–9.
+Three set questions in one zone, one attempt each (`questions/2026W1/sets/`):
+`three-set-ie` (3-set inclusion–exclusion, weather-station NaNs),
+`dropna-bounds` (bounds on dropna, overlaps Tutorial 7 on purpose) and
+`regions-from-counts` (regions such as (X−Z)∩Y from Venn counts).
 
 ---
 
 ## HW5 — due Sun Nov 29 · not built
 
 Nothing assigned yet. Covers roughly weeks 10–12.
+
+**Stashed for this homework (2026-11-03): proofs about regular expressions.**
+Languages are sets, so these reuse double containment (L21–22), induction and
+recurrences (L11–13) and binary (L17). All claims below were checked in Python.
+
+- **A containment where only one direction holds.** Prove that every string in
+  L((01|10)\*) has even length and no run of three equal symbols (induction on
+  the number of pairs; a run can only span the end of one pair and the start
+  of the next). Disprove the converse with a counterexample: `00`, `0011`.
+  Then describe the language exactly (cut into pairs from the left, each pair
+  is `01` or `10`) and count it: 2^k strings of length 2k (lengths 2, 4, 6, 8:
+  2, 4, 8, 16, against 4, 10, 26, 68 even-length strings with no run of 3).
+- **Concatenation doesn't commute, non-trivially.** `(0|1)(01|10)*` and
+  `(01|10)*(0|1)` are both odd-length, both 2^(k+1) strings of length 2k+1,
+  both free of runs of 3, and different: `001` is only in the first, `100`
+  only in the second.
+- **Two patterns, one set.** L((ab)\*a) = L(a(ba)\*), by induction on the
+  number of blocks.
+- **Fibonacci.** Binary strings of length n with no `11`, i.e.
+  `(0|10)*(1|ε)`, satisfy a_n = a_(n-1) + a_(n-2): split on whether the string
+  ends in `0` or `10`.
+- **Binary meets regex.** `(0|1)*1` is exactly the binary representations of
+  odd numbers, using n = 2⌊n/2⌋ + n mod 2 from L17; `(0|1)*00` is the
+  multiples of 4.
+- **Set laws on languages.** L(A(B|C)) = L(AB|AC); L((A\*)\*) = L(A\*).
+- **The Filter-card trap** (maybe for the L24 video instead): if ε ∈ L(r) then
+  the filter Σ\*L(r)Σ\* keeps every string.
+- **Later, pigeonhole (L30):** a k-state DFA reading k or more symbols repeats
+  a state, so {0ⁿ1ⁿ} has no regex.
 
 ---
 
