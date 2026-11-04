@@ -168,6 +168,36 @@
 <h1>Regular Expressions</h1>
 
 </section>
+<section id="warm-up" class="slide level2 activity smaller">
+<h2>Warm Up</h2>
+<p>Monday’s tools: concatenation, choice <code>|</code>, repetition <code>*</code>, and parentheses. The whole string must match.</p>
+<ol type="1">
+<li>Which strings does <code>(DSCI|CPSC)␣(1|2)00</code> match?</li>
+<li>Does <code>(ab)*</code> match <code>abab</code>? <code>aba</code>? the empty string?</li>
+<li>Does <code>ha*</code> match <code>haha</code>?</li>
+<li>Write a pattern for <code>color</code> or <code>colour</code>.</li>
+<li>Write a pattern for the binary strings that start with <code>1</code> and end with <code>0</code>.</li>
+</ol>
+<aside class="notes">
+<ol type="1">
+<li>DSCI 100, DSCI 200, CPSC 100, CPSC 200: one choice from each group, 2 x 2 = 4.</li>
+<li>Yes, no, yes (zero repetitions).</li>
+<li>No: * repeats only the a. haha needs (ha)*.</li>
+<li>color|colour, or colo(u|)r. Hold on to this one: it’s what ? is for.</li>
+<li>1(0|1)*0</li>
+</ol>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
 <section id="goals" class="slide level2">
 <h2>Goals</h2>
 <ul>

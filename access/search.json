@@ -771,6 +771,13 @@
     "text": "Announcements"
   },
   {
+    "objectID": "slides/lecture-23_slides.html#warm-up",
+    "href": "slides/lecture-23_slides.html#warm-up",
+    "title": "Regular Expressions",
+    "section": "Warm Up",
+    "text": "Warm Up\nMonday’s tools: concatenation, choice |, repetition *, and parentheses. The whole string must match.\n\nWhich strings does (DSCI|CPSC)␣(1|2)00 match?\nDoes (ab)* match abab? aba? the empty string?\nDoes ha* match haha?\nWrite a pattern for color or colour.\nWrite a pattern for the binary strings that start with 1 and end with 0.\n\n\n\nDSCI 100, DSCI 200, CPSC 100, CPSC 200: one choice from each group, 2 x 2 = 4.\nYes, no, yes (zero repetitions).\nNo: * repeats only the a. haha needs (ha)*.\ncolor|colour, or colo(u|)r. Hold on to this one: it’s what ? is for.\n1(0|1)*0"
+  },
+  {
     "objectID": "slides/lecture-23_slides.html#goals",
     "href": "slides/lecture-23_slides.html#goals",
     "title": "Regular Expressions",
