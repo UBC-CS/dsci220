@@ -810,7 +810,7 @@
     "href": "slides/lecture-23_slides.html#pattern-eights-setup",
     "title": "Regular Expressions",
     "section": "Pattern Eights: Setup",
-    "text": "Pattern Eights: Setup\nGroups of 3 to 5. Shuffle, and deal 7 cards each.\nTurn up cards until you reach a pattern: that’s the current pattern. Any strings you turn up go to the bottom of the deck.\n\n\n  deck(face down)\n  [A-Z].*patternstop = current pattern\n  Iced␣Lattestringstop = top string\n  used filters\n\nMid-game: the current pattern is [A-Z].*, and the top string is Iced␣Latte. The string pile starts empty, so the first player has to play a string."
+    "text": "Pattern Eights: Setup\nGroups of 3 to 5. Shuffle, and deal 7 cards each.\nTurn up the top card to start its pile. (A wild or a filter goes back in the deck; turn up another.)\n\n\n  deck(face down)\n  [A-Z].*patternstop = current pattern\n  Iced␣Lattestringstop = top string\n  used filters\n\nMid-game: the current pattern is [A-Z].*, and the top string is Iced␣Latte. At the start, one pile is empty. A pattern on top means the first player plays a string, and the other way round."
   },
   {
     "objectID": "slides/lecture-23_slides.html#pattern-eights-play",
