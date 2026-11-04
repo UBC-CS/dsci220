@@ -112,8 +112,7 @@ Groups: `(  )` captures, `(?:  )` non-capturing
 
 Groups of 3 to 5. Shuffle, and deal 7 cards each.
 
-Turn up cards until you reach a pattern: that's the current pattern.
-Any strings you turn up go to the bottom of the deck.
+Turn up the top card to start its pile. (A wild or a filter goes back in the deck; turn up another.)
 
 ```{=html}
 <style>
@@ -138,7 +137,7 @@ Any strings you turn up go to the bottom of the deck.
 ```
 
 Mid-game: the current pattern is `[A-Z].*`, and the top string is `Iced␣Latte`.
-The string pile starts empty, so the first player has to play a string.
+At the start, one pile is empty. A pattern on top means the first player plays a string, and the other way round.
 
 ## Pattern Eights: Play {.activity .smaller}
 
