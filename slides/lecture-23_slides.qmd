@@ -137,3 +137,48 @@ string  = "DSCI 220"
 print(re.fullmatch(pattern, string) is not None)   # the whole string fits
 print(re.search(pattern, string) is not None)      # some part fits: a filter card
 ```
+
+# If there's time
+
+## From Sets to Strings {.smaller}
+
+Sets: $A=\{x\in U: P(x)\}$
+
+\
+
+A regular expression $r$ does two different jobs.
+
+* **Language.** $L(r)=\{w\in\Sigma^*: \text{the whole of } w \text{ matches } r\}$.
+  A set of _strings_, usually infinite.
+  In Python: `re.fullmatch(r, w)`. In pandas: `df['col'].str.fullmatch(r)`.
+
+* **Filter.** Keep the rows whose string has _some part_ that matches $r$.
+  A set of _rows_, a subset of the dataframe.
+  In pandas: `df['col'].str.contains(r)`.
+
+\
+
+Today: languages first, then filters.
+
+## Regex vs. Language {.smaller}
+
+Fix an alphabet of characters, $\Sigma$.
+
+Then a pattern $r$ denotes the language $L(r)=\{w\in\Sigma^*: \text{the whole of } w \text{ matches } r\}$
+
+* if no string matches the pattern,  $L=\varnothing$
+
+* the empty pattern matches only the empty string ⇒ $L=\{\varepsilon\}$
+
+* pattern `a` means $L=\{$`a`$\}$
+
+* Concatenated patterns `AB` means $L(A)L(B)=\{xy:x\in L(A),y\in L(B)\}$
+
+* Union of patterns: `A|B` means $L(A)\cup L(B)$
+
+* Kleene Star: `A*` means all finite concatenations from $L(A)$ (incl. $\varepsilon$)
+
+::: notes
+Same spirit as set algebra: union / product / closure.
+No anchors here: a language always means the whole string.
+:::
