@@ -817,7 +817,7 @@
     "href": "slides/lecture-23_slides.html#pattern-eights-play",
     "title": "Regular Expressions",
     "section": "Pattern Eights: Play",
-    "text": "Pattern Eights: Play\nA pattern keeps a string when the whole string fits it. ␣ on a card is a space.\n \nOn your turn, play one card:\n\na string that the current pattern keeps, or\na pattern that keeps the top string. It becomes the current pattern.\na wild: write a pattern that keeps the top string. Not .*, and not the string itself.\na filter, together with a string where some part of the string fits the current pattern. The pattern stays.\n\nCan’t play? Draw one, and play it if you can. First to empty their hand wins.\n \nCheck! Anyone can challenge a play. A wrong play goes back to the hand, plus 2 cards. A wrong challenge: the challenger draws 2."
+    "text": "Pattern Eights: Play\nA pattern keeps a string when the whole string fits it. ␣ on a card is a space.\nOn your turn, play one card:\n\na string that the current pattern keeps, or\na pattern that keeps the top string. It becomes the current pattern.\na wild: write a pattern that keeps the top string. Not .*, and not the string itself.\na filter, together with a string where some part of the string fits the current pattern. The pattern stays.\n\nCan’t play? Draw one, and play it if you can. First to empty their hand wins.\nHow? 🤷 Anyone can ask, any time, for free. The player says what the pattern means in words: “starts with a capital, and Iced␣Latte does.”\nCheck! Still not convinced? Run it. A wrong play goes back to the hand, plus 2 cards. A wrong challenge: the challenger draws 1."
   },
   {
     "objectID": "slides/lecture-23_slides.html#check",
