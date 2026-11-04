@@ -60,11 +60,10 @@ a{3} = aaa. a{2,4} = aa|aaa|aaaa.
 ## Warm-Up: In or Out? {.activity}
 
 `pattern = [A-Z]{2}\d{3}`
-$L = L($`pattern`$)$, so the whole string must match.
 
-\ 
+\
 
-Which strings are in the set $L$?
+Which strings are in $L($`pattern`$)$? The whole string must match.
 
 \ 
 
