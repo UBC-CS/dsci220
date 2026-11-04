@@ -112,6 +112,8 @@ Groups: `(  )` captures, `(?:  )` non-capturing
 
 Groups of 3 to 5. Deal 7 cards each. Turn up cards until you reach a pattern: that's the current pattern.
 
+Two piles in the middle, **patterns** and **strings**. The top of each is what's in play.
+
 A pattern **keeps** a string when the _whole_ string fits it. `␣` on a card is a space.
 
 \ 
