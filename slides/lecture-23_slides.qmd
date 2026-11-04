@@ -25,16 +25,22 @@ subtitle: "Lecture 23, {{< var course.code >}}, {{< var course.term >}}"
 
 Everything from here on is shorthand for something you can already write.
 
-* `a+`: one or more. Same as `aa*`.
-* `a?`: zero or one. Same as "`a` or nothing".
-* `a{3}`: exactly three. Same as `aaa`.
-* `a{2,4}`: two to four. Same as `aa|aaa|aaaa`.
+* `a+`: one or more. Same as \_\_\_\_\_\_\_\_.
+* `a?`: zero or one. Same as \_\_\_\_\_\_\_\_.
+* `a{3}`: exactly three. Same as \_\_\_\_\_\_\_\_.
+* `a{2,4}`: two to four. Same as \_\_\_\_\_\_\_\_.
 
-\ 
+\
 
 `colou?r` matches `color` and `colour`.
 
 `ha+` matches `ha`, `haa`, … but not `h`.
+
+::: notes
+a+ = aa*. a? = a|ε: ε is the empty pattern, matching only the empty string.
+Python writes ε as nothing at all: (a|) means "a or nothing", so colou?r is colo(u|)r.
+a{3} = aaa. a{2,4} = aa|aaa|aaaa.
+:::
 
 ## Shorthand: Which Character {.smaller}
 
