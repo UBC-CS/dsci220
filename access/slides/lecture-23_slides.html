@@ -180,13 +180,13 @@
 .reveal table.rx td { width:160px; min-width:160px; max-width:160px; height:100px; padding:0; background:#fff !important; border:3px solid #29335c !important; }
 </style>
 <table class="rx" data-quarto-disable-processing="true">
-  <tbody><tr><th></th><th class="col">(B|D)*A(B|D)*</th><th class="col">(A|R|O)*</th><th class="col">T(E|A)*(G|S)</th></tr>
-  <tr><th class="row">(B|C)A(T|R)</th><td></td><td></td><td></td></tr>
+  <tbody><tr><th></th><th class="col">B(A|O)*(T|D)</th><th class="col">(A|R|E)*</th><th class="col">D(E|O)*N</th></tr>
+  <tr><th class="row">(B|D)A(D|T)</th><td></td><td></td><td></td></tr>
   <tr><th class="row">A*R(E|I)</th><td></td><td></td><td></td></tr>
-  <tr><th class="row">D(O|U)(G|E)</th><td></td><td></td><td></td></tr>
+  <tr><th class="row">T(E|O)(N|G)</th><td></td><td></td><td></td></tr>
 </tbody></table>
 <aside class="notes">
-<p>BAT / ARE / DOG. Exactly one solution (checked by brute force in planning/regex-game/crossword.py). No row can be solved alone: row 1 has 4 answers, row 2 has 2 (ARE, ARI), row 3 has 4. A path: row 2 has length 3, so A<em>R(E|I) is A R ?, and the middle row starts with A. Column 1: top is B or C, but (B|D)</em> allows only B. Bottom is D. So BAD. Column 3: must start with T, so row 1 is BAT. (E|A)* rules out I, so row 2 is ARE. Its last letter is G or S, and row 3 ends in G or E: G. Column 2: A, R, then O or U; (A|R|O)* allows only O. So DOG.</p>
+<p>BAD / ARE / TEN across; BAT / ARE / DEN down. All words. Exactly one solution (checked by brute force in planning/regex-game/crossword.py). No clue can be solved alone: rows have 4, 2, 4 answers; columns 4, 27, 2. A path: row 2 has length 3, so A<em>R(E|I) is A R ?, and the middle row starts with A. Column 1: top is B or D, but it must start with B. Bottom is T or D; row 3 starts with T. So BAT. Column 3: starts with D, so row 1 is BAD. Middle is E or O; row 2 ends in E or I: E, so ARE. Bottom is N, so row 3 is TEN or TON. Column 2, (A|R|E)</em>, allows E, not O: TEN.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
