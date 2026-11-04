@@ -771,11 +771,11 @@
     "text": "Announcements"
   },
   {
-    "objectID": "slides/lecture-23_slides.html#regular-expressions-as-string-filters",
-    "href": "slides/lecture-23_slides.html#regular-expressions-as-string-filters",
+    "objectID": "slides/lecture-23_slides.html#goals",
+    "href": "slides/lecture-23_slides.html#goals",
     "title": "Regular Expressions",
-    "section": "Regular Expressions as String Filters",
-    "text": "Regular Expressions as String Filters\nGoals:\n\nUse regex to filter strings (and rows in a DataFrame).\nRead/write the core regex operators.\nSee a regex as a set descriptor (a language over an alphabet).\nBuild boolean masks: df['col'].str.contains(pattern).\n\n\nBridge from sets: a subset is just a predicate. Regex gives us predicates on strings."
+    "section": "Goals",
+    "text": "Goals\n\nRead the regex shorthand: + ? {m} {m,n}, classes [...], [^...], \\d, .\nGet fast at reading a pattern: does it keep this string?"
   },
   {
     "objectID": "slides/lecture-23_slides.html#shorthand-how-many",
@@ -806,74 +806,18 @@
     "text": "Standard Operators\nLiterals: cat\nDot: . any char (except newline)\nClass: [aeiou] or ranges like [A-Z0-9]\nNegated class: [^,] anything but comma\nAlternation: (cat|dog)\nQuantifiers: a* 0 or more, a+ or more, a? 0 or 1, {m,n} range\nAnchors (filters only): ^ start, $ end\nEscapes: \\. literal dot\nGroups: (  ) captures, (?:  ) non-capturing"
   },
   {
-    "objectID": "slides/lecture-23_slides.html#from-sets-to-strings",
-    "href": "slides/lecture-23_slides.html#from-sets-to-strings",
+    "objectID": "slides/lecture-23_slides.html#pattern-eights-1",
+    "href": "slides/lecture-23_slides.html#pattern-eights-1",
     "title": "Regular Expressions",
-    "section": "From Sets to Strings",
-    "text": "From Sets to Strings\nSets: \\(A=\\{x\\in U: P(x)\\}\\)\n\n\nA regular expression \\(r\\) does two different jobs.\n\nLanguage. \\(L(r)=\\{w\\in\\Sigma^*: \\text{the whole of } w \\text{ matches } r\\}\\). A set of strings, usually infinite. In Python: re.fullmatch(r, w). In pandas: df['col'].str.fullmatch(r).\nFilter. Keep the rows whose string has some part that matches \\(r\\). A set of rows, a subset of the dataframe. In pandas: df['col'].str.contains(r).\n\n\n\nToday: languages first, then filters."
+    "section": "Pattern Eights",
+    "text": "Pattern Eights\nGroups of 3 to 5. Deal 7 cards each. Turn up a pattern, and a string it keeps.\nA pattern keeps a string when the whole string fits it. ␣ on a card is a space.\n \nOn your turn, play one card:\n\na string that the current pattern keeps, or\na pattern that keeps the top string. It becomes the current pattern.\na wild: write a pattern that keeps the top string. Not .*, and not the string itself.\n\nCan’t play? Draw one, and play it if you can. First to empty their hand wins.\n \nCheck! Anyone can challenge a play. A wrong play goes back to the hand, plus 2 cards. A wrong challenge: the challenger draws 2."
   },
   {
-    "objectID": "slides/lecture-23_slides.html#regex-vs.-language",
-    "href": "slides/lecture-23_slides.html#regex-vs.-language",
+    "objectID": "slides/lecture-23_slides.html#check",
+    "href": "slides/lecture-23_slides.html#check",
     "title": "Regular Expressions",
-    "section": "Regex vs. Language",
-    "text": "Regex vs. Language\nFix an alphabet of characters, \\(\\Sigma\\).\nThen a pattern \\(r\\) denotes the language \\(L(r)=\\{w\\in\\Sigma^*: \\text{the whole of } w \\text{ matches } r\\}\\)\n\nif no string matches the pattern, \\(L=\\varnothing\\)\nthe empty pattern matches only the empty string ⇒ \\(L=\\{\\varepsilon\\}\\)\npattern a means \\(L=\\{\\)a\\(\\}\\)\nConcatenated patterns AB means \\(L(A)L(B)=\\{xy:x\\in L(A),y\\in L(B)\\}\\)\nUnion of patterns: A|B means \\(L(A)\\cup L(B)\\)\nKleene Star: A* means all finite concatenations from \\(L(A)\\) (incl. \\(\\varepsilon\\))\n\n\nSame spirit as set algebra: union / product / closure. No anchors here: a language always means the whole string."
-  },
-  {
-    "objectID": "slides/lecture-23_slides.html#say-the-set",
-    "href": "slides/lecture-23_slides.html#say-the-set",
-    "title": "Regular Expressions",
-    "section": "Say the Set",
-    "text": "Say the Set\n \n(ab|ba)*: strings over {a,b} that are concatenations of ab or ba.\n\n\n(0|1)*11(0|1)*: all binary strings containing 11 as a substring.\n\n\n1(01|10)*0: binary strings that start with 1, end with 0, and are filled with {0,1} pairs that flip from 1 to 0 or vice versa."
-  },
-  {
-    "objectID": "slides/lecture-23_slides.html#same-pattern-two-jobs",
-    "href": "slides/lecture-23_slides.html#same-pattern-two-jobs",
-    "title": "Regular Expressions",
-    "section": "Same Pattern, Two Jobs",
-    "text": "Same Pattern, Two Jobs\npattern = 'Latte', so \\(L(\\)pattern\\()=\\{\\)Latte\\(\\}\\). How many café orders does each line keep? Predict, then run.\n\n\n\n\n\n\n\nfullmatch is membership in L: only Latte itself. contains is a filter: it also keeps Iced Latte, Chai Latte, Matcha Latte. Those strings are not in L; they are in Sigma* L Sigma*, the strings with a part in L. Anchors turn a filter back into membership: contains(‘^Latte$’) keeps the same rows as fullmatch(‘Latte’). Counts: 2, 2, 5. Try pattern = ‘Iced’ too: 0, 2, 2. The DS2200 callback from the warm-up: not in L, but contains keeps it."
-  },
-  {
-    "objectID": "slides/lecture-23_slides.html#back-to-the-cafe",
-    "href": "slides/lecture-23_slides.html#back-to-the-cafe",
-    "title": "Regular Expressions",
-    "section": "Back to the Cafe",
-    "text": "Back to the Cafe\nSuppose a column drink has values like: “Iced Latte”, “Drip Coffee”, “Americano”, “Chai Latte”, “Tea”, “Espresso”\n \nGoals:\n\nKeep espresso-style drinks: “espresso”, “americano”, “latte”, or “cappuccino”\n“Iced” appears as a whole word\nDrinks that end with “Tea”"
-  },
-  {
-    "objectID": "slides/lecture-23_slides.html#cafe-continued",
-    "href": "slides/lecture-23_slides.html#cafe-continued",
-    "title": "Regular Expressions",
-    "section": "Cafe continued",
-    "text": "Cafe continued"
-  },
-  {
-    "objectID": "slides/lecture-23_slides.html#typical-patterns",
-    "href": "slides/lecture-23_slides.html#typical-patterns",
-    "title": "Regular Expressions",
-    "section": "Typical Patterns",
-    "text": "Typical Patterns\nWhole word: r’\\biced\\b’\nStarts with: r’^Iced’\nEnds with: r’Tea$’\nOptional word: r’^(Iced )?Latte$’\nOne of set (case-insensitive):\n\n r’(?i)\\b(espresso|americano|latte|cappuccino)\\b’"
-  },
-  {
-    "objectID": "slides/lecture-23_slides.html#your-turn",
-    "href": "slides/lecture-23_slides.html#your-turn",
-    "title": "Regular Expressions",
-    "section": "Your Turn",
-    "text": "Your Turn\nFilter for:\n\nDrinks exactly “Iced Latte” (any case)\nDrinks containing either “Americano” or “Espresso” (whole words, any case)\nDrinks that do not contain “Iced” but end with “Tea” (hint: ________________)"
-  },
-  {
-    "objectID": "slides/lecture-23_slides.html#your-turn-1",
-    "href": "slides/lecture-23_slides.html#your-turn-1",
-    "title": "Regular Expressions",
-    "section": "Your Turn",
-    "text": "Your Turn"
-  },
-  {
-    "objectID": "slides/lecture-23_slides.html#reminder-from-filter-to-language",
-    "href": "slides/lecture-23_slides.html#reminder-from-filter-to-language",
-    "title": "Regular Expressions",
-    "section": "Reminder: From Filter to Language",
-    "text": "Reminder: From Filter to Language\nLet \\(\\Sigma\\) = letters, numbers, and spaces.\nPattern (?i)(espresso|americano|latte|cappuccino) denotes a language \\(L\\subseteq \\Sigma^*\\).\nThis parallels:\nSet: \\(L=\\{\\,w\\in\\Sigma^*: \\text{the whole of } w \\text{ matches the pattern}\\,\\}\\)\nPredicate: \\(P(w)=\\texttt{fullmatch}(\\text{pattern}, w)\\)\nMask: df[‘drink’].str.fullmatch(pattern)\n\n\nA filter with str.contains(pattern) is a membership test too, for a bigger language: \\(\\Sigma^* L\\, \\Sigma^*\\), the strings that have a part in \\(L\\).\nYou’ve been doing language membership tests all class, with filters."
+    "section": "Check!",
+    "text": "Check!\nSettle a challenge here. Type spaces as real spaces."
   },
   {
     "objectID": "slides/lecture-21_slides.html#announcements",
@@ -3100,98 +3044,175 @@
   {
     "objectID": "slides/lecture-24_slides.html#announcements",
     "href": "slides/lecture-24_slides.html#announcements",
-    "title": "DFAs",
+    "title": "Regex Filters, DFAs",
     "section": "Announcements",
     "text": "Announcements"
   },
   {
+    "objectID": "slides/lecture-24_slides.html#regular-expressions-as-string-filters",
+    "href": "slides/lecture-24_slides.html#regular-expressions-as-string-filters",
+    "title": "Regex Filters, DFAs",
+    "section": "Regular Expressions as String Filters",
+    "text": "Regular Expressions as String Filters\nGoals:\n\nUse regex to filter strings (and rows in a DataFrame).\nRead/write the core regex operators.\nSee a regex as a set descriptor (a language over an alphabet).\nBuild boolean masks: df['col'].str.contains(pattern).\n\n\nBridge from sets: a subset is just a predicate. Regex gives us predicates on strings."
+  },
+  {
+    "objectID": "slides/lecture-24_slides.html#from-sets-to-strings",
+    "href": "slides/lecture-24_slides.html#from-sets-to-strings",
+    "title": "Regex Filters, DFAs",
+    "section": "From Sets to Strings",
+    "text": "From Sets to Strings\nSets: \\(A=\\{x\\in U: P(x)\\}\\)\n\n\nA regular expression \\(r\\) does two different jobs.\n\nLanguage. \\(L(r)=\\{w\\in\\Sigma^*: \\text{the whole of } w \\text{ matches } r\\}\\). A set of strings, usually infinite. In Python: re.fullmatch(r, w). In pandas: df['col'].str.fullmatch(r).\nFilter. Keep the rows whose string has some part that matches \\(r\\). A set of rows, a subset of the dataframe. In pandas: df['col'].str.contains(r).\n\n\n\nToday: languages first, then filters."
+  },
+  {
+    "objectID": "slides/lecture-24_slides.html#regex-vs.-language",
+    "href": "slides/lecture-24_slides.html#regex-vs.-language",
+    "title": "Regex Filters, DFAs",
+    "section": "Regex vs. Language",
+    "text": "Regex vs. Language\nFix an alphabet of characters, \\(\\Sigma\\).\nThen a pattern \\(r\\) denotes the language \\(L(r)=\\{w\\in\\Sigma^*: \\text{the whole of } w \\text{ matches } r\\}\\)\n\nif no string matches the pattern, \\(L=\\varnothing\\)\nthe empty pattern matches only the empty string ⇒ \\(L=\\{\\varepsilon\\}\\)\npattern a means \\(L=\\{\\)a\\(\\}\\)\nConcatenated patterns AB means \\(L(A)L(B)=\\{xy:x\\in L(A),y\\in L(B)\\}\\)\nUnion of patterns: A|B means \\(L(A)\\cup L(B)\\)\nKleene Star: A* means all finite concatenations from \\(L(A)\\) (incl. \\(\\varepsilon\\))\n\n\nSame spirit as set algebra: union / product / closure. No anchors here: a language always means the whole string."
+  },
+  {
+    "objectID": "slides/lecture-24_slides.html#say-the-set",
+    "href": "slides/lecture-24_slides.html#say-the-set",
+    "title": "Regex Filters, DFAs",
+    "section": "Say the Set",
+    "text": "Say the Set\n \n(ab|ba)*: strings over {a,b} that are concatenations of ab or ba.\n\n\n(0|1)*11(0|1)*: all binary strings containing 11 as a substring.\n\n\n1(01|10)*0: binary strings that start with 1, end with 0, and are filled with {0,1} pairs that flip from 1 to 0 or vice versa."
+  },
+  {
+    "objectID": "slides/lecture-24_slides.html#same-pattern-two-jobs",
+    "href": "slides/lecture-24_slides.html#same-pattern-two-jobs",
+    "title": "Regex Filters, DFAs",
+    "section": "Same Pattern, Two Jobs",
+    "text": "Same Pattern, Two Jobs\npattern = 'Latte', so \\(L(\\)pattern\\()=\\{\\)Latte\\(\\}\\). How many café orders does each line keep? Predict, then run.\n\n\n\n\n\n\n\nfullmatch is membership in L: only Latte itself. contains is a filter: it also keeps Iced Latte, Chai Latte, Matcha Latte. Those strings are not in L; they are in Sigma* L Sigma*, the strings with a part in L. Anchors turn a filter back into membership: contains(‘^Latte$’) keeps the same rows as fullmatch(‘Latte’). Counts: 2, 2, 5. Try pattern = ‘Iced’ too: 0, 2, 2. The DS2200 callback from the warm-up: not in L, but contains keeps it."
+  },
+  {
+    "objectID": "slides/lecture-24_slides.html#back-to-the-cafe",
+    "href": "slides/lecture-24_slides.html#back-to-the-cafe",
+    "title": "Regex Filters, DFAs",
+    "section": "Back to the Cafe",
+    "text": "Back to the Cafe\nSuppose a column drink has values like: “Iced Latte”, “Drip Coffee”, “Americano”, “Chai Latte”, “Tea”, “Espresso”\n \nGoals:\n\nKeep espresso-style drinks: “espresso”, “americano”, “latte”, or “cappuccino”\n“Iced” appears as a whole word\nDrinks that end with “Tea”"
+  },
+  {
+    "objectID": "slides/lecture-24_slides.html#cafe-continued",
+    "href": "slides/lecture-24_slides.html#cafe-continued",
+    "title": "Regex Filters, DFAs",
+    "section": "Cafe continued",
+    "text": "Cafe continued"
+  },
+  {
+    "objectID": "slides/lecture-24_slides.html#typical-patterns",
+    "href": "slides/lecture-24_slides.html#typical-patterns",
+    "title": "Regex Filters, DFAs",
+    "section": "Typical Patterns",
+    "text": "Typical Patterns\nWhole word: r’\\biced\\b’\nStarts with: r’^Iced’\nEnds with: r’Tea$’\nOptional word: r’^(Iced )?Latte$’\nOne of set (case-insensitive):\n\n r’(?i)\\b(espresso|americano|latte|cappuccino)\\b’"
+  },
+  {
+    "objectID": "slides/lecture-24_slides.html#your-turn",
+    "href": "slides/lecture-24_slides.html#your-turn",
+    "title": "Regex Filters, DFAs",
+    "section": "Your Turn",
+    "text": "Your Turn\nFilter for:\n\nDrinks exactly “Iced Latte” (any case)\nDrinks containing either “Americano” or “Espresso” (whole words, any case)\nDrinks that do not contain “Iced” but end with “Tea” (hint: ________________)"
+  },
+  {
+    "objectID": "slides/lecture-24_slides.html#your-turn-1",
+    "href": "slides/lecture-24_slides.html#your-turn-1",
+    "title": "Regex Filters, DFAs",
+    "section": "Your Turn",
+    "text": "Your Turn"
+  },
+  {
+    "objectID": "slides/lecture-24_slides.html#reminder-from-filter-to-language",
+    "href": "slides/lecture-24_slides.html#reminder-from-filter-to-language",
+    "title": "Regex Filters, DFAs",
+    "section": "Reminder: From Filter to Language",
+    "text": "Reminder: From Filter to Language\nLet \\(\\Sigma\\) = letters, numbers, and spaces.\nPattern (?i)(espresso|americano|latte|cappuccino) denotes a language \\(L\\subseteq \\Sigma^*\\).\nThis parallels:\nSet: \\(L=\\{\\,w\\in\\Sigma^*: \\text{the whole of } w \\text{ matches the pattern}\\,\\}\\)\nPredicate: \\(P(w)=\\texttt{fullmatch}(\\text{pattern}, w)\\)\nMask: df[‘drink’].str.fullmatch(pattern)\n\n\nA filter with str.contains(pattern) is a membership test too, for a bigger language: \\(\\Sigma^* L\\, \\Sigma^*\\), the strings that have a part in \\(L\\).\nYou’ve been doing language membership tests all class, with filters."
+  },
+  {
     "objectID": "slides/lecture-24_slides.html#goals",
     "href": "slides/lecture-24_slides.html#goals",
-    "title": "DFAs",
+    "title": "Regex Filters, DFAs",
     "section": "Goals",
     "text": "Goals\n\nRecall a regex is a set of strings (a language).\nBuild small DFAs that recognize those sets.\nUse closure tricks (∪, ∩, complement) to combine DFAs."
   },
   {
     "objectID": "slides/lecture-24_slides.html#two-views-on-regular-expressions",
     "href": "slides/lecture-24_slides.html#two-views-on-regular-expressions",
-    "title": "DFAs",
+    "title": "Regex Filters, DFAs",
     "section": "Two views on Regular Expressions",
     "text": "Two views on Regular Expressions\n\n\n\n\n\n\n\n\nMeaning\nIn Python/Pandas\nAnchors\n\n\n\n\nFull-string match\nre.fullmatch(r'(bb+|c[ac]*|b?)', s)df['col'].str.fullmatch(r'(bb+|c[ac]*|b?)')\nUse ^ and $: r'^(...)$'\n\n\nSubstring search\nre.search(r'(bb+|c[ac]*|b?)', s)df['col'].str.contains(r'(bb+|c[ac]*|b?)')\nnone"
   },
   {
     "objectID": "slides/lecture-24_slides.html#warm-up",
     "href": "slides/lecture-24_slides.html#warm-up",
-    "title": "DFAs",
+    "title": "Regex Filters, DFAs",
     "section": "Warm-Up",
     "text": "Warm-Up\nPattern: ^(0|1)*11(0|1)*$\nWhich strings are in the set?\n\n10101\n\n11010\n\n10001\n\n10110\n\n\nAnswer: 11010, 10110. emphasize that we are reading the string from left to right."
   },
   {
     "objectID": "slides/lecture-24_slides.html#contains-11",
     "href": "slides/lecture-24_slides.html#contains-11",
-    "title": "DFAs",
+    "title": "Regex Filters, DFAs",
     "section": "Contains 11",
     "text": "Contains 11\nAlphabet: {0,1}\nStates:\n\nS0: have seen no 1s (start)\nS1: just saw a 1\nS2: saw substring 11 (accepting)\n\nDFA Sketch:\n\nRun a couple examples on the board: 101101 (accept), 101010 (reject). key elements: 0) input alphabet 1) set of states. 2) start state, 3) transition function, 4) set of accept states."
   },
   {
     "objectID": "slides/lecture-24_slides.html#dfa-ideas",
     "href": "slides/lecture-24_slides.html#dfa-ideas",
-    "title": "DFAs",
+    "title": "Regex Filters, DFAs",
     "section": "DFA Ideas",
     "text": "DFA Ideas\nProcess a string from left to right, one character at a time.\n\nState: what the prefix tells us so far.\nAccept iff we finish in an accepting state.\nDeterministic: at most one transition per symbol from every state.\nTotal: every state has a transition on every symbol."
   },
   {
     "objectID": "slides/lecture-24_slides.html#dfa-definition",
     "href": "slides/lecture-24_slides.html#dfa-definition",
-    "title": "DFAs",
+    "title": "Regex Filters, DFAs",
     "section": "DFA Definition",
     "text": "DFA Definition\nA Deterministic Finite Automaton consists of the following:\n\na set of states \\(S\\)\na finite alphabet \\(\\Sigma\\)\na transition function \\(f\\) that assigns a next state to each \\((s, i)\\) pair, \\(s\\in S\\) and \\(i\\in \\Sigma\\).\na start state \\(s_0\\)\na set of accepting states \\(F\\subseteq S\\)"
   },
   {
     "objectID": "slides/lecture-24_slides.html#regex-dfa",
     "href": "slides/lecture-24_slides.html#regex-dfa",
-    "title": "DFAs",
+    "title": "Regex Filters, DFAs",
     "section": "Regex = DFA",
     "text": "Regex = DFA\nA language is regular if and only if it is recognized by some DFA."
   },
   {
     "objectID": "slides/lecture-24_slides.html#you-try-ends-with-tea",
     "href": "slides/lecture-24_slides.html#you-try-ends-with-tea",
-    "title": "DFAs",
+    "title": "Regex Filters, DFAs",
     "section": "You Try: “Ends with Tea”",
     "text": "You Try: “Ends with Tea”\nTarget: strings that end with tea\n\nalphabet is lower case letters, here, just to keep it simple.\nWe’ll use this when we do unions, later."
   },
   {
     "objectID": "slides/lecture-24_slides.html#prefix-example-starts-with-iced",
     "href": "slides/lecture-24_slides.html#prefix-example-starts-with-iced",
-    "title": "DFAs",
+    "title": "Regex Filters, DFAs",
     "section": "Prefix Example: “Starts with Iced”",
     "text": "Prefix Example: “Starts with Iced”\nPlan:\n\nChain prefix states; before success, any mismatch → SINK.\nAfter success, loop on any character in ACC.\n\nDiagram:"
   },
   {
     "objectID": "slides/lecture-24_slides.html#one-last-example",
     "href": "slides/lecture-24_slides.html#one-last-example",
-    "title": "DFAs",
+    "title": "Regex Filters, DFAs",
     "section": "One Last Example",
     "text": "One Last Example\nBuild the DFA corresponding to ^0(1*|0*)1$"
   },
   {
     "objectID": "slides/lecture-24_slides.html#closure-tricks",
     "href": "slides/lecture-24_slides.html#closure-tricks",
-    "title": "DFAs",
+    "title": "Regex Filters, DFAs",
     "section": "Closure Tricks",
     "text": "Closure Tricks\nWhat’s closure?\n\nComplement: make the DFA total (add SINK if needed), then flip accept to non-accept, and vice-versa.\nUnion / Intersection:\nStates are pairs (p,q)\n\nUnion accepts if p ∈ F1 or q ∈ F2\nIntersection accepts if p ∈ F1 and q ∈ F2\n\nDifference: L1 - L2 = \\(L1\\cap L2^c\\)\n\n\nThis mirrors set algebra directly; great place to reinforce recent set lessons."
   },
   {
     "objectID": "slides/lecture-24_slides.html#mini-exercise",
     "href": "slides/lecture-24_slides.html#mini-exercise",
-    "title": "DFAs",
+    "title": "Regex Filters, DFAs",
     "section": "Mini-Exercise",
     "text": "Mini-Exercise\nBuild a DFA for the union of:\n\nL1: contains 11 (use the machine we built)\nL2: ends with 00 (three states: Tε, T0, T00)\n\nHint: sketch product states (S_i, T_j) and mark accept pairs for union."
   },
   {
     "objectID": "slides/lecture-24_slides.html#parity-demo",
     "href": "slides/lecture-24_slides.html#parity-demo",
-    "title": "DFAs",
+    "title": "Regex Filters, DFAs",
     "section": "Parity Demo",
     "text": "Parity Demo\nLanguage: even number of 1s over {0,1}.\n\nEVEN (start, accept), ODD\n\non 1: toggle; on 0: stay\n\nTry: which strings of length \\(\\leq\\) 4 accept?"
   },
