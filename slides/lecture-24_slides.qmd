@@ -1,5 +1,5 @@
 ---
-title: "DFAs"
+title: "Regex Filters, DFAs"
 subtitle: "Lecture 24, {{< var course.code >}}, {{< var course.term >}}"
 ---
 
@@ -12,6 +12,214 @@ subtitle: "Lecture 24, {{< var course.code >}}, {{< var course.term >}}"
 .center { text-align:center; }
 .rule { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
 </style>
+
+# Regular Expressions: Languages and Filters
+
+## Regular Expressions as String Filters
+
+Goals:
+
+* Use regex to filter strings (and rows in a DataFrame).
+
+* Read/write the core regex operators.
+
+* See a regex as a set descriptor (a language over an alphabet).
+
+* Build boolean masks: `df['col'].str.contains(pattern)`.
+
+::: notes
+Bridge from sets: a subset is just a predicate. Regex gives us predicates on strings.
+:::
+
+## From Sets to Strings {.smaller}
+
+Sets: $A=\{x\in U: P(x)\}$
+
+\
+
+A regular expression $r$ does two different jobs.
+
+* **Language.** $L(r)=\{w\in\Sigma^*: \text{the whole of } w \text{ matches } r\}$.
+  A set of _strings_, usually infinite.
+  In Python: `re.fullmatch(r, w)`. In pandas: `df['col'].str.fullmatch(r)`.
+
+* **Filter.** Keep the rows whose string has _some part_ that matches $r$.
+  A set of _rows_, a subset of the dataframe.
+  In pandas: `df['col'].str.contains(r)`.
+
+\
+
+Today: languages first, then filters.
+
+## Regex vs. Language {.smaller}
+
+Fix an alphabet of characters, $\Sigma$.
+
+Then a pattern $r$ denotes the language $L(r)=\{w\in\Sigma^*: \text{the whole of } w \text{ matches } r\}$
+
+* if no string matches the pattern,  $L=\varnothing$
+
+* the empty pattern matches only the empty string ⇒ $L=\{\varepsilon\}$
+
+* pattern `a` means $L=\{$`a`$\}$
+
+* Concatenated patterns `AB` means $L(A)L(B)=\{xy:x\in L(A),y\in L(B)\}$
+
+* Union of patterns: `A|B` means $L(A)\cup L(B)$
+
+* Kleene Star: `A*` means all finite concatenations from $L(A)$ (incl. $\varepsilon$)
+
+::: notes
+Same spirit as set algebra: union / product / closure.
+No anchors here: a language always means the whole string.
+:::
+
+## Say the Set 
+
+\ 
+
+`(ab|ba)*`: strings over `{a,b}` that are concatenations of `ab` or `ba`.
+
+\
+
+`(0|1)*11(0|1)*`: all binary strings containing 11 as a substring.
+
+\
+
+`1(01|10)*0`: binary strings that start with 1, end with 0, and are filled with `{0,1}` pairs that flip from `1` to `0` or vice versa.
+
+## Same Pattern, Two Jobs {.smaller}
+
+`pattern = 'Latte'`, so $L($`pattern`$)=\{$`Latte`$\}$. How many café orders does each line keep? Predict, then run.
+
+```{pyodide}
+import pandas as pd
+df = pd.read_csv('https://raw.githubusercontent.com/UBC-CS/dsci220/refs/heads/main/data/cafe_orders.csv')
+
+pattern = 'Latte'
+print(df['drink'].str.fullmatch(pattern).sum())   # whole string is in L
+print(df['drink'].str.match(pattern).sum())       # string starts with something in L
+print(df['drink'].str.contains(pattern).sum())    # some part of the string is in L
+```
+
+::: notes
+fullmatch is membership in L: only Latte itself. contains is a filter: it also
+keeps Iced Latte, Chai Latte, Matcha Latte. Those strings are not in L; they
+are in Sigma* L Sigma*, the strings with a part in L. Anchors turn a filter
+back into membership: contains('^Latte$') keeps the same rows as
+fullmatch('Latte').
+Counts: 2, 2, 5. Try pattern = 'Iced' too: 0, 2, 2.
+The DS2200 callback from the warm-up: not in L, but contains keeps it.
+:::
+
+
+## Back to the Cafe
+
+Suppose a column `drink` has values like:
+<span class="rule">"Iced Latte", "Drip Coffee", "Americano", "Chai Latte", "Tea", "Espresso"</span>
+
+\ 
+
+Goals:
+
+1. Keep espresso-style drinks: "espresso", "americano", "latte", or "cappuccino"
+
+2. "Iced" appears as a whole word
+
+3. Drinks that end with “Tea”
+
+## Cafe continued
+
+```{pyodide}
+import pandas as pd
+df = pd.read_csv('https://raw.githubusercontent.com/UBC-CS/dsci220/refs/heads/main/data/cafe_orders.csv')
+
+# regex
+esprestr = r'(?i)\b(espresso|americano|latte|cappuccino)\b'
+icedrestr = r'(?i)\biced\b'
+tearestr = r'(?i)tea$'
+
+# masks
+espressoish = df['drink'].str.contains(esprestr, regex=True, na=False)
+iced       = df['drink'].str.contains(icedrestr, regex=True, na=False)
+teas       = df['drink'].str.contains(tearestr,  regex=True, na=False)
+
+# Set algebra on masks:
+E_or_I   = espressoish | iced          # union
+I_and_T  = iced & teas                 # intersection
+not_I    = ~iced                       # complement
+
+# Project the data:
+subset = df[E_or_I]
+subset
+```
+
+## Typical Patterns
+
+
+Whole word: <span class="rule">r'\\biced\\b'</span>
+
+Starts with: <span class="rule">r'^Iced'</span>
+
+Ends with: <span class="rule">r'Tea$'</span>
+
+Optional word: <span class="rule">r'^(Iced )?Latte$'</span>
+
+One of set (case-insensitive):  
+
+<center>
+<span class="rule"> r'(?i)\\b(espresso|americano|latte|cappuccino)\\b'</span>
+</center>
+
+## Your Turn {.activity}
+
+Filter for:
+
+1. Drinks exactly “Iced Latte” (any case)
+
+2. Drinks containing either “Americano” or “Espresso” (whole words, any case)
+
+3. Drinks that **do not** contain “Iced” but end with “Tea” (hint: \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_)
+
+## Your Turn {.activity}
+
+```{pyodide}
+
+q1restr = r'______'
+q2restr = r'______'
+q3arestr = r'______'
+q3brestr = r'______'
+
+m1 = df['drink'].str.contains(q1restr, regex=True, na=False)
+m2 = df['drink'].str.contains(q2restr, regex=True, na=False)
+m3a = df['drink'].str.contains(q3arestr, regex=True, na=False)
+m3b = df['drink'].str.contains(q3brestr, regex=True, na=False)
+m3 = 
+
+# project rows of dataframe
+```
+
+## Reminder: From Filter to Language {.smaller}
+
+Let $\Sigma$ = letters, numbers, and spaces.
+
+Pattern <span class="rule">(?i)(espresso|americano|latte|cappuccino)</span> denotes a language $L\subseteq \Sigma^*$.
+
+This parallels:
+
+Set: $L=\{\,w\in\Sigma^*: \text{the whole of } w \text{ matches the pattern}\,\}$
+
+Predicate: $P(w)=\texttt{fullmatch}(\text{pattern}, w)$
+
+Mask: <span class="rule">df['drink'].str.fullmatch(pattern)</span>
+
+\
+
+A filter with <span class="rule">str.contains(pattern)</span> is a membership test too, for a
+bigger language: $\Sigma^* L\, \Sigma^*$, the strings that have a part in $L$.
+
+You’ve been doing language membership tests all class, with filters.
+
 
 # Regular Expressions and DFAs
 
