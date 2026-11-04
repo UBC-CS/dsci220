@@ -796,7 +796,7 @@
     "href": "slides/lecture-23_slides.html#warm-up-in-or-out",
     "title": "Regular Expressions",
     "section": "Warm-Up: In or Out?",
-    "text": "Warm-Up: In or Out?\npattern = [A-Z]{2}\\d{3}\n\n\nWhich strings are in \\(L(\\)pattern\\()\\)? The whole string must match.\n \nCS110\nab123\nDS2200\nMA101\n\n\n\nThis pattern says: 2 capital letters, then 3 digits, and nothing else. In: CS110, MA101. Out: ab123 (lower case), DS2200 (four digits). Save DS2200: as a filter, contains keeps it, because DS220 is a part of it."
+    "text": "Warm-Up: In or Out?\npattern = [A-Z]{2}\\d{3}\n\n\n\\(L(\\)pattern\\()\\) is the set of strings wholly described by the pattern.\nWhich of these strings are in \\(L(\\)pattern\\()\\)?\n \nCS110\nab123\nDS2200\nMA101\n\n\n\nThis pattern says: 2 capital letters, then 3 digits, and nothing else. In: CS110, MA101. Out: ab123 (lower case), DS2200 (four digits). Save DS2200: as a filter, contains keeps it, because DS220 is a part of it."
   },
   {
     "objectID": "slides/lecture-23_slides.html#standard-operators",
