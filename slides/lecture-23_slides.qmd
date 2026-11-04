@@ -110,7 +110,7 @@ Groups: `(  )` captures, `(?:  )` non-capturing
 
 ## Pattern Eights {.activity .smaller}
 
-Groups of 3 to 5. Deal 7 cards each. Turn up a pattern, and a string it keeps.
+Groups of 3 to 5. Deal 7 cards each. Turn up cards until you reach a pattern: that's the current pattern.
 
 A pattern **keeps** a string when the _whole_ string fits it. `␣` on a card is a space.
 
