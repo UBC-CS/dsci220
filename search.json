@@ -820,6 +820,20 @@
     "text": "Check!\nSettle a challenge here. Type spaces as real spaces."
   },
   {
+    "objectID": "slides/lecture-23_slides.html#from-sets-to-strings",
+    "href": "slides/lecture-23_slides.html#from-sets-to-strings",
+    "title": "Regular Expressions",
+    "section": "From Sets to Strings",
+    "text": "From Sets to Strings\nSets: \\(A=\\{x\\in U: P(x)\\}\\)\n\n\nA regular expression \\(r\\) does two different jobs.\n\nLanguage. \\(L(r)=\\{w\\in\\Sigma^*: \\text{the whole of } w \\text{ matches } r\\}\\). A set of strings, usually infinite. In Python: re.fullmatch(r, w). In pandas: df['col'].str.fullmatch(r).\nFilter. Keep the rows whose string has some part that matches \\(r\\). A set of rows, a subset of the dataframe. In pandas: df['col'].str.contains(r).\n\n\n\nToday: languages first, then filters."
+  },
+  {
+    "objectID": "slides/lecture-23_slides.html#regex-vs.-language",
+    "href": "slides/lecture-23_slides.html#regex-vs.-language",
+    "title": "Regular Expressions",
+    "section": "Regex vs. Language",
+    "text": "Regex vs. Language\nFix an alphabet of characters, \\(\\Sigma\\).\nThen a pattern \\(r\\) denotes the language \\(L(r)=\\{w\\in\\Sigma^*: \\text{the whole of } w \\text{ matches } r\\}\\)\n\nif no string matches the pattern, \\(L=\\varnothing\\)\nthe empty pattern matches only the empty string ⇒ \\(L=\\{\\varepsilon\\}\\)\npattern a means \\(L=\\{\\)a\\(\\}\\)\nConcatenated patterns AB means \\(L(A)L(B)=\\{xy:x\\in L(A),y\\in L(B)\\}\\)\nUnion of patterns: A|B means \\(L(A)\\cup L(B)\\)\nKleene Star: A* means all finite concatenations from \\(L(A)\\) (incl. \\(\\varepsilon\\))\n\n\nSame spirit as set algebra: union / product / closure. No anchors here: a language always means the whole string."
+  },
+  {
     "objectID": "slides/lecture-21_slides.html#announcements",
     "href": "slides/lecture-21_slides.html#announcements",
     "title": "Sets, continued",

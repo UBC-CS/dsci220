@@ -271,6 +271,51 @@
 eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiaW1wb3J0IHJlXG5cbnBhdHRlcm4gPSByXCJbQS1aXXs0fSBcXGR7M31cIlxuc3RyaW5nICA9IFwiRFNDSSAyMjBcIlxuXG5wcmludChyZS5mdWxsbWF0Y2gocGF0dGVybiwgc3RyaW5nKSBpcyBub3QgTm9uZSkgICAjIHRoZSB3aG9sZSBzdHJpbmcgZml0c1xucHJpbnQocmUuc2VhcmNoKHBhdHRlcm4sIHN0cmluZykgaXMgbm90IE5vbmUpICAgICAgIyBzb21lIHBhcnQgZml0czogYSBmaWx0ZXIgY2FyZCJ9
 </script>
 </div>
+</section></section>
+<section>
+<section id="if-theres-time" class="title-slide slide level1 center">
+<h1>If there’s time</h1>
+
+</section>
+<section id="from-sets-to-strings" class="slide level2 smaller">
+<h2>From Sets to Strings</h2>
+<p>Sets: <span class="math inline">\(A=\{x\in U: P(x)\}\)</span></p>
+<p><br>
+</p>
+<p>A regular expression <span class="math inline">\(r\)</span> does two different jobs.</p>
+<ul>
+<li><p><strong>Language.</strong> <span class="math inline">\(L(r)=\{w\in\Sigma^*: \text{the whole of } w \text{ matches } r\}\)</span>. A set of <em>strings</em>, usually infinite. In Python: <code>re.fullmatch(r, w)</code>. In pandas: <code>df['col'].str.fullmatch(r)</code>.</p></li>
+<li><p><strong>Filter.</strong> Keep the rows whose string has <em>some part</em> that matches <span class="math inline">\(r\)</span>. A set of <em>rows</em>, a subset of the dataframe. In pandas: <code>df['col'].str.contains(r)</code>.</p></li>
+</ul>
+<p><br>
+</p>
+<p>Today: languages first, then filters.</p>
+</section>
+<section id="regex-vs.-language" class="slide level2 smaller">
+<h2>Regex vs.&nbsp;Language</h2>
+<p>Fix an alphabet of characters, <span class="math inline">\(\Sigma\)</span>.</p>
+<p>Then a pattern <span class="math inline">\(r\)</span> denotes the language <span class="math inline">\(L(r)=\{w\in\Sigma^*: \text{the whole of } w \text{ matches } r\}\)</span></p>
+<ul>
+<li><p>if no string matches the pattern, <span class="math inline">\(L=\varnothing\)</span></p></li>
+<li><p>the empty pattern matches only the empty string ⇒ <span class="math inline">\(L=\{\varepsilon\}\)</span></p></li>
+<li><p>pattern <code>a</code> means <span class="math inline">\(L=\{\)</span><code>a</code><span class="math inline">\(\}\)</span></p></li>
+<li><p>Concatenated patterns <code>AB</code> means <span class="math inline">\(L(A)L(B)=\{xy:x\in L(A),y\in L(B)\}\)</span></p></li>
+<li><p>Union of patterns: <code>A|B</code> means <span class="math inline">\(L(A)\cup L(B)\)</span></p></li>
+<li><p>Kleene Star: <code>A*</code> means all finite concatenations from <span class="math inline">\(L(A)\)</span> (incl.&nbsp;<span class="math inline">\(\varepsilon\)</span>)</p></li>
+</ul>
+<aside class="notes">
+<p>Same spirit as set algebra: union / product / closure. No anchors here: a language always means the whole string.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 
 
 <script type="pyodide-data">
