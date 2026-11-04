@@ -101,7 +101,7 @@ Quantifiers: `a*` 0 or more, `a+` or more, `a?` 0 or 1, `{m,n}` range
 
 Anchors (filters only): `^` start, `$` end
 
-Escapes: `\.` literal dot
+Escapes: a backslash makes a symbol literal: `\.` `\$` `\(` `\\`. But `\d` is a digit, not a `d`.
 
 Groups: `(  )` captures, `(?:  )` non-capturing
 
