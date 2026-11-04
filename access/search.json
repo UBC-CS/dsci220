@@ -803,7 +803,7 @@
     "href": "slides/lecture-23_slides.html#standard-operators",
     "title": "Regular Expressions",
     "section": "Standard Operators",
-    "text": "Standard Operators\nLiterals: cat\nDot: . any char (except newline)\nClass: [aeiou] or ranges like [A-Z0-9]\nNegated class: [^,] anything but comma\nAlternation: (cat|dog)\nQuantifiers: a* 0 or more, a+ or more, a? 0 or 1, {m,n} range\nAnchors (filters only): ^ start, $ end\nEscapes: \\. literal dot\nGroups: (  ) captures, (?:  ) non-capturing"
+    "text": "Standard Operators\nLiterals: cat\nDot: . any char (except newline)\nClass: [aeiou] or ranges like [A-Z0-9]\nNegated class: [^,] anything but comma\nAlternation: (cat|dog)\nQuantifiers: a* 0 or more, a+ or more, a? 0 or 1, {m,n} range\nAnchors (filters only): ^ start, $ end\nEscapes: a backslash makes a symbol literal: \\. \\$ \\( \\\\. But \\d is a digit, not a d.\nGroups: (  ) captures, (?:  ) non-capturing"
   },
   {
     "objectID": "slides/lecture-23_slides.html#pattern-eights-1",
