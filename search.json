@@ -778,46 +778,67 @@
     "text": "Regular Expressions as String Filters\nGoals:\n\nUse regex to filter strings (and rows in a DataFrame).\nRead/write the core regex operators.\nSee a regex as a set descriptor (a language over an alphabet).\nBuild boolean masks: df['col'].str.contains(pattern).\n\n\nBridge from sets: a subset is just a predicate. Regex gives us predicates on strings."
   },
   {
-    "objectID": "slides/lecture-23_slides.html#from-sets-to-strings",
-    "href": "slides/lecture-23_slides.html#from-sets-to-strings",
+    "objectID": "slides/lecture-23_slides.html#shorthand-how-many",
+    "href": "slides/lecture-23_slides.html#shorthand-how-many",
     "title": "Regular Expressions",
-    "section": "From Sets to Strings",
-    "text": "From Sets to Strings\nSets:\n\nMath: \\(A=\\{x\\in U: P(x)\\}\\)\nStrings: \\(L=\\{w\\in\\Sigma^*: \\texttt{matches}(w,\\text{pattern})\\}\\)\n\nKey idea: A regular expression specifies membership in a set of strings using patterns of characters.\nWe treat regex as both filters and as languages."
+    "section": "Shorthand: How Many",
+    "text": "Shorthand: How Many\nEverything from here on is shorthand for something you can already write.\n\na+: one or more. Same as aa*.\na?: zero or one. Same as “a or nothing”.\na{3}: exactly three. Same as aaa.\na{2,4}: two to four. Same as aa|aaa|aaaa.\n\n \ncolou?r matches color and colour.\nha+ matches ha, haa, … but not h."
+  },
+  {
+    "objectID": "slides/lecture-23_slides.html#shorthand-which-character",
+    "href": "slides/lecture-23_slides.html#shorthand-which-character",
+    "title": "Regular Expressions",
+    "section": "Shorthand: Which Character",
+    "text": "Shorthand: Which Character\n\n[aeiou]: one character from the list. Same as (a|e|i|o|u).\n[a-z], [A-Z], [0-9]: one character from a range. \\d means [0-9].\n.: any one character.\n[^aeiou]: one character not in the list.\n\n \n[A-Z][a-z]* matches Tea and Latte, but not latte, LATTE, or Iced Latte (the space!).\nc[^aeiou]t matches c9t and cxt, but not cat or ct.\n... matches any string of exactly three characters."
   },
   {
     "objectID": "slides/lecture-23_slides.html#warm-up-in-or-out",
     "href": "slides/lecture-23_slides.html#warm-up-in-or-out",
     "title": "Regular Expressions",
     "section": "Warm-Up: In or Out?",
-    "text": "Warm-Up: In or Out?\npattern = ^[A-Z]{2}\\d{3}$ \\(L=\\{w\\in\\Sigma^*: \\texttt{matches}(w,\\) pattern\\()\\}\\)\n \nWhich strings are in the set \\(L\\)?\n \nCS110\nab123\nDS2200\nMA101\n\n\n\nThis pattern says: start, 2 capital letters, 3 digits, end."
+    "text": "Warm-Up: In or Out?\npattern = [A-Z]{2}\\d{3} \\(L = L(\\)pattern\\()\\), so the whole string must match.\n \nWhich strings are in the set \\(L\\)?\n \nCS110\nab123\nDS2200\nMA101\n\n\n\nThis pattern says: 2 capital letters, then 3 digits, and nothing else. In: CS110, MA101. Out: ab123 (lower case), DS2200 (four digits). Save DS2200: as a filter, contains keeps it, because DS220 is a part of it."
   },
   {
     "objectID": "slides/lecture-23_slides.html#standard-operators",
     "href": "slides/lecture-23_slides.html#standard-operators",
     "title": "Regular Expressions",
     "section": "Standard Operators",
-    "text": "Standard Operators\nLiterals: cat\nDot: . any char (except newline)\nClass: [aeiou] or ranges like [A-Z0-9]\nNegated class: [^,] anything but comma\nAlternation: (cat|dog)\nQuantifiers: a* 0 or more, a+ or more, a? 0 or 1, {m,n} range\nAnchors: ^ start, $ end\nEscapes: \\. literal dot\nGroups: (  ) captures, (?:  ) non-capturing"
+    "text": "Standard Operators\nLiterals: cat\nDot: . any char (except newline)\nClass: [aeiou] or ranges like [A-Z0-9]\nNegated class: [^,] anything but comma\nAlternation: (cat|dog)\nQuantifiers: a* 0 or more, a+ or more, a? 0 or 1, {m,n} range\nAnchors (filters only): ^ start, $ end\nEscapes: \\. literal dot\nGroups: (  ) captures, (?:  ) non-capturing"
+  },
+  {
+    "objectID": "slides/lecture-23_slides.html#from-sets-to-strings",
+    "href": "slides/lecture-23_slides.html#from-sets-to-strings",
+    "title": "Regular Expressions",
+    "section": "From Sets to Strings",
+    "text": "From Sets to Strings\nSets: \\(A=\\{x\\in U: P(x)\\}\\)\n\n\nA regular expression \\(r\\) does two different jobs.\n\nLanguage. \\(L(r)=\\{w\\in\\Sigma^*: \\text{the whole of } w \\text{ matches } r\\}\\). A set of strings, usually infinite. In Python: re.fullmatch(r, w). In pandas: df['col'].str.fullmatch(r).\nFilter. Keep the rows whose string has some part that matches \\(r\\). A set of rows, a subset of the dataframe. In pandas: df['col'].str.contains(r).\n\n\n\nToday: languages first, then filters."
   },
   {
     "objectID": "slides/lecture-23_slides.html#regex-vs.-language",
     "href": "slides/lecture-23_slides.html#regex-vs.-language",
     "title": "Regular Expressions",
     "section": "Regex vs. Language",
-    "text": "Regex vs. Language\nFix an alphabet of characters, \\(\\Sigma\\).\nThen a language \\(L=\\{w\\in\\Sigma^*: \\texttt{matches}(w,\\) pattern\\()\\}\\)\n\nif a pattern matches nothing, \\(L=\\varnothing\\)\n^$ matches only empty string ⇒ \\(L=\\{\\varepsilon\\}\\)\npattern a means \\(L=\\{\\)a\\(\\}\\)\nConcatenated patterns AB means \\(L(A)L(B)={xy:x\\in L(A),y\\in L(B)}\\)\nUnion of patterns: A|B means \\(L(A)\\cup L(B)\\)\nKleene Star: A* means all finite concatenations from \\(L(A)\\) (incl. \\(\\varepsilon\\))\n\n\nSame spirit as set algebra: union / product / closure."
+    "text": "Regex vs. Language\nFix an alphabet of characters, \\(\\Sigma\\).\nThen a pattern \\(r\\) denotes the language \\(L(r)=\\{w\\in\\Sigma^*: \\text{the whole of } w \\text{ matches } r\\}\\)\n\nif no string matches the pattern, \\(L=\\varnothing\\)\nthe empty pattern matches only the empty string ⇒ \\(L=\\{\\varepsilon\\}\\)\npattern a means \\(L=\\{\\)a\\(\\}\\)\nConcatenated patterns AB means \\(L(A)L(B)=\\{xy:x\\in L(A),y\\in L(B)\\}\\)\nUnion of patterns: A|B means \\(L(A)\\cup L(B)\\)\nKleene Star: A* means all finite concatenations from \\(L(A)\\) (incl. \\(\\varepsilon\\))\n\n\nSame spirit as set algebra: union / product / closure. No anchors here: a language always means the whole string."
   },
   {
     "objectID": "slides/lecture-23_slides.html#say-the-set",
     "href": "slides/lecture-23_slides.html#say-the-set",
     "title": "Regular Expressions",
     "section": "Say the Set",
-    "text": "Say the Set\n \n^(ab|ba)*$: strings over {a,b} that are concatenations of ab or ba.\n \n^(0|1)*11(0|1)*$: all binary strings containing 11 as a substring.\n \n^1(01|10)*0$: binary strings that start with 1, end with 0, and are filled with {0,1} pairs that flip from 1 to 0 or vice versa."
+    "text": "Say the Set\n \n(ab|ba)*: strings over {a,b} that are concatenations of ab or ba.\n\n\n(0|1)*11(0|1)*: all binary strings containing 11 as a substring.\n\n\n1(01|10)*0: binary strings that start with 1, end with 0, and are filled with {0,1} pairs that flip from 1 to 0 or vice versa."
+  },
+  {
+    "objectID": "slides/lecture-23_slides.html#same-pattern-two-jobs",
+    "href": "slides/lecture-23_slides.html#same-pattern-two-jobs",
+    "title": "Regular Expressions",
+    "section": "Same Pattern, Two Jobs",
+    "text": "Same Pattern, Two Jobs\npattern = 'Latte', so \\(L(\\)pattern\\()=\\{\\)Latte\\(\\}\\). How many café orders does each line keep? Predict, then run.\n\n\n\n\n\n\n\nfullmatch is membership in L: only Latte itself. contains is a filter: it also keeps Iced Latte, Chai Latte, Matcha Latte. Those strings are not in L; they are in Sigma* L Sigma*, the strings with a part in L. Anchors turn a filter back into membership: contains(‘^Latte$’) keeps the same rows as fullmatch(‘Latte’). Counts: 2, 2, 5. Try pattern = ‘Iced’ too: 0, 2, 2. The DS2200 callback from the warm-up: not in L, but contains keeps it."
   },
   {
     "objectID": "slides/lecture-23_slides.html#back-to-the-cafe",
     "href": "slides/lecture-23_slides.html#back-to-the-cafe",
     "title": "Regular Expressions",
     "section": "Back to the Cafe",
-    "text": "Back to the Cafe\nSuppose a column drink has values like: “Iced Latte”, “Drip Coffee”, “Americano”, “Matcha Tea”, “Espresso”\n \nGoals:\n\nKeep espresso-style drinks: “espresso”, “americano”, “latte”, or “cappuccino”\n“Iced” appears as a whole word\nDrinks that end with “Tea”"
+    "text": "Back to the Cafe\nSuppose a column drink has values like: “Iced Latte”, “Drip Coffee”, “Americano”, “Chai Latte”, “Tea”, “Espresso”\n \nGoals:\n\nKeep espresso-style drinks: “espresso”, “americano”, “latte”, or “cappuccino”\n“Iced” appears as a whole word\nDrinks that end with “Tea”"
   },
   {
     "objectID": "slides/lecture-23_slides.html#cafe-continued",
@@ -852,7 +873,7 @@
     "href": "slides/lecture-23_slides.html#reminder-from-filter-to-language",
     "title": "Regular Expressions",
     "section": "Reminder: From Filter to Language",
-    "text": "Reminder: From Filter to Language\nLet \\(\\Sigma\\) = letters, numbers, and spaces.\nPattern ^(?i)espresso|americano|latte|cappuccino)$ denotes a language \\(L\\subseteq \\Sigma^*\\).\nThis parallels:\nSet: \\(L=\\{,w\\in\\Sigma^*: \\text{pattern matches},\\}\\)\nPredicate: \\(P(w)=\\texttt{matches}(w,\\text{pattern})\\)\nMask: df[‘drink’].str.match(pattern)\nYou’ve been doing language membership tests all class, with filters."
+    "text": "Reminder: From Filter to Language\nLet \\(\\Sigma\\) = letters, numbers, and spaces.\nPattern (?i)(espresso|americano|latte|cappuccino) denotes a language \\(L\\subseteq \\Sigma^*\\).\nThis parallels:\nSet: \\(L=\\{\\,w\\in\\Sigma^*: \\text{the whole of } w \\text{ matches the pattern}\\,\\}\\)\nPredicate: \\(P(w)=\\texttt{fullmatch}(\\text{pattern}, w)\\)\nMask: df[‘drink’].str.fullmatch(pattern)\n\n\nA filter with str.contains(pattern) is a membership test too, for a bigger language: \\(\\Sigma^* L\\, \\Sigma^*\\), the strings that have a part in \\(L\\).\nYou’ve been doing language membership tests all class, with filters."
   },
   {
     "objectID": "slides/lecture-21_slides.html#announcements",
@@ -3075,104 +3096,6 @@
     "title": "Sets, Regex",
     "section": "Your Turn:",
     "text": "Your Turn:\nUse only concatenation, |, * and parentheses.\n\nStrings of a’s and b’s with exactly one b.\nBinary strings that end in 1.\nStrings of a’s with an even number of a’s (zero counts).\nlol, lolol, lololol, …\n\n\n\naba 2. (0|1)1 3. (aa) 4. lol(ol)*"
-  },
-  {
-    "objectID": "slides/lecture-22_slides.html#shorthand-how-many",
-    "href": "slides/lecture-22_slides.html#shorthand-how-many",
-    "title": "Sets, Regex",
-    "section": "Shorthand: How Many",
-    "text": "Shorthand: How Many\nEverything from here on is shorthand for something you can already write.\n\na+: one or more. Same as aa*.\na?: zero or one. Same as “a or nothing”.\na{3}: exactly three. Same as aaa.\na{2,4}: two to four. Same as aa|aaa|aaaa.\n\n \ncolou?r matches color and colour.\nha+ matches ha, haa, … but not h."
-  },
-  {
-    "objectID": "slides/lecture-22_slides.html#shorthand-which-character",
-    "href": "slides/lecture-22_slides.html#shorthand-which-character",
-    "title": "Sets, Regex",
-    "section": "Shorthand: Which Character",
-    "text": "Shorthand: Which Character\n\n[aeiou]: one character from the list. Same as (a|e|i|o|u).\n[a-z], [A-Z], [0-9]: one character from a range. \\d means [0-9].\n.: any one character.\n[^aeiou]: one character not in the list.\n\n \n[A-Z][a-z]* matches Tea and Latte, but not latte, LATTE, or Iced Latte (the space!).\nc[^aeiou]t matches c9t and cxt, but not cat or ct.\n... matches any string of exactly three characters."
-  },
-  {
-    "objectID": "slides/lecture-22_slides.html#warm-up-in-or-out",
-    "href": "slides/lecture-22_slides.html#warm-up-in-or-out",
-    "title": "Sets, Regex",
-    "section": "Warm-Up: In or Out?",
-    "text": "Warm-Up: In or Out?\npattern = [A-Z]{2}\\d{3} \\(L = L(\\)pattern\\()\\), so the whole string must match.\n \nWhich strings are in the set \\(L\\)?\n \nCS110\nab123\nDS2200\nMA101\n\n\n\nThis pattern says: 2 capital letters, then 3 digits, and nothing else. In: CS110, MA101. Out: ab123 (lower case), DS2200 (four digits). Save DS2200: as a filter, contains keeps it, because DS220 is a part of it."
-  },
-  {
-    "objectID": "slides/lecture-22_slides.html#standard-operators",
-    "href": "slides/lecture-22_slides.html#standard-operators",
-    "title": "Sets, Regex",
-    "section": "Standard Operators",
-    "text": "Standard Operators\nLiterals: cat\nDot: . any char (except newline)\nClass: [aeiou] or ranges like [A-Z0-9]\nNegated class: [^,] anything but comma\nAlternation: (cat|dog)\nQuantifiers: a* 0 or more, a+ or more, a? 0 or 1, {m,n} range\nAnchors (filters only): ^ start, $ end\nEscapes: \\. literal dot\nGroups: (  ) captures, (?:  ) non-capturing"
-  },
-  {
-    "objectID": "slides/lecture-22_slides.html#from-sets-to-strings",
-    "href": "slides/lecture-22_slides.html#from-sets-to-strings",
-    "title": "Sets, Regex",
-    "section": "From Sets to Strings",
-    "text": "From Sets to Strings\nSets: \\(A=\\{x\\in U: P(x)\\}\\)\n\n\nA regular expression \\(r\\) does two different jobs.\n\nLanguage. \\(L(r)=\\{w\\in\\Sigma^*: \\text{the whole of } w \\text{ matches } r\\}\\). A set of strings, usually infinite. In Python: re.fullmatch(r, w). In pandas: df['col'].str.fullmatch(r).\nFilter. Keep the rows whose string has some part that matches \\(r\\). A set of rows, a subset of the dataframe. In pandas: df['col'].str.contains(r).\n\n\n\nToday: languages first, then filters."
-  },
-  {
-    "objectID": "slides/lecture-22_slides.html#regex-vs.-language",
-    "href": "slides/lecture-22_slides.html#regex-vs.-language",
-    "title": "Sets, Regex",
-    "section": "Regex vs. Language",
-    "text": "Regex vs. Language\nFix an alphabet of characters, \\(\\Sigma\\).\nThen a pattern \\(r\\) denotes the language \\(L(r)=\\{w\\in\\Sigma^*: \\text{the whole of } w \\text{ matches } r\\}\\)\n\nif no string matches the pattern, \\(L=\\varnothing\\)\nthe empty pattern matches only the empty string ⇒ \\(L=\\{\\varepsilon\\}\\)\npattern a means \\(L=\\{\\)a\\(\\}\\)\nConcatenated patterns AB means \\(L(A)L(B)=\\{xy:x\\in L(A),y\\in L(B)\\}\\)\nUnion of patterns: A|B means \\(L(A)\\cup L(B)\\)\nKleene Star: A* means all finite concatenations from \\(L(A)\\) (incl. \\(\\varepsilon\\))\n\n\nSame spirit as set algebra: union / product / closure. No anchors here: a language always means the whole string."
-  },
-  {
-    "objectID": "slides/lecture-22_slides.html#say-the-set",
-    "href": "slides/lecture-22_slides.html#say-the-set",
-    "title": "Sets, Regex",
-    "section": "Say the Set",
-    "text": "Say the Set\n \n(ab|ba)*: strings over {a,b} that are concatenations of ab or ba.\n\n\n(0|1)*11(0|1)*: all binary strings containing 11 as a substring.\n\n\n1(01|10)*0: binary strings that start with 1, end with 0, and are filled with {0,1} pairs that flip from 1 to 0 or vice versa."
-  },
-  {
-    "objectID": "slides/lecture-22_slides.html#same-pattern-two-jobs",
-    "href": "slides/lecture-22_slides.html#same-pattern-two-jobs",
-    "title": "Sets, Regex",
-    "section": "Same Pattern, Two Jobs",
-    "text": "Same Pattern, Two Jobs\npattern = 'Latte', so \\(L(\\)pattern\\()=\\{\\)Latte\\(\\}\\). How many café orders does each line keep? Predict, then run.\n\n\n\n\n\n\n\nfullmatch is membership in L: only Latte itself. contains is a filter: it also keeps Iced Latte, Chai Latte, Matcha Latte. Those strings are not in L; they are in Sigma* L Sigma*, the strings with a part in L. Anchors turn a filter back into membership: contains(‘^Latte$’) keeps the same rows as fullmatch(‘Latte’). Counts: 2, 2, 5. Try pattern = ‘Iced’ too: 0, 2, 2. The DS2200 callback from the warm-up: not in L, but contains keeps it."
-  },
-  {
-    "objectID": "slides/lecture-22_slides.html#back-to-the-cafe",
-    "href": "slides/lecture-22_slides.html#back-to-the-cafe",
-    "title": "Sets, Regex",
-    "section": "Back to the Cafe",
-    "text": "Back to the Cafe\nSuppose a column drink has values like: “Iced Latte”, “Drip Coffee”, “Americano”, “Chai Latte”, “Tea”, “Espresso”\n \nGoals:\n\nKeep espresso-style drinks: “espresso”, “americano”, “latte”, or “cappuccino”\n“Iced” appears as a whole word\nDrinks that end with “Tea”"
-  },
-  {
-    "objectID": "slides/lecture-22_slides.html#cafe-continued",
-    "href": "slides/lecture-22_slides.html#cafe-continued",
-    "title": "Sets, Regex",
-    "section": "Cafe continued",
-    "text": "Cafe continued"
-  },
-  {
-    "objectID": "slides/lecture-22_slides.html#typical-patterns",
-    "href": "slides/lecture-22_slides.html#typical-patterns",
-    "title": "Sets, Regex",
-    "section": "Typical Patterns",
-    "text": "Typical Patterns\nWhole word: r’\\biced\\b’\nStarts with: r’^Iced’\nEnds with: r’Tea$’\nOptional word: r’^(Iced )?Latte$’\nOne of set (case-insensitive):\n\n r’(?i)\\b(espresso|americano|latte|cappuccino)\\b’"
-  },
-  {
-    "objectID": "slides/lecture-22_slides.html#your-turn-1",
-    "href": "slides/lecture-22_slides.html#your-turn-1",
-    "title": "Sets, Regex",
-    "section": "Your Turn",
-    "text": "Your Turn\nFilter for:\n\nDrinks exactly “Iced Latte” (any case)\nDrinks containing either “Americano” or “Espresso” (whole words, any case)\nDrinks that do not contain “Iced” but end with “Tea” (hint: ________________)"
-  },
-  {
-    "objectID": "slides/lecture-22_slides.html#your-turn-2",
-    "href": "slides/lecture-22_slides.html#your-turn-2",
-    "title": "Sets, Regex",
-    "section": "Your Turn",
-    "text": "Your Turn"
-  },
-  {
-    "objectID": "slides/lecture-22_slides.html#reminder-from-filter-to-language",
-    "href": "slides/lecture-22_slides.html#reminder-from-filter-to-language",
-    "title": "Sets, Regex",
-    "section": "Reminder: From Filter to Language",
-    "text": "Reminder: From Filter to Language\nLet \\(\\Sigma\\) = letters, numbers, and spaces.\nPattern (?i)(espresso|americano|latte|cappuccino) denotes a language \\(L\\subseteq \\Sigma^*\\).\nThis parallels:\nSet: \\(L=\\{\\,w\\in\\Sigma^*: \\text{the whole of } w \\text{ matches the pattern}\\,\\}\\)\nPredicate: \\(P(w)=\\texttt{fullmatch}(\\text{pattern}, w)\\)\nMask: df[‘drink’].str.fullmatch(pattern)\n\n\nA filter with str.contains(pattern) is a membership test too, for a bigger language: \\(\\Sigma^* L\\, \\Sigma^*\\), the strings that have a part in \\(L\\).\nYou’ve been doing language membership tests all class, with filters."
   },
   {
     "objectID": "slides/lecture-24_slides.html#announcements",
