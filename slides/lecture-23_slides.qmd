@@ -114,6 +114,8 @@ On your turn, play one card:
 * a **string** that the current pattern keeps, or
 * a **pattern** that keeps the top string. It becomes the current pattern.
 * a **wild**: write a pattern that keeps the top string. Not `.*`, and not the string itself.
+* a **filter**, together with a string where _some part_ of the string fits the current pattern.
+  The pattern stays.
 
 Can't play? Draw one, and play it if you can. First to empty their hand wins.
 
@@ -132,5 +134,6 @@ import re
 pattern = r"[A-Z]{4} \d{3}"
 string  = "DSCI 220"
 
-re.fullmatch(pattern, string) is not None
+print(re.fullmatch(pattern, string) is not None)   # the whole string fits
+print(re.search(pattern, string) is not None)      # some part fits: a filter card
 ```
