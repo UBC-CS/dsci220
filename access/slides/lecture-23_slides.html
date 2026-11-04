@@ -170,22 +170,23 @@
 </section>
 <section id="warm-up" class="slide level2 activity smaller">
 <h2>Warm Up</h2>
-<p>Monday’s tools: concatenation, choice <code>|</code>, repetition <code>*</code>, and parentheses. The whole string must match.</p>
-<ol type="1">
-<li>Which strings does <code>(DSCI|CPSC)␣(1|2)00</code> match?</li>
-<li>Does <code>(ab)*</code> match <code>abab</code>? <code>aba</code>? the empty string?</li>
-<li>Does <code>ha*</code> match <code>haha</code>?</li>
-<li>Write a pattern for <code>color</code> or <code>colour</code>.</li>
-<li>Write a pattern for the binary strings that start with <code>1</code> and end with <code>0</code>.</li>
-</ol>
+<p>Fill in one letter per square. Each row, read left to right, must match its pattern, and each column, read top to bottom, must match its pattern. The whole string must match.</p>
+<style>
+.reveal table.rx { table-layout:fixed; border-collapse:collapse; margin:20px auto 0; font-family:ui-monospace,Menlo,monospace; width:auto; }
+.reveal table.rx tr, .reveal table.rx th { background:transparent !important; border:none !important; }
+.reveal table.rx th { font-weight:bold; font-size:.8em; padding:4px 10px; color:#fff !important; }
+.reveal table.rx th.col { vertical-align:bottom; text-align:center; white-space:nowrap; font-size:.7em; width:160px; }
+.reveal table.rx th.row { text-align:right; padding-right:16px; vertical-align:middle; white-space:nowrap; }
+.reveal table.rx td { width:160px; min-width:160px; max-width:160px; height:100px; padding:0; background:#fff !important; border:3px solid #29335c !important; }
+</style>
+<table class="rx" data-quarto-disable-processing="true">
+  <tbody><tr><th></th><th class="col">(B|D)*A(B|D)*</th><th class="col">(A|R|O)*</th><th class="col">T(E|A)*(G|S)</th></tr>
+  <tr><th class="row">(B|C)A(T|R)</th><td></td><td></td><td></td></tr>
+  <tr><th class="row">A*R(E|I)</th><td></td><td></td><td></td></tr>
+  <tr><th class="row">D(O|U)(G|E)</th><td></td><td></td><td></td></tr>
+</tbody></table>
 <aside class="notes">
-<ol type="1">
-<li>DSCI 100, DSCI 200, CPSC 100, CPSC 200: one choice from each group, 2 x 2 = 4.</li>
-<li>Yes, no, yes (zero repetitions).</li>
-<li>No: * repeats only the a. haha needs (ha)*.</li>
-<li>color|colour, or colo(u|)r. Hold on to this one: it’s what ? is for.</li>
-<li>1(0|1)*0</li>
-</ol>
+<p>BAT / ARE / DOG. Exactly one solution (checked by brute force in planning/regex-game/crossword.py). No row can be solved alone: row 1 has 4 answers, row 2 has 2 (ARE, ARI), row 3 has 4. A path: row 2 has length 3, so A<em>R(E|I) is A R ?, and the middle row starts with A. Column 1: top is B or C, but (B|D)</em> allows only B. Bottom is D. So BAD. Column 3: must start with T, so row 1 is BAT. (E|A)* rules out I, so row 2 is ARE. Its last letter is G or S, and row 3 ends in G or E: G. Column 2: A, R, then O or U; (A|R|O)* allows only O. So DOG.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;

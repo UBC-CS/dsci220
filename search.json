@@ -775,7 +775,7 @@
     "href": "slides/lecture-23_slides.html#warm-up",
     "title": "Regular Expressions",
     "section": "Warm Up",
-    "text": "Warm Up\nMonday’s tools: concatenation, choice |, repetition *, and parentheses. The whole string must match.\n\nWhich strings does (DSCI|CPSC)␣(1|2)00 match?\nDoes (ab)* match abab? aba? the empty string?\nDoes ha* match haha?\nWrite a pattern for color or colour.\nWrite a pattern for the binary strings that start with 1 and end with 0.\n\n\n\nDSCI 100, DSCI 200, CPSC 100, CPSC 200: one choice from each group, 2 x 2 = 4.\nYes, no, yes (zero repetitions).\nNo: * repeats only the a. haha needs (ha)*.\ncolor|colour, or colo(u|)r. Hold on to this one: it’s what ? is for.\n1(0|1)*0"
+    "text": "Warm Up\nFill in one letter per square. Each row, read left to right, must match its pattern, and each column, read top to bottom, must match its pattern. The whole string must match.\n\n\n  (B|D)*A(B|D)*(A|R|O)*T(E|A)*(G|S)\n  (B|C)A(T|R)\n  A*R(E|I)\n  D(O|U)(G|E)\n\n\nBAT / ARE / DOG. Exactly one solution (checked by brute force in planning/regex-game/crossword.py). No row can be solved alone: row 1 has 4 answers, row 2 has 2 (ARE, ARI), row 3 has 4. A path: row 2 has length 3, so AR(E|I) is A R ?, and the middle row starts with A. Column 1: top is B or C, but (B|D) allows only B. Bottom is D. So BAD. Column 3: must start with T, so row 1 is BAT. (E|A)* rules out I, so row 2 is ARE. Its last letter is G or S, and row 3 ends in G or E: G. Column 2: A, R, then O or U; (A|R|O)* allows only O. So DOG."
   },
   {
     "objectID": "slides/lecture-23_slides.html#goals",
