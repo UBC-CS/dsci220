@@ -63,7 +63,9 @@ a{3} = aaa. a{2,4} = aa|aaa|aaaa.
 
 \
 
-Which strings are in $L($`pattern`$)$? The whole string must match.
+$L($`pattern`$)$ is the set of strings wholly described by the pattern.
+
+Which of these strings are in $L($`pattern`$)$?
 
 \ 
 
