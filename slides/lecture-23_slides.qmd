@@ -137,7 +137,7 @@ Turn up the top card to start its pile. (A wild or a filter goes back in the dec
 ```
 
 Mid-game: the current pattern is `[A-Z].*`, and the top string is `Iced␣Latte`.
-At the start, one pile is empty. A pattern on top means the first player plays a string, and the other way round.
+At the start, one pile is empty. A pattern on top means the first player plays a string, and vice versa.
 
 ## Pattern Eights: Play {.activity .smaller}
 
