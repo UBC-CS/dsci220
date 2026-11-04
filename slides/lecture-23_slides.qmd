@@ -143,8 +143,6 @@ At the start, one pile is empty. A pattern on top means the first player plays a
 
 A pattern **keeps** a string when the _whole_ string fits it. `␣` on a card is a space.
 
-\ 
-
 On your turn, play one card:
 
 * a **string** that the current pattern keeps, or
@@ -155,10 +153,11 @@ On your turn, play one card:
 
 Can't play? Draw one, and play it if you can. First to empty their hand wins.
 
-\ 
+**How?** 🤷 Anyone can ask, any time, for free. The player says what the pattern means in words:
+"starts with a capital, and `Iced␣Latte` does."
 
-**Check!** Anyone can challenge a play. A wrong play goes back to the hand, plus 2 cards.
-A wrong challenge: the challenger draws 2.
+**Check!** Still not convinced? Run it. A wrong play goes back to the hand, plus 2 cards.
+A wrong challenge: the challenger draws 1.
 
 ## Check! {.smaller}
 
