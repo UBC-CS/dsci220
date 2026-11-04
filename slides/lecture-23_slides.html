@@ -179,14 +179,28 @@
 <h2>Shorthand: How Many</h2>
 <p>Everything from here on is shorthand for something you can already write.</p>
 <ul>
-<li><code>a+</code>: one or more. Same as <code>aa*</code>.</li>
-<li><code>a?</code>: zero or one. Same as “<code>a</code> or nothing”.</li>
-<li><code>a{3}</code>: exactly three. Same as <code>aaa</code>.</li>
-<li><code>a{2,4}</code>: two to four. Same as <code>aa|aaa|aaaa</code>.</li>
+<li><code>a+</code>: one or more. Same as ________.</li>
+<li><code>a?</code>: zero or one. Same as ________.</li>
+<li><code>a{3}</code>: exactly three. Same as ________.</li>
+<li><code>a{2,4}</code>: two to four. Same as ________.</li>
 </ul>
-<p>&nbsp;</p>
+<p><br>
+</p>
 <p><code>colou?r</code> matches <code>color</code> and <code>colour</code>.</p>
 <p><code>ha+</code> matches <code>ha</code>, <code>haa</code>, … but not <code>h</code>.</p>
+<aside class="notes">
+<p>a+ = aa*. a? = a|ε: ε is the empty pattern, matching only the empty string. Python writes ε as nothing at all: (a|) means “a or nothing”, so colou?r is colo(u|)r. a{3} = aaa. a{2,4} = aa|aaa|aaaa.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="shorthand-which-character" class="slide level2 smaller">
 <h2>Shorthand: Which Character</h2>

@@ -782,7 +782,7 @@
     "href": "slides/lecture-23_slides.html#shorthand-how-many",
     "title": "Regular Expressions",
     "section": "Shorthand: How Many",
-    "text": "Shorthand: How Many\nEverything from here on is shorthand for something you can already write.\n\na+: one or more. Same as aa*.\na?: zero or one. Same as “a or nothing”.\na{3}: exactly three. Same as aaa.\na{2,4}: two to four. Same as aa|aaa|aaaa.\n\n \ncolou?r matches color and colour.\nha+ matches ha, haa, … but not h."
+    "text": "Shorthand: How Many\nEverything from here on is shorthand for something you can already write.\n\na+: one or more. Same as ________.\na?: zero or one. Same as ________.\na{3}: exactly three. Same as ________.\na{2,4}: two to four. Same as ________.\n\n\n\ncolou?r matches color and colour.\nha+ matches ha, haa, … but not h.\n\na+ = aa*. a? = a|ε: ε is the empty pattern, matching only the empty string. Python writes ε as nothing at all: (a|) means “a or nothing”, so colou?r is colo(u|)r. a{3} = aaa. a{2,4} = aa|aaa|aaaa."
   },
   {
     "objectID": "slides/lecture-23_slides.html#shorthand-which-character",
