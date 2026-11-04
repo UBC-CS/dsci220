@@ -806,11 +806,18 @@
     "text": "Standard Operators\nLiterals: cat\nDot: . any char (except newline)\nClass: [aeiou] or ranges like [A-Z0-9]\nNegated class: [^,] anything but comma\nAlternation: (cat|dog)\nQuantifiers: a* 0 or more, a+ or more, a? 0 or 1, {m,n} range\nAnchors (filters only): ^ start, $ end\nEscapes: a backslash makes a symbol literal: \\. \\$ \\( \\\\. But \\d is a digit, not a d.\nGroups: (  ) captures, (?:  ) non-capturing"
   },
   {
-    "objectID": "slides/lecture-23_slides.html#pattern-eights-1",
-    "href": "slides/lecture-23_slides.html#pattern-eights-1",
+    "objectID": "slides/lecture-23_slides.html#pattern-eights-setup",
+    "href": "slides/lecture-23_slides.html#pattern-eights-setup",
     "title": "Regular Expressions",
-    "section": "Pattern Eights",
-    "text": "Pattern Eights\nGroups of 3 to 5. Deal 7 cards each. Turn up cards until you reach a pattern: that’s the current pattern.\nTwo piles in the middle, patterns and strings. The top of each is what’s in play.\nA pattern keeps a string when the whole string fits it. ␣ on a card is a space.\n \nOn your turn, play one card:\n\na string that the current pattern keeps, or\na pattern that keeps the top string. It becomes the current pattern.\na wild: write a pattern that keeps the top string. Not .*, and not the string itself.\na filter, together with a string where some part of the string fits the current pattern. The pattern stays.\n\nCan’t play? Draw one, and play it if you can. First to empty their hand wins.\n \nCheck! Anyone can challenge a play. A wrong play goes back to the hand, plus 2 cards. A wrong challenge: the challenger draws 2."
+    "section": "Pattern Eights: Setup",
+    "text": "Pattern Eights: Setup\nGroups of 3 to 5. Shuffle, and deal 7 cards each.\nTurn up cards until you reach a pattern: that’s the current pattern. Any strings you turn up go to the bottom of the deck.\n\n\n  deck(face down)\n  [A-Z].*patternstop = current pattern\n  Iced␣Lattestringstop = top string\n  used filters\n\nMid-game: the current pattern is [A-Z].*, and the top string is Iced␣Latte. The string pile starts empty, so the first player has to play a string."
+  },
+  {
+    "objectID": "slides/lecture-23_slides.html#pattern-eights-play",
+    "href": "slides/lecture-23_slides.html#pattern-eights-play",
+    "title": "Regular Expressions",
+    "section": "Pattern Eights: Play",
+    "text": "Pattern Eights: Play\nA pattern keeps a string when the whole string fits it. ␣ on a card is a space.\n \nOn your turn, play one card:\n\na string that the current pattern keeps, or\na pattern that keeps the top string. It becomes the current pattern.\na wild: write a pattern that keeps the top string. Not .*, and not the string itself.\na filter, together with a string where some part of the string fits the current pattern. The pattern stays.\n\nCan’t play? Draw one, and play it if you can. First to empty their hand wins.\n \nCheck! Anyone can challenge a play. A wrong play goes back to the hand, plus 2 cards. A wrong challenge: the challenger draws 2."
   },
   {
     "objectID": "slides/lecture-23_slides.html#check",

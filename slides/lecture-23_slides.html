@@ -260,10 +260,33 @@
 <h1>Pattern Eights</h1>
 
 </section>
-<section id="pattern-eights-1" class="slide level2 activity smaller">
-<h2>Pattern Eights</h2>
-<p>Groups of 3 to 5. Deal 7 cards each. Turn up cards until you reach a pattern: that’s the current pattern.</p>
-<p>Two piles in the middle, <strong>patterns</strong> and <strong>strings</strong>. The top of each is what’s in play.</p>
+<section id="pattern-eights-setup" class="slide level2 activity smaller">
+<h2>Pattern Eights: Setup</h2>
+<p>Groups of 3 to 5. Shuffle, and deal 7 cards each.</p>
+<p>Turn up cards until you reach a pattern: that’s the current pattern. Any strings you turn up go to the bottom of the deck.</p>
+<style>
+.pe-table { display:flex; gap:28px; justify-content:center; align-items:flex-start; margin:18px 0 6px; }
+.pe-slot { text-align:center; font-size:.7em; color:inherit; }
+.pe-card { width:150px; height:110px; border:3px solid; border-radius:12px; display:flex;
+  align-items:center; justify-content:center; font-family:ui-monospace,Menlo,monospace;
+  font-weight:bold; font-size:1.05em; color:#111; margin:0 auto 6px; position:relative; }
+.pe-card::before { content:attr(data-kind); position:absolute; top:5px; left:9px;
+  font-family:sans-serif; font-size:.5em; letter-spacing:.05em; }
+.pe-p { background:#fff8e6; border-color:#29335c; } .pe-p::before { color:#29335c; }
+.pe-s { background:#fff; border-color:#3d9970; } .pe-s::before { color:#3d9970; }
+.pe-f { background:#eef4fb; border-color:#669bbc; } .pe-f::before { color:#669bbc; }
+.pe-back { background:repeating-linear-gradient(45deg,#ddd 0 8px,#eee 8px 16px); border-color:#999; }
+</style>
+<div class="pe-table">
+  <div class="pe-slot"><div class="pe-card pe-back"></div>deck<br>(face down)</div>
+  <div class="pe-slot"><div class="pe-card pe-p" data-kind="PATTERN">[A-Z].*</div><b>patterns</b><br>top = current pattern</div>
+  <div class="pe-slot"><div class="pe-card pe-s" data-kind="STRING">Iced␣Latte</div><b>strings</b><br>top = top string</div>
+  <div class="pe-slot"><div class="pe-card pe-f" data-kind="FILTER"></div>used filters</div>
+</div>
+<p>Mid-game: the current pattern is <code>[A-Z].*</code>, and the top string is <code>Iced␣Latte</code>. The string pile starts empty, so the first player has to play a string.</p>
+</section>
+<section id="pattern-eights-play" class="slide level2 activity smaller">
+<h2>Pattern Eights: Play</h2>
 <p>A pattern <strong>keeps</strong> a string when the <em>whole</em> string fits it. <code>␣</code> on a card is a space.</p>
 <p>&nbsp;</p>
 <p>On your turn, play one card:</p>
