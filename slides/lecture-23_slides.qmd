@@ -108,11 +108,39 @@ Groups: `(  )` captures, `(?:  )` non-capturing
 
 # Pattern Eights
 
-## Pattern Eights {.activity .smaller}
+## Pattern Eights: Setup {.activity .smaller}
 
-Groups of 3 to 5. Deal 7 cards each. Turn up cards until you reach a pattern: that's the current pattern.
+Groups of 3 to 5. Shuffle, and deal 7 cards each.
 
-Two piles in the middle, **patterns** and **strings**. The top of each is what's in play.
+Turn up cards until you reach a pattern: that's the current pattern.
+Any strings you turn up go to the bottom of the deck.
+
+```{=html}
+<style>
+.pe-table { display:flex; gap:28px; justify-content:center; align-items:flex-start; margin:18px 0 6px; }
+.pe-slot { text-align:center; font-size:.7em; color:inherit; }
+.pe-card { width:150px; height:110px; border:3px solid; border-radius:12px; display:flex;
+  align-items:center; justify-content:center; font-family:ui-monospace,Menlo,monospace;
+  font-weight:bold; font-size:1.05em; color:#111; margin:0 auto 6px; position:relative; }
+.pe-card::before { content:attr(data-kind); position:absolute; top:5px; left:9px;
+  font-family:sans-serif; font-size:.5em; letter-spacing:.05em; }
+.pe-p { background:#fff8e6; border-color:#29335c; } .pe-p::before { color:#29335c; }
+.pe-s { background:#fff; border-color:#3d9970; } .pe-s::before { color:#3d9970; }
+.pe-f { background:#eef4fb; border-color:#669bbc; } .pe-f::before { color:#669bbc; }
+.pe-back { background:repeating-linear-gradient(45deg,#ddd 0 8px,#eee 8px 16px); border-color:#999; }
+</style>
+<div class="pe-table">
+  <div class="pe-slot"><div class="pe-card pe-back"></div>deck<br>(face down)</div>
+  <div class="pe-slot"><div class="pe-card pe-p" data-kind="PATTERN">[A-Z].*</div><b>patterns</b><br>top = current pattern</div>
+  <div class="pe-slot"><div class="pe-card pe-s" data-kind="STRING">Iced␣Latte</div><b>strings</b><br>top = top string</div>
+  <div class="pe-slot"><div class="pe-card pe-f" data-kind="FILTER"></div>used filters</div>
+</div>
+```
+
+Mid-game: the current pattern is `[A-Z].*`, and the top string is `Iced␣Latte`.
+The string pile starts empty, so the first player has to play a string.
+
+## Pattern Eights: Play {.activity .smaller}
 
 A pattern **keeps** a string when the _whole_ string fits it. `␣` on a card is a space.
 
