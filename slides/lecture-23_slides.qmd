@@ -15,6 +15,24 @@ subtitle: "Lecture 23, {{< var course.code >}}, {{< var course.term >}}"
 
 # Regular Expressions
 
+## Warm Up {.activity .smaller}
+
+Monday's tools: concatenation, choice `|`, repetition `*`, and parentheses. The whole string must match.
+
+1. Which strings does `(DSCI|CPSC)␣(1|2)00` match?
+2. Does `(ab)*` match `abab`? `aba`? the empty string?
+3. Does `ha*` match `haha`?
+4. Write a pattern for `color` or `colour`.
+5. Write a pattern for the binary strings that start with `1` and end with `0`.
+
+::: notes
+1. DSCI 100, DSCI 200, CPSC 100, CPSC 200: one choice from each group, 2 x 2 = 4.
+2. Yes, no, yes (zero repetitions).
+3. No: * repeats only the a. haha needs (ha)*.
+4. color|colour, or colo(u|)r. Hold on to this one: it's what ? is for.
+5. 1(0|1)*0
+:::
+
 ## Goals
 
 * Read the regex shorthand: `+ ? {m} {m,n}`, classes `[...]`, `[^...]`, `\d`, `.`
