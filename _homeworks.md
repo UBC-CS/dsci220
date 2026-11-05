@@ -11,7 +11,7 @@ built.
 | HW1 | 2 | Sun Sep 20 | yes |
 | HW2 | 4 | Sun Oct 4 | no |
 | HW3 | 7 | Sun Oct 25 | no |
-| HW4 | 9 | Sun Nov 8 | no |
+| HW4 | 9 (extended to 10) | Sun Nov 15 | yes |
 | HW5 | 12 | Sun Nov 29 | no |
 
 Settings that HW1 established, worth copying: `type: Homework`,
@@ -103,7 +103,7 @@ most two, at least three.
 
 ---
 
-## HW4 — due Sun Nov 8 · built
+## HW4 — due Sun Nov 15 · built
 
 Three set questions in one zone, one attempt each (`questions/2026W1/sets/`):
 `three-set-ie` (3-set inclusion–exclusion, weather-station NaNs),
