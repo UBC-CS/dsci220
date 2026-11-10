@@ -642,6 +642,69 @@
     "href": "slides/lecture-25_slides.html#goals",
     "title": "DFAs, NFAs",
     "section": "Goals",
+    "text": "Goals\n\nRead a DFA: run a string through it, and decide accept or reject.\nSay what each state remembers about the string so far.\nGo from a machine to a regex, and test the guess."
+  },
+  {
+    "objectID": "slides/lecture-25_slides.html#how-to-read-a-dfa",
+    "href": "slides/lecture-25_slides.html#how-to-read-a-dfa",
+    "title": "DFAs, NFAs",
+    "section": "How to Read a DFA",
+    "text": "How to Read a DFA\n\n\n\n\n\n\n\n\n\n\n\n\nstart\nstart\n\n\n\nA\n\nA\n\n\n\nstart-&gt;A\n\n\n\n\n\nA-&gt;A\n\n\n 0 \n\n\n\nB\n\n\nB\n\n\n\nA-&gt;B\n\n\n 1 \n\n\n\nB-&gt;A\n\n\n 0 \n\n\n\nB-&gt;B\n\n\n 1 \n\n\n\n\n\n\n\n\n\n\n\nStart at the start arrow.\nRead the string left to right, one symbol at a time. Follow the arrow labelled with that symbol: 0 or 1.\nAt the end, a double circle means accept. Any other state: reject.\n\n\n\n\nTrace 0110. Trace 1101.\n\n0110: A, A, B, B, A. Ends in A: reject. 1101: A, B, B, A, B. Ends in B: accept. A remembers “the last symbol wasn’t a 1 (or nothing read yet)”; B remembers “the last symbol was a 1”. So the machine accepts exactly the strings that end in 1: (0|1)*1. Every state has exactly one arrow for each symbol. That’s the D in DFA: no choices."
+  },
+  {
+    "objectID": "slides/lecture-25_slides.html#your-turn",
+    "href": "slides/lecture-25_slides.html#your-turn",
+    "title": "DFAs, NFAs",
+    "section": "Your Turn",
+    "text": "Your Turn\nFor each machine on the next slides:\n\nWrite down 5 strings it accepts and 5 it rejects. Short ones first, and don’t forget the empty string.\nLook at your lists. What do the accepted strings have in common?\nWrite a regex for the accepted strings.\n\n\n\nThen check yourself on the Check! slide."
+  },
+  {
+    "objectID": "slides/lecture-25_slides.html#machine-a",
+    "href": "slides/lecture-25_slides.html#machine-a",
+    "title": "DFAs, NFAs",
+    "section": "Machine A 🐝",
+    "text": "Machine A 🐝\n\n\n\n\n\n\n\n\n\n\n\n\nstart\nstart\n\n\n\nP\n\nP\n\n\n\nstart-&gt;P\n\n\n\n\n\nP-&gt;P\n\n\n 0 \n\n\n\nQ\n\nQ\n\n\n\nP-&gt;Q\n\n\n 1 \n\n\n\nQ-&gt;P\n\n\n 0 \n\n\n\nR\n\n\nR\n\n\n\nQ-&gt;R\n\n\n 1 \n\n\n\nR-&gt;R\n\n\n 0, 1 \n\n\n\n\n\n\n\n\n\n\n\nAccepts 💚\n\n\n\n\n\n\nRejects 💔\n\n\n\n\n\n\nRegex? 🤔\n\n\n\n\n\nMachine A: contains 11. Regex (0|1)*11(0|1)*. P: no progress (last symbol was 0, or nothing yet). Q: just saw one 1. R: has seen 11, and stays forever. Accepts: 11, 011, 110, 0110, 111. Rejects: ε, 0, 1, 10, 101."
+  },
+  {
+    "objectID": "slides/lecture-25_slides.html#machine-b",
+    "href": "slides/lecture-25_slides.html#machine-b",
+    "title": "DFAs, NFAs",
+    "section": "Machine B 🐢",
+    "text": "Machine B 🐢\n\n\n\n\n\n\n\n\n\n\n\n\nstart\nstart\n\n\n\nP\n\nP\n\n\n\nstart-&gt;P\n\n\n\n\n\nP-&gt;P\n\n\n 1 \n\n\n\nQ\n\nQ\n\n\n\nP-&gt;Q\n\n\n 0 \n\n\n\nQ-&gt;P\n\n\n 1 \n\n\n\nR\n\n\nR\n\n\n\nQ-&gt;R\n\n\n 0 \n\n\n\nR-&gt;P\n\n\n 1 \n\n\n\nR-&gt;R\n\n\n 0 \n\n\n\n\n\n\n\n\n\n\n\nAccepts 💚\n\n\n\n\n\n\nRejects 💔\n\n\n\n\n\n\nRegex? 🤔\n\n\n\n\n\nMachine B: ends in 00. Regex (0|1)*00. P: last symbol was 1 (or nothing yet). Q: ends in exactly one 0. R: ends in 00. Note R goes back to P on a 1: unlike Machine A, this machine can lose what it found. Accepts: 00, 100, 000, 1100, 0100. Rejects: ε, 0, 10, 001, 0010."
+  },
+  {
+    "objectID": "slides/lecture-25_slides.html#machine-c",
+    "href": "slides/lecture-25_slides.html#machine-c",
+    "title": "DFAs, NFAs",
+    "section": "Machine C 🦊",
+    "text": "Machine C 🦊\n\n\n\n\n\n\n\n\n\n\n\n\nstart\nstart\n\n\n\nS\n\nS\n\n\n\nstart-&gt;S\n\n\n\n\n\nP\n\nP\n\n\n\nS-&gt;P\n\n\n 0 \n\n\n\nR\n\nR\n\n\n\nS-&gt;R\n\n\n 1 \n\n\n\nP-&gt;P\n\n\n 0 \n\n\n\nQ\n\n\nQ\n\n\n\nP-&gt;Q\n\n\n 1 \n\n\n\nQ-&gt;P\n\n\n 0 \n\n\n\nQ-&gt;Q\n\n\n 1 \n\n\n\nR-&gt;R\n\n\n 1 \n\n\n\nT\n\n\nT\n\n\n\nR-&gt;T\n\n\n 0 \n\n\n\nT-&gt;R\n\n\n 1 \n\n\n\nT-&gt;T\n\n\n 0 \n\n\n\n\n\n\n\n\n\n\n\nAccepts 💚\n\n\n\n\n\n\nRejects 💔\n\n\n\n\n\n\nRegex? 🤔\n\n\n\n\n\nMachine C: starts and ends with different symbols. Regex 0(0|1)*1|1(0|1)*0. The first symbol picks a lane forever. Top lane: started with 0, so accept when the last is 1 (Q). Bottom lane: started with 1, accept when the last is 0 (T). P and R: last symbol matches the first. Accepts: 01, 10, 001, 110, 0101. Rejects: ε, 0, 1, 00, 101. Also right: (0(0|1)1)|(1(0|1)0), or 0(0|1)1|1(0|1)0."
+  },
+  {
+    "objectID": "slides/lecture-25_slides.html#machine-d",
+    "href": "slides/lecture-25_slides.html#machine-d",
+    "title": "DFAs, NFAs",
+    "section": "Machine D 🐙",
+    "text": "Machine D 🐙\n\n\n\n\n\n\n\n\n\n\n\n\nstart\nstart\n\n\n\nE\n\n\nE\n\n\n\nstart-&gt;E\n\n\n\n\n\nE-&gt;E\n\n\n 0 \n\n\n\nO\n\nO\n\n\n\nE-&gt;O\n\n\n 1 \n\n\n\nO-&gt;E\n\n\n 1 \n\n\n\nO-&gt;O\n\n\n 0 \n\n\n\n\n\n\n\n\n\n\n\nAccepts 💚\n\n\n\n\n\n\nRejects 💔\n\n\n\n\n\n\nRegex? 🤔\n\n\n\n\n\nMachine D: an even number of 1s. Regex 0*(10*10*)*. E: an even number of 1s so far. O: odd. Zeros change nothing. Accepts: ε, 0, 11, 101, 0110. Rejects: 1, 01, 10, 111, 1011. The regex is the hard part: 0(1010). Read it as: some 0s, then 1s in pairs with 0s anywhere. A common guess, (0101)*, fails the Check! on ‘0’: it forgets the zeros after the last pair. Two states for the machine, and the pattern is still hard to write. Easy for a machine, hard for a pattern."
+  },
+  {
+    "objectID": "slides/lecture-25_slides.html#check",
+    "href": "slides/lecture-25_slides.html#check",
+    "title": "DFAs, NFAs",
+    "section": "Check!",
+    "text": "Check!\nA DFA is a for loop with one variable, and that variable can only take a few values.\n\n\n\n\n\n\n\nThe starting guess r’11’ disagrees on ‘011’: the machine accepts it, the regex doesn’t. Checking up to length 8 is evidence, not a proof. A proof is induction on the length of the string, with one claim per state (“after reading w, the machine is in R iff w contains 11”). That’s HW5."
+  },
+  {
+    "objectID": "slides/lecture-25_slides.html#what-does-each-state-remember",
+    "href": "slides/lecture-25_slides.html#what-does-each-state-remember",
+    "title": "DFAs, NFAs",
+    "section": "What Does Each State Remember?",
+    "text": "What Does Each State Remember?\nPick one machine. For each state, finish the sentence:\n\n\n“The machine is in this state when the string so far ____________.”\n\n\nHow many states does Machine D need, no matter how long the string is?\n\nSee the notes on each machine. Machine D needs 2, forever: it only remembers even or odd. That is the whole idea of a finite automaton: a fixed, finite memory of the prefix. Later (pigeonhole), we’ll see a language that no finite memory can handle: 0^n 1^n."
+  },
+  {
+    "objectID": "slides/lecture-25_slides.html#goals-1",
+    "href": "slides/lecture-25_slides.html#goals-1",
+    "title": "DFAs, NFAs",
+    "section": "Goals",
     "text": "Goals\n\nRecall a regex is a set of strings (a language).\nBuild small DFAs that recognize those sets.\nUse closure tricks (∪, ∩, complement) to combine DFAs."
   },
   {
