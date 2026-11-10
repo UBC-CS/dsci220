@@ -12,7 +12,7 @@
 <script src="../site_libs/quarto-contrib/iconify-3.0.0/iconify-icon.min.js"></script><meta charset="utf-8">
   <meta name="generator" content="quarto-1.11.9">
 
-  <title>{{&lt; var course.full-title &gt;}} – NFAs</title>
+  <title>{{&lt; var course.full-title &gt;}} – DFAs, NFAs</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -134,10 +134,10 @@
   </style>
   <script type="module" src="../site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
   <link href="../site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
-<meta property="og:title" content="NFAs – DSCI 220: Discrete Math for Data Science">
+<meta property="og:title" content="DFAs, NFAs – DSCI 220: Discrete Math for Data Science">
 <meta property="og:description" content="Lecture 25, DSCI 220, 2026W1">
 <meta property="og:site_name" content="DSCI 220: Discrete Math for Data Science">
-<meta name="twitter:title" content="NFAs – DSCI 220: Discrete Math for Data Science">
+<meta name="twitter:title" content="DFAs, NFAs – DSCI 220: Discrete Math for Data Science">
 <meta name="twitter:description" content="Lecture 25, DSCI 220, 2026W1">
 <meta name="twitter:card" content="summary">
 </head>
@@ -146,7 +146,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">NFAs</h1>
+  <h1 class="title">DFAs, NFAs</h1>
   <p class="subtitle">Lecture 25, DSCI 220, 2026W1</p>
 
 <div class="quarto-title-authors">
@@ -171,15 +171,110 @@
 <section id="goals" class="slide level2">
 <h2>Goals</h2>
 <ul>
+<li>Recall a regex is a <em>set</em> of strings (a language).</li>
+<li>Build small DFAs that <strong>recognize</strong> those sets.</li>
 <li>Use closure tricks (∪, ∩, complement) to combine DFAs.</li>
 </ul>
 </section>
 <section id="warm-up" class="slide level2 activity">
 <h2>Warm-Up</h2>
-<p>Prefix Example: Starts with <code>iced</code></p>
+<p>Pattern: <code>^(0|1)*11(0|1)*$</code></p>
+<p>Which strings are in the set?</p>
+<ul>
+<li><code>10101</code><br>
+</li>
+<li><code>11010</code><br>
+</li>
+<li><code>10001</code><br>
+</li>
+<li><code>10110</code></li>
+</ul>
+<aside class="notes">
+<p>Answer: <code>11010</code>, <code>10110</code>. emphasize that we are reading the string from left to right.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="contains-11" class="slide level2 smaller">
+<h2>Contains 11</h2>
+<p>Alphabet: <code>{0,1}</code></p>
+<p>States:</p>
+<ul>
+<li><code>S0</code>: the last symbol wasn’t a <code>1</code> (or nothing read yet). Start.</li>
+<li><code>S1</code>: just saw a <code>1</code></li>
+<li><code>S2</code>: saw substring <code>11</code> (accepting)</li>
+</ul>
+<p>DFA Sketch:</p>
+<aside class="notes">
+<p>Run a couple examples on the board: <code>101101</code> (accept), <code>101010</code> (reject). key elements: 0) input alphabet 1) set of states. 2) start state, 3) transition function, 4) set of accept states.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="dfa-ideas" class="slide level2">
+<h2>DFA Ideas</h2>
+<p>Process a string from left to right, one character at a time.</p>
+<ul>
+<li><p><strong>State</strong>: what the prefix tells us so far.</p></li>
+<li><p><strong>Accept</strong> iff we finish in an accepting state.</p></li>
+<li><p><strong>Deterministic</strong>: at most one transition per symbol from every state.</p></li>
+<li><p><strong>Total</strong>: every state has a transition on every symbol.</p></li>
+</ul>
+</section>
+<section id="dfa-definition" class="slide level2">
+<h2>DFA Definition</h2>
+<p>A <em>Deterministic Finite Automaton</em> consists of the following:</p>
+<ol type="1">
+<li>a set of states <span class="math inline">\(S\)</span></li>
+<li>a finite alphabet <span class="math inline">\(\Sigma\)</span></li>
+<li>a transition function <span class="math inline">\(f\)</span> that assigns a next state to each <span class="math inline">\((s, i)\)</span> pair, <span class="math inline">\(s\in S\)</span> and <span class="math inline">\(i\in \Sigma\)</span>.</li>
+<li>a start state <span class="math inline">\(s_0\)</span></li>
+<li>a set of accepting states <span class="math inline">\(F\subseteq S\)</span></li>
+</ol>
+</section>
+<section id="regex-dfa" class="slide level2">
+<h2>Regex = DFA</h2>
+<p>A language is regular if and only if it is recognized by some DFA.</p>
+</section>
+<section id="you-try-ends-with-tea" class="slide level2">
+<h2>You Try: “Ends with Tea”</h2>
+<p>Target: strings that end with <code>tea</code></p>
+<aside class="notes">
+<p>alphabet is lower case letters, here, just to keep it simple.</p>
+<p>We’ll use this when we do unions, later.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="prefix-example-starts-with-iced" class="slide level2">
+<h2>Prefix Example: “Starts with Iced”</h2>
 <p>Plan:</p>
 <ul>
-<li>Chain prefix states; before success, any mismatch goes to <code>SINK</code>.</li>
+<li>Chain prefix states; before success, any mismatch → <code>SINK</code>.</li>
 <li>After success, loop on <strong>any</strong> character in <code>ACC</code>.</li>
 </ul>
 <p>Diagram:</p>
@@ -201,25 +296,38 @@ States are pairs <code>(p,q)</code>
 </ul></li>
 <li><strong>Difference</strong>: <code>L1 - L2 =</code> <span class="math inline">\(L1\cap L2^c\)</span></li>
 </ul>
+<aside class="notes">
+<p>This mirrors set algebra directly; great place to reinforce recent set lessons.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
-<section id="exercise" class="slide level2">
-<h2>Exercise</h2>
+<section id="mini-exercise" class="slide level2">
+<h2>Mini-Exercise</h2>
 <p>Build a DFA for the <strong>union</strong> of:</p>
 <ul>
 <li><code>L1</code>: contains <code>11</code> (use the machine we built)</li>
-<li><code>L2</code>: ends with <code>00</code> (three states: <code>T, T0, T00</code>)</li>
+<li><code>L2</code>: ends with <code>00</code> (three states: <code>Tε, T0, T00</code>)</li>
 </ul>
-<p><strong>Hint:</strong> sketch product states <code>(S_i, T_j)</code> and mark <code>accept</code> pairs for union (or).</p>
+<p><strong>Hint:</strong> sketch product states <code>(S_i, T_j)</code> and mark <code>accept</code> pairs for union.</p>
 </section>
 <section id="parity-demo" class="slide level2">
 <h2>Parity Demo</h2>
-<p>Language: even number of <code>1</code>s over alphabet <span class="math inline">\(\{0,1\}\)</span>.</p>
+<p>Language: even number of <code>1</code>s over <code>{0,1}</code>.</p>
 <ul>
 <li><code>EVEN</code> (start, accept), <code>ODD</code><br>
 </li>
 <li>on <code>1</code>: toggle; on <code>0</code>: stay</li>
 </ul>
-<p>Which strings of length <span class="math inline">\(\leq\)</span> 4 accept?</p>
+<p>Try: which strings of length <span class="math inline">\(\leq\)</span> 4 accept?</p>
 </section></section>
 <section>
 <section id="non-deterministic-fa" class="title-slide slide level1 center">

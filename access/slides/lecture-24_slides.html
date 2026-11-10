@@ -12,7 +12,7 @@
 <script src="../site_libs/quarto-contrib/iconify-3.0.0/iconify-icon.min.js"></script><meta charset="utf-8">
   <meta name="generator" content="quarto-1.11.9">
 
-  <title>{{&lt; var course.full-title &gt;}}---Accessibility version – Regex Filters, DFAs</title>
+  <title>{{&lt; var course.full-title &gt;}}---Accessibility version – Regex Filters</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -134,10 +134,10 @@
   </style>
   <script type="module" src="../site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
   <link href="../site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
-<meta property="og:title" content="Regex Filters, DFAs – DSCI 220: Discrete Math for Data Science—Accessibility version">
+<meta property="og:title" content="Regex Filters – DSCI 220: Discrete Math for Data Science—Accessibility version">
 <meta property="og:description" content="Lecture 24, DSCI 220, 2026W1">
 <meta property="og:site_name" content="DSCI 220: Discrete Math for Data Science—Accessibility version">
-<meta name="twitter:title" content="Regex Filters, DFAs – DSCI 220: Discrete Math for Data Science—Accessibility version">
+<meta name="twitter:title" content="Regex Filters – DSCI 220: Discrete Math for Data Science—Accessibility version">
 <meta name="twitter:description" content="Lecture 24, DSCI 220, 2026W1">
 <meta name="twitter:card" content="summary">
 </head>
@@ -146,7 +146,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Regex Filters, DFAs</h1>
+  <h1 class="title">Regex Filters</h1>
   <p class="subtitle">Lecture 24, DSCI 220, 2026W1</p>
 
 <div class="quarto-title-authors">
@@ -155,6 +155,9 @@
 </section>
 <section id="announcements" class="slide level2">
 <h2>Announcements</h2>
+<ul>
+<li>HW4 is now due <strong>Sun Nov 15</strong>.</li>
+</ul>
 <style>
 .small { font-size: .9rem; }
 .tiny { font-size: .8rem; }
@@ -172,10 +175,9 @@
 <h2>Regular Expressions as String Filters</h2>
 <p>Goals:</p>
 <ul>
-<li><p>Use regex to filter strings (and rows in a DataFrame).</p></li>
-<li><p>Read/write the core regex operators.</p></li>
-<li><p>See a regex as a set descriptor (a language over an alphabet).</p></li>
-<li><p>Build boolean masks: <code>df['col'].str.contains(pattern)</code>.</p></li>
+<li><p>Use a regex as a filter: keep the rows where <em>some part</em> of a string fits.</p></li>
+<li><p>Tell a filter from a language: <code>str.contains</code> vs.&nbsp;<code>str.fullmatch</code>.</p></li>
+<li><p>Build boolean masks with <code>str.contains</code>, and combine them with <code>&amp;</code>, <code>|</code>, <code>~</code>.</p></li>
 </ul>
 <aside class="notes">
 <p>Bridge from sets: a subset is just a predicate. Regex gives us predicates on strings.</p>
@@ -245,6 +247,7 @@
 <section id="same-pattern-two-jobs" class="slide level2 smaller">
 <h2>Same Pattern, Two Jobs</h2>
 <p><code>pattern = 'Latte'</code>, so <span class="math inline">\(L(\)</span><code>pattern</code><span class="math inline">\()=\{\)</span><code>Latte</code><span class="math inline">\(\}\)</span>. How many café orders does each line keep? Predict, then run.</p>
+<p>A <strong>Filter</strong> card in Pattern Eights was <code>contains</code>.</p>
 <div>
 <div id="pyodide-1" class="exercise-cell">
 
@@ -278,17 +281,6 @@ eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiaW1wb3J0IHBhbmRhcyBhcyBw
 <li><p>Drinks that end with “Tea”</p></li>
 </ol>
 </section>
-<section id="cafe-continued" class="slide level2">
-<h2>Cafe continued</h2>
-<div>
-<div id="pyodide-2" class="exercise-cell">
-
-</div>
-<script type="pyodide-2-contents">
-eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiaW1wb3J0IHBhbmRhcyBhcyBwZFxuZGYgPSBwZC5yZWFkX2NzdignaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL1VCQy1DUy9kc2NpMjIwL3JlZnMvaGVhZHMvbWFpbi9kYXRhL2NhZmVfb3JkZXJzLmNzdicpXG5cbiMgcmVnZXhcbmVzcHJlc3RyID0gcicoP2kpXFxiKGVzcHJlc3NvfGFtZXJpY2Fub3xsYXR0ZXxjYXBwdWNjaW5vKVxcYidcbmljZWRyZXN0ciA9IHInKD9pKVxcYmljZWRcXGInXG50ZWFyZXN0ciA9IHInKD9pKXRlYSQnXG5cbiMgbWFza3NcbmVzcHJlc3NvaXNoID0gZGZbJ2RyaW5rJ10uc3RyLmNvbnRhaW5zKGVzcHJlc3RyLCByZWdleD1UcnVlLCBuYT1GYWxzZSlcbmljZWQgICAgICAgPSBkZlsnZHJpbmsnXS5zdHIuY29udGFpbnMoaWNlZHJlc3RyLCByZWdleD1UcnVlLCBuYT1GYWxzZSlcbnRlYXMgICAgICAgPSBkZlsnZHJpbmsnXS5zdHIuY29udGFpbnModGVhcmVzdHIsICByZWdleD1UcnVlLCBuYT1GYWxzZSlcblxuIyBTZXQgYWxnZWJyYSBvbiBtYXNrczpcbkVfb3JfSSAgID0gZXNwcmVzc29pc2ggfCBpY2VkICAgICAgICAgICMgdW5pb25cbklfYW5kX1QgID0gaWNlZCAmIHRlYXMgICAgICAgICAgICAgICAgICMgaW50ZXJzZWN0aW9uXG5ub3RfSSAgICA9IH5pY2VkICAgICAgICAgICAgICAgICAgICAgICAjIGNvbXBsZW1lbnRcblxuIyBQcm9qZWN0IHRoZSBkYXRhOlxuc3Vic2V0ID0gZGZbRV9vcl9JXVxuc3Vic2V0In0=
-</script>
-</div>
-</section>
 <section id="typical-patterns" class="slide level2">
 <h2>Typical Patterns</h2>
 <p>Whole word: <span class="rule">r’\biced\b’</span></p>
@@ -300,14 +292,42 @@ eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiaW1wb3J0IHBhbmRhcyBhcyBw
 <span class="rule"> r’(?i)\b(espresso|americano|latte|cappuccino)\b’</span>
 </center>
 </section>
+<section id="cafe-continued" class="slide level2">
+<h2>Cafe continued</h2>
+<div>
+<div id="pyodide-2" class="exercise-cell">
+
+</div>
+<script type="pyodide-2-contents">
+eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiaW1wb3J0IHBhbmRhcyBhcyBwZFxuZGYgPSBwZC5yZWFkX2NzdignaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL1VCQy1DUy9kc2NpMjIwL3JlZnMvaGVhZHMvbWFpbi9kYXRhL2NhZmVfb3JkZXJzLmNzdicpXG5cbiMgcmVnZXhcbmVzcHJlc3RyID0gcicoP2kpXFxiKGVzcHJlc3NvfGFtZXJpY2Fub3xsYXR0ZXxjYXBwdWNjaW5vKVxcYidcbmljZWRyZXN0ciA9IHInKD9pKVxcYmljZWRcXGInXG50ZWFyZXN0ciA9IHInKD9pKXRlYSQnXG5cbiMgbWFza3NcbmVzcHJlc3NvaXNoID0gZGZbJ2RyaW5rJ10uc3RyLmNvbnRhaW5zKGVzcHJlc3RyLCByZWdleD1UcnVlLCBuYT1GYWxzZSlcbmljZWQgICAgICAgPSBkZlsnZHJpbmsnXS5zdHIuY29udGFpbnMoaWNlZHJlc3RyLCByZWdleD1UcnVlLCBuYT1GYWxzZSlcbnRlYXMgICAgICAgPSBkZlsnZHJpbmsnXS5zdHIuY29udGFpbnModGVhcmVzdHIsICByZWdleD1UcnVlLCBuYT1GYWxzZSlcblxuIyBTZXQgYWxnZWJyYSBvbiBtYXNrczpcbkVfb3JfSSAgID0gZXNwcmVzc29pc2ggfCBpY2VkICAgICAgICAgICMgdW5pb25cbklfYW5kX1QgID0gaWNlZCAmIHRlYXMgICAgICAgICAgICAgICAgICMgaW50ZXJzZWN0aW9uXG5ub3RfSSAgICA9IH5pY2VkICAgICAgICAgICAgICAgICAgICAgICAjIGNvbXBsZW1lbnRcblxuIyBQcm9qZWN0IHRoZSBkYXRhOlxuc3Vic2V0ID0gZGZbRV9vcl9JXVxuc3Vic2V0In0=
+</script>
+</div>
+</section>
 <section id="your-turn" class="slide level2 activity">
 <h2>Your Turn</h2>
 <p>Filter for:</p>
 <ol type="1">
 <li><p>Drinks exactly “Iced Latte” (any case)</p></li>
 <li><p>Drinks containing either “Americano” or “Espresso” (whole words, any case)</p></li>
-<li><p>Drinks that <strong>do not</strong> contain “Iced” but end with “Tea” (hint: ________________)</p></li>
+<li><p>Drinks that end with “Latte” but are <strong>not</strong> iced (hint: ________________)</p></li>
 </ol>
+<aside class="notes">
+<ol type="1">
+<li><code>(?i)^iced latte$</code>: contains plus both anchors is a full match. 1 row.</li>
+<li><code>(?i)\b(americano|espresso)\b</code>. 3 rows.</li>
+<li>Two masks: <code>Latte$</code> and <code>(?i)\biced\b</code>, then <code>m3 = m3a &amp; ~m3b</code>. The hint is “two masks and a complement”. 4 rows: Latte, Latte, Matcha Latte, Chai Latte.</li>
+</ol>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="your-turn-1" class="slide level2 activity">
 <h2>Your Turn</h2>
@@ -332,19 +352,6 @@ eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiXG5xMXJlc3RyID0gcidfX19f
 </p>
 <p>A filter with <span class="rule">str.contains(pattern)</span> is a membership test too, for a bigger language: <span class="math inline">\(\Sigma^* L\, \Sigma^*\)</span>, the strings that have a part in <span class="math inline">\(L\)</span>.</p>
 <p>You’ve been doing language membership tests all class, with filters.</p>
-</section></section>
-<section>
-<section id="regular-expressions-and-dfas" class="title-slide slide level1 center">
-<h1>Regular Expressions and DFAs</h1>
-
-</section>
-<section id="goals" class="slide level2">
-<h2>Goals</h2>
-<ul>
-<li>Recall a regex is a <em>set</em> of strings (a language).</li>
-<li>Build small DFAs that <strong>recognize</strong> those sets.</li>
-<li>Use closure tricks (∪, ∩, complement) to combine DFAs.</li>
-</ul>
 </section>
 <section id="two-views-on-regular-expressions" class="slide level2 smaller">
 <h2>Two views on Regular Expressions</h2>
@@ -363,170 +370,20 @@ eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiXG5xMXJlc3RyID0gcidfX19f
 </thead>
 <tbody>
 <tr class="odd">
-<td>Full-string match</td>
-<td><code>re.fullmatch(r'(bb+|c[ac]*|b?)', s)</code><br><code>df['col'].str.fullmatch(r'(bb+|c[ac]*|b?)')</code></td>
-<td>Use <code>^</code> and <code>$</code>: <code>r'^(...)$'</code></td>
+<td>Full-string match (language)</td>
+<td><code>re.fullmatch(r'bb+|c[ac]*', s)</code><br><code>df['col'].str.fullmatch(r'bb+|c[ac]*')</code></td>
+<td>not needed: the whole string has to fit</td>
 </tr>
 <tr class="even">
-<td>Substring search</td>
-<td><code>re.search(r'(bb+|c[ac]*|b?)', s)</code><br><code>df['col'].str.contains(r'(bb+|c[ac]*|b?)')</code></td>
-<td>none</td>
+<td>Substring search (filter)</td>
+<td><code>re.search(r'bb+|c[ac]*', s)</code><br><code>df['col'].str.contains(r'bb+|c[ac]*')</code></td>
+<td>add <code>^(...)$</code> to make it a full-string test</td>
 </tr>
 </tbody>
 </table>
-</section>
-<section id="warm-up" class="slide level2 activity">
-<h2>Warm-Up</h2>
-<p>Pattern: <code>^(0|1)*11(0|1)*$</code></p>
-<p>Which strings are in the set?</p>
-<ul>
-<li><code>10101</code><br>
-</li>
-<li><code>11010</code><br>
-</li>
-<li><code>10001</code><br>
-</li>
-<li><code>10110</code></li>
-</ul>
-<aside class="notes">
-<p>Answer: <code>11010</code>, <code>10110</code>. emphasize that we are reading the string from left to right.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="contains-11" class="slide level2 smaller">
-<h2>Contains 11</h2>
-<p>Alphabet: <code>{0,1}</code></p>
-<p>States:</p>
-<ul>
-<li><code>S0</code>: have seen no <code>1</code>s (start)</li>
-<li><code>S1</code>: just saw a <code>1</code></li>
-<li><code>S2</code>: saw substring <code>11</code> (accepting)</li>
-</ul>
-<p>DFA Sketch:</p>
-<aside class="notes">
-<p>Run a couple examples on the board: <code>101101</code> (accept), <code>101010</code> (reject). key elements: 0) input alphabet 1) set of states. 2) start state, 3) transition function, 4) set of accept states.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="dfa-ideas" class="slide level2">
-<h2>DFA Ideas</h2>
-<p>Process a string from left to right, one character at a time.</p>
-<ul>
-<li><p><strong>State</strong>: what the prefix tells us so far.</p></li>
-<li><p><strong>Accept</strong> iff we finish in an accepting state.</p></li>
-<li><p><strong>Deterministic</strong>: at most one transition per symbol from every state.</p></li>
-<li><p><strong>Total</strong>: every state has a transition on every symbol.</p></li>
-</ul>
-</section>
-<section id="dfa-definition" class="slide level2">
-<h2>DFA Definition</h2>
-<p>A <em>Deterministic Finite Automaton</em> consists of the following:</p>
-<ol type="1">
-<li>a set of states <span class="math inline">\(S\)</span></li>
-<li>a finite alphabet <span class="math inline">\(\Sigma\)</span></li>
-<li>a transition function <span class="math inline">\(f\)</span> that assigns a next state to each <span class="math inline">\((s, i)\)</span> pair, <span class="math inline">\(s\in S\)</span> and <span class="math inline">\(i\in \Sigma\)</span>.</li>
-<li>a start state <span class="math inline">\(s_0\)</span></li>
-<li>a set of accepting states <span class="math inline">\(F\subseteq S\)</span></li>
-</ol>
-</section>
-<section id="regex-dfa" class="slide level2">
-<h2>Regex = DFA</h2>
-<p>A language is regular if and only if it is recognized by some DFA.</p>
-</section>
-<section id="you-try-ends-with-tea" class="slide level2">
-<h2>You Try: “Ends with Tea”</h2>
-<p>Target: strings that end with <code>tea</code></p>
-<aside class="notes">
-<p>alphabet is lower case letters, here, just to keep it simple.</p>
-<p>We’ll use this when we do unions, later.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="prefix-example-starts-with-iced" class="slide level2">
-<h2>Prefix Example: “Starts with Iced”</h2>
-<p>Plan:</p>
-<ul>
-<li>Chain prefix states; before success, any mismatch → <code>SINK</code>.</li>
-<li>After success, loop on <strong>any</strong> character in <code>ACC</code>.</li>
-</ul>
-<p>Diagram:</p>
-</section>
-<section id="one-last-example" class="slide level2">
-<h2>One Last Example</h2>
-<p>Build the DFA corresponding to <code>^0(1*|0*)1$</code></p>
-</section>
-<section id="closure-tricks" class="slide level2">
-<h2>Closure Tricks</h2>
-<p>What’s <em>closure</em>?</p>
-<ul>
-<li><strong>Complement</strong>: make the DFA <strong>total</strong> (add SINK if needed), then flip accept to non-accept, and vice-versa.</li>
-<li><strong>Union / Intersection</strong>:<br>
-States are pairs <code>(p,q)</code>
-<ul>
-<li>Union accepts if <code>p ∈ F1</code> <strong>or</strong> <code>q ∈ F2</code></li>
-<li>Intersection accepts if <code>p ∈ F1</code> <strong>and</strong> <code>q ∈ F2</code></li>
-</ul></li>
-<li><strong>Difference</strong>: <code>L1 - L2 =</code> <span class="math inline">\(L1\cap L2^c\)</span></li>
-</ul>
-<aside class="notes">
-<p>This mirrors set algebra directly; great place to reinforce recent set lessons.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="mini-exercise" class="slide level2">
-<h2>Mini-Exercise</h2>
-<p>Build a DFA for the <strong>union</strong> of:</p>
-<ul>
-<li><code>L1</code>: contains <code>11</code> (use the machine we built)</li>
-<li><code>L2</code>: ends with <code>00</code> (three states: <code>Tε, T0, T00</code>)</li>
-</ul>
-<p><strong>Hint:</strong> sketch product states <code>(S_i, T_j)</code> and mark <code>accept</code> pairs for union.</p>
-</section>
-<section id="parity-demo" class="slide level2">
-<h2>Parity Demo</h2>
-<p>Language: even number of <code>1</code>s over <code>{0,1}</code>.</p>
-<ul>
-<li><code>EVEN</code> (start, accept), <code>ODD</code><br>
-</li>
-<li>on <code>1</code>: toggle; on <code>0</code>: stay</li>
-</ul>
-<p>Try: which strings of length <span class="math inline">\(\leq\)</span> 4 accept?</p>
+<p><br>
+</p>
+<p>Careful: if a pattern matches the empty string, every string has a part that fits. <code>df['drink'].str.contains(r'b?')</code> keeps all 20 café orders.</p>
 
 
 <script type="pyodide-data">

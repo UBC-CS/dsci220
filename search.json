@@ -633,133 +633,175 @@
   {
     "objectID": "slides/lecture-25_slides.html#announcements",
     "href": "slides/lecture-25_slides.html#announcements",
-    "title": "NFAs",
+    "title": "DFAs, NFAs",
     "section": "Announcements",
     "text": "Announcements"
   },
   {
     "objectID": "slides/lecture-25_slides.html#goals",
     "href": "slides/lecture-25_slides.html#goals",
-    "title": "NFAs",
+    "title": "DFAs, NFAs",
     "section": "Goals",
-    "text": "Goals\n\nUse closure tricks (∪, ∩, complement) to combine DFAs."
+    "text": "Goals\n\nRecall a regex is a set of strings (a language).\nBuild small DFAs that recognize those sets.\nUse closure tricks (∪, ∩, complement) to combine DFAs."
   },
   {
     "objectID": "slides/lecture-25_slides.html#warm-up",
     "href": "slides/lecture-25_slides.html#warm-up",
-    "title": "NFAs",
+    "title": "DFAs, NFAs",
     "section": "Warm-Up",
-    "text": "Warm-Up\nPrefix Example: Starts with iced\nPlan:\n\nChain prefix states; before success, any mismatch goes to SINK.\nAfter success, loop on any character in ACC.\n\nDiagram:"
+    "text": "Warm-Up\nPattern: ^(0|1)*11(0|1)*$\nWhich strings are in the set?\n\n10101\n\n11010\n\n10001\n\n10110\n\n\nAnswer: 11010, 10110. emphasize that we are reading the string from left to right."
+  },
+  {
+    "objectID": "slides/lecture-25_slides.html#contains-11",
+    "href": "slides/lecture-25_slides.html#contains-11",
+    "title": "DFAs, NFAs",
+    "section": "Contains 11",
+    "text": "Contains 11\nAlphabet: {0,1}\nStates:\n\nS0: the last symbol wasn’t a 1 (or nothing read yet). Start.\nS1: just saw a 1\nS2: saw substring 11 (accepting)\n\nDFA Sketch:\n\nRun a couple examples on the board: 101101 (accept), 101010 (reject). key elements: 0) input alphabet 1) set of states. 2) start state, 3) transition function, 4) set of accept states."
+  },
+  {
+    "objectID": "slides/lecture-25_slides.html#dfa-ideas",
+    "href": "slides/lecture-25_slides.html#dfa-ideas",
+    "title": "DFAs, NFAs",
+    "section": "DFA Ideas",
+    "text": "DFA Ideas\nProcess a string from left to right, one character at a time.\n\nState: what the prefix tells us so far.\nAccept iff we finish in an accepting state.\nDeterministic: at most one transition per symbol from every state.\nTotal: every state has a transition on every symbol."
+  },
+  {
+    "objectID": "slides/lecture-25_slides.html#dfa-definition",
+    "href": "slides/lecture-25_slides.html#dfa-definition",
+    "title": "DFAs, NFAs",
+    "section": "DFA Definition",
+    "text": "DFA Definition\nA Deterministic Finite Automaton consists of the following:\n\na set of states \\(S\\)\na finite alphabet \\(\\Sigma\\)\na transition function \\(f\\) that assigns a next state to each \\((s, i)\\) pair, \\(s\\in S\\) and \\(i\\in \\Sigma\\).\na start state \\(s_0\\)\na set of accepting states \\(F\\subseteq S\\)"
+  },
+  {
+    "objectID": "slides/lecture-25_slides.html#regex-dfa",
+    "href": "slides/lecture-25_slides.html#regex-dfa",
+    "title": "DFAs, NFAs",
+    "section": "Regex = DFA",
+    "text": "Regex = DFA\nA language is regular if and only if it is recognized by some DFA."
+  },
+  {
+    "objectID": "slides/lecture-25_slides.html#you-try-ends-with-tea",
+    "href": "slides/lecture-25_slides.html#you-try-ends-with-tea",
+    "title": "DFAs, NFAs",
+    "section": "You Try: “Ends with Tea”",
+    "text": "You Try: “Ends with Tea”\nTarget: strings that end with tea\n\nalphabet is lower case letters, here, just to keep it simple.\nWe’ll use this when we do unions, later."
+  },
+  {
+    "objectID": "slides/lecture-25_slides.html#prefix-example-starts-with-iced",
+    "href": "slides/lecture-25_slides.html#prefix-example-starts-with-iced",
+    "title": "DFAs, NFAs",
+    "section": "Prefix Example: “Starts with Iced”",
+    "text": "Prefix Example: “Starts with Iced”\nPlan:\n\nChain prefix states; before success, any mismatch → SINK.\nAfter success, loop on any character in ACC.\n\nDiagram:"
   },
   {
     "objectID": "slides/lecture-25_slides.html#one-last-example",
     "href": "slides/lecture-25_slides.html#one-last-example",
-    "title": "NFAs",
+    "title": "DFAs, NFAs",
     "section": "One Last Example",
     "text": "One Last Example\nBuild the DFA corresponding to ^0(1*|0*)1$"
   },
   {
     "objectID": "slides/lecture-25_slides.html#closure-tricks",
     "href": "slides/lecture-25_slides.html#closure-tricks",
-    "title": "NFAs",
+    "title": "DFAs, NFAs",
     "section": "Closure Tricks",
-    "text": "Closure Tricks\nWhat’s closure?\n\nComplement: make the DFA total (add SINK if needed), then flip accept to non-accept, and vice-versa.\nUnion / Intersection:\nStates are pairs (p,q)\n\nUnion accepts if p ∈ F1 or q ∈ F2\nIntersection accepts if p ∈ F1 and q ∈ F2\n\nDifference: L1 - L2 = \\(L1\\cap L2^c\\)"
+    "text": "Closure Tricks\nWhat’s closure?\n\nComplement: make the DFA total (add SINK if needed), then flip accept to non-accept, and vice-versa.\nUnion / Intersection:\nStates are pairs (p,q)\n\nUnion accepts if p ∈ F1 or q ∈ F2\nIntersection accepts if p ∈ F1 and q ∈ F2\n\nDifference: L1 - L2 = \\(L1\\cap L2^c\\)\n\n\nThis mirrors set algebra directly; great place to reinforce recent set lessons."
   },
   {
-    "objectID": "slides/lecture-25_slides.html#exercise",
-    "href": "slides/lecture-25_slides.html#exercise",
-    "title": "NFAs",
-    "section": "Exercise",
-    "text": "Exercise\nBuild a DFA for the union of:\n\nL1: contains 11 (use the machine we built)\nL2: ends with 00 (three states: T, T0, T00)\n\nHint: sketch product states (S_i, T_j) and mark accept pairs for union (or)."
+    "objectID": "slides/lecture-25_slides.html#mini-exercise",
+    "href": "slides/lecture-25_slides.html#mini-exercise",
+    "title": "DFAs, NFAs",
+    "section": "Mini-Exercise",
+    "text": "Mini-Exercise\nBuild a DFA for the union of:\n\nL1: contains 11 (use the machine we built)\nL2: ends with 00 (three states: Tε, T0, T00)\n\nHint: sketch product states (S_i, T_j) and mark accept pairs for union."
   },
   {
     "objectID": "slides/lecture-25_slides.html#parity-demo",
     "href": "slides/lecture-25_slides.html#parity-demo",
-    "title": "NFAs",
+    "title": "DFAs, NFAs",
     "section": "Parity Demo",
-    "text": "Parity Demo\nLanguage: even number of 1s over alphabet \\(\\{0,1\\}\\).\n\nEVEN (start, accept), ODD\n\non 1: toggle; on 0: stay\n\nWhich strings of length \\(\\leq\\) 4 accept?"
+    "text": "Parity Demo\nLanguage: even number of 1s over {0,1}.\n\nEVEN (start, accept), ODD\n\non 1: toggle; on 0: stay\n\nTry: which strings of length \\(\\leq\\) 4 accept?"
   },
   {
     "objectID": "slides/lecture-25_slides.html#nfas",
     "href": "slides/lecture-25_slides.html#nfas",
-    "title": "NFAs",
+    "title": "DFAs, NFAs",
     "section": "NFAs",
     "text": "NFAs\n \n \n \nDFA: exactly one transition for each input symbol in each state.\nNFA: may have multiple choices on a symbol and \\(\\varepsilon\\)-moves (move without consuming input).\nAcceptance: a string is accepted if there exists a path that reads all characters and lands in an accept state.\n\nSay: “NFA is a modeling convenience. We’ll lean on that for regex to NFA construction.”"
   },
   {
     "objectID": "slides/lecture-25_slides.html#notes-on-nfas",
     "href": "slides/lecture-25_slides.html#notes-on-nfas",
-    "title": "NFAs",
+    "title": "DFAs, NFAs",
     "section": "Notes on NFAs",
     "text": "Notes on NFAs\n\nDirect from a regex: Translate patterns piece-by-piece without tricky state discovery.\nLocal “gadgets”: Build tiny NFAs for literal, union (\\(|\\)), concatenation, Kleene star (\\(^*\\)) and wire together with \\(\\varepsilon\\).\nNFAs and DFAs have the same power!! (Kleene’s Theorem)\nBuild a DFA from NFA algorithmically if you need one.\n\n\nMessage: “We model the branching in the regex directly; acceptance means at least one successful path.”"
   },
   {
     "objectID": "slides/lecture-25_slides.html#regex-to-nfa-gadgets",
     "href": "slides/lecture-25_slides.html#regex-to-nfa-gadgets",
-    "title": "NFAs",
+    "title": "DFAs, NFAs",
     "section": "Regex to NFA Gadgets",
     "text": "Regex to NFA Gadgets\n\n\n\n\nLiteral ‘a’\n\n\n          a s f\n\n\nUnion: R | S\n\n\n         s f  [ R ]    [ S ]     ε ε   ε ε\n\n\n\nConcatenation: RS\n\n\n         s f  [ R ]    [ S ]      ε\n\n\nKleene star: R*\n\n\n         s f  [ R ]    ε (empty)  ε  ε  ε"
   },
   {
     "objectID": "slides/lecture-25_slides.html#example-1",
     "href": "slides/lecture-25_slides.html#example-1",
-    "title": "NFAs",
+    "title": "DFAs, NFAs",
     "section": "Example 1",
     "text": "Example 1\n^(ab|ba)*$"
   },
   {
     "objectID": "slides/lecture-25_slides.html#example-2",
     "href": "slides/lecture-25_slides.html#example-2",
-    "title": "NFAs",
+    "title": "DFAs, NFAs",
     "section": "Example 2",
     "text": "Example 2\n^(0|1)*11(0|1)*$"
   },
   {
     "objectID": "slides/lecture-25_slides.html#example-3",
     "href": "slides/lecture-25_slides.html#example-3",
-    "title": "NFAs",
+    "title": "DFAs, NFAs",
     "section": "Example 3",
     "text": "Example 3\nTask: Sketch an NFA for ^1(01|10)*0$ using only the four gadgets.\nPlan: literal 1 … union(01,10) … star … literal 0."
   },
   {
     "objectID": "slides/lecture-25_slides.html#last-puzzle",
     "href": "slides/lecture-25_slides.html#last-puzzle",
-    "title": "NFAs",
+    "title": "DFAs, NFAs",
     "section": "Last Puzzle:",
     "text": "Last Puzzle:\n\\(0^n1^n\\)"
   },
   {
     "objectID": "slides/lecture-25_slides.html#why-regexdfas-cant-do-0n1n",
     "href": "slides/lecture-25_slides.html#why-regexdfas-cant-do-0n1n",
-    "title": "NFAs",
+    "title": "DFAs, NFAs",
     "section": "Why Regex/DFAs Can’t Do \\(0^n1^n\\)",
     "text": "Why Regex/DFAs Can’t Do \\(0^n1^n\\)\nLanguage: \\(\\{\\,0^n1^n : n\\ge 0\\,\\}\\) (equal 0s followed by equal 1s)\nFinite-state limitation:\nAssume a DFA exists that accepts \\(0^n1^n\\), and let \\(k\\) denote its number of states.\nAmong the \\(k+1\\) prefixes \\(0^0, 0^1, \\dots, 0^k\\) two must land in the same state.\nFrom those two prefixes, feed the same number of 1s. One string should accept, and the other should not.\n\nNot all languages are regular! No Pumping Lemma needed; it’s a pigeonhole/“can’t count unboundedly” story."
   },
   {
     "objectID": "slides/lecture-25_slides.html#cfg-review",
     "href": "slides/lecture-25_slides.html#cfg-review",
-    "title": "NFAs",
+    "title": "DFAs, NFAs",
     "section": "CFG Review",
     "text": "CFG Review\nA context-free grammar (CFG) has:\n\nTerminals (alphabet),\nNonterminals (variables),\nStart symbol,\nProductions like \\(S \\to 0S1 \\mid \\varepsilon\\).\n\nNotes:\n\nA derivation rewrites nonterminals to produce a string.\nA parse tree is evidence of how a string was generated.\nThe class of Regular Languages \\(\\subset\\) the class of Context-Free Languages\n\n\nConnect to your earlier WFF grammar: “That was a CFG all along.”"
   },
   {
     "objectID": "slides/lecture-25_slides.html#grammar-for-0n1n",
     "href": "slides/lecture-25_slides.html#grammar-for-0n1n",
-    "title": "NFAs",
+    "title": "DFAs, NFAs",
     "section": "Grammar for \\(0^n1^n\\) ?",
     "text": "Grammar for \\(0^n1^n\\) ?\nGrammar:\n\\(S \\to 0S1 \\ \\mid\\ \\varepsilon\\)\nDerivations:\n\nFor 01: \\[\nS \\Rightarrow 0S1 \\Rightarrow 01\n\\]\nFor 000111: \\[\nS \\Rightarrow 0S1 \\Rightarrow 00S11 \\Rightarrow 000S111 \\Rightarrow 000111\n\\]\n\nParse tree shape for 0011:"
   },
   {
     "objectID": "slides/lecture-25_slides.html#closure-facts",
     "href": "slides/lecture-25_slides.html#closure-facts",
-    "title": "NFAs",
+    "title": "DFAs, NFAs",
     "section": "Closure Facts",
     "text": "Closure Facts\nIf \\(L_1, L_2\\) are context-free:\n\nUnion: context-free via new start \\(S \\to S_1 \\mid S_2\\)\nConcatenation: context-free via \\(S \\to S_1 S_2\\)\nKleene star: context-free via \\(S \\to SS \\mid \\varepsilon\\)\n\n(Intersection with regular languages is CF; general intersection/complement are not.)\n\nTie back to set algebra & your earlier closures with DFAs."
   },
   {
     "objectID": "slides/lecture-25_slides.html#a-basic-json-cfg",
     "href": "slides/lecture-25_slides.html#a-basic-json-cfg",
-    "title": "NFAs",
+    "title": "DFAs, NFAs",
     "section": "A Basic JSON CFG",
     "text": "A Basic JSON CFG\nhttps://www.json.org/json-en.html\nWe ignore lexical details and focus on structure.\n\nValue → Object | Array | String | Number | true | false | null\n\nObject → { Members } | {}\n\nMembers → Pair | Pair , Members\n\nPair → String : Value\n\nArray → [ Elements ] | []\n\nElements → Value | Value , Elements\n\nExample: Is {\"a\":[1,2,{\"b\":null}]} in the language?\n\nPoint: regex can’t enforce balanced, nested delimiters; CFGs can."
   },
@@ -1814,7 +1856,7 @@
     "href": "index.html#schedule",
     "title": "DSCI 220: Discrete Math for Data Science",
     "section": "Schedule",
-    "text": "Schedule\n\nBy weekBy unit\n\n\n\n\n\n\n\n  \n    \n      \n      \n        Classes\n      \n      \n    \n    \n      \n      \n      \n        Mon\n      \n      \n      \n        Wed\n      \n      \n      \n        Fri\n      \n      \n      \n        Tutorial\n      \n      \n      \n      \n        HWK\n      \n      \n      \n        EX\n      \n    \n    \n      \n      \n      \n      \n      \n      \n      \n      \n      \n      \n      \n    \n  \n  \n    \n      Part 1Topic to be decided\n\n    \n    Week 1starts Sep 7\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 2starts Sep 14\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 3starts Sep 21\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 1Sep 24–27Book Practice\n\n    Week 4starts Sep 28\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 5starts Oct 5\n\n\n\n\n\n\n\n\n\n\n \n \n\n\n\n\n\n\nExam 2Oct 8–11Book Practice\n\n    \n      Part 2Topic to be decided\n\n    \n    Week 6starts Oct 12\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 7starts Oct 19\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 8starts Oct 26\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 3Oct 29 – Nov 1Book Practice\n\n    Week 9starts Nov 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 10starts Nov 9\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    \n      Part 3Topic to be decided\n\n    \n    Week 11starts Nov 16\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 4Nov 19–22Book\n\n    Week 12starts Nov 23\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 13starts Nov 30\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 5Dec 3–6\n\n    Week 14starts Dec 7\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFinal examSun Dec 13\n\n  \n  \n\n\n\n\n\n\n\n  \n    \n      \n      \n        Classes\n      \n      \n    \n    \n      \n      \n      \n        Mon\n      \n      \n      \n        Wed\n      \n      \n      \n        Fri\n      \n      \n      \n        Tutorial\n      \n      \n      \n      \n        HWK\n      \n      \n      \n        EX\n      \n    \n    \n      \n      \n      \n      \n      \n      \n      \n      \n      \n      \n      \n    \n  \n  \n    \n      Part 1Topic to be decided\n\n    \n    Week 1starts Sep 7\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 2starts Sep 14\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 3starts Sep 21\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 1Sep 24–27Book Practice\n\n    Week 4starts Sep 28\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 5starts Oct 5\n\n\n\n\n\n\n\n\n\n\n \n \n\n\n\n\n\n\nExam 2Oct 8–11Book Practice\n\n    \n      Part 2Topic to be decided\n\n    \n    Week 6starts Oct 12\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 7starts Oct 19\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 8starts Oct 26\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 3Oct 29 – Nov 1Book Practice\n\n    Week 9starts Nov 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 10starts Nov 9\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    \n      Part 3Topic to be decided\n\n    \n    Week 11starts Nov 16\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 4Nov 19–22Book\n\n    Week 12starts Nov 23\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 13starts Nov 30\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 5Dec 3–6\n\n    Week 14starts Dec 7\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFinal examSun Dec 13\n\n  \n  \n\n\n\n\n\n\n\n\n\n\n\n  \n    \n      \n      \n      Slides\n      Activity\n      Video\n    \n  \n  \n    \n      Part 1Topic to be decidedWeek 1\n\n    \n    WedSep 9\n\nLecture 1Introduction\n\n\n\n\n    FriSep 11\n\nLecture 2Truth and Propositions\n\n\n\n\n    \n      Week 2\n    \n    MonSep 14\n\nLecture 3Logical Equivalences\n\n\n\n\n    WedSep 16\n\nLecture 4Implication\n\n\n\n\n    FriSep 18\n\nLecture 5Rules of Inference\n\n\n\n\n    1st slot\n\nPlaceholderTutorial 1\n\n\n\n\n    Due: SunSep 20\n\nPlaceholder Homework 1\n\n\n\n\n    \n      Week 3\n    \n    MonSep 21\n\nLecture 6Inference, continued\n\n\n\n\n    WedSep 23\n\nLecture 7Unit Propagation\n\n\n\n\n    FriSep 25\n\nLecture 8Predicates and Quantifiers\n\n\n\n\n    1st slot\n\nPlaceholderTutorial 2\n\n\n\n\n    Due: SunSep 27\n\nPlaceholderExam 1 Book Practice\n\n\n\n\n    \n      Week 4\n    \n    MonSep 28\n\nLecture 9Nested Quantifiers\n\n\n\n\n    FriOct 2\n\nLecture 10Proofs\n\n\n\n\n    1st slot\n\nPlaceholderTutorial 3\n\n\n\n\n    Due: SunOct 4\n\nPlaceholder Homework 2\n\n\n\n\n    \n      Week 5\n    \n    MonOct 5\n\nLecture 11Proof by Induction\n\n\n\n\n    WedOct 7\n\nLecture 12Proof by Induction\n\n\n\n\n    FriOct 9\n\nLecture 13Trominoes and RecurrencesLecture 13 (auxiliary)Summations\n\n \n\n \n    1st slot\n\nPlaceholderTutorial 4\n\n\n\n\n    Due: SunOct 11\n\nPlaceholderExam 2 Book Practice\n\n\n\n\n    \n      Part 2Topic to be decidedWeek 6\n\n    \n    WedOct 14\n\nLecture 14Modular Arithmetic\n\n\n\n\n    FriOct 16\n\nLecture 15Asymptotics\n\n\n\n\n    \n      Week 7\n    \n    MonOct 19\n\nLecture 16Asymptotics, continued\n\n\n\n\n    WedOct 21\n\nLecture 17Binary: an Application Interlude\n\n\n\n\n    FriOct 23\n\nLecture 18Binary, Continued: Fixed Width\n\n\n\n\n    1st slot\n\nPlaceholderTutorial 5\n\n\n\n\n    Due: SunOct 25\n\nPlaceholder Homework 3\n\n\n\n\n    \n      Week 8\n    \n    MonOct 26\n\nLecture 19Sets\n\n\n\n\n    WedOct 28\n\nLecture 20Sets, continued\n\n\n\n\n    FriOct 30\n\nLecture 21Sets, continued\n\n\n\n\n    1st slot\n\nPlaceholderTutorial 6\n\n\n\n\n    Due: SunNov 1\n\nPlaceholderExam 3 Book Practice\n\n\n\n\n    \n      Week 9\n    \n    MonNov 2\n\nLecture 22Sets, Regex\n\n\n\n\n    WedNov 4\n\nLecture 23Regular Expressions\n\n\n\n\n    FriNov 6\n\nLecture 24Regex Filters, DFAs\n\n\n\n\n    1st slot\n\nPlaceholderTutorial 7\n\n\n\n\n    \n      Week 10\n    \n    Due: SunNov 15\n\nPlaceholder Homework 4\n\n\n\n\n  \n  \n\n\n\n\n\n\n\n  \n    \n      \n      \n      Slides\n      Activity\n      Video\n    \n  \n  \n    \n      Part 1Topic to be decidedWeek 1\n\n    \n    WedSep 9\n\nLecture 1Introduction\n\n\n\n\n    FriSep 11\n\nLecture 2Truth and Propositions\n\n\n\n\n    \n      Week 2\n    \n    MonSep 14\n\nLecture 3Logical Equivalences\n\n\n\n\n    WedSep 16\n\nLecture 4Implication\n\n\n\n\n    FriSep 18\n\nLecture 5Rules of Inference\n\n\n\n\n    1st slot\n\nPlaceholderTutorial 1\n\n\n\n\n    Due: SunSep 20\n\nPlaceholder Homework 1\n\n\n\n\n    \n      Week 3\n    \n    MonSep 21\n\nLecture 6Inference, continued\n\n\n\n\n    WedSep 23\n\nLecture 7Unit Propagation\n\n\n\n\n    FriSep 25\n\nLecture 8Predicates and Quantifiers\n\n\n\n\n    1st slot\n\nPlaceholderTutorial 2\n\n\n\n\n    Due: SunSep 27\n\nPlaceholderExam 1 Book Practice\n\n\n\n\n    \n      Week 4\n    \n    MonSep 28\n\nLecture 9Nested Quantifiers\n\n\n\n\n    FriOct 2\n\nLecture 10Proofs\n\n\n\n\n    1st slot\n\nPlaceholderTutorial 3\n\n\n\n\n    Due: SunOct 4\n\nPlaceholder Homework 2\n\n\n\n\n    \n      Week 5\n    \n    MonOct 5\n\nLecture 11Proof by Induction\n\n\n\n\n    WedOct 7\n\nLecture 12Proof by Induction\n\n\n\n\n    FriOct 9\n\nLecture 13Trominoes and RecurrencesLecture 13 (auxiliary)Summations\n\n \n\n \n    1st slot\n\nPlaceholderTutorial 4\n\n\n\n\n    Due: SunOct 11\n\nPlaceholderExam 2 Book Practice\n\n\n\n\n    \n      Part 2Topic to be decidedWeek 6\n\n    \n    WedOct 14\n\nLecture 14Modular Arithmetic\n\n\n\n\n    FriOct 16\n\nLecture 15Asymptotics\n\n\n\n\n    \n      Week 7\n    \n    MonOct 19\n\nLecture 16Asymptotics, continued\n\n\n\n\n    WedOct 21\n\nLecture 17Binary: an Application Interlude\n\n\n\n\n    FriOct 23\n\nLecture 18Binary, Continued: Fixed Width\n\n\n\n\n    1st slot\n\nPlaceholderTutorial 5\n\n\n\n\n    Due: SunOct 25\n\nPlaceholder Homework 3\n\n\n\n\n    \n      Week 8\n    \n    MonOct 26\n\nLecture 19Sets\n\n\n\n\n    WedOct 28\n\nLecture 20Sets, continued\n\n\n\n\n    FriOct 30\n\nLecture 21Sets, continued\n\n\n\n\n    1st slot\n\nPlaceholderTutorial 6\n\n\n\n\n    Due: SunNov 1\n\nPlaceholderExam 3 Book Practice\n\n\n\n\n    \n      Week 9\n    \n    MonNov 2\n\nLecture 22Sets, Regex\n\n\n\n\n    WedNov 4\n\nLecture 23Regular Expressions\n\n\n\n\n    FriNov 6\n\nLecture 24Regex Filters, DFAs\n\n\n\n\n    1st slot\n\nPlaceholderTutorial 7\n\n\n\n\n    \n      Week 10\n    \n    Due: SunNov 15\n\nPlaceholder Homework 4",
+    "text": "Schedule\n\nBy weekBy unit\n\n\n\n\n\n\n\n  \n    \n      \n      \n        Classes\n      \n      \n    \n    \n      \n      \n      \n        Mon\n      \n      \n      \n        Wed\n      \n      \n      \n        Fri\n      \n      \n      \n        Tutorial\n      \n      \n      \n      \n        HWK\n      \n      \n      \n        EX\n      \n    \n    \n      \n      \n      \n      \n      \n      \n      \n      \n      \n      \n      \n    \n  \n  \n    \n      Part 1Topic to be decided\n\n    \n    Week 1starts Sep 7\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 2starts Sep 14\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 3starts Sep 21\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 1Sep 24–27Book Practice\n\n    Week 4starts Sep 28\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 5starts Oct 5\n\n\n\n\n\n\n\n\n\n\n \n \n\n\n\n\n\n\nExam 2Oct 8–11Book Practice\n\n    \n      Part 2Topic to be decided\n\n    \n    Week 6starts Oct 12\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 7starts Oct 19\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 8starts Oct 26\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 3Oct 29 – Nov 1Book Practice\n\n    Week 9starts Nov 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 10starts Nov 9\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    \n      Part 3Topic to be decided\n\n    \n    Week 11starts Nov 16\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 4Nov 19–22Book\n\n    Week 12starts Nov 23\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 13starts Nov 30\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 5Dec 3–6\n\n    Week 14starts Dec 7\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFinal examSun Dec 13\n\n  \n  \n\n\n\n\n\n\n\n  \n    \n      \n      \n        Classes\n      \n      \n    \n    \n      \n      \n      \n        Mon\n      \n      \n      \n        Wed\n      \n      \n      \n        Fri\n      \n      \n      \n        Tutorial\n      \n      \n      \n      \n        HWK\n      \n      \n      \n        EX\n      \n    \n    \n      \n      \n      \n      \n      \n      \n      \n      \n      \n      \n      \n    \n  \n  \n    \n      Part 1Topic to be decided\n\n    \n    Week 1starts Sep 7\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 2starts Sep 14\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 3starts Sep 21\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 1Sep 24–27Book Practice\n\n    Week 4starts Sep 28\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 5starts Oct 5\n\n\n\n\n\n\n\n\n\n\n \n \n\n\n\n\n\n\nExam 2Oct 8–11Book Practice\n\n    \n      Part 2Topic to be decided\n\n    \n    Week 6starts Oct 12\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 7starts Oct 19\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 8starts Oct 26\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 3Oct 29 – Nov 1Book Practice\n\n    Week 9starts Nov 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 10starts Nov 9\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    \n      Part 3Topic to be decided\n\n    \n    Week 11starts Nov 16\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 4Nov 19–22Book\n\n    Week 12starts Nov 23\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 13starts Nov 30\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 5Dec 3–6\n\n    Week 14starts Dec 7\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFinal examSun Dec 13\n\n  \n  \n\n\n\n\n\n\n\n\n\n\n\n  \n    \n      \n      \n      Slides\n      Activity\n      Video\n    \n  \n  \n    \n      Part 1Topic to be decidedWeek 1\n\n    \n    WedSep 9\n\nLecture 1Introduction\n\n\n\n\n    FriSep 11\n\nLecture 2Truth and Propositions\n\n\n\n\n    \n      Week 2\n    \n    MonSep 14\n\nLecture 3Logical Equivalences\n\n\n\n\n    WedSep 16\n\nLecture 4Implication\n\n\n\n\n    FriSep 18\n\nLecture 5Rules of Inference\n\n\n\n\n    1st slot\n\nPlaceholderTutorial 1\n\n\n\n\n    Due: SunSep 20\n\nPlaceholder Homework 1\n\n\n\n\n    \n      Week 3\n    \n    MonSep 21\n\nLecture 6Inference, continued\n\n\n\n\n    WedSep 23\n\nLecture 7Unit Propagation\n\n\n\n\n    FriSep 25\n\nLecture 8Predicates and Quantifiers\n\n\n\n\n    1st slot\n\nPlaceholderTutorial 2\n\n\n\n\n    Due: SunSep 27\n\nPlaceholderExam 1 Book Practice\n\n\n\n\n    \n      Week 4\n    \n    MonSep 28\n\nLecture 9Nested Quantifiers\n\n\n\n\n    FriOct 2\n\nLecture 10Proofs\n\n\n\n\n    1st slot\n\nPlaceholderTutorial 3\n\n\n\n\n    Due: SunOct 4\n\nPlaceholder Homework 2\n\n\n\n\n    \n      Week 5\n    \n    MonOct 5\n\nLecture 11Proof by Induction\n\n\n\n\n    WedOct 7\n\nLecture 12Proof by Induction\n\n\n\n\n    FriOct 9\n\nLecture 13Trominoes and RecurrencesLecture 13 (auxiliary)Summations\n\n \n\n \n    1st slot\n\nPlaceholderTutorial 4\n\n\n\n\n    Due: SunOct 11\n\nPlaceholderExam 2 Book Practice\n\n\n\n\n    \n      Part 2Topic to be decidedWeek 6\n\n    \n    WedOct 14\n\nLecture 14Modular Arithmetic\n\n\n\n\n    FriOct 16\n\nLecture 15Asymptotics\n\n\n\n\n    \n      Week 7\n    \n    MonOct 19\n\nLecture 16Asymptotics, continued\n\n\n\n\n    WedOct 21\n\nLecture 17Binary: an Application Interlude\n\n\n\n\n    FriOct 23\n\nLecture 18Binary, Continued: Fixed Width\n\n\n\n\n    1st slot\n\nPlaceholderTutorial 5\n\n\n\n\n    Due: SunOct 25\n\nPlaceholder Homework 3\n\n\n\n\n    \n      Week 8\n    \n    MonOct 26\n\nLecture 19Sets\n\n\n\n\n    WedOct 28\n\nLecture 20Sets, continued\n\n\n\n\n    FriOct 30\n\nLecture 21Sets, continued\n\n\n\n\n    1st slot\n\nPlaceholderTutorial 6\n\n\n\n\n    Due: SunNov 1\n\nPlaceholderExam 3 Book Practice\n\n\n\n\n    \n      Week 9\n    \n    MonNov 2\n\nLecture 22Sets, Regex\n\n\n\n\n    WedNov 4\n\nLecture 23Regular Expressions\n\n\n\n\n    FriNov 6\n\nLecture 24Regex Filters\n\n\n\n\n    1st slot\n\nPlaceholderTutorial 7\n\n\n\n\n    \n      Week 10\n    \n    Due: SunNov 15\n\nPlaceholder Homework 4\n\n\n\n\n  \n  \n\n\n\n\n\n\n\n  \n    \n      \n      \n      Slides\n      Activity\n      Video\n    \n  \n  \n    \n      Part 1Topic to be decidedWeek 1\n\n    \n    WedSep 9\n\nLecture 1Introduction\n\n\n\n\n    FriSep 11\n\nLecture 2Truth and Propositions\n\n\n\n\n    \n      Week 2\n    \n    MonSep 14\n\nLecture 3Logical Equivalences\n\n\n\n\n    WedSep 16\n\nLecture 4Implication\n\n\n\n\n    FriSep 18\n\nLecture 5Rules of Inference\n\n\n\n\n    1st slot\n\nPlaceholderTutorial 1\n\n\n\n\n    Due: SunSep 20\n\nPlaceholder Homework 1\n\n\n\n\n    \n      Week 3\n    \n    MonSep 21\n\nLecture 6Inference, continued\n\n\n\n\n    WedSep 23\n\nLecture 7Unit Propagation\n\n\n\n\n    FriSep 25\n\nLecture 8Predicates and Quantifiers\n\n\n\n\n    1st slot\n\nPlaceholderTutorial 2\n\n\n\n\n    Due: SunSep 27\n\nPlaceholderExam 1 Book Practice\n\n\n\n\n    \n      Week 4\n    \n    MonSep 28\n\nLecture 9Nested Quantifiers\n\n\n\n\n    FriOct 2\n\nLecture 10Proofs\n\n\n\n\n    1st slot\n\nPlaceholderTutorial 3\n\n\n\n\n    Due: SunOct 4\n\nPlaceholder Homework 2\n\n\n\n\n    \n      Week 5\n    \n    MonOct 5\n\nLecture 11Proof by Induction\n\n\n\n\n    WedOct 7\n\nLecture 12Proof by Induction\n\n\n\n\n    FriOct 9\n\nLecture 13Trominoes and RecurrencesLecture 13 (auxiliary)Summations\n\n \n\n \n    1st slot\n\nPlaceholderTutorial 4\n\n\n\n\n    Due: SunOct 11\n\nPlaceholderExam 2 Book Practice\n\n\n\n\n    \n      Part 2Topic to be decidedWeek 6\n\n    \n    WedOct 14\n\nLecture 14Modular Arithmetic\n\n\n\n\n    FriOct 16\n\nLecture 15Asymptotics\n\n\n\n\n    \n      Week 7\n    \n    MonOct 19\n\nLecture 16Asymptotics, continued\n\n\n\n\n    WedOct 21\n\nLecture 17Binary: an Application Interlude\n\n\n\n\n    FriOct 23\n\nLecture 18Binary, Continued: Fixed Width\n\n\n\n\n    1st slot\n\nPlaceholderTutorial 5\n\n\n\n\n    Due: SunOct 25\n\nPlaceholder Homework 3\n\n\n\n\n    \n      Week 8\n    \n    MonOct 26\n\nLecture 19Sets\n\n\n\n\n    WedOct 28\n\nLecture 20Sets, continued\n\n\n\n\n    FriOct 30\n\nLecture 21Sets, continued\n\n\n\n\n    1st slot\n\nPlaceholderTutorial 6\n\n\n\n\n    Due: SunNov 1\n\nPlaceholderExam 3 Book Practice\n\n\n\n\n    \n      Week 9\n    \n    MonNov 2\n\nLecture 22Sets, Regex\n\n\n\n\n    WedNov 4\n\nLecture 23Regular Expressions\n\n\n\n\n    FriNov 6\n\nLecture 24Regex Filters\n\n\n\n\n    1st slot\n\nPlaceholderTutorial 7\n\n\n\n\n    \n      Week 10\n    \n    Due: SunNov 15\n\nPlaceholder Homework 4",
     "crumbs": [
       "Course information",
       "Schedule"
@@ -3058,177 +3100,93 @@
   {
     "objectID": "slides/lecture-24_slides.html#announcements",
     "href": "slides/lecture-24_slides.html#announcements",
-    "title": "Regex Filters, DFAs",
+    "title": "Regex Filters",
     "section": "Announcements",
-    "text": "Announcements"
+    "text": "Announcements\n\nHW4 is now due Sun Nov 15."
   },
   {
     "objectID": "slides/lecture-24_slides.html#regular-expressions-as-string-filters",
     "href": "slides/lecture-24_slides.html#regular-expressions-as-string-filters",
-    "title": "Regex Filters, DFAs",
+    "title": "Regex Filters",
     "section": "Regular Expressions as String Filters",
-    "text": "Regular Expressions as String Filters\nGoals:\n\nUse regex to filter strings (and rows in a DataFrame).\nRead/write the core regex operators.\nSee a regex as a set descriptor (a language over an alphabet).\nBuild boolean masks: df['col'].str.contains(pattern).\n\n\nBridge from sets: a subset is just a predicate. Regex gives us predicates on strings."
+    "text": "Regular Expressions as String Filters\nGoals:\n\nUse a regex as a filter: keep the rows where some part of a string fits.\nTell a filter from a language: str.contains vs. str.fullmatch.\nBuild boolean masks with str.contains, and combine them with &, |, ~.\n\n\nBridge from sets: a subset is just a predicate. Regex gives us predicates on strings."
   },
   {
     "objectID": "slides/lecture-24_slides.html#from-sets-to-strings",
     "href": "slides/lecture-24_slides.html#from-sets-to-strings",
-    "title": "Regex Filters, DFAs",
+    "title": "Regex Filters",
     "section": "From Sets to Strings",
     "text": "From Sets to Strings\nSets: \\(A=\\{x\\in U: P(x)\\}\\)\n\n\nA regular expression \\(r\\) does two different jobs.\n\nLanguage. \\(L(r)=\\{w\\in\\Sigma^*: \\text{the whole of } w \\text{ matches } r\\}\\). A set of strings, usually infinite. In Python: re.fullmatch(r, w). In pandas: df['col'].str.fullmatch(r).\nFilter. Keep the rows whose string has some part that matches \\(r\\). A set of rows, a subset of the dataframe. In pandas: df['col'].str.contains(r).\n\n\n\nToday: languages first, then filters."
   },
   {
     "objectID": "slides/lecture-24_slides.html#regex-vs.-language",
     "href": "slides/lecture-24_slides.html#regex-vs.-language",
-    "title": "Regex Filters, DFAs",
+    "title": "Regex Filters",
     "section": "Regex vs. Language",
     "text": "Regex vs. Language\nFix an alphabet of characters, \\(\\Sigma\\).\nThen a pattern \\(r\\) denotes the language \\(L(r)=\\{w\\in\\Sigma^*: \\text{the whole of } w \\text{ matches } r\\}\\)\n\nif no string matches the pattern, \\(L=\\varnothing\\)\nthe empty pattern matches only the empty string ⇒ \\(L=\\{\\varepsilon\\}\\)\npattern a means \\(L=\\{\\)a\\(\\}\\)\nConcatenated patterns AB means \\(L(A)L(B)=\\{xy:x\\in L(A),y\\in L(B)\\}\\)\nUnion of patterns: A|B means \\(L(A)\\cup L(B)\\)\nKleene Star: A* means all finite concatenations from \\(L(A)\\) (incl. \\(\\varepsilon\\))\n\n\nSame spirit as set algebra: union / product / closure. No anchors here: a language always means the whole string."
   },
   {
     "objectID": "slides/lecture-24_slides.html#say-the-set",
     "href": "slides/lecture-24_slides.html#say-the-set",
-    "title": "Regex Filters, DFAs",
+    "title": "Regex Filters",
     "section": "Say the Set",
     "text": "Say the Set\n \n(ab|ba)*: strings over {a,b} that are concatenations of ab or ba.\n\n\n(0|1)*11(0|1)*: all binary strings containing 11 as a substring.\n\n\n1(01|10)*0: binary strings that start with 1, end with 0, and are filled with {0,1} pairs that flip from 1 to 0 or vice versa."
   },
   {
     "objectID": "slides/lecture-24_slides.html#same-pattern-two-jobs",
     "href": "slides/lecture-24_slides.html#same-pattern-two-jobs",
-    "title": "Regex Filters, DFAs",
+    "title": "Regex Filters",
     "section": "Same Pattern, Two Jobs",
-    "text": "Same Pattern, Two Jobs\npattern = 'Latte', so \\(L(\\)pattern\\()=\\{\\)Latte\\(\\}\\). How many café orders does each line keep? Predict, then run.\n\n\n\n\n\n\n\nfullmatch is membership in L: only Latte itself. contains is a filter: it also keeps Iced Latte, Chai Latte, Matcha Latte. Those strings are not in L; they are in Sigma* L Sigma*, the strings with a part in L. Anchors turn a filter back into membership: contains(‘^Latte$’) keeps the same rows as fullmatch(‘Latte’). Counts: 2, 2, 5. Try pattern = ‘Iced’ too: 0, 2, 2. The DS2200 callback from the warm-up: not in L, but contains keeps it."
+    "text": "Same Pattern, Two Jobs\npattern = 'Latte', so \\(L(\\)pattern\\()=\\{\\)Latte\\(\\}\\). How many café orders does each line keep? Predict, then run.\nA Filter card in Pattern Eights was contains.\n\n\n\n\n\n\n\nfullmatch is membership in L: only Latte itself. contains is a filter: it also keeps Iced Latte, Chai Latte, Matcha Latte. Those strings are not in L; they are in Sigma* L Sigma*, the strings with a part in L. Anchors turn a filter back into membership: contains(‘^Latte$’) keeps the same rows as fullmatch(‘Latte’). Counts: 2, 2, 5. Try pattern = ‘Iced’ too: 0, 2, 2. The DS2200 callback from the warm-up: not in L, but contains keeps it."
   },
   {
     "objectID": "slides/lecture-24_slides.html#back-to-the-cafe",
     "href": "slides/lecture-24_slides.html#back-to-the-cafe",
-    "title": "Regex Filters, DFAs",
+    "title": "Regex Filters",
     "section": "Back to the Cafe",
     "text": "Back to the Cafe\nSuppose a column drink has values like: “Iced Latte”, “Drip Coffee”, “Americano”, “Chai Latte”, “Tea”, “Espresso”\n \nGoals:\n\nKeep espresso-style drinks: “espresso”, “americano”, “latte”, or “cappuccino”\n“Iced” appears as a whole word\nDrinks that end with “Tea”"
   },
   {
-    "objectID": "slides/lecture-24_slides.html#cafe-continued",
-    "href": "slides/lecture-24_slides.html#cafe-continued",
-    "title": "Regex Filters, DFAs",
-    "section": "Cafe continued",
-    "text": "Cafe continued"
-  },
-  {
     "objectID": "slides/lecture-24_slides.html#typical-patterns",
     "href": "slides/lecture-24_slides.html#typical-patterns",
-    "title": "Regex Filters, DFAs",
+    "title": "Regex Filters",
     "section": "Typical Patterns",
     "text": "Typical Patterns\nWhole word: r’\\biced\\b’\nStarts with: r’^Iced’\nEnds with: r’Tea$’\nOptional word: r’^(Iced )?Latte$’\nOne of set (case-insensitive):\n\n r’(?i)\\b(espresso|americano|latte|cappuccino)\\b’"
   },
   {
+    "objectID": "slides/lecture-24_slides.html#cafe-continued",
+    "href": "slides/lecture-24_slides.html#cafe-continued",
+    "title": "Regex Filters",
+    "section": "Cafe continued",
+    "text": "Cafe continued"
+  },
+  {
     "objectID": "slides/lecture-24_slides.html#your-turn",
     "href": "slides/lecture-24_slides.html#your-turn",
-    "title": "Regex Filters, DFAs",
+    "title": "Regex Filters",
     "section": "Your Turn",
-    "text": "Your Turn\nFilter for:\n\nDrinks exactly “Iced Latte” (any case)\nDrinks containing either “Americano” or “Espresso” (whole words, any case)\nDrinks that do not contain “Iced” but end with “Tea” (hint: ________________)"
+    "text": "Your Turn\nFilter for:\n\nDrinks exactly “Iced Latte” (any case)\nDrinks containing either “Americano” or “Espresso” (whole words, any case)\nDrinks that end with “Latte” but are not iced (hint: ________________)\n\n\n\n(?i)^iced latte$: contains plus both anchors is a full match. 1 row.\n(?i)\\b(americano|espresso)\\b. 3 rows.\nTwo masks: Latte$ and (?i)\\biced\\b, then m3 = m3a & ~m3b. The hint is “two masks and a complement”. 4 rows: Latte, Latte, Matcha Latte, Chai Latte."
   },
   {
     "objectID": "slides/lecture-24_slides.html#your-turn-1",
     "href": "slides/lecture-24_slides.html#your-turn-1",
-    "title": "Regex Filters, DFAs",
+    "title": "Regex Filters",
     "section": "Your Turn",
     "text": "Your Turn"
   },
   {
     "objectID": "slides/lecture-24_slides.html#reminder-from-filter-to-language",
     "href": "slides/lecture-24_slides.html#reminder-from-filter-to-language",
-    "title": "Regex Filters, DFAs",
+    "title": "Regex Filters",
     "section": "Reminder: From Filter to Language",
     "text": "Reminder: From Filter to Language\nLet \\(\\Sigma\\) = letters, numbers, and spaces.\nPattern (?i)(espresso|americano|latte|cappuccino) denotes a language \\(L\\subseteq \\Sigma^*\\).\nThis parallels:\nSet: \\(L=\\{\\,w\\in\\Sigma^*: \\text{the whole of } w \\text{ matches the pattern}\\,\\}\\)\nPredicate: \\(P(w)=\\texttt{fullmatch}(\\text{pattern}, w)\\)\nMask: df[‘drink’].str.fullmatch(pattern)\n\n\nA filter with str.contains(pattern) is a membership test too, for a bigger language: \\(\\Sigma^* L\\, \\Sigma^*\\), the strings that have a part in \\(L\\).\nYou’ve been doing language membership tests all class, with filters."
   },
   {
-    "objectID": "slides/lecture-24_slides.html#goals",
-    "href": "slides/lecture-24_slides.html#goals",
-    "title": "Regex Filters, DFAs",
-    "section": "Goals",
-    "text": "Goals\n\nRecall a regex is a set of strings (a language).\nBuild small DFAs that recognize those sets.\nUse closure tricks (∪, ∩, complement) to combine DFAs."
-  },
-  {
     "objectID": "slides/lecture-24_slides.html#two-views-on-regular-expressions",
     "href": "slides/lecture-24_slides.html#two-views-on-regular-expressions",
-    "title": "Regex Filters, DFAs",
+    "title": "Regex Filters",
     "section": "Two views on Regular Expressions",
-    "text": "Two views on Regular Expressions\n\n\n\n\n\n\n\n\nMeaning\nIn Python/Pandas\nAnchors\n\n\n\n\nFull-string match\nre.fullmatch(r'(bb+|c[ac]*|b?)', s)df['col'].str.fullmatch(r'(bb+|c[ac]*|b?)')\nUse ^ and $: r'^(...)$'\n\n\nSubstring search\nre.search(r'(bb+|c[ac]*|b?)', s)df['col'].str.contains(r'(bb+|c[ac]*|b?)')\nnone"
-  },
-  {
-    "objectID": "slides/lecture-24_slides.html#warm-up",
-    "href": "slides/lecture-24_slides.html#warm-up",
-    "title": "Regex Filters, DFAs",
-    "section": "Warm-Up",
-    "text": "Warm-Up\nPattern: ^(0|1)*11(0|1)*$\nWhich strings are in the set?\n\n10101\n\n11010\n\n10001\n\n10110\n\n\nAnswer: 11010, 10110. emphasize that we are reading the string from left to right."
-  },
-  {
-    "objectID": "slides/lecture-24_slides.html#contains-11",
-    "href": "slides/lecture-24_slides.html#contains-11",
-    "title": "Regex Filters, DFAs",
-    "section": "Contains 11",
-    "text": "Contains 11\nAlphabet: {0,1}\nStates:\n\nS0: have seen no 1s (start)\nS1: just saw a 1\nS2: saw substring 11 (accepting)\n\nDFA Sketch:\n\nRun a couple examples on the board: 101101 (accept), 101010 (reject). key elements: 0) input alphabet 1) set of states. 2) start state, 3) transition function, 4) set of accept states."
-  },
-  {
-    "objectID": "slides/lecture-24_slides.html#dfa-ideas",
-    "href": "slides/lecture-24_slides.html#dfa-ideas",
-    "title": "Regex Filters, DFAs",
-    "section": "DFA Ideas",
-    "text": "DFA Ideas\nProcess a string from left to right, one character at a time.\n\nState: what the prefix tells us so far.\nAccept iff we finish in an accepting state.\nDeterministic: at most one transition per symbol from every state.\nTotal: every state has a transition on every symbol."
-  },
-  {
-    "objectID": "slides/lecture-24_slides.html#dfa-definition",
-    "href": "slides/lecture-24_slides.html#dfa-definition",
-    "title": "Regex Filters, DFAs",
-    "section": "DFA Definition",
-    "text": "DFA Definition\nA Deterministic Finite Automaton consists of the following:\n\na set of states \\(S\\)\na finite alphabet \\(\\Sigma\\)\na transition function \\(f\\) that assigns a next state to each \\((s, i)\\) pair, \\(s\\in S\\) and \\(i\\in \\Sigma\\).\na start state \\(s_0\\)\na set of accepting states \\(F\\subseteq S\\)"
-  },
-  {
-    "objectID": "slides/lecture-24_slides.html#regex-dfa",
-    "href": "slides/lecture-24_slides.html#regex-dfa",
-    "title": "Regex Filters, DFAs",
-    "section": "Regex = DFA",
-    "text": "Regex = DFA\nA language is regular if and only if it is recognized by some DFA."
-  },
-  {
-    "objectID": "slides/lecture-24_slides.html#you-try-ends-with-tea",
-    "href": "slides/lecture-24_slides.html#you-try-ends-with-tea",
-    "title": "Regex Filters, DFAs",
-    "section": "You Try: “Ends with Tea”",
-    "text": "You Try: “Ends with Tea”\nTarget: strings that end with tea\n\nalphabet is lower case letters, here, just to keep it simple.\nWe’ll use this when we do unions, later."
-  },
-  {
-    "objectID": "slides/lecture-24_slides.html#prefix-example-starts-with-iced",
-    "href": "slides/lecture-24_slides.html#prefix-example-starts-with-iced",
-    "title": "Regex Filters, DFAs",
-    "section": "Prefix Example: “Starts with Iced”",
-    "text": "Prefix Example: “Starts with Iced”\nPlan:\n\nChain prefix states; before success, any mismatch → SINK.\nAfter success, loop on any character in ACC.\n\nDiagram:"
-  },
-  {
-    "objectID": "slides/lecture-24_slides.html#one-last-example",
-    "href": "slides/lecture-24_slides.html#one-last-example",
-    "title": "Regex Filters, DFAs",
-    "section": "One Last Example",
-    "text": "One Last Example\nBuild the DFA corresponding to ^0(1*|0*)1$"
-  },
-  {
-    "objectID": "slides/lecture-24_slides.html#closure-tricks",
-    "href": "slides/lecture-24_slides.html#closure-tricks",
-    "title": "Regex Filters, DFAs",
-    "section": "Closure Tricks",
-    "text": "Closure Tricks\nWhat’s closure?\n\nComplement: make the DFA total (add SINK if needed), then flip accept to non-accept, and vice-versa.\nUnion / Intersection:\nStates are pairs (p,q)\n\nUnion accepts if p ∈ F1 or q ∈ F2\nIntersection accepts if p ∈ F1 and q ∈ F2\n\nDifference: L1 - L2 = \\(L1\\cap L2^c\\)\n\n\nThis mirrors set algebra directly; great place to reinforce recent set lessons."
-  },
-  {
-    "objectID": "slides/lecture-24_slides.html#mini-exercise",
-    "href": "slides/lecture-24_slides.html#mini-exercise",
-    "title": "Regex Filters, DFAs",
-    "section": "Mini-Exercise",
-    "text": "Mini-Exercise\nBuild a DFA for the union of:\n\nL1: contains 11 (use the machine we built)\nL2: ends with 00 (three states: Tε, T0, T00)\n\nHint: sketch product states (S_i, T_j) and mark accept pairs for union."
-  },
-  {
-    "objectID": "slides/lecture-24_slides.html#parity-demo",
-    "href": "slides/lecture-24_slides.html#parity-demo",
-    "title": "Regex Filters, DFAs",
-    "section": "Parity Demo",
-    "text": "Parity Demo\nLanguage: even number of 1s over {0,1}.\n\nEVEN (start, accept), ODD\n\non 1: toggle; on 0: stay\n\nTry: which strings of length \\(\\leq\\) 4 accept?"
+    "text": "Two views on Regular Expressions\n\n\n\n\n\n\n\n\nMeaning\nIn Python/Pandas\nAnchors\n\n\n\n\nFull-string match (language)\nre.fullmatch(r'bb+|c[ac]*', s)df['col'].str.fullmatch(r'bb+|c[ac]*')\nnot needed: the whole string has to fit\n\n\nSubstring search (filter)\nre.search(r'bb+|c[ac]*', s)df['col'].str.contains(r'bb+|c[ac]*')\nadd ^(...)$ to make it a full-string test\n\n\n\n\n\nCareful: if a pattern matches the empty string, every string has a part that fits. df['drink'].str.contains(r'b?') keeps all 20 café orders."
   },
   {
     "objectID": "slides/lecture-26_slides.html#announcements",
