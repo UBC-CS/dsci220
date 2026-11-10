@@ -9,12 +9,10 @@
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-63b5708e65d6cd79cd7618c58d0c21e7.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/quarto-contrib/live-runtime/live-runtime.js" type="module"></script>
 <link href="../site_libs/quarto-contrib/live-runtime/live-runtime.css" rel="stylesheet">
-<script src="../site_libs/quarto-contrib/countdown-0.6.0/countdown.js"></script>
-<link href="../site_libs/quarto-contrib/countdown-0.6.0/countdown.css" rel="stylesheet">
 <script src="../site_libs/quarto-contrib/iconify-3.0.0/iconify-icon.min.js"></script><meta charset="utf-8">
   <meta name="generator" content="quarto-1.11.9">
 
-  <title>{{&lt; var course.full-title &gt;}}---Accessibility version – Context Free Grammars</title>
+  <title>{{&lt; var course.full-title &gt;}}---Accessibility version – Regex to NFA</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -202,10 +200,10 @@
   </style>
   <script type="module" src="../site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
   <link href="../site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
-<meta property="og:title" content="Context Free Grammars – DSCI 220: Discrete Math for Data Science—Accessibility version">
+<meta property="og:title" content="Regex to NFA – DSCI 220: Discrete Math for Data Science—Accessibility version">
 <meta property="og:description" content="Lecture 27, DSCI 220, 2026W1">
 <meta property="og:site_name" content="DSCI 220: Discrete Math for Data Science—Accessibility version">
-<meta name="twitter:title" content="Context Free Grammars – DSCI 220: Discrete Math for Data Science—Accessibility version">
+<meta name="twitter:title" content="Regex to NFA – DSCI 220: Discrete Math for Data Science—Accessibility version">
 <meta name="twitter:description" content="Lecture 27, DSCI 220, 2026W1">
 <meta name="twitter:card" content="summary">
 </head>
@@ -214,7 +212,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Context Free Grammars</h1>
+  <h1 class="title">Regex to NFA</h1>
   <p class="subtitle">Lecture 27, DSCI 220, 2026W1</p>
 
 <div class="quarto-title-authors">
@@ -232,9 +230,104 @@
 </style>
 </section>
 <section>
-<section id="context-free-grammars" class="title-slide slide level1 center">
-<h1>Context Free Grammars</h1>
+<section id="regex-to-nfa" class="title-slide slide level1 center">
+<h1>Regex to NFA</h1>
 
+</section>
+<section id="regex-to-nfa-gadgets" class="slide level2 smaller">
+<h2>Regex to NFA Gadgets</h2>
+<div class="card">
+<div class="columns">
+<div class="column" style="width:50%;">
+<ol type="1">
+<li>Literal ‘a’</li>
+</ol>
+<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 420 140" width="90%" role="img" aria-label="Literal a NFA gadget">
+<defs> <marker id="arrow-lit" markerwidth="12" markerheight="12" refx="10" refy="6" orient="auto"> <path d="M0,0 L12,6 L0,12 Z" fill="#222"></path> </marker> <style> .state { fill:#fff; stroke:#222; stroke-width:2.5; } .accept { fill:none; stroke:#222; stroke-width:2.5; } .accept2{ fill:none; stroke:#222; stroke-width:2.5; } .label { font: 600 16px ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial; fill:#111; } .wire { stroke:#222; stroke-width:2.5; fill:none; } </style> </defs> <circle cx="80" cy="70" r="22" class="state"></circle> <circle cx="340" cy="70" r="22" class="accept"></circle> <circle cx="340" cy="70" r="16" class="accept2"></circle> <path d="M 102 70 H 318" class="wire" marker-end="url(#arrow-lit)"></path> <text x="210" y="55" class="label">a</text> <text x="80" y="110" class="label">s</text> <text x="340" y="110" class="label">f</text>
+</svg>
+<ol start="2" type="1">
+<li>Union: R | S</li>
+</ol>
+<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 720 240" width="90%" role="img" aria-label="Union NFA gadget for R or S">
+<defs> <marker id="arrow-un" markerwidth="12" markerheight="12" refx="10" refy="6" orient="auto"> <path d="M0,0 L12,6 L0,12 Z" fill="#222"></path> </marker> <style> .state { fill:#fff; stroke:#222; stroke-width:2.5; } .accept{ fill:none; stroke:#222; stroke-width:2.5; } .accept2{ fill:none; stroke:#222; stroke-width:2.5; } .box { fill:#f8fbff; stroke:#2b4ea2; stroke-width:2.5; rx:12; ry:12; } .port { fill:#fff; stroke:#2b4ea2; stroke-width:2; } .wire { stroke:#222; stroke-width:2.5; fill:none; } .label { font: 600 15px ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial; fill:#111; } .litev { font: 600 14px ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial; fill:#444; } </style> </defs> <circle cx="80" cy="120" r="22" class="state"></circle> <circle cx="640" cy="120" r="22" class="accept"></circle> <circle cx="640" cy="120" r="16" class="accept2"></circle> <text x="80" y="210" class="label">s</text> <text x="640" y="210" class="label">f</text> <rect x="270" y="35" width="160" height="70" class="box"></rect> <text x="350" y="78" text-anchor="middle" class="label">[ R ]</text> <circle cx="270" cy="70" r="6" class="port"></circle> <circle cx="430" cy="70" r="6" class="port"></circle> <rect x="270" y="135" width="160" height="70" class="box"></rect> <text x="350" y="178" text-anchor="middle" class="label">[ S ]</text> <circle cx="270" cy="170" r="6" class="port"></circle> <circle cx="430" cy="170" r="6" class="port"></circle> <path d="M 102 120 C 170 120, 200 90, 264 74" class="wire" marker-end="url(#arrow-un)"></path> <path d="M 102 120 C 170 120, 200 150, 264 166" class="wire" marker-end="url(#arrow-un)"></path> <text x="190" y="95" class="litev">ε</text> <text x="190" y="158" class="litev">ε</text> <path d="M 436 70 C 510 70, 560 100, 620 114" class="wire" marker-end="url(#arrow-un)"></path> <path d="M 436 170 C 510 170, 560 140, 620 126" class="wire" marker-end="url(#arrow-un)"></path> <text x="530" y="62" class="litev">ε</text> <text x="530" y="186" class="litev">ε</text>
+</svg>
+</div><div class="column" style="width:50%;">
+<ol start="3" type="1">
+<li>Concatenation: RS</li>
+</ol>
+<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 720 180" width="90%" role="img" aria-label="Concatenation NFA gadget for R followed by S">
+<defs> <marker id="arrow-con" markerwidth="12" markerheight="12" refx="10" refy="6" orient="auto"> <path d="M0,0 L12,6 L0,12 Z" fill="#222"></path> </marker> <style> .state { fill:#fff; stroke:#222; stroke-width:2.5; } .accept{ fill:none; stroke:#222; stroke-width:2.5; } .accept2{ fill:none; stroke:#222; stroke-width:2.5; } .box { fill:#f8fbff; stroke:#2b4ea2; stroke-width:2.5; rx:12; ry:12; } .port { fill:#fff; stroke:#2b4ea2; stroke-width:2; } .wire { stroke:#222; stroke-width:2.5; fill:none; } .label { font: 600 15px ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial; fill:#111; } .litev { font: 600 14px ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial; fill:#444; } </style> </defs> <circle cx="80" cy="90" r="22" class="state"></circle> <circle cx="640" cy="90" r="22" class="accept"></circle> <circle cx="640" cy="90" r="16" class="accept2"></circle> <text x="80" y="160" class="label">s</text> <text x="640" y="160" class="label">f</text> <rect x="160" y="50" width="180" height="80" class="box"></rect> <text x="250" y="98" text-anchor="middle" class="label">[ R ]</text> <circle cx="160" cy="90" r="6" class="port"></circle> <circle cx="340" cy="90" r="6" class="port"></circle> <rect x="360" y="50" width="180" height="80" class="box"></rect> <text x="450" y="98" text-anchor="middle" class="label">[ S ]</text> <circle cx="360" cy="90" r="6" class="port"></circle> <circle cx="540" cy="90" r="6" class="port"></circle> <path d="M 102 90 H 154" class="wire" marker-end="url(#arrow-con)"></path> <path d="M 546 90 H 618" class="wire" marker-end="url(#arrow-con)"></path> <path d="M 346 90 H 354" class="wire" marker-end="url(#arrow-con)"></path> <text x="350" y="75" class="litev">ε</text>
+</svg>
+<ol start="4" type="1">
+<li>Kleene star: R*</li>
+</ol>
+<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 780 260" width="90%" role="img" aria-label="Kleene star NFA gadget for R*">
+<defs> <marker id="arrow-star" markerwidth="12" markerheight="12" refx="10" refy="6" orient="auto"> <path d="M0,0 L12,6 L0,12 Z" fill="#222"></path> </marker> <style> .state { fill:#fff; stroke:#222; stroke-width:2.5; } .accept{ fill:none; stroke:#222; stroke-width:2.5; } .accept2{ fill:none; stroke:#222; stroke-width:2.5; } .box { fill:#f8fbff; stroke:#2b4ea2; stroke-width:2.5; rx:12; ry:12; } .port { fill:#fff; stroke:#2b4ea2; stroke-width:2; } .wire { stroke:#222; stroke-width:2.5; fill:none; } .label { font: 600 15px ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial; fill:#111; } .litev { font: 600 14px ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial; fill:#444; } </style> </defs> <circle cx="80" cy="130" r="22" class="state"></circle> <circle cx="700" cy="130" r="22" class="accept"></circle> <circle cx="700" cy="130" r="16" class="accept2"></circle> <text x="80" y="220" class="label">s</text> <text x="700" y="220" class="label">f</text> <rect x="320" y="90" width="160" height="80" class="box"></rect> <text x="400" y="132" text-anchor="middle" class="label">[ R ]</text> <circle cx="320" cy="130" r="6" class="port"></circle> <circle cx="480" cy="130" r="6" class="port"></circle> <path d="M 102 130 C 180 70, 600 70, 682 122" class="wire" marker-end="url(#arrow-star)"></path> <text x="390" y="70" class="litev">ε (empty)</text> <path d="M 102 130 C 170 130, 240 130, 312 130" class="wire" marker-end="url(#arrow-star)"></path> <text x="210" y="118" class="litev">ε</text> <path d="M 486 130 C 560 130, 620 130, 682 130" class="wire" marker-end="url(#arrow-star)"></path> <text x="585" y="118" class="litev">ε</text> <path d="M 478 126 C 540 80, 540 40, 400 40 C 260 40, 260 80, 322 126" class="wire" marker-end="url(#arrow-star)"></path> <text x="400" y="28" class="litev">ε</text>
+</svg>
+</div></div>
+</div>
+</section>
+<section id="example-1" class="slide level2">
+<h2>Example 1</h2>
+<p><code>^(ab|ba)*$</code></p>
+</section>
+<section id="example-3" class="slide level2 activity">
+<h2>Example 3</h2>
+<p><strong>Task:</strong> Sketch an NFA for <code>^1(01|10)*0$</code> using only the four gadgets.</p>
+<p><strong>Plan:</strong> literal <code>1</code> … union(<code>01</code>,<code>10</code>) … star … literal <code>0</code>.</p>
+</section></section>
+<section>
+<section id="beyond-regular-grammars" class="title-slide slide level1 center">
+<h1>Beyond Regular: Grammars</h1>
+
+</section>
+<section id="last-puzzle" class="slide level2">
+<h2>Last Puzzle:</h2>
+<p><span class="math inline">\(0^n1^n\)</span></p>
+</section>
+<section id="grammar-for-0n1n" class="slide level2">
+<h2>Grammar for <span class="math inline">\(0^n1^n\)</span> ?</h2>
+<p><strong>Grammar:</strong><br>
+<span class="math inline">\(S \to 0S1 \ \mid\ \varepsilon\)</span></p>
+<p><strong>Derivations:</strong></p>
+<ul>
+<li>For <code>01</code>: <span class="math display">\[
+S \Rightarrow 0S1 \Rightarrow 01
+\]</span></li>
+<li>For <code>000111</code>: <span class="math display">\[
+S \Rightarrow 0S1 \Rightarrow 00S11 \Rightarrow 000S111 \Rightarrow 000111
+\]</span></li>
+</ul>
+<p><strong>Parse tree shape for <code>0011</code>:</strong></p>
+</section>
+<section id="cfg-review" class="slide level2">
+<h2>CFG Review</h2>
+<p>A <strong>context-free grammar (CFG)</strong> has:</p>
+<ul>
+<li><strong>Terminals</strong> (alphabet),</li>
+<li><strong>Nonterminals</strong> (variables),</li>
+<li><strong>Start symbol</strong>,</li>
+<li><strong>Productions</strong> like <span class="math inline">\(S \to 0S1 \mid \varepsilon\)</span>.</li>
+</ul>
+<p>Notes:</p>
+<ul>
+<li>A <strong>derivation</strong> rewrites nonterminals to produce a string.</li>
+<li>A <strong>parse tree</strong> is evidence of how a string was generated.</li>
+<li>The class of Regular Languages <span class="math inline">\(\subset\)</span> the class of Context-Free Languages</li>
+</ul>
+<aside class="notes">
+<p>Connect to your earlier WFF grammar: “That was a CFG all along.”</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="warm-up" class="slide level2 smaller">
 <h2>Warm Up</h2>
@@ -283,6 +376,70 @@ eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiXG5pbXBvcnQgcmFuZG9tXG5c
 <span id="cb2-5"><a aria-label="5"></a>    &lt;Pair&gt; ::= &lt;String&gt; `:` &lt;Value&gt;  </span>
 <span id="cb2-6"><a aria-label="6"></a>   &lt;Array&gt; ::=  `[` &lt;Elements&gt; `]` | `[]`  </span>
 <span id="cb2-7"><a aria-label="7"></a>&lt;Elements&gt; ::= &lt;Value&gt; | &lt;Value&gt; `,` &lt;Elements&gt;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Example:</strong> Is <code>{"a":[1,2,{"b":null}]}</code> in the language?</p>
+<aside class="notes">
+<p>Point: regex can’t enforce <strong>balanced, nested</strong> delimiters; CFGs can.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
+<section id="from-the-2025-deck" class="title-slide slide level1 center">
+<h1>From the 2025 deck</h1>
+<p>Not taught in 2026W1. The impossibility argument for <span class="math inline">\(0^n1^n\)</span> is in Lecture 30 (pigeonhole).</p>
+</section>
+<section id="example-2" class="slide level2">
+<h2>Example 2</h2>
+<p><code>^(0|1)*11(0|1)*$</code></p>
+</section>
+<section id="closure-facts" class="slide level2">
+<h2>Closure Facts</h2>
+<p>If <span class="math inline">\(L_1, L_2\)</span> are context-free:</p>
+<ul>
+<li><strong>Union:</strong> context-free via new start <span class="math inline">\(S \to S_1 \mid S_2\)</span></li>
+<li><strong>Concatenation:</strong> context-free via <span class="math inline">\(S \to S_1 S_2\)</span></li>
+<li><strong>Kleene star:</strong> context-free via <span class="math inline">\(S \to SS \mid \varepsilon\)</span></li>
+</ul>
+<p><em>(Intersection with regular languages is CF; general intersection/complement are not.)</em></p>
+<aside class="notes">
+<p>Tie back to set algebra &amp; your earlier closures with DFAs.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="a-basic-json-cfg-1" class="slide level2 smaller">
+<h2>A Basic JSON CFG</h2>
+<p><a href="https://www.json.org/json-en.html" class="uri">https://www.json.org/json-en.html</a></p>
+<p>We ignore lexical details and focus on <strong>structure</strong>.</p>
+<ul>
+<li>Value → Object | Array | String | Number | <code>true</code> | <code>false</code> | <code>null</code><br>
+</li>
+<li>Object → <code>{</code> Members <code>}</code> | <code>{}</code><br>
+</li>
+<li>Members → Pair | Pair <code>,</code> Members<br>
+</li>
+<li>Pair → String <code>:</code> Value<br>
+</li>
+<li>Array → <code>[</code> Elements <code>]</code> | <code>[]</code><br>
+</li>
+<li>Elements → Value | Value <code>,</code> Elements</li>
+</ul>
 <p><strong>Example:</strong> Is <code>{"a":[1,2,{"b":null}]}</code> in the language?</p>
 <aside class="notes">
 <p>Point: regex can’t enforce <strong>balanced, nested</strong> delimiters; CFGs can.</p>
@@ -346,169 +503,6 @@ eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiXG5pbXBvcnQgcmFuZG9tXG5c
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
-</section></section>
-<section>
-<section id="counting" class="title-slide slide level1 center">
-<h1>Counting</h1>
-
-</section>
-<section id="warm-up-how-many-outfits" class="slide level2 activity">
-<h2>Warm-Up: How Many Outfits?</h2>
-<p><strong>Question:</strong> How many different outfits do you have in your closet?</p>
-<p>&nbsp;</p>
-<p>No rules, just count.</p>
-<ul>
-<li>What even <em>counts</em> as an outfit?</li>
-<li>Do shoes matter?</li>
-<li>Do seasons/colors matter?</li>
-<li>Are some combos invalid?</li>
-</ul>
-<p>Write down how you’d <strong>start</strong> to count, not just an answer.</p>
-<countdown-timer id="timer_67705326cf6265d9ec164566510c61d6876f4492" minutes="05" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
- </countdown-timer>
-</section>
-<section id="what-did-you-count" class="slide level2">
-<h2>What Did You Count?</h2>
-<ul>
-<li><p>What <em>categories</em> did you use?</p></li>
-<li><p>What <em>rules</em> did you impose?</p></li>
-</ul>
-<p><strong>Key Idea:</strong><br>
-How we <strong>model</strong> outfits (what’s allowed, what’s ignored) changes the counting.</p>
-</section>
-<section id="a-simplified-closet-model" class="slide level2 smaller">
-<h2>A Simplified Closet Model</h2>
-<p>Define a wardrobe for the rest of this lesson:</p>
-<ul>
-<li><span class="math inline">\(k\)</span> pairs of shoes</li>
-<li><span class="math inline">\(j\)</span> pairs of pants</li>
-<li><span class="math inline">\(m\)</span> skirts</li>
-<li><span class="math inline">\(n\)</span> shirts</li>
-<li><span class="math inline">\(p\)</span> dresses</li>
-</ul>
-<p>We’ll <strong>choose a model</strong>:</p>
-<ul>
-<li>An outfit is either:
-<ol type="1">
-<li><strong>shirt + bottom + shoes</strong>, where<br>
-bottom is either pants or a skirt</li>
-<li>or a <strong>dress + shoes</strong></li>
-</ol></li>
-<li>No color/style rules: everything in these categories is compatible.</li>
-</ul>
-</section>
-<section id="turn-it-into-sets" class="slide level2 smaller">
-<h2>Turn It Into Sets</h2>
-<p>Define sets of items:</p>
-<ul>
-<li><span class="math inline">\(S =\)</span> set of shoes, <span class="math inline">\(|S| = k\)</span></li>
-<li><span class="math inline">\(P =\)</span> set of pants, <span class="math inline">\(|P| = j\)</span></li>
-<li><span class="math inline">\(K =\)</span> set of skirts, <span class="math inline">\(|K| = m\)</span></li>
-<li><span class="math inline">\(T =\)</span> set of shirts, <span class="math inline">\(|T| = n\)</span></li>
-<li><span class="math inline">\(D =\)</span> set of dresses, <span class="math inline">\(|D| = p\)</span></li>
-</ul>
-<p>A bottom is either pants or a skirt:</p>
-<p><span class="math display">\[
-B = P \cup K
-\]</span></p>
-<p>Assuming no overlap between pants and skirts:</p>
-<p><span class="math display">\[
-|B| = |P \cup K| = |P| + |K| = j + m
-\]</span></p>
-</section>
-<section id="outfits-of-type-1" class="slide level2 smaller">
-<h2>Outfits of Type 1</h2>
-<p>Type 1 outfit: <strong>shirt + bottom + shoes</strong></p>
-<p>As a set of combinations:</p>
-<p><span class="math display">\[
-\text{Type1} = S \times B \times T
-\]</span></p>
-<p>Each outfit is a triple:</p>
-<p><span class="math display">\[
-(\text{shoe}, \text{bottom}, \text{shirt}) \in S \times B \times T
-\]</span></p>
-<p>So the number of Type 1 outfits is:</p>
-<p><span class="math display">\[
-|\text{Type1}| = |S||B||T| = k(j + m)n
-\]</span></p>
-</section>
-<section id="outfits-of-type-2" class="slide level2 smaller">
-<h2>Outfits of Type 2</h2>
-<p>Type 2 outfit: <strong>dress + shoes</strong></p>
-<p>As a set of combinations:</p>
-<p><span class="math display">\[
-\text{Type2} = S \times D
-\]</span></p>
-<p>Each outfit is a pair:</p>
-<p><span class="math display">\[
-(\text{shoe}, \text{dress}) \in S \times D
-\]</span></p>
-<p>So the number of Type 2 outfits is:</p>
-<p><span class="math display">\[
-|\text{Type2}| = |S||D| = kp
-\]</span></p>
-</section>
-<section id="total-number-of-outfits" class="slide level2 smaller">
-<h2>Total Number of Outfits</h2>
-<p>We’ve partitioned outfits into two disjoint types:</p>
-<ul>
-<li>Type 1: shirt + bottom + shoes</li>
-<li>Type 2: dress + shoes</li>
-</ul>
-<p>Total number of outfits in our model:</p>
-<p><span class="math display">\[
-\begin{aligned}
-\#\text{outfits}
-&amp;= |\text{Type1}| + |\text{Type2}| \\
-&amp;= k(j + m)n + kp \\
-&amp;= k\big((j + m)n + p\big).
-\end{aligned}
-\]</span></p>
-<p>This matches the informal idea:</p>
-<ul>
-<li>“For each pair of shoes, you can choose any (bottom, shirt) combo <strong>or</strong> any dress.”</li>
-</ul>
-</section>
-<section id="the-product-rule" class="slide level2 smaller">
-<h2>The Product Rule</h2>
-<p>Fundamental counting fact:</p>
-<blockquote>
-<p>If <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are finite sets, then<br>
-<span class="math display">\[
-|A \times B| = |A|\cdot|B|.
-\]</span></p>
-</blockquote>
-<p>Generalizing:</p>
-<blockquote>
-<p>For sets <span class="math inline">\(A_1, A_2, \dots, A_k\)</span>: <span class="math display">\[
-|A_1 \times A_2 \times \dots \times A_k| = |A_1| \cdot |A_2| \cdot \dots \cdot |A_k|.
-\]</span></p>
-</blockquote>
-<p>Interpretation:</p>
-<ul>
-<li>A <strong>choice procedure</strong>:
-<ul>
-<li>choose one element from <span class="math inline">\(A_1\)</span>,</li>
-<li>then one from <span class="math inline">\(A_2\)</span>, <span class="math inline">\(\ldots\)</span></li>
-<li>then one from <span class="math inline">\(A_k\)</span>,</li>
-</ul></li>
-<li>Every distinct chain of choices is a distinct element of the product set.</li>
-</ul>
-</section>
-<section id="wrap-up" class="slide level2">
-<h2>Wrap Up</h2>
-<p>The <em>combinatorics</em> lesson:</p>
-<blockquote>
-<p>Once you’ve decided what “counts,” express the valid items as a product of simpler choices.</p>
-</blockquote>
-<p>This pattern will be used for:</p>
-<ul>
-<li>passwords,</li>
-<li>playlists,</li>
-<li>committee selection,</li>
-<li>sampling from datasets,</li>
-<li>and more.</li>
-</ul>
 
 
 <script type="pyodide-data">

@@ -521,352 +521,247 @@
   {
     "objectID": "slides/lecture-27_slides.html#announcements",
     "href": "slides/lecture-27_slides.html#announcements",
-    "title": "Context Free Grammars",
+    "title": "Regex to NFA",
     "section": "Announcements",
     "text": "Announcements"
   },
   {
+    "objectID": "slides/lecture-27_slides.html#regex-to-nfa-gadgets",
+    "href": "slides/lecture-27_slides.html#regex-to-nfa-gadgets",
+    "title": "Regex to NFA",
+    "section": "Regex to NFA Gadgets",
+    "text": "Regex to NFA Gadgets\n\n\n\n\nLiteral ‘a’\n\n\n          a s f\n\n\nUnion: R | S\n\n\n         s f  [ R ]    [ S ]     ε ε   ε ε\n\n\n\nConcatenation: RS\n\n\n         s f  [ R ]    [ S ]      ε\n\n\nKleene star: R*\n\n\n         s f  [ R ]    ε (empty)  ε  ε  ε"
+  },
+  {
+    "objectID": "slides/lecture-27_slides.html#example-1",
+    "href": "slides/lecture-27_slides.html#example-1",
+    "title": "Regex to NFA",
+    "section": "Example 1",
+    "text": "Example 1\n^(ab|ba)*$"
+  },
+  {
+    "objectID": "slides/lecture-27_slides.html#example-3",
+    "href": "slides/lecture-27_slides.html#example-3",
+    "title": "Regex to NFA",
+    "section": "Example 3",
+    "text": "Example 3\nTask: Sketch an NFA for ^1(01|10)*0$ using only the four gadgets.\nPlan: literal 1 … union(01,10) … star … literal 0."
+  },
+  {
+    "objectID": "slides/lecture-27_slides.html#last-puzzle",
+    "href": "slides/lecture-27_slides.html#last-puzzle",
+    "title": "Regex to NFA",
+    "section": "Last Puzzle:",
+    "text": "Last Puzzle:\n\\(0^n1^n\\)"
+  },
+  {
+    "objectID": "slides/lecture-27_slides.html#grammar-for-0n1n",
+    "href": "slides/lecture-27_slides.html#grammar-for-0n1n",
+    "title": "Regex to NFA",
+    "section": "Grammar for \\(0^n1^n\\) ?",
+    "text": "Grammar for \\(0^n1^n\\) ?\nGrammar:\n\\(S \\to 0S1 \\ \\mid\\ \\varepsilon\\)\nDerivations:\n\nFor 01: \\[\nS \\Rightarrow 0S1 \\Rightarrow 01\n\\]\nFor 000111: \\[\nS \\Rightarrow 0S1 \\Rightarrow 00S11 \\Rightarrow 000S111 \\Rightarrow 000111\n\\]\n\nParse tree shape for 0011:"
+  },
+  {
+    "objectID": "slides/lecture-27_slides.html#cfg-review",
+    "href": "slides/lecture-27_slides.html#cfg-review",
+    "title": "Regex to NFA",
+    "section": "CFG Review",
+    "text": "CFG Review\nA context-free grammar (CFG) has:\n\nTerminals (alphabet),\nNonterminals (variables),\nStart symbol,\nProductions like \\(S \\to 0S1 \\mid \\varepsilon\\).\n\nNotes:\n\nA derivation rewrites nonterminals to produce a string.\nA parse tree is evidence of how a string was generated.\nThe class of Regular Languages \\(\\subset\\) the class of Context-Free Languages\n\n\nConnect to your earlier WFF grammar: “That was a CFG all along.”"
+  },
+  {
     "objectID": "slides/lecture-27_slides.html#warm-up",
     "href": "slides/lecture-27_slides.html#warm-up",
-    "title": "Context Free Grammars",
+    "title": "Regex to NFA",
     "section": "Warm Up",
     "text": "Warm Up\nStart with &lt;T&gt; and roll a die to choose which rule to apply.\n      &lt;T&gt; ::= &lt;CORE&gt; | &lt;CORE&gt; &lt;FEAT&gt;\n\n   &lt;FEAT&gt; ::= \"feat.\" &lt;ARTIST&gt;\n\n &lt;ARTIST&gt; ::= \"Taylor Swift\" | \"Sabrina Carpenter\" | \"Olivia\" &lt;LN&gt; | \"Chappell Roan\"\n\n     &lt;LN&gt; ::= \"Rodrigo\" | \"Dean\"\n\n   &lt;CORE&gt; ::= &lt;NP&gt; | &lt;NP&gt; &lt;PREP&gt; &lt;NP&gt;\n\n     &lt;NP&gt; ::= &lt;DET&gt; &lt;ADJLIST&gt; &lt;NOUN&gt;\n\n    &lt;DET&gt; ::= \"the\" | \"my\" | \"your\" | \"our\"\n\n&lt;ADJLIST&gt; ::= &lt;ADJ&gt; &lt;ADJ&gt; | &lt;ADJ&gt; | ε\n\n    &lt;ADJ&gt; ::= \"midnight\" | \"lonely\" | \"wild\" | \"broken\" | \"golden\" | \"electric\"\n\n   &lt;NOUN&gt; ::= \"heart\" | \"city\" | \"dreams\" | \"summer\" | \"memories\" | \"night\"\n\n   &lt;PREP&gt; ::= \"in\" | \"of\" | \"for\" | \"at\""
   },
   {
     "objectID": "slides/lecture-27_slides.html#demo",
     "href": "slides/lecture-27_slides.html#demo",
-    "title": "Context Free Grammars",
+    "title": "Regex to NFA",
     "section": "Demo",
     "text": "Demo"
   },
   {
     "objectID": "slides/lecture-27_slides.html#a-basic-json-cfg",
     "href": "slides/lecture-27_slides.html#a-basic-json-cfg",
-    "title": "Context Free Grammars",
+    "title": "Regex to NFA",
     "section": "A Basic JSON CFG",
     "text": "A Basic JSON CFG\nhttps://www.json.org/json-en.html\nWe ignore lexical details and focus on structure.\n   &lt;Value&gt; ::=  &lt;Object&gt; | &lt;Array&gt; | &lt;String&gt; | &lt;Number&gt; \n             | `true` | `false` | `null`  \n  &lt;Object&gt; ::= `{` &lt;Members&gt; `}` | `{}`  \n &lt;Members&gt; ::= &lt;Pair&gt; | &lt;Pair&gt; `,` &lt;Members&gt; \n    &lt;Pair&gt; ::= &lt;String&gt; `:` &lt;Value&gt;  \n   &lt;Array&gt; ::=  `[` &lt;Elements&gt; `]` | `[]`  \n&lt;Elements&gt; ::= &lt;Value&gt; | &lt;Value&gt; `,` &lt;Elements&gt;\nExample: Is {\"a\":[1,2,{\"b\":null}]} in the language?\n\nPoint: regex can’t enforce balanced, nested delimiters; CFGs can."
   },
   {
+    "objectID": "slides/lecture-27_slides.html#example-2",
+    "href": "slides/lecture-27_slides.html#example-2",
+    "title": "Regex to NFA",
+    "section": "Example 2",
+    "text": "Example 2\n^(0|1)*11(0|1)*$"
+  },
+  {
+    "objectID": "slides/lecture-27_slides.html#closure-facts",
+    "href": "slides/lecture-27_slides.html#closure-facts",
+    "title": "Regex to NFA",
+    "section": "Closure Facts",
+    "text": "Closure Facts\nIf \\(L_1, L_2\\) are context-free:\n\nUnion: context-free via new start \\(S \\to S_1 \\mid S_2\\)\nConcatenation: context-free via \\(S \\to S_1 S_2\\)\nKleene star: context-free via \\(S \\to SS \\mid \\varepsilon\\)\n\n(Intersection with regular languages is CF; general intersection/complement are not.)\n\nTie back to set algebra & your earlier closures with DFAs."
+  },
+  {
+    "objectID": "slides/lecture-27_slides.html#a-basic-json-cfg-1",
+    "href": "slides/lecture-27_slides.html#a-basic-json-cfg-1",
+    "title": "Regex to NFA",
+    "section": "A Basic JSON CFG",
+    "text": "A Basic JSON CFG\nhttps://www.json.org/json-en.html\nWe ignore lexical details and focus on structure.\n\nValue → Object | Array | String | Number | true | false | null\n\nObject → { Members } | {}\n\nMembers → Pair | Pair , Members\n\nPair → String : Value\n\nArray → [ Elements ] | []\n\nElements → Value | Value , Elements\n\nExample: Is {\"a\":[1,2,{\"b\":null}]} in the language?\n\nPoint: regex can’t enforce balanced, nested delimiters; CFGs can."
+  },
+  {
     "objectID": "slides/lecture-27_slides.html#your-turn",
     "href": "slides/lecture-27_slides.html#your-turn",
-    "title": "Context Free Grammars",
+    "title": "Regex to NFA",
     "section": "Your Turn",
     "text": "Your Turn\nCreate a Grammar for \\(L = \\{a^nb^nc^n, n\\geq 0\\}\\)"
   },
   {
     "objectID": "slides/lecture-27_slides.html#chomsky-hierarchy-for-data-science",
     "href": "slides/lecture-27_slides.html#chomsky-hierarchy-for-data-science",
-    "title": "Context Free Grammars",
+    "title": "Regex to NFA",
     "section": "Chomsky Hierarchy (for Data Science)",
     "text": "Chomsky Hierarchy (for Data Science)\nRegular languages\n\nDescribed by regular expressions, recognized by DFAs/NFAs\nLimited “memory”: patterns like “contains 11”, “ends with tea”, [A-Z]{4}[0-9]{3}\nIn DSci: log filters, simple validators, tokenizing text, cleaning CSV-ish formats\n\nContext-free languages\n\nDescribed by context-free grammars (CFGs)\nHandle nested or balanced structure: parentheses, HTML/XML tags, JSON\nIn DSci: parsing JSON/YAML, understanding code/configs, defining schemas for nested data"
   },
   {
     "objectID": "slides/lecture-27_slides.html#chomsky-hierarchy-for-data-science-1",
     "href": "slides/lecture-27_slides.html#chomsky-hierarchy-for-data-science-1",
-    "title": "Context Free Grammars",
+    "title": "Regex to NFA",
     "section": "Chomsky Hierarchy (for Data Science)",
     "text": "Chomsky Hierarchy (for Data Science)\nContext-sensitive languages\n\nMore powerful; can express things like \\(a^n b^n c^n\\)\nCapture some agreement constraints in natural language, complex dependencies\nRarely used explicitly; usually enforced with custom code, type systems, or constraint solvers\n\nRecursively enumerable languages\n\nEverything a Turing machine can recognize\n“All computable languages” — but no guarantee we can always decide membership in finite time\n\n\nData-science takeaway\nMost text / logs / simple formats: regular level (regex & DFAs)\nMost structured nested data (JSON, XML, code): context-free level (CFGs & parsers)\nRich cross-field / counting constraints go beyond CFGs, handled by full programming languages, SQL engines, or specialized tools"
   },
   {
-    "objectID": "slides/lecture-27_slides.html#warm-up-how-many-outfits",
-    "href": "slides/lecture-27_slides.html#warm-up-how-many-outfits",
-    "title": "Context Free Grammars",
-    "section": "Warm-Up: How Many Outfits?",
-    "text": "Warm-Up: How Many Outfits?\nQuestion: How many different outfits do you have in your closet?\n \nNo rules, just count.\n\nWhat even counts as an outfit?\nDo shoes matter?\nDo seasons/colors matter?\nAre some combos invalid?\n\nWrite down how you’d start to count, not just an answer."
-  },
-  {
-    "objectID": "slides/lecture-27_slides.html#what-did-you-count",
-    "href": "slides/lecture-27_slides.html#what-did-you-count",
-    "title": "Context Free Grammars",
-    "section": "What Did You Count?",
-    "text": "What Did You Count?\n\nWhat categories did you use?\nWhat rules did you impose?\n\nKey Idea:\nHow we model outfits (what’s allowed, what’s ignored) changes the counting."
-  },
-  {
-    "objectID": "slides/lecture-27_slides.html#a-simplified-closet-model",
-    "href": "slides/lecture-27_slides.html#a-simplified-closet-model",
-    "title": "Context Free Grammars",
-    "section": "A Simplified Closet Model",
-    "text": "A Simplified Closet Model\nDefine a wardrobe for the rest of this lesson:\n\n\\(k\\) pairs of shoes\n\\(j\\) pairs of pants\n\\(m\\) skirts\n\\(n\\) shirts\n\\(p\\) dresses\n\nWe’ll choose a model:\n\nAn outfit is either:\n\nshirt + bottom + shoes, where\nbottom is either pants or a skirt\nor a dress + shoes\n\nNo color/style rules: everything in these categories is compatible."
-  },
-  {
-    "objectID": "slides/lecture-27_slides.html#turn-it-into-sets",
-    "href": "slides/lecture-27_slides.html#turn-it-into-sets",
-    "title": "Context Free Grammars",
-    "section": "Turn It Into Sets",
-    "text": "Turn It Into Sets\nDefine sets of items:\n\n\\(S =\\) set of shoes, \\(|S| = k\\)\n\\(P =\\) set of pants, \\(|P| = j\\)\n\\(K =\\) set of skirts, \\(|K| = m\\)\n\\(T =\\) set of shirts, \\(|T| = n\\)\n\\(D =\\) set of dresses, \\(|D| = p\\)\n\nA bottom is either pants or a skirt:\n\\[\nB = P \\cup K\n\\]\nAssuming no overlap between pants and skirts:\n\\[\n|B| = |P \\cup K| = |P| + |K| = j + m\n\\]"
-  },
-  {
-    "objectID": "slides/lecture-27_slides.html#outfits-of-type-1",
-    "href": "slides/lecture-27_slides.html#outfits-of-type-1",
-    "title": "Context Free Grammars",
-    "section": "Outfits of Type 1",
-    "text": "Outfits of Type 1\nType 1 outfit: shirt + bottom + shoes\nAs a set of combinations:\n\\[\n\\text{Type1} = S \\times B \\times T\n\\]\nEach outfit is a triple:\n\\[\n(\\text{shoe}, \\text{bottom}, \\text{shirt}) \\in S \\times B \\times T\n\\]\nSo the number of Type 1 outfits is:\n\\[\n|\\text{Type1}| = |S||B||T| = k(j + m)n\n\\]"
-  },
-  {
-    "objectID": "slides/lecture-27_slides.html#outfits-of-type-2",
-    "href": "slides/lecture-27_slides.html#outfits-of-type-2",
-    "title": "Context Free Grammars",
-    "section": "Outfits of Type 2",
-    "text": "Outfits of Type 2\nType 2 outfit: dress + shoes\nAs a set of combinations:\n\\[\n\\text{Type2} = S \\times D\n\\]\nEach outfit is a pair:\n\\[\n(\\text{shoe}, \\text{dress}) \\in S \\times D\n\\]\nSo the number of Type 2 outfits is:\n\\[\n|\\text{Type2}| = |S||D| = kp\n\\]"
-  },
-  {
-    "objectID": "slides/lecture-27_slides.html#total-number-of-outfits",
-    "href": "slides/lecture-27_slides.html#total-number-of-outfits",
-    "title": "Context Free Grammars",
-    "section": "Total Number of Outfits",
-    "text": "Total Number of Outfits\nWe’ve partitioned outfits into two disjoint types:\n\nType 1: shirt + bottom + shoes\nType 2: dress + shoes\n\nTotal number of outfits in our model:\n\\[\n\\begin{aligned}\n\\#\\text{outfits}\n&= |\\text{Type1}| + |\\text{Type2}| \\\\\n&= k(j + m)n + kp \\\\\n&= k\\big((j + m)n + p\\big).\n\\end{aligned}\n\\]\nThis matches the informal idea:\n\n“For each pair of shoes, you can choose any (bottom, shirt) combo or any dress.”"
-  },
-  {
-    "objectID": "slides/lecture-27_slides.html#the-product-rule",
-    "href": "slides/lecture-27_slides.html#the-product-rule",
-    "title": "Context Free Grammars",
-    "section": "The Product Rule",
-    "text": "The Product Rule\nFundamental counting fact:\n\nIf \\(A\\) and \\(B\\) are finite sets, then\n\\[\n|A \\times B| = |A|\\cdot|B|.\n\\]\n\nGeneralizing:\n\nFor sets \\(A_1, A_2, \\dots, A_k\\): \\[\n|A_1 \\times A_2 \\times \\dots \\times A_k| = |A_1| \\cdot |A_2| \\cdot \\dots \\cdot |A_k|.\n\\]\n\nInterpretation:\n\nA choice procedure:\n\nchoose one element from \\(A_1\\),\nthen one from \\(A_2\\), \\(\\ldots\\)\nthen one from \\(A_k\\),\n\nEvery distinct chain of choices is a distinct element of the product set."
-  },
-  {
-    "objectID": "slides/lecture-27_slides.html#wrap-up",
-    "href": "slides/lecture-27_slides.html#wrap-up",
-    "title": "Context Free Grammars",
-    "section": "Wrap Up",
-    "text": "Wrap Up\nThe combinatorics lesson:\n\nOnce you’ve decided what “counts,” express the valid items as a product of simpler choices.\n\nThis pattern will be used for:\n\npasswords,\nplaylists,\ncommittee selection,\nsampling from datasets,\nand more."
-  },
-  {
     "objectID": "slides/lecture-25_slides.html#announcements",
     "href": "slides/lecture-25_slides.html#announcements",
-    "title": "DFAs, NFAs",
+    "title": "Reading and Building DFAs",
     "section": "Announcements",
     "text": "Announcements"
   },
   {
     "objectID": "slides/lecture-25_slides.html#goals",
     "href": "slides/lecture-25_slides.html#goals",
-    "title": "DFAs, NFAs",
+    "title": "Reading and Building DFAs",
     "section": "Goals",
     "text": "Goals\n\nRead a DFA: run a string through it, and decide accept or reject.\nSay what each state remembers about the string so far.\nGo from a machine to a regex, and test the guess."
   },
   {
     "objectID": "slides/lecture-25_slides.html#how-to-read-a-dfa",
     "href": "slides/lecture-25_slides.html#how-to-read-a-dfa",
-    "title": "DFAs, NFAs",
+    "title": "Reading and Building DFAs",
     "section": "How to Read a DFA",
     "text": "How to Read a DFA\n\n\n\n\n\n\n\n\n\n\n\n\nstart\nstart\n\n\n\nA\n\nA\n\n\n\nstart-&gt;A\n\n\n\n\n\nA-&gt;A\n\n\n 0 \n\n\n\nB\n\n\nB\n\n\n\nA-&gt;B\n\n\n 1 \n\n\n\nB-&gt;A\n\n\n 0 \n\n\n\nB-&gt;B\n\n\n 1 \n\n\n\n\n\n\n\n\n\n\n\nStart at the start arrow.\nRead the string left to right, one symbol at a time. Follow the arrow labelled with that symbol: 0 or 1.\nAt the end, a double circle means accept. Any other state: reject.\n\n\n\n\nTrace 0110. Trace 1101.\n\n0110: A, A, B, B, A. Ends in A: reject. 1101: A, B, B, A, B. Ends in B: accept. A remembers “the last symbol wasn’t a 1 (or nothing read yet)”; B remembers “the last symbol was a 1”. So the machine accepts exactly the strings that end in 1: (0|1)*1. Every state has exactly one arrow for each symbol. That’s the D in DFA: no choices."
   },
   {
     "objectID": "slides/lecture-25_slides.html#your-turn",
     "href": "slides/lecture-25_slides.html#your-turn",
-    "title": "DFAs, NFAs",
+    "title": "Reading and Building DFAs",
     "section": "Your Turn",
     "text": "Your Turn\nFor each machine on the next slides:\n\nWrite down 5 strings it accepts and 5 it rejects. Short ones first, and don’t forget the empty string.\nLook at your lists. What do the accepted strings have in common?\nWrite a regex for the accepted strings.\n\n\n\nThen check yourself on the Check! slide."
   },
   {
     "objectID": "slides/lecture-25_slides.html#machine-a",
     "href": "slides/lecture-25_slides.html#machine-a",
-    "title": "DFAs, NFAs",
+    "title": "Reading and Building DFAs",
     "section": "Machine A 🐝",
     "text": "Machine A 🐝\n\n\n\n\n\n\n\n\n\n\n\n\nstart\nstart\n\n\n\nP\n\nP\n\n\n\nstart-&gt;P\n\n\n\n\n\nP-&gt;P\n\n\n 0 \n\n\n\nQ\n\nQ\n\n\n\nP-&gt;Q\n\n\n 1 \n\n\n\nQ-&gt;P\n\n\n 0 \n\n\n\nR\n\n\nR\n\n\n\nQ-&gt;R\n\n\n 1 \n\n\n\nR-&gt;R\n\n\n 0, 1 \n\n\n\n\n\n\n\n\n\n\n\nAccepts 💚\n\n\n\n\n\n\nRejects 💔\n\n\n\n\n\n\nRegex? 🤔\n\n\n\n\n\nMachine A: contains 11. Regex (0|1)*11(0|1)*. P: no progress (last symbol was 0, or nothing yet). Q: just saw one 1. R: has seen 11, and stays forever. Accepts: 11, 011, 110, 0110, 111. Rejects: ε, 0, 1, 10, 101."
   },
   {
     "objectID": "slides/lecture-25_slides.html#machine-b",
     "href": "slides/lecture-25_slides.html#machine-b",
-    "title": "DFAs, NFAs",
+    "title": "Reading and Building DFAs",
     "section": "Machine B 🐢",
     "text": "Machine B 🐢\n\n\n\n\n\n\n\n\n\n\n\n\nstart\nstart\n\n\n\nP\n\nP\n\n\n\nstart-&gt;P\n\n\n\n\n\nP-&gt;P\n\n\n 1 \n\n\n\nQ\n\nQ\n\n\n\nP-&gt;Q\n\n\n 0 \n\n\n\nQ-&gt;P\n\n\n 1 \n\n\n\nR\n\n\nR\n\n\n\nQ-&gt;R\n\n\n 0 \n\n\n\nR-&gt;P\n\n\n 1 \n\n\n\nR-&gt;R\n\n\n 0 \n\n\n\n\n\n\n\n\n\n\n\nAccepts 💚\n\n\n\n\n\n\nRejects 💔\n\n\n\n\n\n\nRegex? 🤔\n\n\n\n\n\nMachine B: ends in 00. Regex (0|1)*00. P: last symbol was 1 (or nothing yet). Q: ends in exactly one 0. R: ends in 00. Note R goes back to P on a 1: unlike Machine A, this machine can lose what it found. Accepts: 00, 100, 000, 1100, 0100. Rejects: ε, 0, 10, 001, 0010."
   },
   {
     "objectID": "slides/lecture-25_slides.html#machine-c",
     "href": "slides/lecture-25_slides.html#machine-c",
-    "title": "DFAs, NFAs",
+    "title": "Reading and Building DFAs",
     "section": "Machine C 🦊",
     "text": "Machine C 🦊\n\n\n\n\n\n\n\n\n\n\n\n\nstart\nstart\n\n\n\nS\n\nS\n\n\n\nstart-&gt;S\n\n\n\n\n\nP\n\nP\n\n\n\nS-&gt;P\n\n\n 0 \n\n\n\nR\n\nR\n\n\n\nS-&gt;R\n\n\n 1 \n\n\n\nP-&gt;P\n\n\n 0 \n\n\n\nQ\n\n\nQ\n\n\n\nP-&gt;Q\n\n\n 1 \n\n\n\nQ-&gt;P\n\n\n 0 \n\n\n\nQ-&gt;Q\n\n\n 1 \n\n\n\nR-&gt;R\n\n\n 1 \n\n\n\nT\n\n\nT\n\n\n\nR-&gt;T\n\n\n 0 \n\n\n\nT-&gt;R\n\n\n 1 \n\n\n\nT-&gt;T\n\n\n 0 \n\n\n\n\n\n\n\n\n\n\n\nAccepts 💚\n\n\n\n\n\n\nRejects 💔\n\n\n\n\n\n\nRegex? 🤔\n\n\n\n\n\nMachine C: starts and ends with different symbols. Regex 0(0|1)*1|1(0|1)*0. The first symbol picks a lane forever. Top lane: started with 0, so accept when the last is 1 (Q). Bottom lane: started with 1, accept when the last is 0 (T). P and R: last symbol matches the first. Accepts: 01, 10, 001, 110, 0101. Rejects: ε, 0, 1, 00, 101. Also right: (0(0|1)1)|(1(0|1)0), or 0(0|1)1|1(0|1)0."
   },
   {
     "objectID": "slides/lecture-25_slides.html#machine-d",
     "href": "slides/lecture-25_slides.html#machine-d",
-    "title": "DFAs, NFAs",
+    "title": "Reading and Building DFAs",
     "section": "Machine D 🐙",
     "text": "Machine D 🐙\n\n\n\n\n\n\n\n\n\n\n\n\nstart\nstart\n\n\n\nE\n\n\nE\n\n\n\nstart-&gt;E\n\n\n\n\n\nE-&gt;E\n\n\n 0 \n\n\n\nO\n\nO\n\n\n\nE-&gt;O\n\n\n 1 \n\n\n\nO-&gt;E\n\n\n 1 \n\n\n\nO-&gt;O\n\n\n 0 \n\n\n\n\n\n\n\n\n\n\n\nAccepts 💚\n\n\n\n\n\n\nRejects 💔\n\n\n\n\n\n\nRegex? 🤔\n\n\n\n\n\nMachine D: an even number of 1s. Regex 0*(10*10*)*. E: an even number of 1s so far. O: odd. Zeros change nothing. Accepts: ε, 0, 11, 101, 0110. Rejects: 1, 01, 10, 111, 1011. The regex is the hard part: 0(1010). Read it as: some 0s, then 1s in pairs with 0s anywhere. A common guess, (0101)*, fails the Check! on ‘0’: it forgets the zeros after the last pair. Two states for the machine, and the pattern is still hard to write. Easy for a machine, hard for a pattern."
   },
   {
     "objectID": "slides/lecture-25_slides.html#check",
     "href": "slides/lecture-25_slides.html#check",
-    "title": "DFAs, NFAs",
+    "title": "Reading and Building DFAs",
     "section": "Check!",
     "text": "Check!\nRunning a DFA is a for loop over the string. The only thing it remembers is state, and state is always one of the machine’s few states.\n\n\n\n\n\n\n\nThe starting guess r’11’ disagrees on ‘011’: the machine accepts it, the regex doesn’t. Checking up to length 8 is evidence, not a proof. A proof is induction on the length of the string, with one claim per state (“after reading w, the machine is in R iff w contains 11”). That’s HW5."
   },
   {
     "objectID": "slides/lecture-25_slides.html#what-does-each-state-remember",
     "href": "slides/lecture-25_slides.html#what-does-each-state-remember",
-    "title": "DFAs, NFAs",
+    "title": "Reading and Building DFAs",
     "section": "What Does Each State Remember?",
     "text": "What Does Each State Remember?\nPick one machine. For each state, finish the sentence:\n\n\n“The machine is in this state when the string so far ____________.”\n\n\nHow many states does Machine D need, no matter how long the string is?\n\nSee the notes on each machine. Machine D needs 2, forever: it only remembers even or odd. That is the whole idea of a finite automaton: a fixed, finite memory of the prefix. Later (pigeonhole), we’ll see a language that no finite memory can handle: 0^n 1^n."
   },
   {
     "objectID": "slides/lecture-25_slides.html#goals-1",
     "href": "slides/lecture-25_slides.html#goals-1",
-    "title": "DFAs, NFAs",
+    "title": "Reading and Building DFAs",
     "section": "Goals",
     "text": "Goals\n\nRecall a regex is a set of strings (a language).\nBuild small DFAs that recognize those sets.\nUse closure tricks (∪, ∩, complement) to combine DFAs."
   },
   {
     "objectID": "slides/lecture-25_slides.html#warm-up",
     "href": "slides/lecture-25_slides.html#warm-up",
-    "title": "DFAs, NFAs",
+    "title": "Reading and Building DFAs",
     "section": "Warm-Up",
     "text": "Warm-Up\nPattern: ^(0|1)*11(0|1)*$\nWhich strings are in the set?\n\n10101\n\n11010\n\n10001\n\n10110\n\n\nAnswer: 11010, 10110. emphasize that we are reading the string from left to right."
   },
   {
     "objectID": "slides/lecture-25_slides.html#contains-11",
     "href": "slides/lecture-25_slides.html#contains-11",
-    "title": "DFAs, NFAs",
+    "title": "Reading and Building DFAs",
     "section": "Contains 11",
     "text": "Contains 11\nAlphabet: {0,1}\nStates:\n\nS0: the last symbol wasn’t a 1 (or nothing read yet). Start.\nS1: just saw a 1\nS2: saw substring 11 (accepting)\n\nDFA Sketch:\n\nRun a couple examples on the board: 101101 (accept), 101010 (reject). key elements: 0) input alphabet 1) set of states. 2) start state, 3) transition function, 4) set of accept states."
   },
   {
     "objectID": "slides/lecture-25_slides.html#dfa-ideas",
     "href": "slides/lecture-25_slides.html#dfa-ideas",
-    "title": "DFAs, NFAs",
+    "title": "Reading and Building DFAs",
     "section": "DFA Ideas",
     "text": "DFA Ideas\nProcess a string from left to right, one character at a time.\n\nState: what the prefix tells us so far.\nAccept iff we finish in an accepting state.\nDeterministic: at most one transition per symbol from every state.\nTotal: every state has a transition on every symbol."
   },
   {
     "objectID": "slides/lecture-25_slides.html#dfa-definition",
     "href": "slides/lecture-25_slides.html#dfa-definition",
-    "title": "DFAs, NFAs",
+    "title": "Reading and Building DFAs",
     "section": "DFA Definition",
     "text": "DFA Definition\nA Deterministic Finite Automaton consists of the following:\n\na set of states \\(S\\)\na finite alphabet \\(\\Sigma\\)\na transition function \\(f\\) that assigns a next state to each \\((s, i)\\) pair, \\(s\\in S\\) and \\(i\\in \\Sigma\\).\na start state \\(s_0\\)\na set of accepting states \\(F\\subseteq S\\)"
   },
   {
     "objectID": "slides/lecture-25_slides.html#regex-dfa",
     "href": "slides/lecture-25_slides.html#regex-dfa",
-    "title": "DFAs, NFAs",
+    "title": "Reading and Building DFAs",
     "section": "Regex = DFA",
     "text": "Regex = DFA\nA language is regular if and only if it is recognized by some DFA."
   },
   {
     "objectID": "slides/lecture-25_slides.html#you-try-ends-with-tea",
     "href": "slides/lecture-25_slides.html#you-try-ends-with-tea",
-    "title": "DFAs, NFAs",
+    "title": "Reading and Building DFAs",
     "section": "You Try: “Ends with Tea”",
     "text": "You Try: “Ends with Tea”\nTarget: strings that end with tea\n\nalphabet is lower case letters, here, just to keep it simple.\nWe’ll use this when we do unions, later."
   },
   {
     "objectID": "slides/lecture-25_slides.html#prefix-example-starts-with-iced",
     "href": "slides/lecture-25_slides.html#prefix-example-starts-with-iced",
-    "title": "DFAs, NFAs",
+    "title": "Reading and Building DFAs",
     "section": "Prefix Example: “Starts with Iced”",
     "text": "Prefix Example: “Starts with Iced”\nPlan:\n\nChain prefix states; before success, any mismatch → SINK.\nAfter success, loop on any character in ACC.\n\nDiagram:"
   },
   {
     "objectID": "slides/lecture-25_slides.html#one-last-example",
     "href": "slides/lecture-25_slides.html#one-last-example",
-    "title": "DFAs, NFAs",
+    "title": "Reading and Building DFAs",
     "section": "One Last Example",
     "text": "One Last Example\nBuild the DFA corresponding to ^0(1*|0*)1$"
-  },
-  {
-    "objectID": "slides/lecture-25_slides.html#closure-tricks",
-    "href": "slides/lecture-25_slides.html#closure-tricks",
-    "title": "DFAs, NFAs",
-    "section": "Closure Tricks",
-    "text": "Closure Tricks\nWhat’s closure?\n\nComplement: make the DFA total (add SINK if needed), then flip accept to non-accept, and vice-versa.\nUnion / Intersection:\nStates are pairs (p,q)\n\nUnion accepts if p ∈ F1 or q ∈ F2\nIntersection accepts if p ∈ F1 and q ∈ F2\n\nDifference: L1 - L2 = \\(L1\\cap L2^c\\)\n\n\nThis mirrors set algebra directly; great place to reinforce recent set lessons."
-  },
-  {
-    "objectID": "slides/lecture-25_slides.html#mini-exercise",
-    "href": "slides/lecture-25_slides.html#mini-exercise",
-    "title": "DFAs, NFAs",
-    "section": "Mini-Exercise",
-    "text": "Mini-Exercise\nBuild a DFA for the union of:\n\nL1: contains 11 (use the machine we built)\nL2: ends with 00 (three states: Tε, T0, T00)\n\nHint: sketch product states (S_i, T_j) and mark accept pairs for union."
-  },
-  {
-    "objectID": "slides/lecture-25_slides.html#parity-demo",
-    "href": "slides/lecture-25_slides.html#parity-demo",
-    "title": "DFAs, NFAs",
-    "section": "Parity Demo",
-    "text": "Parity Demo\nLanguage: even number of 1s over {0,1}.\n\nEVEN (start, accept), ODD\n\non 1: toggle; on 0: stay\n\nTry: which strings of length \\(\\leq\\) 4 accept?"
-  },
-  {
-    "objectID": "slides/lecture-25_slides.html#nfas",
-    "href": "slides/lecture-25_slides.html#nfas",
-    "title": "DFAs, NFAs",
-    "section": "NFAs",
-    "text": "NFAs\n \n \n \nDFA: exactly one transition for each input symbol in each state.\nNFA: may have multiple choices on a symbol and \\(\\varepsilon\\)-moves (move without consuming input).\nAcceptance: a string is accepted if there exists a path that reads all characters and lands in an accept state.\n\nSay: “NFA is a modeling convenience. We’ll lean on that for regex to NFA construction.”"
-  },
-  {
-    "objectID": "slides/lecture-25_slides.html#notes-on-nfas",
-    "href": "slides/lecture-25_slides.html#notes-on-nfas",
-    "title": "DFAs, NFAs",
-    "section": "Notes on NFAs",
-    "text": "Notes on NFAs\n\nDirect from a regex: Translate patterns piece-by-piece without tricky state discovery.\nLocal “gadgets”: Build tiny NFAs for literal, union (\\(|\\)), concatenation, Kleene star (\\(^*\\)) and wire together with \\(\\varepsilon\\).\nNFAs and DFAs have the same power!! (Kleene’s Theorem)\nBuild a DFA from NFA algorithmically if you need one.\n\n\nMessage: “We model the branching in the regex directly; acceptance means at least one successful path.”"
-  },
-  {
-    "objectID": "slides/lecture-25_slides.html#regex-to-nfa-gadgets",
-    "href": "slides/lecture-25_slides.html#regex-to-nfa-gadgets",
-    "title": "DFAs, NFAs",
-    "section": "Regex to NFA Gadgets",
-    "text": "Regex to NFA Gadgets\n\n\n\n\nLiteral ‘a’\n\n\n          a s f\n\n\nUnion: R | S\n\n\n         s f  [ R ]    [ S ]     ε ε   ε ε\n\n\n\nConcatenation: RS\n\n\n         s f  [ R ]    [ S ]      ε\n\n\nKleene star: R*\n\n\n         s f  [ R ]    ε (empty)  ε  ε  ε"
-  },
-  {
-    "objectID": "slides/lecture-25_slides.html#example-1",
-    "href": "slides/lecture-25_slides.html#example-1",
-    "title": "DFAs, NFAs",
-    "section": "Example 1",
-    "text": "Example 1\n^(ab|ba)*$"
-  },
-  {
-    "objectID": "slides/lecture-25_slides.html#example-2",
-    "href": "slides/lecture-25_slides.html#example-2",
-    "title": "DFAs, NFAs",
-    "section": "Example 2",
-    "text": "Example 2\n^(0|1)*11(0|1)*$"
-  },
-  {
-    "objectID": "slides/lecture-25_slides.html#example-3",
-    "href": "slides/lecture-25_slides.html#example-3",
-    "title": "DFAs, NFAs",
-    "section": "Example 3",
-    "text": "Example 3\nTask: Sketch an NFA for ^1(01|10)*0$ using only the four gadgets.\nPlan: literal 1 … union(01,10) … star … literal 0."
-  },
-  {
-    "objectID": "slides/lecture-25_slides.html#last-puzzle",
-    "href": "slides/lecture-25_slides.html#last-puzzle",
-    "title": "DFAs, NFAs",
-    "section": "Last Puzzle:",
-    "text": "Last Puzzle:\n\\(0^n1^n\\)"
-  },
-  {
-    "objectID": "slides/lecture-25_slides.html#why-regexdfas-cant-do-0n1n",
-    "href": "slides/lecture-25_slides.html#why-regexdfas-cant-do-0n1n",
-    "title": "DFAs, NFAs",
-    "section": "Why Regex/DFAs Can’t Do \\(0^n1^n\\)",
-    "text": "Why Regex/DFAs Can’t Do \\(0^n1^n\\)\nLanguage: \\(\\{\\,0^n1^n : n\\ge 0\\,\\}\\) (equal 0s followed by equal 1s)\nFinite-state limitation:\nAssume a DFA exists that accepts \\(0^n1^n\\), and let \\(k\\) denote its number of states.\nAmong the \\(k+1\\) prefixes \\(0^0, 0^1, \\dots, 0^k\\) two must land in the same state.\nFrom those two prefixes, feed the same number of 1s. One string should accept, and the other should not.\n\nNot all languages are regular! No Pumping Lemma needed; it’s a pigeonhole/“can’t count unboundedly” story."
-  },
-  {
-    "objectID": "slides/lecture-25_slides.html#cfg-review",
-    "href": "slides/lecture-25_slides.html#cfg-review",
-    "title": "DFAs, NFAs",
-    "section": "CFG Review",
-    "text": "CFG Review\nA context-free grammar (CFG) has:\n\nTerminals (alphabet),\nNonterminals (variables),\nStart symbol,\nProductions like \\(S \\to 0S1 \\mid \\varepsilon\\).\n\nNotes:\n\nA derivation rewrites nonterminals to produce a string.\nA parse tree is evidence of how a string was generated.\nThe class of Regular Languages \\(\\subset\\) the class of Context-Free Languages\n\n\nConnect to your earlier WFF grammar: “That was a CFG all along.”"
-  },
-  {
-    "objectID": "slides/lecture-25_slides.html#grammar-for-0n1n",
-    "href": "slides/lecture-25_slides.html#grammar-for-0n1n",
-    "title": "DFAs, NFAs",
-    "section": "Grammar for \\(0^n1^n\\) ?",
-    "text": "Grammar for \\(0^n1^n\\) ?\nGrammar:\n\\(S \\to 0S1 \\ \\mid\\ \\varepsilon\\)\nDerivations:\n\nFor 01: \\[\nS \\Rightarrow 0S1 \\Rightarrow 01\n\\]\nFor 000111: \\[\nS \\Rightarrow 0S1 \\Rightarrow 00S11 \\Rightarrow 000S111 \\Rightarrow 000111\n\\]\n\nParse tree shape for 0011:"
-  },
-  {
-    "objectID": "slides/lecture-25_slides.html#closure-facts",
-    "href": "slides/lecture-25_slides.html#closure-facts",
-    "title": "DFAs, NFAs",
-    "section": "Closure Facts",
-    "text": "Closure Facts\nIf \\(L_1, L_2\\) are context-free:\n\nUnion: context-free via new start \\(S \\to S_1 \\mid S_2\\)\nConcatenation: context-free via \\(S \\to S_1 S_2\\)\nKleene star: context-free via \\(S \\to SS \\mid \\varepsilon\\)\n\n(Intersection with regular languages is CF; general intersection/complement are not.)\n\nTie back to set algebra & your earlier closures with DFAs."
-  },
-  {
-    "objectID": "slides/lecture-25_slides.html#a-basic-json-cfg",
-    "href": "slides/lecture-25_slides.html#a-basic-json-cfg",
-    "title": "DFAs, NFAs",
-    "section": "A Basic JSON CFG",
-    "text": "A Basic JSON CFG\nhttps://www.json.org/json-en.html\nWe ignore lexical details and focus on structure.\n\nValue → Object | Array | String | Number | true | false | null\n\nObject → { Members } | {}\n\nMembers → Pair | Pair , Members\n\nPair → String : Value\n\nArray → [ Elements ] | []\n\nElements → Value | Value , Elements\n\nExample: Is {\"a\":[1,2,{\"b\":null}]} in the language?\n\nPoint: regex can’t enforce balanced, nested delimiters; CFGs can."
   },
   {
     "objectID": "slides/lecture-23_slides.html#announcements",
@@ -3254,107 +3149,44 @@
   {
     "objectID": "slides/lecture-26_slides.html#announcements",
     "href": "slides/lecture-26_slides.html#announcements",
-    "title": "NFAs, continued",
+    "title": "Closure, NFAs",
     "section": "Announcements",
     "text": "Announcements"
   },
   {
     "objectID": "slides/lecture-26_slides.html#closure-tricks",
     "href": "slides/lecture-26_slides.html#closure-tricks",
-    "title": "NFAs, continued",
+    "title": "Closure, NFAs",
     "section": "Closure Tricks",
-    "text": "Closure Tricks\nWhat’s closure?\n\nComplement: make the DFA total (add SINK if needed), then flip accept to non-accept, and vice-versa.\nUnion / Intersection:\nStates are pairs (p,q)\n\nUnion accepts if p ∈ F1 or q ∈ F2\nIntersection accepts if p ∈ F1 and q ∈ F2\n\nDifference: L1 - L2 = \\(L1\\cap L2^c\\)"
+    "text": "Closure Tricks\nWhat’s closure?\n\nComplement: make the DFA total (add SINK if needed), then flip accept to non-accept, and vice-versa.\nUnion / Intersection:\nStates are pairs (p,q)\n\nUnion accepts if p ∈ F1 or q ∈ F2\nIntersection accepts if p ∈ F1 and q ∈ F2\n\nDifference: L1 - L2 = \\(L1\\cap L2^c\\)\n\n\nThis mirrors set algebra directly; great place to reinforce recent set lessons."
   },
   {
     "objectID": "slides/lecture-26_slides.html#exercise",
     "href": "slides/lecture-26_slides.html#exercise",
-    "title": "NFAs, continued",
+    "title": "Closure, NFAs",
     "section": "Exercise",
     "text": "Exercise\nBuild a DFA for the union of:\n\nL1: contains 11 (use the machine we built)\nL2: ends with 00 (three states: T, T0, T00)\n\nHint: sketch product states (S_i, T_j) and mark accept pairs for union (or)."
   },
   {
+    "objectID": "slides/lecture-26_slides.html#parity-demo",
+    "href": "slides/lecture-26_slides.html#parity-demo",
+    "title": "Closure, NFAs",
+    "section": "Parity Demo",
+    "text": "Parity Demo\nLanguage: even number of 1s over {0,1}.\n\nEVEN (start, accept), ODD\n\non 1: toggle; on 0: stay\n\nTry: which strings of length \\(\\leq\\) 4 accept?"
+  },
+  {
     "objectID": "slides/lecture-26_slides.html#nfas",
     "href": "slides/lecture-26_slides.html#nfas",
-    "title": "NFAs, continued",
+    "title": "Closure, NFAs",
     "section": "NFAs",
     "text": "NFAs\n \n \n \nDFA: exactly one transition for each input symbol in each state.\nNFA: may have multiple choices on a symbol and \\(\\varepsilon\\)-moves (move without consuming input).\nAcceptance: a string is accepted if there exists a path that reads all characters and lands in an accept state.\n\nSay: “NFA is a modeling convenience. We’ll lean on that for regex to NFA construction.”"
   },
   {
     "objectID": "slides/lecture-26_slides.html#notes-on-nfas",
     "href": "slides/lecture-26_slides.html#notes-on-nfas",
-    "title": "NFAs, continued",
+    "title": "Closure, NFAs",
     "section": "Notes on NFAs",
     "text": "Notes on NFAs\n\nDirect from a regex: Translate patterns piece-by-piece without tricky state discovery.\nLocal “gadgets”: Build tiny NFAs for literal, union (\\(|\\)), concatenation, Kleene star (\\(^*\\)) and wire together with \\(\\varepsilon\\).\nNFAs and DFAs have the same power!! (Kleene’s Theorem)\nBuild a DFA from NFA algorithmically if you need one.\n\n\nMessage: “We model the branching in the regex directly; acceptance means at least one successful path.”"
-  },
-  {
-    "objectID": "slides/lecture-26_slides.html#regex-to-nfa-gadgets",
-    "href": "slides/lecture-26_slides.html#regex-to-nfa-gadgets",
-    "title": "NFAs, continued",
-    "section": "Regex to NFA Gadgets",
-    "text": "Regex to NFA Gadgets\n\n\n\n\nLiteral ‘a’\n\n\n          a s f\n\n\nUnion: R | S\n\n\n         s f  [ R ]    [ S ]     ε ε   ε ε\n\n\n\nConcatenation: RS\n\n\n         s f  [ R ]    [ S ]      ε\n\n\nKleene star: R*\n\n\n         s f  [ R ]    ε (empty)  ε  ε  ε"
-  },
-  {
-    "objectID": "slides/lecture-26_slides.html#example-1",
-    "href": "slides/lecture-26_slides.html#example-1",
-    "title": "NFAs, continued",
-    "section": "Example 1",
-    "text": "Example 1\n^(ab|ba)*$"
-  },
-  {
-    "objectID": "slides/lecture-26_slides.html#example-2",
-    "href": "slides/lecture-26_slides.html#example-2",
-    "title": "NFAs, continued",
-    "section": "Example 2",
-    "text": "Example 2\n^(0|1)*11(0|1)*$"
-  },
-  {
-    "objectID": "slides/lecture-26_slides.html#example-3",
-    "href": "slides/lecture-26_slides.html#example-3",
-    "title": "NFAs, continued",
-    "section": "Example 3",
-    "text": "Example 3\nTask: Sketch an NFA for ^1(01|10)*0$ using only the four gadgets.\nPlan: literal 1 … union(01,10) … star … literal 0."
-  },
-  {
-    "objectID": "slides/lecture-26_slides.html#last-puzzle",
-    "href": "slides/lecture-26_slides.html#last-puzzle",
-    "title": "NFAs, continued",
-    "section": "Last Puzzle:",
-    "text": "Last Puzzle:\n\\(0^n1^n\\)"
-  },
-  {
-    "objectID": "slides/lecture-26_slides.html#why-regexdfas-cant-do-0n1n",
-    "href": "slides/lecture-26_slides.html#why-regexdfas-cant-do-0n1n",
-    "title": "NFAs, continued",
-    "section": "Why Regex/DFAs Can’t Do \\(0^n1^n\\)",
-    "text": "Why Regex/DFAs Can’t Do \\(0^n1^n\\)\nLanguage: \\(\\{\\,0^n1^n : n\\ge 0\\,\\}\\) (equal 0s followed by equal 1s)\nFinite-state limitation:\nAssume a DFA exists that accepts \\(0^n1^n\\), and let \\(k\\) denote its number of states.\nAmong the \\(k+1\\) prefixes \\(0^0, 0^1, \\dots, 0^k\\) two must land in the same state.\nFrom those two prefixes, feed the same number of 1s. One string should accept, and the other should not.\n\nNot all languages are regular! No Pumping Lemma needed; it’s a pigeonhole/“can’t count unboundedly” story."
-  },
-  {
-    "objectID": "slides/lecture-26_slides.html#cfg-review",
-    "href": "slides/lecture-26_slides.html#cfg-review",
-    "title": "NFAs, continued",
-    "section": "CFG Review",
-    "text": "CFG Review\nA context-free grammar (CFG) has:\n\nTerminals (alphabet),\nNonterminals (variables),\nStart symbol,\nProductions like \\(S \\to 0S1 \\mid \\varepsilon\\).\n\nNotes:\n\nA derivation rewrites nonterminals to produce a string.\nA parse tree is evidence of how a string was generated.\nThe class of Regular Languages \\(\\subset\\) the class of Context-Free Languages\n\n\nConnect to your earlier WFF grammar: “That was a CFG all along.”"
-  },
-  {
-    "objectID": "slides/lecture-26_slides.html#grammar-for-0n1n",
-    "href": "slides/lecture-26_slides.html#grammar-for-0n1n",
-    "title": "NFAs, continued",
-    "section": "Grammar for \\(0^n1^n\\) ?",
-    "text": "Grammar for \\(0^n1^n\\) ?\nGrammar:\n\\(S \\to 0S1 \\ \\mid\\ \\varepsilon\\)\nDerivations:\n\nFor 01: \\[\nS \\Rightarrow 0S1 \\Rightarrow 01\n\\]\nFor 000111: \\[\nS \\Rightarrow 0S1 \\Rightarrow 00S11 \\Rightarrow 000S111 \\Rightarrow 000111\n\\]\n\nParse tree shape for 0011:"
-  },
-  {
-    "objectID": "slides/lecture-26_slides.html#closure-facts",
-    "href": "slides/lecture-26_slides.html#closure-facts",
-    "title": "NFAs, continued",
-    "section": "Closure Facts",
-    "text": "Closure Facts\nIf \\(L_1, L_2\\) are context-free:\n\nUnion: context-free via new start \\(S \\to S_1 \\mid S_2\\)\nConcatenation: context-free via \\(S \\to S_1 S_2\\)\nKleene star: context-free via \\(S \\to SS \\mid \\varepsilon\\)\n\n(Intersection with regular languages is CF; general intersection/complement are not.)\n\nTie back to set algebra & your earlier closures with DFAs."
-  },
-  {
-    "objectID": "slides/lecture-26_slides.html#a-basic-json-cfg",
-    "href": "slides/lecture-26_slides.html#a-basic-json-cfg",
-    "title": "NFAs, continued",
-    "section": "A Basic JSON CFG",
-    "text": "A Basic JSON CFG\nhttps://www.json.org/json-en.html\nWe ignore lexical details and focus on structure.\n\nValue → Object | Array | String | Number | true | false | null\n\nObject → { Members } | {}\n\nMembers → Pair | Pair , Members\n\nPair → String : Value\n\nArray → [ Elements ] | []\n\nElements → Value | Value , Elements\n\nExample: Is {\"a\":[1,2,{\"b\":null}]} in the language?\n\nPoint: regex can’t enforce balanced, nested delimiters; CFGs can."
   },
   {
     "objectID": "slides/lecture-28_slides.html#announcements",
@@ -3362,6 +3194,69 @@
     "title": "Permutations and Combinations",
     "section": "Announcements",
     "text": "Announcements"
+  },
+  {
+    "objectID": "slides/lecture-28_slides.html#warm-up-how-many-outfits",
+    "href": "slides/lecture-28_slides.html#warm-up-how-many-outfits",
+    "title": "Permutations and Combinations",
+    "section": "Warm-Up: How Many Outfits?",
+    "text": "Warm-Up: How Many Outfits?\nQuestion: How many different outfits do you have in your closet?\n \nNo rules, just count.\n\nWhat even counts as an outfit?\nDo shoes matter?\nDo seasons/colors matter?\nAre some combos invalid?\n\nWrite down how you’d start to count, not just an answer."
+  },
+  {
+    "objectID": "slides/lecture-28_slides.html#what-did-you-count",
+    "href": "slides/lecture-28_slides.html#what-did-you-count",
+    "title": "Permutations and Combinations",
+    "section": "What Did You Count?",
+    "text": "What Did You Count?\n\nWhat categories did you use?\nWhat rules did you impose?\n\nKey Idea:\nHow we model outfits (what’s allowed, what’s ignored) changes the counting."
+  },
+  {
+    "objectID": "slides/lecture-28_slides.html#a-simplified-closet-model",
+    "href": "slides/lecture-28_slides.html#a-simplified-closet-model",
+    "title": "Permutations and Combinations",
+    "section": "A Simplified Closet Model",
+    "text": "A Simplified Closet Model\nDefine a wardrobe for the rest of this lesson:\n\n\\(k\\) pairs of shoes\n\\(j\\) pairs of pants\n\\(m\\) skirts\n\\(n\\) shirts\n\\(p\\) dresses\n\nWe’ll choose a model:\n\nAn outfit is either:\n\nshirt + bottom + shoes, where\nbottom is either pants or a skirt\nor a dress + shoes\n\nNo color/style rules: everything in these categories is compatible."
+  },
+  {
+    "objectID": "slides/lecture-28_slides.html#turn-it-into-sets",
+    "href": "slides/lecture-28_slides.html#turn-it-into-sets",
+    "title": "Permutations and Combinations",
+    "section": "Turn It Into Sets",
+    "text": "Turn It Into Sets\nDefine sets of items:\n\n\\(S =\\) set of shoes, \\(|S| = k\\)\n\\(P =\\) set of pants, \\(|P| = j\\)\n\\(K =\\) set of skirts, \\(|K| = m\\)\n\\(T =\\) set of shirts, \\(|T| = n\\)\n\\(D =\\) set of dresses, \\(|D| = p\\)\n\nA bottom is either pants or a skirt:\n\\[\nB = P \\cup K\n\\]\nAssuming no overlap between pants and skirts:\n\\[\n|B| = |P \\cup K| = |P| + |K| = j + m\n\\]"
+  },
+  {
+    "objectID": "slides/lecture-28_slides.html#outfits-of-type-1",
+    "href": "slides/lecture-28_slides.html#outfits-of-type-1",
+    "title": "Permutations and Combinations",
+    "section": "Outfits of Type 1",
+    "text": "Outfits of Type 1\nType 1 outfit: shirt + bottom + shoes\nAs a set of combinations:\n\\[\n\\text{Type1} = S \\times B \\times T\n\\]\nEach outfit is a triple:\n\\[\n(\\text{shoe}, \\text{bottom}, \\text{shirt}) \\in S \\times B \\times T\n\\]\nSo the number of Type 1 outfits is:\n\\[\n|\\text{Type1}| = |S||B||T| = k(j + m)n\n\\]"
+  },
+  {
+    "objectID": "slides/lecture-28_slides.html#outfits-of-type-2",
+    "href": "slides/lecture-28_slides.html#outfits-of-type-2",
+    "title": "Permutations and Combinations",
+    "section": "Outfits of Type 2",
+    "text": "Outfits of Type 2\nType 2 outfit: dress + shoes\nAs a set of combinations:\n\\[\n\\text{Type2} = S \\times D\n\\]\nEach outfit is a pair:\n\\[\n(\\text{shoe}, \\text{dress}) \\in S \\times D\n\\]\nSo the number of Type 2 outfits is:\n\\[\n|\\text{Type2}| = |S||D| = kp\n\\]"
+  },
+  {
+    "objectID": "slides/lecture-28_slides.html#total-number-of-outfits",
+    "href": "slides/lecture-28_slides.html#total-number-of-outfits",
+    "title": "Permutations and Combinations",
+    "section": "Total Number of Outfits",
+    "text": "Total Number of Outfits\nWe’ve partitioned outfits into two disjoint types:\n\nType 1: shirt + bottom + shoes\nType 2: dress + shoes\n\nTotal number of outfits in our model:\n\\[\n\\begin{aligned}\n\\#\\text{outfits}\n&= |\\text{Type1}| + |\\text{Type2}| \\\\\n&= k(j + m)n + kp \\\\\n&= k\\big((j + m)n + p\\big).\n\\end{aligned}\n\\]\nThis matches the informal idea:\n\n“For each pair of shoes, you can choose any (bottom, shirt) combo or any dress.”"
+  },
+  {
+    "objectID": "slides/lecture-28_slides.html#the-product-rule",
+    "href": "slides/lecture-28_slides.html#the-product-rule",
+    "title": "Permutations and Combinations",
+    "section": "The Product Rule",
+    "text": "The Product Rule\nFundamental counting fact:\n\nIf \\(A\\) and \\(B\\) are finite sets, then\n\\[\n|A \\times B| = |A|\\cdot|B|.\n\\]\n\nGeneralizing:\n\nFor sets \\(A_1, A_2, \\dots, A_k\\): \\[\n|A_1 \\times A_2 \\times \\dots \\times A_k| = |A_1| \\cdot |A_2| \\cdot \\dots \\cdot |A_k|.\n\\]\n\nInterpretation:\n\nA choice procedure:\n\nchoose one element from \\(A_1\\),\nthen one from \\(A_2\\), \\(\\ldots\\)\nthen one from \\(A_k\\),\n\nEvery distinct chain of choices is a distinct element of the product set."
+  },
+  {
+    "objectID": "slides/lecture-28_slides.html#wrap-up",
+    "href": "slides/lecture-28_slides.html#wrap-up",
+    "title": "Permutations and Combinations",
+    "section": "Wrap Up",
+    "text": "Wrap Up\nThe combinatorics lesson:\n\nOnce you’ve decided what “counts,” express the valid items as a product of simpler choices.\n\nThis pattern will be used for:\n\npasswords,\nplaylists,\ncommittee selection,\nsampling from datasets,\nand more."
   },
   {
     "objectID": "slides/lecture-28_slides.html#warm-up-multiplication-rule",
@@ -3593,6 +3488,13 @@
     "title": "Pigeonhole Principle",
     "section": "PHP",
     "text": "PHP\nWe have:\n\n7 integers (objects)\n\n6 boxes (based on last-digit)\n\nBy the Pigeonhole Principle, some box contains at least 2 of our integers.\nCheck each box:\n\n    A last digit 0  B last digit 5  C last digit 1 or 9  D last digit 2 or 8  E last digit 3 or 7  F last digit 4 or 6\n\nIn every case,\ntwo numbers in the same box have sum or difference divisible by 10."
+  },
+  {
+    "objectID": "slides/lecture-30_slides.html#why-regexdfas-cant-do-0n1n",
+    "href": "slides/lecture-30_slides.html#why-regexdfas-cant-do-0n1n",
+    "title": "Pigeonhole Principle",
+    "section": "Why Regex/DFAs Can’t Do \\(0^n1^n\\)",
+    "text": "Why Regex/DFAs Can’t Do \\(0^n1^n\\)\nLanguage: \\(\\{\\,0^n1^n : n\\ge 0\\,\\}\\) (equal 0s followed by equal 1s)\nFinite-state limitation:\nAssume a DFA exists that accepts \\(0^n1^n\\), and let \\(k\\) denote its number of states.\nAmong the \\(k+1\\) prefixes \\(0^0, 0^1, \\dots, 0^k\\) two must land in the same state.\nFrom those two prefixes, feed the same number of 1s. One string should accept, and the other should not.\n\nNot all languages are regular! No Pumping Lemma needed; it’s a pigeonhole/“can’t count unboundedly” story."
   },
   {
     "objectID": "slides/lecture-30_slides.html#summary",

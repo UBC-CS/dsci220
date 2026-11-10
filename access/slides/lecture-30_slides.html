@@ -437,6 +437,27 @@ then there is a box containing at least</p>
 <p>In <strong>every case</strong>,<br>
 two numbers in the same box have sum or difference divisible by 10.</p>
 </section>
+<section id="why-regexdfas-cant-do-0n1n" class="slide level2">
+<h2>Why Regex/DFAs Can’t Do <span class="math inline">\(0^n1^n\)</span></h2>
+<p><strong>Language:</strong> <span class="math inline">\(\{\,0^n1^n : n\ge 0\,\}\)</span> (equal 0s followed by equal 1s)</p>
+<p><strong>Finite-state limitation:</strong></p>
+<p>Assume a DFA exists that accepts <span class="math inline">\(0^n1^n\)</span>, and let <span class="math inline">\(k\)</span> denote its number of states.</p>
+<p>Among the <span class="math inline">\(k+1\)</span> prefixes <span class="math inline">\(0^0, 0^1, \dots, 0^k\)</span> two must land in the <strong>same</strong> state.</p>
+<p>From those two prefixes, feed the <strong>same</strong> number of 1s. One string should accept, and the other should not.</p>
+<aside class="notes">
+<p>Not all languages are regular! No Pumping Lemma needed; it’s a pigeonhole/“can’t count unboundedly” story.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
 <section id="summary" class="slide level2 smaller">
 <h2>Summary</h2>
 <ul>
