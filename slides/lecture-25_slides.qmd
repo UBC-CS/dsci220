@@ -324,7 +324,7 @@ Two states for the machine, and the pattern is still hard to write. Easy for a m
 
 ## Check! {.smaller}
 
-A DFA is a `for` loop with one variable, and that variable can only take a few values.
+Running a DFA is a `for` loop over the string. The only thing it remembers is `state`, and `state` is always one of the machine's few states.
 
 ```{pyodide}
 import re, itertools
