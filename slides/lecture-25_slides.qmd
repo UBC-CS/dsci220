@@ -13,7 +13,378 @@ subtitle: "Lecture 25, {{< var course.code >}}, {{< var course.term >}}"
 .rule { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
 </style>
 
-# Regular Expressions and DFAs
+<!-- reading-dfa:begin -->
+
+# Reading a DFA
+
+## Goals
+
+* Read a DFA: run a string through it, and decide accept or reject.
+* Say what each state remembers about the string so far.
+* Go from a machine to a regex, and test the guess.
+
+```{=html}
+<style>
+.dfa .cell-output-display svg, .dfa svg { background:#fff; border-radius:22px; padding:10px 14px;
+  box-shadow:0 4px 0 rgba(0,0,0,.12); max-width:100%; height:auto; }
+.dfa { margin-top:6px; }
+.write { background:#fff; color:#29335c; border-radius:16px; padding:8px 16px; margin:8px 0;
+  font-size:.8em; box-shadow:0 3px 0 rgba(0,0,0,.12); }
+.write b { font-size:1.05em; }
+.sym0 { color:#2a9d8f; font-weight:bold; } .sym1 { color:#e76f51; font-weight:bold; }
+</style>
+```
+## How to Read a DFA {.smaller}
+
+:::: {.columns}
+::: {.column width="55%"}
+::: {.dfa}
+```{dot}
+//| fig-width: 5
+//| fig-height: 2.6
+digraph {
+  rankdir=LR; bgcolor="transparent"; nodesep=0.5; ranksep=0.9;
+  node [shape=circle style=filled fontname="Helvetica-Bold" fontsize=22 penwidth=3.5 width=0.85 fixedsize=true];
+  edge [fontname="Helvetica-Bold" fontsize=20 penwidth=3 arrowsize=1.1];
+  start [shape=plaintext style="" label="start" fontcolor="#e05297" fontsize=18];
+  start -> A [color="#e05297"];
+  A [shape=circle fillcolor="#ffd6e0" color="#e05297"];
+  B [shape=doublecircle fillcolor="#d6f5e9" color="#2a9d8f"];
+  A -> A [label=" 0 " color="#2a9d8f" fontcolor="#2a9d8f"];
+  A -> B [label=" 1 " color="#e76f51" fontcolor="#e76f51"];
+  B -> A [label=" 0 " color="#2a9d8f" fontcolor="#2a9d8f"];
+  B -> B [label=" 1 " color="#e76f51" fontcolor="#e76f51"];
+}
+```
+:::
+:::
+::: {.column width="45%"}
+* Start at the **start** arrow.
+* Read the string left to right, one symbol at a time. Follow the arrow
+  labelled with that symbol: <span class="sym0">0</span> or <span class="sym1">1</span>.
+* At the end, a **double circle** means _accept_. Any other state: _reject_.
+:::
+::::
+
+\
+
+Trace `0110`. Trace `1101`.
+
+::: notes
+0110: A, A, B, B, A. Ends in A: reject.
+1101: A, B, B, A, B. Ends in B: accept.
+A remembers "the last symbol wasn't a 1 (or nothing read yet)"; B remembers "the last symbol was a 1".
+So the machine accepts exactly the strings that end in 1: (0|1)*1.
+Every state has exactly one arrow for each symbol. That's the D in DFA: no choices.
+:::
+
+## Your Turn {.activity}
+
+For each machine on the next slides:
+
+1. Write down 5 strings it **accepts** and 5 it **rejects**. Short ones first, and don't forget the empty string.
+2. Look at your lists. What do the accepted strings have in common?
+3. Write a **regex** for the accepted strings.
+
+\
+
+Then check yourself on the **Check!** slide.
+
+## Machine A 🐝 {.activity .smaller}
+
+:::: {.columns}
+::: {.column width="60%"}
+::: {.dfa}
+```{dot}
+//| fig-width: 5.5
+//| fig-height: 2.6
+digraph {
+  rankdir=LR; bgcolor="transparent"; nodesep=0.5; ranksep=0.9;
+  node [shape=circle style=filled fontname="Helvetica-Bold" fontsize=22 penwidth=3.5 width=0.85 fixedsize=true];
+  edge [fontname="Helvetica-Bold" fontsize=20 penwidth=3 arrowsize=1.1];
+  start [shape=plaintext style="" label="start" fontcolor="#e05297" fontsize=18];
+  start -> P [color="#e05297"];
+  P [shape=circle fillcolor="#ffd6e0" color="#e05297"];
+  Q [shape=circle fillcolor="#d6f5e9" color="#2a9d8f"];
+  R [shape=doublecircle fillcolor="#dbe7ff" color="#4a72d9"];
+  P -> P [label=" 0 " color="#2a9d8f" fontcolor="#2a9d8f"];
+  P -> Q [label=" 1 " color="#e76f51" fontcolor="#e76f51"];
+  Q -> P [label=" 0 " color="#2a9d8f" fontcolor="#2a9d8f"];
+  Q -> R [label=" 1 " color="#e76f51" fontcolor="#e76f51"];
+  R -> R [label=" 0, 1 " color="#8e5cc4" fontcolor="#8e5cc4"];
+}
+```
+:::
+:::
+::: {.column width="40%"}
+::: {.write}
+**Accepts** 💚
+
+\
+
+\
+:::
+::: {.write}
+**Rejects** 💔
+
+\
+
+\
+:::
+::: {.write}
+**Regex?** 🤔
+
+\
+:::
+:::
+::::
+
+::: notes
+Machine A: contains 11. Regex `(0|1)*11(0|1)*`.
+P: no progress (last symbol was 0, or nothing yet). Q: just saw one 1. R: has seen 11, and stays forever.
+Accepts: 11, 011, 110, 0110, 111. Rejects: ε, 0, 1, 10, 101.
+:::
+
+## Machine B 🐢 {.activity .smaller}
+
+:::: {.columns}
+::: {.column width="60%"}
+::: {.dfa}
+```{dot}
+//| fig-width: 5.5
+//| fig-height: 2.6
+digraph {
+  rankdir=LR; bgcolor="transparent"; nodesep=0.5; ranksep=0.9;
+  node [shape=circle style=filled fontname="Helvetica-Bold" fontsize=22 penwidth=3.5 width=0.85 fixedsize=true];
+  edge [fontname="Helvetica-Bold" fontsize=20 penwidth=3 arrowsize=1.1];
+  start [shape=plaintext style="" label="start" fontcolor="#e05297" fontsize=18];
+  start -> P [color="#e05297"];
+  P [shape=circle fillcolor="#ffd6e0" color="#e05297"];
+  Q [shape=circle fillcolor="#d6f5e9" color="#2a9d8f"];
+  R [shape=doublecircle fillcolor="#dbe7ff" color="#4a72d9"];
+  P -> Q [label=" 0 " color="#2a9d8f" fontcolor="#2a9d8f"];
+  P -> P [label=" 1 " color="#e76f51" fontcolor="#e76f51"];
+  Q -> R [label=" 0 " color="#2a9d8f" fontcolor="#2a9d8f"];
+  Q -> P [label=" 1 " color="#e76f51" fontcolor="#e76f51"];
+  R -> R [label=" 0 " color="#2a9d8f" fontcolor="#2a9d8f"];
+  R -> P [label=" 1 " color="#e76f51" fontcolor="#e76f51"];
+}
+```
+:::
+:::
+::: {.column width="40%"}
+::: {.write}
+**Accepts** 💚
+
+\
+
+\
+:::
+::: {.write}
+**Rejects** 💔
+
+\
+
+\
+:::
+::: {.write}
+**Regex?** 🤔
+
+\
+:::
+:::
+::::
+
+::: notes
+Machine B: ends in 00. Regex `(0|1)*00`.
+P: last symbol was 1 (or nothing yet). Q: ends in exactly one 0. R: ends in 00.
+Note R goes back to P on a 1: unlike Machine A, this machine can lose what it found.
+Accepts: 00, 100, 000, 1100, 0100. Rejects: ε, 0, 10, 001, 0010.
+:::
+
+## Machine C 🦊 {.activity .smaller}
+
+:::: {.columns}
+::: {.column width="60%"}
+::: {.dfa}
+```{dot}
+//| fig-width: 6
+//| fig-height: 3.4
+digraph {
+  rankdir=LR; bgcolor="transparent"; nodesep=0.5; ranksep=0.9;
+  node [shape=circle style=filled fontname="Helvetica-Bold" fontsize=22 penwidth=3.5 width=0.85 fixedsize=true];
+  edge [fontname="Helvetica-Bold" fontsize=20 penwidth=3 arrowsize=1.1];
+  start [shape=plaintext style="" label="start" fontcolor="#e05297" fontsize=18];
+  start -> S [color="#e05297"];
+  S [shape=circle fillcolor="#ffd6e0" color="#e05297"];
+  P [shape=circle fillcolor="#d6f5e9" color="#2a9d8f"];
+  Q [shape=doublecircle fillcolor="#dbe7ff" color="#4a72d9"];
+  R [shape=circle fillcolor="#fff1b8" color="#d9a400"];
+  T [shape=doublecircle fillcolor="#ece0ff" color="#8e5cc4"];
+  P -> P [label=" 0 " color="#2a9d8f" fontcolor="#2a9d8f"];
+  P -> Q [label=" 1 " color="#e76f51" fontcolor="#e76f51"];
+  Q -> P [label=" 0 " color="#2a9d8f" fontcolor="#2a9d8f"];
+  Q -> Q [label=" 1 " color="#e76f51" fontcolor="#e76f51"];
+  R -> T [label=" 0 " color="#2a9d8f" fontcolor="#2a9d8f"];
+  R -> R [label=" 1 " color="#e76f51" fontcolor="#e76f51"];
+  S -> P [label=" 0 " color="#2a9d8f" fontcolor="#2a9d8f"];
+  S -> R [label=" 1 " color="#e76f51" fontcolor="#e76f51"];
+  T -> T [label=" 0 " color="#2a9d8f" fontcolor="#2a9d8f"];
+  T -> R [label=" 1 " color="#e76f51" fontcolor="#e76f51"];
+}
+```
+:::
+:::
+::: {.column width="40%"}
+::: {.write}
+**Accepts** 💚
+
+\
+
+\
+:::
+::: {.write}
+**Rejects** 💔
+
+\
+
+\
+:::
+::: {.write}
+**Regex?** 🤔
+
+\
+:::
+:::
+::::
+
+::: notes
+Machine C: starts and ends with different symbols. Regex `0(0|1)*1|1(0|1)*0`.
+The first symbol picks a lane forever. Top lane: started with 0, so accept when the last is 1 (Q).
+Bottom lane: started with 1, accept when the last is 0 (T). P and R: last symbol matches the first.
+Accepts: 01, 10, 001, 110, 0101. Rejects: ε, 0, 1, 00, 101.
+Also right: (0(0|1)*1)|(1(0|1)*0), or 0(0|1)*1|1(0|1)*0.
+:::
+
+## Machine D 🐙 {.activity .smaller}
+
+:::: {.columns}
+::: {.column width="60%"}
+::: {.dfa}
+```{dot}
+//| fig-width: 4.5
+//| fig-height: 2.4
+digraph {
+  rankdir=LR; bgcolor="transparent"; nodesep=0.5; ranksep=0.9;
+  node [shape=circle style=filled fontname="Helvetica-Bold" fontsize=22 penwidth=3.5 width=0.85 fixedsize=true];
+  edge [fontname="Helvetica-Bold" fontsize=20 penwidth=3 arrowsize=1.1];
+  start [shape=plaintext style="" label="start" fontcolor="#e05297" fontsize=18];
+  start -> E [color="#e05297"];
+  E [shape=doublecircle fillcolor="#ffd6e0" color="#e05297"];
+  O [shape=circle fillcolor="#d6f5e9" color="#2a9d8f"];
+  E -> E [label=" 0 " color="#2a9d8f" fontcolor="#2a9d8f"];
+  E -> O [label=" 1 " color="#e76f51" fontcolor="#e76f51"];
+  O -> O [label=" 0 " color="#2a9d8f" fontcolor="#2a9d8f"];
+  O -> E [label=" 1 " color="#e76f51" fontcolor="#e76f51"];
+}
+```
+:::
+:::
+::: {.column width="40%"}
+::: {.write}
+**Accepts** 💚
+
+\
+
+\
+:::
+::: {.write}
+**Rejects** 💔
+
+\
+
+\
+:::
+::: {.write}
+**Regex?** 🤔
+
+\
+:::
+:::
+::::
+
+::: notes
+Machine D: an even number of 1s. Regex `0*(10*10*)*`.
+E: an even number of 1s so far. O: odd. Zeros change nothing.
+Accepts: ε, 0, 11, 101, 0110. Rejects: 1, 01, 10, 111, 1011.
+The regex is the hard part: 0*(10*10*)*. Read it as: some 0s, then 1s in pairs with 0s anywhere.
+A common guess, (0*10*1)*, fails the Check! on '0': it forgets the zeros after the last pair.
+Two states for the machine, and the pattern is still hard to write. Easy for a machine, hard for a pattern.
+:::
+
+## Check! {.smaller}
+
+A DFA is a `for` loop with one variable, and that variable can only take a few values.
+
+```{pyodide}
+import re, itertools
+
+# state: {symbol: next state}. The start state is listed first.
+machines = {
+  'A': ({'P': {'0':'P','1':'Q'}, 'Q': {'0':'P','1':'R'}, 'R': {'0':'R','1':'R'}}, {'R'}),
+  'B': ({'P': {'0':'Q','1':'P'}, 'Q': {'0':'R','1':'P'}, 'R': {'0':'R','1':'P'}}, {'R'}),
+  'C': ({'S': {'0':'P','1':'R'}, 'P': {'0':'P','1':'Q'}, 'Q': {'0':'P','1':'Q'},
+         'R': {'0':'T','1':'R'}, 'T': {'0':'T','1':'R'}}, {'Q','T'}),
+  'D': ({'E': {'0':'E','1':'O'}, 'O': {'0':'O','1':'E'}}, {'E'}),
+}
+
+def accepts(machine, s):
+    delta, accepting = machine
+    state = next(iter(delta))            # the start state
+    for ch in s:
+        state = delta[state][ch]
+    return state in accepting
+
+name, guess = 'A', r'11'                 # change these
+for n in range(9):
+    for s in map(''.join, itertools.product('01', repeat=n)):
+        if accepts(machines[name], s) != bool(re.fullmatch(guess, s)):
+            print('They disagree on', repr(s), '- the machine says', accepts(machines[name], s))
+            break
+    else:
+        continue
+    break
+else:
+    print('They agree on every string up to length 8.')
+```
+
+::: notes
+The starting guess r'11' disagrees on '011': the machine accepts it, the regex doesn't.
+Checking up to length 8 is evidence, not a proof. A proof is induction on the length of the string,
+with one claim per state ("after reading w, the machine is in R iff w contains 11"). That's HW5.
+:::
+
+## What Does Each State Remember? {.activity}
+
+Pick one machine. For each state, finish the sentence:
+
+\
+
+"The machine is in this state when the string so far \_\_\_\_\_\_\_\_\_\_\_\_."
+
+\
+
+How many states does Machine D need, no matter how long the string is?
+
+::: notes
+See the notes on each machine. Machine D needs 2, forever: it only remembers even or odd.
+That is the whole idea of a finite automaton: a fixed, finite memory of the prefix.
+Later (pigeonhole), we'll see a language that no finite memory can handle: 0^n 1^n.
+:::
+
+<!-- reading-dfa:end -->
+
+# Building DFAs
 
 ## Goals
 - Recall a regex is a *set* of strings (a language).
