@@ -691,7 +691,7 @@
     "href": "slides/lecture-25_slides.html#check",
     "title": "DFAs, NFAs",
     "section": "Check!",
-    "text": "Check!\nA DFA is a for loop with one variable, and that variable can only take a few values.\n\n\n\n\n\n\n\nThe starting guess r’11’ disagrees on ‘011’: the machine accepts it, the regex doesn’t. Checking up to length 8 is evidence, not a proof. A proof is induction on the length of the string, with one claim per state (“after reading w, the machine is in R iff w contains 11”). That’s HW5."
+    "text": "Check!\nRunning a DFA is a for loop over the string. The only thing it remembers is state, and state is always one of the machine’s few states.\n\n\n\n\n\n\n\nThe starting guess r’11’ disagrees on ‘011’: the machine accepts it, the regex doesn’t. Checking up to length 8 is evidence, not a proof. A proof is induction on the length of the string, with one claim per state (“after reading w, the machine is in R iff w contains 11”). That’s HW5."
   },
   {
     "objectID": "slides/lecture-25_slides.html#what-does-each-state-remember",
