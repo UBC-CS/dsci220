@@ -465,6 +465,24 @@ Check each box:
 In **every case**,  
 two numbers in the same box have sum or difference divisible by 10.
 
+## Why Regex/DFAs Can’t Do $0^n1^n$
+
+**Language:** $\{\,0^n1^n : n\ge 0\,\}$ (equal 0s followed by equal 1s)
+
+**Finite-state limitation:**  
+
+Assume a DFA exists that accepts $0^n1^n$, and let $k$ denote its number of states.
+
+Among the $k+1$ prefixes $0^0, 0^1, \dots, 0^k$ two must land in the **same** state.  
+
+From those two prefixes, feed the **same** number of 1s. One string should accept, and the other should not.
+
+
+::: notes
+Not all languages are regular!
+No Pumping Lemma needed; it’s a pigeonhole/“can’t count unboundedly” story.
+:::
+
 ## Summary {.smaller}
 
 - Pigeonhole Principle:

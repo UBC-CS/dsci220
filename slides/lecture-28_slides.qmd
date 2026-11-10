@@ -13,6 +13,187 @@ subtitle: "Lecture 28, {{< var course.code >}}, {{< var course.term >}}"
 .rule { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
 </style>
 
+# Counting
+
+## Warm-Up: How Many Outfits? {.activity}
+
+**Question:** How many different outfits do you have in your closet?
+
+\ 
+
+No rules, just count.
+
+- What even *counts* as an outfit?
+- Do shoes matter?
+- Do seasons/colors matter?
+- Are some combos invalid?
+
+Write down how you’d **start** to count, not just an answer.
+
+{{< countdown minutes=5 >}}
+
+
+## What Did You Count?
+
+- What *categories* did you use?  
+
+- What *rules* did you impose?  
+
+**Key Idea:**  
+How we **model** outfits (what’s allowed, what’s ignored) changes the counting.
+
+
+## A Simplified Closet Model {.smaller}
+
+Define a wardrobe for the rest of this lesson:
+
+- $k$ pairs of shoes
+- $j$ pairs of pants
+- $m$ skirts
+- $n$ shirts
+- $p$ dresses
+
+We’ll **choose a model**:
+
+- An outfit is either:
+  1. **shirt + bottom + shoes**, where  
+     bottom is either pants or a skirt
+  2. or a **dress + shoes**
+
+- No color/style rules: everything in these categories is compatible.
+
+
+## Turn It Into Sets {.smaller}
+
+Define sets of items:
+
+- $S =$ set of shoes, $|S| = k$
+- $P =$ set of pants, $|P| = j$
+- $K =$ set of skirts, $|K| = m$
+- $T =$ set of shirts, $|T| = n$
+- $D =$ set of dresses, $|D| = p$
+
+A bottom is either pants or a skirt:
+
+$$
+B = P \cup K
+$$
+
+Assuming no overlap between pants and skirts:
+
+$$
+|B| = |P \cup K| = |P| + |K| = j + m
+$$
+
+
+## Outfits of Type 1 {.smaller}
+
+Type 1 outfit: **shirt + bottom + shoes**
+
+As a set of combinations:
+
+$$
+\text{Type1} = S \times B \times T
+$$
+
+Each outfit is a triple:
+
+$$
+(\text{shoe}, \text{bottom}, \text{shirt}) \in S \times B \times T
+$$
+
+So the number of Type 1 outfits is:
+
+$$
+|\text{Type1}| = |S||B||T| = k(j + m)n
+$$
+
+
+## Outfits of Type 2 {.smaller}
+
+Type 2 outfit: **dress + shoes**
+
+As a set of combinations:
+
+$$
+\text{Type2} = S \times D
+$$
+
+Each outfit is a pair:
+
+$$
+(\text{shoe}, \text{dress}) \in S \times D
+$$
+
+So the number of Type 2 outfits is:
+
+$$
+|\text{Type2}| = |S||D| = kp
+$$
+
+
+## Total Number of Outfits {.smaller}
+
+We’ve partitioned outfits into two disjoint types:
+
+- Type 1: shirt + bottom + shoes
+- Type 2: dress + shoes
+
+Total number of outfits in our model:
+
+$$
+\begin{aligned}
+\#\text{outfits} 
+&= |\text{Type1}| + |\text{Type2}| \\
+&= k(j + m)n + kp \\
+&= k\big((j + m)n + p\big).
+\end{aligned}
+$$
+
+This matches the informal idea:
+
+- “For each pair of shoes, you can choose any (bottom, shirt) combo **or** any dress.”
+
+
+## The Product Rule  {.smaller}
+
+Fundamental counting fact:
+
+> If $A$ and $B$ are finite sets, then  
+> $$
+> |A \times B| = |A|\cdot|B|.
+> $$
+
+Generalizing:
+
+> For sets $A_1, A_2, \dots, A_k$:
+> $$
+> |A_1 \times A_2 \times \dots \times A_k| = |A_1| \cdot |A_2| \cdot \dots \cdot |A_k|.
+> $$
+
+Interpretation:
+
+- A **choice procedure**:
+  - choose one element from $A_1$,
+  - then one from $A_2$, $\ldots$
+  - then one from $A_k$,
+- Every distinct chain of choices is a distinct element of the product set.
+
+
+## Wrap Up 
+
+The *combinatorics* lesson:
+
+> Once you’ve decided what "counts," express the valid items as a product of simpler choices.
+
+This pattern will be used for:
+
+- passwords,
+- playlists,
+- committee selection,
+- sampling from datasets,
+- and more.
+
 ## Warm-Up: Multiplication Rule {.smaller}
 
 **Question:**  

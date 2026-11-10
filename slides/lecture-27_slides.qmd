@@ -1,5 +1,5 @@
 ---
-title: "Context Free Grammars"
+title: "Regex to NFA"
 subtitle: "Lecture 27, {{< var course.code >}}, {{< var course.term >}}"
 ---
 
@@ -13,7 +13,220 @@ subtitle: "Lecture 27, {{< var course.code >}}, {{< var course.term >}}"
 .rule { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
 </style>
 
-# Context Free Grammars
+# Regex to NFA
+
+## Regex to NFA Gadgets {.smaller}
+
+<div class="card">
+
+::::: {.columns}
+::: {.column width="50%"}
+1. Literal 'a'
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 140" width="90%" role="img" aria-label="Literal a NFA gadget">
+  <defs>
+    <marker id="arrow-lit" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M0,0 L12,6 L0,12 Z" fill="#222"/>
+    </marker>
+    <style>
+      .state { fill:#fff; stroke:#222; stroke-width:2.5; }
+      .accept { fill:none; stroke:#222; stroke-width:2.5; }
+      .accept2{ fill:none; stroke:#222; stroke-width:2.5; }
+      .label { font: 600 16px ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial; fill:#111; }
+      .wire { stroke:#222; stroke-width:2.5; fill:none; }
+    </style>
+  </defs>
+  <circle cx="80" cy="70" r="22" class="state"/>
+  <circle cx="340" cy="70" r="22" class="accept"/>
+  <circle cx="340" cy="70" r="16" class="accept2"/>
+  <path d="M 102 70 H 318" class="wire" marker-end="url(#arrow-lit)"/>
+  <text x="210" y="55" class="label">a</text>
+  <text x="80" y="110" class="label">s</text>
+  <text x="340" y="110" class="label">f</text>
+</svg>
+
+
+2. Union: R | S
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 240" width="90%" role="img" aria-label="Union NFA gadget for R or S">
+  <defs>
+    <marker id="arrow-un" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M0,0 L12,6 L0,12 Z" fill="#222"/>
+    </marker>
+    <style>
+      .state { fill:#fff; stroke:#222; stroke-width:2.5; }
+      .accept{ fill:none; stroke:#222; stroke-width:2.5; }
+      .accept2{ fill:none; stroke:#222; stroke-width:2.5; }
+      .box   { fill:#f8fbff; stroke:#2b4ea2; stroke-width:2.5; rx:12; ry:12; }
+      .port  { fill:#fff; stroke:#2b4ea2; stroke-width:2; }
+      .wire  { stroke:#222; stroke-width:2.5; fill:none; }
+      .label { font: 600 15px ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial; fill:#111; }
+      .litev { font: 600 14px ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial; fill:#444; }
+    </style>
+  </defs>
+  <circle cx="80" cy="120" r="22" class="state"/>
+  <circle cx="640" cy="120" r="22" class="accept"/>
+  <circle cx="640" cy="120" r="16" class="accept2"/>
+  <text x="80" y="210" class="label">s</text>
+  <text x="640" y="210" class="label">f</text>
+  <rect x="270" y="35" width="160" height="70" class="box"/>
+  <text x="350" y="78" text-anchor="middle" class="label">[ R ]</text>
+  <circle cx="270" cy="70" r="6" class="port"/>
+  <circle cx="430" cy="70" r="6" class="port"/>
+  <rect x="270" y="135" width="160" height="70" class="box"/>
+  <text x="350" y="178" text-anchor="middle" class="label">[ S ]</text>
+  <circle cx="270" cy="170" r="6" class="port"/>
+  <circle cx="430" cy="170" r="6" class="port"/>
+  <path d="M 102 120 C 170 120, 200 90, 264 74" class="wire" marker-end="url(#arrow-un)"/>
+  <path d="M 102 120 C 170 120, 200 150, 264 166" class="wire" marker-end="url(#arrow-un)"/>
+  <text x="190" y="95" class="litev">ε</text>
+  <text x="190" y="158" class="litev">ε</text>
+  <path d="M 436 70 C 510 70, 560 100, 620 114" class="wire" marker-end="url(#arrow-un)"/>
+  <path d="M 436 170 C 510 170, 560 140, 620 126" class="wire" marker-end="url(#arrow-un)"/>
+  <text x="530" y="62" class="litev">ε</text>
+  <text x="530" y="186" class="litev">ε</text>
+</svg>
+
+:::
+::: {.column width="50%"}
+
+
+3. Concatenation: RS 
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 180" width="90%" role="img" aria-label="Concatenation NFA gadget for R followed by S">
+  <defs>
+    <marker id="arrow-con" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M0,0 L12,6 L0,12 Z" fill="#222"/>
+    </marker>
+    <style>
+      .state { fill:#fff; stroke:#222; stroke-width:2.5; }
+      .accept{ fill:none; stroke:#222; stroke-width:2.5; }
+      .accept2{ fill:none; stroke:#222; stroke-width:2.5; }
+      .box   { fill:#f8fbff; stroke:#2b4ea2; stroke-width:2.5; rx:12; ry:12; }
+      .port  { fill:#fff; stroke:#2b4ea2; stroke-width:2; }
+      .wire  { stroke:#222; stroke-width:2.5; fill:none; }
+      .label { font: 600 15px ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial; fill:#111; }
+      .litev { font: 600 14px ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial; fill:#444; }
+    </style>
+  </defs>
+  <circle cx="80" cy="90" r="22" class="state"/>
+  <circle cx="640" cy="90" r="22" class="accept"/>
+  <circle cx="640" cy="90" r="16" class="accept2"/>
+  <text x="80" y="160" class="label">s</text>
+  <text x="640" y="160" class="label">f</text>
+  <rect x="160" y="50" width="180" height="80" class="box"/>
+  <text x="250" y="98" text-anchor="middle" class="label">[ R ]</text>
+  <circle cx="160" cy="90" r="6" class="port"/>
+  <circle cx="340" cy="90" r="6" class="port"/>
+  <rect x="360" y="50" width="180" height="80" class="box"/>
+  <text x="450" y="98" text-anchor="middle" class="label">[ S ]</text>
+  <circle cx="360" cy="90" r="6" class="port"/>
+  <circle cx="540" cy="90" r="6" class="port"/>
+  <path d="M 102 90 H 154" class="wire" marker-end="url(#arrow-con)"/>
+  <path d="M 546 90 H 618" class="wire" marker-end="url(#arrow-con)"/>
+  <path d="M 346 90 H 354" class="wire" marker-end="url(#arrow-con)"/>
+  <text x="350" y="75" class="litev">ε</text>
+</svg>
+
+
+4. Kleene star: R*
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 260" width="90%" role="img" aria-label="Kleene star NFA gadget for R*">
+  <defs>
+    <marker id="arrow-star" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M0,0 L12,6 L0,12 Z" fill="#222"/>
+    </marker>
+    <style>
+      .state { fill:#fff; stroke:#222; stroke-width:2.5; }
+      .accept{ fill:none; stroke:#222; stroke-width:2.5; }
+      .accept2{ fill:none; stroke:#222; stroke-width:2.5; }
+      .box   { fill:#f8fbff; stroke:#2b4ea2; stroke-width:2.5; rx:12; ry:12; }
+      .port  { fill:#fff; stroke:#2b4ea2; stroke-width:2; }
+      .wire  { stroke:#222; stroke-width:2.5; fill:none; }
+      .label { font: 600 15px ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial; fill:#111; }
+      .litev { font: 600 14px ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial; fill:#444; }
+    </style>
+  </defs>
+  <circle cx="80" cy="130" r="22" class="state"/>
+  <circle cx="700" cy="130" r="22" class="accept"/>
+  <circle cx="700" cy="130" r="16" class="accept2"/>
+  <text x="80" y="220" class="label">s</text>
+  <text x="700" y="220" class="label">f</text>
+  <rect x="320" y="90" width="160" height="80" class="box"/>
+  <text x="400" y="132" text-anchor="middle" class="label">[ R ]</text>
+  <circle cx="320" cy="130" r="6" class="port"/>
+  <circle cx="480" cy="130" r="6" class="port"/>
+  <path d="M 102 130 C 180 70, 600 70, 682 122" class="wire" marker-end="url(#arrow-star)"/>
+  <text x="390" y="70" class="litev">ε (empty)</text>
+  <path d="M 102 130 C 170 130, 240 130, 312 130" class="wire" marker-end="url(#arrow-star)"/>
+  <text x="210" y="118" class="litev">ε</text>
+  <path d="M 486 130 C 560 130, 620 130, 682 130" class="wire" marker-end="url(#arrow-star)"/>
+  <text x="585" y="118" class="litev">ε</text>
+  <path d="M 478 126 C 540 80, 540 40, 400 40 C 260 40, 260 80, 322 126" class="wire" marker-end="url(#arrow-star)"/>
+  <text x="400" y="28" class="litev">ε</text>
+</svg>
+
+
+:::
+:::::
+
+
+
+</div>
+
+
+## Example 1
+
+`^(ab|ba)*$`  
+
+## Example 3 {.activity}
+
+**Task:** Sketch an NFA for `^1(01|10)*0$` using only the four gadgets.
+
+**Plan:** literal `1` ... union(`01`,`10`) ... star ... literal `0`.
+
+# Beyond Regular: Grammars
+
+## Last Puzzle:
+
+$0^n1^n$
+
+## Grammar for $0^n1^n$ ?
+
+**Grammar:**  
+$S \to 0S1 \ \mid\ \varepsilon$
+
+**Derivations:**
+
+- For `01`:
+  $$
+  S \Rightarrow 0S1 \Rightarrow 01
+  $$
+- For `000111`:
+  $$
+  S \Rightarrow 0S1 \Rightarrow 00S11 \Rightarrow 000S111 \Rightarrow 000111
+  $$
+
+**Parse tree shape for `0011`:**
+
+## CFG Review 
+
+A **context-free grammar (CFG)** has:
+
+- **Terminals** (alphabet), 
+- **Nonterminals** (variables), 
+- **Start symbol**, 
+- **Productions** like $S \to 0S1 \mid \varepsilon$.
+
+Notes:
+
+- A **derivation** rewrites nonterminals to produce a string.
+- A **parse tree** is evidence of how a string was generated.
+- The class of Regular Languages $\subset$ the class of Context-Free Languages
+
+::: notes
+Connect to your earlier WFF grammar: “That was a CFG all along.”
+:::
 
 ## Warm Up {.smaller}
 
@@ -117,6 +330,48 @@ We ignore lexical details and focus on **structure**.
 Point: regex can’t enforce **balanced, nested** delimiters; CFGs can.
 :::
 
+# From the 2025 deck
+
+Not taught in 2026W1. The impossibility argument for $0^n1^n$ is in Lecture 30 (pigeonhole).
+
+## Example 2
+
+`^(0|1)*11(0|1)*$`
+
+
+## Closure Facts
+
+If $L_1, L_2$ are context-free:
+
+- **Union:** context-free via new start $S \to S_1 \mid S_2$
+- **Concatenation:** context-free via $S \to S_1 S_2$
+- **Kleene star:** context-free via $S \to SS \mid \varepsilon$
+
+*(Intersection with regular languages is CF; general intersection/complement are not.)*
+
+::: notes
+Tie back to set algebra & your earlier closures with DFAs.
+:::
+
+## A Basic JSON CFG {.smaller}
+
+<https://www.json.org/json-en.html>
+
+We ignore lexical details and focus on **structure**.
+
+- Value → Object \| Array \| String \| Number \| `true` \| `false` \| `null`  
+- Object → `{` Members `}` \| `{}`  
+- Members → Pair \| Pair `,` Members  
+- Pair → String `:` Value  
+- Array → `[` Elements `]` \| `[]`  
+- Elements → Value \| Value `,` Elements
+
+**Example:** Is `{"a":[1,2,{"b":null}]}` in the language?  
+
+
+::: notes
+Point: regex can’t enforce **balanced, nested** delimiters; CFGs can.
+:::
 ## Your Turn
 
 Create a Grammar for $L = \{a^nb^nc^n, n\geq 0\}$
@@ -158,190 +413,3 @@ Most structured nested data (JSON, XML, code): context-free level (CFGs & parser
 
 Rich cross-field / counting constraints go beyond CFGs, handled by full programming languages, SQL engines, or specialized tools
 :::
-
-
-# Counting
-
-## Warm-Up: How Many Outfits? {.activity}
-
-**Question:** How many different outfits do you have in your closet?
-
-\ 
-
-No rules, just count.
-
-- What even *counts* as an outfit?
-- Do shoes matter?
-- Do seasons/colors matter?
-- Are some combos invalid?
-
-Write down how you’d **start** to count, not just an answer.
-
-{{< countdown minutes=5 >}}
-
-
-## What Did You Count?
-
-- What *categories* did you use?  
-
-- What *rules* did you impose?  
-
-**Key Idea:**  
-How we **model** outfits (what’s allowed, what’s ignored) changes the counting.
-
-
-## A Simplified Closet Model {.smaller}
-
-Define a wardrobe for the rest of this lesson:
-
-- $k$ pairs of shoes
-- $j$ pairs of pants
-- $m$ skirts
-- $n$ shirts
-- $p$ dresses
-
-We’ll **choose a model**:
-
-- An outfit is either:
-  1. **shirt + bottom + shoes**, where  
-     bottom is either pants or a skirt
-  2. or a **dress + shoes**
-
-- No color/style rules: everything in these categories is compatible.
-
-
-## Turn It Into Sets {.smaller}
-
-Define sets of items:
-
-- $S =$ set of shoes, $|S| = k$
-- $P =$ set of pants, $|P| = j$
-- $K =$ set of skirts, $|K| = m$
-- $T =$ set of shirts, $|T| = n$
-- $D =$ set of dresses, $|D| = p$
-
-A bottom is either pants or a skirt:
-
-$$
-B = P \cup K
-$$
-
-Assuming no overlap between pants and skirts:
-
-$$
-|B| = |P \cup K| = |P| + |K| = j + m
-$$
-
-
-## Outfits of Type 1 {.smaller}
-
-Type 1 outfit: **shirt + bottom + shoes**
-
-As a set of combinations:
-
-$$
-\text{Type1} = S \times B \times T
-$$
-
-Each outfit is a triple:
-
-$$
-(\text{shoe}, \text{bottom}, \text{shirt}) \in S \times B \times T
-$$
-
-So the number of Type 1 outfits is:
-
-$$
-|\text{Type1}| = |S||B||T| = k(j + m)n
-$$
-
-
-## Outfits of Type 2 {.smaller}
-
-Type 2 outfit: **dress + shoes**
-
-As a set of combinations:
-
-$$
-\text{Type2} = S \times D
-$$
-
-Each outfit is a pair:
-
-$$
-(\text{shoe}, \text{dress}) \in S \times D
-$$
-
-So the number of Type 2 outfits is:
-
-$$
-|\text{Type2}| = |S||D| = kp
-$$
-
-
-## Total Number of Outfits {.smaller}
-
-We’ve partitioned outfits into two disjoint types:
-
-- Type 1: shirt + bottom + shoes
-- Type 2: dress + shoes
-
-Total number of outfits in our model:
-
-$$
-\begin{aligned}
-\#\text{outfits} 
-&= |\text{Type1}| + |\text{Type2}| \\
-&= k(j + m)n + kp \\
-&= k\big((j + m)n + p\big).
-\end{aligned}
-$$
-
-This matches the informal idea:
-
-- “For each pair of shoes, you can choose any (bottom, shirt) combo **or** any dress.”
-
-
-## The Product Rule  {.smaller}
-
-Fundamental counting fact:
-
-> If $A$ and $B$ are finite sets, then  
-> $$
-> |A \times B| = |A|\cdot|B|.
-> $$
-
-Generalizing:
-
-> For sets $A_1, A_2, \dots, A_k$:
-> $$
-> |A_1 \times A_2 \times \dots \times A_k| = |A_1| \cdot |A_2| \cdot \dots \cdot |A_k|.
-> $$
-
-Interpretation:
-
-- A **choice procedure**:
-  - choose one element from $A_1$,
-  - then one from $A_2$, $\ldots$
-  - then one from $A_k$,
-- Every distinct chain of choices is a distinct element of the product set.
-
-
-## Wrap Up 
-
-The *combinatorics* lesson:
-
-> Once you’ve decided what "counts," express the valid items as a product of simpler choices.
-
-This pattern will be used for:
-
-- passwords,
-- playlists,
-- committee selection,
-- sampling from datasets,
-- and more.
-
-
-
-
-
