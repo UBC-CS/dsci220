@@ -233,3 +233,25 @@ while the other five range over a domain. Its speaker note says so and says not
 to name it yet. So L8 opens by asking which of those rows were propositions —
 the students have already filled the table in and had the intuition, and the
 withheld note pays off rather than costing fresh setup time.
+
+## Automata deserve their own three weeks (decided 2026-11-10)
+
+In 2026W1 the inherited L26 packed closure, NFAs, regex-to-NFA gadgets,
+0ⁿ1ⁿ, CFGs and a JSON grammar into one class. Cinda: "not fair to students."
+This term it is spread over L25 (read, then build DFAs), L26 (closure, NFAs)
+and L27 (regex to NFA, then grammars: song titles and JSON). The 0ⁿ1ⁿ argument
+moved to L30 (pigeonhole). EX4 tests sets, regex and reading DFAs only;
+building DFAs, NFAs and DFA proofs are on EX5.
+
+**For a future term, a three-week unit:**
+
+1. Regex as languages: notation, Pattern Eights, filters (`contains` vs `fullmatch`).
+2. DFAs: read first, then build; closure by product; state-invariant
+   proofs (induction on length).
+3. NFAs and equivalence; limits by pigeonhole (0ⁿ1ⁿ); CFGs as the way past
+   them. CFGs call back to the WFF grammar, and the JSON grammar matters for
+   data scientists, so both stay.
+
+Coverage to consult: UIUC CS 374 (regular languages, product construction,
+fooling sets, CFGs). CPSC 121 uses DFAs for sequential circuits; their PL
+questions are in `pl-ubc-cpsc121/`.
