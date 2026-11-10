@@ -142,6 +142,15 @@ recurrences (L11–13) and binary (L17). All claims below were checked in Python
 - **Set laws on languages.** L(A(B|C)) = L(AB|AC); L((A\*)\*) = L(A\*).
 - **The Filter-card trap** (maybe for the L24 video instead): if ε ∈ L(r) then
   the filter Σ\*L(r)Σ\* keeps every string.
+- **The shape Cinda likes (2026-11-10): regex vs. English, prove or give a
+  counterexample.** A pattern and a plain-English description; either prove
+  they describe the same set or give a string that separates them. Regex ⊆
+  English is induction on the number of trips through `*`; English ⊆ regex is
+  induction on length (peel off a block that fits one choice). Some need no
+  induction: `(0|1)*1` = "ends in 1" is direct.
+- **DFA vs. English, by state invariants.** "After reading w, the machine is
+  in EVEN iff w has an even number of 1s": induction on |w|, the step is
+  checking each arrow. Pairs with L25's read-a-DFA activity.
 - **Later, pigeonhole (L30):** a k-state DFA reading k or more symbols repeats
   a state, so {0ⁿ1ⁿ} has no regex.
 
