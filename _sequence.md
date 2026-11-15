@@ -255,3 +255,5 @@ building DFAs, NFAs and DFA proofs are on EX5.
 Coverage to consult: UIUC CS 374 (regular languages, product construction,
 fooling sets, CFGs). CPSC 121 uses DFAs for sequential circuits; their PL
 questions are in `pl-ubc-cpsc121/`.
+
+**Update 2026-11-15.** NFAs reduced to one slide (they exist; same power as DFAs). Regex-to-NFA gadgets cut: messy and not compelling in 2025; they sit in L27's "From the 2025 deck". Grammars (0ⁿ1ⁿ, WFF callback, song titles, JSON) moved into L26, so L26 is closure + NFA glimpse + grammars. L27 (Wed Nov 18, evaluators visiting) is open.

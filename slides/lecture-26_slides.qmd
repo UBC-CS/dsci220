@@ -1,5 +1,5 @@
 ---
-title: "Closure, NFAs"
+title: "Closure, NFAs, Grammars"
 subtitle: "Lecture 26, {{< var course.code >}}, {{< var course.term >}}"
 ---
 
@@ -23,6 +23,7 @@ subtitle: "Lecture 26, {{< var course.code >}}, {{< var course.term >}}"
 * Build a DFA for the complement of a language by flipping its accepting states.
 * Run two DFAs at once, to get the union or intersection of their languages.
 * Meet an NFA: a machine allowed to have choices.
+* Write a grammar for a language no DFA can recognize, like $0^n1^n$ and JSON.
 
 ```{=html}
 <style>
@@ -235,34 +236,6 @@ Rows kept: 11, 011, 101, 0011, 0101, 1001, 1111. Matches the product machine.
 Try | and ~ too: | is the union machine, ~even is the flipped Machine D.
 :::
 
-## Exercise
-
-Build a DFA for the **union** of:
-
-- `L1`: contains `11` (use the machine we built)
-- `L2`: ends with `00` (three states: `T, T0, T00`)
-
-**Hint:** sketch product states `(S_i, T_j)` and mark `accept` pairs for union (or).
-
-::: notes
-L1 is Friday's Contains 11 (= Machine A 🐝): S0, S1, S2. L2 is Machine B 🐢: T, T0, T00.
-Nine pairs, seven reachable from the start (S0,T). Never reached: (S1,T0), (S1,T00)
-(after a 1 we can't have just seen 0).
-
-| state | on 0 | on 1 | accept? |
-|---|---|---|---|
-| (S0,T) start | (S0,T0) | (S1,T) | |
-| (S0,T0) | (S0,T00) | (S1,T) | |
-| (S1,T) | (S0,T0) | (S2,T) | |
-| (S0,T00) | (S0,T00) | (S1,T) | yes |
-| (S2,T) | (S2,T0) | (S2,T) | yes |
-| (S2,T0) | (S2,T00) | (S2,T) | yes |
-| (S2,T00) | (S2,T00) | (S2,T) | yes |
-
-Once in S2 the left half never changes, so the three S2 states could be merged into
-one accepting state. The union machine needs only 5 states. Product is a recipe, not the smallest machine.
-:::
-
 # Non-deterministic FA
 
 ## NFAs
@@ -297,6 +270,187 @@ Just showing they exist. This NFA accepts the strings that end in 00: from P on 
 it may stay or move to Q, and a path that needs a missing arrow dies.
 Compare Machine B 🐢, the DFA for the same language. Every NFA has a DFA that accepts
 the same strings, so NFAs recognize nothing new.
+:::
+
+# Beyond Regular: Grammars
+
+## Last Puzzle:
+
+$0^n1^n$
+
+::: notes
+Ask: can you draw a DFA that accepts exactly these strings? Let them try for a minute.
+Every attempt runs out of states: the machine would have to count the 0s, and it only has finitely many states.
+The proof is pigeonhole, in Lecture 30. Grammars can do it.
+:::
+
+## Grammar for $0^n1^n$ ?
+
+**Grammar:**  
+$S \to 0S1 \ \mid\ \varepsilon$
+
+**Derivations:**
+
+- For `01`:
+  $$
+  S \Rightarrow 0S1 \Rightarrow 01
+  $$
+- For `000111`:
+  $$
+  S \Rightarrow 0S1 \Rightarrow 00S11 \Rightarrow 000S111 \Rightarrow 000111
+  $$
+
+**Parse tree shape for `0011`:**
+
+## CFG Review 
+
+A **context-free grammar (CFG)** has:
+
+- **Terminals** (alphabet), 
+- **Nonterminals** (variables), 
+- **Start symbol**, 
+- **Productions** like $S \to 0S1 \mid \varepsilon$.
+
+Notes:
+
+- A **derivation** rewrites nonterminals to produce a string.
+- A **parse tree** is evidence of how a string was generated.
+- The class of Regular Languages $\subset$ the class of Context-Free Languages
+
+::: notes
+Connect to your earlier WFF grammar: “That was a CFG all along.”
+:::
+
+## Warm Up {.smaller}
+
+Start with `<T>` and roll a die to choose which rule to apply.
+
+``` {bnf}
+      <T> ::= <CORE> | <CORE> <FEAT>
+
+   <FEAT> ::= "feat." <ARTIST>
+
+ <ARTIST> ::= "Taylor Swift" | "Sabrina Carpenter" | "Olivia" <LN> | "Chappell Roan"
+
+     <LN> ::= "Rodrigo" | "Dean"
+
+   <CORE> ::= <NP> | <NP> <PREP> <NP>
+
+     <NP> ::= <DET> <ADJLIST> <NOUN>
+
+    <DET> ::= "the" | "my" | "your" | "our"
+
+<ADJLIST> ::= <ADJ> <ADJ> | <ADJ> | ε
+
+    <ADJ> ::= "midnight" | "lonely" | "wild" | "broken" | "golden" | "electric"
+
+   <NOUN> ::= "heart" | "city" | "dreams" | "summer" | "memories" | "night"
+
+   <PREP> ::= "in" | "of" | "for" | "at"
+
+``` 
+
+
+## Demo
+
+```{pyodide}
+
+import random
+
+grammar = {
+    "T":      [["CORE"], ["CORE", "FEAT"]],
+    "FEAT":   [["feat.", "ARTIST"]],
+    "ARTIST": [["Taylor Swift"],
+               ["Sabrina Carpenter"],
+               ["Olivia", "LN"],
+               ["Chappell Roan"]],
+    "LN":     [["Rodrigo"], ["Dean"]],
+    "CORE":   [["NP"], ["NP", "PREP", "NP"]],
+    "NP":     [["DET", "ADJLIST", "NOUN"]],
+    "DET":    [["the"], ["my"], ["your"], ["our"]],
+    "ADJLIST":[["ADJ", "ADJ"],
+               ["ADJ"],
+               ["ε"]],   # epsilon (empty) option
+    "ADJ":    [["midnight"], ["lonely"], ["wild"],
+               ["broken"], ["golden"], ["electric"]],
+    "NOUN":   [["heart"], ["city"], ["dreams"],
+               ["summer"], ["memories"], ["night"]],
+    "PREP":   [["in"], ["of"], ["for"], ["at"]],
+}
+
+def expand(symbol):
+
+    if symbol not in grammar:
+        return [symbol]
+    
+    production = random.choice(grammar[symbol])
+    
+    words = []
+    for sym in production:
+        if not sym == "ε":     # skip epsilon
+            words.extend(expand(sym))      
+    return words
+
+def generate_title():
+    words = expand("T")
+    return " ".join(words).strip() # flatten 
+
+# Generate a few sample titles
+for _ in range(5):
+    print(generate_title())
+
+```
+## A Basic JSON CFG 
+
+<https://www.json.org/json-en.html>
+
+We ignore lexical details and focus on **structure**.
+
+``` {bnf}
+   <Value> ::=  <Object> | <Array> | <String> | <Number> 
+             | `true` | `false` | `null`  
+  <Object> ::= `{` <Members> `}` | `{}`  
+ <Members> ::= <Pair> | <Pair> `,` <Members> 
+    <Pair> ::= <String> `:` <Value>  
+   <Array> ::=  `[` <Elements> `]` | `[]`  
+<Elements> ::= <Value> | <Value> `,` <Elements>
+```
+
+**Example:** Is `{"a":[1,2,{"b":null}]}` in the language?  
+
+
+::: notes
+Point: regex can’t enforce **balanced, nested** delimiters; CFGs can.
+:::
+
+# If There's Time
+
+## Exercise
+
+Build a DFA for the **union** of:
+
+- `L1`: contains `11` (use the machine we built)
+- `L2`: ends with `00` (three states: `T, T0, T00`)
+
+**Hint:** sketch product states `(S_i, T_j)` and mark `accept` pairs for union (or).
+
+::: notes
+L1 is Friday's Contains 11 (= Machine A 🐝): S0, S1, S2. L2 is Machine B 🐢: T, T0, T00.
+Nine pairs, seven reachable from the start (S0,T). Never reached: (S1,T0), (S1,T00)
+(after a 1 we can't have just seen 0).
+
+| state | on 0 | on 1 | accept? |
+|---|---|---|---|
+| (S0,T) start | (S0,T0) | (S1,T) | |
+| (S0,T0) | (S0,T00) | (S1,T) | |
+| (S1,T) | (S0,T0) | (S2,T) | |
+| (S0,T00) | (S0,T00) | (S1,T) | yes |
+| (S2,T) | (S2,T0) | (S2,T) | yes |
+| (S2,T0) | (S2,T00) | (S2,T) | yes |
+| (S2,T00) | (S2,T00) | (S2,T) | yes |
+
+Once in S2 the left half never changes, so the three S2 states could be merged into
+one accepting state. The union machine needs only 5 states. Product is a recipe, not the smallest machine.
 :::
 
 # From the 2025 deck

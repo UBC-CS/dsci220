@@ -1,5 +1,5 @@
 ---
-title: "Regex to NFA"
+title: "Lecture 27"
 subtitle: "Lecture 27, {{< var course.code >}}, {{< var course.term >}}"
 ---
 
@@ -13,7 +13,9 @@ subtitle: "Lecture 27, {{< var course.code >}}, {{< var course.term >}}"
 .rule { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
 </style>
 
-# Regex to NFA
+# From the 2025 deck
+
+Not taught in 2026W1. Regex-to-NFA gadgets were cut (messy last time, and NFAs got one slide in L26). Grammars moved to Lecture 26. The impossibility argument for $0^n1^n$ is in Lecture 30 (pigeonhole).
 
 ## Regex to NFA Gadgets {.smaller}
 
@@ -184,155 +186,6 @@ subtitle: "Lecture 27, {{< var course.code >}}, {{< var course.term >}}"
 **Task:** Sketch an NFA for `^1(01|10)*0$` using only the four gadgets.
 
 **Plan:** literal `1` ... union(`01`,`10`) ... star ... literal `0`.
-
-# Beyond Regular: Grammars
-
-## Last Puzzle:
-
-$0^n1^n$
-
-## Grammar for $0^n1^n$ ?
-
-**Grammar:**  
-$S \to 0S1 \ \mid\ \varepsilon$
-
-**Derivations:**
-
-- For `01`:
-  $$
-  S \Rightarrow 0S1 \Rightarrow 01
-  $$
-- For `000111`:
-  $$
-  S \Rightarrow 0S1 \Rightarrow 00S11 \Rightarrow 000S111 \Rightarrow 000111
-  $$
-
-**Parse tree shape for `0011`:**
-
-## CFG Review 
-
-A **context-free grammar (CFG)** has:
-
-- **Terminals** (alphabet), 
-- **Nonterminals** (variables), 
-- **Start symbol**, 
-- **Productions** like $S \to 0S1 \mid \varepsilon$.
-
-Notes:
-
-- A **derivation** rewrites nonterminals to produce a string.
-- A **parse tree** is evidence of how a string was generated.
-- The class of Regular Languages $\subset$ the class of Context-Free Languages
-
-::: notes
-Connect to your earlier WFF grammar: “That was a CFG all along.”
-:::
-
-## Warm Up {.smaller}
-
-Start with `<T>` and roll a die to choose which rule to apply.
-
-``` {bnf}
-      <T> ::= <CORE> | <CORE> <FEAT>
-
-   <FEAT> ::= "feat." <ARTIST>
-
- <ARTIST> ::= "Taylor Swift" | "Sabrina Carpenter" | "Olivia" <LN> | "Chappell Roan"
-
-     <LN> ::= "Rodrigo" | "Dean"
-
-   <CORE> ::= <NP> | <NP> <PREP> <NP>
-
-     <NP> ::= <DET> <ADJLIST> <NOUN>
-
-    <DET> ::= "the" | "my" | "your" | "our"
-
-<ADJLIST> ::= <ADJ> <ADJ> | <ADJ> | ε
-
-    <ADJ> ::= "midnight" | "lonely" | "wild" | "broken" | "golden" | "electric"
-
-   <NOUN> ::= "heart" | "city" | "dreams" | "summer" | "memories" | "night"
-
-   <PREP> ::= "in" | "of" | "for" | "at"
-
-``` 
-
-
-## Demo
-
-```{pyodide}
-
-import random
-
-grammar = {
-    "T":      [["CORE"], ["CORE", "FEAT"]],
-    "FEAT":   [["feat.", "ARTIST"]],
-    "ARTIST": [["Taylor Swift"],
-               ["Sabrina Carpenter"],
-               ["Olivia", "LN"],
-               ["Chappell Roan"]],
-    "LN":     [["Rodrigo"], ["Dean"]],
-    "CORE":   [["NP"], ["NP", "PREP", "NP"]],
-    "NP":     [["DET", "ADJLIST", "NOUN"]],
-    "DET":    [["the"], ["my"], ["your"], ["our"]],
-    "ADJLIST":[["ADJ", "ADJ"],
-               ["ADJ"],
-               ["ε"]],   # epsilon (empty) option
-    "ADJ":    [["midnight"], ["lonely"], ["wild"],
-               ["broken"], ["golden"], ["electric"]],
-    "NOUN":   [["heart"], ["city"], ["dreams"],
-               ["summer"], ["memories"], ["night"]],
-    "PREP":   [["in"], ["of"], ["for"], ["at"]],
-}
-
-def expand(symbol):
-
-    if symbol not in grammar:
-        return [symbol]
-    
-    production = random.choice(grammar[symbol])
-    
-    words = []
-    for sym in production:
-        if not sym == "ε":     # skip epsilon
-            words.extend(expand(sym))      
-    return words
-
-def generate_title():
-    words = expand("T")
-    return " ".join(words).strip() # flatten 
-
-# Generate a few sample titles
-for _ in range(5):
-    print(generate_title())
-
-```
-## A Basic JSON CFG 
-
-<https://www.json.org/json-en.html>
-
-We ignore lexical details and focus on **structure**.
-
-``` {bnf}
-   <Value> ::=  <Object> | <Array> | <String> | <Number> 
-             | `true` | `false` | `null`  
-  <Object> ::= `{` <Members> `}` | `{}`  
- <Members> ::= <Pair> | <Pair> `,` <Members> 
-    <Pair> ::= <String> `:` <Value>  
-   <Array> ::=  `[` <Elements> `]` | `[]`  
-<Elements> ::= <Value> | <Value> `,` <Elements>
-```
-
-**Example:** Is `{"a":[1,2,{"b":null}]}` in the language?  
-
-
-::: notes
-Point: regex can’t enforce **balanced, nested** delimiters; CFGs can.
-:::
-
-# From the 2025 deck
-
-Not taught in 2026W1. The impossibility argument for $0^n1^n$ is in Lecture 30 (pigeonhole).
 
 ## Example 2
 
