@@ -155,6 +155,10 @@
 </section>
 <section id="announcements" class="slide level2">
 <h2>Announcements</h2>
+<ul>
+<li>EX4 is this week: sets, regex, and <strong>reading</strong> DFAs. Practice set is on PrairieLearn.</li>
+<li>Building DFAs (Friday and today) is on EX5.</li>
+</ul>
 <style>
 .small { font-size: .9rem; }
 .tiny { font-size: .8rem; }
@@ -168,13 +172,28 @@
 <h1>Building DFAs, continued</h1>
 
 </section>
+<section id="goals" class="slide level2">
+<h2>Goals</h2>
+<ul>
+<li>Build a DFA for the complement of a language by flipping its accepting states.</li>
+<li>Run two DFAs at once, to get the union or intersection of their languages.</li>
+<li>Meet an NFA: a machine allowed to have choices.</li>
+</ul>
+<style>
+.dfa .cell-output-display svg, .dfa svg { background:#fff; border-radius:22px; padding:10px 14px;
+  box-shadow:0 4px 0 rgba(0,0,0,.12); max-width:100%; height:auto; }
+.dfa { margin-top:6px; }
+.write { background:#fff; color:#29335c; border-radius:16px; padding:8px 16px; margin:8px 0;
+  font-size:.8em; box-shadow:0 3px 0 rgba(0,0,0,.12); }
+.sym0 { color:#2a9d8f; font-weight:bold; } .sym1 { color:#e76f51; font-weight:bold; }
+</style>
+</section>
 <section id="closure-tricks" class="slide level2">
 <h2>Closure Tricks</h2>
 <p>What’s <em>closure</em>?</p>
 <ul>
 <li><strong>Complement</strong>: make the DFA <strong>total</strong> (add SINK if needed), then flip accept to non-accept, and vice-versa.</li>
-<li><strong>Union / Intersection</strong>:<br>
-States are pairs <code>(p,q)</code>
+<li><strong>Union / Intersection</strong>: States are pairs <code>(p,q)</code>
 <ul>
 <li>Union accepts if <code>p ∈ F1</code> <strong>or</strong> <code>q ∈ F2</code></li>
 <li>Intersection accepts if <code>p ∈ F1</code> <strong>and</strong> <code>q ∈ F2</code></li>
@@ -183,6 +202,449 @@ States are pairs <code>(p,q)</code>
 </ul>
 <aside class="notes">
 <p>This mirrors set algebra directly; great place to reinforce recent set lessons.</p>
+<p>Closure answers “What’s closure?”: if we start with regular languages and take a complement, union, intersection or difference, the result is regular again. We never leave the family. Same word as “the integers are closed under +”.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="complement-flip-the-double-circles" class="slide level2 smaller">
+<h2>Complement: Flip the Double Circles</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Machine A 🐝: contains <code>11</code></p>
+<div class="dfa">
+<div class="cell" data-fig-width="5" data-fig-height="2.4" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="480" height="230" viewbox="0.00 0.00 499.00 137.11" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 133.11)">
+<!-- start -->
+<g id="node1" class="node">
+<title>start</title>
+<text text-anchor="middle" x="30.5" y="-29.21" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="18.00" fill="#e05297">start</text>
+</g>
+<!-- P -->
+<g id="node2" class="node">
+<title>P</title>
+<ellipse fill="#ffd6e0" stroke="#e05297" stroke-width="3.5" cx="158.5" cy="-34.61" rx="30.5" ry="30.5"></ellipse>
+<text text-anchor="middle" x="158.5" y="-28.61" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="20.00">P</text>
+</g>
+<!-- start&#45;&gt;P -->
+<g id="edge1" class="edge">
+<title>start-&gt;P</title>
+<path fill="none" stroke="#e05297" stroke-width="3" d="M61.04,-34.61C77.59,-34.61 98.47,-34.61 116.57,-34.61"></path>
+<polygon fill="#e05297" stroke="#e05297" stroke-width="3" points="116.71,-38.46 127.71,-34.61 116.71,-30.76 116.71,-38.46"></polygon>
+</g>
+<!-- P&#45;&gt;P -->
+<g id="edge2" class="edge">
+<title>P-&gt;P</title>
+<path fill="none" stroke="#2a9d8f" stroke-width="3" d="M147.56,-63.32C144.48,-82.47 148.12,-101.11 158.5,-101.11 166.85,-101.11 170.84,-89.04 170.48,-74.35"></path>
+<polygon fill="#2a9d8f" stroke="#2a9d8f" stroke-width="3" points="174.3,-73.91 169.44,-63.32 166.64,-74.63 174.3,-73.91"></polygon>
+<text text-anchor="middle" x="158.5" y="-107.11" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="20.00" fill="#2a9d8f"> 0 </text>
+</g>
+<!-- Q -->
+<g id="node3" class="node">
+<title>Q</title>
+<ellipse fill="#d6f5e9" stroke="#2a9d8f" stroke-width="3.5" cx="305.5" cy="-34.61" rx="30.5" ry="30.5"></ellipse>
+<text text-anchor="middle" x="305.5" y="-28.61" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="20.00">Q</text>
+</g>
+<!-- P&#45;&gt;Q -->
+<g id="edge3" class="edge">
+<title>P-&gt;Q</title>
+<path fill="none" stroke="#e76f51" stroke-width="3" d="M189.19,-34.61C210.7,-34.61 240.03,-34.61 263.72,-34.61"></path>
+<polygon fill="#e76f51" stroke="#e76f51" stroke-width="3" points="263.85,-38.46 274.85,-34.61 263.85,-30.76 263.85,-38.46"></polygon>
+<text text-anchor="middle" x="232" y="-40.61" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="20.00" fill="#e76f51"> 1 </text>
+</g>
+<!-- Q&#45;&gt;P -->
+<g id="edge4" class="edge">
+<title>Q-&gt;P</title>
+<path fill="none" stroke="#2a9d8f" stroke-width="3" d="M280.89,-16.55C264.7,-6.34 242.51,3.47 222,-1.61 212.5,-3.97 202.85,-8.06 194.07,-12.58"></path>
+<polygon fill="#2a9d8f" stroke="#2a9d8f" stroke-width="3" points="192,-9.32 184.22,-18 195.71,-16.07 192,-9.32"></polygon>
+<text text-anchor="middle" x="232" y="-7.61" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="20.00" fill="#2a9d8f"> 0 </text>
+</g>
+<!-- R -->
+<g id="node4" class="node">
+<title>R</title>
+<ellipse fill="#dbe7ff" stroke="#4a72d9" stroke-width="3.5" cx="456.5" cy="-34.61" rx="30.5" ry="30.5"></ellipse>
+<ellipse fill="none" stroke="#4a72d9" stroke-width="3.5" cx="456.5" cy="-34.61" rx="34.5" ry="34.5"></ellipse>
+<text text-anchor="middle" x="456.5" y="-28.61" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="20.00">R</text>
+</g>
+<!-- Q&#45;&gt;R -->
+<g id="edge5" class="edge">
+<title>Q-&gt;R</title>
+<path fill="none" stroke="#e76f51" stroke-width="3" d="M336.29,-34.61C357.63,-34.61 386.73,-34.61 410.83,-34.61"></path>
+<polygon fill="#e76f51" stroke="#e76f51" stroke-width="3" points="410.86,-38.46 421.86,-34.61 410.86,-30.76 410.86,-38.46"></polygon>
+<text text-anchor="middle" x="379" y="-40.61" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="20.00" fill="#e76f51"> 1 </text>
+</g>
+<!-- R&#45;&gt;R -->
+<g id="edge6" class="edge">
+<title>R-&gt;R</title>
+<path fill="none" stroke="#8e5cc4" stroke-width="3" d="M443.26,-66.51C440.06,-86.29 444.48,-105.11 456.5,-105.11 466.18,-105.11 470.92,-92.92 470.75,-77.86"></path>
+<polygon fill="#8e5cc4" stroke="#8e5cc4" stroke-width="3" points="474.55,-77.13 469.74,-66.51 466.88,-77.81 474.55,-77.13"></polygon>
+<text text-anchor="middle" x="456.5" y="-111.11" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="20.00" fill="#8e5cc4"> 0, 1 </text>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<p>Flipped: ???</p>
+<div class="dfa">
+<div class="cell" data-fig-width="5" data-fig-height="2.4" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="480" height="230" viewbox="0.00 0.00 507.00 137.05" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 133.05)">
+<!-- start -->
+<g id="node1" class="node">
+<title>start</title>
+<text text-anchor="middle" x="30.5" y="-29.15" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="18.00" fill="#e05297">start</text>
+</g>
+<!-- P -->
+<g id="node2" class="node">
+<title>P</title>
+<ellipse fill="#ffd6e0" stroke="#e05297" stroke-width="3.5" cx="162.5" cy="-34.55" rx="30.5" ry="30.5"></ellipse>
+<ellipse fill="none" stroke="#e05297" stroke-width="3.5" cx="162.5" cy="-34.55" rx="34.5" ry="34.5"></ellipse>
+<text text-anchor="middle" x="162.5" y="-28.55" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="20.00">P</text>
+</g>
+<!-- start&#45;&gt;P -->
+<g id="edge1" class="edge">
+<title>start-&gt;P</title>
+<path fill="none" stroke="#e05297" stroke-width="3" d="M61.32,-34.55C77.71,-34.55 98.37,-34.55 116.66,-34.55"></path>
+<polygon fill="#e05297" stroke="#e05297" stroke-width="3" points="116.69,-38.4 127.69,-34.55 116.69,-30.7 116.69,-38.4"></polygon>
+</g>
+<!-- P&#45;&gt;P -->
+<g id="edge2" class="edge">
+<title>P-&gt;P</title>
+<path fill="none" stroke="#2a9d8f" stroke-width="3" d="M150.55,-67.18C147.89,-86.69 151.88,-105.05 162.5,-105.05 171.05,-105.05 175.3,-93.16 175.25,-78.35"></path>
+<polygon fill="#2a9d8f" stroke="#2a9d8f" stroke-width="3" points="179.08,-77.88 174.45,-67.18 171.4,-78.43 179.08,-77.88"></polygon>
+<text text-anchor="middle" x="162.5" y="-111.05" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="20.00" fill="#2a9d8f"> 0 </text>
+</g>
+<!-- Q -->
+<g id="node3" class="node">
+<title>Q</title>
+<ellipse fill="#d6f5e9" stroke="#2a9d8f" stroke-width="3.5" cx="317.5" cy="-34.55" rx="30.5" ry="30.5"></ellipse>
+<ellipse fill="none" stroke="#2a9d8f" stroke-width="3.5" cx="317.5" cy="-34.55" rx="34.5" ry="34.5"></ellipse>
+<text text-anchor="middle" x="317.5" y="-28.55" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="20.00">Q</text>
+</g>
+<!-- P&#45;&gt;Q -->
+<g id="edge3" class="edge">
+<title>P-&gt;Q</title>
+<path fill="none" stroke="#e76f51" stroke-width="3" d="M197.08,-34.55C218.92,-34.55 247.68,-34.55 271.49,-34.55"></path>
+<polygon fill="#e76f51" stroke="#e76f51" stroke-width="3" points="271.74,-38.4 282.74,-34.55 271.74,-30.7 271.74,-38.4"></polygon>
+<text text-anchor="middle" x="240" y="-40.55" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="20.00" fill="#e76f51"> 1 </text>
+</g>
+<!-- Q&#45;&gt;P -->
+<g id="edge4" class="edge">
+<title>Q-&gt;P</title>
+<path fill="none" stroke="#2a9d8f" stroke-width="3" d="M289.05,-14.97C272.33,-5.36 250.34,3.22 230,-1.55 220.62,-3.75 211.05,-7.48 202.2,-11.66"></path>
+<polygon fill="#2a9d8f" stroke="#2a9d8f" stroke-width="3" points="200.28,-8.31 192.19,-16.7 203.75,-15.19 200.28,-8.31"></polygon>
+<text text-anchor="middle" x="240" y="-7.55" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="20.00" fill="#2a9d8f"> 0 </text>
+</g>
+<!-- R -->
+<g id="node4" class="node">
+<title>R</title>
+<ellipse fill="#dbe7ff" stroke="#4a72d9" stroke-width="3.5" cx="468.5" cy="-34.55" rx="30.5" ry="30.5"></ellipse>
+<text text-anchor="middle" x="468.5" y="-28.55" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="20.00">R</text>
+</g>
+<!-- Q&#45;&gt;R -->
+<g id="edge5" class="edge">
+<title>Q-&gt;R</title>
+<path fill="none" stroke="#e76f51" stroke-width="3" d="M352.31,-34.55C374.35,-34.55 403.23,-34.55 426.57,-34.55"></path>
+<polygon fill="#e76f51" stroke="#e76f51" stroke-width="3" points="426.86,-38.4 437.86,-34.55 426.86,-30.7 426.86,-38.4"></polygon>
+<text text-anchor="middle" x="395" y="-40.55" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="20.00" fill="#e76f51"> 1 </text>
+</g>
+<!-- R&#45;&gt;R -->
+<g id="edge6" class="edge">
+<title>R-&gt;R</title>
+<path fill="none" stroke="#8e5cc4" stroke-width="3" d="M456.32,-62.57C452.63,-81.96 456.69,-101.05 468.5,-101.05 478.01,-101.05 482.49,-88.69 481.96,-73.75"></path>
+<polygon fill="#8e5cc4" stroke="#8e5cc4" stroke-width="3" points="485.75,-73.06 480.68,-62.57 478.1,-73.93 485.75,-73.06"></polygon>
+<text text-anchor="middle" x="468.5" y="-107.05" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="20.00" fill="#8e5cc4"> 0, 1 </text>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div>
+</div></div>
+<p><br>
+</p>
+<p>What language does the flipped machine accept? Why did we need every state to have an arrow for every symbol?</p>
+<aside class="notes">
+<p>Flipped machine: strings with no 11. Includes the empty string, 0, 1, 10, 0100, …</p>
+<p>Why total: a DFA that is missing an arrow rejects by “falling off”. Flipping the double circles doesn’t flip falling off, so the missing-arrow strings would be rejected by both machines. Add a SINK state first (Starts with Iced from Friday had one), then flip; SINK becomes accepting.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="parity-demo" class="slide level2">
+<h2>Parity Demo</h2>
+<p>Language: even number of <code>1</code>s over <code>{0,1}</code>.</p>
+<ul>
+<li><code>EVEN</code> (start, accept), <code>ODD</code></li>
+<li>on <code>1</code>: toggle; on <code>0</code>: stay</li>
+</ul>
+<p>Try: which strings of length <span class="math inline">\(\leq\)</span> 4 accept?</p>
+<div class="dfa">
+<div class="cell" data-fig-width="4" data-fig-height="1.8" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="384" height="173" viewbox="0.00 0.00 352.00 137.54" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 133.54)">
+<!-- start -->
+<g id="node1" class="node">
+<title>start</title>
+<text text-anchor="middle" x="30.5" y="-29.64" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="18.00" fill="#e05297">start</text>
+</g>
+<!-- E -->
+<g id="node2" class="node">
+<title>E</title>
+<ellipse fill="#ffd6e0" stroke="#e05297" stroke-width="3.5" cx="162.5" cy="-35.04" rx="30.5" ry="30.5"></ellipse>
+<ellipse fill="none" stroke="#e05297" stroke-width="3.5" cx="162.5" cy="-35.04" rx="34.5" ry="34.5"></ellipse>
+<text text-anchor="middle" x="162.5" y="-29.04" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="20.00">E</text>
+</g>
+<!-- start&#45;&gt;E -->
+<g id="edge1" class="edge">
+<title>start-&gt;E</title>
+<path fill="none" stroke="#e05297" stroke-width="3" d="M61.32,-35.04C77.71,-35.04 98.37,-35.04 116.66,-35.04"></path>
+<polygon fill="#e05297" stroke="#e05297" stroke-width="3" points="116.69,-38.89 127.69,-35.04 116.69,-31.19 116.69,-38.89"></polygon>
+</g>
+<!-- E&#45;&gt;E -->
+<g id="edge2" class="edge">
+<title>E-&gt;E</title>
+<path fill="none" stroke="#2a9d8f" stroke-width="3" d="M150.55,-67.68C147.89,-87.18 151.88,-105.54 162.5,-105.54 171.05,-105.54 175.3,-93.65 175.25,-78.85"></path>
+<polygon fill="#2a9d8f" stroke="#2a9d8f" stroke-width="3" points="179.08,-78.37 174.45,-67.68 171.4,-78.92 179.08,-78.37"></polygon>
+<text text-anchor="middle" x="162.5" y="-111.54" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="20.00" fill="#2a9d8f"> 0 </text>
+</g>
+<!-- O -->
+<g id="node3" class="node">
+<title>O</title>
+<ellipse fill="#d6f5e9" stroke="#2a9d8f" stroke-width="3.5" cx="313.5" cy="-35.04" rx="30.5" ry="30.5"></ellipse>
+<text text-anchor="middle" x="313.5" y="-29.04" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="20.00">O</text>
+</g>
+<!-- E&#45;&gt;O -->
+<g id="edge3" class="edge">
+<title>E-&gt;O</title>
+<path fill="none" stroke="#e76f51" stroke-width="3" d="M197.31,-35.04C219.35,-35.04 248.23,-35.04 271.57,-35.04"></path>
+<polygon fill="#e76f51" stroke="#e76f51" stroke-width="3" points="271.86,-38.89 282.86,-35.04 271.86,-31.19 271.86,-38.89"></polygon>
+<text text-anchor="middle" x="240" y="-41.04" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="20.00" fill="#e76f51"> 1 </text>
+</g>
+<!-- O&#45;&gt;E -->
+<g id="edge5" class="edge">
+<title>O-&gt;E</title>
+<path fill="none" stroke="#e76f51" stroke-width="3" d="M287.78,-18.43C276.73,-11.96 263.22,-5.32 250,-2.04 233.52,2.04 215.92,-2.86 200.92,-10.03"></path>
+<polygon fill="#e76f51" stroke="#e76f51" stroke-width="3" points="198.92,-6.73 191,-15.28 202.52,-13.54 198.92,-6.73"></polygon>
+<text text-anchor="middle" x="240" y="-8.04" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="20.00" fill="#e76f51"> 1 </text>
+</g>
+<!-- O&#45;&gt;O -->
+<g id="edge4" class="edge">
+<title>O-&gt;O</title>
+<path fill="none" stroke="#2a9d8f" stroke-width="3" d="M301.32,-63.06C297.63,-82.45 301.69,-101.54 313.5,-101.54 323.01,-101.54 327.49,-89.18 326.96,-74.25"></path>
+<polygon fill="#2a9d8f" stroke="#2a9d8f" stroke-width="3" points="330.75,-73.55 325.68,-63.06 323.1,-74.42 330.75,-73.55"></polygon>
+<text text-anchor="middle" x="313.5" y="-107.54" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="20.00" fill="#2a9d8f"> 0 </text>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div>
+<p>Now flip it. What does it accept?</p>
+<aside class="notes">
+<p>This is Machine D 🐙 from Friday (E = EVEN, O = ODD). Length ≤ 4 accepted: ε, 0, 00, 11, 000, 011, 101, 110, 0000, 0011, 0101, 0110, 1001, 1010, 1100, 1111 (16 of 31). Flipped: an odd number of 1s. Already total, so no SINK needed.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="two-machines-at-once" class="slide level2 smaller">
+<h2>Two Machines at Once</h2>
+<p>Even number of <code>1</code>s <strong>and</strong> ends in <code>1</code>. Run Machine D 🐙 and the warm-up machine side by side: the state is a <strong>pair</strong>.</p>
+<div class="columns">
+<div class="column" style="width:62%;">
+<div class="dfa">
+<div class="cell" data-fig-width="6.5" data-fig-height="3.2" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="624" height="307" viewbox="0.00 0.00 646.00 377.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 373)">
+<!-- start -->
+<g id="node1" class="node">
+<title>start</title>
+<text text-anchor="middle" x="30.5" y="-25.1" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="18.00" fill="#e05297">start</text>
+</g>
+<!-- E,A -->
+<g id="node2" class="node">
+<title>E,A</title>
+<ellipse fill="#ffd6e0" stroke="#e05297" stroke-width="3.5" cx="158.5" cy="-30.5" rx="30.5" ry="30.5"></ellipse>
+<text text-anchor="middle" x="158.5" y="-24.5" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="20.00">E,A</text>
+</g>
+<!-- start&#45;&gt;E,A -->
+<g id="edge1" class="edge">
+<title>start-&gt;E,A</title>
+<path fill="none" stroke="#e05297" stroke-width="3" d="M61.04,-30.5C77.59,-30.5 98.47,-30.5 116.57,-30.5"></path>
+<polygon fill="#e05297" stroke="#e05297" stroke-width="3" points="116.71,-34.35 127.71,-30.5 116.71,-26.65 116.71,-34.35"></polygon>
+</g>
+<!-- E,A&#45;&gt;E,A -->
+<g id="edge2" class="edge">
+<title>E,A-&gt;E,A</title>
+<path fill="none" stroke="#2a9d8f" stroke-width="3" d="M147.56,-59.21C144.48,-78.36 148.12,-97 158.5,-97 166.85,-97 170.84,-84.93 170.48,-70.24"></path>
+<polygon fill="#2a9d8f" stroke="#2a9d8f" stroke-width="3" points="174.3,-69.8 169.44,-59.21 166.64,-70.52 174.3,-69.8"></polygon>
+<text text-anchor="middle" x="158.5" y="-103" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="20.00" fill="#2a9d8f"> 0 </text>
+</g>
+<!-- O,B -->
+<g id="node3" class="node">
+<title>O,B</title>
+<ellipse fill="#d6f5e9" stroke="#2a9d8f" stroke-width="3.5" cx="305.5" cy="-139.5" rx="30.5" ry="30.5"></ellipse>
+<text text-anchor="middle" x="305.5" y="-133.5" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="20.00">O,B</text>
+</g>
+<!-- E,A&#45;&gt;O,B -->
+<g id="edge3" class="edge">
+<title>E,A-&gt;O,B</title>
+<path fill="none" stroke="#e76f51" stroke-width="3" d="M183.44,-48.5C207.48,-66.57 244.68,-94.53 271.51,-114.7"></path>
+<polygon fill="#e76f51" stroke="#e76f51" stroke-width="3" points="269.41,-117.94 280.52,-121.47 274.04,-111.79 269.41,-117.94"></polygon>
+<text text-anchor="middle" x="232" y="-97.5" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="20.00" fill="#e76f51"> 1 </text>
+</g>
+<!-- O,A -->
+<g id="node4" class="node">
+<title>O,A</title>
+<ellipse fill="#dbe7ff" stroke="#4a72d9" stroke-width="3.5" cx="452.5" cy="-278.5" rx="30.5" ry="30.5"></ellipse>
+<text text-anchor="middle" x="452.5" y="-272.5" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="20.00">O,A</text>
+</g>
+<!-- O,B&#45;&gt;O,A -->
+<g id="edge8" class="edge">
+<title>O,B-&gt;O,A</title>
+<path fill="none" stroke="#2a9d8f" stroke-width="3" d="M324.33,-164C336.17,-179.53 352.52,-199.61 369,-215.5 383.93,-229.9 402.11,-244.09 417.61,-255.34"></path>
+<polygon fill="#2a9d8f" stroke="#2a9d8f" stroke-width="3" points="415.66,-258.69 426.85,-261.95 420.14,-252.42 415.66,-258.69"></polygon>
+<text text-anchor="middle" x="379" y="-238.5" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="20.00" fill="#2a9d8f"> 0 </text>
+</g>
+<!-- E,B -->
+<g id="node5" class="node">
+<title>E,B</title>
+<ellipse fill="#fff1b8" stroke="#d9a400" stroke-width="3.5" cx="603.5" cy="-139.5" rx="30.5" ry="30.5"></ellipse>
+<ellipse fill="none" stroke="#d9a400" stroke-width="3.5" cx="603.5" cy="-139.5" rx="34.5" ry="34.5"></ellipse>
+<text text-anchor="middle" x="603.5" y="-133.5" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="20.00">E,B</text>
+</g>
+<!-- O,B&#45;&gt;E,B -->
+<g id="edge9" class="edge">
+<title>O,B-&gt;E,B</title>
+<path fill="none" stroke="#e76f51" stroke-width="3" d="M335.27,-146.21C345.82,-148.35 357.89,-150.44 369,-151.5 442.89,-158.53 462.07,-158.12 536,-151.5 543.29,-150.85 550.98,-149.8 558.44,-148.59"></path>
+<polygon fill="#e76f51" stroke="#e76f51" stroke-width="3" points="559.34,-152.34 569.51,-146.65 558.01,-144.76 559.34,-152.34"></polygon>
+<text text-anchor="middle" x="452.5" y="-162.5" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="20.00" fill="#e76f51"> 1 </text>
+</g>
+<!-- O,A&#45;&gt;O,A -->
+<g id="edge6" class="edge">
+<title>O,A-&gt;O,A</title>
+<path fill="none" stroke="#2a9d8f" stroke-width="3" d="M440.32,-306.52C436.63,-325.91 440.69,-345 452.5,-345 462.01,-345 466.49,-332.64 465.96,-317.7"></path>
+<polygon fill="#2a9d8f" stroke="#2a9d8f" stroke-width="3" points="469.75,-317.01 464.68,-306.52 462.1,-317.88 469.75,-317.01"></polygon>
+<text text-anchor="middle" x="452.5" y="-351" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="20.00" fill="#2a9d8f"> 0 </text>
+</g>
+<!-- O,A&#45;&gt;E,B -->
+<g id="edge7" class="edge">
+<title>O,A-&gt;E,B</title>
+<path fill="none" stroke="#e76f51" stroke-width="3" d="M478.35,-261.51C495.28,-249.47 517.84,-232.49 536,-215.5 549.34,-203.02 562.83,-188.11 574.15,-174.82"></path>
+<polygon fill="#e76f51" stroke="#e76f51" stroke-width="3" points="577.13,-177.26 581.25,-166.36 571.23,-172.31 577.13,-177.26"></polygon>
+<text text-anchor="middle" x="526" y="-237.5" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="20.00" fill="#e76f51"> 1 </text>
+</g>
+<!-- E,B&#45;&gt;E,A -->
+<g id="edge4" class="edge">
+<title>E,B-&gt;E,A</title>
+<path fill="none" stroke="#2a9d8f" stroke-width="3" d="M571.77,-125.74C560.65,-121.11 547.9,-116.18 536,-112.5 415.83,-75.32 269.07,-48.52 199.61,-36.91"></path>
+<polygon fill="#2a9d8f" stroke="#2a9d8f" stroke-width="3" points="200.23,-33.11 188.75,-35.11 198.97,-40.71 200.23,-33.11"></polygon>
+<text text-anchor="middle" x="379" y="-79.5" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="20.00" fill="#2a9d8f"> 0 </text>
+</g>
+<!-- E,B&#45;&gt;O,B -->
+<g id="edge5" class="edge">
+<title>E,B-&gt;O,B</title>
+<path fill="none" stroke="#e76f51" stroke-width="3" d="M569.73,-132.16C545.84,-127.19 512.59,-121.08 483,-118.5 455.99,-116.14 449,-116.07 422,-118.5 396.59,-120.79 368.41,-125.86 346.25,-130.45"></path>
+<polygon fill="#e76f51" stroke="#e76f51" stroke-width="3" points="345.22,-126.73 335.26,-132.78 346.82,-134.26 345.22,-126.73"></polygon>
+<text text-anchor="middle" x="452.5" y="-124.5" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="20.00" fill="#e76f51"> 1 </text>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:38%;">
+<div class="write">
+<p><code>E,A</code> means D is in <code>E</code>, warm-up is in <code>A</code>.</p>
+<p>Accept when <strong>both</strong> accept: <code>E,B</code>.</p>
+</div>
+<div class="write">
+<p>Trace <code>0101</code>. Trace <code>110</code>.</p>
+</div>
+</div></div>
+<aside class="notes">
+<p>0101: (E,A) -0-&gt; (E,A) -1-&gt; (O,B) -0-&gt; (O,A) -1-&gt; (E,B). Accept: two 1s, ends in 1. 110: (E,A) -1-&gt; (O,B) -1-&gt; (E,B) -0-&gt; (E,A). Reject: even, but ends in 0. Shortest accepted: 11, 011, 101, 0011. Union: same machine, double circle on every pair with E or B (three states: E,A O,B E,B). Two states × two states = four pairs; here all four are reachable.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="youve-done-this-before" class="slide level2 smaller">
+<h2>You’ve Done This Before</h2>
+<p>In pandas, <code>&amp;</code> on two masks is the same idea: two tests, one answer per row.</p>
+<div>
+<div id="pyodide-1" class="exercise-cell">
+
+</div>
+<script type="pyodide-1-contents">
+eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiaW1wb3J0IGl0ZXJ0b29sc1xuaW1wb3J0IHBhbmRhcyBhcyBwZFxuXG53b3JkcyA9IFsnJy5qb2luKHApIGZvciBuIGluIHJhbmdlKDUpIGZvciBwIGluIGl0ZXJ0b29scy5wcm9kdWN0KCcwMScsIHJlcGVhdD1uKV1cbmRmID0gcGQuRGF0YUZyYW1lKHsndyc6IHdvcmRzfSlcblxuZXZlbiAgPSBkZlsndyddLnN0ci5jb3VudCgnMScpICUgMiA9PSAwXG5lbmRzMSA9IGRmWyd3J10uc3RyLmVuZHN3aXRoKCcxJylcblxuZGZbZXZlbiAmIGVuZHMxXSJ9
+</script>
+</div>
+<p>The product machine gets the same answer in <strong>one</strong> left-to-right pass, keeping only a pair of states.</p>
+<aside class="notes">
+<p>Rows kept: 11, 011, 101, 0011, 0101, 1001, 1111. Matches the product machine. Try | and ~ too: | is the union machine, ~even is the flipped Machine D.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -203,32 +665,63 @@ States are pairs <code>(p,q)</code>
 <li><code>L2</code>: ends with <code>00</code> (three states: <code>T, T0, T00</code>)</li>
 </ul>
 <p><strong>Hint:</strong> sketch product states <code>(S_i, T_j)</code> and mark <code>accept</code> pairs for union (or).</p>
-</section>
-<section id="parity-demo" class="slide level2">
-<h2>Parity Demo</h2>
-<p>Language: even number of <code>1</code>s over <code>{0,1}</code>.</p>
-<ul>
-<li><code>EVEN</code> (start, accept), <code>ODD</code><br>
-</li>
-<li>on <code>1</code>: toggle; on <code>0</code>: stay</li>
-</ul>
-<p>Try: which strings of length <span class="math inline">\(\leq\)</span> 4 accept?</p>
-</section></section>
-<section>
-<section id="non-deterministic-fa" class="title-slide slide level1 center">
-<h1>Non-deterministic FA</h1>
-
-</section>
-<section id="nfas" class="slide level2">
-<h2>NFAs</h2>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p><strong>DFA:</strong> exactly one transition for each input symbol in each state.<br>
-<strong>NFA:</strong> may have <strong>multiple</strong> choices on a symbol and <strong><span class="math inline">\(\varepsilon\)</span>-moves</strong> (move without consuming input).</p>
-<p><strong>Acceptance:</strong> a string is accepted if <strong>there exists</strong> a path that reads all characters and lands in an accept state.</p>
 <aside class="notes">
-<p>Say: “NFA is a modeling convenience. We’ll lean on that for regex to NFA construction.”</p>
+<p>L1 is Friday’s Contains 11 (= Machine A 🐝): S0, S1, S2. L2 is Machine B 🐢: T, T0, T00. Nine pairs, seven reachable from the start (S0,T). Never reached: (S1,T0), (S1,T00) (after a 1 we can’t have just seen 0).</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>state</th>
+<th>on 0</th>
+<th>on 1</th>
+<th>accept?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>(S0,T) start</td>
+<td>(S0,T0)</td>
+<td>(S1,T)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>(S0,T0)</td>
+<td>(S0,T00)</td>
+<td>(S1,T)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>(S1,T)</td>
+<td>(S0,T0)</td>
+<td>(S2,T)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>(S0,T00)</td>
+<td>(S0,T00)</td>
+<td>(S1,T)</td>
+<td>yes</td>
+</tr>
+<tr class="odd">
+<td>(S2,T)</td>
+<td>(S2,T0)</td>
+<td>(S2,T)</td>
+<td>yes</td>
+</tr>
+<tr class="even">
+<td>(S2,T0)</td>
+<td>(S2,T00)</td>
+<td>(S2,T)</td>
+<td>yes</td>
+</tr>
+<tr class="odd">
+<td>(S2,T00)</td>
+<td>(S2,T00)</td>
+<td>(S2,T)</td>
+<td>yes</td>
+</tr>
+</tbody>
+</table>
+<p>Once in S2 the left half never changes, so the three S2 states could be merged into one accepting state. The union machine needs only 5 states. Product is a recipe, not the smallest machine.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -240,6 +733,101 @@ States are pairs <code>(p,q)</code>
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
+</section></section>
+<section>
+<section id="non-deterministic-fa" class="title-slide slide level1 center">
+<h1>Non-deterministic FA</h1>
+
+</section>
+<section id="nfas" class="slide level2">
+<h2>NFAs</h2>
+<p><strong>DFA:</strong> exactly one transition for each input symbol in each state. <strong>NFA:</strong> may have <strong>multiple</strong> choices on a symbol and <strong><span class="math inline">\(\varepsilon\)</span>-moves</strong> (move without consuming input).</p>
+<p><strong>Acceptance:</strong> a string is accepted if <strong>there exists</strong> a path that reads all characters and lands in an accept state.</p>
+<div class="dfa">
+<div class="cell" data-fig-width="5" data-fig-height="2.2" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="480" height="211" viewbox="0.00 0.00 499.00 133.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 129)">
+<!-- start -->
+<g id="node1" class="node">
+<title>start</title>
+<text text-anchor="middle" x="30.5" y="-29.1" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="18.00" fill="#e05297">start</text>
+</g>
+<!-- P -->
+<g id="node2" class="node">
+<title>P</title>
+<ellipse fill="#ffd6e0" stroke="#e05297" stroke-width="3.5" cx="158.5" cy="-34.5" rx="30.5" ry="30.5"></ellipse>
+<text text-anchor="middle" x="158.5" y="-28.5" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="20.00">P</text>
+</g>
+<!-- start&#45;&gt;P -->
+<g id="edge1" class="edge">
+<title>start-&gt;P</title>
+<path fill="none" stroke="#e05297" stroke-width="3" d="M61.04,-34.5C77.59,-34.5 98.47,-34.5 116.57,-34.5"></path>
+<polygon fill="#e05297" stroke="#e05297" stroke-width="3" points="116.71,-38.35 127.71,-34.5 116.71,-30.65 116.71,-38.35"></polygon>
+</g>
+<!-- P&#45;&gt;P -->
+<g id="edge2" class="edge">
+<title>P-&gt;P</title>
+<path fill="none" stroke="#8e5cc4" stroke-width="3" d="M147.56,-63.21C144.48,-82.36 148.12,-101 158.5,-101 166.85,-101 170.84,-88.93 170.48,-74.24"></path>
+<polygon fill="#8e5cc4" stroke="#8e5cc4" stroke-width="3" points="174.3,-73.8 169.44,-63.21 166.64,-74.52 174.3,-73.8"></polygon>
+<text text-anchor="middle" x="158.5" y="-107" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="20.00" fill="#8e5cc4"> 0, 1 </text>
+</g>
+<!-- Q -->
+<g id="node3" class="node">
+<title>Q</title>
+<ellipse fill="#d6f5e9" stroke="#2a9d8f" stroke-width="3.5" cx="305.5" cy="-34.5" rx="30.5" ry="30.5"></ellipse>
+<text text-anchor="middle" x="305.5" y="-28.5" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="20.00">Q</text>
+</g>
+<!-- P&#45;&gt;Q -->
+<g id="edge3" class="edge">
+<title>P-&gt;Q</title>
+<path fill="none" stroke="#2a9d8f" stroke-width="3" d="M189.19,-34.5C210.7,-34.5 240.03,-34.5 263.72,-34.5"></path>
+<polygon fill="#2a9d8f" stroke="#2a9d8f" stroke-width="3" points="263.85,-38.35 274.85,-34.5 263.85,-30.65 263.85,-38.35"></polygon>
+<text text-anchor="middle" x="232" y="-40.5" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="20.00" fill="#2a9d8f"> 0 </text>
+</g>
+<!-- R -->
+<g id="node4" class="node">
+<title>R</title>
+<ellipse fill="#dbe7ff" stroke="#4a72d9" stroke-width="3.5" cx="456.5" cy="-34.5" rx="30.5" ry="30.5"></ellipse>
+<ellipse fill="none" stroke="#4a72d9" stroke-width="3.5" cx="456.5" cy="-34.5" rx="34.5" ry="34.5"></ellipse>
+<text text-anchor="middle" x="456.5" y="-28.5" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="20.00">R</text>
+</g>
+<!-- Q&#45;&gt;R -->
+<g id="edge4" class="edge">
+<title>Q-&gt;R</title>
+<path fill="none" stroke="#2a9d8f" stroke-width="3" d="M336.29,-34.5C357.63,-34.5 386.73,-34.5 410.83,-34.5"></path>
+<polygon fill="#2a9d8f" stroke="#2a9d8f" stroke-width="3" points="410.86,-38.35 421.86,-34.5 410.86,-30.65 410.86,-38.35"></polygon>
+<text text-anchor="middle" x="379" y="-40.5" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="20.00" fill="#2a9d8f"> 0 </text>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div>
+<aside class="notes">
+<p>Just showing they exist. This NFA accepts the strings that end in 00: from P on a 0 it may stay or move to Q, and a path that needs a missing arrow dies. Compare Machine B 🐢, the DFA for the same language. Every NFA has a DFA that accepts the same strings, so NFAs recognize nothing new.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
+<section id="from-the-2025-deck" class="title-slide slide level1 center">
+<h1>From the 2025 deck</h1>
+<p>Not taught in 2026W1: NFAs got one slide.</p>
 </section>
 <section id="notes-on-nfas" class="slide level2">
 <h2>Notes on NFAs</h2>
@@ -264,8 +852,11 @@ States are pairs <code>(p,q)</code>
       }</style></aside>
 
 
+<script type="pyodide-data">
+eyJvcHRpb25zIjp7ImVudiI6eyJQTE9UTFlfUkVOREVSRVIiOiJwbG90bHlfbWltZXR5cGUifSwiaW5kZXhVUkwiOiJodHRwczovL2Nkbi5qc2RlbGl2ci5uZXQvcHlvZGlkZS92MC4yOC4xL2Z1bGwvIn0sInBhY2thZ2VzIjp7InBrZ3MiOlsicHlvZGlkZV9odHRwIiwibWljcm9waXAiLCJpcHl0aG9uIl19fQ==
+</script>
 <script type="ojs-module-contents">
-eyJjb250ZW50cyI6W119
+eyJjb250ZW50cyI6W3siY2VsbE5hbWUiOiJweW9kaWRlLTEiLCJpbmxpbmUiOmZhbHNlLCJtZXRob2ROYW1lIjoiaW50ZXJwcmV0Iiwic291cmNlIjoidmlld29mIF9weW9kaWRlX2VkaXRvcl8xID0ge1xuICBjb25zdCB7IFB5b2RpZGVFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuXG4gIGNvbnN0IHNjcmlwdENvbnRlbnQgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKGBzY3JpcHRbdHlwZT1cXFwicHlvZGlkZS0xLWNvbnRlbnRzXFxcIl1gKS50ZXh0Q29udGVudDtcbiAgY29uc3QgYmxvY2sgPSBKU09OLnBhcnNlKGI2NERlY29kZShzY3JpcHRDb250ZW50KSk7XG5cbiAgY29uc3Qgb3B0aW9ucyA9IE9iamVjdC5hc3NpZ24oeyBpZDogYHB5b2RpZGUtMS1jb250ZW50c2AgfSwgYmxvY2suYXR0cik7XG4gIGNvbnN0IGVkaXRvciA9IG5ldyBQeW9kaWRlRXhlcmNpc2VFZGl0b3IoXG4gICAgcHlvZGlkZU9qcy5weW9kaWRlUHJvbWlzZSxcbiAgICBibG9jay5jb2RlLFxuICAgIG9wdGlvbnNcbiAgKTtcblxuICByZXR1cm4gZWRpdG9yLmNvbnRhaW5lcjtcbn1cbl9weW9kaWRlX3ZhbHVlXzEgPSBweW9kaWRlT2pzLnByb2Nlc3MoX3B5b2RpZGVfZWRpdG9yXzEsIHt9KTtcbiJ9LHsiY2VsbE5hbWUiOiJweW9kaWRlLXByZWx1ZGUiLCJpbmxpbmUiOmZhbHNlLCJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJweW9kaWRlT2pzID0ge1xuICBjb25zdCB7XG4gICAgUHlvZGlkZUV2YWx1YXRvcixcbiAgICBQeW9kaWRlRW52aXJvbm1lbnRNYW5hZ2VyLFxuICAgIHNldHVwUHl0aG9uLFxuICAgIHN0YXJ0UHlvZGlkZVdvcmtlcixcbiAgICBiNjREZWNvZGUsXG4gICAgY29sbGFwc2VQYXRoLFxuICB9ID0gd2luZG93Ll9leGVyY2lzZV9vanNfcnVudGltZTtcblxuICBjb25zdCBzdGF0dXNDb250YWluZXIgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZChcImV4ZXJjaXNlLWxvYWRpbmctc3RhdHVzXCIpO1xuICBjb25zdCBpbmRpY2F0b3JDb250YWluZXIgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZChcImV4ZXJjaXNlLWxvYWRpbmctaW5kaWNhdG9yXCIpO1xuICBpbmRpY2F0b3JDb250YWluZXIuY2xhc3NMaXN0LnJlbW92ZShcImQtbm9uZVwiKTtcblxuICBsZXQgc3RhdHVzVGV4dCA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoXCJkaXZcIilcbiAgc3RhdHVzVGV4dC5jbGFzc0xpc3QgPSBcImV4ZXJjaXNlLWxvYWRpbmctZGV0YWlsc1wiO1xuICBzdGF0dXNUZXh0ID0gc3RhdHVzQ29udGFpbmVyLmFwcGVuZENoaWxkKHN0YXR1c1RleHQpO1xuICBzdGF0dXNUZXh0LnRleHRDb250ZW50ID0gYEluaXRpYWxpc2VgO1xuXG4gIC8vIEhvaXN0IGluZGljYXRvciBvdXQgZnJvbSBmaW5hbCBzbGlkZSB3aGVuIHJ1bm5pbmcgdW5kZXIgcmV2ZWFsXG4gIGNvbnN0IHJldmVhbFN0YXR1cyA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoXCIucmV2ZWFsIC5leGVyY2lzZS1sb2FkaW5nLWluZGljYXRvclwiKTtcbiAgaWYgKHJldmVhbFN0YXR1cykge1xuICAgIHJldmVhbFN0YXR1cy5yZW1vdmUoKTtcbiAgICBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKFwiLnJldmVhbCA+IC5zbGlkZXNcIikuYXBwZW5kQ2hpbGQocmV2ZWFsU3RhdHVzKTtcbiAgfVxuXG4gIC8vIE1ha2UgYW55IHJldmVhbCBzbGlkZXMgd2l0aCBsaXZlIGNlbGxzIHNjcm9sbGFibGVcbiAgZG9jdW1lbnQucXVlcnlTZWxlY3RvckFsbChcIi5yZXZlYWwgLmV4ZXJjaXNlLWNlbGxcIikuZm9yRWFjaCgoZWwpID0+IHtcbiAgICBlbC5jbG9zZXN0KCdzZWN0aW9uLnNsaWRlJykuY2xhc3NMaXN0LmFkZChcInNjcm9sbGFibGVcIik7XG4gIH0pXG5cbiAgLy8gUHlvZGlkZSBzdXBwbGVtZW50YWwgZGF0YSBhbmQgb3B0aW9uc1xuICBjb25zdCBkYXRhQ29udGVudCA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoYHNjcmlwdFt0eXBlPVxcXCJweW9kaWRlLWRhdGFcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBkYXRhID0gSlNPTi5wYXJzZShiNjREZWNvZGUoZGF0YUNvbnRlbnQpKTtcblxuICAvLyBHcmFiIGxpc3Qgb2YgcmVzb3VyY2VzIHRvIGJlIGRvd25sb2FkZWRcbiAgY29uc3QgZmlsZXNDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcInZmcy1maWxlXFxcIl1gKS50ZXh0Q29udGVudDtcbiAgY29uc3QgZmlsZXMgPSBKU09OLnBhcnNlKGI2NERlY29kZShmaWxlc0NvbnRlbnQpKTtcblxuICBsZXQgcHlvZGlkZVByb21pc2UgPSAoYXN5bmMgKCkgPT4ge1xuICAgIHN0YXR1c1RleHQudGV4dENvbnRlbnQgPSBgRG93bmxvYWRpbmcgUHlvZGlkZWA7XG4gICAgY29uc3QgcHlvZGlkZSA9IGF3YWl0IHN0YXJ0UHlvZGlkZVdvcmtlcihkYXRhLm9wdGlvbnMpO1xuXG4gICAgc3RhdHVzVGV4dC50ZXh0Q29udGVudCA9IGBEb3dubG9hZGluZyBwYWNrYWdlOiBtaWNyb3BpcGA7XG4gICAgYXdhaXQgcHlvZGlkZS5sb2FkUGFja2FnZShcIm1pY3JvcGlwXCIpO1xuICAgIGNvbnN0IG1pY3JvcGlwID0gYXdhaXQgcHlvZGlkZS5weWltcG9ydChcIm1pY3JvcGlwXCIpO1xuICAgIGF3YWl0IGRhdGEucGFja2FnZXMucGtncy5tYXAoKHBrZykgPT4gKCkgPT4ge1xuICAgICAgc3RhdHVzVGV4dC50ZXh0Q29udGVudCA9IGBEb3dubG9hZGluZyBwYWNrYWdlOiAke3BrZ31gO1xuICAgICAgcmV0dXJuIG1pY3JvcGlwLmluc3RhbGwocGtnKTtcbiAgICB9KS5yZWR1Y2UoKGN1ciwgbmV4dCkgPT4gY3VyLnRoZW4obmV4dCksIFByb21pc2UucmVzb2x2ZSgpKTtcbiAgICBhd2FpdCBtaWNyb3BpcC5kZXN0cm95KCk7XG5cbiAgICAvLyBEb3dubG9hZCBhbmQgaW5zdGFsbCByZXNvdXJjZXNcbiAgICBhd2FpdCBmaWxlcy5tYXAoKGZpbGUpID0+IGFzeW5jICgpID0+IHtcbiAgICAgIGNvbnN0IG5hbWUgPSBmaWxlLnN1YnN0cmluZyhmaWxlLmxhc3RJbmRleE9mKCcvJykgKyAxKTtcbiAgICAgIHN0YXR1c1RleHQudGV4dENvbnRlbnQgPSBgRG93bmxvYWRpbmcgcmVzb3VyY2U6ICR7bmFtZX1gO1xuICAgICAgY29uc3QgcmVzcG9uc2UgPSBhd2FpdCBmZXRjaChmaWxlKTtcbiAgICAgIGlmICghcmVzcG9uc2Uub2spIHtcbiAgICAgICAgdGhyb3cgbmV3IEVycm9yKGBDYW4ndCBkb3dubG9hZCBcXGAke2ZpbGV9XFxgLiBFcnJvciAke3Jlc3BvbnNlLnN0YXR1c306IFwiJHtyZXNwb25zZS5zdGF0dXNUZXh0fVwiLmApO1xuICAgICAgfVxuICAgICAgY29uc3QgZGF0YSA9IGF3YWl0IHJlc3BvbnNlLmFycmF5QnVmZmVyKCk7XG5cbiAgICAgIC8vIFN0b3JlIFVSTHMgaW4gdGhlIGN3ZCB3aXRob3V0IGFueSBzdWJkaXJlY3Rvcnkgc3RydWN0dXJlXG4gICAgICBpZiAoZmlsZS5pbmNsdWRlcyhcIjovL1wiKSkge1xuICAgICAgICBmaWxlID0gbmFtZTtcbiAgICAgIH1cblxuICAgICAgLy8gQ29sbGFwc2UgaGlnaGVyIGRpcmVjdG9yeSBzdHJ1Y3R1cmVcbiAgICAgIGZpbGUgPSBjb2xsYXBzZVBhdGgoZmlsZSk7XG5cbiAgICAgIC8vIENyZWF0ZSBkaXJlY3RvcnkgdHJlZSwgaWdub3JpbmcgXCJkaXJlY3RvcnkgZXhpc3RzXCIgVkZTIGVycm9yc1xuICAgICAgY29uc3QgcGFydHMgPSBmaWxlLnNwbGl0KCcvJykuc2xpY2UoMCwgLTEpO1xuICAgICAgbGV0IHBhdGggPSAnJztcbiAgICAgIHdoaWxlIChwYXJ0cy5sZW5ndGggPiAwKSB7XG4gICAgICAgIHBhdGggKz0gcGFydHMuc2hpZnQoKSArICcvJztcbiAgICAgICAgdHJ5IHtcbiAgICAgICAgICBhd2FpdCBweW9kaWRlLkZTLm1rZGlyKHBhdGgpO1xuICAgICAgICB9IGNhdGNoIChlKSB7XG4gICAgICAgICAgaWYgKGUubmFtZSAhPT0gXCJFcnJub0Vycm9yXCIpIHRocm93IGU7XG4gICAgICAgICAgaWYgKGUuZXJybm8gIT09IDIwKSB7XG4gICAgICAgICAgICBjb25zdCBlcnJvclRleHRQdHIgPSBhd2FpdCBweW9kaWRlLl9tb2R1bGUuX3N0cmVycm9yKGUuZXJybm8pO1xuICAgICAgICAgICAgY29uc3QgZXJyb3JUZXh0ID0gYXdhaXQgcHlvZGlkZS5fbW9kdWxlLlVURjhUb1N0cmluZyhlcnJvclRleHRQdHIpO1xuICAgICAgICAgICAgdGhyb3cgbmV3IEVycm9yKGBGaWxlc3lzdGVtIEVycm9yICR7ZS5lcnJub30gXCIke2Vycm9yVGV4dH1cIi5gKTtcbiAgICAgICAgICB9XG4gICAgICAgIH1cbiAgICAgIH1cblxuICAgICAgLy8gV3JpdGUgdGhpcyBmaWxlIHRvIHRoZSBWRlNcbiAgICAgIHRyeSB7XG4gICAgICAgIHJldHVybiBhd2FpdCBweW9kaWRlLkZTLndyaXRlRmlsZShmaWxlLCBuZXcgVWludDhBcnJheShkYXRhKSk7XG4gICAgICB9IGNhdGNoIChlKSB7XG4gICAgICAgIGlmIChlLm5hbWUgIT09IFwiRXJybm9FcnJvclwiKSB0aHJvdyBlO1xuICAgICAgICBjb25zdCBlcnJvclRleHRQdHIgPSBhd2FpdCBweW9kaWRlLl9tb2R1bGUuX3N0cmVycm9yKGUuZXJybm8pO1xuICAgICAgICBjb25zdCBlcnJvclRleHQgPSBhd2FpdCBweW9kaWRlLl9tb2R1bGUuVVRGOFRvU3RyaW5nKGVycm9yVGV4dFB0cik7XG4gICAgICAgIHRocm93IG5ldyBFcnJvcihgRmlsZXN5c3RlbSBFcnJvciAke2UuZXJybm99IFwiJHtlcnJvclRleHR9XCIuYCk7XG4gICAgICB9XG4gICAgfSkucmVkdWNlKChjdXIsIG5leHQpID0+IGN1ci50aGVuKG5leHQpLCBQcm9taXNlLnJlc29sdmUoKSk7XG5cbiAgICBzdGF0dXNUZXh0LnRleHRDb250ZW50ID0gYFB5b2RpZGUgZW52aXJvbm1lbnQgc2V0dXBgO1xuICAgIGF3YWl0IHNldHVwUHl0aG9uKHB5b2RpZGUpO1xuXG4gICAgc3RhdHVzVGV4dC5yZW1vdmUoKTtcbiAgICBpZiAoc3RhdHVzQ29udGFpbmVyLmNoaWxkcmVuLmxlbmd0aCA9PSAwKSB7XG4gICAgICBzdGF0dXNDb250YWluZXIucGFyZW50Tm9kZS5yZW1vdmUoKTtcbiAgICB9XG4gICAgcmV0dXJuIHB5b2RpZGU7XG4gIH0pKCkuY2F0Y2goKGVycikgPT4ge1xuICAgIHN0YXR1c1RleHQuc3R5bGUuY29sb3IgPSBcInZhcigtLWV4ZXJjaXNlLWVkaXRvci1obC1lciwgI0FEMDAwMClcIjtcbiAgICBzdGF0dXNUZXh0LnRleHRDb250ZW50ID0gZXJyLm1lc3NhZ2U7XG4gICAgLy9pbmRpY2F0b3JDb250YWluZXIucXVlcnlTZWxlY3RvcihcIi5zcGlubmVyLWdyb3dcIikuY2xhc3NMaXN0LmFkZChcImQtbm9uZVwiKTtcbiAgICB0aHJvdyBlcnI7XG4gIH0pO1xuXG4gIC8vIEtlZXAgdHJhY2sgb2YgaW5pdGlhbCBPSlMgYmxvY2sgcmVuZGVyXG4gIGNvbnN0IHJlbmRlcmVkT2pzID0ge307XG5cbiAgY29uc3QgcHJvY2VzcyA9IGFzeW5jIChjb250ZXh0LCBpbnB1dHMpID0+IHtcbiAgICBjb25zdCBweW9kaWRlID0gYXdhaXQgcHlvZGlkZVByb21pc2U7XG4gICAgY29uc3QgZXZhbHVhdG9yID0gbmV3IFB5b2RpZGVFdmFsdWF0b3IocHlvZGlkZSwgY29udGV4dCk7XG4gICAgYXdhaXQgZXZhbHVhdG9yLnByb2Nlc3MoaW5wdXRzKTtcbiAgICByZXR1cm4gZXZhbHVhdG9yLmNvbnRhaW5lcjtcbiAgfVxuXG4gIHJldHVybiB7XG4gICAgcHlvZGlkZVByb21pc2UsXG4gICAgcmVuZGVyZWRPanMsXG4gICAgcHJvY2VzcyxcbiAgfTtcbn1cbiJ9XX0=
 </script>
 <div id="exercise-loading-indicator" class="exercise-loading-indicator d-none d-flex align-items-center gap-2">
 <div id="exercise-loading-status" class="d-flex gap-2">

@@ -3151,35 +3151,63 @@
     "href": "slides/lecture-26_slides.html#announcements",
     "title": "Closure, NFAs",
     "section": "Announcements",
-    "text": "Announcements"
+    "text": "Announcements\n\nEX4 is this week: sets, regex, and reading DFAs. Practice set is on PrairieLearn.\nBuilding DFAs (Friday and today) is on EX5."
+  },
+  {
+    "objectID": "slides/lecture-26_slides.html#goals",
+    "href": "slides/lecture-26_slides.html#goals",
+    "title": "Closure, NFAs",
+    "section": "Goals",
+    "text": "Goals\n\nBuild a DFA for the complement of a language by flipping its accepting states.\nRun two DFAs at once, to get the union or intersection of their languages.\nMeet an NFA: a machine allowed to have choices."
   },
   {
     "objectID": "slides/lecture-26_slides.html#closure-tricks",
     "href": "slides/lecture-26_slides.html#closure-tricks",
     "title": "Closure, NFAs",
     "section": "Closure Tricks",
-    "text": "Closure Tricks\nWhat’s closure?\n\nComplement: make the DFA total (add SINK if needed), then flip accept to non-accept, and vice-versa.\nUnion / Intersection:\nStates are pairs (p,q)\n\nUnion accepts if p ∈ F1 or q ∈ F2\nIntersection accepts if p ∈ F1 and q ∈ F2\n\nDifference: L1 - L2 = \\(L1\\cap L2^c\\)\n\n\nThis mirrors set algebra directly; great place to reinforce recent set lessons."
+    "text": "Closure Tricks\nWhat’s closure?\n\nComplement: make the DFA total (add SINK if needed), then flip accept to non-accept, and vice-versa.\nUnion / Intersection: States are pairs (p,q)\n\nUnion accepts if p ∈ F1 or q ∈ F2\nIntersection accepts if p ∈ F1 and q ∈ F2\n\nDifference: L1 - L2 = \\(L1\\cap L2^c\\)\n\n\nThis mirrors set algebra directly; great place to reinforce recent set lessons.\nClosure answers “What’s closure?”: if we start with regular languages and take a complement, union, intersection or difference, the result is regular again. We never leave the family. Same word as “the integers are closed under +”."
   },
   {
-    "objectID": "slides/lecture-26_slides.html#exercise",
-    "href": "slides/lecture-26_slides.html#exercise",
+    "objectID": "slides/lecture-26_slides.html#complement-flip-the-double-circles",
+    "href": "slides/lecture-26_slides.html#complement-flip-the-double-circles",
     "title": "Closure, NFAs",
-    "section": "Exercise",
-    "text": "Exercise\nBuild a DFA for the union of:\n\nL1: contains 11 (use the machine we built)\nL2: ends with 00 (three states: T, T0, T00)\n\nHint: sketch product states (S_i, T_j) and mark accept pairs for union (or)."
+    "section": "Complement: Flip the Double Circles",
+    "text": "Complement: Flip the Double Circles\n\n\nMachine A 🐝: contains 11\n\n\n\n\n\n\n\n\n\n\nstart\nstart\n\n\n\nP\n\nP\n\n\n\nstart-&gt;P\n\n\n\n\n\nP-&gt;P\n\n\n 0 \n\n\n\nQ\n\nQ\n\n\n\nP-&gt;Q\n\n\n 1 \n\n\n\nQ-&gt;P\n\n\n 0 \n\n\n\nR\n\n\nR\n\n\n\nQ-&gt;R\n\n\n 1 \n\n\n\nR-&gt;R\n\n\n 0, 1 \n\n\n\n\n\n\n\n\n\n\nFlipped: ???\n\n\n\n\n\n\n\n\n\n\nstart\nstart\n\n\n\nP\n\n\nP\n\n\n\nstart-&gt;P\n\n\n\n\n\nP-&gt;P\n\n\n 0 \n\n\n\nQ\n\n\nQ\n\n\n\nP-&gt;Q\n\n\n 1 \n\n\n\nQ-&gt;P\n\n\n 0 \n\n\n\nR\n\nR\n\n\n\nQ-&gt;R\n\n\n 1 \n\n\n\nR-&gt;R\n\n\n 0, 1 \n\n\n\n\n\n\n\n\n\n\n\n\nWhat language does the flipped machine accept? Why did we need every state to have an arrow for every symbol?\n\nFlipped machine: strings with no 11. Includes the empty string, 0, 1, 10, 0100, …\nWhy total: a DFA that is missing an arrow rejects by “falling off”. Flipping the double circles doesn’t flip falling off, so the missing-arrow strings would be rejected by both machines. Add a SINK state first (Starts with Iced from Friday had one), then flip; SINK becomes accepting."
   },
   {
     "objectID": "slides/lecture-26_slides.html#parity-demo",
     "href": "slides/lecture-26_slides.html#parity-demo",
     "title": "Closure, NFAs",
     "section": "Parity Demo",
-    "text": "Parity Demo\nLanguage: even number of 1s over {0,1}.\n\nEVEN (start, accept), ODD\n\non 1: toggle; on 0: stay\n\nTry: which strings of length \\(\\leq\\) 4 accept?"
+    "text": "Parity Demo\nLanguage: even number of 1s over {0,1}.\n\nEVEN (start, accept), ODD\non 1: toggle; on 0: stay\n\nTry: which strings of length \\(\\leq\\) 4 accept?\n\n\n\n\n\n\n\n\n\n\nstart\nstart\n\n\n\nE\n\n\nE\n\n\n\nstart-&gt;E\n\n\n\n\n\nE-&gt;E\n\n\n 0 \n\n\n\nO\n\nO\n\n\n\nE-&gt;O\n\n\n 1 \n\n\n\nO-&gt;E\n\n\n 1 \n\n\n\nO-&gt;O\n\n\n 0 \n\n\n\n\n\n\n\n\n\nNow flip it. What does it accept?\n\nThis is Machine D 🐙 from Friday (E = EVEN, O = ODD). Length ≤ 4 accepted: ε, 0, 00, 11, 000, 011, 101, 110, 0000, 0011, 0101, 0110, 1001, 1010, 1100, 1111 (16 of 31). Flipped: an odd number of 1s. Already total, so no SINK needed."
+  },
+  {
+    "objectID": "slides/lecture-26_slides.html#two-machines-at-once",
+    "href": "slides/lecture-26_slides.html#two-machines-at-once",
+    "title": "Closure, NFAs",
+    "section": "Two Machines at Once",
+    "text": "Two Machines at Once\nEven number of 1s and ends in 1. Run Machine D 🐙 and the warm-up machine side by side: the state is a pair.\n\n\n\n\n\n\n\n\n\n\n\n\nstart\nstart\n\n\n\nE,A\n\nE,A\n\n\n\nstart-&gt;E,A\n\n\n\n\n\nE,A-&gt;E,A\n\n\n 0 \n\n\n\nO,B\n\nO,B\n\n\n\nE,A-&gt;O,B\n\n\n 1 \n\n\n\nO,A\n\nO,A\n\n\n\nO,B-&gt;O,A\n\n\n 0 \n\n\n\nE,B\n\n\nE,B\n\n\n\nO,B-&gt;E,B\n\n\n 1 \n\n\n\nO,A-&gt;O,A\n\n\n 0 \n\n\n\nO,A-&gt;E,B\n\n\n 1 \n\n\n\nE,B-&gt;E,A\n\n\n 0 \n\n\n\nE,B-&gt;O,B\n\n\n 1 \n\n\n\n\n\n\n\n\n\n\n\nE,A means D is in E, warm-up is in A.\nAccept when both accept: E,B.\n\n\nTrace 0101. Trace 110.\n\n\n\n0101: (E,A) -0-&gt; (E,A) -1-&gt; (O,B) -0-&gt; (O,A) -1-&gt; (E,B). Accept: two 1s, ends in 1. 110: (E,A) -1-&gt; (O,B) -1-&gt; (E,B) -0-&gt; (E,A). Reject: even, but ends in 0. Shortest accepted: 11, 011, 101, 0011. Union: same machine, double circle on every pair with E or B (three states: E,A O,B E,B). Two states × two states = four pairs; here all four are reachable."
+  },
+  {
+    "objectID": "slides/lecture-26_slides.html#youve-done-this-before",
+    "href": "slides/lecture-26_slides.html#youve-done-this-before",
+    "title": "Closure, NFAs",
+    "section": "You’ve Done This Before",
+    "text": "You’ve Done This Before\nIn pandas, & on two masks is the same idea: two tests, one answer per row.\n\n\n\n\n\n\nThe product machine gets the same answer in one left-to-right pass, keeping only a pair of states.\n\nRows kept: 11, 011, 101, 0011, 0101, 1001, 1111. Matches the product machine. Try | and ~ too: | is the union machine, ~even is the flipped Machine D."
+  },
+  {
+    "objectID": "slides/lecture-26_slides.html#exercise",
+    "href": "slides/lecture-26_slides.html#exercise",
+    "title": "Closure, NFAs",
+    "section": "Exercise",
+    "text": "Exercise\nBuild a DFA for the union of:\n\nL1: contains 11 (use the machine we built)\nL2: ends with 00 (three states: T, T0, T00)\n\nHint: sketch product states (S_i, T_j) and mark accept pairs for union (or).\n\nL1 is Friday’s Contains 11 (= Machine A 🐝): S0, S1, S2. L2 is Machine B 🐢: T, T0, T00. Nine pairs, seven reachable from the start (S0,T). Never reached: (S1,T0), (S1,T00) (after a 1 we can’t have just seen 0).\n\n\n\nstate\non 0\non 1\naccept?\n\n\n\n\n(S0,T) start\n(S0,T0)\n(S1,T)\n\n\n\n(S0,T0)\n(S0,T00)\n(S1,T)\n\n\n\n(S1,T)\n(S0,T0)\n(S2,T)\n\n\n\n(S0,T00)\n(S0,T00)\n(S1,T)\nyes\n\n\n(S2,T)\n(S2,T0)\n(S2,T)\nyes\n\n\n(S2,T0)\n(S2,T00)\n(S2,T)\nyes\n\n\n(S2,T00)\n(S2,T00)\n(S2,T)\nyes\n\n\n\nOnce in S2 the left half never changes, so the three S2 states could be merged into one accepting state. The union machine needs only 5 states. Product is a recipe, not the smallest machine."
   },
   {
     "objectID": "slides/lecture-26_slides.html#nfas",
     "href": "slides/lecture-26_slides.html#nfas",
     "title": "Closure, NFAs",
     "section": "NFAs",
-    "text": "NFAs\n \n \n \nDFA: exactly one transition for each input symbol in each state.\nNFA: may have multiple choices on a symbol and \\(\\varepsilon\\)-moves (move without consuming input).\nAcceptance: a string is accepted if there exists a path that reads all characters and lands in an accept state.\n\nSay: “NFA is a modeling convenience. We’ll lean on that for regex to NFA construction.”"
+    "text": "NFAs\nDFA: exactly one transition for each input symbol in each state. NFA: may have multiple choices on a symbol and \\(\\varepsilon\\)-moves (move without consuming input).\nAcceptance: a string is accepted if there exists a path that reads all characters and lands in an accept state.\n\n\n\n\n\n\n\n\n\n\nstart\nstart\n\n\n\nP\n\nP\n\n\n\nstart-&gt;P\n\n\n\n\n\nP-&gt;P\n\n\n 0, 1 \n\n\n\nQ\n\nQ\n\n\n\nP-&gt;Q\n\n\n 0 \n\n\n\nR\n\n\nR\n\n\n\nQ-&gt;R\n\n\n 0 \n\n\n\n\n\n\n\n\n\n\nJust showing they exist. This NFA accepts the strings that end in 00: from P on a 0 it may stay or move to Q, and a path that needs a missing arrow dies. Compare Machine B 🐢, the DFA for the same language. Every NFA has a DFA that accepts the same strings, so NFAs recognize nothing new."
   },
   {
     "objectID": "slides/lecture-26_slides.html#notes-on-nfas",
