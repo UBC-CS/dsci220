@@ -5,6 +5,9 @@ subtitle: "Lecture 26, {{< var course.code >}}, {{< var course.term >}}"
 
 ## Announcements
 
+* EX4 is this week: sets, regex, and **reading** DFAs. Practice set is on PrairieLearn.
+* Building DFAs (Friday and today) is on EX5.
+
 <style>
 .small { font-size: .9rem; }
 .tiny { font-size: .8rem; }
@@ -15,12 +18,29 @@ subtitle: "Lecture 26, {{< var course.code >}}, {{< var course.term >}}"
 
 # Building DFAs, continued
 
+## Goals
+
+* Build a DFA for the complement of a language by flipping its accepting states.
+* Run two DFAs at once, to get the union or intersection of their languages.
+* Meet an NFA: a machine allowed to have choices.
+
+```{=html}
+<style>
+.dfa .cell-output-display svg, .dfa svg { background:#fff; border-radius:22px; padding:10px 14px;
+  box-shadow:0 4px 0 rgba(0,0,0,.12); max-width:100%; height:auto; }
+.dfa { margin-top:6px; }
+.write { background:#fff; color:#29335c; border-radius:16px; padding:8px 16px; margin:8px 0;
+  font-size:.8em; box-shadow:0 3px 0 rgba(0,0,0,.12); }
+.sym0 { color:#2a9d8f; font-weight:bold; } .sym1 { color:#e76f51; font-weight:bold; }
+</style>
+```
+
 ## Closure Tricks
 
-What's _closure_? 
+What's _closure_?
 
 - **Complement**: make the DFA **total** (add SINK if needed), then flip accept to non-accept, and vice-versa.
-- **Union / Intersection**:  
+- **Union / Intersection**:
   States are pairs `(p,q)`
   - Union accepts if `p ∈ F1` **or** `q ∈ F2`
   - Intersection accepts if `p ∈ F1` **and** `q ∈ F2`
@@ -28,9 +48,194 @@ What's _closure_?
 
 ::: notes
 This mirrors set algebra directly; great place to reinforce recent set lessons.
+
+Closure answers "What's closure?": if we start with regular languages and take a
+complement, union, intersection or difference, the result is regular again. We never
+leave the family. Same word as "the integers are closed under +".
 :::
 
-## Exercise 
+## Complement: Flip the Double Circles {.smaller}
+
+:::: {.columns}
+::: {.column width="50%"}
+Machine A 🐝: contains `11`
+
+::: {.dfa}
+```{dot}
+//| fig-width: 5
+//| fig-height: 2.4
+digraph {
+  rankdir=LR; bgcolor="transparent"; nodesep=0.5; ranksep=0.9;
+  node [shape=circle style=filled fontname="Helvetica-Bold" fontsize=20 penwidth=3.5 width=0.85 fixedsize=true];
+  edge [fontname="Helvetica-Bold" fontsize=20 penwidth=3 arrowsize=1.1];
+  start [shape=plaintext style="" label="start" fontcolor="#e05297" fontsize=18];
+  start -> "P" [color="#e05297"];
+  "P" [shape=circle fillcolor="#ffd6e0" color="#e05297"];
+  "Q" [shape=circle fillcolor="#d6f5e9" color="#2a9d8f"];
+  "R" [shape=doublecircle fillcolor="#dbe7ff" color="#4a72d9"];
+  "P" -> "P" [label=" 0 " color="#2a9d8f" fontcolor="#2a9d8f"];
+  "P" -> "Q" [label=" 1 " color="#e76f51" fontcolor="#e76f51"];
+  "Q" -> "P" [label=" 0 " color="#2a9d8f" fontcolor="#2a9d8f"];
+  "Q" -> "R" [label=" 1 " color="#e76f51" fontcolor="#e76f51"];
+  "R" -> "R" [label=" 0, 1 " color="#8e5cc4" fontcolor="#8e5cc4"];
+}
+```
+:::
+:::
+::: {.column width="50%"}
+Flipped: ???
+
+::: {.dfa}
+```{dot}
+//| fig-width: 5
+//| fig-height: 2.4
+digraph {
+  rankdir=LR; bgcolor="transparent"; nodesep=0.5; ranksep=0.9;
+  node [shape=circle style=filled fontname="Helvetica-Bold" fontsize=20 penwidth=3.5 width=0.85 fixedsize=true];
+  edge [fontname="Helvetica-Bold" fontsize=20 penwidth=3 arrowsize=1.1];
+  start [shape=plaintext style="" label="start" fontcolor="#e05297" fontsize=18];
+  start -> "P" [color="#e05297"];
+  "P" [shape=doublecircle fillcolor="#ffd6e0" color="#e05297"];
+  "Q" [shape=doublecircle fillcolor="#d6f5e9" color="#2a9d8f"];
+  "R" [shape=circle fillcolor="#dbe7ff" color="#4a72d9"];
+  "P" -> "P" [label=" 0 " color="#2a9d8f" fontcolor="#2a9d8f"];
+  "P" -> "Q" [label=" 1 " color="#e76f51" fontcolor="#e76f51"];
+  "Q" -> "P" [label=" 0 " color="#2a9d8f" fontcolor="#2a9d8f"];
+  "Q" -> "R" [label=" 1 " color="#e76f51" fontcolor="#e76f51"];
+  "R" -> "R" [label=" 0, 1 " color="#8e5cc4" fontcolor="#8e5cc4"];
+}
+```
+:::
+:::
+::::
+
+\
+
+What language does the flipped machine accept? Why did we need every state to have an arrow for every symbol?
+
+::: notes
+Flipped machine: strings with no 11. Includes the empty string, 0, 1, 10, 0100, ...
+
+Why total: a DFA that is missing an arrow rejects by "falling off". Flipping
+the double circles doesn't flip falling off, so the missing-arrow strings would be
+rejected by both machines. Add a SINK state first (Starts with Iced from Friday had one),
+then flip; SINK becomes accepting.
+:::
+
+## Parity Demo
+
+Language: even number of `1`s over `{0,1}`.
+
+- `EVEN` (start, accept), `ODD`
+- on `1`: toggle; on `0`: stay
+
+Try: which strings of length $\leq$ 4 accept?
+
+::: {.dfa}
+```{dot}
+//| fig-width: 4
+//| fig-height: 1.8
+digraph {
+  rankdir=LR; bgcolor="transparent"; nodesep=0.5; ranksep=0.9;
+  node [shape=circle style=filled fontname="Helvetica-Bold" fontsize=20 penwidth=3.5 width=0.85 fixedsize=true];
+  edge [fontname="Helvetica-Bold" fontsize=20 penwidth=3 arrowsize=1.1];
+  start [shape=plaintext style="" label="start" fontcolor="#e05297" fontsize=18];
+  start -> "E" [color="#e05297"];
+  "E" [shape=doublecircle fillcolor="#ffd6e0" color="#e05297"];
+  "O" [shape=circle fillcolor="#d6f5e9" color="#2a9d8f"];
+  "E" -> "E" [label=" 0 " color="#2a9d8f" fontcolor="#2a9d8f"];
+  "E" -> "O" [label=" 1 " color="#e76f51" fontcolor="#e76f51"];
+  "O" -> "O" [label=" 0 " color="#2a9d8f" fontcolor="#2a9d8f"];
+  "O" -> "E" [label=" 1 " color="#e76f51" fontcolor="#e76f51"];
+}
+```
+:::
+
+Now flip it. What does it accept?
+
+::: notes
+This is Machine D 🐙 from Friday (E = EVEN, O = ODD).
+Length ≤ 4 accepted: ε, 0, 00, 11, 000, 011, 101, 110, 0000, 0011, 0101, 0110, 1001, 1010, 1100, 1111 (16 of 31).
+Flipped: an odd number of 1s. Already total, so no SINK needed.
+:::
+
+## Two Machines at Once {.smaller}
+
+Even number of `1`s **and** ends in `1`. Run Machine D 🐙 and the warm-up machine side by side: the state is a **pair**.
+
+:::: {.columns}
+::: {.column width="62%"}
+::: {.dfa}
+```{dot}
+//| fig-width: 6.5
+//| fig-height: 3.2
+digraph {
+  rankdir=LR; bgcolor="transparent"; nodesep=0.5; ranksep=0.9;
+  node [shape=circle style=filled fontname="Helvetica-Bold" fontsize=20 penwidth=3.5 width=0.85 fixedsize=true];
+  edge [fontname="Helvetica-Bold" fontsize=20 penwidth=3 arrowsize=1.1];
+  start [shape=plaintext style="" label="start" fontcolor="#e05297" fontsize=18];
+  start -> "E,A" [color="#e05297"];
+  "E,A" [shape=circle fillcolor="#ffd6e0" color="#e05297"];
+  "O,B" [shape=circle fillcolor="#d6f5e9" color="#2a9d8f"];
+  "O,A" [shape=circle fillcolor="#dbe7ff" color="#4a72d9"];
+  "E,B" [shape=doublecircle fillcolor="#fff1b8" color="#d9a400"];
+  "E,A" -> "E,A" [label=" 0 " color="#2a9d8f" fontcolor="#2a9d8f"];
+  "E,A" -> "O,B" [label=" 1 " color="#e76f51" fontcolor="#e76f51"];
+  "E,B" -> "E,A" [label=" 0 " color="#2a9d8f" fontcolor="#2a9d8f"];
+  "E,B" -> "O,B" [label=" 1 " color="#e76f51" fontcolor="#e76f51"];
+  "O,A" -> "O,A" [label=" 0 " color="#2a9d8f" fontcolor="#2a9d8f"];
+  "O,A" -> "E,B" [label=" 1 " color="#e76f51" fontcolor="#e76f51"];
+  "O,B" -> "O,A" [label=" 0 " color="#2a9d8f" fontcolor="#2a9d8f"];
+  "O,B" -> "E,B" [label=" 1 " color="#e76f51" fontcolor="#e76f51"];
+}
+```
+:::
+:::
+::: {.column width="38%"}
+::: {.write}
+`E,A` means D is in `E`, warm-up is in `A`.
+
+Accept when **both** accept: `E,B`.
+:::
+::: {.write}
+Trace `0101`. Trace `110`.
+:::
+:::
+::::
+
+::: notes
+0101: (E,A) -0-> (E,A) -1-> (O,B) -0-> (O,A) -1-> (E,B). Accept: two 1s, ends in 1.
+110: (E,A) -1-> (O,B) -1-> (E,B) -0-> (E,A). Reject: even, but ends in 0.
+Shortest accepted: 11, 011, 101, 0011.
+Union: same machine, double circle on every pair with E or B (three states: E,A  O,B  E,B).
+Two states × two states = four pairs; here all four are reachable.
+:::
+
+## You've Done This Before {.smaller}
+
+In pandas, `&` on two masks is the same idea: two tests, one answer per row.
+
+```{pyodide}
+import itertools
+import pandas as pd
+
+words = [''.join(p) for n in range(5) for p in itertools.product('01', repeat=n)]
+df = pd.DataFrame({'w': words})
+
+even  = df['w'].str.count('1') % 2 == 0
+ends1 = df['w'].str.endswith('1')
+
+df[even & ends1]
+```
+
+The product machine gets the same answer in **one** left-to-right pass, keeping only a pair of states.
+
+::: notes
+Rows kept: 11, 011, 101, 0011, 0101, 1001, 1111. Matches the product machine.
+Try | and ~ too: | is the union machine, ~even is the flipped Machine D.
+:::
+
+## Exercise
 
 Build a DFA for the **union** of:
 
@@ -39,38 +244,64 @@ Build a DFA for the **union** of:
 
 **Hint:** sketch product states `(S_i, T_j)` and mark `accept` pairs for union (or).
 
+::: notes
+L1 is Friday's Contains 11 (= Machine A 🐝): S0, S1, S2. L2 is Machine B 🐢: T, T0, T00.
+Nine pairs, seven reachable from the start (S0,T). Never reached: (S1,T0), (S1,T00)
+(after a 1 we can't have just seen 0).
 
+| state | on 0 | on 1 | accept? |
+|---|---|---|---|
+| (S0,T) start | (S0,T0) | (S1,T) | |
+| (S0,T0) | (S0,T00) | (S1,T) | |
+| (S1,T) | (S0,T0) | (S2,T) | |
+| (S0,T00) | (S0,T00) | (S1,T) | yes |
+| (S2,T) | (S2,T0) | (S2,T) | yes |
+| (S2,T0) | (S2,T00) | (S2,T) | yes |
+| (S2,T00) | (S2,T00) | (S2,T) | yes |
 
-
-
-## Parity Demo 
-
-Language: even number of `1`s over `{0,1}`.
-
-- `EVEN` (start, accept), `ODD`  
-- on `1`: toggle; on `0`: stay
-
-Try: which strings of length $\leq$ 4 accept?
+Once in S2 the left half never changes, so the three S2 states could be merged into
+one accepting state. The union machine needs only 5 states. Product is a recipe, not the smallest machine.
+:::
 
 # Non-deterministic FA
 
-## NFAs 
+## NFAs
 
-\ 
-
-\ 
-
-\ 
-
-**DFA:** exactly one transition for each input symbol in each state.  
+**DFA:** exactly one transition for each input symbol in each state.
 **NFA:** may have **multiple** choices on a symbol and **$\varepsilon$-moves** (move without consuming input).
 
 **Acceptance:** a string is accepted if **there exists** a path that reads all characters and lands in an accept state.
 
+::: {.dfa}
+```{dot}
+//| fig-width: 5
+//| fig-height: 2.2
+digraph {
+  rankdir=LR; bgcolor="transparent"; nodesep=0.5; ranksep=0.9;
+  node [shape=circle style=filled fontname="Helvetica-Bold" fontsize=20 penwidth=3.5 width=0.85 fixedsize=true];
+  edge [fontname="Helvetica-Bold" fontsize=20 penwidth=3 arrowsize=1.1];
+  start [shape=plaintext style="" label="start" fontcolor="#e05297" fontsize=18];
+  start -> "P" [color="#e05297"];
+  "P" [shape=circle fillcolor="#ffd6e0" color="#e05297"];
+  "Q" [shape=circle fillcolor="#d6f5e9" color="#2a9d8f"];
+  "R" [shape=doublecircle fillcolor="#dbe7ff" color="#4a72d9"];
+  "P" -> "P" [label=" 0, 1 " color="#8e5cc4" fontcolor="#8e5cc4"];
+  "P" -> "Q" [label=" 0 " color="#2a9d8f" fontcolor="#2a9d8f"];
+  "Q" -> "R" [label=" 0 " color="#2a9d8f" fontcolor="#2a9d8f"];
+}
+```
+:::
 
 ::: notes
-Say: “NFA is a modeling convenience. We’ll lean on that for regex to NFA construction.”
+Just showing they exist. This NFA accepts the strings that end in 00: from P on a 0
+it may stay or move to Q, and a path that needs a missing arrow dies.
+Compare Machine B 🐢, the DFA for the same language. Every NFA has a DFA that accepts
+the same strings, so NFAs recognize nothing new.
 :::
+
+# From the 2025 deck
+
+Not taught in 2026W1: NFAs got one slide.
 
 ## Notes on NFAs
 
