@@ -407,30 +407,6 @@ Shortest accepted by the intersection: 11, 011, 101, 0011.
 Difference D − warm-up: D yes and warm-up no, so (E,A) only. That's L1 ∩ complement of L2 from the Closure Tricks slide.
 :::
 
-## You've Done This Before {.smaller}
-
-In pandas, `&` on two masks is the same idea: two tests, one answer per row.
-
-```{pyodide}
-import itertools
-import pandas as pd
-
-words = [''.join(p) for n in range(5) for p in itertools.product('01', repeat=n)]
-df = pd.DataFrame({'w': words})
-
-even  = df['w'].str.count('1') % 2 == 0
-ends1 = df['w'].str.endswith('1')
-
-df[even & ends1]
-```
-
-The product machine gets the same answer in **one** left-to-right pass, keeping only a pair of states.
-
-::: notes
-Rows kept: 11, 011, 101, 0011, 0101, 1001, 1111. Matches the product machine.
-Try | and ~ too: | is the union machine, ~even is the flipped Machine D.
-:::
-
 # Non-deterministic FA
 
 ## NFAs
