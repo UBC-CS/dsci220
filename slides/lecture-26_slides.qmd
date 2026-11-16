@@ -586,7 +586,7 @@ for _ in range(5):
     print(generate_title())
 
 ```
-## A Basic JSON CFG 
+## A Basic JSON CFG {.smaller}
 
 <https://www.json.org/json-en.html>
 
