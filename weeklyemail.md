@@ -436,8 +436,7 @@ Cinda and the DSCI220 teaching team Perrie, Noah, and Marko.
 
 ⚠ **Check before sending**
 
-1. **The practice link is a guess.** `practice-ex4` is the next number after
-   EX3's practice set (2731704), so I wrote 2731705. Open it as a student first.
+1. **Practice link** confirmed by Cinda (2731705) and on the website.
 2. **Tutorial 8 isn't in PrairieLearn**, and the todo list has no TA assigned
    to it. The letter only says tutorials meet; confirm someone is running them.
 3. **EX4 sessions** must exist in PrairieTest for Thu Nov 19 – Sun Nov 22
