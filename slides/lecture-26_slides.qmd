@@ -177,7 +177,7 @@ rejected by both machines. Add a SINK state first (Starts with Iced from Friday 
 then flip; SINK becomes accepting.
 :::
 
-## Parity Demo
+## Parity Demo {.smaller}
 
 Language: even number of `1`s over `{0,1}`.
 
