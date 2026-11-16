@@ -3161,13 +3161,6 @@
     "text": "Draw It\nSame four states, same arrows. Only the double circles change.\n\n\n\n\n\n\n\n\n\n\n\n\nstart\nstart\n\n\n\nE,A\n\nE,A\n\n\n\nstart-&gt;E,A\n\n\n\n\n\nE,A-&gt;E,A\n\n\n 0 \n\n\n\nO,B\n\nO,B\n\n\n\nE,A-&gt;O,B\n\n\n 1 \n\n\n\nO,A\n\nO,A\n\n\n\nO,B-&gt;O,A\n\n\n 0 \n\n\n\nE,B\n\nE,B\n\n\n\nO,B-&gt;E,B\n\n\n 1 \n\n\n\nO,A-&gt;O,A\n\n\n 0 \n\n\n\nO,A-&gt;E,B\n\n\n 1 \n\n\n\nE,B-&gt;E,A\n\n\n 0 \n\n\n\nE,B-&gt;O,B\n\n\n 1 \n\n\n\n\n\n\n\n\n\n\n\nIntersection (and): accept when both say yes. Which pairs?\n\n\nUnion (or): accept when either says yes. Which pairs?\n\n\nTrace 0101. Trace 110.\n\n\n\nIntersection: (E,B) only. Union: (E,A), (E,B), (O,B). 0101: (E,A) -0-&gt; (E,A) -1-&gt; (O,B) -0-&gt; (O,A) -1-&gt; (E,B). Intersection accepts: two 1s, ends in 1. 110: (E,A) -1-&gt; (O,B) -1-&gt; (E,B) -0-&gt; (E,A). Intersection rejects (even, but ends in 0); union accepts (even). Shortest accepted by the intersection: 11, 011, 101, 0011. Difference D − warm-up: D yes and warm-up no, so (E,A) only. That’s L1 ∩ complement of L2 from the Closure Tricks slide."
   },
   {
-    "objectID": "slides/lecture-26_slides.html#youve-done-this-before",
-    "href": "slides/lecture-26_slides.html#youve-done-this-before",
-    "title": "Closure, NFAs, Grammars",
-    "section": "You’ve Done This Before",
-    "text": "You’ve Done This Before\nIn pandas, & on two masks is the same idea: two tests, one answer per row.\n\n\n\n\n\n\nThe product machine gets the same answer in one left-to-right pass, keeping only a pair of states.\n\nRows kept: 11, 011, 101, 0011, 0101, 1001, 1111. Matches the product machine. Try | and ~ too: | is the union machine, ~even is the flipped Machine D."
-  },
-  {
     "objectID": "slides/lecture-26_slides.html#nfas",
     "href": "slides/lecture-26_slides.html#nfas",
     "title": "Closure, NFAs, Grammars",
