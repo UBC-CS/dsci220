@@ -488,7 +488,7 @@ $S \to 0S1 \ \mid\ \varepsilon$
 
 **Parse tree shape for `0011`:**
 
-## CFG Review 
+## CFG Review {.smaller}
 
 A **context-free grammar (CFG)** has:
 
