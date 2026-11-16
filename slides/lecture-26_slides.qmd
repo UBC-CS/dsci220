@@ -33,6 +33,8 @@ subtitle: "Lecture 26, {{< var course.code >}}, {{< var course.term >}}"
 .write { background:#fff; color:#29335c; border-radius:16px; padding:8px 16px; margin:8px 0;
   font-size:.8em; box-shadow:0 3px 0 rgba(0,0,0,.12); }
 .sym0 { color:#2a9d8f; font-weight:bold; } .sym1 { color:#e76f51; font-weight:bold; }
+.buildtab table { background:#fff; border-radius:12px; }
+.buildtab td { height:1.7em; min-width:3.2em; }
 </style>
 ```
 
@@ -276,18 +278,69 @@ The pairs are just these two rows read top to bottom together: (E,A) (E,A) (O,B)
 
 ## Build It: One Row per Pair {.smaller}
 
-A state of the new machine is a pair (D's state, warm-up's state). 2 × 2 = 4 pairs.
+:::: {.columns}
+::: {.column width="36%"}
+D 🐙: even number of `1`s
 
-From a pair, on a symbol, **each machine takes its own step**.
+::: {.dfa}
+```{dot}
+//| fig-width: 3.2
+//| fig-height: 1.4
+digraph {
+  rankdir=LR; bgcolor="transparent"; nodesep=0.5; ranksep=0.9;
+  node [shape=circle style=filled fontname="Helvetica-Bold" fontsize=20 penwidth=3.5 width=0.85 fixedsize=true];
+  edge [fontname="Helvetica-Bold" fontsize=20 penwidth=3 arrowsize=1.1];
+  start [shape=plaintext style="" label="start" fontcolor="#e05297" fontsize=18];
+  start -> "E" [color="#e05297"];
+  "E" [shape=doublecircle fillcolor="#ffd6e0" color="#e05297"];
+  "O" [shape=circle fillcolor="#d6f5e9" color="#2a9d8f"];
+  "E" -> "E" [label=" 0 " color="#2a9d8f" fontcolor="#2a9d8f"];
+  "E" -> "O" [label=" 1 " color="#e76f51" fontcolor="#e76f51"];
+  "O" -> "O" [label=" 0 " color="#2a9d8f" fontcolor="#2a9d8f"];
+  "O" -> "E" [label=" 1 " color="#e76f51" fontcolor="#e76f51"];
+}
+```
+:::
 
+Warm-up: ends in `1`
+
+::: {.dfa}
+```{dot}
+//| fig-width: 3.2
+//| fig-height: 1.4
+digraph {
+  rankdir=LR; bgcolor="transparent"; nodesep=0.5; ranksep=0.9;
+  node [shape=circle style=filled fontname="Helvetica-Bold" fontsize=20 penwidth=3.5 width=0.85 fixedsize=true];
+  edge [fontname="Helvetica-Bold" fontsize=20 penwidth=3 arrowsize=1.1];
+  start [shape=plaintext style="" label="start" fontcolor="#e05297" fontsize=18];
+  start -> "A" [color="#e05297"];
+  "A" [shape=circle fillcolor="#ffd6e0" color="#e05297"];
+  "B" [shape=doublecircle fillcolor="#d6f5e9" color="#2a9d8f"];
+  "A" -> "A" [label=" 0 " color="#2a9d8f" fontcolor="#2a9d8f"];
+  "A" -> "B" [label=" 1 " color="#e76f51" fontcolor="#e76f51"];
+  "B" -> "A" [label=" 0 " color="#2a9d8f" fontcolor="#2a9d8f"];
+  "B" -> "B" [label=" 1 " color="#e76f51" fontcolor="#e76f51"];
+}
+```
+:::
+:::
+::: {.column width="64%"}
+A state is a pair: (D's state, warm-up's state).
+
+On a symbol, **each machine takes its own step**.
+
+::: {.buildtab}
 | pair | on `0` | on `1` | D accepts? | warm-up accepts? |
 |---|---|---|---|---|
 | `(E,A)` start | `(E,A)` | `(O,B)` | yes | no |
-| `(E,B)` | \ | \ | \ | \ |
-| `(O,A)` | \ | \ | \ | \ |
-| `(O,B)` | \ | \ | \ | \ |
+| `(E,B)` | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| `(O,A)` | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| `(O,B)` | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+:::
 
-The first row: on a `1`, D goes `E` → `O` and the warm-up goes `A` → `B`, so `(E,A)` → `(O,B)`.
+First row: on a `1`, D goes `E` → `O` and the warm-up goes `A` → `B`, so `(E,A)` → `(O,B)`.
+:::
+::::
 
 ::: notes
 Filled table:
