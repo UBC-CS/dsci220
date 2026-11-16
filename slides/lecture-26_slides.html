@@ -253,6 +253,8 @@
 .write { background:#fff; color:#29335c; border-radius:16px; padding:8px 16px; margin:8px 0;
   font-size:.8em; box-shadow:0 3px 0 rgba(0,0,0,.12); }
 .sym0 { color:#2a9d8f; font-weight:bold; } .sym1 { color:#e76f51; font-weight:bold; }
+.buildtab table { background:#fff; border-radius:12px; }
+.buildtab td { height:1.7em; min-width:3.2em; }
 </style>
 <style>
 .nfasim { font-size:.7em; margin-top:4px; }
@@ -773,8 +775,150 @@ document.addEventListener('DOMContentLoaded', () => {
 </section>
 <section id="build-it-one-row-per-pair" class="slide level2 smaller">
 <h2>Build It: One Row per Pair</h2>
-<p>A state of the new machine is a pair (D’s state, warm-up’s state). 2 × 2 = 4 pairs.</p>
-<p>From a pair, on a symbol, <strong>each machine takes its own step</strong>.</p>
+<div class="columns">
+<div class="column" style="width:36%;">
+<p>D 🐙: even number of <code>1</code>s</p>
+<div class="dfa">
+<div class="cell" data-fig-width="3.2" data-fig-height="1.4" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="307" height="134" viewbox="0.00 0.00 352.00 137.54" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 133.54)">
+<!-- start -->
+<g id="node1" class="node">
+<title>start</title>
+<text text-anchor="middle" x="30.5" y="-29.64" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="18.00" fill="#e05297">start</text>
+</g>
+<!-- E -->
+<g id="node2" class="node">
+<title>E</title>
+<ellipse fill="#ffd6e0" stroke="#e05297" stroke-width="3.5" cx="162.5" cy="-35.04" rx="30.5" ry="30.5"></ellipse>
+<ellipse fill="none" stroke="#e05297" stroke-width="3.5" cx="162.5" cy="-35.04" rx="34.5" ry="34.5"></ellipse>
+<text text-anchor="middle" x="162.5" y="-29.04" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="20.00">E</text>
+</g>
+<!-- start&#45;&gt;E -->
+<g id="edge1" class="edge">
+<title>start-&gt;E</title>
+<path fill="none" stroke="#e05297" stroke-width="3" d="M61.32,-35.04C77.71,-35.04 98.37,-35.04 116.66,-35.04"></path>
+<polygon fill="#e05297" stroke="#e05297" stroke-width="3" points="116.69,-38.89 127.69,-35.04 116.69,-31.19 116.69,-38.89"></polygon>
+</g>
+<!-- E&#45;&gt;E -->
+<g id="edge2" class="edge">
+<title>E-&gt;E</title>
+<path fill="none" stroke="#2a9d8f" stroke-width="3" d="M150.55,-67.68C147.89,-87.18 151.88,-105.54 162.5,-105.54 171.05,-105.54 175.3,-93.65 175.25,-78.85"></path>
+<polygon fill="#2a9d8f" stroke="#2a9d8f" stroke-width="3" points="179.08,-78.37 174.45,-67.68 171.4,-78.92 179.08,-78.37"></polygon>
+<text text-anchor="middle" x="162.5" y="-111.54" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="20.00" fill="#2a9d8f"> 0 </text>
+</g>
+<!-- O -->
+<g id="node3" class="node">
+<title>O</title>
+<ellipse fill="#d6f5e9" stroke="#2a9d8f" stroke-width="3.5" cx="313.5" cy="-35.04" rx="30.5" ry="30.5"></ellipse>
+<text text-anchor="middle" x="313.5" y="-29.04" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="20.00">O</text>
+</g>
+<!-- E&#45;&gt;O -->
+<g id="edge3" class="edge">
+<title>E-&gt;O</title>
+<path fill="none" stroke="#e76f51" stroke-width="3" d="M197.31,-35.04C219.35,-35.04 248.23,-35.04 271.57,-35.04"></path>
+<polygon fill="#e76f51" stroke="#e76f51" stroke-width="3" points="271.86,-38.89 282.86,-35.04 271.86,-31.19 271.86,-38.89"></polygon>
+<text text-anchor="middle" x="240" y="-41.04" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="20.00" fill="#e76f51"> 1 </text>
+</g>
+<!-- O&#45;&gt;E -->
+<g id="edge5" class="edge">
+<title>O-&gt;E</title>
+<path fill="none" stroke="#e76f51" stroke-width="3" d="M287.78,-18.43C276.73,-11.96 263.22,-5.32 250,-2.04 233.52,2.04 215.92,-2.86 200.92,-10.03"></path>
+<polygon fill="#e76f51" stroke="#e76f51" stroke-width="3" points="198.92,-6.73 191,-15.28 202.52,-13.54 198.92,-6.73"></polygon>
+<text text-anchor="middle" x="240" y="-8.04" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="20.00" fill="#e76f51"> 1 </text>
+</g>
+<!-- O&#45;&gt;O -->
+<g id="edge4" class="edge">
+<title>O-&gt;O</title>
+<path fill="none" stroke="#2a9d8f" stroke-width="3" d="M301.32,-63.06C297.63,-82.45 301.69,-101.54 313.5,-101.54 323.01,-101.54 327.49,-89.18 326.96,-74.25"></path>
+<polygon fill="#2a9d8f" stroke="#2a9d8f" stroke-width="3" points="330.75,-73.55 325.68,-63.06 323.1,-74.42 330.75,-73.55"></polygon>
+<text text-anchor="middle" x="313.5" y="-107.54" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="20.00" fill="#2a9d8f"> 0 </text>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div>
+<p>Warm-up: ends in <code>1</code></p>
+<div class="dfa">
+<div class="cell" data-fig-width="3.2" data-fig-height="1.4" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="307" height="134" viewbox="0.00 0.00 352.00 137.16" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 133.16)">
+<!-- start -->
+<g id="node1" class="node">
+<title>start</title>
+<text text-anchor="middle" x="30.5" y="-29.26" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="18.00" fill="#e05297">start</text>
+</g>
+<!-- A -->
+<g id="node2" class="node">
+<title>A</title>
+<ellipse fill="#ffd6e0" stroke="#e05297" stroke-width="3.5" cx="158.5" cy="-34.66" rx="30.5" ry="30.5"></ellipse>
+<text text-anchor="middle" x="158.5" y="-28.66" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="20.00">A</text>
+</g>
+<!-- start&#45;&gt;A -->
+<g id="edge1" class="edge">
+<title>start-&gt;A</title>
+<path fill="none" stroke="#e05297" stroke-width="3" d="M61.04,-34.66C77.59,-34.66 98.47,-34.66 116.57,-34.66"></path>
+<polygon fill="#e05297" stroke="#e05297" stroke-width="3" points="116.71,-38.51 127.71,-34.66 116.71,-30.81 116.71,-38.51"></polygon>
+</g>
+<!-- A&#45;&gt;A -->
+<g id="edge2" class="edge">
+<title>A-&gt;A</title>
+<path fill="none" stroke="#2a9d8f" stroke-width="3" d="M147.56,-63.37C144.48,-82.52 148.12,-101.16 158.5,-101.16 166.85,-101.16 170.84,-89.09 170.48,-74.4"></path>
+<polygon fill="#2a9d8f" stroke="#2a9d8f" stroke-width="3" points="174.3,-73.96 169.44,-63.37 166.64,-74.68 174.3,-73.96"></polygon>
+<text text-anchor="middle" x="158.5" y="-107.16" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="20.00" fill="#2a9d8f"> 0 </text>
+</g>
+<!-- B -->
+<g id="node3" class="node">
+<title>B</title>
+<ellipse fill="#d6f5e9" stroke="#2a9d8f" stroke-width="3.5" cx="309.5" cy="-34.66" rx="30.5" ry="30.5"></ellipse>
+<ellipse fill="none" stroke="#2a9d8f" stroke-width="3.5" cx="309.5" cy="-34.66" rx="34.5" ry="34.5"></ellipse>
+<text text-anchor="middle" x="309.5" y="-28.66" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="20.00">B</text>
+</g>
+<!-- A&#45;&gt;B -->
+<g id="edge3" class="edge">
+<title>A-&gt;B</title>
+<path fill="none" stroke="#e76f51" stroke-width="3" d="M189.29,-34.66C210.63,-34.66 239.73,-34.66 263.83,-34.66"></path>
+<polygon fill="#e76f51" stroke="#e76f51" stroke-width="3" points="263.86,-38.51 274.86,-34.66 263.86,-30.81 263.86,-38.51"></polygon>
+<text text-anchor="middle" x="232" y="-40.66" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="20.00" fill="#e76f51"> 1 </text>
+</g>
+<!-- B&#45;&gt;A -->
+<g id="edge4" class="edge">
+<title>B-&gt;A</title>
+<path fill="none" stroke="#2a9d8f" stroke-width="3" d="M281,-14.9C264.27,-5.22 242.28,3.36 222,-1.66 212.5,-4.02 202.85,-8.11 194.07,-12.63"></path>
+<polygon fill="#2a9d8f" stroke="#2a9d8f" stroke-width="3" points="192,-9.37 184.22,-18.05 195.71,-16.12 192,-9.37"></polygon>
+<text text-anchor="middle" x="232" y="-7.66" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="20.00" fill="#2a9d8f"> 0 </text>
+</g>
+<!-- B&#45;&gt;B -->
+<g id="edge5" class="edge">
+<title>B-&gt;B</title>
+<path fill="none" stroke="#e76f51" stroke-width="3" d="M296.26,-66.56C293.06,-86.34 297.48,-105.16 309.5,-105.16 319.18,-105.16 323.92,-92.97 323.75,-77.91"></path>
+<polygon fill="#e76f51" stroke="#e76f51" stroke-width="3" points="327.55,-77.18 322.74,-66.56 319.88,-77.86 327.55,-77.18"></polygon>
+<text text-anchor="middle" x="309.5" y="-111.16" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="20.00" fill="#e76f51"> 1 </text>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:64%;">
+<p>A state is a pair: (D’s state, warm-up’s state).</p>
+<p>On a symbol, <strong>each machine takes its own step</strong>.</p>
+<div class="buildtab">
 <table class="caption-top">
 <thead>
 <tr class="header">
@@ -795,28 +939,30 @@ document.addEventListener('DOMContentLoaded', () => {
 </tr>
 <tr class="even">
 <td><code>(E,B)</code></td>
-<td>\</td>
-<td>\</td>
-<td>\</td>
-<td>\</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
 </tr>
 <tr class="odd">
 <td><code>(O,A)</code></td>
-<td>\</td>
-<td>\</td>
-<td>\</td>
-<td>\</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
 </tr>
 <tr class="even">
 <td><code>(O,B)</code></td>
-<td>\</td>
-<td>\</td>
-<td>\</td>
-<td>\</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
 </tr>
 </tbody>
 </table>
-<p>The first row: on a <code>1</code>, D goes <code>E</code> → <code>O</code> and the warm-up goes <code>A</code> → <code>B</code>, so <code>(E,A)</code> → <code>(O,B)</code>.</p>
+</div>
+<p>First row: on a <code>1</code>, D goes <code>E</code> → <code>O</code> and the warm-up goes <code>A</code> → <code>B</code>, so <code>(E,A)</code> → <code>(O,B)</code>.</p>
+</div></div>
 <aside class="notes">
 <p>Filled table: (E,A): 0 → (E,A), 1 → (O,B); D yes, warm-up no (E,B): 0 → (E,A), 1 → (O,B); D yes, warm-up yes (O,A): 0 → (O,A), 1 → (E,B); D no, warm-up no (O,B): 0 → (O,A), 1 → (E,B); D no, warm-up yes Intersection (and) accepts where both are yes: only (E,B). Union (or) accepts where either is yes: (E,A), (E,B), (O,B). With bigger machines not every pair can be reached from the start. Build rows only for pairs that show up in the table (the Exercise at the end has 9 pairs, 7 reachable).</p>
 <style type="text/css">
