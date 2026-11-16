@@ -36,6 +36,58 @@ subtitle: "Lecture 26, {{< var course.code >}}, {{< var course.term >}}"
 </style>
 ```
 
+```{=html}
+<style>
+.nfasim { font-size:.7em; margin-top:4px; }
+.nfasim input { font-family:ui-monospace,Menlo,monospace; font-size:1em; border-radius:10px; border:2px solid #8e5cc4; padding:2px 8px; }
+.nfasim button { font-size:.9em; border-radius:12px; border:none; padding:4px 14px; margin-left:6px;
+  background:#e05297; color:#fff; font-weight:bold; box-shadow:0 3px 0 rgba(0,0,0,.15); cursor:pointer; }
+.nfasim button.ns-reset { background:#4a72d9; }
+.ns-tape { font-family:ui-monospace,Menlo,monospace; font-size:1.5em; margin-top:6px; letter-spacing:.15em; }
+.ns-tape .done { color:#bbb; } .ns-tape .next { background:#fff1b8; border-radius:6px; padding:0 4px; }
+.ns-live { font-size:1.1em; font-weight:bold; color:#29335c; margin-top:4px; }
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.nfasim').forEach(box => {
+    const d = JSON.parse(box.dataset.delta), start = box.dataset.start, acc = box.dataset.acc.split(',');
+    const pic = document.getElementById(box.dataset.for);
+    const inp = box.querySelector('.ns-in'), tape = box.querySelector('.ns-tape'), live = box.querySelector('.ns-live');
+    let pos = 0, cur = new Set([start]);
+    const nodes = () => [...pic.querySelectorAll('g.node')].filter(g => g.querySelector('title').textContent !== 'start');
+    function paint() {
+      const w = inp.value.replace(/[^01]/g, '');
+      tape.innerHTML = [...w].map((c, i) => `<span class="${i < pos ? 'done' : i === pos ? 'next' : ''}">${c}</span>`).join('') || '&nbsp;';
+      nodes().forEach(g => {
+        const on = cur.has(g.querySelector('title').textContent);
+        g.querySelectorAll('ellipse,polygon').forEach(e => {
+          if (!e.dataset.fill) e.dataset.fill = e.getAttribute('fill') || 'none';
+          if (e.getAttribute('fill') !== 'none' || e.dataset.fill !== 'none')
+            e.setAttribute('fill', on ? '#ffd60a' : e.dataset.fill);
+        });
+        g.style.filter = on ? 'drop-shadow(0 0 10px #ffb703)' : '';
+      });
+      const names = [...cur].sort().join(', ');
+      let msg = 'live: {' + names + '}';
+      if (pos >= w.length) msg += cur.size === 0 ? '   no live states: reject 💔'
+        : (acc.some(a => cur.has(a)) ? '   a double circle is live: accept 💚' : '   no double circle is live: reject 💔');
+      live.textContent = msg;
+    }
+    box.querySelector('.ns-next').onclick = () => {
+      const w = inp.value.replace(/[^01]/g, '');
+      if (pos >= w.length) return;
+      const c = w[pos++], nxt = new Set();
+      cur.forEach(q => ((d[q] || {})[c] || []).forEach(r => nxt.add(r)));
+      cur = nxt; paint();
+    };
+    box.querySelector('.ns-reset').onclick = () => { pos = 0; cur = new Set([start]); paint(); };
+    inp.oninput = () => { pos = 0; cur = new Set([start]); paint(); };
+    paint();
+  });
+});
+</script>
+```
+
 ## Closure Tricks
 
 What's _closure_?
@@ -162,7 +214,96 @@ Flipped: an odd number of 1s. Already total, so no SINK needed.
 
 ## Two Machines at Once {.smaller}
 
-Even number of `1`s **and** ends in `1`. Run Machine D 🐙 and the warm-up machine side by side: the state is a **pair**.
+Goal: one DFA for strings with an even number of `1`s **and** ending in `1`.
+
+:::: {.columns}
+::: {.column width="50%"}
+Machine D 🐙: even number of `1`s
+
+::: {.dfa}
+```{dot}
+//| fig-width: 4
+//| fig-height: 1.8
+digraph {
+  rankdir=LR; bgcolor="transparent"; nodesep=0.5; ranksep=0.9;
+  node [shape=circle style=filled fontname="Helvetica-Bold" fontsize=20 penwidth=3.5 width=0.85 fixedsize=true];
+  edge [fontname="Helvetica-Bold" fontsize=20 penwidth=3 arrowsize=1.1];
+  start [shape=plaintext style="" label="start" fontcolor="#e05297" fontsize=18];
+  start -> "E" [color="#e05297"];
+  "E" [shape=doublecircle fillcolor="#ffd6e0" color="#e05297"];
+  "O" [shape=circle fillcolor="#d6f5e9" color="#2a9d8f"];
+  "E" -> "E" [label=" 0 " color="#2a9d8f" fontcolor="#2a9d8f"];
+  "E" -> "O" [label=" 1 " color="#e76f51" fontcolor="#e76f51"];
+  "O" -> "O" [label=" 0 " color="#2a9d8f" fontcolor="#2a9d8f"];
+  "O" -> "E" [label=" 1 " color="#e76f51" fontcolor="#e76f51"];
+}
+```
+:::
+:::
+::: {.column width="50%"}
+Warm-up: ends in `1`
+
+::: {.dfa}
+```{dot}
+//| fig-width: 4
+//| fig-height: 1.8
+digraph {
+  rankdir=LR; bgcolor="transparent"; nodesep=0.5; ranksep=0.9;
+  node [shape=circle style=filled fontname="Helvetica-Bold" fontsize=20 penwidth=3.5 width=0.85 fixedsize=true];
+  edge [fontname="Helvetica-Bold" fontsize=20 penwidth=3 arrowsize=1.1];
+  start [shape=plaintext style="" label="start" fontcolor="#e05297" fontsize=18];
+  start -> "A" [color="#e05297"];
+  "A" [shape=circle fillcolor="#ffd6e0" color="#e05297"];
+  "B" [shape=doublecircle fillcolor="#d6f5e9" color="#2a9d8f"];
+  "A" -> "A" [label=" 0 " color="#2a9d8f" fontcolor="#2a9d8f"];
+  "A" -> "B" [label=" 1 " color="#e76f51" fontcolor="#e76f51"];
+  "B" -> "A" [label=" 0 " color="#2a9d8f" fontcolor="#2a9d8f"];
+  "B" -> "B" [label=" 1 " color="#e76f51" fontcolor="#e76f51"];
+}
+```
+:::
+:::
+::::
+
+Feed the same string to both, one symbol at a time. What does the combined machine need to remember after each symbol?
+
+::: notes
+Answer: where each machine is. That's a pair of states, like (E, A): D is in E, the warm-up is in A.
+Run 0101 through each one separately first:
+D: E, E, O, O, E (accepts). Warm-up: A, A, B, A, B (accepts). Both accept, so 0101 is in the intersection.
+The pairs are just these two rows read top to bottom together: (E,A) (E,A) (O,B) (O,A) (E,B).
+:::
+
+## Build It: One Row per Pair {.smaller}
+
+A state of the new machine is a pair (D's state, warm-up's state). 2 × 2 = 4 pairs.
+
+From a pair, on a symbol, **each machine takes its own step**.
+
+| pair | on `0` | on `1` | D accepts? | warm-up accepts? |
+|---|---|---|---|---|
+| `(E,A)` start | `(E,A)` | `(O,B)` | yes | no |
+| `(E,B)` | \ | \ | \ | \ |
+| `(O,A)` | \ | \ | \ | \ |
+| `(O,B)` | \ | \ | \ | \ |
+
+The first row: on a `1`, D goes `E` → `O` and the warm-up goes `A` → `B`, so `(E,A)` → `(O,B)`.
+
+::: notes
+Filled table:
+(E,A): 0 → (E,A), 1 → (O,B); D yes, warm-up no
+(E,B): 0 → (E,A), 1 → (O,B); D yes, warm-up yes
+(O,A): 0 → (O,A), 1 → (E,B); D no, warm-up no
+(O,B): 0 → (O,A), 1 → (E,B); D no, warm-up yes
+Intersection (and) accepts where both are yes: only (E,B).
+Union (or) accepts where either is yes: (E,A), (E,B), (O,B).
+With bigger machines not every pair can be reached from the start. Build rows only for
+pairs that show up in the table (the Exercise at the end has 9 pairs, 7 reachable).
+:::
+
+## Draw It {.smaller}
+
+Same four states, same arrows. Only the double circles change.
 
 :::: {.columns}
 ::: {.column width="62%"}
@@ -179,7 +320,7 @@ digraph {
   "E,A" [shape=circle fillcolor="#ffd6e0" color="#e05297"];
   "O,B" [shape=circle fillcolor="#d6f5e9" color="#2a9d8f"];
   "O,A" [shape=circle fillcolor="#dbe7ff" color="#4a72d9"];
-  "E,B" [shape=doublecircle fillcolor="#fff1b8" color="#d9a400"];
+  "E,B" [shape=circle fillcolor="#fff1b8" color="#d9a400"];
   "E,A" -> "E,A" [label=" 0 " color="#2a9d8f" fontcolor="#2a9d8f"];
   "E,A" -> "O,B" [label=" 1 " color="#e76f51" fontcolor="#e76f51"];
   "E,B" -> "E,A" [label=" 0 " color="#2a9d8f" fontcolor="#2a9d8f"];
@@ -194,9 +335,10 @@ digraph {
 :::
 ::: {.column width="38%"}
 ::: {.write}
-`E,A` means D is in `E`, warm-up is in `A`.
-
-Accept when **both** accept: `E,B`.
+**Intersection** (and): accept when **both** say yes. Which pairs?
+:::
+::: {.write}
+**Union** (or): accept when **either** says yes. Which pairs?
 :::
 ::: {.write}
 Trace `0101`. Trace `110`.
@@ -205,11 +347,11 @@ Trace `0101`. Trace `110`.
 ::::
 
 ::: notes
-0101: (E,A) -0-> (E,A) -1-> (O,B) -0-> (O,A) -1-> (E,B). Accept: two 1s, ends in 1.
-110: (E,A) -1-> (O,B) -1-> (E,B) -0-> (E,A). Reject: even, but ends in 0.
-Shortest accepted: 11, 011, 101, 0011.
-Union: same machine, double circle on every pair with E or B (three states: E,A  O,B  E,B).
-Two states × two states = four pairs; here all four are reachable.
+Intersection: (E,B) only. Union: (E,A), (E,B), (O,B).
+0101: (E,A) -0-> (E,A) -1-> (O,B) -0-> (O,A) -1-> (E,B). Intersection accepts: two 1s, ends in 1.
+110: (E,A) -1-> (O,B) -1-> (E,B) -0-> (E,A). Intersection rejects (even, but ends in 0); union accepts (even).
+Shortest accepted by the intersection: 11, 011, 101, 0011.
+Difference D − warm-up: D yes and warm-up no, so (E,A) only. That's L1 ∩ complement of L2 from the Closure Tricks slide.
 :::
 
 ## You've Done This Before {.smaller}
@@ -272,6 +414,50 @@ Compare Machine B 🐢, the DFA for the same language. Every NFA has a DFA that 
 the same strings, so NFAs recognize nothing new.
 :::
 
+## Watch It Run {.smaller}
+
+Same NFA: ends in `00`. Step through a string and watch **every** state it could be in light up.
+
+::: {#nfasim1 .dfa}
+```{dot}
+//| fig-width: 5
+//| fig-height: 2.2
+digraph {
+  rankdir=LR; bgcolor="transparent"; nodesep=0.5; ranksep=0.9;
+  node [shape=circle style=filled fontname="Helvetica-Bold" fontsize=20 penwidth=3.5 width=0.85 fixedsize=true];
+  edge [fontname="Helvetica-Bold" fontsize=20 penwidth=3 arrowsize=1.1];
+  start [shape=plaintext style="" label="start" fontcolor="#e05297" fontsize=18];
+  start -> "P" [color="#e05297"];
+  "P" [shape=circle fillcolor="#ffd6e0" color="#e05297"];
+  "Q" [shape=circle fillcolor="#d6f5e9" color="#2a9d8f"];
+  "R" [shape=doublecircle fillcolor="#dbe7ff" color="#4a72d9"];
+  "P" -> "P" [label=" 0, 1 " color="#8e5cc4" fontcolor="#8e5cc4"];
+  "P" -> "Q" [label=" 0 " color="#2a9d8f" fontcolor="#2a9d8f"];
+  "Q" -> "R" [label=" 0 " color="#2a9d8f" fontcolor="#2a9d8f"];
+}
+```
+:::
+
+```{=html}
+<div class="nfasim" data-for="nfasim1" data-start="P" data-acc="R"
+     data-delta='{"P":{"0":["P","Q"],"1":["P"]},"Q":{"0":["R"]},"R":{}}'>
+  <input class="ns-in" value="0100" size="10">
+  <button class="ns-next">Next symbol ▶</button>
+  <button class="ns-reset">Reset ↺</button>
+  <div class="ns-tape"></div>
+  <div class="ns-live"></div>
+</div>
+```
+
+Try `0100`, then `1001`.
+
+::: notes
+0100: {P} → {P,Q} → {P} → {P,Q} → {P,Q,R}. R is live at the end: accept.
+1001: {P} → {P} → {P,Q} → {P,Q,R} → {P}. Reject.
+A path that needs a missing arrow just dies: after 01, the path that went to Q on the 0 has nowhere to go on the 1.
+Live states are the whole idea; the lit-up set is all the computer has to remember.
+:::
+
 # Beyond Regular: Grammars
 
 ## Last Puzzle:
@@ -284,7 +470,7 @@ Every attempt runs out of states: the machine would have to count the 0s, and it
 The proof is pigeonhole, in Lecture 30. Grammars can do it.
 :::
 
-## Grammar for $0^n1^n$ ?
+## Grammar for $0^n1^n$ ? {.smaller}
 
 **Grammar:**  
 $S \to 0S1 \ \mid\ \varepsilon$
