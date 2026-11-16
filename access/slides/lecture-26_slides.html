@@ -961,7 +961,6 @@ document.addEventListener('DOMContentLoaded', () => {
 </tbody>
 </table>
 </div>
-<p>First row: on a <code>1</code>, D goes <code>E</code> → <code>O</code> and the warm-up goes <code>A</code> → <code>B</code>, so <code>(E,A)</code> → <code>(O,B)</code>.</p>
 </div></div>
 <aside class="notes">
 <p>Filled table: (E,A): 0 → (E,A), 1 → (O,B); D yes, warm-up no (E,B): 0 → (E,A), 1 → (O,B); D yes, warm-up yes (O,A): 0 → (O,A), 1 → (E,B); D no, warm-up no (O,B): 0 → (O,A), 1 → (E,B); D no, warm-up yes Intersection (and) accepts where both are yes: only (E,B). Union (or) accepts where either is yes: (E,A), (E,B), (O,B). With bigger machines not every pair can be reached from the start. Build rows only for pairs that show up in the table (the Exercise at the end has 9 pairs, 7 reachable).</p>
