@@ -432,6 +432,64 @@ Cinda and the DSCI220 teaching team Perrie, Noah, and Marko.
 
 ---
 
+## Week 11 — Mon Nov 16 to Sun Nov 22
+
+⚠ **Check before sending**
+
+1. **The practice link is a guess.** `practice-ex4` is the next number after
+   EX3's practice set (2731704), so I wrote 2731705. Open it as a student first.
+2. **Tutorial 8 isn't in PrairieLearn**, and the todo list has no TA assigned
+   to it. The letter only says tutorials meet; confirm someone is running them.
+3. **EX4 sessions** must exist in PrairieTest for Thu Nov 19 – Sun Nov 22
+   before the letter tells students to book.
+4. **Wednesday and Friday** assume the counting plan (in person: product rule,
+   permutations, combinations; video: reshaping dataframes). Change item 4 if
+   you go another way.
+
+---
+
+Hi everyone,
+
+Welcome to week 11! After the quiet week, we're all back in the room on Monday.
+
+The news:
+
+1. **Class reunion on Monday!** It's been almost two weeks since we were together,
+so this is your invitation back. Monday is a hands-on class: we'll combine
+machines to build new ones, watch a machine that can be in several states at
+once, and roll dice to generate song titles from a grammar. It doesn't work
+nearly as well in a recording. Please come; I'd love to see all of you at 11.
+
+2. **Examlet 4** is Thu Nov 19 through Sun Nov 22. It covers lectures 19 through
+25: sets, regular expressions, and reading DFAs (what strings a machine accepts,
+and what language it describes). Building DFAs is not on EX4; it will be on EX5.
+If you haven't booked your session in PrairieTest, please do it today.
+
+3. **Practice problems for EX4** are on PrairieLearn:
+<https://us.prairielearn.com/pl/course_instance/209866/assessment/2731705>
+They are not graded, and you can retry each one as many times as you like.
+
+4. **In class this week.** Monday: closure, a quick look at NFAs, and grammars
+(including the grammar for JSON). Wednesday: we start counting. Friday's video:
+more counting, and what it says about the size of a dataframe when you reshape it.
+
+5. **Tutorial 8** meets on Tuesday and Wednesday.
+
+6. **HW4 is closed.** Thank you for your patience with the extension.
+
+My office hour is Tuesday, 10:30–11:30, in ICCS 233.
+
+As always, you're welcome to email me (cheeren@cs.ubc.ca) or post on Piazza
+(<https://piazza.com/ubc.ca/winterterm12026/dsci220>), and the course website is
+<https://ubc-cs.github.io/dsci220>.
+
+See you at 11!
+
+All the best!
+Cinda and the DSCI220 teaching team Perrie, Noah, and Marko.
+
+---
+
 ## Template for later weeks
 
 ```
