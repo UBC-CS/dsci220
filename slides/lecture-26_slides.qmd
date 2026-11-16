@@ -337,8 +337,6 @@ On a symbol, **each machine takes its own step**.
 | `(O,A)` | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | `(O,B)` | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 :::
-
-First row: on a `1`, D goes `E` → `O` and the warm-up goes `A` → `B`, so `(E,A)` → `(O,B)`.
 :::
 ::::
 
