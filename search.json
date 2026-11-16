@@ -3144,7 +3144,21 @@
     "href": "slides/lecture-26_slides.html#two-machines-at-once",
     "title": "Closure, NFAs, Grammars",
     "section": "Two Machines at Once",
-    "text": "Two Machines at Once\nEven number of 1s and ends in 1. Run Machine D 🐙 and the warm-up machine side by side: the state is a pair.\n\n\n\n\n\n\n\n\n\n\n\n\nstart\nstart\n\n\n\nE,A\n\nE,A\n\n\n\nstart-&gt;E,A\n\n\n\n\n\nE,A-&gt;E,A\n\n\n 0 \n\n\n\nO,B\n\nO,B\n\n\n\nE,A-&gt;O,B\n\n\n 1 \n\n\n\nO,A\n\nO,A\n\n\n\nO,B-&gt;O,A\n\n\n 0 \n\n\n\nE,B\n\n\nE,B\n\n\n\nO,B-&gt;E,B\n\n\n 1 \n\n\n\nO,A-&gt;O,A\n\n\n 0 \n\n\n\nO,A-&gt;E,B\n\n\n 1 \n\n\n\nE,B-&gt;E,A\n\n\n 0 \n\n\n\nE,B-&gt;O,B\n\n\n 1 \n\n\n\n\n\n\n\n\n\n\n\nE,A means D is in E, warm-up is in A.\nAccept when both accept: E,B.\n\n\nTrace 0101. Trace 110.\n\n\n\n0101: (E,A) -0-&gt; (E,A) -1-&gt; (O,B) -0-&gt; (O,A) -1-&gt; (E,B). Accept: two 1s, ends in 1. 110: (E,A) -1-&gt; (O,B) -1-&gt; (E,B) -0-&gt; (E,A). Reject: even, but ends in 0. Shortest accepted: 11, 011, 101, 0011. Union: same machine, double circle on every pair with E or B (three states: E,A O,B E,B). Two states × two states = four pairs; here all four are reachable."
+    "text": "Two Machines at Once\nGoal: one DFA for strings with an even number of 1s and ending in 1.\n\n\nMachine D 🐙: even number of 1s\n\n\n\n\n\n\n\n\n\n\nstart\nstart\n\n\n\nE\n\n\nE\n\n\n\nstart-&gt;E\n\n\n\n\n\nE-&gt;E\n\n\n 0 \n\n\n\nO\n\nO\n\n\n\nE-&gt;O\n\n\n 1 \n\n\n\nO-&gt;E\n\n\n 1 \n\n\n\nO-&gt;O\n\n\n 0 \n\n\n\n\n\n\n\n\n\n\nWarm-up: ends in 1\n\n\n\n\n\n\n\n\n\n\nstart\nstart\n\n\n\nA\n\nA\n\n\n\nstart-&gt;A\n\n\n\n\n\nA-&gt;A\n\n\n 0 \n\n\n\nB\n\n\nB\n\n\n\nA-&gt;B\n\n\n 1 \n\n\n\nB-&gt;A\n\n\n 0 \n\n\n\nB-&gt;B\n\n\n 1 \n\n\n\n\n\n\n\n\n\n\nFeed the same string to both, one symbol at a time. What does the combined machine need to remember after each symbol?\n\nAnswer: where each machine is. That’s a pair of states, like (E, A): D is in E, the warm-up is in A. Run 0101 through each one separately first: D: E, E, O, O, E (accepts). Warm-up: A, A, B, A, B (accepts). Both accept, so 0101 is in the intersection. The pairs are just these two rows read top to bottom together: (E,A) (E,A) (O,B) (O,A) (E,B)."
+  },
+  {
+    "objectID": "slides/lecture-26_slides.html#build-it-one-row-per-pair",
+    "href": "slides/lecture-26_slides.html#build-it-one-row-per-pair",
+    "title": "Closure, NFAs, Grammars",
+    "section": "Build It: One Row per Pair",
+    "text": "Build It: One Row per Pair\nA state of the new machine is a pair (D’s state, warm-up’s state). 2 × 2 = 4 pairs.\nFrom a pair, on a symbol, each machine takes its own step.\n\n\n\npair\non 0\non 1\nD accepts?\nwarm-up accepts?\n\n\n\n\n(E,A) start\n(E,A)\n(O,B)\nyes\nno\n\n\n(E,B)\n\\\n\\\n\\\n\\\n\n\n(O,A)\n\\\n\\\n\\\n\\\n\n\n(O,B)\n\\\n\\\n\\\n\\\n\n\n\nThe first row: on a 1, D goes E → O and the warm-up goes A → B, so (E,A) → (O,B).\n\nFilled table: (E,A): 0 → (E,A), 1 → (O,B); D yes, warm-up no (E,B): 0 → (E,A), 1 → (O,B); D yes, warm-up yes (O,A): 0 → (O,A), 1 → (E,B); D no, warm-up no (O,B): 0 → (O,A), 1 → (E,B); D no, warm-up yes Intersection (and) accepts where both are yes: only (E,B). Union (or) accepts where either is yes: (E,A), (E,B), (O,B). With bigger machines not every pair can be reached from the start. Build rows only for pairs that show up in the table (the Exercise at the end has 9 pairs, 7 reachable)."
+  },
+  {
+    "objectID": "slides/lecture-26_slides.html#draw-it",
+    "href": "slides/lecture-26_slides.html#draw-it",
+    "title": "Closure, NFAs, Grammars",
+    "section": "Draw It",
+    "text": "Draw It\nSame four states, same arrows. Only the double circles change.\n\n\n\n\n\n\n\n\n\n\n\n\nstart\nstart\n\n\n\nE,A\n\nE,A\n\n\n\nstart-&gt;E,A\n\n\n\n\n\nE,A-&gt;E,A\n\n\n 0 \n\n\n\nO,B\n\nO,B\n\n\n\nE,A-&gt;O,B\n\n\n 1 \n\n\n\nO,A\n\nO,A\n\n\n\nO,B-&gt;O,A\n\n\n 0 \n\n\n\nE,B\n\nE,B\n\n\n\nO,B-&gt;E,B\n\n\n 1 \n\n\n\nO,A-&gt;O,A\n\n\n 0 \n\n\n\nO,A-&gt;E,B\n\n\n 1 \n\n\n\nE,B-&gt;E,A\n\n\n 0 \n\n\n\nE,B-&gt;O,B\n\n\n 1 \n\n\n\n\n\n\n\n\n\n\n\nIntersection (and): accept when both say yes. Which pairs?\n\n\nUnion (or): accept when either says yes. Which pairs?\n\n\nTrace 0101. Trace 110.\n\n\n\nIntersection: (E,B) only. Union: (E,A), (E,B), (O,B). 0101: (E,A) -0-&gt; (E,A) -1-&gt; (O,B) -0-&gt; (O,A) -1-&gt; (E,B). Intersection accepts: two 1s, ends in 1. 110: (E,A) -1-&gt; (O,B) -1-&gt; (E,B) -0-&gt; (E,A). Intersection rejects (even, but ends in 0); union accepts (even). Shortest accepted by the intersection: 11, 011, 101, 0011. Difference D − warm-up: D yes and warm-up no, so (E,A) only. That’s L1 ∩ complement of L2 from the Closure Tricks slide."
   },
   {
     "objectID": "slides/lecture-26_slides.html#youve-done-this-before",
@@ -3159,6 +3173,13 @@
     "title": "Closure, NFAs, Grammars",
     "section": "NFAs",
     "text": "NFAs\nDFA: exactly one transition for each input symbol in each state. NFA: may have multiple choices on a symbol and \\(\\varepsilon\\)-moves (move without consuming input).\nAcceptance: a string is accepted if there exists a path that reads all characters and lands in an accept state.\n\n\n\n\n\n\n\n\n\n\nstart\nstart\n\n\n\nP\n\nP\n\n\n\nstart-&gt;P\n\n\n\n\n\nP-&gt;P\n\n\n 0, 1 \n\n\n\nQ\n\nQ\n\n\n\nP-&gt;Q\n\n\n 0 \n\n\n\nR\n\n\nR\n\n\n\nQ-&gt;R\n\n\n 0 \n\n\n\n\n\n\n\n\n\n\nJust showing they exist. This NFA accepts the strings that end in 00: from P on a 0 it may stay or move to Q, and a path that needs a missing arrow dies. Compare Machine B 🐢, the DFA for the same language. Every NFA has a DFA that accepts the same strings, so NFAs recognize nothing new."
+  },
+  {
+    "objectID": "slides/lecture-26_slides.html#watch-it-run",
+    "href": "slides/lecture-26_slides.html#watch-it-run",
+    "title": "Closure, NFAs, Grammars",
+    "section": "Watch It Run",
+    "text": "Watch It Run\nSame NFA: ends in 00. Step through a string and watch every state it could be in light up.\n\n\n\n\n\n\n\n\n\n\nstart\nstart\n\n\n\nP\n\nP\n\n\n\nstart-&gt;P\n\n\n\n\n\nP-&gt;P\n\n\n 0, 1 \n\n\n\nQ\n\nQ\n\n\n\nP-&gt;Q\n\n\n 0 \n\n\n\nR\n\n\nR\n\n\n\nQ-&gt;R\n\n\n 0 \n\n\n\n\n\n\n\n\n\n\n  \n  Next symbol ▶\n  Reset ↺\n  \n  \n\nTry 0100, then 1001.\n\n0100: {P} → {P,Q} → {P} → {P,Q} → {P,Q,R}. R is live at the end: accept. 1001: {P} → {P} → {P,Q} → {P,Q,R} → {P}. Reject. A path that needs a missing arrow just dies: after 01, the path that went to Q on the 0 has nowhere to go on the 1. Live states are the whole idea; the lit-up set is all the computer has to remember."
   },
   {
     "objectID": "slides/lecture-26_slides.html#last-puzzle",
