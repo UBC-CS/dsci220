@@ -84,31 +84,28 @@ when we consider every possible combination of two attributes, the number of pos
 
 ## Visualizing the Mapping Change {.smaller}
 
-
+:::: {.columns}
+::: {.column width="50%"}
 **Before melting:**
 
-
-We have a function that maps each **Object** to a *tuple of states* across temperatures:
-
+A function maps each **Object** to a *tuple of states* across temperatures:
 
 $$ f:\ \text{Object} \to (\text{Cold},\ \text{Warm},\ \text{Hot}) $$
 
 Example:
-$$ f( \text{Wicked Witch}) = ( \text{fine}, \text{dripping}, \text{gone?}) $$
-
-
+$$ f( \text{Wicked Witch}) = ( \text{fine}, \text{drippy}, \text{gone?}) $$
+:::
+::: {.column width="50%"}
 **After melting:**
 
-
-We redefine the function so that the *pair* (Object, Temperature) is the input:
-
+The *pair* (Object, Temperature) is the input:
 
 $$ g: ( \text{Object}, \text{Temperature}) \to \text{State} $$
 
-
 Example:
-$$g( \text{Wicked Witch}, \text{Warm}) = \text{dripping} $$
-
+$$g( \text{Wicked Witch}, \text{Warm}) = \text{drippy} $$
+:::
+::::
 
 The input domain has expanded from **Objects** to **Objects × Temperatures**.
 Each input now produces a single scalar output instead of a vector.
