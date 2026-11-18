@@ -12,7 +12,7 @@
 <script src="../site_libs/quarto-contrib/iconify-3.0.0/iconify-icon.min.js"></script><meta charset="utf-8">
   <meta name="generator" content="quarto-1.11.9">
 
-  <title>{{&lt; var course.full-title &gt;}} – Permutations, Combinations, Stars and Bars</title>
+  <title>{{&lt; var course.full-title &gt;}} – Bending the Rules, Stars and Bars</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -134,10 +134,10 @@
   </style>
   <script type="module" src="../site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
   <link href="../site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
-<meta property="og:title" content="Permutations, Combinations, Stars and Bars – DSCI 220: Discrete Math for Data Science">
+<meta property="og:title" content="Bending the Rules, Stars and Bars – DSCI 220: Discrete Math for Data Science">
 <meta property="og:description" content="Lecture 29, DSCI 220, 2026W1">
 <meta property="og:site_name" content="DSCI 220: Discrete Math for Data Science">
-<meta name="twitter:title" content="Permutations, Combinations, Stars and Bars – DSCI 220: Discrete Math for Data Science">
+<meta name="twitter:title" content="Bending the Rules, Stars and Bars – DSCI 220: Discrete Math for Data Science">
 <meta name="twitter:description" content="Lecture 29, DSCI 220, 2026W1">
 <meta name="twitter:card" content="summary">
 </head>
@@ -146,7 +146,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Permutations, Combinations, Stars and Bars</h1>
+  <h1 class="title">Bending the Rules, Stars and Bars</h1>
   <p class="subtitle">Lecture 29, DSCI 220, 2026W1</p>
 
 <div class="quarto-title-authors">
@@ -164,9 +164,9 @@
 </style>
 </section>
 <section>
-<section id="permutations-and-combinations" class="title-slide slide level1 center">
-<h1>Permutations and Combinations</h1>
-
+<section id="bending-the-rules" class="title-slide slide level1 center">
+<h1>Bending the Rules</h1>
+<p>Permutations and combinations from Friday’s video, adapted: round tables, bracelets, committees.</p>
 </section>
 <section id="counting-under-rotation" class="slide level2 smaller">
 <h2>Counting under rotation</h2>
@@ -308,42 +308,6 @@ Each unordered committee corresponds to 3! ordered sequences.</p>
 - Encourage students to verbalize what makes two outcomes “the same.”<br>
 - Use this moment to name the new idea: <strong>combinations</strong>.</p>
 <p>⏱️ <em>Timing:</em> 4 minutes walkthrough + 1 minute class check-in.</p>
-</blockquote>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="combinations" class="slide level2 smaller">
-<h2>Combinations</h2>
-<p>A <strong>combination</strong> is a <strong>selection</strong> of <span class="math inline">\(k\)</span> objects from <span class="math inline">\(n\)</span> where <strong>order does not matter</strong>.</p>
-<ul>
-<li>The group <span class="math inline">\(\{A, B, C\}\)</span> is the same as <span class="math inline">\(\{B, A, C\}\)</span>.<br>
-</li>
-<li>Each combination represents a unique <em>set</em> of choices.</li>
-</ul>
-<p>If there are <span class="math inline">\(n\)</span> objects and we choose <span class="math inline">\(k\)</span> of them, the number of distinct combinations is:</p>
-<p><span class="math display">\[
-C(n, k) = \binom{n}{k} = \frac{n!}{k!(n-k)!}
-\]</span></p>
-<p><strong>Example:</strong> Choosing a 3-person committee from 8 people:</p>
-<p><span class="math display">\[
-C(8, 3) = \frac{8!}{3!5!} = 56
-\]</span></p>
-<p><strong>Note:</strong> Each committee is a <strong>subset</strong> of the 8 people — we ignore order, only membership matters.</p>
-<aside class="notes">
-<blockquote>
-<p><strong>Notes:</strong><br>
-- Use this to formalize what students discovered in the activity: dividing by the number of equivalent orders.<br>
-- Emphasize the contrast with <strong>permutations</strong>: same domain, different notion of sameness.<br>
-- Optionally end with: “Next time we’ll see how these appear in binomial coefficients and counting problems.”</p>
 </blockquote>
 <style type="text/css">
         span.MJX_Assistive_MathML {

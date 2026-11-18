@@ -12,7 +12,7 @@
 <script src="../site_libs/quarto-contrib/iconify-3.0.0/iconify-icon.min.js"></script><meta charset="utf-8">
   <meta name="generator" content="quarto-1.11.9">
 
-  <title>{{&lt; var course.full-title &gt;}}---Accessibility version – Reshaping Data, Permutations</title>
+  <title>{{&lt; var course.full-title &gt;}}---Accessibility version – Reshaping Data, Permutations, Combinations</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -134,10 +134,10 @@
   </style>
   <script type="module" src="../site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
   <link href="../site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
-<meta property="og:title" content="Reshaping Data, Permutations – DSCI 220: Discrete Math for Data Science—Accessibility version">
+<meta property="og:title" content="Reshaping Data, Permutations, Combinations – DSCI 220: Discrete Math for Data Science—Accessibility version">
 <meta property="og:description" content="Lecture 28, DSCI 220, 2026W1">
 <meta property="og:site_name" content="DSCI 220: Discrete Math for Data Science—Accessibility version">
-<meta name="twitter:title" content="Reshaping Data, Permutations – DSCI 220: Discrete Math for Data Science—Accessibility version">
+<meta name="twitter:title" content="Reshaping Data, Permutations, Combinations – DSCI 220: Discrete Math for Data Science—Accessibility version">
 <meta name="twitter:description" content="Lecture 28, DSCI 220, 2026W1">
 <meta name="twitter:card" content="summary">
 </head>
@@ -146,7 +146,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Reshaping Data, Permutations</h1>
+  <h1 class="title">Reshaping Data, Permutations, Combinations</h1>
   <p class="subtitle">Lecture 28, DSCI 220, 2026W1</p>
 
 <div class="quarto-title-authors">
@@ -460,6 +460,104 @@ P(n) = n! = n \times (n-1) \times (n-2) \times \dots \times 1
 P(4) = 4! = 24
 \]</span></p>
 <p>different ways.</p>
+</section>
+<section id="shorter-playlists" class="slide level2 smaller">
+<h2>Shorter Playlists</h2>
+<p>Now there are <strong>10</strong> songs, and the playlist has room for only <strong>3</strong>.</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: center;">1st</th>
+<th style="text-align: center;">2nd</th>
+<th style="text-align: center;">3rd</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">?</td>
+<td style="text-align: center;">?</td>
+<td style="text-align: center;">?</td>
+</tr>
+</tbody>
+</table>
+<p>How many choices for each slot?</p>
+<p><span class="math display">\[10 \times 9 \times 8 = 720 \text{ playlists}\]</span></p>
+<p>This is <span class="math inline">\(\dfrac{10!}{7!}\)</span>: start like <span class="math inline">\(10!\)</span>, and stop after 3 slots.</p>
+<aside class="notes">
+<p>In general, an ordered list of k things chosen from n, no repeats: n(n−1)···(n−k+1) = n!/(n−k)!. Some books write P(n, k). The 7! cancels the choices we never made (slots 4 through 10). Pause and try: a 2-song playlist from 5 songs? 5 × 4 = 20.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
+<section id="combinations" class="title-slide slide level1 center">
+<h1>Combinations</h1>
+
+</section>
+<section id="choosing-not-ordering" class="slide level2 smaller">
+<h2>Choosing, Not Ordering</h2>
+<p>From the same 10 songs, choose <strong>3 to download</strong>. Now the order doesn’t matter: downloading {Espresso, Taste, Style} is the same as {Style, Espresso, Taste}.</p>
+<p>&nbsp;</p>
+<p>Each set of 3 songs shows up in the 720 playlists how many times?</p>
+<p>&nbsp;</p>
+<p>So the number of different downloads is <span class="math display">\[\frac{720}{\boxed{\phantom{00}}} = \boxed{\phantom{00}}\]</span></p>
+<aside class="notes">
+<p>Each set of 3 songs can be ordered 3! = 6 ways, so it appears 6 times among the 720 playlists. 720 / 6 = 120 downloads. This is the key move: count ordered, then divide by the number of orders of each group.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="combinations-1" class="slide level2 smaller">
+<h2>Combinations</h2>
+<p>A <strong>combination</strong> is a <strong>selection</strong> of <span class="math inline">\(k\)</span> objects from <span class="math inline">\(n\)</span> where <strong>order does not matter</strong>.</p>
+<ul>
+<li>The group <span class="math inline">\(\{A, B, C\}\)</span> is the same as <span class="math inline">\(\{B, A, C\}\)</span>.<br>
+</li>
+<li>Each combination represents a unique <em>set</em> of choices.</li>
+</ul>
+<p>If there are <span class="math inline">\(n\)</span> objects and we choose <span class="math inline">\(k\)</span> of them, the number of distinct combinations is:</p>
+<p><span class="math display">\[
+C(n, k) = \binom{n}{k} = \frac{n!}{k!(n-k)!}
+\]</span></p>
+<p><strong>Example:</strong> Choosing 3 songs from 10 to download:</p>
+<p><span class="math display">\[
+C(10, 3) = \frac{10!}{3!\,7!} = 120
+\]</span></p>
+<p><strong>Note:</strong> Each download is a <strong>subset</strong> of the 10 songs: we ignore order, only membership matters.</p>
+<aside class="notes">
+<blockquote>
+<p><strong>Notes:</strong><br>
+- Use this to formalize what students discovered in the activity: dividing by the number of equivalent orders.<br>
+- Emphasize the contrast with <strong>permutations</strong>: same domain, different notion of sameness.<br>
+- End with: “On Monday we bend these rules: round tables, bracelets, and committees.”</p>
+</blockquote>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 
 
 <script type="pyodide-data">
