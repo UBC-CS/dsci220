@@ -242,14 +242,18 @@ Optional ask: “Where do we see repetition here? What does that tell us about m
 </section>
 <section id="visualizing-the-mapping-change" class="slide level2 smaller">
 <h2>Visualizing the Mapping Change</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
 <p><strong>Before melting:</strong></p>
-<p>We have a function that maps each <strong>Object</strong> to a <em>tuple of states</em> across temperatures:</p>
+<p>A function maps each <strong>Object</strong> to a <em>tuple of states</em> across temperatures:</p>
 <p><span class="math display">\[ f:\ \text{Object} \to (\text{Cold},\ \text{Warm},\ \text{Hot}) \]</span></p>
-<p>Example: <span class="math display">\[ f( \text{Wicked Witch}) = ( \text{fine}, \text{dripping}, \text{gone?}) \]</span></p>
+<p>Example: <span class="math display">\[ f( \text{Wicked Witch}) = ( \text{fine}, \text{drippy}, \text{gone?}) \]</span></p>
+</div><div class="column" style="width:50%;">
 <p><strong>After melting:</strong></p>
-<p>We redefine the function so that the <em>pair</em> (Object, Temperature) is the input:</p>
+<p>The <em>pair</em> (Object, Temperature) is the input:</p>
 <p><span class="math display">\[ g: ( \text{Object}, \text{Temperature}) \to \text{State} \]</span></p>
-<p>Example: <span class="math display">\[g( \text{Wicked Witch}, \text{Warm}) = \text{dripping} \]</span></p>
+<p>Example: <span class="math display">\[g( \text{Wicked Witch}, \text{Warm}) = \text{drippy} \]</span></p>
+</div></div>
 <p>The input domain has expanded from <strong>Objects</strong> to <strong>Objects × Temperatures</strong>. Each input now produces a single scalar output instead of a vector.</p>
 <p>This is why the melted data get longer — we’ve made all combinations explicit.</p>
 <aside class="notes">
