@@ -17,7 +17,9 @@ subtitle: "Lecture 29, {{< var course.code >}}, {{< var course.term >}}"
 
 ## Counting under rotation {.smaller}
 
-Embrace the fact that the table is **round**.
+Now seat 4 people around a **round** table, with seats numbered 1 to 4.
+
+A row of seats gives $4! = 24$ arrangements. But at a round table, what if everyone moves one seat to the left?
 
 \ 
 
