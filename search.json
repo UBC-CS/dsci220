@@ -439,7 +439,7 @@
     "href": "slides/lecture-29_slides.html#counting-under-rotation",
     "title": "Permutations, Combinations, Stars and Bars",
     "section": "Counting under rotation",
-    "text": "Counting under rotation\nEmbrace the fact that the table is round.\n \nFor any rotation, the group of people is sitting in the same relative order.\nFor each arrangement there are 4 equivalent. Thus we ______________ the total by ______________.\n \nAlternatively we can fix one person’s seat.\nThen the remaining 3 can be arranged freely around the table.\n \nTotal distinct circular seatings: \\((4 − 1)! = 6\\).\n\n\nNotes:\nHave students physically fix one card to visualize duplicate rotations.\nUse the term circular permutation: order still matters, but rotations count as the same.\nAsk: “Why does fixing one position remove all rotations?”\n⏱️ Timing: 5–6 minutes including demonstration."
+    "text": "Counting under rotation\nNow seat 4 people around a round table, with seats numbered 1 to 4.\nA row of seats gives \\(4! = 24\\) arrangements. But at a round table, what if everyone moves one seat to the left?\n \nFor any rotation, the group of people is sitting in the same relative order.\nFor each arrangement there are 4 equivalent. Thus we ______________ the total by ______________.\n \nAlternatively we can fix one person’s seat.\nThen the remaining 3 can be arranged freely around the table.\n \nTotal distinct circular seatings: \\((4 − 1)! = 6\\).\n\n\nNotes:\nHave students physically fix one card to visualize duplicate rotations.\nUse the term circular permutation: order still matters, but rotations count as the same.\nAsk: “Why does fixing one position remove all rotations?”\n⏱️ Timing: 5–6 minutes including demonstration."
   },
   {
     "objectID": "slides/lecture-29_slides.html#friendship-bracelets",
@@ -3375,7 +3375,7 @@
     "href": "slides/lecture-28_slides.html#warm-up-multiplication-rule",
     "title": "Reshaping Data, Permutations",
     "section": "Warm-Up: Multiplication Rule",
-    "text": "Warm-Up: Multiplication Rule\nQuestion:\nWhat happens to the number of rows in a DataFrame when we use pandas.melt()?\n\n\n\n\n\n\n\nThis is a data-science version of the multiplication rule:\nwhen we consider every possible combination of two attributes, the number of possibilities multiplies.\n➡️ Monday we use the same reasoning with people and chairs instead of rows and columns.\n\nNotes:\nUse this to remind students that the multiplication rule already appears in data contexts they know.\nEncourage them to connect this to the idea of enumerating combinations of attributes.\nKeep the demo under 4 minutes — it’s just a bridge to the main activity.\n⏱️ Timing: 3–4 minutes warm-up discussion."
+    "text": "Warm-Up: Multiplication Rule\nQuestion:\nWhat happens to the number of rows in a DataFrame when we use pandas.melt()?\n\n\n\n\n\n\n\nThis is a data-science version of the multiplication rule:\nwhen we consider every possible combination of two attributes, the number of possibilities multiplies.\n➡️ Next we use the same reasoning with songs in a playlist instead of rows and columns.\n\nNotes:\nUse this to remind students that the multiplication rule already appears in data contexts they know.\nEncourage them to connect this to the idea of enumerating combinations of attributes.\nKeep the demo under 4 minutes — it’s just a bridge to the main activity.\n⏱️ Timing: 3–4 minutes warm-up discussion."
   },
   {
     "objectID": "slides/lecture-28_slides.html#visualizing-wide-to-long",
@@ -3403,28 +3403,28 @@
     "href": "slides/lecture-28_slides.html#a-new-counting-challenge",
     "title": "Reshaping Data, Permutations",
     "section": "A New Counting Challenge",
-    "text": "A New Counting Challenge\n \nArrange 4 people around a table.\nQuestion:\nHow many different ways can the people be seated?\nDiscuss:\n\nWhat counts as a different arrangement?\n\nWhat information defines one arrangement?\n\n\n\nNotes:\nBegin open-ended — let students debate what counts as a unique arrangement.\nThe goal is for them to build a model of the outcomes before applying counting rules.\nEncourage language like “distinct arrangements,” “rotations,” and “mirror images.”\nThis primes them for the concepts of permutations (order matters) and combinations (order doesn’t).\n⏱️ Timing: 4–5 minutes of pair discussion + 1 minute group debrief. TODO: make “tables with seat numbers” on cardstock"
+    "text": "A New Counting Challenge\n \nMake a playlist from 4 songs: “Espresso”, “vampire”, “Taste”, and “Style”. Every song plays exactly once.\nQuestion:\nHow many different playlists are there?\nDiscuss:\n\nWhat counts as a different playlist?\n\nWhat information defines one playlist?\n\n\n\nNotes:\nBegin open-ended: let students say what makes two playlists different (the order).\nThe goal is for them to build a model of the outcomes before applying counting rules.\nThis primes them for permutations (order matters) and later combinations (order doesn’t).\n⏱️ Timing: 3–4 minutes of pair discussion + 1 minute group debrief."
   },
   {
     "objectID": "slides/lecture-28_slides.html#observing-the-structure",
     "href": "slides/lecture-28_slides.html#observing-the-structure",
     "title": "Reshaping Data, Permutations",
     "section": "Observing the Structure",
-    "text": "Observing the Structure\nLet’s agree on a model for our table:\n\n\n\nSeat 1\nSeat 2\nSeat 3\nSeat 4\n\n\n\n\n?\n?\n?\n?\n\n\n\nEach arrangement can be described as a 4-tuple:\n\n\n(Who’s in seat 1, Who’s in seat 2, Who’s in seat 3, Who’s in seat 4)\n\n \nOur model is the set of all possible 4-tuples with no repeats.\n\n\nNotes:\nLink this back to the closet model from last time: both are built from describing all possible outcomes.\nHere, though, the choices are dependent—once a person is seated, they can’t be chosen again.\nIntroduce the term permutation: each arrangement of distinct objects where order matters.\n⏱️ Timing: 3 minutes setup + 2 minutes partner explanation."
+    "text": "Observing the Structure\nLet’s agree on a model for a playlist:\n\n\n\n1st\n2nd\n3rd\n4th\n\n\n\n\n?\n?\n?\n?\n\n\n\nEach playlist can be described as a 4-tuple:\n\n\n(1st song, 2nd song, 3rd song, 4th song)\n\n \nOur model is the set of all possible 4-tuples with no repeats.\n\n\nNotes:\nLink this back to the closet model: both are built from describing all possible outcomes.\nHere, though, the choices are dependent: once a song is used, it can’t be chosen again.\nIntroduce the term permutation: each arrangement of distinct objects where order matters.\n⏱️ Timing: 3 minutes setup + 2 minutes partner explanation."
   },
   {
     "objectID": "slides/lecture-28_slides.html#building-an-arrangement",
     "href": "slides/lecture-28_slides.html#building-an-arrangement",
     "title": "Reshaping Data, Permutations",
     "section": "Building an Arrangement",
-    "text": "Building an Arrangement\nHow many choices do we have for each chair?\n\nSeat 1: 4 choices\n\nSeat 2: 3 remaining\n\nSeat 3: 2 remaining\n\nSeat 4: 1 remaining\n\n\\(\\text{Total} = 4 \\times 3 \\times 2 \\times 1 = 24\\) arrangements\nThat’s the multiplication rule — just like outfits, but now the choices depend on previous ones.\n\n\nNotes:\nHighlight that we’re applying the same reasoning pattern as before: define the structure → count each step → multiply.\nEmphasize how dependency reduces the count.\nReinforce vocabulary: these 24 ordered arrangements are permutations of 4 distinct items.\n⏱️ Timing: 4 minutes walkthrough + 2 minutes reflection."
+    "text": "Building an Arrangement\nHow many choices do we have for each slot?\n\n1st song: 4 choices\n\n2nd song: 3 remaining\n\n3rd song: 2 remaining\n\n4th song: 1 remaining\n\n\\(\\text{Total} = 4 \\times 3 \\times 2 \\times 1 = 24\\) playlists\nThat’s the multiplication rule, just like outfits, but now the choices depend on previous ones.\n\n\nNotes:\nSame reasoning pattern as before: define the structure → count each step → multiply.\nThe number of choices shrinks at each step, but it is always 4, then 3, … no matter which songs came first. That’s what makes the product rule still work.\nReinforce vocabulary: these 24 orderings are permutations of 4 distinct items.\n⏱️ Timing: 4 minutes walkthrough + 2 minutes reflection."
   },
   {
     "objectID": "slides/lecture-28_slides.html#permutations-1",
     "href": "slides/lecture-28_slides.html#permutations-1",
     "title": "Reshaping Data, Permutations",
     "section": "Permutations",
-    "text": "Permutations\nA permutation is an arrangement of \\(n\\) distinct objects in a specific order.\n\nOrder matters — changing the order creates a new permutation.\n\nEach permutation corresponds to a unique sequence of choices from the set.\n\nIf there are \\(n\\) distinct objects, then the number of permutations is:\n\\[\nP(n) = n! = n \\times (n-1) \\times (n-2) \\times \\dots \\times 1\n\\]\nExample: Four people can sit in a row in\n\\[\nP(4) = 4! = 24\n\\]\ndifferent ways."
+    "text": "Permutations\nA permutation is an arrangement of \\(n\\) distinct objects in a specific order.\n\nOrder matters — changing the order creates a new permutation.\n\nEach permutation corresponds to a unique sequence of choices from the set.\n\nIf there are \\(n\\) distinct objects, then the number of permutations is:\n\\[\nP(n) = n! = n \\times (n-1) \\times (n-2) \\times \\dots \\times 1\n\\]\nExample: Four songs can be put in a playlist in\n\\[\nP(4) = 4! = 24\n\\]\ndifferent ways."
   },
   {
     "objectID": "slides/lecture-30_slides.html#announcements",
