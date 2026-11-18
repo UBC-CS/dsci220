@@ -373,21 +373,24 @@ How we **model** outfits (what’s allowed, what’s ignored) changes the counti
 
 Define a wardrobe for the rest of this lesson:
 
+:::: {.columns}
+::: {.column width="40%"}
 - $k$ pairs of shoes
 - $j$ pairs of pants
 - $m$ skirts
 - $n$ shirts
 - $p$ dresses
+:::
+::: {.column width="60%"}
+We’ll **choose a model**. An outfit is either:
 
-We’ll **choose a model**:
+1. **shirt + bottom + shoes**, where
+   bottom is either pants or a skirt
+2. or a **dress + shoes**
 
-- An outfit is either:
-  1. **shirt + bottom + shoes**, where  
-     bottom is either pants or a skirt
-  2. or a **dress + shoes**
-
-- No color/style rules: everything in these categories is compatible.
-
+No color/style rules: everything in these categories is compatible.
+:::
+::::
 
 ## Turn It Into Sets {.smaller}
 
@@ -481,30 +484,28 @@ This matches the informal idea:
 - “For each pair of shoes, you can choose any (bottom, shirt) combo **or** any dress.”
 
 
-## The Product Rule  {.smaller}
+## The Product Rule {.smaller}
 
-Fundamental counting fact:
+:::: {.columns}
+::: {.column width="55%"}
+Fundamental counting fact: if $A$ and $B$ are finite sets, then
 
-> If $A$ and $B$ are finite sets, then  
-> $$
-> |A \times B| = |A|\cdot|B|.
-> $$
+$$|A \times B| = |A|\cdot|B|.$$
 
-Generalizing:
+Generalizing, for sets $A_1, A_2, \dots, A_k$:
 
-> For sets $A_1, A_2, \dots, A_k$:
-> $$
-> |A_1 \times A_2 \times \dots \times A_k| = |A_1| \cdot |A_2| \cdot \dots \cdot |A_k|.
-> $$
+$$|A_1 \times \dots \times A_k| = |A_1| \cdots |A_k|.$$
+:::
+::: {.column width="45%"}
+Interpretation, a **choice procedure**:
 
-Interpretation:
+- choose one element from $A_1$,
+- then one from $A_2$, $\ldots$
+- then one from $A_k$.
 
-- A **choice procedure**:
-  - choose one element from $A_1$,
-  - then one from $A_2$, $\ldots$
-  - then one from $A_k$,
-- Every distinct chain of choices is a distinct element of the product set.
-
+Every distinct chain of choices is a distinct element of the product set.
+:::
+::::
 
 ## Wrap Up {.smaller}
 
