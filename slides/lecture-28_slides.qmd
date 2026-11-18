@@ -1,5 +1,5 @@
 ---
-title: "Reshaping Data, Permutations"
+title: "Reshaping Data, Permutations, Combinations"
 subtitle: "Lecture 28, {{< var course.code >}}, {{< var course.term >}}"
 ---
 
@@ -245,3 +245,71 @@ $$
 
 different ways.
 
+## Shorter Playlists {.smaller}
+
+Now there are **10** songs, and the playlist has room for only **3**.
+
+| 1st | 2nd | 3rd |
+|:---------:|:----------:|:----------:|
+| ? | ? | ? |
+
+How many choices for each slot?
+
+$$10 \times 9 \times 8 = 720 \text{ playlists}$$
+
+This is $\dfrac{10!}{7!}$: start like $10!$, and stop after 3 slots.
+
+::: notes
+In general, an ordered list of k things chosen from n, no repeats: n(n−1)···(n−k+1) = n!/(n−k)!.
+Some books write P(n, k). The 7! cancels the choices we never made (slots 4 through 10).
+Pause and try: a 2-song playlist from 5 songs? 5 × 4 = 20.
+:::
+
+# Combinations
+
+## Choosing, Not Ordering {.smaller}
+
+From the same 10 songs, choose **3 to download**. Now the order doesn't matter: downloading {Espresso, Taste, Style} is the same as {Style, Espresso, Taste}.
+
+\ 
+
+Each set of 3 songs shows up in the 720 playlists how many times?
+
+\ 
+
+So the number of different downloads is
+$$\frac{720}{\boxed{\phantom{00}}} = \boxed{\phantom{00}}$$
+
+::: notes
+Each set of 3 songs can be ordered 3! = 6 ways, so it appears 6 times among the 720 playlists.
+720 / 6 = 120 downloads.
+This is the key move: count ordered, then divide by the number of orders of each group.
+:::
+
+## Combinations {.smaller}
+
+A **combination** is a **selection** of $k$ objects from $n$ where **order does not matter**.
+
+- The group $\{A, B, C\}$ is the same as $\{B, A, C\}$.  
+- Each combination represents a unique *set* of choices.
+
+If there are $n$ objects and we choose $k$ of them,  the number of distinct combinations is:
+
+$$
+C(n, k) = \binom{n}{k} = \frac{n!}{k!(n-k)!}
+$$
+
+**Example:** Choosing 3 songs from 10 to download:
+
+$$
+C(10, 3) = \frac{10!}{3!\,7!} = 120
+$$
+
+**Note:** Each download is a **subset** of the 10 songs: we ignore order, only membership matters.
+
+::: notes
+> **Notes:**  
+> - Use this to formalize what students discovered in the activity: dividing by the number of equivalent orders.  
+> - Emphasize the contrast with **permutations**: same domain, different notion of sameness.  
+> - End with: “On Monday we bend these rules: round tables, bracelets, and committees.”
+:::

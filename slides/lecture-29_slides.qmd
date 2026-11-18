@@ -1,5 +1,5 @@
 ---
-title: "Permutations, Combinations, Stars and Bars"
+title: "Bending the Rules, Stars and Bars"
 subtitle: "Lecture 29, {{< var course.code >}}, {{< var course.term >}}"
 ---
 
@@ -13,7 +13,10 @@ subtitle: "Lecture 29, {{< var course.code >}}, {{< var course.term >}}"
 .rule { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
 </style>
 
-# Permutations and Combinations
+# Bending the Rules
+
+Permutations and combinations from Friday's video, adapted: round tables, bracelets, committees.
+
 
 ## Counting under rotation {.smaller}
 
@@ -180,35 +183,6 @@ Each unordered committee corresponds to 3! ordered sequences.
 >  
 > ⏱️ *Timing:* 4 minutes walkthrough + 1 minute class check-in.
 :::
-
-## Combinations {.smaller}
-
-A **combination** is a **selection** of $k$ objects from $n$ where **order does not matter**.
-
-- The group $\{A, B, C\}$ is the same as $\{B, A, C\}$.  
-- Each combination represents a unique *set* of choices.
-
-If there are $n$ objects and we choose $k$ of them,  the number of distinct combinations is:
-
-$$
-C(n, k) = \binom{n}{k} = \frac{n!}{k!(n-k)!}
-$$
-
-**Example:** Choosing a 3-person committee from 8 people:
-
-$$
-C(8, 3) = \frac{8!}{3!5!} = 56
-$$
-
-**Note:** Each committee is a **subset** of the 8 people — we ignore order, only membership matters.
-
-::: notes
-> **Notes:**  
-> - Use this to formalize what students discovered in the activity: dividing by the number of equivalent orders.  
-> - Emphasize the contrast with **permutations**: same domain, different notion of sameness.  
-> - Optionally end with: “Next time we’ll see how these appear in binomial coefficients and counting problems.”
-:::
-
 
 ## Reflection {.smaller}
 
