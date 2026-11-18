@@ -207,6 +207,44 @@ We ignore lexical details and focus on **structure**.
 Point: regex can’t enforce **balanced, nested** delimiters; CFGs can.
 :::
 
+## Chomsky Hierarchy (for Data Science) {.smaller}
+
+**Regular languages**
+
+* Described by regular expressions, recognized by DFAs/NFAs
+* Limited “memory”: patterns like “contains 11”, “ends with tea”, [A-Z]{4}[0-9]{3}
+* In DSci: log filters, simple validators, tokenizing text, cleaning CSV-ish formats
+
+**Context-free languages**
+
+* Described by context-free grammars (CFGs)
+* Handle nested or balanced structure: parentheses, HTML/XML tags, JSON
+* In DSci: parsing JSON/YAML, understanding code/configs, defining schemas for nested data
+
+## Chomsky Hierarchy (for Data Science) {.smaller}
+
+**Context-sensitive languages**
+
+* More powerful; can express things like $a^n b^n c^n$ 
+* Capture some agreement constraints in natural language, complex dependencies
+* Rarely used explicitly; usually enforced with custom code, type systems, or constraint solvers
+
+**Recursively enumerable languages**
+
+* Everything a *Turing machine* can recognize
+* “All computable languages” — but no guarantee we can always decide membership in finite time
+
+::: notes
+
+Data-science takeaway
+
+Most text / logs / simple formats: regular level (regex & DFAs)
+
+Most structured nested data (JSON, XML, code): context-free level (CFGs & parsers)
+
+Rich cross-field / counting constraints go beyond CFGs, handled by full programming languages, SQL engines, or specialized tools
+:::
+
 # Counting
 
 ## Warm-Up: How Many Outfits? {.activity}
@@ -603,41 +641,3 @@ Point: regex can’t enforce **balanced, nested** delimiters; CFGs can.
 ## Your Turn
 
 Create a Grammar for $L = \{a^nb^nc^n, n\geq 0\}$
-
-## Chomsky Hierarchy (for Data Science) {.smaller}
-
-**Regular languages**
-
-* Described by regular expressions, recognized by DFAs/NFAs
-* Limited “memory”: patterns like “contains 11”, “ends with tea”, [A-Z]{4}[0-9]{3}
-* In DSci: log filters, simple validators, tokenizing text, cleaning CSV-ish formats
-
-**Context-free languages**
-
-* Described by context-free grammars (CFGs)
-* Handle nested or balanced structure: parentheses, HTML/XML tags, JSON
-* In DSci: parsing JSON/YAML, understanding code/configs, defining schemas for nested data
-
-## Chomsky Hierarchy (for Data Science) {.smaller}
-
-**Context-sensitive languages**
-
-* More powerful; can express things like $a^n b^n c^n$ 
-* Capture some agreement constraints in natural language, complex dependencies
-* Rarely used explicitly; usually enforced with custom code, type systems, or constraint solvers
-
-**Recursively enumerable languages**
-
-* Everything a *Turing machine* can recognize
-* “All computable languages” — but no guarantee we can always decide membership in finite time
-
-::: notes
-
-Data-science takeaway
-
-Most text / logs / simple formats: regular level (regex & DFAs)
-
-Most structured nested data (JSON, XML, code): context-free level (CFGs & parsers)
-
-Rich cross-field / counting constraints go beyond CFGs, handled by full programming languages, SQL engines, or specialized tools
-:::
