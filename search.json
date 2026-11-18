@@ -430,161 +430,350 @@
   {
     "objectID": "slides/lecture-29_slides.html#announcements",
     "href": "slides/lecture-29_slides.html#announcements",
-    "title": "Stars and Bars",
+    "title": "Permutations, Combinations, Stars and Bars",
     "section": "Announcements",
     "text": "Announcements"
   },
   {
-    "objectID": "slides/lecture-29_slides.html#cookie-counter-1",
-    "href": "slides/lecture-29_slides.html#cookie-counter-1",
-    "title": "Stars and Bars",
-    "section": "Cookie Counter 1",
-    "text": "Cookie Counter 1\nYou have 5 cookies 🍪 and 3 friends 👩‍🦱🧑‍🦰🧑‍🦱. Each friend can get any number of cookies.\nQuestion: How many different ways can you share the cookies?"
+    "objectID": "slides/lecture-29_slides.html#a-new-counting-challenge",
+    "href": "slides/lecture-29_slides.html#a-new-counting-challenge",
+    "title": "Permutations, Combinations, Stars and Bars",
+    "section": "A New Counting Challenge",
+    "text": "A New Counting Challenge\n \nArrange 4 people around a table.\nQuestion:\nHow many different ways can the people be seated?\nDiscuss:\n\nWhat counts as a different arrangement?\n\nWhat information defines one arrangement?\n\n\n\nNotes:\nBegin open-ended — let students debate what counts as a unique arrangement.\nThe goal is for them to build a model of the outcomes before applying counting rules.\nEncourage language like “distinct arrangements,” “rotations,” and “mirror images.”\nThis primes them for the concepts of permutations (order matters) and combinations (order doesn’t).\n⏱️ Timing: 4–5 minutes of pair discussion + 1 minute group debrief. TODO: make “tables with seat numbers” on cardstock"
+  },
+  {
+    "objectID": "slides/lecture-29_slides.html#observing-the-structure",
+    "href": "slides/lecture-29_slides.html#observing-the-structure",
+    "title": "Permutations, Combinations, Stars and Bars",
+    "section": "Observing the Structure",
+    "text": "Observing the Structure\nLet’s agree on a model for our table:\n\n\n\nSeat 1\nSeat 2\nSeat 3\nSeat 4\n\n\n\n\n?\n?\n?\n?\n\n\n\nEach arrangement can be described as a 4-tuple:\n\n\n(Who’s in seat 1, Who’s in seat 2, Who’s in seat 3, Who’s in seat 4)\n\n \nOur model is the set of all possible 4-tuples with no repeats.\n\n\nNotes:\nLink this back to the closet model from last time: both are built from describing all possible outcomes.\nHere, though, the choices are dependent—once a person is seated, they can’t be chosen again.\nIntroduce the term permutation: each arrangement of distinct objects where order matters.\n⏱️ Timing: 3 minutes setup + 2 minutes partner explanation."
+  },
+  {
+    "objectID": "slides/lecture-29_slides.html#building-an-arrangement",
+    "href": "slides/lecture-29_slides.html#building-an-arrangement",
+    "title": "Permutations, Combinations, Stars and Bars",
+    "section": "Building an Arrangement",
+    "text": "Building an Arrangement\nHow many choices do we have for each chair?\n\nSeat 1: 4 choices\n\nSeat 2: 3 remaining\n\nSeat 3: 2 remaining\n\nSeat 4: 1 remaining\n\n\\(\\text{Total} = 4 \\times 3 \\times 2 \\times 1 = 24\\) arrangements\nThat’s the multiplication rule — just like outfits, but now the choices depend on previous ones.\n\n\nNotes:\nHighlight that we’re applying the same reasoning pattern as before: define the structure → count each step → multiply.\nEmphasize how dependency reduces the count.\nReinforce vocabulary: these 24 ordered arrangements are permutations of 4 distinct items.\n⏱️ Timing: 4 minutes walkthrough + 2 minutes reflection."
+  },
+  {
+    "objectID": "slides/lecture-29_slides.html#permutations",
+    "href": "slides/lecture-29_slides.html#permutations",
+    "title": "Permutations, Combinations, Stars and Bars",
+    "section": "Permutations",
+    "text": "Permutations\nA permutation is an arrangement of \\(n\\) distinct objects in a specific order.\n\nOrder matters — changing the order creates a new permutation.\n\nEach permutation corresponds to a unique sequence of choices from the set.\n\nIf there are \\(n\\) distinct objects, then the number of permutations is:\n\\[\nP(n) = n! = n \\times (n-1) \\times (n-2) \\times \\dots \\times 1\n\\]\nExample: Four people can sit in a row in\n\\[\nP(4) = 4! = 24\n\\]\ndifferent ways."
+  },
+  {
+    "objectID": "slides/lecture-29_slides.html#counting-under-rotation",
+    "href": "slides/lecture-29_slides.html#counting-under-rotation",
+    "title": "Permutations, Combinations, Stars and Bars",
+    "section": "Counting under rotation",
+    "text": "Counting under rotation\nEmbrace the fact that the table is round.\n \nFor any rotation, the group of people is sitting in the same relative order.\nFor each arrangement there are 4 equivalent. Thus we ______________ the total by ______________.\n \nAlternatively we can fix one person’s seat.\nThen the remaining 3 can be arranged freely around the table.\n \nTotal distinct circular seatings: \\((4 − 1)! = 6\\).\n\n\nNotes:\nHave students physically fix one card to visualize duplicate rotations.\nUse the term circular permutation: order still matters, but rotations count as the same.\nAsk: “Why does fixing one position remove all rotations?”\n⏱️ Timing: 5–6 minutes including demonstration."
+  },
+  {
+    "objectID": "slides/lecture-29_slides.html#friendship-bracelets",
+    "href": "slides/lecture-29_slides.html#friendship-bracelets",
+    "title": "Permutations, Combinations, Stars and Bars",
+    "section": "Friendship Bracelets",
+    "text": "Friendship Bracelets\n \nGiven: 20 beads, each a different color. Make a circular bracelet by threading all 20 beads.\n\n\n20-bead bracelet\n\nTwenty differently colored beads arranged in a circle.                     \n\nQuestion:\nHow many different bracelets can be made?\n\n🧶 Think first:\n- Does rotating the bracelet create something new?\n- What about flipping it over (reflection)?\n💭 Discuss with a partner:\n1. How does this relate to our “round table” reasoning?\n2. What changes when reflections (mirror images) count as the same?\n3. How could we generalize our earlier counting model?\n\n\n\nNotes:\nThis parallels circular permutations, but now students must reason about rotations and reflections together (dihedral symmetry).\nEncourage qualitative reasoning before formulas — the goal is generalization, not numeric computation.\n⏱️ Timing: 5 minutes total (2 think, 2 pair, 1 share)."
+  },
+  {
+    "objectID": "slides/lecture-29_slides.html#choosing-a-committee",
+    "href": "slides/lecture-29_slides.html#choosing-a-committee",
+    "title": "Permutations, Combinations, Stars and Bars",
+    "section": "Choosing a Committee",
+    "text": "Choosing a Committee\nGoal: From 8 people, form a 3-person committee.\n \nQuestion:\nHow many different committees could we form?\n \nDiscuss:\n\nConsider it a sequence of 3 choices\n\nWhich of those describe the same committee?\n\nHow can we apply what we learned about rotations?\n\n\n💭 Hint: In this model, order doesn’t matter —\nit’s who’s in the committee, not who was picked first.\n\nNotes:\nThis builds on the rotational symmetry reasoning: we’re collapsing multiple ordered arrangements into a single unordered outcome.\nStudents should reason qualitatively that each distinct committee corresponds to several ordered sequences — and we divide by that number.\n⏱️ Timing: 5 minutes total (2 think, 2 pair, 1 share)."
+  },
+  {
+    "objectID": "slides/lecture-29_slides.html#from-choices-to-combinations",
+    "href": "slides/lecture-29_slides.html#from-choices-to-combinations",
+    "title": "Permutations, Combinations, Stars and Bars",
+    "section": "From Choices to Combinations",
+    "text": "From Choices to Combinations\nModel our 3-person committee.\nIf we make choices one at a time:\n\\[\n8 \\times 7 \\times 6 = 336\n\\]\nThat counts every possible order of picking 3 people.\nBut a committee doesn’t have an order — each group of 3 appears \\(3! = 6\\) times, once for every possible order.\nSo the number of distinct committees is:\n\\[\n\\frac{8 \\times 7 \\times 6}{3!} = 56\n\\]\n\n💡 Model:\nEach unordered committee corresponds to 3! ordered sequences.\n\nNotes:\n- Connect explicitly to the “rotations” reasoning — we’re dividing out symmetry again, this time the order symmetry of identical choices.\n- Encourage students to verbalize what makes two outcomes “the same.”\n- Use this moment to name the new idea: combinations.\n⏱️ Timing: 4 minutes walkthrough + 1 minute class check-in."
+  },
+  {
+    "objectID": "slides/lecture-29_slides.html#combinations",
+    "href": "slides/lecture-29_slides.html#combinations",
+    "title": "Permutations, Combinations, Stars and Bars",
+    "section": "Combinations",
+    "text": "Combinations\nA combination is a selection of \\(k\\) objects from \\(n\\) where order does not matter.\n\nThe group \\(\\{A, B, C\\}\\) is the same as \\(\\{B, A, C\\}\\).\n\nEach combination represents a unique set of choices.\n\nIf there are \\(n\\) objects and we choose \\(k\\) of them, the number of distinct combinations is:\n\\[\nC(n, k) = \\binom{n}{k} = \\frac{n!}{k!(n-k)!}\n\\]\nExample: Choosing a 3-person committee from 8 people:\n\\[\nC(8, 3) = \\frac{8!}{3!5!} = 56\n\\]\nNote: Each committee is a subset of the 8 people — we ignore order, only membership matters.\n\n\nNotes:\n- Use this to formalize what students discovered in the activity: dividing by the number of equivalent orders.\n- Emphasize the contrast with permutations: same domain, different notion of sameness.\n- Optionally end with: “Next time we’ll see how these appear in binomial coefficients and counting problems.”"
+  },
+  {
+    "objectID": "slides/lecture-29_slides.html#reflection",
+    "href": "slides/lecture-29_slides.html#reflection",
+    "title": "Permutations, Combinations, Stars and Bars",
+    "section": "Reflection",
+    "text": "Reflection\nCompare the models:\n\n\n\n\n\n\n\n\nScenario\nModel\nOutcome Count\n\n\n\n\nOutfits\n(shoe, pant, shirt)\n\\(|S|\\times|P|\\times|H|\\)\n\n\nSeating\n(seat 1, seat 2, seat 3, seat 4)\n\\(4\\times 3\\times 2\\times 1\\)\n\n\nCircular Seating\n(fix one person)\n\\((4 − 1)! = 6\\)\n\n\nChoosing Guests\n{subset of guests}\n\\(\\binom{4}{k}\\)\n\n\n\n\nAll start by modeling the outcomes carefully before counting.\n\nThe model determines whether order matters.\n\n\n\nNotes:\nPause for synthesis: have students summarize in their own words how the model affects the formula.\nReinforce the difference between permutations (ordered) and combinations (unordered).\n⏱️ Timing: 4–5 minutes for class synthesis."
+  },
+  {
+    "objectID": "slides/lecture-29_slides.html#challenge-putting-it-all-together",
+    "href": "slides/lecture-29_slides.html#challenge-putting-it-all-together",
+    "title": "Permutations, Combinations, Stars and Bars",
+    "section": "Challenge: Putting It All Together",
+    "text": "Challenge: Putting It All Together\nThere are 8 people, and 4 seats at the round table.\nQuestion: How many distinct arrangements are possible if rotations and reflections count as the same?\nCommunicate: Explain each step of your reasoning.\nGeneralize: What if there are \\(n\\) people and \\(k\\) seats?\n\n💭 Think first. Then compare reasoning with a neighbor.\nWe’ll build the model together and find the count at the end.\n\nNotes:\nEncourage modeling before computation.\nAsk: “How can we anchor the rotations and reflections?”\nExtend gently to dihedral symmetry ideas: we’re dividing out both rotation and flip equivalences.\nEnd with applause for reasoning, not the number.\n⏱️ Timing: 6–8 minutes (think–pair–share + group wrap)."
   },
   {
     "objectID": "slides/lecture-29_slides.html#summary",
     "href": "slides/lecture-29_slides.html#summary",
-    "title": "Stars and Bars",
+    "title": "Permutations, Combinations, Stars and Bars",
+    "section": "Summary",
+    "text": "Summary\n\n\n\nConcept\nOrder Matters?\nModel\nEx Count\n\n\n\n\nPermutation\nYes\nOrdered arrangement\n4! = 24\n\n\nCombination\nNo\nUnordered selection\n\\(\\binom{4}{2} = 6\\)\n\n\n\nPunchline:\nCounting always starts with modeling the outcomes.\nOnce we know what counts as “different,” the computation follows.\n\n\nNotes:\nEnd with reflection: “What do we gain by naming these ideas?”\nEncourage them to see permutation and combination as families of counting models, not just formulas.\nOptional: connect to data sampling — rows (ordered) vs. groups (unordered).\n⏱️ Timing: 3–4 minutes as a closing summary."
+  },
+  {
+    "objectID": "slides/lecture-29_slides.html#cookie-counter-1",
+    "href": "slides/lecture-29_slides.html#cookie-counter-1",
+    "title": "Permutations, Combinations, Stars and Bars",
+    "section": "Cookie Counter 1",
+    "text": "Cookie Counter 1\nYou have 5 cookies 🍪 and 3 friends 👩‍🦱🧑‍🦰🧑‍🦱. Each friend can get any number of cookies.\nQuestion: How many different ways can you share the cookies?"
+  },
+  {
+    "objectID": "slides/lecture-29_slides.html#summary-1",
+    "href": "slides/lecture-29_slides.html#summary-1",
+    "title": "Permutations, Combinations, Stars and Bars",
     "section": "Summary",
     "text": "Summary\nEach way of sharing is one arrangement of 5 stars and 2 bars.\nOr equivalently:\n \n\\[\n\\text{# ways} = \\binom{5 + 3 - 1}{3 - 1} = \\binom{7}{2} = 21\n\\]"
   },
   {
     "objectID": "slides/lecture-29_slides.html#cookie-counter-2",
     "href": "slides/lecture-29_slides.html#cookie-counter-2",
-    "title": "Stars and Bars",
+    "title": "Permutations, Combinations, Stars and Bars",
     "section": "Cookie Counter 2",
     "text": "Cookie Counter 2\nYou need to buy 5 boxes of GG 🍪, and there are 3 flavours.\nQuestion: How many different ways can you buy the boxes of cookies?"
   },
   {
     "objectID": "slides/lecture-29_slides.html#counting-partitions",
     "href": "slides/lecture-29_slides.html#counting-partitions",
-    "title": "Stars and Bars",
+    "title": "Permutations, Combinations, Stars and Bars",
     "section": "Counting Partitions",
     "text": "Counting Partitions\n\n\n\n\n\n\n\n\n\n\n\nScenario\nInterpretation\nWhat’s being partitioned?\n\n\n\n\n🍪 Cookie Counter\nDistributing identical items among labeled friends\nItems → People\n\n\n🎁 Girl Guide Boxes\nCounting totals of each labelled flavour\nboxes → Flavours\n\n\n\nEach arrangement of stars and bars corresponds to a unique configuration:\n\\[\n\\text{# ways} = \\binom{j + k - 1}{k - 1}\n\\]\n\n\nNotes:\n- Reinforces that “stars and bars” generalizes both partitions and categorizations.\n- Encourage students to restate the model aloud: “stars are identical; bars create groups.”\n- Use this slide to help them abstract from examples toward the general combinatorial pattern."
   },
   {
     "objectID": "slides/lecture-29_slides.html#knights-of-the-round-table",
     "href": "slides/lecture-29_slides.html#knights-of-the-round-table",
-    "title": "Stars and Bars",
+    "title": "Permutations, Combinations, Stars and Bars",
     "section": "Knights of the Round Table",
     "text": "Knights of the Round Table\n \nAfter King Arthur’s death, Guenevere always sits in the same seat. The 100 knights are arranged clockwise in increasing order of honor using 5 ranks. Knights of the same rank are indistinguishable, and each rank sits together (one contiguous block).\n \nQuestion:\nHow many different seating configurations are possible?\n \nDiscussion:\n\nare you counting permutations?\nare you counting combinations?\nare you counting partitions?\n\n\nwhat’s being partitioned?"
   },
   {
     "objectID": "slides/lecture-29_slides.html#back-to-cookies",
     "href": "slides/lecture-29_slides.html#back-to-cookies",
-    "title": "Stars and Bars",
+    "title": "Permutations, Combinations, Stars and Bars",
     "section": "Back to Cookies",
     "text": "Back to Cookies\nSuppose you have 10 cookies and 3 friends, and each friend must receive at least one cookie.\n\nHow many different ways are there to partition the cookies among your friends?\n\n \n\nHow does your answer change if Alex doesn’t care if they get any cookies, and Casey must have at least 3."
   },
   {
     "objectID": "slides/lecture-29_slides.html#constrained-partitions",
     "href": "slides/lecture-29_slides.html#constrained-partitions",
-    "title": "Stars and Bars",
+    "title": "Permutations, Combinations, Stars and Bars",
     "section": "Constrained Partitions",
     "text": "Constrained Partitions\nSuppose a set of \\(n\\) items is to be partitioned among \\(k\\) categories, \\(C_1, \\ldots, C_k\\).\nAlso, suppose category \\(C_i\\) requires \\(x_i\\) items.\nThen the number of partitions is:\n\\[\n\\binom{n - \\sum_{i=1}^{k} x_i + k - 1}{k - 1}\n\\]\nReasoning:\n\nStart with \\(n\\) identical items (stars).\n\nPre-allocate the required \\(x_i\\) to each category \\(C_i\\). After this, \\(n' = n - (x_1 + x_2 + \\dots + x_k)\\) remain unassigned.\n\nDistribute these remaining \\(n'\\) items freely (possibly zero) among the \\(k\\) labeled categories — a stars and bars situation."
   },
   {
     "objectID": "slides/lecture-29_slides.html#counting-all-groupings",
     "href": "slides/lecture-29_slides.html#counting-all-groupings",
-    "title": "Stars and Bars",
+    "title": "Permutations, Combinations, Stars and Bars",
     "section": "Counting All Groupings",
     "text": "Counting All Groupings\nAmong 10 students, each will choose either AI or Data Science for a class project.\n\n\n\n\n\nStudent\nChoice\n\n\n\n\n1\n🤖📊\n\n\n2\n🤖📊\n\n\n⋮\n⋮\n\n\n10\n🤖📊\n\n\n\n\n \n\\[\n\\Rightarrow 2^{10} \\text{ unique groups }\n\\]\n\nBut notice that each of those choices has some number, \\(k\\), of DSci. How many ways are there to choose \\(k\\) students for DSci, from among the 10?\nThis is true for any \\(k\\), so we must have:\n\\[\n\\binom{10}{0} + \\binom{10}{1} + \\cdots + \\binom{10}{10} = 2^{10}.\n\\]\nThis is the sum of binomial coefficients identity — each term counts the groupings with exactly \\(k\\) DSci projects, and the sum counts all possible configurations."
   },
   {
     "objectID": "slides/lecture-29_slides.html#adding-a-third-choice",
     "href": "slides/lecture-29_slides.html#adding-a-third-choice",
-    "title": "Stars and Bars",
+    "title": "Permutations, Combinations, Stars and Bars",
     "section": "Adding a Third Choice 🤖📊📈",
     "text": "Adding a Third Choice 🤖📊📈\nOur 10 students can now choose a project in AI, Data Science, or Statistics.\nQuestion:\nHow many different ways can the class’s choices be distributed?\n\n\n\n\n\nCategory\nSymbol\nCount\n\n\n\n\nAI\n🤖\n\\(x_1\\)\n\n\nDSci\n📊\n\\(x_2\\)\n\n\nStat\n📈\n\\(x_3\\)\n\n\n\n\nEach student picks exactly one category, so:\n\\[\nx_1 + x_2 + x_3 = 10\n\\]\n\nCount as a sequence of combination steps:\n\nChoose \\(x_1\\) students for AI: \\(\\binom{10}{x_1}\\)\n\nFrom the remaining \\(10 - x_1\\), choose \\(x_2\\) for DSci: \\(\\binom{10 - x_1}{x_2}\\)\n\nThe rest automatically do Stat."
   },
   {
     "objectID": "slides/lecture-29_slides.html#continued",
     "href": "slides/lecture-29_slides.html#continued",
-    "title": "Stars and Bars",
+    "title": "Permutations, Combinations, Stars and Bars",
     "section": "🤖📊📈 continued",
     "text": "🤖📊📈 continued\nFor each of the \\(\\binom{10}{x_1}\\) choices of AI, there are \\(\\binom{10 - x_1}{x_2}\\) choices of DSCI, and the rest are Stat.\n\\[\n\\text{Total} =\n\\binom{10}{x_1} \\binom{10 - x_1}{x_2}\n= \\frac{10!}{x_1!x_2!(10 - x_1 - x_2)!}\n\\]\nGeneralizing to \\(k\\) categories:\nIf \\(n\\) students choose among \\(k\\) labeled categories with counts \\(x_1,\\dots,x_k\\):\n\\[\n\\binom{n}{x_1,x_2,\\ldots,x_k} = \\frac{n!}{x_1!x_2!\\cdots x_k!}\n\\]"
   },
   {
     "objectID": "slides/lecture-29_slides.html#counting-all-multinomial-outcomes",
     "href": "slides/lecture-29_slides.html#counting-all-multinomial-outcomes",
-    "title": "Stars and Bars",
+    "title": "Permutations, Combinations, Stars and Bars",
     "section": "Counting All Multinomial Outcomes",
     "text": "Counting All Multinomial Outcomes\nWe’ve seen how two categories led to:\n\\[\n\\sum_{k=0}^{n} \\binom{n}{k} = 2^n\n\\]\nNow each student chooses one of three project types: 🤖 AI, 📊 Data Science, or 📈 Statistics\nFor each possible triple \\((x_1, x_2, x_3)\\) with \\(x_1 + x_2 + x_3 = n\\), the number of ways to assign projects is:\n\\[\n\\binom{n}{x_1, x_2, x_3} = \\frac{n!}{x_1!x_2!x_3!}\n\\]\nIf we add them all up — over every valid triple:\n\\[\n\\sum_{x_1+x_2+x_3=n}\n\\binom{n}{x_1, x_2, x_3}\n= 3^n\n\\]"
   },
   {
     "objectID": "slides/lecture-29_slides.html#multinomials-in-general",
     "href": "slides/lecture-29_slides.html#multinomials-in-general",
-    "title": "Stars and Bars",
+    "title": "Permutations, Combinations, Stars and Bars",
     "section": "Multinomials in General",
     "text": "Multinomials in General\nWhat is the result if there are \\(k\\) choices?\n\nEach student independently chooses one of \\(k\\) categories for \\(k^n\\) outcomes.\n\nEach multinomial coefficient counts how many outcomes share the same totals \\((x_1,x_2,\\ldots x_k)\\).\n\nSumming across all possible totals reconstructs all outcomes.\n\n\\[\n\\sum_{x_1+x_2+\\ldots x_k=n}\n\\binom{n}{x_1, x_2, \\ldots x_k}\n= k^n\n\\]\n\n\nNotes:\n- This is the natural generalization of the binomial identity.\n- You can phrase it as: “Combinations classify a two-way choice; multinomials classify a multi-way choice.”\n- The pattern will reappear when you expand ((x_1 + x_2 + x_3)^n)."
   },
   {
     "objectID": "slides/lecture-27_slides.html#announcements",
     "href": "slides/lecture-27_slides.html#announcements",
-    "title": "Lecture 27",
+    "title": "Grammars and Counting",
     "section": "Announcements",
-    "text": "Announcements"
+    "text": "Announcements\n\nEX4 is Thu Nov 19 through Sun Nov 22: sets, regex, and reading DFAs."
+  },
+  {
+    "objectID": "slides/lecture-27_slides.html#last-puzzle",
+    "href": "slides/lecture-27_slides.html#last-puzzle",
+    "title": "Grammars and Counting",
+    "section": "Last Puzzle:",
+    "text": "Last Puzzle:\n\\(0^n1^n\\)\n\nAsk: can you draw a DFA that accepts exactly these strings? Let them try for a minute. Every attempt runs out of states: the machine would have to count the 0s, and it only has finitely many states. The proof is pigeonhole, in Lecture 30. Grammars can do it."
+  },
+  {
+    "objectID": "slides/lecture-27_slides.html#grammar-for-0n1n",
+    "href": "slides/lecture-27_slides.html#grammar-for-0n1n",
+    "title": "Grammars and Counting",
+    "section": "Grammar for \\(0^n1^n\\) ?",
+    "text": "Grammar for \\(0^n1^n\\) ?\nGrammar:\n\\(S \\to 0S1 \\ \\mid\\ \\varepsilon\\)\nDerivations:\n\nFor 01: \\[\nS \\Rightarrow 0S1 \\Rightarrow 01\n\\]\nFor 000111: \\[\nS \\Rightarrow 0S1 \\Rightarrow 00S11 \\Rightarrow 000S111 \\Rightarrow 000111\n\\]\n\nParse tree shape for 0011:"
+  },
+  {
+    "objectID": "slides/lecture-27_slides.html#cfg-review",
+    "href": "slides/lecture-27_slides.html#cfg-review",
+    "title": "Grammars and Counting",
+    "section": "CFG Review",
+    "text": "CFG Review\nA context-free grammar (CFG) has:\n\nTerminals (alphabet),\nNonterminals (variables),\nStart symbol,\nProductions like \\(S \\to 0S1 \\mid \\varepsilon\\).\n\nNotes:\n\nA derivation rewrites nonterminals to produce a string.\nA parse tree is evidence of how a string was generated.\nThe class of Regular Languages \\(\\subset\\) the class of Context-Free Languages\n\n\nConnect to your earlier WFF grammar: “That was a CFG all along.”"
+  },
+  {
+    "objectID": "slides/lecture-27_slides.html#warm-up",
+    "href": "slides/lecture-27_slides.html#warm-up",
+    "title": "Grammars and Counting",
+    "section": "Warm Up",
+    "text": "Warm Up\nStart with &lt;T&gt; and roll a die to choose which rule to apply.\n\n  \n    2346\n  \n  🎲\n  Roll!\n\n\n\n      &lt;T&gt; ::= &lt;CORE&gt; | &lt;CORE&gt; &lt;FEAT&gt;\n\n   &lt;FEAT&gt; ::= \"feat.\" &lt;ARTIST&gt;\n\n &lt;ARTIST&gt; ::= \"Taylor Swift\" | \"Sabrina Carpenter\" | \"Olivia\" &lt;LN&gt; | \"Chappell Roan\"\n\n     &lt;LN&gt; ::= \"Rodrigo\" | \"Dean\"\n\n   &lt;CORE&gt; ::= &lt;NP&gt; | &lt;NP&gt; &lt;PREP&gt; &lt;NP&gt;\n\n     &lt;NP&gt; ::= &lt;DET&gt; &lt;ADJLIST&gt; &lt;NOUN&gt;\n\n    &lt;DET&gt; ::= \"the\" | \"my\" | \"your\" | \"our\"\n\n&lt;ADJLIST&gt; ::= &lt;ADJ&gt; &lt;ADJ&gt; | &lt;ADJ&gt; | ε\n\n    &lt;ADJ&gt; ::= \"midnight\" | \"lonely\" | \"wild\" | \"broken\" | \"golden\" | \"electric\"\n\n   &lt;NOUN&gt; ::= \"heart\" | \"city\" | \"dreams\" | \"summer\" | \"memories\" | \"night\"\n\n   &lt;PREP&gt; ::= \"in\" | \"of\" | \"for\" | \"at\""
+  },
+  {
+    "objectID": "slides/lecture-27_slides.html#demo",
+    "href": "slides/lecture-27_slides.html#demo",
+    "title": "Grammars and Counting",
+    "section": "Demo",
+    "text": "Demo"
+  },
+  {
+    "objectID": "slides/lecture-27_slides.html#a-basic-json-cfg",
+    "href": "slides/lecture-27_slides.html#a-basic-json-cfg",
+    "title": "Grammars and Counting",
+    "section": "A Basic JSON CFG",
+    "text": "A Basic JSON CFG\nhttps://www.json.org/json-en.html\nWe ignore lexical details and focus on structure.\n   &lt;Value&gt; ::=  &lt;Object&gt; | &lt;Array&gt; | &lt;String&gt; | &lt;Number&gt; \n             | `true` | `false` | `null`  \n  &lt;Object&gt; ::= `{` &lt;Members&gt; `}` | `{}`  \n &lt;Members&gt; ::= &lt;Pair&gt; | &lt;Pair&gt; `,` &lt;Members&gt; \n    &lt;Pair&gt; ::= &lt;String&gt; `:` &lt;Value&gt;  \n   &lt;Array&gt; ::=  `[` &lt;Elements&gt; `]` | `[]`  \n&lt;Elements&gt; ::= &lt;Value&gt; | &lt;Value&gt; `,` &lt;Elements&gt;\nExample: Is {\"a\":[1,2,{\"b\":null}]} in the language?\n\nPoint: regex can’t enforce balanced, nested delimiters; CFGs can."
+  },
+  {
+    "objectID": "slides/lecture-27_slides.html#warm-up-how-many-outfits",
+    "href": "slides/lecture-27_slides.html#warm-up-how-many-outfits",
+    "title": "Grammars and Counting",
+    "section": "Warm-Up: How Many Outfits?",
+    "text": "Warm-Up: How Many Outfits?\nQuestion: How many different outfits do you have in your closet?\n \nNo rules, just count.\n\nWhat even counts as an outfit?\nDo shoes matter?\nDo seasons/colors matter?\nAre some combos invalid?\n\nWrite down how you’d start to count, not just an answer."
+  },
+  {
+    "objectID": "slides/lecture-27_slides.html#what-did-you-count",
+    "href": "slides/lecture-27_slides.html#what-did-you-count",
+    "title": "Grammars and Counting",
+    "section": "What Did You Count?",
+    "text": "What Did You Count?\n\nWhat categories did you use?\nWhat rules did you impose?\n\nKey Idea:\nHow we model outfits (what’s allowed, what’s ignored) changes the counting."
+  },
+  {
+    "objectID": "slides/lecture-27_slides.html#a-simplified-closet-model",
+    "href": "slides/lecture-27_slides.html#a-simplified-closet-model",
+    "title": "Grammars and Counting",
+    "section": "A Simplified Closet Model",
+    "text": "A Simplified Closet Model\nDefine a wardrobe for the rest of this lesson:\n\n\\(k\\) pairs of shoes\n\\(j\\) pairs of pants\n\\(m\\) skirts\n\\(n\\) shirts\n\\(p\\) dresses\n\nWe’ll choose a model:\n\nAn outfit is either:\n\nshirt + bottom + shoes, where\nbottom is either pants or a skirt\nor a dress + shoes\n\nNo color/style rules: everything in these categories is compatible."
+  },
+  {
+    "objectID": "slides/lecture-27_slides.html#turn-it-into-sets",
+    "href": "slides/lecture-27_slides.html#turn-it-into-sets",
+    "title": "Grammars and Counting",
+    "section": "Turn It Into Sets",
+    "text": "Turn It Into Sets\nDefine sets of items:\n\n\\(S =\\) set of shoes, \\(|S| = k\\)\n\\(P =\\) set of pants, \\(|P| = j\\)\n\\(K =\\) set of skirts, \\(|K| = m\\)\n\\(T =\\) set of shirts, \\(|T| = n\\)\n\\(D =\\) set of dresses, \\(|D| = p\\)\n\nA bottom is either pants or a skirt:\n\\[\nB = P \\cup K\n\\]\nAssuming no overlap between pants and skirts:\n\\[\n|B| = |P \\cup K| = |P| + |K| = j + m\n\\]"
+  },
+  {
+    "objectID": "slides/lecture-27_slides.html#outfits-of-type-1",
+    "href": "slides/lecture-27_slides.html#outfits-of-type-1",
+    "title": "Grammars and Counting",
+    "section": "Outfits of Type 1",
+    "text": "Outfits of Type 1\nType 1 outfit: shirt + bottom + shoes\nAs a set of combinations:\n\\[\n\\text{Type1} = S \\times B \\times T\n\\]\nEach outfit is a triple:\n\\[\n(\\text{shoe}, \\text{bottom}, \\text{shirt}) \\in S \\times B \\times T\n\\]\nSo the number of Type 1 outfits is:\n\\[\n|\\text{Type1}| = |S||B||T| = k(j + m)n\n\\]"
+  },
+  {
+    "objectID": "slides/lecture-27_slides.html#outfits-of-type-2",
+    "href": "slides/lecture-27_slides.html#outfits-of-type-2",
+    "title": "Grammars and Counting",
+    "section": "Outfits of Type 2",
+    "text": "Outfits of Type 2\nType 2 outfit: dress + shoes\nAs a set of combinations:\n\\[\n\\text{Type2} = S \\times D\n\\]\nEach outfit is a pair:\n\\[\n(\\text{shoe}, \\text{dress}) \\in S \\times D\n\\]\nSo the number of Type 2 outfits is:\n\\[\n|\\text{Type2}| = |S||D| = kp\n\\]"
+  },
+  {
+    "objectID": "slides/lecture-27_slides.html#total-number-of-outfits",
+    "href": "slides/lecture-27_slides.html#total-number-of-outfits",
+    "title": "Grammars and Counting",
+    "section": "Total Number of Outfits",
+    "text": "Total Number of Outfits\nWe’ve partitioned outfits into two disjoint types:\n\nType 1: shirt + bottom + shoes\nType 2: dress + shoes\n\nTotal number of outfits in our model:\n\\[\n\\begin{aligned}\n\\#\\text{outfits}\n&= |\\text{Type1}| + |\\text{Type2}| \\\\\n&= k(j + m)n + kp \\\\\n&= k\\big((j + m)n + p\\big).\n\\end{aligned}\n\\]\nThis matches the informal idea:\n\n“For each pair of shoes, you can choose any (bottom, shirt) combo or any dress.”"
+  },
+  {
+    "objectID": "slides/lecture-27_slides.html#the-product-rule",
+    "href": "slides/lecture-27_slides.html#the-product-rule",
+    "title": "Grammars and Counting",
+    "section": "The Product Rule",
+    "text": "The Product Rule\nFundamental counting fact:\n\nIf \\(A\\) and \\(B\\) are finite sets, then\n\\[\n|A \\times B| = |A|\\cdot|B|.\n\\]\n\nGeneralizing:\n\nFor sets \\(A_1, A_2, \\dots, A_k\\): \\[\n|A_1 \\times A_2 \\times \\dots \\times A_k| = |A_1| \\cdot |A_2| \\cdot \\dots \\cdot |A_k|.\n\\]\n\nInterpretation:\n\nA choice procedure:\n\nchoose one element from \\(A_1\\),\nthen one from \\(A_2\\), \\(\\ldots\\)\nthen one from \\(A_k\\),\n\nEvery distinct chain of choices is a distinct element of the product set."
+  },
+  {
+    "objectID": "slides/lecture-27_slides.html#wrap-up",
+    "href": "slides/lecture-27_slides.html#wrap-up",
+    "title": "Grammars and Counting",
+    "section": "Wrap Up",
+    "text": "Wrap Up\nThe combinatorics lesson:\n\nOnce you’ve decided what “counts,” express the valid items as a product of simpler choices.\n\nThis pattern will be used for:\n\npasswords,\nplaylists,\ncommittee selection,\nsampling from datasets,\nand more."
   },
   {
     "objectID": "slides/lecture-27_slides.html#regex-to-nfa-gadgets",
     "href": "slides/lecture-27_slides.html#regex-to-nfa-gadgets",
-    "title": "Lecture 27",
+    "title": "Grammars and Counting",
     "section": "Regex to NFA Gadgets",
     "text": "Regex to NFA Gadgets\n\n\n\n\nLiteral ‘a’\n\n\n          a s f\n\n\nUnion: R | S\n\n\n         s f  [ R ]    [ S ]     ε ε   ε ε\n\n\n\nConcatenation: RS\n\n\n         s f  [ R ]    [ S ]      ε\n\n\nKleene star: R*\n\n\n         s f  [ R ]    ε (empty)  ε  ε  ε"
   },
   {
     "objectID": "slides/lecture-27_slides.html#example-1",
     "href": "slides/lecture-27_slides.html#example-1",
-    "title": "Lecture 27",
+    "title": "Grammars and Counting",
     "section": "Example 1",
     "text": "Example 1\n^(ab|ba)*$"
   },
   {
     "objectID": "slides/lecture-27_slides.html#example-3",
     "href": "slides/lecture-27_slides.html#example-3",
-    "title": "Lecture 27",
+    "title": "Grammars and Counting",
     "section": "Example 3",
     "text": "Example 3\nTask: Sketch an NFA for ^1(01|10)*0$ using only the four gadgets.\nPlan: literal 1 … union(01,10) … star … literal 0."
   },
   {
     "objectID": "slides/lecture-27_slides.html#example-2",
     "href": "slides/lecture-27_slides.html#example-2",
-    "title": "Lecture 27",
+    "title": "Grammars and Counting",
     "section": "Example 2",
     "text": "Example 2\n^(0|1)*11(0|1)*$"
   },
   {
     "objectID": "slides/lecture-27_slides.html#closure-facts",
     "href": "slides/lecture-27_slides.html#closure-facts",
-    "title": "Lecture 27",
+    "title": "Grammars and Counting",
     "section": "Closure Facts",
     "text": "Closure Facts\nIf \\(L_1, L_2\\) are context-free:\n\nUnion: context-free via new start \\(S \\to S_1 \\mid S_2\\)\nConcatenation: context-free via \\(S \\to S_1 S_2\\)\nKleene star: context-free via \\(S \\to SS \\mid \\varepsilon\\)\n\n(Intersection with regular languages is CF; general intersection/complement are not.)\n\nTie back to set algebra & your earlier closures with DFAs."
   },
   {
-    "objectID": "slides/lecture-27_slides.html#a-basic-json-cfg",
-    "href": "slides/lecture-27_slides.html#a-basic-json-cfg",
-    "title": "Lecture 27",
+    "objectID": "slides/lecture-27_slides.html#a-basic-json-cfg-1",
+    "href": "slides/lecture-27_slides.html#a-basic-json-cfg-1",
+    "title": "Grammars and Counting",
     "section": "A Basic JSON CFG",
     "text": "A Basic JSON CFG\nhttps://www.json.org/json-en.html\nWe ignore lexical details and focus on structure.\n\nValue → Object | Array | String | Number | true | false | null\n\nObject → { Members } | {}\n\nMembers → Pair | Pair , Members\n\nPair → String : Value\n\nArray → [ Elements ] | []\n\nElements → Value | Value , Elements\n\nExample: Is {\"a\":[1,2,{\"b\":null}]} in the language?\n\nPoint: regex can’t enforce balanced, nested delimiters; CFGs can."
   },
   {
     "objectID": "slides/lecture-27_slides.html#your-turn",
     "href": "slides/lecture-27_slides.html#your-turn",
-    "title": "Lecture 27",
+    "title": "Grammars and Counting",
     "section": "Your Turn",
     "text": "Your Turn\nCreate a Grammar for \\(L = \\{a^nb^nc^n, n\\geq 0\\}\\)"
   },
   {
     "objectID": "slides/lecture-27_slides.html#chomsky-hierarchy-for-data-science",
     "href": "slides/lecture-27_slides.html#chomsky-hierarchy-for-data-science",
-    "title": "Lecture 27",
+    "title": "Grammars and Counting",
     "section": "Chomsky Hierarchy (for Data Science)",
     "text": "Chomsky Hierarchy (for Data Science)\nRegular languages\n\nDescribed by regular expressions, recognized by DFAs/NFAs\nLimited “memory”: patterns like “contains 11”, “ends with tea”, [A-Z]{4}[0-9]{3}\nIn DSci: log filters, simple validators, tokenizing text, cleaning CSV-ish formats\n\nContext-free languages\n\nDescribed by context-free grammars (CFGs)\nHandle nested or balanced structure: parentheses, HTML/XML tags, JSON\nIn DSci: parsing JSON/YAML, understanding code/configs, defining schemas for nested data"
   },
   {
     "objectID": "slides/lecture-27_slides.html#chomsky-hierarchy-for-data-science-1",
     "href": "slides/lecture-27_slides.html#chomsky-hierarchy-for-data-science-1",
-    "title": "Lecture 27",
+    "title": "Grammars and Counting",
     "section": "Chomsky Hierarchy (for Data Science)",
     "text": "Chomsky Hierarchy (for Data Science)\nContext-sensitive languages\n\nMore powerful; can express things like \\(a^n b^n c^n\\)\nCapture some agreement constraints in natural language, complex dependencies\nRarely used explicitly; usually enforced with custom code, type systems, or constraint solvers\n\nRecursively enumerable languages\n\nEverything a Turing machine can recognize\n“All computable languages” — but no guarantee we can always decide membership in finite time\n\n\nData-science takeaway\nMost text / logs / simple formats: regular level (regex & DFAs)\nMost structured nested data (JSON, XML, code): context-free level (CFGs & parsers)\nRich cross-field / counting constraints go beyond CFGs, handled by full programming languages, SQL engines, or specialized tools"
   },
@@ -1772,7 +1961,7 @@
     "href": "index.html#schedule",
     "title": "DSCI 220: Discrete Math for Data Science",
     "section": "Schedule",
-    "text": "Schedule\n\nBy weekBy unit\n\n\n\n\n\n\n\n  \n    \n      \n      \n        Classes\n      \n      \n    \n    \n      \n      \n      \n        Mon\n      \n      \n      \n        Wed\n      \n      \n      \n        Fri\n      \n      \n      \n        Tutorial\n      \n      \n      \n      \n        HWK\n      \n      \n      \n        EX\n      \n    \n    \n      \n      \n      \n      \n      \n      \n      \n      \n      \n      \n      \n    \n  \n  \n    \n      Part 1Topic to be decided\n\n    \n    Week 1starts Sep 7\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 2starts Sep 14\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 3starts Sep 21\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 1Sep 24–27Book Practice\n\n    Week 4starts Sep 28\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 5starts Oct 5\n\n\n\n\n\n\n\n\n\n\n \n \n\n\n\n\n\n\nExam 2Oct 8–11Book Practice\n\n    \n      Part 2Topic to be decided\n\n    \n    Week 6starts Oct 12\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 7starts Oct 19\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 8starts Oct 26\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 3Oct 29 – Nov 1Book Practice\n\n    Week 9starts Nov 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 10starts Nov 9\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    \n      Part 3Topic to be decided\n\n    \n    Week 11starts Nov 16\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 4Nov 19–22Book Practice\n\n    Week 12starts Nov 23\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 13starts Nov 30\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 5Dec 3–6Book\n\n    Week 14starts Dec 7\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFinal examSun Dec 13\n\n  \n  \n\n\n\n\n\n\n\n  \n    \n      \n      \n        Classes\n      \n      \n    \n    \n      \n      \n      \n        Mon\n      \n      \n      \n        Wed\n      \n      \n      \n        Fri\n      \n      \n      \n        Tutorial\n      \n      \n      \n      \n        HWK\n      \n      \n      \n        EX\n      \n    \n    \n      \n      \n      \n      \n      \n      \n      \n      \n      \n      \n      \n    \n  \n  \n    \n      Part 1Topic to be decided\n\n    \n    Week 1starts Sep 7\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 2starts Sep 14\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 3starts Sep 21\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 1Sep 24–27Book Practice\n\n    Week 4starts Sep 28\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 5starts Oct 5\n\n\n\n\n\n\n\n\n\n\n \n \n\n\n\n\n\n\nExam 2Oct 8–11Book Practice\n\n    \n      Part 2Topic to be decided\n\n    \n    Week 6starts Oct 12\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 7starts Oct 19\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 8starts Oct 26\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 3Oct 29 – Nov 1Book Practice\n\n    Week 9starts Nov 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 10starts Nov 9\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    \n      Part 3Topic to be decided\n\n    \n    Week 11starts Nov 16\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 4Nov 19–22Book Practice\n\n    Week 12starts Nov 23\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 13starts Nov 30\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 5Dec 3–6Book\n\n    Week 14starts Dec 7\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFinal examSun Dec 13\n\n  \n  \n\n\n\n\n\n\n\n\n\n\n\n  \n    \n      \n      \n      Slides\n      Activity\n      Video\n    \n  \n  \n    \n      Part 1Topic to be decidedWeek 1\n\n    \n    WedSep 9\n\nLecture 1Introduction\n\n\n\n\n    FriSep 11\n\nLecture 2Truth and Propositions\n\n\n\n\n    \n      Week 2\n    \n    MonSep 14\n\nLecture 3Logical Equivalences\n\n\n\n\n    WedSep 16\n\nLecture 4Implication\n\n\n\n\n    FriSep 18\n\nLecture 5Rules of Inference\n\n\n\n\n    1st slot\n\nPlaceholderTutorial 1\n\n\n\n\n    Due: SunSep 20\n\nPlaceholder Homework 1\n\n\n\n\n    \n      Week 3\n    \n    MonSep 21\n\nLecture 6Inference, continued\n\n\n\n\n    WedSep 23\n\nLecture 7Unit Propagation\n\n\n\n\n    FriSep 25\n\nLecture 8Predicates and Quantifiers\n\n\n\n\n    1st slot\n\nPlaceholderTutorial 2\n\n\n\n\n    Due: SunSep 27\n\nPlaceholderExam 1 Book Practice\n\n\n\n\n    \n      Week 4\n    \n    MonSep 28\n\nLecture 9Nested Quantifiers\n\n\n\n\n    FriOct 2\n\nLecture 10Proofs\n\n\n\n\n    1st slot\n\nPlaceholderTutorial 3\n\n\n\n\n    Due: SunOct 4\n\nPlaceholder Homework 2\n\n\n\n\n    \n      Week 5\n    \n    MonOct 5\n\nLecture 11Proof by Induction\n\n\n\n\n    WedOct 7\n\nLecture 12Proof by Induction\n\n\n\n\n    FriOct 9\n\nLecture 13Trominoes and RecurrencesLecture 13 (auxiliary)Summations\n\n \n\n \n    1st slot\n\nPlaceholderTutorial 4\n\n\n\n\n    Due: SunOct 11\n\nPlaceholderExam 2 Book Practice\n\n\n\n\n    \n      Part 2Topic to be decidedWeek 6\n\n    \n    WedOct 14\n\nLecture 14Modular Arithmetic\n\n\n\n\n    FriOct 16\n\nLecture 15Asymptotics\n\n\n\n\n    \n      Week 7\n    \n    MonOct 19\n\nLecture 16Asymptotics, continued\n\n\n\n\n    WedOct 21\n\nLecture 17Binary: an Application Interlude\n\n\n\n\n    FriOct 23\n\nLecture 18Binary, Continued: Fixed Width\n\n\n\n\n    1st slot\n\nPlaceholderTutorial 5\n\n\n\n\n    Due: SunOct 25\n\nPlaceholder Homework 3\n\n\n\n\n    \n      Week 8\n    \n    MonOct 26\n\nLecture 19Sets\n\n\n\n\n    WedOct 28\n\nLecture 20Sets, continued\n\n\n\n\n    FriOct 30\n\nLecture 21Sets, continued\n\n\n\n\n    1st slot\n\nPlaceholderTutorial 6\n\n\n\n\n    Due: SunNov 1\n\nPlaceholderExam 3 Book Practice\n\n\n\n\n    \n      Week 9\n    \n    MonNov 2\n\nLecture 22Sets, Regex\n\n\n\n\n    WedNov 4\n\nLecture 23Regular Expressions\n\n\n\n\n    FriNov 6\n\nLecture 24Regex Filters\n\n\n\n\n    1st slot\n\nPlaceholderTutorial 7\n\n\n\n\n    \n      Week 10\n    \n    FriNov 13\n\nLecture 25Reading and Building DFAs\n\n\n\n\n    Due: SunNov 15\n\nPlaceholder Homework 4\n\n\n\n\n    \n      Part 3Topic to be decidedWeek 11\n\n    \n    MonNov 16\n\nLecture 26Closure, NFAs, Grammars\n\n\n\n\n    1st slot\n\nPlaceholderTutorial 8\n\n\n\n\n    Due: SunNov 22\n\nPlaceholderExam 4 Book Practice\n\n\n\n\n  \n  \n\n\n\n\n\n\n\n  \n    \n      \n      \n      Slides\n      Activity\n      Video\n    \n  \n  \n    \n      Part 1Topic to be decidedWeek 1\n\n    \n    WedSep 9\n\nLecture 1Introduction\n\n\n\n\n    FriSep 11\n\nLecture 2Truth and Propositions\n\n\n\n\n    \n      Week 2\n    \n    MonSep 14\n\nLecture 3Logical Equivalences\n\n\n\n\n    WedSep 16\n\nLecture 4Implication\n\n\n\n\n    FriSep 18\n\nLecture 5Rules of Inference\n\n\n\n\n    1st slot\n\nPlaceholderTutorial 1\n\n\n\n\n    Due: SunSep 20\n\nPlaceholder Homework 1\n\n\n\n\n    \n      Week 3\n    \n    MonSep 21\n\nLecture 6Inference, continued\n\n\n\n\n    WedSep 23\n\nLecture 7Unit Propagation\n\n\n\n\n    FriSep 25\n\nLecture 8Predicates and Quantifiers\n\n\n\n\n    1st slot\n\nPlaceholderTutorial 2\n\n\n\n\n    Due: SunSep 27\n\nPlaceholderExam 1 Book Practice\n\n\n\n\n    \n      Week 4\n    \n    MonSep 28\n\nLecture 9Nested Quantifiers\n\n\n\n\n    FriOct 2\n\nLecture 10Proofs\n\n\n\n\n    1st slot\n\nPlaceholderTutorial 3\n\n\n\n\n    Due: SunOct 4\n\nPlaceholder Homework 2\n\n\n\n\n    \n      Week 5\n    \n    MonOct 5\n\nLecture 11Proof by Induction\n\n\n\n\n    WedOct 7\n\nLecture 12Proof by Induction\n\n\n\n\n    FriOct 9\n\nLecture 13Trominoes and RecurrencesLecture 13 (auxiliary)Summations\n\n \n\n \n    1st slot\n\nPlaceholderTutorial 4\n\n\n\n\n    Due: SunOct 11\n\nPlaceholderExam 2 Book Practice\n\n\n\n\n    \n      Part 2Topic to be decidedWeek 6\n\n    \n    WedOct 14\n\nLecture 14Modular Arithmetic\n\n\n\n\n    FriOct 16\n\nLecture 15Asymptotics\n\n\n\n\n    \n      Week 7\n    \n    MonOct 19\n\nLecture 16Asymptotics, continued\n\n\n\n\n    WedOct 21\n\nLecture 17Binary: an Application Interlude\n\n\n\n\n    FriOct 23\n\nLecture 18Binary, Continued: Fixed Width\n\n\n\n\n    1st slot\n\nPlaceholderTutorial 5\n\n\n\n\n    Due: SunOct 25\n\nPlaceholder Homework 3\n\n\n\n\n    \n      Week 8\n    \n    MonOct 26\n\nLecture 19Sets\n\n\n\n\n    WedOct 28\n\nLecture 20Sets, continued\n\n\n\n\n    FriOct 30\n\nLecture 21Sets, continued\n\n\n\n\n    1st slot\n\nPlaceholderTutorial 6\n\n\n\n\n    Due: SunNov 1\n\nPlaceholderExam 3 Book Practice\n\n\n\n\n    \n      Week 9\n    \n    MonNov 2\n\nLecture 22Sets, Regex\n\n\n\n\n    WedNov 4\n\nLecture 23Regular Expressions\n\n\n\n\n    FriNov 6\n\nLecture 24Regex Filters\n\n\n\n\n    1st slot\n\nPlaceholderTutorial 7\n\n\n\n\n    \n      Week 10\n    \n    FriNov 13\n\nLecture 25Reading and Building DFAs\n\n\n\n\n    Due: SunNov 15\n\nPlaceholder Homework 4\n\n\n\n\n    \n      Part 3Topic to be decidedWeek 11\n\n    \n    MonNov 16\n\nLecture 26Closure, NFAs, Grammars\n\n\n\n\n    1st slot\n\nPlaceholderTutorial 8\n\n\n\n\n    Due: SunNov 22\n\nPlaceholderExam 4 Book Practice",
+    "text": "Schedule\n\nBy weekBy unit\n\n\n\n\n\n\n\n  \n    \n      \n      \n        Classes\n      \n      \n    \n    \n      \n      \n      \n        Mon\n      \n      \n      \n        Wed\n      \n      \n      \n        Fri\n      \n      \n      \n        Tutorial\n      \n      \n      \n      \n        HWK\n      \n      \n      \n        EX\n      \n    \n    \n      \n      \n      \n      \n      \n      \n      \n      \n      \n      \n      \n    \n  \n  \n    \n      Part 1Topic to be decided\n\n    \n    Week 1starts Sep 7\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 2starts Sep 14\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 3starts Sep 21\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 1Sep 24–27Book Practice\n\n    Week 4starts Sep 28\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 5starts Oct 5\n\n\n\n\n\n\n\n\n\n\n \n \n\n\n\n\n\n\nExam 2Oct 8–11Book Practice\n\n    \n      Part 2Topic to be decided\n\n    \n    Week 6starts Oct 12\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 7starts Oct 19\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 8starts Oct 26\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 3Oct 29 – Nov 1Book Practice\n\n    Week 9starts Nov 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 10starts Nov 9\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    \n      Part 3Topic to be decided\n\n    \n    Week 11starts Nov 16\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 4Nov 19–22Book Practice\n\n    Week 12starts Nov 23\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 13starts Nov 30\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 5Dec 3–6Book\n\n    Week 14starts Dec 7\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFinal examSun Dec 13\n\n  \n  \n\n\n\n\n\n\n\n  \n    \n      \n      \n        Classes\n      \n      \n    \n    \n      \n      \n      \n        Mon\n      \n      \n      \n        Wed\n      \n      \n      \n        Fri\n      \n      \n      \n        Tutorial\n      \n      \n      \n      \n        HWK\n      \n      \n      \n        EX\n      \n    \n    \n      \n      \n      \n      \n      \n      \n      \n      \n      \n      \n      \n    \n  \n  \n    \n      Part 1Topic to be decided\n\n    \n    Week 1starts Sep 7\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 2starts Sep 14\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 3starts Sep 21\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 1Sep 24–27Book Practice\n\n    Week 4starts Sep 28\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 5starts Oct 5\n\n\n\n\n\n\n\n\n\n\n \n \n\n\n\n\n\n\nExam 2Oct 8–11Book Practice\n\n    \n      Part 2Topic to be decided\n\n    \n    Week 6starts Oct 12\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 7starts Oct 19\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 8starts Oct 26\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 3Oct 29 – Nov 1Book Practice\n\n    Week 9starts Nov 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 10starts Nov 9\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    \n      Part 3Topic to be decided\n\n    \n    Week 11starts Nov 16\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 4Nov 19–22Book Practice\n\n    Week 12starts Nov 23\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    Week 13starts Nov 30\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 5Dec 3–6Book\n\n    Week 14starts Dec 7\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFinal examSun Dec 13\n\n  \n  \n\n\n\n\n\n\n\n\n\n\n\n  \n    \n      \n      \n      Slides\n      Activity\n      Video\n    \n  \n  \n    \n      Part 1Topic to be decidedWeek 1\n\n    \n    WedSep 9\n\nLecture 1Introduction\n\n\n\n\n    FriSep 11\n\nLecture 2Truth and Propositions\n\n\n\n\n    \n      Week 2\n    \n    MonSep 14\n\nLecture 3Logical Equivalences\n\n\n\n\n    WedSep 16\n\nLecture 4Implication\n\n\n\n\n    FriSep 18\n\nLecture 5Rules of Inference\n\n\n\n\n    1st slot\n\nPlaceholderTutorial 1\n\n\n\n\n    Due: SunSep 20\n\nPlaceholder Homework 1\n\n\n\n\n    \n      Week 3\n    \n    MonSep 21\n\nLecture 6Inference, continued\n\n\n\n\n    WedSep 23\n\nLecture 7Unit Propagation\n\n\n\n\n    FriSep 25\n\nLecture 8Predicates and Quantifiers\n\n\n\n\n    1st slot\n\nPlaceholderTutorial 2\n\n\n\n\n    Due: SunSep 27\n\nPlaceholderExam 1 Book Practice\n\n\n\n\n    \n      Week 4\n    \n    MonSep 28\n\nLecture 9Nested Quantifiers\n\n\n\n\n    FriOct 2\n\nLecture 10Proofs\n\n\n\n\n    1st slot\n\nPlaceholderTutorial 3\n\n\n\n\n    Due: SunOct 4\n\nPlaceholder Homework 2\n\n\n\n\n    \n      Week 5\n    \n    MonOct 5\n\nLecture 11Proof by Induction\n\n\n\n\n    WedOct 7\n\nLecture 12Proof by Induction\n\n\n\n\n    FriOct 9\n\nLecture 13Trominoes and RecurrencesLecture 13 (auxiliary)Summations\n\n \n\n \n    1st slot\n\nPlaceholderTutorial 4\n\n\n\n\n    Due: SunOct 11\n\nPlaceholderExam 2 Book Practice\n\n\n\n\n    \n      Part 2Topic to be decidedWeek 6\n\n    \n    WedOct 14\n\nLecture 14Modular Arithmetic\n\n\n\n\n    FriOct 16\n\nLecture 15Asymptotics\n\n\n\n\n    \n      Week 7\n    \n    MonOct 19\n\nLecture 16Asymptotics, continued\n\n\n\n\n    WedOct 21\n\nLecture 17Binary: an Application Interlude\n\n\n\n\n    FriOct 23\n\nLecture 18Binary, Continued: Fixed Width\n\n\n\n\n    1st slot\n\nPlaceholderTutorial 5\n\n\n\n\n    Due: SunOct 25\n\nPlaceholder Homework 3\n\n\n\n\n    \n      Week 8\n    \n    MonOct 26\n\nLecture 19Sets\n\n\n\n\n    WedOct 28\n\nLecture 20Sets, continued\n\n\n\n\n    FriOct 30\n\nLecture 21Sets, continued\n\n\n\n\n    1st slot\n\nPlaceholderTutorial 6\n\n\n\n\n    Due: SunNov 1\n\nPlaceholderExam 3 Book Practice\n\n\n\n\n    \n      Week 9\n    \n    MonNov 2\n\nLecture 22Sets, Regex\n\n\n\n\n    WedNov 4\n\nLecture 23Regular Expressions\n\n\n\n\n    FriNov 6\n\nLecture 24Regex Filters\n\n\n\n\n    1st slot\n\nPlaceholderTutorial 7\n\n\n\n\n    \n      Week 10\n    \n    FriNov 13\n\nLecture 25Reading and Building DFAs\n\n\n\n\n    Due: SunNov 15\n\nPlaceholder Homework 4\n\n\n\n\n    \n      Part 3Topic to be decidedWeek 11\n\n    \n    MonNov 16\n\nLecture 26Closure, NFAs\n\n\n\n\n    1st slot\n\nPlaceholderTutorial 8\n\n\n\n\n    Due: SunNov 22\n\nPlaceholderExam 4 Book Practice\n\n\n\n\n  \n  \n\n\n\n\n\n\n\n  \n    \n      \n      \n      Slides\n      Activity\n      Video\n    \n  \n  \n    \n      Part 1Topic to be decidedWeek 1\n\n    \n    WedSep 9\n\nLecture 1Introduction\n\n\n\n\n    FriSep 11\n\nLecture 2Truth and Propositions\n\n\n\n\n    \n      Week 2\n    \n    MonSep 14\n\nLecture 3Logical Equivalences\n\n\n\n\n    WedSep 16\n\nLecture 4Implication\n\n\n\n\n    FriSep 18\n\nLecture 5Rules of Inference\n\n\n\n\n    1st slot\n\nPlaceholderTutorial 1\n\n\n\n\n    Due: SunSep 20\n\nPlaceholder Homework 1\n\n\n\n\n    \n      Week 3\n    \n    MonSep 21\n\nLecture 6Inference, continued\n\n\n\n\n    WedSep 23\n\nLecture 7Unit Propagation\n\n\n\n\n    FriSep 25\n\nLecture 8Predicates and Quantifiers\n\n\n\n\n    1st slot\n\nPlaceholderTutorial 2\n\n\n\n\n    Due: SunSep 27\n\nPlaceholderExam 1 Book Practice\n\n\n\n\n    \n      Week 4\n    \n    MonSep 28\n\nLecture 9Nested Quantifiers\n\n\n\n\n    FriOct 2\n\nLecture 10Proofs\n\n\n\n\n    1st slot\n\nPlaceholderTutorial 3\n\n\n\n\n    Due: SunOct 4\n\nPlaceholder Homework 2\n\n\n\n\n    \n      Week 5\n    \n    MonOct 5\n\nLecture 11Proof by Induction\n\n\n\n\n    WedOct 7\n\nLecture 12Proof by Induction\n\n\n\n\n    FriOct 9\n\nLecture 13Trominoes and RecurrencesLecture 13 (auxiliary)Summations\n\n \n\n \n    1st slot\n\nPlaceholderTutorial 4\n\n\n\n\n    Due: SunOct 11\n\nPlaceholderExam 2 Book Practice\n\n\n\n\n    \n      Part 2Topic to be decidedWeek 6\n\n    \n    WedOct 14\n\nLecture 14Modular Arithmetic\n\n\n\n\n    FriOct 16\n\nLecture 15Asymptotics\n\n\n\n\n    \n      Week 7\n    \n    MonOct 19\n\nLecture 16Asymptotics, continued\n\n\n\n\n    WedOct 21\n\nLecture 17Binary: an Application Interlude\n\n\n\n\n    FriOct 23\n\nLecture 18Binary, Continued: Fixed Width\n\n\n\n\n    1st slot\n\nPlaceholderTutorial 5\n\n\n\n\n    Due: SunOct 25\n\nPlaceholder Homework 3\n\n\n\n\n    \n      Week 8\n    \n    MonOct 26\n\nLecture 19Sets\n\n\n\n\n    WedOct 28\n\nLecture 20Sets, continued\n\n\n\n\n    FriOct 30\n\nLecture 21Sets, continued\n\n\n\n\n    1st slot\n\nPlaceholderTutorial 6\n\n\n\n\n    Due: SunNov 1\n\nPlaceholderExam 3 Book Practice\n\n\n\n\n    \n      Week 9\n    \n    MonNov 2\n\nLecture 22Sets, Regex\n\n\n\n\n    WedNov 4\n\nLecture 23Regular Expressions\n\n\n\n\n    FriNov 6\n\nLecture 24Regex Filters\n\n\n\n\n    1st slot\n\nPlaceholderTutorial 7\n\n\n\n\n    \n      Week 10\n    \n    FriNov 13\n\nLecture 25Reading and Building DFAs\n\n\n\n\n    Due: SunNov 15\n\nPlaceholder Homework 4\n\n\n\n\n    \n      Part 3Topic to be decidedWeek 11\n\n    \n    MonNov 16\n\nLecture 26Closure, NFAs\n\n\n\n\n    1st slot\n\nPlaceholderTutorial 8\n\n\n\n\n    Due: SunNov 22\n\nPlaceholderExam 4 Book Practice",
     "crumbs": [
       "Course information",
       "Schedule"
@@ -3107,310 +3296,121 @@
   {
     "objectID": "slides/lecture-26_slides.html#announcements",
     "href": "slides/lecture-26_slides.html#announcements",
-    "title": "Closure, NFAs, Grammars",
+    "title": "Closure, NFAs",
     "section": "Announcements",
     "text": "Announcements\n\nEX4 is this week: sets, regex, and reading DFAs. Practice set is on PrairieLearn.\nBuilding DFAs (Friday and today) is on EX5."
   },
   {
     "objectID": "slides/lecture-26_slides.html#goals",
     "href": "slides/lecture-26_slides.html#goals",
-    "title": "Closure, NFAs, Grammars",
+    "title": "Closure, NFAs",
     "section": "Goals",
-    "text": "Goals\n\nBuild a DFA for the complement of a language by flipping its accepting states.\nRun two DFAs at once, to get the union or intersection of their languages.\nMeet an NFA: a machine allowed to have choices.\nWrite a grammar for a language no DFA can recognize, like \\(0^n1^n\\) and JSON."
+    "text": "Goals\n\nBuild a DFA for the complement of a language by flipping its accepting states.\nRun two DFAs at once, to get the union or intersection of their languages.\nMeet an NFA: a machine allowed to have choices."
   },
   {
     "objectID": "slides/lecture-26_slides.html#closure-tricks",
     "href": "slides/lecture-26_slides.html#closure-tricks",
-    "title": "Closure, NFAs, Grammars",
+    "title": "Closure, NFAs",
     "section": "Closure Tricks",
     "text": "Closure Tricks\nWhat’s closure?\n\nComplement: make the DFA total (add SINK if needed), then flip accept to non-accept, and vice-versa.\nUnion / Intersection: States are pairs (p,q)\n\nUnion accepts if p ∈ F1 or q ∈ F2\nIntersection accepts if p ∈ F1 and q ∈ F2\n\nDifference: L1 - L2 = \\(L1\\cap L2^c\\)\n\n\nThis mirrors set algebra directly; great place to reinforce recent set lessons.\nClosure answers “What’s closure?”: if we start with regular languages and take a complement, union, intersection or difference, the result is regular again. We never leave the family. Same word as “the integers are closed under +”."
   },
   {
     "objectID": "slides/lecture-26_slides.html#complement-flip-the-double-circles",
     "href": "slides/lecture-26_slides.html#complement-flip-the-double-circles",
-    "title": "Closure, NFAs, Grammars",
+    "title": "Closure, NFAs",
     "section": "Complement: Flip the Double Circles",
     "text": "Complement: Flip the Double Circles\n\n\nMachine A 🐝: contains 11\n\n\n\n\n\n\n\n\n\n\nstart\nstart\n\n\n\nP\n\nP\n\n\n\nstart-&gt;P\n\n\n\n\n\nP-&gt;P\n\n\n 0 \n\n\n\nQ\n\nQ\n\n\n\nP-&gt;Q\n\n\n 1 \n\n\n\nQ-&gt;P\n\n\n 0 \n\n\n\nR\n\n\nR\n\n\n\nQ-&gt;R\n\n\n 1 \n\n\n\nR-&gt;R\n\n\n 0, 1 \n\n\n\n\n\n\n\n\n\n\nFlipped: ???\n\n\n\n\n\n\n\n\n\n\nstart\nstart\n\n\n\nP\n\n\nP\n\n\n\nstart-&gt;P\n\n\n\n\n\nP-&gt;P\n\n\n 0 \n\n\n\nQ\n\n\nQ\n\n\n\nP-&gt;Q\n\n\n 1 \n\n\n\nQ-&gt;P\n\n\n 0 \n\n\n\nR\n\nR\n\n\n\nQ-&gt;R\n\n\n 1 \n\n\n\nR-&gt;R\n\n\n 0, 1 \n\n\n\n\n\n\n\n\n\n\n\n\nWhat language does the flipped machine accept? Why did we need every state to have an arrow for every symbol?\n\nFlipped machine: strings with no 11. Includes the empty string, 0, 1, 10, 0100, …\nWhy total: a DFA that is missing an arrow rejects by “falling off”. Flipping the double circles doesn’t flip falling off, so the missing-arrow strings would be rejected by both machines. Add a SINK state first (Starts with Iced from Friday had one), then flip; SINK becomes accepting."
   },
   {
     "objectID": "slides/lecture-26_slides.html#parity-demo",
     "href": "slides/lecture-26_slides.html#parity-demo",
-    "title": "Closure, NFAs, Grammars",
+    "title": "Closure, NFAs",
     "section": "Parity Demo",
     "text": "Parity Demo\nLanguage: even number of 1s over {0,1}.\n\nEVEN (start, accept), ODD\non 1: toggle; on 0: stay\n\nTry: which strings of length \\(\\leq\\) 4 accept?\n\n\n\n\n\n\n\n\n\n\nstart\nstart\n\n\n\nE\n\n\nE\n\n\n\nstart-&gt;E\n\n\n\n\n\nE-&gt;E\n\n\n 0 \n\n\n\nO\n\nO\n\n\n\nE-&gt;O\n\n\n 1 \n\n\n\nO-&gt;E\n\n\n 1 \n\n\n\nO-&gt;O\n\n\n 0 \n\n\n\n\n\n\n\n\n\nNow flip it. What does it accept?\n\nThis is Machine D 🐙 from Friday (E = EVEN, O = ODD). Length ≤ 4 accepted: ε, 0, 00, 11, 000, 011, 101, 110, 0000, 0011, 0101, 0110, 1001, 1010, 1100, 1111 (16 of 31). Flipped: an odd number of 1s. Already total, so no SINK needed."
   },
   {
     "objectID": "slides/lecture-26_slides.html#two-machines-at-once",
     "href": "slides/lecture-26_slides.html#two-machines-at-once",
-    "title": "Closure, NFAs, Grammars",
+    "title": "Closure, NFAs",
     "section": "Two Machines at Once",
     "text": "Two Machines at Once\nGoal: one DFA for strings with an even number of 1s and ending in 1.\n\n\nMachine D 🐙: even number of 1s\n\n\n\n\n\n\n\n\n\n\nstart\nstart\n\n\n\nE\n\n\nE\n\n\n\nstart-&gt;E\n\n\n\n\n\nE-&gt;E\n\n\n 0 \n\n\n\nO\n\nO\n\n\n\nE-&gt;O\n\n\n 1 \n\n\n\nO-&gt;E\n\n\n 1 \n\n\n\nO-&gt;O\n\n\n 0 \n\n\n\n\n\n\n\n\n\n\nWarm-up: ends in 1\n\n\n\n\n\n\n\n\n\n\nstart\nstart\n\n\n\nA\n\nA\n\n\n\nstart-&gt;A\n\n\n\n\n\nA-&gt;A\n\n\n 0 \n\n\n\nB\n\n\nB\n\n\n\nA-&gt;B\n\n\n 1 \n\n\n\nB-&gt;A\n\n\n 0 \n\n\n\nB-&gt;B\n\n\n 1 \n\n\n\n\n\n\n\n\n\n\nFeed the same string to both, one symbol at a time. What does the combined machine need to remember after each symbol?\n\nAnswer: where each machine is. That’s a pair of states, like (E, A): D is in E, the warm-up is in A. Run 0101 through each one separately first: D: E, E, O, O, E (accepts). Warm-up: A, A, B, A, B (accepts). Both accept, so 0101 is in the intersection. The pairs are just these two rows read top to bottom together: (E,A) (E,A) (O,B) (O,A) (E,B)."
   },
   {
     "objectID": "slides/lecture-26_slides.html#build-it-one-row-per-pair",
     "href": "slides/lecture-26_slides.html#build-it-one-row-per-pair",
-    "title": "Closure, NFAs, Grammars",
+    "title": "Closure, NFAs",
     "section": "Build It: One Row per Pair",
     "text": "Build It: One Row per Pair\n\n\nD 🐙: even number of 1s\n\n\n\n\n\n\n\n\n\n\nstart\nstart\n\n\n\nE\n\n\nE\n\n\n\nstart-&gt;E\n\n\n\n\n\nE-&gt;E\n\n\n 0 \n\n\n\nO\n\nO\n\n\n\nE-&gt;O\n\n\n 1 \n\n\n\nO-&gt;E\n\n\n 1 \n\n\n\nO-&gt;O\n\n\n 0 \n\n\n\n\n\n\n\n\n\nWarm-up: ends in 1\n\n\n\n\n\n\n\n\n\n\nstart\nstart\n\n\n\nA\n\nA\n\n\n\nstart-&gt;A\n\n\n\n\n\nA-&gt;A\n\n\n 0 \n\n\n\nB\n\n\nB\n\n\n\nA-&gt;B\n\n\n 1 \n\n\n\nB-&gt;A\n\n\n 0 \n\n\n\nB-&gt;B\n\n\n 1 \n\n\n\n\n\n\n\n\n\n\nA state is a pair: (D’s state, warm-up’s state).\nOn a symbol, each machine takes its own step.\n\n\n\n\npair\non 0\non 1\nD accepts?\nwarm-up accepts?\n\n\n\n\n(E,A) start\n(E,A)\n(O,B)\nyes\nno\n\n\n(E,B)\n \n \n \n \n\n\n(O,A)\n \n \n \n \n\n\n(O,B)\n \n \n \n \n\n\n\n\n\n\nFilled table: (E,A): 0 → (E,A), 1 → (O,B); D yes, warm-up no (E,B): 0 → (E,A), 1 → (O,B); D yes, warm-up yes (O,A): 0 → (O,A), 1 → (E,B); D no, warm-up no (O,B): 0 → (O,A), 1 → (E,B); D no, warm-up yes Intersection (and) accepts where both are yes: only (E,B). Union (or) accepts where either is yes: (E,A), (E,B), (O,B). With bigger machines not every pair can be reached from the start. Build rows only for pairs that show up in the table (the Exercise at the end has 9 pairs, 7 reachable)."
   },
   {
     "objectID": "slides/lecture-26_slides.html#draw-it",
     "href": "slides/lecture-26_slides.html#draw-it",
-    "title": "Closure, NFAs, Grammars",
+    "title": "Closure, NFAs",
     "section": "Draw It",
     "text": "Draw It\nSame four states, same arrows. Only the double circles change.\n\n\n\n\n\n\n\n\n\n\n\n\nstart\nstart\n\n\n\nE,A\n\nE,A\n\n\n\nstart-&gt;E,A\n\n\n\n\n\nE,A-&gt;E,A\n\n\n 0 \n\n\n\nO,B\n\nO,B\n\n\n\nE,A-&gt;O,B\n\n\n 1 \n\n\n\nO,A\n\nO,A\n\n\n\nO,B-&gt;O,A\n\n\n 0 \n\n\n\nE,B\n\nE,B\n\n\n\nO,B-&gt;E,B\n\n\n 1 \n\n\n\nO,A-&gt;O,A\n\n\n 0 \n\n\n\nO,A-&gt;E,B\n\n\n 1 \n\n\n\nE,B-&gt;E,A\n\n\n 0 \n\n\n\nE,B-&gt;O,B\n\n\n 1 \n\n\n\n\n\n\n\n\n\n\n\nIntersection (and): accept when both say yes. Which pairs?\n\n\nUnion (or): accept when either says yes. Which pairs?\n\n\nTrace 0101. Trace 110.\n\n\n\nIntersection: (E,B) only. Union: (E,A), (E,B), (O,B). 0101: (E,A) -0-&gt; (E,A) -1-&gt; (O,B) -0-&gt; (O,A) -1-&gt; (E,B). Intersection accepts: two 1s, ends in 1. 110: (E,A) -1-&gt; (O,B) -1-&gt; (E,B) -0-&gt; (E,A). Intersection rejects (even, but ends in 0); union accepts (even). Shortest accepted by the intersection: 11, 011, 101, 0011. Difference D − warm-up: D yes and warm-up no, so (E,A) only. That’s L1 ∩ complement of L2 from the Closure Tricks slide."
   },
   {
     "objectID": "slides/lecture-26_slides.html#nfas",
     "href": "slides/lecture-26_slides.html#nfas",
-    "title": "Closure, NFAs, Grammars",
+    "title": "Closure, NFAs",
     "section": "NFAs",
     "text": "NFAs\nDFA: exactly one transition for each input symbol in each state. NFA: may have multiple choices on a symbol and \\(\\varepsilon\\)-moves (move without consuming input).\nAcceptance: a string is accepted if there exists a path that reads all characters and lands in an accept state.\n\n\n\n\n\n\n\n\n\n\nstart\nstart\n\n\n\nP\n\nP\n\n\n\nstart-&gt;P\n\n\n\n\n\nP-&gt;P\n\n\n 0, 1 \n\n\n\nQ\n\nQ\n\n\n\nP-&gt;Q\n\n\n 0 \n\n\n\nR\n\n\nR\n\n\n\nQ-&gt;R\n\n\n 0 \n\n\n\n\n\n\n\n\n\n\nJust showing they exist. This NFA accepts the strings that end in 00: from P on a 0 it may stay or move to Q, and a path that needs a missing arrow dies. Compare Machine B 🐢, the DFA for the same language. Every NFA has a DFA that accepts the same strings, so NFAs recognize nothing new."
   },
   {
     "objectID": "slides/lecture-26_slides.html#watch-it-run",
     "href": "slides/lecture-26_slides.html#watch-it-run",
-    "title": "Closure, NFAs, Grammars",
+    "title": "Closure, NFAs",
     "section": "Watch It Run",
     "text": "Watch It Run\nSame NFA: ends in 00. Step through a string and watch every state it could be in light up.\n\n\n\n\n\n\n\n\n\n\nstart\nstart\n\n\n\nP\n\nP\n\n\n\nstart-&gt;P\n\n\n\n\n\nP-&gt;P\n\n\n 0, 1 \n\n\n\nQ\n\nQ\n\n\n\nP-&gt;Q\n\n\n 0 \n\n\n\nR\n\n\nR\n\n\n\nQ-&gt;R\n\n\n 0 \n\n\n\n\n\n\n\n\n\n\n  \n  Next symbol ▶\n  Reset ↺\n  \n  \n\nTry 0100, then 1001.\n\n0100: {P} → {P,Q} → {P} → {P,Q} → {P,Q,R}. R is live at the end: accept. 1001: {P} → {P} → {P,Q} → {P,Q,R} → {P}. Reject. A path that needs a missing arrow just dies: after 01, the path that went to Q on the 0 has nowhere to go on the 1. Live states are the whole idea; the lit-up set is all the computer has to remember."
   },
   {
-    "objectID": "slides/lecture-26_slides.html#last-puzzle",
-    "href": "slides/lecture-26_slides.html#last-puzzle",
-    "title": "Closure, NFAs, Grammars",
-    "section": "Last Puzzle:",
-    "text": "Last Puzzle:\n\\(0^n1^n\\)\n\nAsk: can you draw a DFA that accepts exactly these strings? Let them try for a minute. Every attempt runs out of states: the machine would have to count the 0s, and it only has finitely many states. The proof is pigeonhole, in Lecture 30. Grammars can do it."
-  },
-  {
-    "objectID": "slides/lecture-26_slides.html#grammar-for-0n1n",
-    "href": "slides/lecture-26_slides.html#grammar-for-0n1n",
-    "title": "Closure, NFAs, Grammars",
-    "section": "Grammar for \\(0^n1^n\\) ?",
-    "text": "Grammar for \\(0^n1^n\\) ?\nGrammar:\n\\(S \\to 0S1 \\ \\mid\\ \\varepsilon\\)\nDerivations:\n\nFor 01: \\[\nS \\Rightarrow 0S1 \\Rightarrow 01\n\\]\nFor 000111: \\[\nS \\Rightarrow 0S1 \\Rightarrow 00S11 \\Rightarrow 000S111 \\Rightarrow 000111\n\\]\n\nParse tree shape for 0011:"
-  },
-  {
-    "objectID": "slides/lecture-26_slides.html#cfg-review",
-    "href": "slides/lecture-26_slides.html#cfg-review",
-    "title": "Closure, NFAs, Grammars",
-    "section": "CFG Review",
-    "text": "CFG Review\nA context-free grammar (CFG) has:\n\nTerminals (alphabet),\nNonterminals (variables),\nStart symbol,\nProductions like \\(S \\to 0S1 \\mid \\varepsilon\\).\n\nNotes:\n\nA derivation rewrites nonterminals to produce a string.\nA parse tree is evidence of how a string was generated.\nThe class of Regular Languages \\(\\subset\\) the class of Context-Free Languages\n\n\nConnect to your earlier WFF grammar: “That was a CFG all along.”"
-  },
-  {
-    "objectID": "slides/lecture-26_slides.html#warm-up",
-    "href": "slides/lecture-26_slides.html#warm-up",
-    "title": "Closure, NFAs, Grammars",
-    "section": "Warm Up",
-    "text": "Warm Up\nStart with &lt;T&gt; and roll a die to choose which rule to apply.\n\n  \n    2346\n  \n  🎲\n  Roll!\n\n\n\n      &lt;T&gt; ::= &lt;CORE&gt; | &lt;CORE&gt; &lt;FEAT&gt;\n\n   &lt;FEAT&gt; ::= \"feat.\" &lt;ARTIST&gt;\n\n &lt;ARTIST&gt; ::= \"Taylor Swift\" | \"Sabrina Carpenter\" | \"Olivia\" &lt;LN&gt; | \"Chappell Roan\"\n\n     &lt;LN&gt; ::= \"Rodrigo\" | \"Dean\"\n\n   &lt;CORE&gt; ::= &lt;NP&gt; | &lt;NP&gt; &lt;PREP&gt; &lt;NP&gt;\n\n     &lt;NP&gt; ::= &lt;DET&gt; &lt;ADJLIST&gt; &lt;NOUN&gt;\n\n    &lt;DET&gt; ::= \"the\" | \"my\" | \"your\" | \"our\"\n\n&lt;ADJLIST&gt; ::= &lt;ADJ&gt; &lt;ADJ&gt; | &lt;ADJ&gt; | ε\n\n    &lt;ADJ&gt; ::= \"midnight\" | \"lonely\" | \"wild\" | \"broken\" | \"golden\" | \"electric\"\n\n   &lt;NOUN&gt; ::= \"heart\" | \"city\" | \"dreams\" | \"summer\" | \"memories\" | \"night\"\n\n   &lt;PREP&gt; ::= \"in\" | \"of\" | \"for\" | \"at\""
-  },
-  {
-    "objectID": "slides/lecture-26_slides.html#demo",
-    "href": "slides/lecture-26_slides.html#demo",
-    "title": "Closure, NFAs, Grammars",
-    "section": "Demo",
-    "text": "Demo"
-  },
-  {
-    "objectID": "slides/lecture-26_slides.html#a-basic-json-cfg",
-    "href": "slides/lecture-26_slides.html#a-basic-json-cfg",
-    "title": "Closure, NFAs, Grammars",
-    "section": "A Basic JSON CFG",
-    "text": "A Basic JSON CFG\nhttps://www.json.org/json-en.html\nWe ignore lexical details and focus on structure.\n   &lt;Value&gt; ::=  &lt;Object&gt; | &lt;Array&gt; | &lt;String&gt; | &lt;Number&gt; \n             | `true` | `false` | `null`  \n  &lt;Object&gt; ::= `{` &lt;Members&gt; `}` | `{}`  \n &lt;Members&gt; ::= &lt;Pair&gt; | &lt;Pair&gt; `,` &lt;Members&gt; \n    &lt;Pair&gt; ::= &lt;String&gt; `:` &lt;Value&gt;  \n   &lt;Array&gt; ::=  `[` &lt;Elements&gt; `]` | `[]`  \n&lt;Elements&gt; ::= &lt;Value&gt; | &lt;Value&gt; `,` &lt;Elements&gt;\nExample: Is {\"a\":[1,2,{\"b\":null}]} in the language?\n\nPoint: regex can’t enforce balanced, nested delimiters; CFGs can."
-  },
-  {
     "objectID": "slides/lecture-26_slides.html#exercise",
     "href": "slides/lecture-26_slides.html#exercise",
-    "title": "Closure, NFAs, Grammars",
+    "title": "Closure, NFAs",
     "section": "Exercise",
     "text": "Exercise\nBuild a DFA for the union of:\n\nL1: contains 11 (use the machine we built)\nL2: ends with 00 (three states: T, T0, T00)\n\nHint: sketch product states (S_i, T_j) and mark accept pairs for union (or).\n\nL1 is Friday’s Contains 11 (= Machine A 🐝): S0, S1, S2. L2 is Machine B 🐢: T, T0, T00. Nine pairs, seven reachable from the start (S0,T). Never reached: (S1,T0), (S1,T00) (after a 1 we can’t have just seen 0).\n\n\n\nstate\non 0\non 1\naccept?\n\n\n\n\n(S0,T) start\n(S0,T0)\n(S1,T)\n\n\n\n(S0,T0)\n(S0,T00)\n(S1,T)\n\n\n\n(S1,T)\n(S0,T0)\n(S2,T)\n\n\n\n(S0,T00)\n(S0,T00)\n(S1,T)\nyes\n\n\n(S2,T)\n(S2,T0)\n(S2,T)\nyes\n\n\n(S2,T0)\n(S2,T00)\n(S2,T)\nyes\n\n\n(S2,T00)\n(S2,T00)\n(S2,T)\nyes\n\n\n\nOnce in S2 the left half never changes, so the three S2 states could be merged into one accepting state. The union machine needs only 5 states. Product is a recipe, not the smallest machine."
   },
   {
     "objectID": "slides/lecture-26_slides.html#notes-on-nfas",
     "href": "slides/lecture-26_slides.html#notes-on-nfas",
-    "title": "Closure, NFAs, Grammars",
+    "title": "Closure, NFAs",
     "section": "Notes on NFAs",
     "text": "Notes on NFAs\n\nDirect from a regex: Translate patterns piece-by-piece without tricky state discovery.\nLocal “gadgets”: Build tiny NFAs for literal, union (\\(|\\)), concatenation, Kleene star (\\(^*\\)) and wire together with \\(\\varepsilon\\).\nNFAs and DFAs have the same power!! (Kleene’s Theorem)\nBuild a DFA from NFA algorithmically if you need one.\n\n\nMessage: “We model the branching in the regex directly; acceptance means at least one successful path.”"
   },
   {
     "objectID": "slides/lecture-28_slides.html#announcements",
     "href": "slides/lecture-28_slides.html#announcements",
-    "title": "Permutations and Combinations",
+    "title": "Counting Rows: Reshaping Data",
     "section": "Announcements",
     "text": "Announcements"
   },
   {
-    "objectID": "slides/lecture-28_slides.html#warm-up-how-many-outfits",
-    "href": "slides/lecture-28_slides.html#warm-up-how-many-outfits",
-    "title": "Permutations and Combinations",
-    "section": "Warm-Up: How Many Outfits?",
-    "text": "Warm-Up: How Many Outfits?\nQuestion: How many different outfits do you have in your closet?\n \nNo rules, just count.\n\nWhat even counts as an outfit?\nDo shoes matter?\nDo seasons/colors matter?\nAre some combos invalid?\n\nWrite down how you’d start to count, not just an answer."
-  },
-  {
-    "objectID": "slides/lecture-28_slides.html#what-did-you-count",
-    "href": "slides/lecture-28_slides.html#what-did-you-count",
-    "title": "Permutations and Combinations",
-    "section": "What Did You Count?",
-    "text": "What Did You Count?\n\nWhat categories did you use?\nWhat rules did you impose?\n\nKey Idea:\nHow we model outfits (what’s allowed, what’s ignored) changes the counting."
-  },
-  {
-    "objectID": "slides/lecture-28_slides.html#a-simplified-closet-model",
-    "href": "slides/lecture-28_slides.html#a-simplified-closet-model",
-    "title": "Permutations and Combinations",
-    "section": "A Simplified Closet Model",
-    "text": "A Simplified Closet Model\nDefine a wardrobe for the rest of this lesson:\n\n\\(k\\) pairs of shoes\n\\(j\\) pairs of pants\n\\(m\\) skirts\n\\(n\\) shirts\n\\(p\\) dresses\n\nWe’ll choose a model:\n\nAn outfit is either:\n\nshirt + bottom + shoes, where\nbottom is either pants or a skirt\nor a dress + shoes\n\nNo color/style rules: everything in these categories is compatible."
-  },
-  {
-    "objectID": "slides/lecture-28_slides.html#turn-it-into-sets",
-    "href": "slides/lecture-28_slides.html#turn-it-into-sets",
-    "title": "Permutations and Combinations",
-    "section": "Turn It Into Sets",
-    "text": "Turn It Into Sets\nDefine sets of items:\n\n\\(S =\\) set of shoes, \\(|S| = k\\)\n\\(P =\\) set of pants, \\(|P| = j\\)\n\\(K =\\) set of skirts, \\(|K| = m\\)\n\\(T =\\) set of shirts, \\(|T| = n\\)\n\\(D =\\) set of dresses, \\(|D| = p\\)\n\nA bottom is either pants or a skirt:\n\\[\nB = P \\cup K\n\\]\nAssuming no overlap between pants and skirts:\n\\[\n|B| = |P \\cup K| = |P| + |K| = j + m\n\\]"
-  },
-  {
-    "objectID": "slides/lecture-28_slides.html#outfits-of-type-1",
-    "href": "slides/lecture-28_slides.html#outfits-of-type-1",
-    "title": "Permutations and Combinations",
-    "section": "Outfits of Type 1",
-    "text": "Outfits of Type 1\nType 1 outfit: shirt + bottom + shoes\nAs a set of combinations:\n\\[\n\\text{Type1} = S \\times B \\times T\n\\]\nEach outfit is a triple:\n\\[\n(\\text{shoe}, \\text{bottom}, \\text{shirt}) \\in S \\times B \\times T\n\\]\nSo the number of Type 1 outfits is:\n\\[\n|\\text{Type1}| = |S||B||T| = k(j + m)n\n\\]"
-  },
-  {
-    "objectID": "slides/lecture-28_slides.html#outfits-of-type-2",
-    "href": "slides/lecture-28_slides.html#outfits-of-type-2",
-    "title": "Permutations and Combinations",
-    "section": "Outfits of Type 2",
-    "text": "Outfits of Type 2\nType 2 outfit: dress + shoes\nAs a set of combinations:\n\\[\n\\text{Type2} = S \\times D\n\\]\nEach outfit is a pair:\n\\[\n(\\text{shoe}, \\text{dress}) \\in S \\times D\n\\]\nSo the number of Type 2 outfits is:\n\\[\n|\\text{Type2}| = |S||D| = kp\n\\]"
-  },
-  {
-    "objectID": "slides/lecture-28_slides.html#total-number-of-outfits",
-    "href": "slides/lecture-28_slides.html#total-number-of-outfits",
-    "title": "Permutations and Combinations",
-    "section": "Total Number of Outfits",
-    "text": "Total Number of Outfits\nWe’ve partitioned outfits into two disjoint types:\n\nType 1: shirt + bottom + shoes\nType 2: dress + shoes\n\nTotal number of outfits in our model:\n\\[\n\\begin{aligned}\n\\#\\text{outfits}\n&= |\\text{Type1}| + |\\text{Type2}| \\\\\n&= k(j + m)n + kp \\\\\n&= k\\big((j + m)n + p\\big).\n\\end{aligned}\n\\]\nThis matches the informal idea:\n\n“For each pair of shoes, you can choose any (bottom, shirt) combo or any dress.”"
-  },
-  {
-    "objectID": "slides/lecture-28_slides.html#the-product-rule",
-    "href": "slides/lecture-28_slides.html#the-product-rule",
-    "title": "Permutations and Combinations",
-    "section": "The Product Rule",
-    "text": "The Product Rule\nFundamental counting fact:\n\nIf \\(A\\) and \\(B\\) are finite sets, then\n\\[\n|A \\times B| = |A|\\cdot|B|.\n\\]\n\nGeneralizing:\n\nFor sets \\(A_1, A_2, \\dots, A_k\\): \\[\n|A_1 \\times A_2 \\times \\dots \\times A_k| = |A_1| \\cdot |A_2| \\cdot \\dots \\cdot |A_k|.\n\\]\n\nInterpretation:\n\nA choice procedure:\n\nchoose one element from \\(A_1\\),\nthen one from \\(A_2\\), \\(\\ldots\\)\nthen one from \\(A_k\\),\n\nEvery distinct chain of choices is a distinct element of the product set."
-  },
-  {
-    "objectID": "slides/lecture-28_slides.html#wrap-up",
-    "href": "slides/lecture-28_slides.html#wrap-up",
-    "title": "Permutations and Combinations",
-    "section": "Wrap Up",
-    "text": "Wrap Up\nThe combinatorics lesson:\n\nOnce you’ve decided what “counts,” express the valid items as a product of simpler choices.\n\nThis pattern will be used for:\n\npasswords,\nplaylists,\ncommittee selection,\nsampling from datasets,\nand more."
-  },
-  {
     "objectID": "slides/lecture-28_slides.html#warm-up-multiplication-rule",
     "href": "slides/lecture-28_slides.html#warm-up-multiplication-rule",
-    "title": "Permutations and Combinations",
+    "title": "Counting Rows: Reshaping Data",
     "section": "Warm-Up: Multiplication Rule",
-    "text": "Warm-Up: Multiplication Rule\nQuestion:\nWhat happens to the number of rows in a DataFrame when we use pandas.melt()?\n\n\n\n\n\n\n\nThis is a data-science version of the multiplication rule:\nwhen we consider every possible combination of two attributes, the number of possibilities multiplies.\n➡️ We’ll use the same reasoning today — but with people and chairs instead of rows and columns.\n\nNotes:\nUse this to remind students that the multiplication rule already appears in data contexts they know.\nEncourage them to connect this to the idea of enumerating combinations of attributes.\nKeep the demo under 4 minutes — it’s just a bridge to the main activity.\n⏱️ Timing: 3–4 minutes warm-up discussion."
+    "text": "Warm-Up: Multiplication Rule\nQuestion:\nWhat happens to the number of rows in a DataFrame when we use pandas.melt()?\n\n\n\n\n\n\n\nThis is a data-science version of the multiplication rule:\nwhen we consider every possible combination of two attributes, the number of possibilities multiplies.\n➡️ Monday we use the same reasoning with people and chairs instead of rows and columns.\n\nNotes:\nUse this to remind students that the multiplication rule already appears in data contexts they know.\nEncourage them to connect this to the idea of enumerating combinations of attributes.\nKeep the demo under 4 minutes — it’s just a bridge to the main activity.\n⏱️ Timing: 3–4 minutes warm-up discussion."
   },
   {
     "objectID": "slides/lecture-28_slides.html#visualizing-wide-to-long",
     "href": "slides/lecture-28_slides.html#visualizing-wide-to-long",
-    "title": "Permutations and Combinations",
+    "title": "Counting Rows: Reshaping Data",
     "section": "Visualizing Wide to Long",
     "text": "Visualizing Wide to Long\nBefore melting (wide format):\n \n \n \nAfter melting (long format):\n \n \n\n\n\nEach wide row expands into three long rows — one for each temperature.\n\nEach pair (Object, Temperature) is one combination—just like the outfits we counted last time.\n\nThe total number of rows = 4 objects × 3 temperatures = 12 outcomes.\n\n\n\nNotes:\nUse this visual to anchor the idea that melting enumerates combinations explicitly.\nOptional ask: “Where do we see repetition here? What does that tell us about memory use?”\n⏱️ Timing: 3 minutes (interpretation and discussion)"
   },
   {
     "objectID": "slides/lecture-28_slides.html#visualizing-the-mapping-change",
     "href": "slides/lecture-28_slides.html#visualizing-the-mapping-change",
-    "title": "Permutations and Combinations",
+    "title": "Counting Rows: Reshaping Data",
     "section": "Visualizing the Mapping Change",
     "text": "Visualizing the Mapping Change\nBefore melting:\nWe have a function that maps each Object to a tuple of states across temperatures:\n\\[ f:\\ \\text{Object} \\to (\\text{Cold},\\ \\text{Warm},\\ \\text{Hot}) \\]\nExample: \\[ f( \\text{Wicked Witch}) = ( \\text{fine}, \\text{dripping}, \\text{gone?}) \\]\nAfter melting:\nWe redefine the function so that the pair (Object, Temperature) is the input:\n\\[ g: ( \\text{Object}, \\text{Temperature}) \\to \\text{State} \\]\nExample: \\[g( \\text{Wicked Witch}, \\text{Warm}) = \\text{dripping} \\]\nThe input domain has expanded from Objects to Objects × Temperatures. Each input now produces a single scalar output instead of a vector.\nThis is why the melted data get longer — we’ve made all combinations explicit.\n\n\nNotes: Emphasize the structural change: multivariate output → single-valued function on a larger domain. This perspective connects directly to Cartesian products and the multiplication rule.\n⏱️ Timing: 3 minutes for explanation + brief class recap."
   },
   {
     "objectID": "slides/lecture-28_slides.html#how-melting-affects-data-size",
     "href": "slides/lecture-28_slides.html#how-melting-affects-data-size",
-    "title": "Permutations and Combinations",
+    "title": "Counting Rows: Reshaping Data",
     "section": "How Melting Affects Data Size",
     "text": "How Melting Affects Data Size\nWhen we melt data, we don’t add new information — we just make existing information longer and more explicit.\n\n\n\n\n\n\n\n\nFormat\nShape\nDescription\n\n\n\n\nWide\n(4, 4)\nOne row per object; columns for Cold, Warm, Hot\n\n\nLong (Melted)\n(12, 3)\nOne row for each (Object, Temperature) pair\n\n\n\nEffect: The number of rows increases by a factor equal to the number of melted columns.\nEach object’s name and each temperature label are now repeated multiple times.\nMemory tradeoff: Long data are larger in memory but easier to work with for grouping and plotting.\n\n\nPrompt: Why would we use a representation that takes more space?\nWhat’s the parallel to our counting models — when do we expand possibilities to make reasoning easier?\n\n\nNotes:\nEmphasize the connection to the multiplication rule: 4 objects × 3 temperatures = 12 outcomes.\nUse this as a conceptual bridge — from data transformation to counting combinations in the upcoming seating activity.\n⏱️ Timing: 3 minutes for explanation + 1 minute discussion."
-  },
-  {
-    "objectID": "slides/lecture-28_slides.html#a-new-counting-challenge",
-    "href": "slides/lecture-28_slides.html#a-new-counting-challenge",
-    "title": "Permutations and Combinations",
-    "section": "A New Counting Challenge",
-    "text": "A New Counting Challenge\n \nArrange 4 people around a table.\nQuestion:\nHow many different ways can the people be seated?\nDiscuss:\n\nWhat counts as a different arrangement?\n\nWhat information defines one arrangement?\n\n\n\nNotes:\nBegin open-ended — let students debate what counts as a unique arrangement.\nThe goal is for them to build a model of the outcomes before applying counting rules.\nEncourage language like “distinct arrangements,” “rotations,” and “mirror images.”\nThis primes them for the concepts of permutations (order matters) and combinations (order doesn’t).\n⏱️ Timing: 4–5 minutes of pair discussion + 1 minute group debrief. TODO: make “tables with seat numbers” on cardstock"
-  },
-  {
-    "objectID": "slides/lecture-28_slides.html#observing-the-structure",
-    "href": "slides/lecture-28_slides.html#observing-the-structure",
-    "title": "Permutations and Combinations",
-    "section": "Observing the Structure",
-    "text": "Observing the Structure\nLet’s agree on a model for our table:\n\n\n\nSeat 1\nSeat 2\nSeat 3\nSeat 4\n\n\n\n\n?\n?\n?\n?\n\n\n\nEach arrangement can be described as a 4-tuple:\n\n\n(Who’s in seat 1, Who’s in seat 2, Who’s in seat 3, Who’s in seat 4)\n\n \nOur model is the set of all possible 4-tuples with no repeats.\n\n\nNotes:\nLink this back to the closet model from last time: both are built from describing all possible outcomes.\nHere, though, the choices are dependent—once a person is seated, they can’t be chosen again.\nIntroduce the term permutation: each arrangement of distinct objects where order matters.\n⏱️ Timing: 3 minutes setup + 2 minutes partner explanation."
-  },
-  {
-    "objectID": "slides/lecture-28_slides.html#building-an-arrangement",
-    "href": "slides/lecture-28_slides.html#building-an-arrangement",
-    "title": "Permutations and Combinations",
-    "section": "Building an Arrangement",
-    "text": "Building an Arrangement\nHow many choices do we have for each chair?\n\nSeat 1: 4 choices\n\nSeat 2: 3 remaining\n\nSeat 3: 2 remaining\n\nSeat 4: 1 remaining\n\n\\(\\text{Total} = 4 \\times 3 \\times 2 \\times 1 = 24\\) arrangements\nThat’s the multiplication rule — just like outfits, but now the choices depend on previous ones.\n\n\nNotes:\nHighlight that we’re applying the same reasoning pattern as before: define the structure → count each step → multiply.\nEmphasize how dependency reduces the count.\nReinforce vocabulary: these 24 ordered arrangements are permutations of 4 distinct items.\n⏱️ Timing: 4 minutes walkthrough + 2 minutes reflection."
-  },
-  {
-    "objectID": "slides/lecture-28_slides.html#permutations",
-    "href": "slides/lecture-28_slides.html#permutations",
-    "title": "Permutations and Combinations",
-    "section": "Permutations",
-    "text": "Permutations\nA permutation is an arrangement of \\(n\\) distinct objects in a specific order.\n\nOrder matters — changing the order creates a new permutation.\n\nEach permutation corresponds to a unique sequence of choices from the set.\n\nIf there are \\(n\\) distinct objects, then the number of permutations is:\n\\[\nP(n) = n! = n \\times (n-1) \\times (n-2) \\times \\dots \\times 1\n\\]\nExample: Four people can sit in a row in\n\\[\nP(4) = 4! = 24\n\\]\ndifferent ways."
-  },
-  {
-    "objectID": "slides/lecture-28_slides.html#counting-under-rotation",
-    "href": "slides/lecture-28_slides.html#counting-under-rotation",
-    "title": "Permutations and Combinations",
-    "section": "Counting under rotation",
-    "text": "Counting under rotation\nEmbrace the fact that the table is round.\n \nFor any rotation, the group of people is sitting in the same relative order.\nFor each arrangement there are 4 equivalent. Thus we ______________ the total by ______________.\n \nAlternatively we can fix one person’s seat.\nThen the remaining 3 can be arranged freely around the table.\n \nTotal distinct circular seatings: \\((4 − 1)! = 6\\).\n\n\nNotes:\nHave students physically fix one card to visualize duplicate rotations.\nUse the term circular permutation: order still matters, but rotations count as the same.\nAsk: “Why does fixing one position remove all rotations?”\n⏱️ Timing: 5–6 minutes including demonstration."
-  },
-  {
-    "objectID": "slides/lecture-28_slides.html#friendship-bracelets",
-    "href": "slides/lecture-28_slides.html#friendship-bracelets",
-    "title": "Permutations and Combinations",
-    "section": "Friendship Bracelets",
-    "text": "Friendship Bracelets\n \nGiven: 20 beads, each a different color. Make a circular bracelet by threading all 20 beads.\n\n\n20-bead bracelet\n\nTwenty differently colored beads arranged in a circle.                     \n\nQuestion:\nHow many different bracelets can be made?\n\n🧶 Think first:\n- Does rotating the bracelet create something new?\n- What about flipping it over (reflection)?\n💭 Discuss with a partner:\n1. How does this relate to our “round table” reasoning?\n2. What changes when reflections (mirror images) count as the same?\n3. How could we generalize our earlier counting model?\n\n\n\nNotes:\nThis parallels circular permutations, but now students must reason about rotations and reflections together (dihedral symmetry).\nEncourage qualitative reasoning before formulas — the goal is generalization, not numeric computation.\n⏱️ Timing: 5 minutes total (2 think, 2 pair, 1 share)."
-  },
-  {
-    "objectID": "slides/lecture-28_slides.html#choosing-a-committee",
-    "href": "slides/lecture-28_slides.html#choosing-a-committee",
-    "title": "Permutations and Combinations",
-    "section": "Choosing a Committee",
-    "text": "Choosing a Committee\nGoal: From 8 people, form a 3-person committee.\n \nQuestion:\nHow many different committees could we form?\n \nDiscuss:\n\nConsider it a sequence of 3 choices\n\nWhich of those describe the same committee?\n\nHow can we apply what we learned about rotations?\n\n\n💭 Hint: In this model, order doesn’t matter —\nit’s who’s in the committee, not who was picked first.\n\nNotes:\nThis builds on the rotational symmetry reasoning: we’re collapsing multiple ordered arrangements into a single unordered outcome.\nStudents should reason qualitatively that each distinct committee corresponds to several ordered sequences — and we divide by that number.\n⏱️ Timing: 5 minutes total (2 think, 2 pair, 1 share)."
-  },
-  {
-    "objectID": "slides/lecture-28_slides.html#from-choices-to-combinations",
-    "href": "slides/lecture-28_slides.html#from-choices-to-combinations",
-    "title": "Permutations and Combinations",
-    "section": "From Choices to Combinations",
-    "text": "From Choices to Combinations\nModel our 3-person committee.\nIf we make choices one at a time:\n\\[\n8 \\times 7 \\times 6 = 336\n\\]\nThat counts every possible order of picking 3 people.\nBut a committee doesn’t have an order — each group of 3 appears \\(3! = 6\\) times, once for every possible order.\nSo the number of distinct committees is:\n\\[\n\\frac{8 \\times 7 \\times 6}{3!} = 56\n\\]\n\n💡 Model:\nEach unordered committee corresponds to 3! ordered sequences.\n\nNotes:\n- Connect explicitly to the “rotations” reasoning — we’re dividing out symmetry again, this time the order symmetry of identical choices.\n- Encourage students to verbalize what makes two outcomes “the same.”\n- Use this moment to name the new idea: combinations.\n⏱️ Timing: 4 minutes walkthrough + 1 minute class check-in."
-  },
-  {
-    "objectID": "slides/lecture-28_slides.html#combinations",
-    "href": "slides/lecture-28_slides.html#combinations",
-    "title": "Permutations and Combinations",
-    "section": "Combinations",
-    "text": "Combinations\nA combination is a selection of \\(k\\) objects from \\(n\\) where order does not matter.\n\nThe group \\(\\{A, B, C\\}\\) is the same as \\(\\{B, A, C\\}\\).\n\nEach combination represents a unique set of choices.\n\nIf there are \\(n\\) objects and we choose \\(k\\) of them, the number of distinct combinations is:\n\\[\nC(n, k) = \\binom{n}{k} = \\frac{n!}{k!(n-k)!}\n\\]\nExample: Choosing a 3-person committee from 8 people:\n\\[\nC(8, 3) = \\frac{8!}{3!5!} = 56\n\\]\nNote: Each committee is a subset of the 8 people — we ignore order, only membership matters.\n\n\nNotes:\n- Use this to formalize what students discovered in the activity: dividing by the number of equivalent orders.\n- Emphasize the contrast with permutations: same domain, different notion of sameness.\n- Optionally end with: “Next time we’ll see how these appear in binomial coefficients and counting problems.”"
-  },
-  {
-    "objectID": "slides/lecture-28_slides.html#reflection",
-    "href": "slides/lecture-28_slides.html#reflection",
-    "title": "Permutations and Combinations",
-    "section": "Reflection",
-    "text": "Reflection\nCompare the models:\n\n\n\n\n\n\n\n\nScenario\nModel\nOutcome Count\n\n\n\n\nOutfits\n(shoe, pant, shirt)\n\\(|S|\\times|P|\\times|H|\\)\n\n\nSeating\n(seat 1, seat 2, seat 3, seat 4)\n\\(4\\times 3\\times 2\\times 1\\)\n\n\nCircular Seating\n(fix one person)\n\\((4 − 1)! = 6\\)\n\n\nChoosing Guests\n{subset of guests}\n\\(\\binom{4}{k}\\)\n\n\n\n\nAll start by modeling the outcomes carefully before counting.\n\nThe model determines whether order matters.\n\n\n\nNotes:\nPause for synthesis: have students summarize in their own words how the model affects the formula.\nReinforce the difference between permutations (ordered) and combinations (unordered).\n⏱️ Timing: 4–5 minutes for class synthesis."
-  },
-  {
-    "objectID": "slides/lecture-28_slides.html#challenge-putting-it-all-together",
-    "href": "slides/lecture-28_slides.html#challenge-putting-it-all-together",
-    "title": "Permutations and Combinations",
-    "section": "Challenge: Putting It All Together",
-    "text": "Challenge: Putting It All Together\nThere are 8 people, and 4 seats at the round table.\nQuestion: How many distinct arrangements are possible if rotations and reflections count as the same?\nCommunicate: Explain each step of your reasoning.\nGeneralize: What if there are \\(n\\) people and \\(k\\) seats?\n\n💭 Think first. Then compare reasoning with a neighbor.\nWe’ll build the model together and find the count at the end.\n\nNotes:\nEncourage modeling before computation.\nAsk: “How can we anchor the rotations and reflections?”\nExtend gently to dihedral symmetry ideas: we’re dividing out both rotation and flip equivalences.\nEnd with applause for reasoning, not the number.\n⏱️ Timing: 6–8 minutes (think–pair–share + group wrap)."
-  },
-  {
-    "objectID": "slides/lecture-28_slides.html#summary",
-    "href": "slides/lecture-28_slides.html#summary",
-    "title": "Permutations and Combinations",
-    "section": "Summary",
-    "text": "Summary\n\n\n\nConcept\nOrder Matters?\nModel\nEx Count\n\n\n\n\nPermutation\nYes\nOrdered arrangement\n4! = 24\n\n\nCombination\nNo\nUnordered selection\n\\(\\binom{4}{2} = 6\\)\n\n\n\nPunchline:\nCounting always starts with modeling the outcomes.\nOnce we know what counts as “different,” the computation follows.\n\n\nNotes:\nEnd with reflection: “What do we gain by naming these ideas?”\nEncourage them to see permutation and combination as families of counting models, not just formulas.\nOptional: connect to data sampling — rows (ordered) vs. groups (unordered).\n⏱️ Timing: 3–4 minutes as a closing summary."
   },
   {
     "objectID": "slides/lecture-30_slides.html#announcements",
