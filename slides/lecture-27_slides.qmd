@@ -207,6 +207,100 @@ We ignore lexical details and focus on **structure**.
 Point: regex can’t enforce **balanced, nested** delimiters; CFGs can.
 :::
 
+## A Real JSON Document {.smaller}
+
+:::: {.columns}
+::: {.column width="62%"}
+```{.json style="font-size:.75em"}
+{
+  "list": "Top Albums (so far)",
+  "complete": false,
+  "next_update": null,
+  "albums": [
+    {"rank": 1, "artist": "Chappell Roan", "year": 2023,
+     "album": "The Rise and Fall of a Midwest Princess",
+     "songs": [{"title": "Pink Pony Club"}, {"title": "HOT TO GO!"},
+               {"title": "Femininomenon"}]},
+    {"rank": 2, "artist": "Sabrina Carpenter", "year": 2024,
+     "album": "Short n' Sweet",
+     "songs": [{"title": "Espresso"}, {"title": "Please Please Please"},
+               {"title": "Taste"}]},
+    {"rank": 3, "artist": "Olivia Rodrigo", "year": 2023,
+     "album": "GUTS",
+     "songs": [{"title": "vampire"}, {"title": "bad idea right?"}]},
+    {"rank": 4, "artist": "Taylor Swift", "year": 2014,
+     "album": "1989",
+     "songs": [{"title": "Shake It Off"}, {"title": "Blank Space"},
+               {"title": "Style"}, {"title": "Out of the Woods"}]}
+  ]
+}
+```
+:::
+::: {.column width="38%"}
+::: {.card}
+Find an `<Object>`, an `<Array>`, a `<Pair>`, a `<Number>`, `true`/`false`, and `null`.
+:::
+::: {.card}
+Draw the parse tree for one album, down to its `"songs"` array.
+:::
+::: {.card}
+Which rules let an object hold an array of objects?
+:::
+:::
+::::
+
+::: notes
+Every grammar rule shows up: objects inside an array inside an object, numbers (rank, year),
+false, null. The nesting comes from Value → Object | Array, and Object/Array containing Values again.
+That recursion is what no regex can check: the braces and brackets have to balance at every depth.
+Parse tree for one album: Value → Object → { Members } → Pair, Members → ... → Pair "songs" : Value → Array → [ Elements ] → Value → Object → ...
+:::
+
+## From Nested to a Table {.smaller}
+
+Data science lives in tables. `pd.json_normalize` walks the parse tree and flattens it: **one row per song**.
+
+How many rows will the table have? Predict, then run.
+
+```{pyodide}
+import json
+import pandas as pd
+
+doc = json.loads('''{
+  "list": "Top Albums (so far)",
+  "complete": false,
+  "next_update": null,
+  "albums": [
+    {"rank": 1, "artist": "Chappell Roan", "year": 2023,
+     "album": "The Rise and Fall of a Midwest Princess",
+     "songs": [{"title": "Pink Pony Club"}, {"title": "HOT TO GO!"},
+               {"title": "Femininomenon"}]},
+    {"rank": 2, "artist": "Sabrina Carpenter", "year": 2024,
+     "album": "Short n' Sweet",
+     "songs": [{"title": "Espresso"}, {"title": "Please Please Please"},
+               {"title": "Taste"}]},
+    {"rank": 3, "artist": "Olivia Rodrigo", "year": 2023,
+     "album": "GUTS",
+     "songs": [{"title": "vampire"}, {"title": "bad idea right?"}]},
+    {"rank": 4, "artist": "Taylor Swift", "year": 2014,
+     "album": "1989",
+     "songs": [{"title": "Shake It Off"}, {"title": "Blank Space"},
+               {"title": "Style"}, {"title": "Out of the Woods"}]}
+  ]
+}''')
+
+songs = pd.json_normalize(doc["albums"], record_path="songs",
+                          meta=["rank", "artist", "album"])
+print(songs.shape)
+songs
+```
+
+::: notes
+12 rows: 3 + 3 + 2 + 4. The number of rows is a sum over the albums, one term per album:
+that's the sum rule, and it is where counting starts. Each row repeats its album's rank,
+artist and album name, so the flat table is bigger than the JSON (the same thing melt did to rows).
+:::
+
 ## Chomsky Hierarchy (for Data Science) {.smaller}
 
 **Regular languages**
