@@ -258,7 +258,7 @@ Parse tree for one album: Value → Object → { Members } → Pair, Members →
 
 ## From Nested to a Table {.smaller}
 
-Data science lives in tables. `pd.json_normalize` walks the parse tree and flattens it: **one row per song**.
+`pd.json_normalize` walks the parse tree and flattens it: **one row per song**.
 
 How many rows will the table have? Predict, then run.
 
