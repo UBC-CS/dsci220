@@ -539,7 +539,7 @@ eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiaW1wb3J0IGpzb25cbmltcG9y
 <li>Are some combos invalid?</li>
 </ul>
 <p>Write down how you’d <strong>start</strong> to count, not just an answer.</p>
-<countdown-timer id="timer_0fa3a35fa61bbe0515d7900c9e07137d4dbc9e35" minutes="05" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<countdown-timer id="timer_ef689ea4f425f096b7574e57996bdb181885ecb2" minutes="05" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
  </countdown-timer>
 </section>
 <section id="what-did-you-count" class="slide level2 smaller">
@@ -554,6 +554,8 @@ How we <strong>model</strong> outfits (what’s allowed, what’s ignored) chang
 <section id="a-simplified-closet-model" class="slide level2 smaller">
 <h2>A Simplified Closet Model</h2>
 <p>Define a wardrobe for the rest of this lesson:</p>
+<div class="columns">
+<div class="column" style="width:40%;">
 <ul>
 <li><span class="math inline">\(k\)</span> pairs of shoes</li>
 <li><span class="math inline">\(j\)</span> pairs of pants</li>
@@ -561,16 +563,14 @@ How we <strong>model</strong> outfits (what’s allowed, what’s ignored) chang
 <li><span class="math inline">\(n\)</span> shirts</li>
 <li><span class="math inline">\(p\)</span> dresses</li>
 </ul>
-<p>We’ll <strong>choose a model</strong>:</p>
-<ul>
-<li>An outfit is either:
+</div><div class="column" style="width:60%;">
+<p>We’ll <strong>choose a model</strong>. An outfit is either:</p>
 <ol type="1">
-<li><strong>shirt + bottom + shoes</strong>, where<br>
-bottom is either pants or a skirt</li>
+<li><strong>shirt + bottom + shoes</strong>, where bottom is either pants or a skirt</li>
 <li>or a <strong>dress + shoes</strong></li>
-</ol></li>
-<li>No color/style rules: everything in these categories is compatible.</li>
-</ul>
+</ol>
+<p>No color/style rules: everything in these categories is compatible.</p>
+</div></div>
 </section>
 <section id="turn-it-into-sets" class="slide level2 smaller">
 <h2>Turn It Into Sets</h2>
@@ -646,29 +646,21 @@ B = P \cup K
 </section>
 <section id="the-product-rule" class="slide level2 smaller">
 <h2>The Product Rule</h2>
-<p>Fundamental counting fact:</p>
-<blockquote>
-<p>If <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are finite sets, then<br>
-<span class="math display">\[
-|A \times B| = |A|\cdot|B|.
-\]</span></p>
-</blockquote>
-<p>Generalizing:</p>
-<blockquote>
-<p>For sets <span class="math inline">\(A_1, A_2, \dots, A_k\)</span>: <span class="math display">\[
-|A_1 \times A_2 \times \dots \times A_k| = |A_1| \cdot |A_2| \cdot \dots \cdot |A_k|.
-\]</span></p>
-</blockquote>
-<p>Interpretation:</p>
-<ul>
-<li>A <strong>choice procedure</strong>:
+<div class="columns">
+<div class="column" style="width:55%;">
+<p>Fundamental counting fact: if <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are finite sets, then</p>
+<p><span class="math display">\[|A \times B| = |A|\cdot|B|.\]</span></p>
+<p>Generalizing, for sets <span class="math inline">\(A_1, A_2, \dots, A_k\)</span>:</p>
+<p><span class="math display">\[|A_1 \times \dots \times A_k| = |A_1| \cdots |A_k|.\]</span></p>
+</div><div class="column" style="width:45%;">
+<p>Interpretation, a <strong>choice procedure</strong>:</p>
 <ul>
 <li>choose one element from <span class="math inline">\(A_1\)</span>,</li>
 <li>then one from <span class="math inline">\(A_2\)</span>, <span class="math inline">\(\ldots\)</span></li>
-<li>then one from <span class="math inline">\(A_k\)</span>,</li>
-</ul></li>
-<li>Every distinct chain of choices is a distinct element of the product set.</li>
+<li>then one from <span class="math inline">\(A_k\)</span>.</li>
 </ul>
+<p>Every distinct chain of choices is a distinct element of the product set.</p>
+</div></div>
 </section>
 <section id="wrap-up" class="slide level2 smaller">
 <h2>Wrap Up</h2>

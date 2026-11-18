@@ -670,7 +670,7 @@
     "href": "slides/lecture-27_slides.html#a-simplified-closet-model",
     "title": "Grammars and Counting",
     "section": "A Simplified Closet Model",
-    "text": "A Simplified Closet Model\nDefine a wardrobe for the rest of this lesson:\n\n\\(k\\) pairs of shoes\n\\(j\\) pairs of pants\n\\(m\\) skirts\n\\(n\\) shirts\n\\(p\\) dresses\n\nWe’ll choose a model:\n\nAn outfit is either:\n\nshirt + bottom + shoes, where\nbottom is either pants or a skirt\nor a dress + shoes\n\nNo color/style rules: everything in these categories is compatible."
+    "text": "A Simplified Closet Model\nDefine a wardrobe for the rest of this lesson:\n\n\n\n\\(k\\) pairs of shoes\n\\(j\\) pairs of pants\n\\(m\\) skirts\n\\(n\\) shirts\n\\(p\\) dresses\n\n\nWe’ll choose a model. An outfit is either:\n\nshirt + bottom + shoes, where bottom is either pants or a skirt\nor a dress + shoes\n\nNo color/style rules: everything in these categories is compatible."
   },
   {
     "objectID": "slides/lecture-27_slides.html#turn-it-into-sets",
@@ -705,7 +705,7 @@
     "href": "slides/lecture-27_slides.html#the-product-rule",
     "title": "Grammars and Counting",
     "section": "The Product Rule",
-    "text": "The Product Rule\nFundamental counting fact:\n\nIf \\(A\\) and \\(B\\) are finite sets, then\n\\[\n|A \\times B| = |A|\\cdot|B|.\n\\]\n\nGeneralizing:\n\nFor sets \\(A_1, A_2, \\dots, A_k\\): \\[\n|A_1 \\times A_2 \\times \\dots \\times A_k| = |A_1| \\cdot |A_2| \\cdot \\dots \\cdot |A_k|.\n\\]\n\nInterpretation:\n\nA choice procedure:\n\nchoose one element from \\(A_1\\),\nthen one from \\(A_2\\), \\(\\ldots\\)\nthen one from \\(A_k\\),\n\nEvery distinct chain of choices is a distinct element of the product set."
+    "text": "The Product Rule\n\n\nFundamental counting fact: if \\(A\\) and \\(B\\) are finite sets, then\n\\[|A \\times B| = |A|\\cdot|B|.\\]\nGeneralizing, for sets \\(A_1, A_2, \\dots, A_k\\):\n\\[|A_1 \\times \\dots \\times A_k| = |A_1| \\cdots |A_k|.\\]\n\nInterpretation, a choice procedure:\n\nchoose one element from \\(A_1\\),\nthen one from \\(A_2\\), \\(\\ldots\\)\nthen one from \\(A_k\\).\n\nEvery distinct chain of choices is a distinct element of the product set."
   },
   {
     "objectID": "slides/lecture-27_slides.html#wrap-up",
