@@ -435,34 +435,6 @@
     "text": "Announcements"
   },
   {
-    "objectID": "slides/lecture-29_slides.html#a-new-counting-challenge",
-    "href": "slides/lecture-29_slides.html#a-new-counting-challenge",
-    "title": "Permutations, Combinations, Stars and Bars",
-    "section": "A New Counting Challenge",
-    "text": "A New Counting Challenge\n \nArrange 4 people around a table.\nQuestion:\nHow many different ways can the people be seated?\nDiscuss:\n\nWhat counts as a different arrangement?\n\nWhat information defines one arrangement?\n\n\n\nNotes:\nBegin open-ended — let students debate what counts as a unique arrangement.\nThe goal is for them to build a model of the outcomes before applying counting rules.\nEncourage language like “distinct arrangements,” “rotations,” and “mirror images.”\nThis primes them for the concepts of permutations (order matters) and combinations (order doesn’t).\n⏱️ Timing: 4–5 minutes of pair discussion + 1 minute group debrief. TODO: make “tables with seat numbers” on cardstock"
-  },
-  {
-    "objectID": "slides/lecture-29_slides.html#observing-the-structure",
-    "href": "slides/lecture-29_slides.html#observing-the-structure",
-    "title": "Permutations, Combinations, Stars and Bars",
-    "section": "Observing the Structure",
-    "text": "Observing the Structure\nLet’s agree on a model for our table:\n\n\n\nSeat 1\nSeat 2\nSeat 3\nSeat 4\n\n\n\n\n?\n?\n?\n?\n\n\n\nEach arrangement can be described as a 4-tuple:\n\n\n(Who’s in seat 1, Who’s in seat 2, Who’s in seat 3, Who’s in seat 4)\n\n \nOur model is the set of all possible 4-tuples with no repeats.\n\n\nNotes:\nLink this back to the closet model from last time: both are built from describing all possible outcomes.\nHere, though, the choices are dependent—once a person is seated, they can’t be chosen again.\nIntroduce the term permutation: each arrangement of distinct objects where order matters.\n⏱️ Timing: 3 minutes setup + 2 minutes partner explanation."
-  },
-  {
-    "objectID": "slides/lecture-29_slides.html#building-an-arrangement",
-    "href": "slides/lecture-29_slides.html#building-an-arrangement",
-    "title": "Permutations, Combinations, Stars and Bars",
-    "section": "Building an Arrangement",
-    "text": "Building an Arrangement\nHow many choices do we have for each chair?\n\nSeat 1: 4 choices\n\nSeat 2: 3 remaining\n\nSeat 3: 2 remaining\n\nSeat 4: 1 remaining\n\n\\(\\text{Total} = 4 \\times 3 \\times 2 \\times 1 = 24\\) arrangements\nThat’s the multiplication rule — just like outfits, but now the choices depend on previous ones.\n\n\nNotes:\nHighlight that we’re applying the same reasoning pattern as before: define the structure → count each step → multiply.\nEmphasize how dependency reduces the count.\nReinforce vocabulary: these 24 ordered arrangements are permutations of 4 distinct items.\n⏱️ Timing: 4 minutes walkthrough + 2 minutes reflection."
-  },
-  {
-    "objectID": "slides/lecture-29_slides.html#permutations",
-    "href": "slides/lecture-29_slides.html#permutations",
-    "title": "Permutations, Combinations, Stars and Bars",
-    "section": "Permutations",
-    "text": "Permutations\nA permutation is an arrangement of \\(n\\) distinct objects in a specific order.\n\nOrder matters — changing the order creates a new permutation.\n\nEach permutation corresponds to a unique sequence of choices from the set.\n\nIf there are \\(n\\) distinct objects, then the number of permutations is:\n\\[\nP(n) = n! = n \\times (n-1) \\times (n-2) \\times \\dots \\times 1\n\\]\nExample: Four people can sit in a row in\n\\[\nP(4) = 4! = 24\n\\]\ndifferent ways."
-  },
-  {
     "objectID": "slides/lecture-29_slides.html#counting-under-rotation",
     "href": "slides/lecture-29_slides.html#counting-under-rotation",
     "title": "Permutations, Combinations, Stars and Bars",
@@ -3380,37 +3352,65 @@
   {
     "objectID": "slides/lecture-28_slides.html#announcements",
     "href": "slides/lecture-28_slides.html#announcements",
-    "title": "Counting Rows: Reshaping Data",
+    "title": "Reshaping Data, Permutations",
     "section": "Announcements",
     "text": "Announcements"
   },
   {
     "objectID": "slides/lecture-28_slides.html#warm-up-multiplication-rule",
     "href": "slides/lecture-28_slides.html#warm-up-multiplication-rule",
-    "title": "Counting Rows: Reshaping Data",
+    "title": "Reshaping Data, Permutations",
     "section": "Warm-Up: Multiplication Rule",
     "text": "Warm-Up: Multiplication Rule\nQuestion:\nWhat happens to the number of rows in a DataFrame when we use pandas.melt()?\n\n\n\n\n\n\n\nThis is a data-science version of the multiplication rule:\nwhen we consider every possible combination of two attributes, the number of possibilities multiplies.\n➡️ Monday we use the same reasoning with people and chairs instead of rows and columns.\n\nNotes:\nUse this to remind students that the multiplication rule already appears in data contexts they know.\nEncourage them to connect this to the idea of enumerating combinations of attributes.\nKeep the demo under 4 minutes — it’s just a bridge to the main activity.\n⏱️ Timing: 3–4 minutes warm-up discussion."
   },
   {
     "objectID": "slides/lecture-28_slides.html#visualizing-wide-to-long",
     "href": "slides/lecture-28_slides.html#visualizing-wide-to-long",
-    "title": "Counting Rows: Reshaping Data",
+    "title": "Reshaping Data, Permutations",
     "section": "Visualizing Wide to Long",
     "text": "Visualizing Wide to Long\nBefore melting (wide format):\n \n \n \nAfter melting (long format):\n \n \n\n\n\nEach wide row expands into three long rows — one for each temperature.\n\nEach pair (Object, Temperature) is one combination—just like the outfits we counted last time.\n\nThe total number of rows = 4 objects × 3 temperatures = 12 outcomes.\n\n\n\nNotes:\nUse this visual to anchor the idea that melting enumerates combinations explicitly.\nOptional ask: “Where do we see repetition here? What does that tell us about memory use?”\n⏱️ Timing: 3 minutes (interpretation and discussion)"
   },
   {
     "objectID": "slides/lecture-28_slides.html#visualizing-the-mapping-change",
     "href": "slides/lecture-28_slides.html#visualizing-the-mapping-change",
-    "title": "Counting Rows: Reshaping Data",
+    "title": "Reshaping Data, Permutations",
     "section": "Visualizing the Mapping Change",
     "text": "Visualizing the Mapping Change\nBefore melting:\nWe have a function that maps each Object to a tuple of states across temperatures:\n\\[ f:\\ \\text{Object} \\to (\\text{Cold},\\ \\text{Warm},\\ \\text{Hot}) \\]\nExample: \\[ f( \\text{Wicked Witch}) = ( \\text{fine}, \\text{dripping}, \\text{gone?}) \\]\nAfter melting:\nWe redefine the function so that the pair (Object, Temperature) is the input:\n\\[ g: ( \\text{Object}, \\text{Temperature}) \\to \\text{State} \\]\nExample: \\[g( \\text{Wicked Witch}, \\text{Warm}) = \\text{dripping} \\]\nThe input domain has expanded from Objects to Objects × Temperatures. Each input now produces a single scalar output instead of a vector.\nThis is why the melted data get longer — we’ve made all combinations explicit.\n\n\nNotes: Emphasize the structural change: multivariate output → single-valued function on a larger domain. This perspective connects directly to Cartesian products and the multiplication rule.\n⏱️ Timing: 3 minutes for explanation + brief class recap."
   },
   {
     "objectID": "slides/lecture-28_slides.html#how-melting-affects-data-size",
     "href": "slides/lecture-28_slides.html#how-melting-affects-data-size",
-    "title": "Counting Rows: Reshaping Data",
+    "title": "Reshaping Data, Permutations",
     "section": "How Melting Affects Data Size",
     "text": "How Melting Affects Data Size\nWhen we melt data, we don’t add new information — we just make existing information longer and more explicit.\n\n\n\n\n\n\n\n\nFormat\nShape\nDescription\n\n\n\n\nWide\n(4, 4)\nOne row per object; columns for Cold, Warm, Hot\n\n\nLong (Melted)\n(12, 3)\nOne row for each (Object, Temperature) pair\n\n\n\nEffect: The number of rows increases by a factor equal to the number of melted columns.\nEach object’s name and each temperature label are now repeated multiple times.\nMemory tradeoff: Long data are larger in memory but easier to work with for grouping and plotting.\n\n\nPrompt: Why would we use a representation that takes more space?\nWhat’s the parallel to our counting models — when do we expand possibilities to make reasoning easier?\n\n\nNotes:\nEmphasize the connection to the multiplication rule: 4 objects × 3 temperatures = 12 outcomes.\nUse this as a conceptual bridge — from data transformation to counting combinations in the upcoming seating activity.\n⏱️ Timing: 3 minutes for explanation + 1 minute discussion."
+  },
+  {
+    "objectID": "slides/lecture-28_slides.html#a-new-counting-challenge",
+    "href": "slides/lecture-28_slides.html#a-new-counting-challenge",
+    "title": "Reshaping Data, Permutations",
+    "section": "A New Counting Challenge",
+    "text": "A New Counting Challenge\n \nArrange 4 people around a table.\nQuestion:\nHow many different ways can the people be seated?\nDiscuss:\n\nWhat counts as a different arrangement?\n\nWhat information defines one arrangement?\n\n\n\nNotes:\nBegin open-ended — let students debate what counts as a unique arrangement.\nThe goal is for them to build a model of the outcomes before applying counting rules.\nEncourage language like “distinct arrangements,” “rotations,” and “mirror images.”\nThis primes them for the concepts of permutations (order matters) and combinations (order doesn’t).\n⏱️ Timing: 4–5 minutes of pair discussion + 1 minute group debrief. TODO: make “tables with seat numbers” on cardstock"
+  },
+  {
+    "objectID": "slides/lecture-28_slides.html#observing-the-structure",
+    "href": "slides/lecture-28_slides.html#observing-the-structure",
+    "title": "Reshaping Data, Permutations",
+    "section": "Observing the Structure",
+    "text": "Observing the Structure\nLet’s agree on a model for our table:\n\n\n\nSeat 1\nSeat 2\nSeat 3\nSeat 4\n\n\n\n\n?\n?\n?\n?\n\n\n\nEach arrangement can be described as a 4-tuple:\n\n\n(Who’s in seat 1, Who’s in seat 2, Who’s in seat 3, Who’s in seat 4)\n\n \nOur model is the set of all possible 4-tuples with no repeats.\n\n\nNotes:\nLink this back to the closet model from last time: both are built from describing all possible outcomes.\nHere, though, the choices are dependent—once a person is seated, they can’t be chosen again.\nIntroduce the term permutation: each arrangement of distinct objects where order matters.\n⏱️ Timing: 3 minutes setup + 2 minutes partner explanation."
+  },
+  {
+    "objectID": "slides/lecture-28_slides.html#building-an-arrangement",
+    "href": "slides/lecture-28_slides.html#building-an-arrangement",
+    "title": "Reshaping Data, Permutations",
+    "section": "Building an Arrangement",
+    "text": "Building an Arrangement\nHow many choices do we have for each chair?\n\nSeat 1: 4 choices\n\nSeat 2: 3 remaining\n\nSeat 3: 2 remaining\n\nSeat 4: 1 remaining\n\n\\(\\text{Total} = 4 \\times 3 \\times 2 \\times 1 = 24\\) arrangements\nThat’s the multiplication rule — just like outfits, but now the choices depend on previous ones.\n\n\nNotes:\nHighlight that we’re applying the same reasoning pattern as before: define the structure → count each step → multiply.\nEmphasize how dependency reduces the count.\nReinforce vocabulary: these 24 ordered arrangements are permutations of 4 distinct items.\n⏱️ Timing: 4 minutes walkthrough + 2 minutes reflection."
+  },
+  {
+    "objectID": "slides/lecture-28_slides.html#permutations-1",
+    "href": "slides/lecture-28_slides.html#permutations-1",
+    "title": "Reshaping Data, Permutations",
+    "section": "Permutations",
+    "text": "Permutations\nA permutation is an arrangement of \\(n\\) distinct objects in a specific order.\n\nOrder matters — changing the order creates a new permutation.\n\nEach permutation corresponds to a unique sequence of choices from the set.\n\nIf there are \\(n\\) distinct objects, then the number of permutations is:\n\\[\nP(n) = n! = n \\times (n-1) \\times (n-2) \\times \\dots \\times 1\n\\]\nExample: Four people can sit in a row in\n\\[\nP(4) = 4! = 24\n\\]\ndifferent ways."
   },
   {
     "objectID": "slides/lecture-30_slides.html#announcements",

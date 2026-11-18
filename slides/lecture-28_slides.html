@@ -12,7 +12,7 @@
 <script src="../site_libs/quarto-contrib/iconify-3.0.0/iconify-icon.min.js"></script><meta charset="utf-8">
   <meta name="generator" content="quarto-1.11.9">
 
-  <title>{{&lt; var course.full-title &gt;}} – Counting Rows: Reshaping Data</title>
+  <title>{{&lt; var course.full-title &gt;}} – Reshaping Data, Permutations</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -134,10 +134,10 @@
   </style>
   <script type="module" src="../site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
   <link href="../site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
-<meta property="og:title" content="Counting Rows: Reshaping Data – DSCI 220: Discrete Math for Data Science">
+<meta property="og:title" content="Reshaping Data, Permutations – DSCI 220: Discrete Math for Data Science">
 <meta property="og:description" content="Lecture 28, DSCI 220, 2026W1">
 <meta property="og:site_name" content="DSCI 220: Discrete Math for Data Science">
-<meta name="twitter:title" content="Counting Rows: Reshaping Data – DSCI 220: Discrete Math for Data Science">
+<meta name="twitter:title" content="Reshaping Data, Permutations – DSCI 220: Discrete Math for Data Science">
 <meta name="twitter:description" content="Lecture 28, DSCI 220, 2026W1">
 <meta name="twitter:card" content="summary">
 </head>
@@ -146,7 +146,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Counting Rows: Reshaping Data</h1>
+  <h1 class="title">Reshaping Data, Permutations</h1>
   <p class="subtitle">Lecture 28, DSCI 220, 2026W1</p>
 
 <div class="quarto-title-authors">
@@ -323,6 +323,144 @@ Use this as a conceptual bridge — from data transformation to counting combina
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
+</section></section>
+<section>
+<section id="permutations" class="title-slide slide level1 center">
+<h1>Permutations</h1>
+
+</section>
+<section id="a-new-counting-challenge" class="slide level2 activity">
+<h2>A New Counting Challenge</h2>
+<p>&nbsp;</p>
+<p>Arrange 4 people around a table.</p>
+<p><strong>Question:</strong><br>
+How many different ways can the people be seated?</p>
+<p><strong>Discuss:</strong></p>
+<ul>
+<li>What counts as a <em>different</em> arrangement?<br>
+</li>
+<li>What information defines one arrangement?</li>
+</ul>
+<aside class="notes">
+<blockquote>
+<p><strong>Notes:</strong><br>
+Begin open-ended — let students debate what counts as a unique arrangement.<br>
+The goal is for them to <em>build a model</em> of the outcomes before applying counting rules.<br>
+Encourage language like “distinct arrangements,” “rotations,” and “mirror images.”<br>
+This primes them for the concepts of <strong>permutations</strong> (order matters) and <strong>combinations</strong> (order doesn’t).</p>
+<p>⏱️ <em>Timing:</em> 4–5 minutes of pair discussion + 1 minute group debrief. TODO: make “tables with seat numbers” on cardstock</p>
+</blockquote>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="observing-the-structure" class="slide level2 smaller">
+<h2>Observing the Structure</h2>
+<p>Let’s agree on a model for our table:</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: center;">Seat 1</th>
+<th style="text-align: center;">Seat 2</th>
+<th style="text-align: center;">Seat 3</th>
+<th style="text-align: center;">Seat 4</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">?</td>
+<td style="text-align: center;">?</td>
+<td style="text-align: center;">?</td>
+<td style="text-align: center;">?</td>
+</tr>
+</tbody>
+</table>
+Each arrangement can be described as a <strong>4-tuple</strong>:<br>
+
+<center>
+(Who’s in seat 1, Who’s in seat 2, Who’s in seat 3, Who’s in seat 4)
+</center>
+<p>&nbsp;</p>
+<p>Our <em>model</em> is the set of <strong>all possible 4-tuples with no repeats.</strong></p>
+<aside class="notes">
+<blockquote>
+<p><strong>Notes:</strong><br>
+Link this back to the <strong>closet model</strong> from last time: both are built from describing all possible outcomes.<br>
+Here, though, the choices are <em>dependent</em>—once a person is seated, they can’t be chosen again.<br>
+Introduce the term <strong>permutation</strong>: each arrangement of distinct objects where order matters.</p>
+<p>⏱️ <em>Timing:</em> 3 minutes setup + 2 minutes partner explanation.</p>
+</blockquote>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="building-an-arrangement" class="slide level2 smaller">
+<h2>Building an Arrangement</h2>
+<p>How many choices do we have for each chair?</p>
+<ol type="1">
+<li>Seat 1: 4 choices<br>
+</li>
+<li>Seat 2: 3 remaining<br>
+</li>
+<li>Seat 3: 2 remaining<br>
+</li>
+<li>Seat 4: 1 remaining</li>
+</ol>
+<p><span class="math inline">\(\text{Total} = 4 \times 3 \times 2 \times 1 = 24\)</span> <strong>arrangements</strong></p>
+<p>That’s the <strong>multiplication rule</strong> — just like outfits, but now the choices <em>depend</em> on previous ones.</p>
+<aside class="notes">
+<blockquote>
+<p><strong>Notes:</strong><br>
+Highlight that we’re applying the same reasoning pattern as before: define the structure → count each step → multiply.<br>
+Emphasize how dependency reduces the count.<br>
+Reinforce vocabulary: these 24 ordered arrangements are <strong>permutations</strong> of 4 distinct items.</p>
+<p>⏱️ <em>Timing:</em> 4 minutes walkthrough + 2 minutes reflection.</p>
+</blockquote>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="permutations-1" class="slide level2 smaller">
+<h2>Permutations</h2>
+<p>A <strong>permutation</strong> is an <strong>arrangement</strong> of <span class="math inline">\(n\)</span> distinct objects <strong>in a specific order</strong>.</p>
+<ul>
+<li>Order matters — changing the order creates a new permutation.<br>
+</li>
+<li>Each permutation corresponds to a unique <em>sequence of choices</em> from the set.</li>
+</ul>
+<p>If there are <span class="math inline">\(n\)</span> distinct objects, then the number of permutations is:</p>
+<p><span class="math display">\[
+P(n) = n! = n \times (n-1) \times (n-2) \times \dots \times 1
+\]</span></p>
+<p><strong>Example:</strong> Four people can sit in a row in</p>
+<p><span class="math display">\[
+P(4) = 4! = 24
+\]</span></p>
+<p>different ways.</p>
 
 
 <script type="pyodide-data">
