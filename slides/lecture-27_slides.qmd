@@ -247,7 +247,7 @@ Rich cross-field / counting constraints go beyond CFGs, handled by full programm
 
 # Counting
 
-## Warm-Up: How Many Outfits? {.activity}
+## Warm-Up: How Many Outfits? {.activity .smaller}
 
 **Question:** How many different outfits do you have in your closet?
 
@@ -265,7 +265,7 @@ Write down how you’d **start** to count, not just an answer.
 {{< countdown minutes=5 >}}
 
 
-## What Did You Count?
+## What Did You Count? {.smaller}
 
 - What *categories* did you use?  
 
@@ -412,7 +412,7 @@ Interpretation:
 - Every distinct chain of choices is a distinct element of the product set.
 
 
-## Wrap Up 
+## Wrap Up {.smaller}
 
 The *combinatorics* lesson:
 
