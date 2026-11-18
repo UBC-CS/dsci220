@@ -399,13 +399,58 @@ eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiXG5pbXBvcnQgcmFuZG9tXG5c
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
+</section>
+<section id="chomsky-hierarchy-for-data-science" class="slide level2 smaller">
+<h2>Chomsky Hierarchy (for Data Science)</h2>
+<p><strong>Regular languages</strong></p>
+<ul>
+<li>Described by regular expressions, recognized by DFAs/NFAs</li>
+<li>Limited “memory”: patterns like “contains 11”, “ends with tea”, [A-Z]{4}[0-9]{3}</li>
+<li>In DSci: log filters, simple validators, tokenizing text, cleaning CSV-ish formats</li>
+</ul>
+<p><strong>Context-free languages</strong></p>
+<ul>
+<li>Described by context-free grammars (CFGs)</li>
+<li>Handle nested or balanced structure: parentheses, HTML/XML tags, JSON</li>
+<li>In DSci: parsing JSON/YAML, understanding code/configs, defining schemas for nested data</li>
+</ul>
+</section>
+<section id="chomsky-hierarchy-for-data-science-1" class="slide level2 smaller">
+<h2>Chomsky Hierarchy (for Data Science)</h2>
+<p><strong>Context-sensitive languages</strong></p>
+<ul>
+<li>More powerful; can express things like <span class="math inline">\(a^n b^n c^n\)</span></li>
+<li>Capture some agreement constraints in natural language, complex dependencies</li>
+<li>Rarely used explicitly; usually enforced with custom code, type systems, or constraint solvers</li>
+</ul>
+<p><strong>Recursively enumerable languages</strong></p>
+<ul>
+<li>Everything a <em>Turing machine</em> can recognize</li>
+<li>“All computable languages” — but no guarantee we can always decide membership in finite time</li>
+</ul>
+<aside class="notes">
+<p>Data-science takeaway</p>
+<p>Most text / logs / simple formats: regular level (regex &amp; DFAs)</p>
+<p>Most structured nested data (JSON, XML, code): context-free level (CFGs &amp; parsers)</p>
+<p>Rich cross-field / counting constraints go beyond CFGs, handled by full programming languages, SQL engines, or specialized tools</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section></section>
 <section>
 <section id="counting" class="title-slide slide level1 center">
 <h1>Counting</h1>
 
 </section>
-<section id="warm-up-how-many-outfits" class="slide level2 activity">
+<section id="warm-up-how-many-outfits" class="slide level2 activity smaller">
 <h2>Warm-Up: How Many Outfits?</h2>
 <p><strong>Question:</strong> How many different outfits do you have in your closet?</p>
 <p>&nbsp;</p>
@@ -417,10 +462,10 @@ eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiXG5pbXBvcnQgcmFuZG9tXG5c
 <li>Are some combos invalid?</li>
 </ul>
 <p>Write down how you’d <strong>start</strong> to count, not just an answer.</p>
-<countdown-timer id="timer_f1ece40c3045fd5ca164a8f2c46f9403ab4c75bd" minutes="05" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<countdown-timer id="timer_5ccb673b31e93f08cd7a191bbcb144b308e95d0b" minutes="05" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
  </countdown-timer>
 </section>
-<section id="what-did-you-count" class="slide level2">
+<section id="what-did-you-count" class="slide level2 smaller">
 <h2>What Did You Count?</h2>
 <ul>
 <li><p>What <em>categories</em> did you use?</p></li>
@@ -548,7 +593,7 @@ B = P \cup K
 <li>Every distinct chain of choices is a distinct element of the product set.</li>
 </ul>
 </section>
-<section id="wrap-up" class="slide level2">
+<section id="wrap-up" class="slide level2 smaller">
 <h2>Wrap Up</h2>
 <p>The <em>combinatorics</em> lesson:</p>
 <blockquote>
@@ -672,51 +717,6 @@ B = P \cup K
 <section id="your-turn" class="slide level2">
 <h2>Your Turn</h2>
 <p>Create a Grammar for <span class="math inline">\(L = \{a^nb^nc^n, n\geq 0\}\)</span></p>
-</section>
-<section id="chomsky-hierarchy-for-data-science" class="slide level2 smaller">
-<h2>Chomsky Hierarchy (for Data Science)</h2>
-<p><strong>Regular languages</strong></p>
-<ul>
-<li>Described by regular expressions, recognized by DFAs/NFAs</li>
-<li>Limited “memory”: patterns like “contains 11”, “ends with tea”, [A-Z]{4}[0-9]{3}</li>
-<li>In DSci: log filters, simple validators, tokenizing text, cleaning CSV-ish formats</li>
-</ul>
-<p><strong>Context-free languages</strong></p>
-<ul>
-<li>Described by context-free grammars (CFGs)</li>
-<li>Handle nested or balanced structure: parentheses, HTML/XML tags, JSON</li>
-<li>In DSci: parsing JSON/YAML, understanding code/configs, defining schemas for nested data</li>
-</ul>
-</section>
-<section id="chomsky-hierarchy-for-data-science-1" class="slide level2 smaller">
-<h2>Chomsky Hierarchy (for Data Science)</h2>
-<p><strong>Context-sensitive languages</strong></p>
-<ul>
-<li>More powerful; can express things like <span class="math inline">\(a^n b^n c^n\)</span></li>
-<li>Capture some agreement constraints in natural language, complex dependencies</li>
-<li>Rarely used explicitly; usually enforced with custom code, type systems, or constraint solvers</li>
-</ul>
-<p><strong>Recursively enumerable languages</strong></p>
-<ul>
-<li>Everything a <em>Turing machine</em> can recognize</li>
-<li>“All computable languages” — but no guarantee we can always decide membership in finite time</li>
-</ul>
-<aside class="notes">
-<p>Data-science takeaway</p>
-<p>Most text / logs / simple formats: regular level (regex &amp; DFAs)</p>
-<p>Most structured nested data (JSON, XML, code): context-free level (CFGs &amp; parsers)</p>
-<p>Rich cross-field / counting constraints go beyond CFGs, handled by full programming languages, SQL engines, or specialized tools</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 
 
 <script type="pyodide-data">

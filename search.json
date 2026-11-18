@@ -624,6 +624,20 @@
     "text": "A Basic JSON CFG\nhttps://www.json.org/json-en.html\nWe ignore lexical details and focus on structure.\n   &lt;Value&gt; ::=  &lt;Object&gt; | &lt;Array&gt; | &lt;String&gt; | &lt;Number&gt; \n             | `true` | `false` | `null`  \n  &lt;Object&gt; ::= `{` &lt;Members&gt; `}` | `{}`  \n &lt;Members&gt; ::= &lt;Pair&gt; | &lt;Pair&gt; `,` &lt;Members&gt; \n    &lt;Pair&gt; ::= &lt;String&gt; `:` &lt;Value&gt;  \n   &lt;Array&gt; ::=  `[` &lt;Elements&gt; `]` | `[]`  \n&lt;Elements&gt; ::= &lt;Value&gt; | &lt;Value&gt; `,` &lt;Elements&gt;\nExample: Is {\"a\":[1,2,{\"b\":null}]} in the language?\n\nPoint: regex can’t enforce balanced, nested delimiters; CFGs can."
   },
   {
+    "objectID": "slides/lecture-27_slides.html#chomsky-hierarchy-for-data-science",
+    "href": "slides/lecture-27_slides.html#chomsky-hierarchy-for-data-science",
+    "title": "Grammars and Counting",
+    "section": "Chomsky Hierarchy (for Data Science)",
+    "text": "Chomsky Hierarchy (for Data Science)\nRegular languages\n\nDescribed by regular expressions, recognized by DFAs/NFAs\nLimited “memory”: patterns like “contains 11”, “ends with tea”, [A-Z]{4}[0-9]{3}\nIn DSci: log filters, simple validators, tokenizing text, cleaning CSV-ish formats\n\nContext-free languages\n\nDescribed by context-free grammars (CFGs)\nHandle nested or balanced structure: parentheses, HTML/XML tags, JSON\nIn DSci: parsing JSON/YAML, understanding code/configs, defining schemas for nested data"
+  },
+  {
+    "objectID": "slides/lecture-27_slides.html#chomsky-hierarchy-for-data-science-1",
+    "href": "slides/lecture-27_slides.html#chomsky-hierarchy-for-data-science-1",
+    "title": "Grammars and Counting",
+    "section": "Chomsky Hierarchy (for Data Science)",
+    "text": "Chomsky Hierarchy (for Data Science)\nContext-sensitive languages\n\nMore powerful; can express things like \\(a^n b^n c^n\\)\nCapture some agreement constraints in natural language, complex dependencies\nRarely used explicitly; usually enforced with custom code, type systems, or constraint solvers\n\nRecursively enumerable languages\n\nEverything a Turing machine can recognize\n“All computable languages” — but no guarantee we can always decide membership in finite time\n\n\nData-science takeaway\nMost text / logs / simple formats: regular level (regex & DFAs)\nMost structured nested data (JSON, XML, code): context-free level (CFGs & parsers)\nRich cross-field / counting constraints go beyond CFGs, handled by full programming languages, SQL engines, or specialized tools"
+  },
+  {
     "objectID": "slides/lecture-27_slides.html#warm-up-how-many-outfits",
     "href": "slides/lecture-27_slides.html#warm-up-how-many-outfits",
     "title": "Grammars and Counting",
@@ -734,20 +748,6 @@
     "title": "Grammars and Counting",
     "section": "Your Turn",
     "text": "Your Turn\nCreate a Grammar for \\(L = \\{a^nb^nc^n, n\\geq 0\\}\\)"
-  },
-  {
-    "objectID": "slides/lecture-27_slides.html#chomsky-hierarchy-for-data-science",
-    "href": "slides/lecture-27_slides.html#chomsky-hierarchy-for-data-science",
-    "title": "Grammars and Counting",
-    "section": "Chomsky Hierarchy (for Data Science)",
-    "text": "Chomsky Hierarchy (for Data Science)\nRegular languages\n\nDescribed by regular expressions, recognized by DFAs/NFAs\nLimited “memory”: patterns like “contains 11”, “ends with tea”, [A-Z]{4}[0-9]{3}\nIn DSci: log filters, simple validators, tokenizing text, cleaning CSV-ish formats\n\nContext-free languages\n\nDescribed by context-free grammars (CFGs)\nHandle nested or balanced structure: parentheses, HTML/XML tags, JSON\nIn DSci: parsing JSON/YAML, understanding code/configs, defining schemas for nested data"
-  },
-  {
-    "objectID": "slides/lecture-27_slides.html#chomsky-hierarchy-for-data-science-1",
-    "href": "slides/lecture-27_slides.html#chomsky-hierarchy-for-data-science-1",
-    "title": "Grammars and Counting",
-    "section": "Chomsky Hierarchy (for Data Science)",
-    "text": "Chomsky Hierarchy (for Data Science)\nContext-sensitive languages\n\nMore powerful; can express things like \\(a^n b^n c^n\\)\nCapture some agreement constraints in natural language, complex dependencies\nRarely used explicitly; usually enforced with custom code, type systems, or constraint solvers\n\nRecursively enumerable languages\n\nEverything a Turing machine can recognize\n“All computable languages” — but no guarantee we can always decide membership in finite time\n\n\nData-science takeaway\nMost text / logs / simple formats: regular level (regex & DFAs)\nMost structured nested data (JSON, XML, code): context-free level (CFGs & parsers)\nRich cross-field / counting constraints go beyond CFGs, handled by full programming languages, SQL engines, or specialized tools"
   },
   {
     "objectID": "slides/lecture-25_slides.html#announcements",
