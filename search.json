@@ -624,6 +624,20 @@
     "text": "A Basic JSON CFG\nhttps://www.json.org/json-en.html\nWe ignore lexical details and focus on structure.\n   &lt;Value&gt; ::=  &lt;Object&gt; | &lt;Array&gt; | &lt;String&gt; | &lt;Number&gt; \n             | `true` | `false` | `null`  \n  &lt;Object&gt; ::= `{` &lt;Members&gt; `}` | `{}`  \n &lt;Members&gt; ::= &lt;Pair&gt; | &lt;Pair&gt; `,` &lt;Members&gt; \n    &lt;Pair&gt; ::= &lt;String&gt; `:` &lt;Value&gt;  \n   &lt;Array&gt; ::=  `[` &lt;Elements&gt; `]` | `[]`  \n&lt;Elements&gt; ::= &lt;Value&gt; | &lt;Value&gt; `,` &lt;Elements&gt;\nExample: Is {\"a\":[1,2,{\"b\":null}]} in the language?\n\nPoint: regex can’t enforce balanced, nested delimiters; CFGs can."
   },
   {
+    "objectID": "slides/lecture-27_slides.html#a-real-json-document",
+    "href": "slides/lecture-27_slides.html#a-real-json-document",
+    "title": "Grammars and Counting",
+    "section": "A Real JSON Document",
+    "text": "A Real JSON Document\n\n\n{\n  \"list\": \"Top Albums (so far)\",\n  \"complete\": false,\n  \"next_update\": null,\n  \"albums\": [\n    {\"rank\": 1, \"artist\": \"Chappell Roan\", \"year\": 2023,\n     \"album\": \"The Rise and Fall of a Midwest Princess\",\n     \"songs\": [{\"title\": \"Pink Pony Club\"}, {\"title\": \"HOT TO GO!\"},\n               {\"title\": \"Femininomenon\"}]},\n    {\"rank\": 2, \"artist\": \"Sabrina Carpenter\", \"year\": 2024,\n     \"album\": \"Short n' Sweet\",\n     \"songs\": [{\"title\": \"Espresso\"}, {\"title\": \"Please Please Please\"},\n               {\"title\": \"Taste\"}]},\n    {\"rank\": 3, \"artist\": \"Olivia Rodrigo\", \"year\": 2023,\n     \"album\": \"GUTS\",\n     \"songs\": [{\"title\": \"vampire\"}, {\"title\": \"bad idea right?\"}]},\n    {\"rank\": 4, \"artist\": \"Taylor Swift\", \"year\": 2014,\n     \"album\": \"1989\",\n     \"songs\": [{\"title\": \"Shake It Off\"}, {\"title\": \"Blank Space\"},\n               {\"title\": \"Style\"}, {\"title\": \"Out of the Woods\"}]}\n  ]\n}\n\n\nFind an &lt;Object&gt;, an &lt;Array&gt;, a &lt;Pair&gt;, a &lt;Number&gt;, true/false, and null.\n\n\nDraw the parse tree for one album, down to its \"songs\" array.\n\n\nWhich rules let an object hold an array of objects?\n\n\n\nEvery grammar rule shows up: objects inside an array inside an object, numbers (rank, year), false, null. The nesting comes from Value → Object | Array, and Object/Array containing Values again. That recursion is what no regex can check: the braces and brackets have to balance at every depth. Parse tree for one album: Value → Object → { Members } → Pair, Members → … → Pair “songs” : Value → Array → [ Elements ] → Value → Object → …"
+  },
+  {
+    "objectID": "slides/lecture-27_slides.html#from-nested-to-a-table",
+    "href": "slides/lecture-27_slides.html#from-nested-to-a-table",
+    "title": "Grammars and Counting",
+    "section": "From Nested to a Table",
+    "text": "From Nested to a Table\npd.json_normalize walks the parse tree and flattens it: one row per song.\nHow many rows will the table have? Predict, then run.\n\n\n\n\n\n\n\n12 rows: 3 + 3 + 2 + 4. The number of rows is a sum over the albums, one term per album: that’s the sum rule, and it is where counting starts. Each row repeats its album’s rank, artist and album name, so the flat table is bigger than the JSON (the same thing melt did to rows)."
+  },
+  {
     "objectID": "slides/lecture-27_slides.html#chomsky-hierarchy-for-data-science",
     "href": "slides/lecture-27_slides.html#chomsky-hierarchy-for-data-science",
     "title": "Grammars and Counting",
