@@ -12,7 +12,7 @@
 <script src="../site_libs/quarto-contrib/iconify-3.0.0/iconify-icon.min.js"></script><meta charset="utf-8">
   <meta name="generator" content="quarto-1.11.9">
 
-  <title>{{&lt; var course.full-title &gt;}}---Accessibility version – Reshaping Data, Permutations, Combinations</title>
+  <title>{{&lt; var course.full-title &gt;}}---Accessibility version – The Chomsky Hierarchy</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -134,10 +134,10 @@
   </style>
   <script type="module" src="../site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
   <link href="../site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
-<meta property="og:title" content="Reshaping Data, Permutations, Combinations – DSCI 220: Discrete Math for Data Science—Accessibility version">
+<meta property="og:title" content="The Chomsky Hierarchy – DSCI 220: Discrete Math for Data Science—Accessibility version">
 <meta property="og:description" content="Lecture 28, DSCI 220, 2026W1">
 <meta property="og:site_name" content="DSCI 220: Discrete Math for Data Science—Accessibility version">
-<meta name="twitter:title" content="Reshaping Data, Permutations, Combinations – DSCI 220: Discrete Math for Data Science—Accessibility version">
+<meta name="twitter:title" content="The Chomsky Hierarchy – DSCI 220: Discrete Math for Data Science—Accessibility version">
 <meta name="twitter:description" content="Lecture 28, DSCI 220, 2026W1">
 <meta name="twitter:card" content="summary">
 </head>
@@ -146,7 +146,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Reshaping Data, Permutations, Combinations</h1>
+  <h1 class="title">The Chomsky Hierarchy</h1>
   <p class="subtitle">Lecture 28, DSCI 220, 2026W1</p>
 
 <div class="quarto-title-authors">
@@ -164,393 +164,43 @@
 </style>
 </section>
 <section>
-<section id="counting-rows" class="title-slide slide level1 center">
-<h1>Counting Rows</h1>
+<section id="review-which-machine-for-which-language" class="title-slide slide level1 center">
+<h1>Review: Which Machine for Which Language?</h1>
 
 </section>
-<section id="warm-up-multiplication-rule" class="slide level2 smaller">
-<h2>Warm-Up: Multiplication Rule</h2>
-<p><strong>Question:</strong><br>
-What happens to the number of rows in a DataFrame when we use <code>pandas.melt()</code>?</p>
-<div>
-<div id="pyodide-1" class="exercise-cell">
-
-</div>
-<script type="pyodide-1-contents">
-eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiaW1wb3J0IHBhbmRhcyBhcyBwZFxuXG5kZiA9IHBkLkRhdGFGcmFtZSh7XG4gICAgXCJPYmplY3RcIjogW1wiSWNlIENyZWFtXCIsIFwiQ2FuZGxlXCIsIFwiQ2hvY29sYXRlXCIsIFwiV2lja2VkIFdpdGNoXCJdLFxuICAgIFwiQ29sZFwiOiBbXCJzb2xpZFwiLCBcInNvbGlkXCIsIFwic29saWRcIiwgXCJmaW5lXCJdLFxuICAgIFwiV2FybVwiOiBbXCJld1wiLCBcInNvbGlkXCIsIFwic29mdFwiLCBcImRyaXBweVwiXSxcbiAgICBcIkhvdFwiOiBbXCJwdWRkbGVcIiwgXCJsaXF1aWRcIiwgXCJnb29cIiwgXCJnb25lP1wiXVxufSlcblxucHJpbnQoZGYuc2hhcGUpICAgIyAoNCwgNClcblxubWVsdGVkID0gZGYubWVsdChpZF92YXJzPVwiT2JqZWN0XCIsIHZhcl9uYW1lPVwiVGVtcGVyYXR1cmVcIiwgdmFsdWVfbmFtZT1cIlN0YXRlXCIpXG5wcmludChtZWx0ZWQuc2hhcGUpICAjICgxMiwgMykifQ==
-</script>
-</div>
-<aside class="notes">
-<p>This is a <em>data-science version</em> of the <strong>multiplication rule</strong>:<br>
-when we consider every possible combination of two attributes, the number of possibilities multiplies.</p>
-<p>➡️ Next we use the same reasoning with <em>songs in a playlist</em> instead of rows and columns.</p>
-<blockquote>
-<p><strong>Notes:</strong><br>
-Use this to remind students that the multiplication rule already appears in data contexts they know.<br>
-Encourage them to connect this to the idea of enumerating combinations of attributes.<br>
-Keep the demo under 4 minutes — it’s just a bridge to the main activity.</p>
-<p>⏱️ <em>Timing:</em> 3–4 minutes warm-up discussion.</p>
-</blockquote>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="visualizing-wide-to-long" class="slide level2 smaller">
-<h2>Visualizing Wide to Long</h2>
-<p><strong>Before melting (wide format):</strong></p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p><strong>After melting (long format):</strong></p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p><br>
-</p>
+<section id="chomsky-hierarchy-for-data-science" class="slide level2 smaller">
+<h2>Chomsky Hierarchy (for Data Science)</h2>
+<p><strong>Regular languages</strong></p>
 <ul>
-<li>Each wide row expands into three long rows — one for each temperature.<br>
-</li>
-<li>Each pair (Object, Temperature) is one <strong>combination</strong>—just like the outfits we counted last time.<br>
-</li>
-<li>The total number of rows = 4 objects × 3 temperatures = <strong>12 outcomes.</strong></li>
+<li>Described by regular expressions, recognized by DFAs/NFAs</li>
+<li>Limited “memory”: patterns like “contains 11”, “ends with tea”, [A-Z]{4}[0-9]{3}</li>
+<li>In DSci: log filters, simple validators, tokenizing text, cleaning CSV-ish formats</li>
+</ul>
+<p><strong>Context-free languages</strong></p>
+<ul>
+<li>Described by context-free grammars (CFGs)</li>
+<li>Handle nested or balanced structure: parentheses, HTML/XML tags, JSON</li>
+<li>In DSci: parsing JSON/YAML, understanding code/configs, defining schemas for nested data</li>
+</ul>
+</section>
+<section id="chomsky-hierarchy-for-data-science-1" class="slide level2 smaller">
+<h2>Chomsky Hierarchy (for Data Science)</h2>
+<p><strong>Context-sensitive languages</strong></p>
+<ul>
+<li>More powerful; can express things like <span class="math inline">\(a^n b^n c^n\)</span></li>
+<li>Capture some agreement constraints in natural language, complex dependencies</li>
+<li>Rarely used explicitly; usually enforced with custom code, type systems, or constraint solvers</li>
+</ul>
+<p><strong>Recursively enumerable languages</strong></p>
+<ul>
+<li>Everything a <em>Turing machine</em> can recognize</li>
+<li>“All computable languages” — but no guarantee we can always decide membership in finite time</li>
 </ul>
 <aside class="notes">
-<blockquote>
-<p><strong>Notes:</strong><br>
-Use this visual to anchor the idea that melting enumerates combinations explicitly.<br>
-Optional ask: “Where do we see repetition here? What does that tell us about memory use?”</p>
-<p>⏱️ <em>Timing:</em> 3 minutes (interpretation and discussion)</p>
-</blockquote>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="visualizing-the-mapping-change" class="slide level2 smaller">
-<h2>Visualizing the Mapping Change</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p><strong>Before melting:</strong></p>
-<p>A function maps each <strong>Object</strong> to a <em>tuple of states</em> across temperatures:</p>
-<p><span class="math display">\[ f:\ \text{Object} \to (\text{Cold},\ \text{Warm},\ \text{Hot}) \]</span></p>
-<p>Example: <span class="math display">\[ f( \text{Wicked Witch}) = ( \text{fine}, \text{drippy}, \text{gone?}) \]</span></p>
-</div><div class="column" style="width:50%;">
-<p><strong>After melting:</strong></p>
-<p>The <em>pair</em> (Object, Temperature) is the input:</p>
-<p><span class="math display">\[ g: ( \text{Object}, \text{Temperature}) \to \text{State} \]</span></p>
-<p>Example: <span class="math display">\[g( \text{Wicked Witch}, \text{Warm}) = \text{drippy} \]</span></p>
-</div></div>
-<p>The input domain has expanded from <strong>Objects</strong> to <strong>Objects × Temperatures</strong>. Each input now produces a single scalar output instead of a vector.</p>
-<p>This is why the melted data get longer — we’ve made all combinations explicit.</p>
-<aside class="notes">
-<blockquote>
-<p><strong>Notes:</strong> Emphasize the structural change: multivariate output → single-valued function on a larger domain. This perspective connects directly to <strong>Cartesian products</strong> and the <strong>multiplication rule</strong>.</p>
-<p>⏱️ <em>Timing:</em> 3 minutes for explanation + brief class recap.</p>
-</blockquote>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="how-melting-affects-data-size" class="slide level2 smaller">
-<h2>How Melting Affects Data Size</h2>
-<p>When we <strong>melt</strong> data, we don’t add new information — we just make existing information longer and more explicit.</p>
-<table class="caption-top">
-<colgroup>
-<col style="width: 30%">
-<col style="width: 26%">
-<col style="width: 43%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Format</th>
-<th>Shape</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>Wide</strong></td>
-<td>(4, 4)</td>
-<td>One row per object; columns for Cold, Warm, Hot</td>
-</tr>
-<tr class="even">
-<td><strong>Long (Melted)</strong></td>
-<td>(12, 3)</td>
-<td>One row for each (Object, Temperature) pair</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Effect:</strong> The number of rows increases by a <em>factor</em> equal to the number of melted columns.<br>
-Each object’s name and each temperature label are now repeated multiple times.</p>
-<p><em>Memory tradeoff</em>: Long data are larger in memory but easier to work with for grouping and plotting.</p>
-<aside class="notes">
-<blockquote>
-<p><strong>Prompt:</strong> Why would we use a representation that takes more space?<br>
-What’s the parallel to our counting models — when do we <em>expand</em> possibilities to make reasoning easier?</p>
-</blockquote>
-<blockquote>
-<p><strong>Notes:</strong><br>
-Emphasize the connection to the multiplication rule: 4 objects × 3 temperatures = 12 outcomes.<br>
-Use this as a conceptual bridge — from data transformation to counting combinations in the upcoming seating activity.</p>
-<p>⏱️ <em>Timing:</em> 3 minutes for explanation + 1 minute discussion.</p>
-</blockquote>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section></section>
-<section>
-<section id="permutations" class="title-slide slide level1 center">
-<h1>Permutations</h1>
-
-</section>
-<section id="a-new-counting-challenge" class="slide level2 activity">
-<h2>A New Counting Challenge</h2>
-<p>&nbsp;</p>
-<p>Make a playlist from 4 songs: “Espresso”, “vampire”, “Taste”, and “Style”. Every song plays exactly once.</p>
-<p><strong>Question:</strong><br>
-How many different playlists are there?</p>
-<p><strong>Discuss:</strong></p>
-<ul>
-<li>What counts as a <em>different</em> playlist?<br>
-</li>
-<li>What information defines one playlist?</li>
-</ul>
-<aside class="notes">
-<blockquote>
-<p><strong>Notes:</strong><br>
-Begin open-ended: let students say what makes two playlists different (the order).<br>
-The goal is for them to <em>build a model</em> of the outcomes before applying counting rules.<br>
-This primes them for <strong>permutations</strong> (order matters) and later <strong>combinations</strong> (order doesn’t).</p>
-<p>⏱️ <em>Timing:</em> 3–4 minutes of pair discussion + 1 minute group debrief.</p>
-</blockquote>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="observing-the-structure" class="slide level2 smaller">
-<h2>Observing the Structure</h2>
-<p>Let’s agree on a model for a playlist:</p>
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th style="text-align: center;">1st</th>
-<th style="text-align: center;">2nd</th>
-<th style="text-align: center;">3rd</th>
-<th style="text-align: center;">4th</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">?</td>
-<td style="text-align: center;">?</td>
-<td style="text-align: center;">?</td>
-<td style="text-align: center;">?</td>
-</tr>
-</tbody>
-</table>
-Each playlist can be described as a <strong>4-tuple</strong>:<br>
-
-<center>
-(1st song, 2nd song, 3rd song, 4th song)
-</center>
-<p>&nbsp;</p>
-<p>Our <em>model</em> is the set of <strong>all possible 4-tuples with no repeats.</strong></p>
-<aside class="notes">
-<blockquote>
-<p><strong>Notes:</strong><br>
-Link this back to the <strong>closet model</strong>: both are built from describing all possible outcomes.<br>
-Here, though, the choices are <em>dependent</em>: once a song is used, it can’t be chosen again.<br>
-Introduce the term <strong>permutation</strong>: each arrangement of distinct objects where order matters.</p>
-<p>⏱️ <em>Timing:</em> 3 minutes setup + 2 minutes partner explanation.</p>
-</blockquote>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="building-an-arrangement" class="slide level2 smaller">
-<h2>Building an Arrangement</h2>
-<p>How many choices do we have for each slot?</p>
-<ol type="1">
-<li>1st song: 4 choices<br>
-</li>
-<li>2nd song: 3 remaining<br>
-</li>
-<li>3rd song: 2 remaining<br>
-</li>
-<li>4th song: 1 remaining</li>
-</ol>
-<p><span class="math inline">\(\text{Total} = 4 \times 3 \times 2 \times 1 = 24\)</span> <strong>playlists</strong></p>
-<p>That’s the <strong>multiplication rule</strong>, just like outfits, but now the choices <em>depend</em> on previous ones.</p>
-<aside class="notes">
-<blockquote>
-<p><strong>Notes:</strong><br>
-Same reasoning pattern as before: define the structure → count each step → multiply.<br>
-The number of choices shrinks at each step, but it is always 4, then 3, … no matter which songs came first. That’s what makes the product rule still work.<br>
-Reinforce vocabulary: these 24 orderings are <strong>permutations</strong> of 4 distinct items.</p>
-<p>⏱️ <em>Timing:</em> 4 minutes walkthrough + 2 minutes reflection.</p>
-</blockquote>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="permutations-1" class="slide level2 smaller">
-<h2>Permutations</h2>
-<p>A <strong>permutation</strong> is an <strong>arrangement</strong> of <span class="math inline">\(n\)</span> distinct objects <strong>in a specific order</strong>.</p>
-<ul>
-<li>Order matters — changing the order creates a new permutation.<br>
-</li>
-<li>Each permutation corresponds to a unique <em>sequence of choices</em> from the set.</li>
-</ul>
-<p>If there are <span class="math inline">\(n\)</span> distinct objects, then the number of permutations is:</p>
-<p><span class="math display">\[
-P(n) = n! = n \times (n-1) \times (n-2) \times \dots \times 1
-\]</span></p>
-<p><strong>Example:</strong> Four songs can be put in a playlist in</p>
-<p><span class="math display">\[
-P(4) = 4! = 24
-\]</span></p>
-<p>different ways.</p>
-</section>
-<section id="shorter-playlists" class="slide level2 smaller">
-<h2>Shorter Playlists</h2>
-<p>Now there are <strong>10</strong> songs, and the playlist has room for only <strong>3</strong>.</p>
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th style="text-align: center;">1st</th>
-<th style="text-align: center;">2nd</th>
-<th style="text-align: center;">3rd</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">?</td>
-<td style="text-align: center;">?</td>
-<td style="text-align: center;">?</td>
-</tr>
-</tbody>
-</table>
-<p>How many choices for each slot?</p>
-<p><span class="math display">\[10 \times 9 \times 8 = 720 \text{ playlists}\]</span></p>
-<p>This is <span class="math inline">\(\dfrac{10!}{7!}\)</span>: start like <span class="math inline">\(10!\)</span>, and stop after 3 slots.</p>
-<aside class="notes">
-<p>In general, an ordered list of k things chosen from n, no repeats: n(n−1)···(n−k+1) = n!/(n−k)!. Some books write P(n, k). The 7! cancels the choices we never made (slots 4 through 10). Pause and try: a 2-song playlist from 5 songs? 5 × 4 = 20.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section></section>
-<section>
-<section id="combinations" class="title-slide slide level1 center">
-<h1>Combinations</h1>
-
-</section>
-<section id="choosing-not-ordering" class="slide level2 smaller">
-<h2>Choosing, Not Ordering</h2>
-<p>From the same 10 songs, choose <strong>3 to download</strong>. Now the order doesn’t matter: downloading {Espresso, Taste, Style} is the same as {Style, Espresso, Taste}.</p>
-<p>&nbsp;</p>
-<p>Each set of 3 songs shows up in the 720 playlists how many times?</p>
-<p>&nbsp;</p>
-<p>So the number of different downloads is <span class="math display">\[\frac{720}{\boxed{\phantom{00}}} = \boxed{\phantom{00}}\]</span></p>
-<aside class="notes">
-<p>Each set of 3 songs can be ordered 3! = 6 ways, so it appears 6 times among the 720 playlists. 720 / 6 = 120 downloads. This is the key move: count ordered, then divide by the number of orders of each group.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="combinations-1" class="slide level2 smaller">
-<h2>Combinations</h2>
-<p>A <strong>combination</strong> is a <strong>selection</strong> of <span class="math inline">\(k\)</span> objects from <span class="math inline">\(n\)</span> where <strong>order does not matter</strong>.</p>
-<ul>
-<li>The group <span class="math inline">\(\{A, B, C\}\)</span> is the same as <span class="math inline">\(\{B, A, C\}\)</span>.<br>
-</li>
-<li>Each combination represents a unique <em>set</em> of choices.</li>
-</ul>
-<p>If there are <span class="math inline">\(n\)</span> objects and we choose <span class="math inline">\(k\)</span> of them, the number of distinct combinations is:</p>
-<p><span class="math display">\[
-C(n, k) = \binom{n}{k} = \frac{n!}{k!(n-k)!}
-\]</span></p>
-<p><strong>Example:</strong> Choosing 3 songs from 10 to download:</p>
-<p><span class="math display">\[
-C(10, 3) = \frac{10!}{3!\,7!} = 120
-\]</span></p>
-<p><strong>Note:</strong> Each download is a <strong>subset</strong> of the 10 songs: we ignore order, only membership matters.</p>
-<aside class="notes">
-<blockquote>
-<p><strong>Notes:</strong><br>
-- Use this to formalize what students discovered in the activity: dividing by the number of equivalent orders.<br>
-- Emphasize the contrast with <strong>permutations</strong>: same domain, different notion of sameness.<br>
-- End with: “On Monday we bend these rules: round tables, bracelets, and committees.”</p>
-</blockquote>
+<p>Data-science takeaway</p>
+<p>Most text / logs / simple formats: regular level (regex &amp; DFAs)</p>
+<p>Most structured nested data (JSON, XML, code): context-free level (CFGs &amp; parsers)</p>
+<p>Rich cross-field / counting constraints go beyond CFGs, handled by full programming languages, SQL engines, or specialized tools</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -564,11 +214,8 @@ C(10, 3) = \frac{10!}{3!\,7!} = 120
       }</style></aside>
 
 
-<script type="pyodide-data">
-eyJvcHRpb25zIjp7ImVudiI6eyJQTE9UTFlfUkVOREVSRVIiOiJwbG90bHlfbWltZXR5cGUifSwiaW5kZXhVUkwiOiJodHRwczovL2Nkbi5qc2RlbGl2ci5uZXQvcHlvZGlkZS92MC4yOC4xL2Z1bGwvIn0sInBhY2thZ2VzIjp7InBrZ3MiOlsicHlvZGlkZV9odHRwIiwibWljcm9waXAiLCJpcHl0aG9uIl19fQ==
-</script>
 <script type="ojs-module-contents">
-eyJjb250ZW50cyI6W3siY2VsbE5hbWUiOiJweW9kaWRlLTEiLCJpbmxpbmUiOmZhbHNlLCJtZXRob2ROYW1lIjoiaW50ZXJwcmV0Iiwic291cmNlIjoidmlld29mIF9weW9kaWRlX2VkaXRvcl8xID0ge1xuICBjb25zdCB7IFB5b2RpZGVFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuXG4gIGNvbnN0IHNjcmlwdENvbnRlbnQgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKGBzY3JpcHRbdHlwZT1cXFwicHlvZGlkZS0xLWNvbnRlbnRzXFxcIl1gKS50ZXh0Q29udGVudDtcbiAgY29uc3QgYmxvY2sgPSBKU09OLnBhcnNlKGI2NERlY29kZShzY3JpcHRDb250ZW50KSk7XG5cbiAgY29uc3Qgb3B0aW9ucyA9IE9iamVjdC5hc3NpZ24oeyBpZDogYHB5b2RpZGUtMS1jb250ZW50c2AgfSwgYmxvY2suYXR0cik7XG4gIGNvbnN0IGVkaXRvciA9IG5ldyBQeW9kaWRlRXhlcmNpc2VFZGl0b3IoXG4gICAgcHlvZGlkZU9qcy5weW9kaWRlUHJvbWlzZSxcbiAgICBibG9jay5jb2RlLFxuICAgIG9wdGlvbnNcbiAgKTtcblxuICByZXR1cm4gZWRpdG9yLmNvbnRhaW5lcjtcbn1cbl9weW9kaWRlX3ZhbHVlXzEgPSBweW9kaWRlT2pzLnByb2Nlc3MoX3B5b2RpZGVfZWRpdG9yXzEsIHt9KTtcbiJ9LHsiY2VsbE5hbWUiOiJweW9kaWRlLXByZWx1ZGUiLCJpbmxpbmUiOmZhbHNlLCJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJweW9kaWRlT2pzID0ge1xuICBjb25zdCB7XG4gICAgUHlvZGlkZUV2YWx1YXRvcixcbiAgICBQeW9kaWRlRW52aXJvbm1lbnRNYW5hZ2VyLFxuICAgIHNldHVwUHl0aG9uLFxuICAgIHN0YXJ0UHlvZGlkZVdvcmtlcixcbiAgICBiNjREZWNvZGUsXG4gICAgY29sbGFwc2VQYXRoLFxuICB9ID0gd2luZG93Ll9leGVyY2lzZV9vanNfcnVudGltZTtcblxuICBjb25zdCBzdGF0dXNDb250YWluZXIgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZChcImV4ZXJjaXNlLWxvYWRpbmctc3RhdHVzXCIpO1xuICBjb25zdCBpbmRpY2F0b3JDb250YWluZXIgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZChcImV4ZXJjaXNlLWxvYWRpbmctaW5kaWNhdG9yXCIpO1xuICBpbmRpY2F0b3JDb250YWluZXIuY2xhc3NMaXN0LnJlbW92ZShcImQtbm9uZVwiKTtcblxuICBsZXQgc3RhdHVzVGV4dCA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoXCJkaXZcIilcbiAgc3RhdHVzVGV4dC5jbGFzc0xpc3QgPSBcImV4ZXJjaXNlLWxvYWRpbmctZGV0YWlsc1wiO1xuICBzdGF0dXNUZXh0ID0gc3RhdHVzQ29udGFpbmVyLmFwcGVuZENoaWxkKHN0YXR1c1RleHQpO1xuICBzdGF0dXNUZXh0LnRleHRDb250ZW50ID0gYEluaXRpYWxpc2VgO1xuXG4gIC8vIEhvaXN0IGluZGljYXRvciBvdXQgZnJvbSBmaW5hbCBzbGlkZSB3aGVuIHJ1bm5pbmcgdW5kZXIgcmV2ZWFsXG4gIGNvbnN0IHJldmVhbFN0YXR1cyA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoXCIucmV2ZWFsIC5leGVyY2lzZS1sb2FkaW5nLWluZGljYXRvclwiKTtcbiAgaWYgKHJldmVhbFN0YXR1cykge1xuICAgIHJldmVhbFN0YXR1cy5yZW1vdmUoKTtcbiAgICBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKFwiLnJldmVhbCA+IC5zbGlkZXNcIikuYXBwZW5kQ2hpbGQocmV2ZWFsU3RhdHVzKTtcbiAgfVxuXG4gIC8vIE1ha2UgYW55IHJldmVhbCBzbGlkZXMgd2l0aCBsaXZlIGNlbGxzIHNjcm9sbGFibGVcbiAgZG9jdW1lbnQucXVlcnlTZWxlY3RvckFsbChcIi5yZXZlYWwgLmV4ZXJjaXNlLWNlbGxcIikuZm9yRWFjaCgoZWwpID0+IHtcbiAgICBlbC5jbG9zZXN0KCdzZWN0aW9uLnNsaWRlJykuY2xhc3NMaXN0LmFkZChcInNjcm9sbGFibGVcIik7XG4gIH0pXG5cbiAgLy8gUHlvZGlkZSBzdXBwbGVtZW50YWwgZGF0YSBhbmQgb3B0aW9uc1xuICBjb25zdCBkYXRhQ29udGVudCA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoYHNjcmlwdFt0eXBlPVxcXCJweW9kaWRlLWRhdGFcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBkYXRhID0gSlNPTi5wYXJzZShiNjREZWNvZGUoZGF0YUNvbnRlbnQpKTtcblxuICAvLyBHcmFiIGxpc3Qgb2YgcmVzb3VyY2VzIHRvIGJlIGRvd25sb2FkZWRcbiAgY29uc3QgZmlsZXNDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcInZmcy1maWxlXFxcIl1gKS50ZXh0Q29udGVudDtcbiAgY29uc3QgZmlsZXMgPSBKU09OLnBhcnNlKGI2NERlY29kZShmaWxlc0NvbnRlbnQpKTtcblxuICBsZXQgcHlvZGlkZVByb21pc2UgPSAoYXN5bmMgKCkgPT4ge1xuICAgIHN0YXR1c1RleHQudGV4dENvbnRlbnQgPSBgRG93bmxvYWRpbmcgUHlvZGlkZWA7XG4gICAgY29uc3QgcHlvZGlkZSA9IGF3YWl0IHN0YXJ0UHlvZGlkZVdvcmtlcihkYXRhLm9wdGlvbnMpO1xuXG4gICAgc3RhdHVzVGV4dC50ZXh0Q29udGVudCA9IGBEb3dubG9hZGluZyBwYWNrYWdlOiBtaWNyb3BpcGA7XG4gICAgYXdhaXQgcHlvZGlkZS5sb2FkUGFja2FnZShcIm1pY3JvcGlwXCIpO1xuICAgIGNvbnN0IG1pY3JvcGlwID0gYXdhaXQgcHlvZGlkZS5weWltcG9ydChcIm1pY3JvcGlwXCIpO1xuICAgIGF3YWl0IGRhdGEucGFja2FnZXMucGtncy5tYXAoKHBrZykgPT4gKCkgPT4ge1xuICAgICAgc3RhdHVzVGV4dC50ZXh0Q29udGVudCA9IGBEb3dubG9hZGluZyBwYWNrYWdlOiAke3BrZ31gO1xuICAgICAgcmV0dXJuIG1pY3JvcGlwLmluc3RhbGwocGtnKTtcbiAgICB9KS5yZWR1Y2UoKGN1ciwgbmV4dCkgPT4gY3VyLnRoZW4obmV4dCksIFByb21pc2UucmVzb2x2ZSgpKTtcbiAgICBhd2FpdCBtaWNyb3BpcC5kZXN0cm95KCk7XG5cbiAgICAvLyBEb3dubG9hZCBhbmQgaW5zdGFsbCByZXNvdXJjZXNcbiAgICBhd2FpdCBmaWxlcy5tYXAoKGZpbGUpID0+IGFzeW5jICgpID0+IHtcbiAgICAgIGNvbnN0IG5hbWUgPSBmaWxlLnN1YnN0cmluZyhmaWxlLmxhc3RJbmRleE9mKCcvJykgKyAxKTtcbiAgICAgIHN0YXR1c1RleHQudGV4dENvbnRlbnQgPSBgRG93bmxvYWRpbmcgcmVzb3VyY2U6ICR7bmFtZX1gO1xuICAgICAgY29uc3QgcmVzcG9uc2UgPSBhd2FpdCBmZXRjaChmaWxlKTtcbiAgICAgIGlmICghcmVzcG9uc2Uub2spIHtcbiAgICAgICAgdGhyb3cgbmV3IEVycm9yKGBDYW4ndCBkb3dubG9hZCBcXGAke2ZpbGV9XFxgLiBFcnJvciAke3Jlc3BvbnNlLnN0YXR1c306IFwiJHtyZXNwb25zZS5zdGF0dXNUZXh0fVwiLmApO1xuICAgICAgfVxuICAgICAgY29uc3QgZGF0YSA9IGF3YWl0IHJlc3BvbnNlLmFycmF5QnVmZmVyKCk7XG5cbiAgICAgIC8vIFN0b3JlIFVSTHMgaW4gdGhlIGN3ZCB3aXRob3V0IGFueSBzdWJkaXJlY3Rvcnkgc3RydWN0dXJlXG4gICAgICBpZiAoZmlsZS5pbmNsdWRlcyhcIjovL1wiKSkge1xuICAgICAgICBmaWxlID0gbmFtZTtcbiAgICAgIH1cblxuICAgICAgLy8gQ29sbGFwc2UgaGlnaGVyIGRpcmVjdG9yeSBzdHJ1Y3R1cmVcbiAgICAgIGZpbGUgPSBjb2xsYXBzZVBhdGgoZmlsZSk7XG5cbiAgICAgIC8vIENyZWF0ZSBkaXJlY3RvcnkgdHJlZSwgaWdub3JpbmcgXCJkaXJlY3RvcnkgZXhpc3RzXCIgVkZTIGVycm9yc1xuICAgICAgY29uc3QgcGFydHMgPSBmaWxlLnNwbGl0KCcvJykuc2xpY2UoMCwgLTEpO1xuICAgICAgbGV0IHBhdGggPSAnJztcbiAgICAgIHdoaWxlIChwYXJ0cy5sZW5ndGggPiAwKSB7XG4gICAgICAgIHBhdGggKz0gcGFydHMuc2hpZnQoKSArICcvJztcbiAgICAgICAgdHJ5IHtcbiAgICAgICAgICBhd2FpdCBweW9kaWRlLkZTLm1rZGlyKHBhdGgpO1xuICAgICAgICB9IGNhdGNoIChlKSB7XG4gICAgICAgICAgaWYgKGUubmFtZSAhPT0gXCJFcnJub0Vycm9yXCIpIHRocm93IGU7XG4gICAgICAgICAgaWYgKGUuZXJybm8gIT09IDIwKSB7XG4gICAgICAgICAgICBjb25zdCBlcnJvclRleHRQdHIgPSBhd2FpdCBweW9kaWRlLl9tb2R1bGUuX3N0cmVycm9yKGUuZXJybm8pO1xuICAgICAgICAgICAgY29uc3QgZXJyb3JUZXh0ID0gYXdhaXQgcHlvZGlkZS5fbW9kdWxlLlVURjhUb1N0cmluZyhlcnJvclRleHRQdHIpO1xuICAgICAgICAgICAgdGhyb3cgbmV3IEVycm9yKGBGaWxlc3lzdGVtIEVycm9yICR7ZS5lcnJub30gXCIke2Vycm9yVGV4dH1cIi5gKTtcbiAgICAgICAgICB9XG4gICAgICAgIH1cbiAgICAgIH1cblxuICAgICAgLy8gV3JpdGUgdGhpcyBmaWxlIHRvIHRoZSBWRlNcbiAgICAgIHRyeSB7XG4gICAgICAgIHJldHVybiBhd2FpdCBweW9kaWRlLkZTLndyaXRlRmlsZShmaWxlLCBuZXcgVWludDhBcnJheShkYXRhKSk7XG4gICAgICB9IGNhdGNoIChlKSB7XG4gICAgICAgIGlmIChlLm5hbWUgIT09IFwiRXJybm9FcnJvclwiKSB0aHJvdyBlO1xuICAgICAgICBjb25zdCBlcnJvclRleHRQdHIgPSBhd2FpdCBweW9kaWRlLl9tb2R1bGUuX3N0cmVycm9yKGUuZXJybm8pO1xuICAgICAgICBjb25zdCBlcnJvclRleHQgPSBhd2FpdCBweW9kaWRlLl9tb2R1bGUuVVRGOFRvU3RyaW5nKGVycm9yVGV4dFB0cik7XG4gICAgICAgIHRocm93IG5ldyBFcnJvcihgRmlsZXN5c3RlbSBFcnJvciAke2UuZXJybm99IFwiJHtlcnJvclRleHR9XCIuYCk7XG4gICAgICB9XG4gICAgfSkucmVkdWNlKChjdXIsIG5leHQpID0+IGN1ci50aGVuKG5leHQpLCBQcm9taXNlLnJlc29sdmUoKSk7XG5cbiAgICBzdGF0dXNUZXh0LnRleHRDb250ZW50ID0gYFB5b2RpZGUgZW52aXJvbm1lbnQgc2V0dXBgO1xuICAgIGF3YWl0IHNldHVwUHl0aG9uKHB5b2RpZGUpO1xuXG4gICAgc3RhdHVzVGV4dC5yZW1vdmUoKTtcbiAgICBpZiAoc3RhdHVzQ29udGFpbmVyLmNoaWxkcmVuLmxlbmd0aCA9PSAwKSB7XG4gICAgICBzdGF0dXNDb250YWluZXIucGFyZW50Tm9kZS5yZW1vdmUoKTtcbiAgICB9XG4gICAgcmV0dXJuIHB5b2RpZGU7XG4gIH0pKCkuY2F0Y2goKGVycikgPT4ge1xuICAgIHN0YXR1c1RleHQuc3R5bGUuY29sb3IgPSBcInZhcigtLWV4ZXJjaXNlLWVkaXRvci1obC1lciwgI0FEMDAwMClcIjtcbiAgICBzdGF0dXNUZXh0LnRleHRDb250ZW50ID0gZXJyLm1lc3NhZ2U7XG4gICAgLy9pbmRpY2F0b3JDb250YWluZXIucXVlcnlTZWxlY3RvcihcIi5zcGlubmVyLWdyb3dcIikuY2xhc3NMaXN0LmFkZChcImQtbm9uZVwiKTtcbiAgICB0aHJvdyBlcnI7XG4gIH0pO1xuXG4gIC8vIEtlZXAgdHJhY2sgb2YgaW5pdGlhbCBPSlMgYmxvY2sgcmVuZGVyXG4gIGNvbnN0IHJlbmRlcmVkT2pzID0ge307XG5cbiAgY29uc3QgcHJvY2VzcyA9IGFzeW5jIChjb250ZXh0LCBpbnB1dHMpID0+IHtcbiAgICBjb25zdCBweW9kaWRlID0gYXdhaXQgcHlvZGlkZVByb21pc2U7XG4gICAgY29uc3QgZXZhbHVhdG9yID0gbmV3IFB5b2RpZGVFdmFsdWF0b3IocHlvZGlkZSwgY29udGV4dCk7XG4gICAgYXdhaXQgZXZhbHVhdG9yLnByb2Nlc3MoaW5wdXRzKTtcbiAgICByZXR1cm4gZXZhbHVhdG9yLmNvbnRhaW5lcjtcbiAgfVxuXG4gIHJldHVybiB7XG4gICAgcHlvZGlkZVByb21pc2UsXG4gICAgcmVuZGVyZWRPanMsXG4gICAgcHJvY2VzcyxcbiAgfTtcbn1cbiJ9XX0=
+eyJjb250ZW50cyI6W119
 </script>
 <div id="exercise-loading-indicator" class="exercise-loading-indicator d-none d-flex align-items-center gap-2">
 <div id="exercise-loading-status" class="d-flex gap-2">

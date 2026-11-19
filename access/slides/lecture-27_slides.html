@@ -9,12 +9,10 @@
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-63b5708e65d6cd79cd7618c58d0c21e7.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/quarto-contrib/live-runtime/live-runtime.js" type="module"></script>
 <link href="../site_libs/quarto-contrib/live-runtime/live-runtime.css" rel="stylesheet">
-<script src="../site_libs/quarto-contrib/countdown-0.6.0/countdown.js"></script>
-<link href="../site_libs/quarto-contrib/countdown-0.6.0/countdown.css" rel="stylesheet">
 <script src="../site_libs/quarto-contrib/iconify-3.0.0/iconify-icon.min.js"></script><meta charset="utf-8">
   <meta name="generator" content="quarto-1.11.9">
 
-  <title>{{&lt; var course.full-title &gt;}}---Accessibility version – Grammars and Counting</title>
+  <title>{{&lt; var course.full-title &gt;}}---Accessibility version – Grammars</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -202,10 +200,10 @@
   </style>
   <script type="module" src="../site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
   <link href="../site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
-<meta property="og:title" content="Grammars and Counting – DSCI 220: Discrete Math for Data Science—Accessibility version">
+<meta property="og:title" content="Grammars – DSCI 220: Discrete Math for Data Science—Accessibility version">
 <meta property="og:description" content="Lecture 27, DSCI 220, 2026W1">
 <meta property="og:site_name" content="DSCI 220: Discrete Math for Data Science—Accessibility version">
-<meta name="twitter:title" content="Grammars and Counting – DSCI 220: Discrete Math for Data Science—Accessibility version">
+<meta name="twitter:title" content="Grammars – DSCI 220: Discrete Math for Data Science—Accessibility version">
 <meta name="twitter:description" content="Lecture 27, DSCI 220, 2026W1">
 <meta name="twitter:card" content="summary">
 </head>
@@ -214,7 +212,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Grammars and Counting</h1>
+  <h1 class="title">Grammars</h1>
   <p class="subtitle">Lecture 27, DSCI 220, 2026W1</p>
 
 <div class="quarto-title-authors">
@@ -521,161 +519,6 @@ eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiaW1wb3J0IGpzb25cbmltcG9y
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
-</section></section>
-<section>
-<section id="counting" class="title-slide slide level1 center">
-<h1>Counting</h1>
-
-</section>
-<section id="warm-up-how-many-outfits" class="slide level2 activity smaller">
-<h2>Warm-Up: How Many Outfits?</h2>
-<p><strong>Question:</strong> How many different outfits do you have in your closet?</p>
-<p>&nbsp;</p>
-<p>No rules, just count.</p>
-<ul>
-<li>What even <em>counts</em> as an outfit?</li>
-<li>Do shoes matter?</li>
-<li>Do seasons/colors matter?</li>
-<li>Are some combos invalid?</li>
-</ul>
-<p>Write down how you’d <strong>start</strong> to count, not just an answer.</p>
-<countdown-timer id="timer_b1f29dc1435253a5e5a17c504048942a3a4e4abd" minutes="05" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
- </countdown-timer>
-</section>
-<section id="what-did-you-count" class="slide level2 smaller">
-<h2>What Did You Count?</h2>
-<ul>
-<li><p>What <em>categories</em> did you use?</p></li>
-<li><p>What <em>rules</em> did you impose?</p></li>
-</ul>
-<p><strong>Key Idea:</strong><br>
-How we <strong>model</strong> outfits (what’s allowed, what’s ignored) changes the counting.</p>
-</section>
-<section id="a-simplified-closet-model" class="slide level2 smaller">
-<h2>A Simplified Closet Model</h2>
-<p>Define a wardrobe for the rest of this lesson:</p>
-<div class="columns">
-<div class="column" style="width:40%;">
-<ul>
-<li><span class="math inline">\(k\)</span> pairs of shoes</li>
-<li><span class="math inline">\(j\)</span> pairs of pants</li>
-<li><span class="math inline">\(m\)</span> skirts</li>
-<li><span class="math inline">\(n\)</span> shirts</li>
-<li><span class="math inline">\(p\)</span> dresses</li>
-</ul>
-</div><div class="column" style="width:60%;">
-<p>We’ll <strong>choose a model</strong>. An outfit is either:</p>
-<ol type="1">
-<li><strong>shirt + bottom + shoes</strong>, where bottom is either pants or a skirt</li>
-<li>or a <strong>dress + shoes</strong></li>
-</ol>
-<p>No color/style rules: everything in these categories is compatible.</p>
-</div></div>
-</section>
-<section id="turn-it-into-sets" class="slide level2 smaller">
-<h2>Turn It Into Sets</h2>
-<p>Define sets of items:</p>
-<ul>
-<li><span class="math inline">\(S =\)</span> set of shoes, <span class="math inline">\(|S| = k\)</span></li>
-<li><span class="math inline">\(P =\)</span> set of pants, <span class="math inline">\(|P| = j\)</span></li>
-<li><span class="math inline">\(K =\)</span> set of skirts, <span class="math inline">\(|K| = m\)</span></li>
-<li><span class="math inline">\(T =\)</span> set of shirts, <span class="math inline">\(|T| = n\)</span></li>
-<li><span class="math inline">\(D =\)</span> set of dresses, <span class="math inline">\(|D| = p\)</span></li>
-</ul>
-<p>A bottom is either pants or a skirt:</p>
-<p><span class="math display">\[
-B = P \cup K
-\]</span></p>
-<p>Assuming no overlap between pants and skirts:</p>
-<p><span class="math display">\[
-|B| = |P \cup K| = |P| + |K| = j + m
-\]</span></p>
-</section>
-<section id="outfits-of-type-1" class="slide level2 smaller">
-<h2>Outfits of Type 1</h2>
-<p>Type 1 outfit: <strong>shirt + bottom + shoes</strong></p>
-<p>As a set of combinations:</p>
-<p><span class="math display">\[
-\text{Type1} = S \times B \times T
-\]</span></p>
-<p>Each outfit is a triple:</p>
-<p><span class="math display">\[
-(\text{shoe}, \text{bottom}, \text{shirt}) \in S \times B \times T
-\]</span></p>
-<p>So the number of Type 1 outfits is:</p>
-<p><span class="math display">\[
-|\text{Type1}| = |S||B||T| = k(j + m)n
-\]</span></p>
-</section>
-<section id="outfits-of-type-2" class="slide level2 smaller">
-<h2>Outfits of Type 2</h2>
-<p>Type 2 outfit: <strong>dress + shoes</strong></p>
-<p>As a set of combinations:</p>
-<p><span class="math display">\[
-\text{Type2} = S \times D
-\]</span></p>
-<p>Each outfit is a pair:</p>
-<p><span class="math display">\[
-(\text{shoe}, \text{dress}) \in S \times D
-\]</span></p>
-<p>So the number of Type 2 outfits is:</p>
-<p><span class="math display">\[
-|\text{Type2}| = |S||D| = kp
-\]</span></p>
-</section>
-<section id="total-number-of-outfits" class="slide level2 smaller">
-<h2>Total Number of Outfits</h2>
-<p>We’ve partitioned outfits into two disjoint types:</p>
-<ul>
-<li>Type 1: shirt + bottom + shoes</li>
-<li>Type 2: dress + shoes</li>
-</ul>
-<p>Total number of outfits in our model:</p>
-<p><span class="math display">\[
-\begin{aligned}
-\#\text{outfits}
-&amp;= |\text{Type1}| + |\text{Type2}| \\
-&amp;= k(j + m)n + kp \\
-&amp;= k\big((j + m)n + p\big).
-\end{aligned}
-\]</span></p>
-<p>This matches the informal idea:</p>
-<ul>
-<li>“For each pair of shoes, you can choose any (bottom, shirt) combo <strong>or</strong> any dress.”</li>
-</ul>
-</section>
-<section id="the-product-rule" class="slide level2 smaller">
-<h2>The Product Rule</h2>
-<div class="columns">
-<div class="column" style="width:55%;">
-<p>Fundamental counting fact: if <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are finite sets, then</p>
-<p><span class="math display">\[|A \times B| = |A|\cdot|B|.\]</span></p>
-<p>Generalizing, for sets <span class="math inline">\(A_1, A_2, \dots, A_k\)</span>:</p>
-<p><span class="math display">\[|A_1 \times \dots \times A_k| = |A_1| \cdots |A_k|.\]</span></p>
-</div><div class="column" style="width:45%;">
-<p>Interpretation, a <strong>choice procedure</strong>:</p>
-<ul>
-<li>choose one element from <span class="math inline">\(A_1\)</span>,</li>
-<li>then one from <span class="math inline">\(A_2\)</span>, <span class="math inline">\(\ldots\)</span></li>
-<li>then one from <span class="math inline">\(A_k\)</span>.</li>
-</ul>
-<p>Every distinct chain of choices is a distinct element of the product set.</p>
-</div></div>
-</section>
-<section id="wrap-up" class="slide level2 smaller">
-<h2>Wrap Up</h2>
-<p>The <em>combinatorics</em> lesson:</p>
-<blockquote>
-<p>Once you’ve decided what “counts,” express the valid items as a product of simpler choices.</p>
-</blockquote>
-<p>This pattern will be used for:</p>
-<ul>
-<li>passwords,</li>
-<li>playlists,</li>
-<li>committee selection,</li>
-<li>sampling from datasets,</li>
-<li>and more.</li>
-</ul>
 </section></section>
 <section>
 <section id="from-the-2025-deck" class="title-slide slide level1 center">
