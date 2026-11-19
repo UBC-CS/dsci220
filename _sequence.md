@@ -262,3 +262,4 @@ questions are in `pl-ubc-cpsc121/`.
 Then (same day): the counting challenge through Permutations moved into the L28 video too, so it is not thin; L29 starts at Counting under rotation.
 
 **Update 2026-11-18.** L27 taught grammars only. No Friday video in week 11. Counting starts Mon Nov 23 with the Outfits warm-up in person (L28 deck: outfits, product rule, melt, playlist permutations, combinations; far too long, trim after Monday). Schedule shifted: lecture-28..34 move up one slot; lecture-35 (Birthday Problem) is unscheduled until Cinda decides what to cut.
+Revised the same day: Cinda records a ~10 min Friday video reviewing the Chomsky hierarchy (L28 deck = those two slides). Schedule back to original slots. Counting starts Mon with L29: outfits, product rule, melt, permutations, combinations, then the adaptations and stars and bars. Far too long; trim after Monday.

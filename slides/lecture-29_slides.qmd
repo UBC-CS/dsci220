@@ -1,5 +1,5 @@
 ---
-title: "Bending the Rules, Stars and Bars"
+title: "Counting"
 subtitle: "Lecture 29, {{< var course.code >}}, {{< var course.term >}}"
 ---
 
@@ -12,6 +12,486 @@ subtitle: "Lecture 29, {{< var course.code >}}, {{< var course.term >}}"
 .center { text-align:center; }
 .rule { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
 </style>
+
+# Counting
+
+## Warm-Up: How Many Outfits? {.activity .smaller}
+
+**Question:** How many different outfits do you have in your closet?
+
+\ 
+
+No rules, just count.
+
+- What even *counts* as an outfit?
+- Do shoes matter?
+- Do seasons/colors matter?
+- Are some combos invalid?
+
+Write down how you’d **start** to count, not just an answer.
+
+{{< countdown minutes=5 >}}
+
+
+## What Did You Count? {.smaller}
+
+- What *categories* did you use?  
+
+- What *rules* did you impose?  
+
+**Key Idea:**  
+How we **model** outfits (what’s allowed, what’s ignored) changes the counting.
+
+
+## A Simplified Closet Model {.smaller}
+
+Define a wardrobe for the rest of this lesson:
+
+:::: {.columns}
+::: {.column width="40%"}
+- $k$ pairs of shoes
+- $j$ pairs of pants
+- $m$ skirts
+- $n$ shirts
+- $p$ dresses
+:::
+::: {.column width="60%"}
+We’ll **choose a model**. An outfit is either:
+
+1. **shirt + bottom + shoes**, where
+   bottom is either pants or a skirt
+2. or a **dress + shoes**
+
+No color/style rules: everything in these categories is compatible.
+:::
+::::
+
+## Turn It Into Sets {.smaller}
+
+Define sets of items:
+
+- $S =$ set of shoes, $|S| = k$
+- $P =$ set of pants, $|P| = j$
+- $K =$ set of skirts, $|K| = m$
+- $T =$ set of shirts, $|T| = n$
+- $D =$ set of dresses, $|D| = p$
+
+A bottom is either pants or a skirt:
+
+$$
+B = P \cup K
+$$
+
+Assuming no overlap between pants and skirts:
+
+$$
+|B| = |P \cup K| = |P| + |K| = j + m
+$$
+
+
+## Outfits of Type 1 {.smaller}
+
+Type 1 outfit: **shirt + bottom + shoes**
+
+As a set of combinations:
+
+$$
+\text{Type1} = S \times B \times T
+$$
+
+Each outfit is a triple:
+
+$$
+(\text{shoe}, \text{bottom}, \text{shirt}) \in S \times B \times T
+$$
+
+So the number of Type 1 outfits is:
+
+$$
+|\text{Type1}| = |S||B||T| = k(j + m)n
+$$
+
+
+## Outfits of Type 2 {.smaller}
+
+Type 2 outfit: **dress + shoes**
+
+As a set of combinations:
+
+$$
+\text{Type2} = S \times D
+$$
+
+Each outfit is a pair:
+
+$$
+(\text{shoe}, \text{dress}) \in S \times D
+$$
+
+So the number of Type 2 outfits is:
+
+$$
+|\text{Type2}| = |S||D| = kp
+$$
+
+
+## Total Number of Outfits {.smaller}
+
+We’ve partitioned outfits into two disjoint types:
+
+- Type 1: shirt + bottom + shoes
+- Type 2: dress + shoes
+
+Total number of outfits in our model:
+
+$$
+\begin{aligned}
+\#\text{outfits} 
+&= |\text{Type1}| + |\text{Type2}| \\
+&= k(j + m)n + kp \\
+&= k\big((j + m)n + p\big).
+\end{aligned}
+$$
+
+This matches the informal idea:
+
+- “For each pair of shoes, you can choose any (bottom, shirt) combo **or** any dress.”
+
+
+## The Product Rule {.smaller}
+
+:::: {.columns}
+::: {.column width="55%"}
+Fundamental counting fact: if $A$ and $B$ are finite sets, then
+
+$$|A \times B| = |A|\cdot|B|.$$
+
+Generalizing, for sets $A_1, A_2, \dots, A_k$:
+
+$$|A_1 \times \dots \times A_k| = |A_1| \cdots |A_k|.$$
+:::
+::: {.column width="45%"}
+Interpretation, a **choice procedure**:
+
+- choose one element from $A_1$,
+- then one from $A_2$, $\ldots$
+- then one from $A_k$.
+
+Every distinct chain of choices is a distinct element of the product set.
+:::
+::::
+
+## Wrap Up {.smaller}
+
+The *combinatorics* lesson:
+
+> Once you’ve decided what "counts," express the valid items as a product of simpler choices.
+
+This pattern will be used for:
+
+- passwords,
+- playlists,
+- committee selection,
+- sampling from datasets,
+- and more.
+
+# Counting Rows
+
+## Warm-Up: Multiplication Rule {.smaller}
+
+**Question:**  
+What happens to the number of rows in a DataFrame when we use `pandas.melt()`?
+
+``` {pyodide}
+import pandas as pd
+
+df = pd.DataFrame({
+    "Object": ["Ice Cream", "Candle", "Chocolate", "Wicked Witch"],
+    "Cold": ["solid", "solid", "solid", "fine"],
+    "Warm": ["ew", "solid", "soft", "drippy"],
+    "Hot": ["puddle", "liquid", "goo", "gone?"]
+})
+
+print(df.shape)   # (4, 4)
+
+melted = df.melt(id_vars="Object", var_name="Temperature", value_name="State")
+print(melted.shape)  # (12, 3)
+```
+
+::: notes
+
+This is a *data-science version* of the **multiplication rule**:  
+when we consider every possible combination of two attributes, the number of possibilities multiplies.
+
+
+➡️ Next we use the same reasoning with *songs in a playlist* instead of rows and columns.
+
+> **Notes:**  
+> Use this to remind students that the multiplication rule already appears in data contexts they know.  
+> Encourage them to connect this to the idea of enumerating combinations of attributes.  
+> Keep the demo under 4 minutes — it’s just a bridge to the main activity.
+>
+> ⏱️ *Timing:* 3–4 minutes warm-up discussion.
+:::
+
+## Visualizing Wide to Long {.smaller}
+
+**Before melting (wide format):**
+
+\ 
+
+\ 
+
+\ 
+
+**After melting (long format):**
+
+\ 
+
+\ 
+
+\
+
+* Each wide row expands into three long rows — one for each temperature.  
+* Each pair (Object, Temperature) is one **combination**—just like the outfits we counted last time.  
+* The total number of rows = 4 objects × 3 temperatures = **12 outcomes.**
+
+::: notes
+> **Notes:**  
+> Use this visual to anchor the idea that melting enumerates combinations explicitly.  
+> Optional ask: “Where do we see repetition here? What does that tell us about memory use?”
+>
+> ⏱️ *Timing:* 3 minutes (interpretation and discussion)
+:::
+
+## Visualizing the Mapping Change {.smaller}
+
+:::: {.columns}
+::: {.column width="50%"}
+**Before melting:**
+
+A function maps each **Object** to a *tuple of states* across temperatures:
+
+$$ f:\ \text{Object} \to (\text{Cold},\ \text{Warm},\ \text{Hot}) $$
+
+Example:
+$$ f( \text{Wicked Witch}) = ( \text{fine}, \text{drippy}, \text{gone?}) $$
+:::
+::: {.column width="50%"}
+**After melting:**
+
+The *pair* (Object, Temperature) is the input:
+
+$$ g: ( \text{Object}, \text{Temperature}) \to \text{State} $$
+
+Example:
+$$g( \text{Wicked Witch}, \text{Warm}) = \text{drippy} $$
+:::
+::::
+
+The input domain has expanded from **Objects** to **Objects × Temperatures**.
+Each input now produces a single scalar output instead of a vector.
+
+This is why the melted data get longer — we’ve made all combinations explicit.
+
+::: notes
+> **Notes:**
+> Emphasize the structural change: multivariate output → single-valued function on a larger domain.
+> This perspective connects directly to **Cartesian products** and the **multiplication rule**.
+>
+> ⏱️ *Timing:* 3 minutes for explanation + brief class recap.
+
+:::
+
+## How Melting Affects Data Size {.smaller}
+
+When we **melt** data, we don’t add new information — we just make existing information longer and more explicit.
+
+| Format | Shape | Description |
+|---------|--------|-------------|
+| **Wide** | (4, 4) | One row per object; columns for Cold, Warm, Hot |
+| **Long (Melted)** | (12, 3) | One row for each (Object, Temperature) pair |
+
+**Effect:** The number of rows increases by a *factor* equal to the number of melted columns.  
+Each object’s name and each temperature label are now repeated multiple times.
+
+*Memory tradeoff*: Long data are larger in memory but easier to work with for grouping and plotting.
+
+::: notes
+> **Prompt:** Why would we use a representation that takes more space?  
+> What’s the parallel to our counting models — when do we *expand* possibilities to make reasoning easier?
+
+> **Notes:**  
+> Emphasize the connection to the multiplication rule: 4 objects × 3 temperatures = 12 outcomes.  
+> Use this as a conceptual bridge — from data transformation to counting combinations in the upcoming seating activity.
+>
+> ⏱️ *Timing:* 3 minutes for explanation + 1 minute discussion.
+:::
+
+# Permutations
+
+## A New Counting Challenge {.activity}
+
+\ 
+
+Make a playlist from 4 songs: "Espresso", "vampire", "Taste", and "Style". Every song plays exactly once.
+
+**Question:**  
+How many different playlists are there?
+
+**Discuss:**
+
+- What counts as a *different* playlist?  
+- What information defines one playlist?
+
+::: notes
+> **Notes:**  
+> Begin open-ended: let students say what makes two playlists different (the order).  
+> The goal is for them to *build a model* of the outcomes before applying counting rules.  
+> This primes them for **permutations** (order matters) and later **combinations** (order doesn’t).
+> 
+> ⏱️ *Timing:* 3–4 minutes of pair discussion + 1 minute group debrief.
+:::
+
+
+## Observing the Structure {.smaller}
+
+Let's agree on a model for a playlist:
+
+| 1st | 2nd | 3rd | 4th |
+|:---------:|:----------:|:----------:|:----------:|
+| ? | ? | ? | ? |
+
+Each playlist can be described as a **4-tuple**:  
+<center>
+(1st song, 2nd song, 3rd song, 4th song)
+</center>
+
+\ 
+
+Our *model* is the set of **all possible 4-tuples with no repeats.**
+
+::: notes
+> **Notes:**  
+> Link this back to the **closet model**: both are built from describing all possible outcomes.  
+> Here, though, the choices are *dependent*: once a song is used, it can’t be chosen again.  
+> Introduce the term **permutation**: each arrangement of distinct objects where order matters.
+>
+> ⏱️ *Timing:* 3 minutes setup + 2 minutes partner explanation.
+:::
+
+## Building an Arrangement {.smaller}
+
+How many choices do we have for each slot?
+
+1. 1st song: 4 choices  
+2. 2nd song: 3 remaining  
+3. 3rd song: 2 remaining  
+4. 4th song: 1 remaining
+
+$\text{Total} = 4 \times 3 \times 2 \times 1 = 24$ **playlists**
+
+That’s the **multiplication rule**, just like outfits, but now the choices *depend* on previous ones.
+
+::: notes
+> **Notes:**  
+> Same reasoning pattern as before: define the structure → count each step → multiply.  
+> The number of choices shrinks at each step, but it is always 4, then 3, ... no matter which songs came first.
+> That's what makes the product rule still work.  
+> Reinforce vocabulary: these 24 orderings are **permutations** of 4 distinct items.
+>
+> ⏱️ *Timing:* 4 minutes walkthrough + 2 minutes reflection.
+:::
+
+## Permutations {.smaller}
+
+A **permutation** is an **arrangement** of $n$ distinct objects **in a specific order**.
+
+- Order matters — changing the order creates a new permutation.  
+- Each permutation corresponds to a unique *sequence of choices* from the set.
+
+If there are $n$ distinct objects, then the number of  permutations is:
+
+$$
+P(n) = n! = n \times (n-1) \times (n-2) \times \dots \times 1
+$$
+
+**Example:** Four songs can be put in a playlist in  
+
+$$
+P(4) = 4! = 24
+$$
+
+different ways.
+
+## Shorter Playlists {.smaller}
+
+Now there are **10** songs, and the playlist has room for only **3**.
+
+| 1st | 2nd | 3rd |
+|:---------:|:----------:|:----------:|
+| ? | ? | ? |
+
+How many choices for each slot?
+
+$$10 \times 9 \times 8 = 720 \text{ playlists}$$
+
+This is $\dfrac{10!}{7!}$: start like $10!$, and stop after 3 slots.
+
+::: notes
+In general, an ordered list of k things chosen from n, no repeats: n(n−1)···(n−k+1) = n!/(n−k)!.
+Some books write P(n, k). The 7! cancels the choices we never made (slots 4 through 10).
+Pause and try: a 2-song playlist from 5 songs? 5 × 4 = 20.
+:::
+
+# Combinations
+
+## Choosing, Not Ordering {.smaller}
+
+From the same 10 songs, choose **3 to download**. Now the order doesn't matter: downloading {Espresso, Taste, Style} is the same as {Style, Espresso, Taste}.
+
+\ 
+
+Each set of 3 songs shows up in the 720 playlists how many times?
+
+\ 
+
+So the number of different downloads is
+$$\frac{720}{\boxed{\phantom{00}}} = \boxed{\phantom{00}}$$
+
+::: notes
+Each set of 3 songs can be ordered 3! = 6 ways, so it appears 6 times among the 720 playlists.
+720 / 6 = 120 downloads.
+This is the key move: count ordered, then divide by the number of orders of each group.
+:::
+
+## Combinations {.smaller}
+
+A **combination** is a **selection** of $k$ objects from $n$ where **order does not matter**.
+
+- The group $\{A, B, C\}$ is the same as $\{B, A, C\}$.  
+- Each combination represents a unique *set* of choices.
+
+If there are $n$ objects and we choose $k$ of them,  the number of distinct combinations is:
+
+$$
+C(n, k) = \binom{n}{k} = \frac{n!}{k!(n-k)!}
+$$
+
+**Example:** Choosing 3 songs from 10 to download:
+
+$$
+C(10, 3) = \frac{10!}{3!\,7!} = 120
+$$
+
+**Note:** Each download is a **subset** of the 10 songs: we ignore order, only membership matters.
+
+::: notes
+> **Notes:**  
+> - Use this to formalize what students discovered in the activity: dividing by the number of equivalent orders.  
+> - Emphasize the contrast with **permutations**: same domain, different notion of sameness.  
+> - End with: “On Monday we bend these rules: round tables, bracelets, and committees.”
+:::
 
 # Bending the Rules
 
