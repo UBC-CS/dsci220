@@ -114,7 +114,20 @@ Three set questions in one zone, one attempt each (`questions/2026W1/sets/`):
 
 ## HW5 — due Sun Nov 29 · not built
 
-Nothing assigned yet. Covers roughly weeks 10–12.
+**Plan (2026-11-20): regex and DFA proofs only, no counting.** Counting starts
+Monday Nov 23, too close to a Nov 29 due date, so counting moves to HW6 and
+the final. Everything in HW5 should be answerable on release day (Sun Nov 22).
+
+1. **Regex vs. English, prove or counterexample** (the shape below).
+2. **DFA state invariant** by induction on |w|. Rehearses EX5's DFA proofs.
+3. **No `11` and Fibonacci.** This counts with a recurrence (L11–13), not the
+   counting unit. Swap in (ab)\*a = a(ba)\* if it feels too close to counting.
+4. Possibly the (01|10)\* one-way containment, as an optional fifth question.
+
+Design lesson from EX4 (2026-11-20): `dropna-bounds` was the worst EX4
+question even though the class aced it on HW4. So every part should depend on
+the one before, and the questions should look like EX5's.
+
 
 **Stashed for this homework (2026-11-03): proofs about regular expressions.**
 Languages are sets, so these reuse double containment (L21–22), induction and
@@ -153,6 +166,20 @@ recurrences (L11–13) and binary (L17). All claims below were checked in Python
   checking each arrow. Pairs with L25's read-a-DFA activity.
 - **Later, pigeonhole (L30):** a k-state DFA reading k or more symbols repeats
   a state, so {0ⁿ1ⁿ} has no regex.
+
+---
+
+## HW6 — counting · stashed (2026-11-20)
+
+Not in the syllabus yet, which says five homeworks. **How many rows?** is a
+walkthrough that continues L29's melt slides:
+- melt gives rows × value columns, the product rule;
+- `merge(how="cross")` gives the product of the two sizes;
+- a pairplot of k columns has C(k,2) panels;
+- ordering k columns is k!.
+
+Related counting questions, in unfamiliar forms, go on the final (see
+the final-is-synthesis decision).
 
 ---
 
