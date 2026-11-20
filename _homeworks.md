@@ -115,8 +115,8 @@ Three set questions in one zone, one attempt each (`questions/2026W1/sets/`):
 ## HW5 — due Sun Nov 29 · not built
 
 **Plan (2026-11-20): regex and DFA proofs only, no counting.** Counting starts
-Monday Nov 23, too close to a Nov 29 due date, so counting moves to HW6 and
-the final. Everything in HW5 should be answerable on release day (Sun Nov 22).
+Monday Nov 23, too close to a Nov 29 due date, so counting moves to a thinking question
+on the final. Everything in HW5 should be answerable on release day (Sun Nov 22).
 
 1. **Regex vs. English, prove or counterexample** (the shape below).
 2. **DFA state invariant** by induction on |w|. Rehearses EX5's DFA proofs.
@@ -169,17 +169,18 @@ recurrences (L11–13) and binary (L17). All claims below were checked in Python
 
 ---
 
-## HW6 — counting · stashed (2026-11-20)
+## Final exam — counting thinking question · stashed (2026-11-20)
 
-Not in the syllabus yet, which says five homeworks. **How many rows?** is a
-walkthrough that continues L29's melt slides:
+There is no HW6 (the syllabus has five homeworks). The counting walkthrough
+becomes a **thinking question on the final**, which combines skills and asks
+them in unfamiliar forms. Practice stays narrow drills. **How many rows?**
+continues L29's melt slides:
 - melt gives rows × value columns, the product rule;
 - `merge(how="cross")` gives the product of the two sizes;
 - a pairplot of k columns has C(k,2) panels;
 - ordering k columns is k!.
 
-Related counting questions, in unfamiliar forms, go on the final (see
-the final-is-synthesis decision).
+Do **not** add a drill of this to any practice set.
 
 ---
 
