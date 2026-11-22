@@ -12,7 +12,7 @@ built.
 | HW2 | 4 | Sun Oct 4 | no |
 | HW3 | 7 | Sun Oct 25 | no |
 | HW4 | 9 (extended to 10) | Sun Nov 15 | yes |
-| HW5 | 12 | Sun Nov 29 | no |
+| HW5 | 12 | Sun Nov 29 | yes |
 
 Settings that HW1 established, worth copying: `type: Homework`,
 `autoPoints: 1` per question, **`triesPerVariant: 1`**, and `accessControl` with
@@ -112,7 +112,7 @@ Three set questions in one zone, one attempt each (`questions/2026W1/sets/`):
 
 ---
 
-## HW5 — due Sun Nov 29 · not built
+## HW5 — due Sun Nov 29 · built (opens Sun Nov 22 23:59)
 
 **Plan (2026-11-20): regex and DFA proofs only, no counting.** Counting starts
 Monday Nov 23, too close to a Nov 29 due date, so counting moves to a thinking question
@@ -123,6 +123,13 @@ on the final. Everything in HW5 should be answerable on release day (Sun Nov 22)
 3. **No `11` and Fibonacci.** This counts with a recurrence (L11–13), not the
    counting unit. Swap in (ab)\*a = a(ba)\* if it feels too close to counting.
 4. Possibly the (01|10)\* one-way containment, as an optional fifth question.
+
+**Built 2026-11-22** as three questions that build on each other, all in
+`questions/2026W1/regex-dfa/`: `regex-vs-english` (four pairs; proves
+(0|10)\* = "every 1 followed by a 0"; repairs (1|01)\*), `no-11-invariant`
+(what each state of the 3-state no-11 DFA remembers, proved arrow by arrow), and
+`no-11-fibonacci` (count by end state, get Fibonacci; the strings ending in A
+are (0|10)\*). The (01|10)\* containment was not used.
 
 Design lesson from EX4 (2026-11-20): `dropna-bounds` was the worst EX4
 question even though the class aced it on HW4. So every part should depend on
