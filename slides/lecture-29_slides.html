@@ -166,6 +166,87 @@
 </style>
 </section>
 <section>
+<section id="warm-up-which-machine-for-which-language" class="title-slide slide level1 center">
+<h1>Warm-Up: Which Machine for Which Language?</h1>
+
+</section>
+<section id="chomsky-hierarchy-for-data-science" class="slide level2 smaller">
+<h2>Chomsky Hierarchy (for Data Science)</h2>
+<p><strong>Regular languages</strong></p>
+<ul>
+<li>Described by regular expressions, recognized by DFAs/NFAs</li>
+<li>Limited “memory”: patterns like “contains 11”, “ends with tea”, [A-Z]{4}[0-9]{3}</li>
+<li>In DSci: log filters, simple validators, tokenizing text, cleaning CSV-ish formats</li>
+</ul>
+<p><strong>Context-free languages</strong></p>
+<ul>
+<li>Described by context-free grammars (CFGs)</li>
+<li>Handle nested or balanced structure: parentheses, HTML/XML tags, JSON</li>
+<li>In DSci: parsing JSON/YAML, understanding code/configs, defining schemas for nested data</li>
+</ul>
+</section>
+<section id="chomsky-hierarchy-for-data-science-1" class="slide level2 smaller">
+<h2>Chomsky Hierarchy (for Data Science)</h2>
+<p><strong>Context-sensitive languages</strong></p>
+<ul>
+<li>More powerful; can express things like <span class="math inline">\(a^n b^n c^n\)</span></li>
+<li>Capture some agreement constraints in natural language, complex dependencies</li>
+<li>Rarely used explicitly; usually enforced with custom code, type systems, or constraint solvers</li>
+</ul>
+<p><strong>Recursively enumerable languages</strong></p>
+<ul>
+<li>Everything a <em>Turing machine</em> can recognize</li>
+<li>“All computable languages” — but no guarantee we can always decide membership in finite time</li>
+</ul>
+<aside class="notes">
+<p>Data-science takeaway</p>
+<p>Most text / logs / simple formats: regular level (regex &amp; DFAs)</p>
+<p>Most structured nested data (JSON, XML, code): context-free level (CFGs &amp; parsers)</p>
+<p>Rich cross-field / counting constraints go beyond CFGs, handled by full programming languages, SQL engines, or specialized tools</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="the-whole-picture" class="slide level2 smaller">
+<h2>The Whole Picture</h2>
+<svg viewbox="0 0 900 520" width="80%" style="display:block;margin:0 auto" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica, Arial, sans-serif">
+<title>The Chomsky hierarchy as nested rings</title>
+<rect x="20" y="20" width="860" height="440" rx="28" fill="#ece0ff" stroke="#8e5cc4" stroke-width="4"></rect>
+<text x="38" y="52" font-size="22" font-weight="bold" fill="#29335c">Recursively enumerable<tspan font-weight="normal" fill="#8e5cc4">  ·  programs that eventually print “hello”</tspan></text>
+<rect x="48" y="70" width="804" height="376" rx="28" fill="#fff1b8" stroke="#d9a400" stroke-width="4" stroke-dasharray="12 8"></rect>
+<text x="66" y="102" font-size="22" font-weight="bold" fill="#29335c">Decidable (not a grammar type)<tspan font-weight="normal" fill="#d9a400">  ·  a program always finishes with yes or no</tspan></text>
+<rect x="76" y="120" width="748" height="312" rx="28" fill="#dbe7ff" stroke="#4a72d9" stroke-width="4"></rect>
+<text x="94" y="152" font-size="22" font-weight="bold" fill="#29335c">Context-sensitive<tspan font-weight="normal" fill="#4a72d9">  ·  aⁿbⁿcⁿ</tspan></text>
+<rect x="104" y="170" width="692" height="248" rx="28" fill="#d6f5e9" stroke="#2a9d8f" stroke-width="4"></rect>
+<text x="122" y="202" font-size="22" font-weight="bold" fill="#29335c">Context-free<tspan font-weight="normal" fill="#2a9d8f">  ·  0ⁿ1ⁿ, JSON</tspan></text>
+<rect x="132" y="220" width="636" height="184" rx="28" fill="#ffd6e0" stroke="#e05297" stroke-width="4"></rect>
+<text x="150" y="252" font-size="22" font-weight="bold" fill="#29335c">Regular<tspan font-weight="normal" fill="#e05297">  ·  binary strings containing 11</tspan></text>
+<text x="450" y="500" text-anchor="middle" font-size="22" fill="#29335c"><tspan font-weight="bold">Outside every ring:</tspan> programs that <tspan font-style="italic">never</tspan> print “hello”</text>
+</svg>
+<p>Most programs we write always finish with an answer. They live inside <strong>Decidable</strong>.</p>
+<aside class="notes">
+<p>Each ring contains every ring inside it. Each example is in its ring but not in the next one in. Regular: a DFA checks it. Context-free: 0ⁿ1ⁿ needs to count, so no DFA (pigeonhole, L30); a grammar does it. Context-sensitive: aⁿbⁿcⁿ matches three counts at once, which no context-free grammar can. Decidable: Chomsky’s four levels come from four kinds of grammar; “decidable” is not one of them, but it sits between context-sensitive and recursively enumerable. Filters, validators, parsers: anything that always finishes. Recursively enumerable: you can confirm a yes (run the program and watch it print hello), but a program that hasn’t printed yet might still print, so you can’t always confirm a no. Outside: “never prints hello” can’t even confirm its yeses. If asked: the classic example is halting (programs that eventually stop) — same idea.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
 <section id="counting" class="title-slide slide level1 center">
 <h1>Counting</h1>
 
@@ -183,7 +264,7 @@
 </ul>
 <p>Write down how you’d <strong>start</strong> to count, not just an answer.</p>
 <p>Then enter your closet on PrairieLearn: <strong>Activities → How Many Outfits?</strong> (open until noon). We’ll look at the whole class’s closets on Wednesday.</p>
-<countdown-timer id="timer_fd0b408e5c09e807da1f6ccb1a2d88019be1453f" minutes="05" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<countdown-timer id="timer_95b7db8315bd87f3aac7c3c82a74966d6bc14232" minutes="05" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
  </countdown-timer>
 </section>
 <section id="what-did-you-count" class="slide level2 smaller">
