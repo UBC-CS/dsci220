@@ -530,7 +530,7 @@
     "href": "slides/lecture-29_slides.html#visualizing-wide-to-long",
     "title": "Counting",
     "section": "Visualizing Wide to Long",
-    "text": "Visualizing Wide to Long\nBefore melting (wide format):\n \n \n \nAfter melting (long format):\n \n \n\n\n\nEach wide row expands into three long rows — one for each temperature.\n\nEach pair (Object, Temperature) is one combination—just like the outfits we counted last time.\n\nThe total number of rows = 4 objects × 3 temperatures = 12 outcomes.\n\n\n\nNotes:\nUse this visual to anchor the idea that melting enumerates combinations explicitly.\nOptional ask: “Where do we see repetition here? What does that tell us about memory use?”\n⏱️ Timing: 3 minutes (interpretation and discussion)"
+    "text": "Visualizing Wide to Long\nBefore melting (wide format):\n \n \n \nAfter melting (long format):\n \n \n\n\n\nEach wide row expands into three long rows — one for each temperature.\n\nEach (Object, Temperature) pair is one row, just like each (shirt, bottom, shoes) triple was one outfit.\n\nThe total number of rows = 4 objects × 3 temperatures = 12 outcomes.\n\n\n\nNotes:\nUse this visual to anchor the idea that melting enumerates combinations explicitly.\nOptional ask: “Where do we see repetition here? What does that tell us about memory use?”\n⏱️ Timing: 3 minutes (interpretation and discussion)"
   },
   {
     "objectID": "slides/lecture-29_slides.html#visualizing-the-mapping-change",
