@@ -449,32 +449,84 @@ Cinda and the DSCI220 teaching team Perrie, Noah, and Marko.
 
 Hi everyone,
 
-Welcome to week 11! After the quiet week, we're all back in the room on Monday.
+Welcome to week 11! I hope you had a great break. Tomorrow we're back in the 
+classroom for the final push. 
 
 The news:
 
-1. **Class reunion on Monday!** It's been almost two weeks since we were together,
-so this is your invitation back. Monday is a hands-on class: we'll combine
-machines to build new ones, watch a machine that can be in several states at
-once, and roll dice to generate song titles from a grammar. It doesn't work
-nearly as well in a recording. Please come; I'd love to see all of you at 11.
+1. **Class reunion on Monday!** It's been almost two weeks since we've seen you,
+so drop in, stay for a while, learn a few things...
 
 2. **Examlet 4** is Thu Nov 19 through Sun Nov 22. It covers lectures 19 through
 25: sets, regular expressions, and reading DFAs (what strings a machine accepts,
-and what language it describes). Building DFAs is not on EX4; it will be on EX5.
-If you haven't booked your session in PrairieTest, please do it today.
+and what language it describes). Building DFAs will be on EX5.
 
 3. **Practice problems for EX4** are on PrairieLearn:
 <https://us.prairielearn.com/pl/course_instance/209866/assessment/2731705>
-They are not graded, and you can retry each one as many times as you like.
 
-4. **In class this week.** Monday: closure, a quick look at NFAs, and grammars
-(including the grammar for JSON). Wednesday: we start counting. Friday's video:
-more counting, and what it says about the size of a dataframe when you reshape it.
+4. **Tutorial 8** meets this week! 
 
-5. **Tutorial 8** meets on Tuesday and Wednesday.
+My office hour is Tuesday, 10:30–11:30, in ICCS 233.
 
-6. **HW4 is closed.** Thank you for your patience with the extension.
+As always, you're welcome to email me (cheeren@cs.ubc.ca) or post on Piazza
+(<https://piazza.com/ubc.ca/winterterm12026/dsci220>), and the course website is
+<https://ubc-cs.github.io/dsci220>.
+
+See you at 11! (We'll have observers in the classroom for both class meetings this week and I'd really appreciate your presence.)
+
+All the best!
+Cinda and the DSCI220 teaching team Perrie, Noah, and Marko.
+
+---
+
+## Week 12 — Mon Nov 23 to Sun Nov 29
+
+⚠ **Check before sending**
+
+1. **Tutorial 9 isn't built**, and no TA is assigned to it. Item 5 says only
+   that tutorials meet. Confirm someone is running them.
+2. **EX5 dates.** The schedule puts EX5 in week 13. I've written Thu Dec 3 to
+   Sun Dec 6, by analogy with EX4. Check PrairieTest before sending.
+3. **Practice for EX5** opens Wed Nov 25 at 11:59p (that date is in PrairieLearn).
+4. **The tutorial-drop paragraph (item 6) is optional.** It assumes the rule we
+   discussed: half the points earns full credit, and every tutorial stays open
+   for full credit until the last day of classes. That isn't set up in
+   PrairieLearn yet. Delete the item, or tell me to set it up.
+5. **The HW5 link** isn't on the website yet (the `homework-05` row is TBD).
+6. **Friday** is left open. Fill it in once we know where Wednesday ends.
+
+---
+
+Hi everyone,
+
+Welcome to week 12! Today we start counting, the last big topic of the term.
+
+The news:
+
+1. **In class today**, we'll warm up with the big picture of the languages unit
+(there was no video on Friday, so it's in class). Then we count: how many outfits
+are in your closet? You'll enter your closet on PrairieLearn during class, and on
+Wednesday we'll look at the whole class's closets together. Come with your closet
+in your head!
+
+2. **Homework 5** is open on PrairieLearn, due Sun Nov 29 at 11:59p. It is three
+proofs about regular expressions and DFAs, and each question builds on the one
+before it. You get one attempt at each question, so work through it on paper
+before you submit.
+
+3. **Examlet 4** is done. Thank you for all the hard work. You'll be able to see
+your exam and the answers from Wed Nov 25.
+
+4. **Examlet 5** is next week, Thu Dec 3 through Sun Dec 6. It covers building
+DFAs and NFAs, proofs about DFAs, and counting. Practice problems open on
+Wednesday night.
+
+5. **Tutorial 9** meets on Tuesday and Wednesday.
+
+6. **About dropping a tutorial.** A few of you have asked whether we'll drop the
+lowest tutorial. We won't, but here's a better deal: half the points on a tutorial
+earns full credit, and every tutorial stays open for full credit until the last
+day of classes. If you missed one, you can still go back and do it.
 
 My office hour is Tuesday, 10:30–11:30, in ICCS 233.
 
