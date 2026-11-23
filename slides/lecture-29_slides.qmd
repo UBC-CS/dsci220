@@ -103,7 +103,6 @@ No rules, just count.
 
 Write down how you’d **start** to count, not just an answer.
 
-Then enter your closet on PrairieLearn: **Activities → How Many Outfits?** (open until noon). We'll look at the whole class's closets on Wednesday.
 
 {{< countdown minutes=5 >}}
 

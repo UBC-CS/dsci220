@@ -265,3 +265,5 @@ Then (same day): the counting challenge through Permutations moved into the L28 
 Revised the same day: Cinda records a ~10 min Friday video reviewing the Chomsky hierarchy (L28 deck = those two slides). Schedule back to original slots. Counting starts Mon with L29: outfits, product rule, melt, permutations, combinations, then the adaptations and stars and bars. Far too long; trim after Monday.
 
 **2026-11-22.** No Friday video was recorded for L28 (Chomsky hierarchy). Its three slides (two Chomsky hierarchy slides and The Whole Picture) are copied to the start of L29 as the warm-up, before the Outfits activity. L28's own deck is unchanged, and its recording row stays TBD.
+
+**2026-11-23.** Cinda removed the ACT29 outfit-count PL activity before it released ("I think it's forced"). The Outfits warm-up stays in L29 as a paper-and-talk activity, and the line pointing students to PrairieLearn is gone. Wednesday is open: an escape room for permutations and combinations, and/or the Fitch Cheney card trick (it uses pigeonhole, which is L30, and 3! = 6 orders), are under consideration.
