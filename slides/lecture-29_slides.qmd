@@ -327,7 +327,7 @@ when we consider every possible combination of two attributes, the number of pos
 \
 
 * Each wide row expands into three long rows — one for each temperature.  
-* Each pair (Object, Temperature) is one **combination**—just like the outfits we counted last time.  
+* Each (Object, Temperature) pair is one row, just like each (shirt, bottom, shoes) triple was one outfit.  
 * The total number of rows = 4 objects × 3 temperatures = **12 outcomes.**
 
 ::: notes
