@@ -13,7 +13,74 @@ subtitle: "Lecture 30, {{< var course.code >}}, {{< var course.term >}}"
 .rule { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
 </style>
 
-# Counting Rows, Continued
+# Counting Rows
+
+## Warm-Up: Multiplication Rule {.smaller}
+
+**Question:**  
+What happens to the number of rows in a DataFrame when we use `pandas.melt()`?
+
+``` {pyodide}
+import pandas as pd
+
+df = pd.DataFrame({
+    "Object": ["Ice Cream", "Candle", "Chocolate", "Wicked Witch"],
+    "Cold": ["solid", "solid", "solid", "fine"],
+    "Warm": ["ew", "solid", "soft", "drippy"],
+    "Hot": ["puddle", "liquid", "goo", "gone?"]
+})
+
+print(df.shape)   # (4, 4)
+
+melted = df.melt(id_vars="Object", var_name="Temperature", value_name="State")
+print(melted.shape)  # (12, 3)
+```
+
+::: notes
+
+This is a *data-science version* of the **multiplication rule**:  
+when we consider every possible combination of two attributes, the number of possibilities multiplies.
+
+
+➡️ Next we use the same reasoning with *songs in a playlist* instead of rows and columns.
+
+> **Notes:**  
+> Use this to remind students that the multiplication rule already appears in data contexts they know.  
+> Encourage them to connect this to the idea of enumerating combinations of attributes.  
+> Keep the demo under 4 minutes — it’s just a bridge to the main activity.
+>
+> ⏱️ *Timing:* 3–4 minutes warm-up discussion.
+:::
+
+## Visualizing Wide to Long {.smaller}
+
+**Before melting (wide format):**
+
+\ 
+
+\ 
+
+\ 
+
+**After melting (long format):**
+
+\ 
+
+\ 
+
+\
+
+* Each wide row expands into three long rows — one for each temperature.  
+* Each (Object, Temperature) pair is one row, just like each (shirt, bottom, shoes) triple was one outfit.  
+* The total number of rows = 4 objects × 3 temperatures = **12 outcomes.**
+
+::: notes
+> **Notes:**  
+> Use this visual to anchor the idea that melting enumerates combinations explicitly.  
+> Optional ask: “Where do we see repetition here? What does that tell us about memory use?”
+>
+> ⏱️ *Timing:* 3 minutes (interpretation and discussion)
+:::
 
 ## Visualizing the Mapping Change {.smaller}
 
