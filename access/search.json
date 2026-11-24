@@ -519,6 +519,20 @@
     "text": "Wrap Up\nThe combinatorics lesson:\n\nOnce you’ve decided what “counts,” express the valid items as a product of simpler choices.\n\nThis pattern will be used for:\n\npasswords,\nplaylists,\ncommittee selection,\nsampling from datasets,\nand more."
   },
   {
+    "objectID": "slides/lecture-29_slides.html#warm-up-multiplication-rule",
+    "href": "slides/lecture-29_slides.html#warm-up-multiplication-rule",
+    "title": "Counting",
+    "section": "Warm-Up: Multiplication Rule",
+    "text": "Warm-Up: Multiplication Rule\nQuestion:\nWhat happens to the number of rows in a DataFrame when we use pandas.melt()?\n\n\n\n\n\n\n\nThis is a data-science version of the multiplication rule:\nwhen we consider every possible combination of two attributes, the number of possibilities multiplies.\n➡️ Next we use the same reasoning with songs in a playlist instead of rows and columns.\n\nNotes:\nUse this to remind students that the multiplication rule already appears in data contexts they know.\nEncourage them to connect this to the idea of enumerating combinations of attributes.\nKeep the demo under 4 minutes — it’s just a bridge to the main activity.\n⏱️ Timing: 3–4 minutes warm-up discussion."
+  },
+  {
+    "objectID": "slides/lecture-29_slides.html#visualizing-wide-to-long",
+    "href": "slides/lecture-29_slides.html#visualizing-wide-to-long",
+    "title": "Counting",
+    "section": "Visualizing Wide to Long",
+    "text": "Visualizing Wide to Long\nBefore melting (wide format):\n \n \n \nAfter melting (long format):\n \n \n\n\n\nEach wide row expands into three long rows — one for each temperature.\n\nEach (Object, Temperature) pair is one row, just like each (shirt, bottom, shoes) triple was one outfit.\n\nThe total number of rows = 4 objects × 3 temperatures = 12 outcomes.\n\n\n\nNotes:\nUse this visual to anchor the idea that melting enumerates combinations explicitly.\nOptional ask: “Where do we see repetition here? What does that tell us about memory use?”\n⏱️ Timing: 3 minutes (interpretation and discussion)"
+  },
+  {
     "objectID": "slides/lecture-27_slides.html#announcements",
     "href": "slides/lecture-27_slides.html#announcements",
     "title": "Grammars",
