@@ -3301,25 +3301,18 @@
     "text": "Warm-Up: Multiplication Rule\nQuestion:\nWhat happens to the number of rows in a DataFrame when we use pandas.melt()?\n\n\n\n\n\n\n\nThis is a data-science version of the multiplication rule:\nwhen we consider every possible combination of two attributes, the number of possibilities multiplies.\n➡️ Next we use the same reasoning with songs in a playlist instead of rows and columns.\n\nNotes:\nUse this to remind students that the multiplication rule already appears in data contexts they know.\nEncourage them to connect this to the idea of enumerating combinations of attributes.\nKeep the demo under 4 minutes — it’s just a bridge to the main activity.\n⏱️ Timing: 3–4 minutes warm-up discussion."
   },
   {
-    "objectID": "slides/lecture-30_slides.html#visualizing-wide-to-long",
-    "href": "slides/lecture-30_slides.html#visualizing-wide-to-long",
+    "objectID": "slides/lecture-30_slides.html#from-2d-to-1d",
+    "href": "slides/lecture-30_slides.html#from-2d-to-1d",
     "title": "Permutations, Combinations, Pigeonholes",
-    "section": "Visualizing Wide to Long",
-    "text": "Visualizing Wide to Long\nBefore melting (wide format):\n \n \n \nAfter melting (long format):\n \n \n\n\n\nEach wide row expands into three long rows — one for each temperature.\n\nEach (Object, Temperature) pair is one row, just like each (shirt, bottom, shoes) triple was one outfit.\n\nThe total number of rows = 4 objects × 3 temperatures = 12 outcomes.\n\n\n\nNotes:\nUse this visual to anchor the idea that melting enumerates combinations explicitly.\nOptional ask: “Where do we see repetition here? What does that tell us about memory use?”\n⏱️ Timing: 3 minutes (interpretation and discussion)"
+    "section": "From 2D to 1D",
+    "text": "From 2D to 1D\nThe wide table is a grid. It has 4 objects down the side and 3 temperatures across the top, so it has 4 × 3 = 12 cells of data.\nmelt lists those cells in one long column, one cell per row. Each row names its cell by an (Object, Temperature) pair and holds the State in that cell.\n \n \n \nSo the melted table has one row for each (Object, Temperature) pair: 4 × 3 = 12 rows. This is the multiplication rule.\n\n\nNotes:\nDraw the 4 × 3 grid and unroll it into one column of 12.\nThis slide replaces the 2025 slides “Visualizing Wide to Long” and “How Melting Affects Data Size”, which are at the end of the deck."
   },
   {
-    "objectID": "slides/lecture-30_slides.html#visualizing-the-mapping-change",
-    "href": "slides/lecture-30_slides.html#visualizing-the-mapping-change",
+    "objectID": "slides/lecture-30_slides.html#what-melt-does-to-the-function",
+    "href": "slides/lecture-30_slides.html#what-melt-does-to-the-function",
     "title": "Permutations, Combinations, Pigeonholes",
-    "section": "Visualizing the Mapping Change",
-    "text": "Visualizing the Mapping Change\n\n\nBefore melting:\nA function maps each Object to a tuple of states across temperatures:\n\\[ f:\\ \\text{Object} \\to (\\text{Cold},\\ \\text{Warm},\\ \\text{Hot}) \\]\nExample: \\[ f( \\text{Wicked Witch}) = ( \\text{fine}, \\text{drippy}, \\text{gone?}) \\]\n\nAfter melting:\nThe pair (Object, Temperature) is the input:\n\\[ g: ( \\text{Object}, \\text{Temperature}) \\to \\text{State} \\]\nExample: \\[g( \\text{Wicked Witch}, \\text{Warm}) = \\text{drippy} \\]\n\nThe input domain has expanded from Objects to Objects × Temperatures. Each input now produces a single scalar output instead of a vector.\nThis is why the melted data get longer — we’ve made all combinations explicit.\n\n\nNotes: Emphasize the structural change: multivariate output → single-valued function on a larger domain. This perspective connects directly to Cartesian products and the multiplication rule.\n⏱️ Timing: 3 minutes for explanation + brief class recap."
-  },
-  {
-    "objectID": "slides/lecture-30_slides.html#how-melting-affects-data-size",
-    "href": "slides/lecture-30_slides.html#how-melting-affects-data-size",
-    "title": "Permutations, Combinations, Pigeonholes",
-    "section": "How Melting Affects Data Size",
-    "text": "How Melting Affects Data Size\nWhen we melt data, we don’t add new information — we just make existing information longer and more explicit.\n\n\n\n\n\n\n\n\nFormat\nShape\nDescription\n\n\n\n\nWide\n(4, 4)\nOne row per object; columns for Cold, Warm, Hot\n\n\nLong (Melted)\n(12, 3)\nOne row for each (Object, Temperature) pair\n\n\n\nEffect: The number of rows increases by a factor equal to the number of melted columns.\nEach object’s name and each temperature label are now repeated multiple times.\nMemory tradeoff: Long data are larger in memory but easier to work with for grouping and plotting.\n\n\nPrompt: Why would we use a representation that takes more space?\nWhat’s the parallel to our counting models — when do we expand possibilities to make reasoning easier?\n\n\nNotes:\nEmphasize the connection to the multiplication rule: 4 objects × 3 temperatures = 12 outcomes.\nUse this as a conceptual bridge — from data transformation to counting combinations in the upcoming seating activity.\n⏱️ Timing: 3 minutes for explanation + 1 minute discussion."
+    "section": "What Melt Does to the Function",
+    "text": "What Melt Does to the Function\n\n\nWide: each Object maps to a tuple of states.\n\\[ f:\\ \\text{Object} \\to (\\text{Cold},\\ \\text{Warm},\\ \\text{Hot}) \\]\n\\[ f( \\text{Wicked Witch}) = ( \\text{fine}, \\text{drippy}, \\text{gone?}) \\]\n\nLong: each (Object, Temperature) pair maps to one state.\n\\[ g: ( \\text{Object}, \\text{Temperature}) \\to \\text{State} \\]\n\\[g( \\text{Wicked Witch}, \\text{Warm}) = \\text{drippy} \\]\n\nThe domain grows from Objects to Objects × Temperatures, and each output is now a single State instead of a tuple.\nThe long table has one row for each input, so it has |Objects × Temperatures| = |Objects| · |Temperatures| = 4 · 3 = 12 rows.\n\n\nNotes:\nA tuple-valued function on a small domain becomes a single-valued function on a product domain.\nThe row count is the size of that product.\nThis slide replaces the 2025 slide “Visualizing the Mapping Change”, which is at the end of the deck."
   },
   {
     "objectID": "slides/lecture-30_slides.html#a-new-counting-challenge",
@@ -3656,6 +3649,27 @@
     "title": "Permutations, Combinations, Pigeonholes",
     "section": "Why Does This Work?",
     "text": "Why Does This Work?\nIf two birthdays lie in the same 10-day block,\ntheir dates differ by at most 9 days.\n \nTherefore:\n\nAmong any 40 people, two have birthdays\nwithin 9 days of each other.\n\n\nA perfect example of: - choosing your own “boxes” - converting a continuous quantity into categories\n- using PHP in a modeling way"
+  },
+  {
+    "objectID": "slides/lecture-30_slides.html#visualizing-wide-to-long",
+    "href": "slides/lecture-30_slides.html#visualizing-wide-to-long",
+    "title": "Permutations, Combinations, Pigeonholes",
+    "section": "Visualizing Wide to Long",
+    "text": "Visualizing Wide to Long\nBefore melting (wide format):\n \n \n \nAfter melting (long format):\n \n \n\n\n\nEach wide row expands into three long rows — one for each temperature.\n\nEach (Object, Temperature) pair is one row, just like each (shirt, bottom, shoes) triple was one outfit.\n\nThe total number of rows = 4 objects × 3 temperatures = 12 outcomes.\n\n\n\nNotes:\nUse this visual to anchor the idea that melting enumerates combinations explicitly.\nOptional ask: “Where do we see repetition here? What does that tell us about memory use?”\n⏱️ Timing: 3 minutes (interpretation and discussion)"
+  },
+  {
+    "objectID": "slides/lecture-30_slides.html#visualizing-the-mapping-change",
+    "href": "slides/lecture-30_slides.html#visualizing-the-mapping-change",
+    "title": "Permutations, Combinations, Pigeonholes",
+    "section": "Visualizing the Mapping Change",
+    "text": "Visualizing the Mapping Change\n\n\nBefore melting:\nA function maps each Object to a tuple of states across temperatures:\n\\[ f:\\ \\text{Object} \\to (\\text{Cold},\\ \\text{Warm},\\ \\text{Hot}) \\]\nExample: \\[ f( \\text{Wicked Witch}) = ( \\text{fine}, \\text{drippy}, \\text{gone?}) \\]\n\nAfter melting:\nThe pair (Object, Temperature) is the input:\n\\[ g: ( \\text{Object}, \\text{Temperature}) \\to \\text{State} \\]\nExample: \\[g( \\text{Wicked Witch}, \\text{Warm}) = \\text{drippy} \\]\n\nThe input domain has expanded from Objects to Objects × Temperatures. Each input now produces a single scalar output instead of a vector.\nThis is why the melted data get longer — we’ve made all combinations explicit.\n\n\nNotes: Emphasize the structural change: multivariate output → single-valued function on a larger domain. This perspective connects directly to Cartesian products and the multiplication rule.\n⏱️ Timing: 3 minutes for explanation + brief class recap."
+  },
+  {
+    "objectID": "slides/lecture-30_slides.html#how-melting-affects-data-size",
+    "href": "slides/lecture-30_slides.html#how-melting-affects-data-size",
+    "title": "Permutations, Combinations, Pigeonholes",
+    "section": "How Melting Affects Data Size",
+    "text": "How Melting Affects Data Size\nWhen we melt data, we don’t add new information — we just make existing information longer and more explicit.\n\n\n\n\n\n\n\n\nFormat\nShape\nDescription\n\n\n\n\nWide\n(4, 4)\nOne row per object; columns for Cold, Warm, Hot\n\n\nLong (Melted)\n(12, 3)\nOne row for each (Object, Temperature) pair\n\n\n\nEffect: The number of rows increases by a factor equal to the number of melted columns.\nEach object’s name and each temperature label are now repeated multiple times.\nMemory tradeoff: Long data are larger in memory but easier to work with for grouping and plotting.\n\n\nPrompt: Why would we use a representation that takes more space?\nWhat’s the parallel to our counting models — when do we expand possibilities to make reasoning easier?\n\n\nNotes:\nEmphasize the connection to the multiplication rule: 4 objects × 3 temperatures = 12 outcomes.\nUse this as a conceptual bridge — from data transformation to counting combinations in the upcoming seating activity.\n⏱️ Timing: 3 minutes for explanation + 1 minute discussion."
   },
   {
     "objectID": "slides/lecture-32_slides.html#announcements",

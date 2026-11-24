@@ -203,30 +203,19 @@ Keep the demo under 4 minutes — it’s just a bridge to the main activity.</p>
           display:block!important;
       }</style></aside>
 </section>
-<section id="visualizing-wide-to-long" class="slide level2 smaller">
-<h2>Visualizing Wide to Long</h2>
-<p><strong>Before melting (wide format):</strong></p>
+<section id="from-2d-to-1d" class="slide level2 smaller">
+<h2>From 2D to 1D</h2>
+<p>The wide table is a grid. It has 4 objects down the side and 3 temperatures across the top, so it has 4 × 3 = 12 cells of data.</p>
+<p><code>melt</code> lists those cells in one long column, one cell per row. Each row names its cell by an (Object, Temperature) pair and holds the State in that cell.</p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
-<p><strong>After melting (long format):</strong></p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p><br>
-</p>
-<ul>
-<li>Each wide row expands into three long rows — one for each temperature.<br>
-</li>
-<li>Each (Object, Temperature) pair is one row, just like each (shirt, bottom, shoes) triple was one outfit.<br>
-</li>
-<li>The total number of rows = 4 objects × 3 temperatures = <strong>12 outcomes.</strong></li>
-</ul>
+<p>So the melted table has one row for each (Object, Temperature) pair: 4 × 3 = <strong>12 rows</strong>. This is the multiplication rule.</p>
 <aside class="notes">
 <blockquote>
 <p><strong>Notes:</strong><br>
-Use this visual to anchor the idea that melting enumerates combinations explicitly.<br>
-Optional ask: “Where do we see repetition here? What does that tell us about memory use?”</p>
-<p>⏱️ <em>Timing:</em> 3 minutes (interpretation and discussion)</p>
+Draw the 4 × 3 grid and unroll it into one column of 12.<br>
+This slide replaces the 2025 slides “Visualizing Wide to Long” and “How Melting Affects Data Size”, which are at the end of the deck.</p>
 </blockquote>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -240,81 +229,26 @@ Optional ask: “Where do we see repetition here? What does that tell us about m
           display:block!important;
       }</style></aside>
 </section>
-<section id="visualizing-the-mapping-change" class="slide level2 smaller">
-<h2>Visualizing the Mapping Change</h2>
+<section id="what-melt-does-to-the-function" class="slide level2 smaller">
+<h2>What Melt Does to the Function</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
-<p><strong>Before melting:</strong></p>
-<p>A function maps each <strong>Object</strong> to a <em>tuple of states</em> across temperatures:</p>
+<p><strong>Wide:</strong> each Object maps to a tuple of states.</p>
 <p><span class="math display">\[ f:\ \text{Object} \to (\text{Cold},\ \text{Warm},\ \text{Hot}) \]</span></p>
-<p>Example: <span class="math display">\[ f( \text{Wicked Witch}) = ( \text{fine}, \text{drippy}, \text{gone?}) \]</span></p>
+<p><span class="math display">\[ f( \text{Wicked Witch}) = ( \text{fine}, \text{drippy}, \text{gone?}) \]</span></p>
 </div><div class="column" style="width:50%;">
-<p><strong>After melting:</strong></p>
-<p>The <em>pair</em> (Object, Temperature) is the input:</p>
+<p><strong>Long:</strong> each (Object, Temperature) pair maps to one state.</p>
 <p><span class="math display">\[ g: ( \text{Object}, \text{Temperature}) \to \text{State} \]</span></p>
-<p>Example: <span class="math display">\[g( \text{Wicked Witch}, \text{Warm}) = \text{drippy} \]</span></p>
+<p><span class="math display">\[g( \text{Wicked Witch}, \text{Warm}) = \text{drippy} \]</span></p>
 </div></div>
-<p>The input domain has expanded from <strong>Objects</strong> to <strong>Objects × Temperatures</strong>. Each input now produces a single scalar output instead of a vector.</p>
-<p>This is why the melted data get longer — we’ve made all combinations explicit.</p>
+<p>The domain grows from Objects to Objects × Temperatures, and each output is now a single State instead of a tuple.</p>
+<p>The long table has one row for each input, so it has |Objects × Temperatures| = |Objects| · |Temperatures| = 4 · 3 = 12 rows.</p>
 <aside class="notes">
-<blockquote>
-<p><strong>Notes:</strong> Emphasize the structural change: multivariate output → single-valued function on a larger domain. This perspective connects directly to <strong>Cartesian products</strong> and the <strong>multiplication rule</strong>.</p>
-<p>⏱️ <em>Timing:</em> 3 minutes for explanation + brief class recap.</p>
-</blockquote>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="how-melting-affects-data-size" class="slide level2 smaller">
-<h2>How Melting Affects Data Size</h2>
-<p>When we <strong>melt</strong> data, we don’t add new information — we just make existing information longer and more explicit.</p>
-<table class="caption-top">
-<colgroup>
-<col style="width: 30%">
-<col style="width: 26%">
-<col style="width: 43%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Format</th>
-<th>Shape</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>Wide</strong></td>
-<td>(4, 4)</td>
-<td>One row per object; columns for Cold, Warm, Hot</td>
-</tr>
-<tr class="even">
-<td><strong>Long (Melted)</strong></td>
-<td>(12, 3)</td>
-<td>One row for each (Object, Temperature) pair</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Effect:</strong> The number of rows increases by a <em>factor</em> equal to the number of melted columns.<br>
-Each object’s name and each temperature label are now repeated multiple times.</p>
-<p><em>Memory tradeoff</em>: Long data are larger in memory but easier to work with for grouping and plotting.</p>
-<aside class="notes">
-<blockquote>
-<p><strong>Prompt:</strong> Why would we use a representation that takes more space?<br>
-What’s the parallel to our counting models — when do we <em>expand</em> possibilities to make reasoning easier?</p>
-</blockquote>
 <blockquote>
 <p><strong>Notes:</strong><br>
-Emphasize the connection to the multiplication rule: 4 objects × 3 temperatures = 12 outcomes.<br>
-Use this as a conceptual bridge — from data transformation to counting combinations in the upcoming seating activity.</p>
-<p>⏱️ <em>Timing:</em> 3 minutes for explanation + 1 minute discussion.</p>
+A tuple-valued function on a small domain becomes a single-valued function on a product domain.<br>
+The row count is the size of that product.<br>
+This slide replaces the 2025 slide “Visualizing the Mapping Change”, which is at the end of the deck.</p>
 </blockquote>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -1557,6 +1491,136 @@ within 9 days of each other.</strong></p>
 <aside class="notes">
 <p>A perfect example of: - choosing your own “boxes” - converting a continuous quantity into categories<br>
 - using PHP in a <em>modeling</em> way</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
+<section id="from-the-2025-deck" class="title-slide slide level1 center">
+<h1>From the 2025 deck</h1>
+
+</section>
+<section id="visualizing-wide-to-long" class="slide level2 smaller">
+<h2>Visualizing Wide to Long</h2>
+<p><strong>Before melting (wide format):</strong></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><strong>After melting (long format):</strong></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><br>
+</p>
+<ul>
+<li>Each wide row expands into three long rows — one for each temperature.<br>
+</li>
+<li>Each (Object, Temperature) pair is one row, just like each (shirt, bottom, shoes) triple was one outfit.<br>
+</li>
+<li>The total number of rows = 4 objects × 3 temperatures = <strong>12 outcomes.</strong></li>
+</ul>
+<aside class="notes">
+<blockquote>
+<p><strong>Notes:</strong><br>
+Use this visual to anchor the idea that melting enumerates combinations explicitly.<br>
+Optional ask: “Where do we see repetition here? What does that tell us about memory use?”</p>
+<p>⏱️ <em>Timing:</em> 3 minutes (interpretation and discussion)</p>
+</blockquote>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="visualizing-the-mapping-change" class="slide level2 smaller">
+<h2>Visualizing the Mapping Change</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Before melting:</strong></p>
+<p>A function maps each <strong>Object</strong> to a <em>tuple of states</em> across temperatures:</p>
+<p><span class="math display">\[ f:\ \text{Object} \to (\text{Cold},\ \text{Warm},\ \text{Hot}) \]</span></p>
+<p>Example: <span class="math display">\[ f( \text{Wicked Witch}) = ( \text{fine}, \text{drippy}, \text{gone?}) \]</span></p>
+</div><div class="column" style="width:50%;">
+<p><strong>After melting:</strong></p>
+<p>The <em>pair</em> (Object, Temperature) is the input:</p>
+<p><span class="math display">\[ g: ( \text{Object}, \text{Temperature}) \to \text{State} \]</span></p>
+<p>Example: <span class="math display">\[g( \text{Wicked Witch}, \text{Warm}) = \text{drippy} \]</span></p>
+</div></div>
+<p>The input domain has expanded from <strong>Objects</strong> to <strong>Objects × Temperatures</strong>. Each input now produces a single scalar output instead of a vector.</p>
+<p>This is why the melted data get longer — we’ve made all combinations explicit.</p>
+<aside class="notes">
+<blockquote>
+<p><strong>Notes:</strong> Emphasize the structural change: multivariate output → single-valued function on a larger domain. This perspective connects directly to <strong>Cartesian products</strong> and the <strong>multiplication rule</strong>.</p>
+<p>⏱️ <em>Timing:</em> 3 minutes for explanation + brief class recap.</p>
+</blockquote>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="how-melting-affects-data-size" class="slide level2 smaller">
+<h2>How Melting Affects Data Size</h2>
+<p>When we <strong>melt</strong> data, we don’t add new information — we just make existing information longer and more explicit.</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 30%">
+<col style="width: 26%">
+<col style="width: 43%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Format</th>
+<th>Shape</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Wide</strong></td>
+<td>(4, 4)</td>
+<td>One row per object; columns for Cold, Warm, Hot</td>
+</tr>
+<tr class="even">
+<td><strong>Long (Melted)</strong></td>
+<td>(12, 3)</td>
+<td>One row for each (Object, Temperature) pair</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Effect:</strong> The number of rows increases by a <em>factor</em> equal to the number of melted columns.<br>
+Each object’s name and each temperature label are now repeated multiple times.</p>
+<p><em>Memory tradeoff</em>: Long data are larger in memory but easier to work with for grouping and plotting.</p>
+<aside class="notes">
+<blockquote>
+<p><strong>Prompt:</strong> Why would we use a representation that takes more space?<br>
+What’s the parallel to our counting models — when do we <em>expand</em> possibilities to make reasoning easier?</p>
+</blockquote>
+<blockquote>
+<p><strong>Notes:</strong><br>
+Emphasize the connection to the multiplication rule: 4 objects × 3 temperatures = 12 outcomes.<br>
+Use this as a conceptual bridge — from data transformation to counting combinations in the upcoming seating activity.</p>
+<p>⏱️ <em>Timing:</em> 3 minutes for explanation + 1 minute discussion.</p>
+</blockquote>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
