@@ -52,98 +52,54 @@ when we consider every possible combination of two attributes, the number of pos
 > ⏱️ *Timing:* 3–4 minutes warm-up discussion.
 :::
 
-## Visualizing Wide to Long {.smaller}
+## From 2D to 1D {.smaller}
 
-**Before melting (wide format):**
+The wide table is a grid. It has 4 objects down the side and 3 temperatures across the top, so it has 4 × 3 = 12 cells of data.
 
-\ 
-
-\ 
-
-\ 
-
-**After melting (long format):**
+`melt` lists those cells in one long column, one cell per row. Each row names its cell by an (Object, Temperature) pair and holds the State in that cell.
 
 \ 
 
 \ 
 
-\
+\ 
 
-* Each wide row expands into three long rows — one for each temperature.  
-* Each (Object, Temperature) pair is one row, just like each (shirt, bottom, shoes) triple was one outfit.  
-* The total number of rows = 4 objects × 3 temperatures = **12 outcomes.**
+So the melted table has one row for each (Object, Temperature) pair: 4 × 3 = **12 rows**. This is the multiplication rule.
 
 ::: notes
 > **Notes:**  
-> Use this visual to anchor the idea that melting enumerates combinations explicitly.  
-> Optional ask: “Where do we see repetition here? What does that tell us about memory use?”
->
-> ⏱️ *Timing:* 3 minutes (interpretation and discussion)
+> Draw the 4 × 3 grid and unroll it into one column of 12.  
+> This slide replaces the 2025 slides "Visualizing Wide to Long" and "How Melting Affects Data Size", which are at the end of the deck.
 :::
 
-## Visualizing the Mapping Change {.smaller}
+## What Melt Does to the Function {.smaller}
 
 :::: {.columns}
 ::: {.column width="50%"}
-**Before melting:**
-
-A function maps each **Object** to a *tuple of states* across temperatures:
+**Wide:** each Object maps to a tuple of states.
 
 $$ f:\ \text{Object} \to (\text{Cold},\ \text{Warm},\ \text{Hot}) $$
 
-Example:
 $$ f( \text{Wicked Witch}) = ( \text{fine}, \text{drippy}, \text{gone?}) $$
 :::
 ::: {.column width="50%"}
-**After melting:**
-
-The *pair* (Object, Temperature) is the input:
+**Long:** each (Object, Temperature) pair maps to one state.
 
 $$ g: ( \text{Object}, \text{Temperature}) \to \text{State} $$
 
-Example:
 $$g( \text{Wicked Witch}, \text{Warm}) = \text{drippy} $$
 :::
 ::::
 
-The input domain has expanded from **Objects** to **Objects × Temperatures**.
-Each input now produces a single scalar output instead of a vector.
+The domain grows from Objects to Objects × Temperatures, and each output is now a single State instead of a tuple.
 
-This is why the melted data get longer — we’ve made all combinations explicit.
-
-::: notes
-> **Notes:**
-> Emphasize the structural change: multivariate output → single-valued function on a larger domain.
-> This perspective connects directly to **Cartesian products** and the **multiplication rule**.
->
-> ⏱️ *Timing:* 3 minutes for explanation + brief class recap.
-
-:::
-
-## How Melting Affects Data Size {.smaller}
-
-When we **melt** data, we don’t add new information — we just make existing information longer and more explicit.
-
-| Format | Shape | Description |
-|---------|--------|-------------|
-| **Wide** | (4, 4) | One row per object; columns for Cold, Warm, Hot |
-| **Long (Melted)** | (12, 3) | One row for each (Object, Temperature) pair |
-
-**Effect:** The number of rows increases by a *factor* equal to the number of melted columns.  
-Each object’s name and each temperature label are now repeated multiple times.
-
-*Memory tradeoff*: Long data are larger in memory but easier to work with for grouping and plotting.
+The long table has one row for each input, so it has |Objects × Temperatures| = |Objects| · |Temperatures| = 4 · 3 = 12 rows.
 
 ::: notes
-> **Prompt:** Why would we use a representation that takes more space?  
-> What’s the parallel to our counting models — when do we *expand* possibilities to make reasoning easier?
-
 > **Notes:**  
-> Emphasize the connection to the multiplication rule: 4 objects × 3 temperatures = 12 outcomes.  
-> Use this as a conceptual bridge — from data transformation to counting combinations in the upcoming seating activity.
->
-> ⏱️ *Timing:* 3 minutes for explanation + 1 minute discussion.
+> A tuple-valued function on a small domain becomes a single-valued function on a product domain.  
+> The row count is the size of that product.  
+> This slide replaces the 2025 slide "Visualizing the Mapping Change", which is at the end of the deck.
 :::
 
 # Permutations
@@ -1340,4 +1296,98 @@ A perfect example of:
 - using PHP in a *modeling* way
 :::
 
+# From the 2025 deck
 
+## Visualizing Wide to Long {.smaller}
+
+**Before melting (wide format):**
+
+\ 
+
+\ 
+
+\ 
+
+**After melting (long format):**
+
+\ 
+
+\ 
+
+\
+
+* Each wide row expands into three long rows — one for each temperature.  
+* Each (Object, Temperature) pair is one row, just like each (shirt, bottom, shoes) triple was one outfit.  
+* The total number of rows = 4 objects × 3 temperatures = **12 outcomes.**
+
+::: notes
+> **Notes:**  
+> Use this visual to anchor the idea that melting enumerates combinations explicitly.  
+> Optional ask: “Where do we see repetition here? What does that tell us about memory use?”
+>
+> ⏱️ *Timing:* 3 minutes (interpretation and discussion)
+:::
+
+## Visualizing the Mapping Change {.smaller}
+
+:::: {.columns}
+::: {.column width="50%"}
+**Before melting:**
+
+A function maps each **Object** to a *tuple of states* across temperatures:
+
+$$ f:\ \text{Object} \to (\text{Cold},\ \text{Warm},\ \text{Hot}) $$
+
+Example:
+$$ f( \text{Wicked Witch}) = ( \text{fine}, \text{drippy}, \text{gone?}) $$
+:::
+::: {.column width="50%"}
+**After melting:**
+
+The *pair* (Object, Temperature) is the input:
+
+$$ g: ( \text{Object}, \text{Temperature}) \to \text{State} $$
+
+Example:
+$$g( \text{Wicked Witch}, \text{Warm}) = \text{drippy} $$
+:::
+::::
+
+The input domain has expanded from **Objects** to **Objects × Temperatures**.
+Each input now produces a single scalar output instead of a vector.
+
+This is why the melted data get longer — we’ve made all combinations explicit.
+
+::: notes
+> **Notes:**
+> Emphasize the structural change: multivariate output → single-valued function on a larger domain.
+> This perspective connects directly to **Cartesian products** and the **multiplication rule**.
+>
+> ⏱️ *Timing:* 3 minutes for explanation + brief class recap.
+
+:::
+
+## How Melting Affects Data Size {.smaller}
+
+When we **melt** data, we don’t add new information — we just make existing information longer and more explicit.
+
+| Format | Shape | Description |
+|---------|--------|-------------|
+| **Wide** | (4, 4) | One row per object; columns for Cold, Warm, Hot |
+| **Long (Melted)** | (12, 3) | One row for each (Object, Temperature) pair |
+
+**Effect:** The number of rows increases by a *factor* equal to the number of melted columns.  
+Each object’s name and each temperature label are now repeated multiple times.
+
+*Memory tradeoff*: Long data are larger in memory but easier to work with for grouping and plotting.
+
+::: notes
+> **Prompt:** Why would we use a representation that takes more space?  
+> What’s the parallel to our counting models — when do we *expand* possibilities to make reasoning easier?
+
+> **Notes:**  
+> Emphasize the connection to the multiplication rule: 4 objects × 3 temperatures = 12 outcomes.  
+> Use this as a conceptual bridge — from data transformation to counting combinations in the upcoming seating activity.
+>
+> ⏱️ *Timing:* 3 minutes for explanation + 1 minute discussion.
+:::
