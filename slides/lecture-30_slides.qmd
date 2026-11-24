@@ -308,12 +308,12 @@ $$
 > **Notes:**  
 > - Use this to formalize what students discovered in the activity: dividing by the number of equivalent orders.  
 > - Emphasize the contrast with **permutations**: same domain, different notion of sameness.  
-> - End with: “On Monday we bend these rules: round tables, bracelets, and committees.”
+> - Next we bend these rules: round tables, bracelets and committees.
 :::
 
 # Bending the Rules
 
-Permutations and combinations from Friday's video, adapted: round tables, bracelets, committees.
+Now we bend the rules for permutations and combinations: round tables, bracelets and committees.
 
 
 ## Counting under rotation {.smaller}
