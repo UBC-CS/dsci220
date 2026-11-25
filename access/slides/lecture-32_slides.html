@@ -12,7 +12,7 @@
 <script src="../site_libs/quarto-contrib/iconify-3.0.0/iconify-icon.min.js"></script><meta charset="utf-8">
   <meta name="generator" content="quarto-1.11.9">
 
-  <title>{{&lt; var course.full-title &gt;}}---Accessibility version – Feature Spaces and the Curse of Dimensionality</title>
+  <title>{{&lt; var course.full-title &gt;}}---Accessibility version – The Pigeonhole Principle; Feature Spaces</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -134,10 +134,10 @@
   </style>
   <script type="module" src="../site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
   <link href="../site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
-<meta property="og:title" content="Feature Spaces and the Curse of Dimensionality – DSCI 220: Discrete Math for Data Science—Accessibility version">
+<meta property="og:title" content="The Pigeonhole Principle; Feature Spaces – DSCI 220: Discrete Math for Data Science—Accessibility version">
 <meta property="og:description" content="Lecture 32, DSCI 220, 2026W1">
 <meta property="og:site_name" content="DSCI 220: Discrete Math for Data Science—Accessibility version">
-<meta name="twitter:title" content="Feature Spaces and the Curse of Dimensionality – DSCI 220: Discrete Math for Data Science—Accessibility version">
+<meta name="twitter:title" content="The Pigeonhole Principle; Feature Spaces – DSCI 220: Discrete Math for Data Science—Accessibility version">
 <meta name="twitter:description" content="Lecture 32, DSCI 220, 2026W1">
 <meta name="twitter:card" content="summary">
 </head>
@@ -146,7 +146,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Feature Spaces and the Curse of Dimensionality</h1>
+  <h1 class="title">The Pigeonhole Principle; Feature Spaces</h1>
   <p class="subtitle">Lecture 32, DSCI 220, 2026W1</p>
 
 <div class="quarto-title-authors">
@@ -163,6 +163,405 @@
 .rule { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
 </style>
 </section>
+<section>
+<section id="pigeonhole-warm-ups" class="title-slide slide level1 center">
+<h1>Pigeonhole Warm-Ups</h1>
+
+</section>
+<section id="warm-up-1" class="slide level2 smaller">
+<h2>Warm-Up 1</h2>
+<p>&nbsp;</p>
+<p>You have a drawer with:</p>
+<ul>
+<li>6 heart socks ❤️</li>
+<li>8 cat socks 😺<br>
+</li>
+<li>5 striped socks 🌈</li>
+</ul>
+<p>You pull out socks in the dark, <strong>one at a time</strong>.</p>
+<p><strong>Question:</strong> How many socks do you need to pull to <strong>guarantee</strong> you have a matching pair?</p>
+<aside class="notes">
+<p>Students will guess: - 2 (optimistic) - 3 (intuition) - “Half the drawer?”</p>
+<p>Let them debate worst-case reasoning.</p>
+<p>Worst-case = 1 heart + 1 cat + 1 striped → still no pair.<br>
+The <em>next</em> sock must match something.</p>
+<p>Answer = 4.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="thinking-about-the-worst-case" class="slide level2">
+<h2>Thinking About the Worst Case</h2>
+<p>Worst-case sequence:</p>
+<ol type="1">
+<li>heart<br>
+</li>
+<li>cat<br>
+</li>
+<li>striped</li>
+</ol>
+<p>&nbsp;</p>
+<p>At this point: <strong>no pair yet</strong></p>
+<p>&nbsp;</p>
+<p>So the next sock <strong>must match something</strong>.</p>
+</section>
+<section id="warm-up-2" class="slide level2 smaller">
+<h2>Warm-Up 2</h2>
+<p><strong>Question:</strong><br>
+How many subsets does an <span class="math inline">\(n\)</span>-element set have?</p>
+<p>Try small cases:</p>
+<ul>
+<li><span class="math inline">\(n = 0\)</span>: <span class="math inline">\(1\)</span> subset<br>
+</li>
+<li><span class="math inline">\(n = 1\)</span>: <span class="math inline">\(2\)</span> subsets<br>
+</li>
+<li><span class="math inline">\(n = 2\)</span>: <span class="math inline">\(4\)</span> subsets<br>
+</li>
+<li><span class="math inline">\(n = 3\)</span>: <span class="math inline">\(8\)</span> subsets</li>
+</ul>
+<p><strong>Conjecture:</strong><br>
+<span class="math display">\[
+|P(S)| = 2^n
+\]</span></p>
+</section>
+<section id="why-might-this-be-true" class="slide level2">
+<h2>Why Might This Be True?</h2>
+<p>Let <span class="math inline">\(S\)</span> be an <span class="math inline">\(n\)</span>-element set.</p>
+<p>Choose an element <span class="math inline">\(a \in S\)</span>.</p>
+<p>Every subset of <span class="math inline">\(S\)</span> either:</p>
+<ol type="1">
+<li><strong>Includes</strong> <span class="math inline">\(a\)</span><br>
+</li>
+<li><strong>Does NOT include</strong> <span class="math inline">\(a\)</span></li>
+</ol>
+<aside class="notes">
+<p>This partitions all subsets into two bins of equal size — perfect for induction.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="include-or-exclude-a" class="slide level2 smaller">
+<h2>Include or Exclude <span class="math inline">\(a\)</span></h2>
+<div style="text-align:center;">
+<svg width="650" height="260" viewbox="0 0 650 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+<title id="title">
+Subsets split by including or excluding a
+</title>
+<desc id="desc"> Visualizing all subsets of S as two groups: those that do not contain a, and those that do contain a. </desc> <rect x="30" y="60" width="190" height="120" rx="12" fill="#f3f3ff" stroke="#444" stroke-width="1.5"></rect> <text x="125" y="90" text-anchor="middle" font-family="system-ui, sans-serif" font-size="16"> S − {a} </text> <text x="125" y="115" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13"> (n − 1 elements) </text> <text x="125" y="145" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13"> all subsets of </text> <text x="125" y="165" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13"> S − {a} </text> <rect x="360" y="30" width="240" height="90" rx="12" fill="#e9f7ef" stroke="#2e7d32" stroke-width="1.5"></rect> <text x="480" y="55" text-anchor="middle" font-family="system-ui, sans-serif" font-size="15"> Subsets WITHOUT a </text> <text x="480" y="80" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13"> exactly the subsets of S − {a} </text> <rect x="360" y="140" width="240" height="90" rx="12" fill="#fff3e0" stroke="#ef6c00" stroke-width="1.5"></rect> <text x="480" y="165" text-anchor="middle" font-family="system-ui, sans-serif" font-size="15"> Subsets WITH a </text> <text x="480" y="190" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13"> take a subset of S − {a} and add a </text> <defs> <marker id="arrowhead" markerwidth="10" markerheight="7" refx="9" refy="3.5" orient="auto"> <polygon points="0 0, 10 3.5, 0 7" fill="#444"></polygon> </marker> </defs> <line x1="220" y1="110" x2="360" y2="75" stroke="#444" stroke-width="1.5" marker-end="url(#arrowhead)"></line> <line x1="220" y1="130" x2="360" y2="185" stroke="#444" stroke-width="1.5" marker-end="url(#arrowhead)"></line> <text x="290" y="65" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12"> use subset as-is </text> <text x="290" y="205" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12"> subset ∪ {a} </text>
+</svg>
+</div>
+<p>So:</p>
+<p><span class="math display">\[
+|P(S)| = |P(S - \{a\})| + |P(S - \{a\})| = 2\cdot |P(S - \{a\})|
+\]</span></p>
+</section>
+<section id="proof-by-induction" class="slide level2 smaller">
+<h2>Proof by Induction</h2>
+<p><strong>Claim:</strong> For any set <span class="math inline">\(S\)</span> with <span class="math inline">\(|S|=n\)</span>, <span class="math display">\[
+|P(S)| = 2^n
+\]</span></p>
+<p><strong>Base Case:</strong> <span class="math inline">\(n = 0\)</span></p>
+<p>A 0-element set has exactly <strong>one</strong> subset: <span class="math inline">\(\{\}\)</span></p>
+<p>And the claim says we should have <span class="math inline">\(2^0 = 1\)</span>.</p>
+<p>&nbsp;</p>
+<p><strong>Inductive Step</strong></p>
+<p>Assume that for any <span class="math inline">\(j&lt;n\)</span>, if <span class="math inline">\(|T|= j\)</span>, <span class="math inline">\(|P(T)| = 2^{j}\)</span></p>
+<p>Then from previous slide:</p>
+<p><span class="math display">\[
+|P(S)| = 2\cdot |P(S - \{a\})|
+\]</span></p>
+</section>
+<section id="a-teaser" class="slide level2">
+<h2>A Teaser…</h2>
+<ol type="1">
+<li><p>Dividing up the things you’re counting into categories can help!</p></li>
+<li><p>When you split objects into categories</p>
+<ul>
+<li>If you have <strong>more objects than categories</strong>, then <strong>some category must contain at least two objects</strong>.</li>
+</ul></li>
+</ol>
+<aside class="notes">
+<p>Do not name PHP yet—just show the conceptual bridge.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
+<section id="pigeonhole-principle" class="title-slide slide level1 center">
+<h1>Pigeonhole Principle</h1>
+
+</section>
+<section id="warm-up-tennis-balls" class="slide level2">
+<h2>Warm-Up: Tennis Balls</h2>
+<p>&nbsp;</p>
+<p>29 tennis balls are distributed among 4 players.</p>
+<p><br>
+</p>
+<p><strong>Claim:</strong><br>
+Some player must receive <strong>more than 7</strong> balls.</p>
+<aside class="notes">
+<p>Ask for guesses first: “Is it possible that nobody gets more than 7?”</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="a-picture-of-the-situation" class="slide level2 smaller">
+<h2>A Picture of the Situation</h2>
+<svg width="900" height="280" viewbox="0 0 900 280" xmlns="http://www.w3.org/2000/svg">
+<defs> <style> .body { stroke:#333; stroke-width:3; fill:none; stroke-linecap:round; } .head { fill:#ffe6c7; stroke:#333; stroke-width:2; } .label { font-family: system-ui, sans-serif; font-size: 14px; fill:#333; } .ball { stroke:#333; stroke-width:1; } </style> </defs> <g id="player"> <circle class="head" cx="140" cy="80" r="20"></circle> <line class="body" x1="140" y1="100" x2="140" y2="160"></line> <line class="body" x1="115" y1="120" x2="165" y2="120"></line> <line class="body" x1="140" y1="160" x2="120" y2="200"></line> <line class="body" x1="140" y1="160" x2="160" y2="200"></line> <circle class="ball" cx="185.0" cy="80.0" r="9" fill="#FF6B6B"></circle> <!-- k=0 --> <circle class="ball" cx="168.1" cy="115.2" r="9" fill="#FFA447"></circle> <circle class="ball" cx="140.0" cy="123.9" r="9" fill="#FFE66D"></circle> <!-- k=2 --> <circle class="ball" cx="100.5" cy="99.5" r="9" fill="#7DDE92"></circle> <!-- k=3 --> <circle class="ball" cx="100.5" cy="61.5" r="9" fill="#4D96FF"></circle> <!-- k=4 --> <circle class="ball" cx="130.0" cy="37.9" r="9" fill="#9D4EDD"></circle> <!-- k=5 --> <circle class="ball" cx="168.1" cy="45.2" r="9" fill="#F72585"></circle> <!-- k=6 --> <use href="#player"></use> <text class="label" x="140" y="230" text-anchor="middle">Player 1</text> </g> <g transform="translate(200,0)"> <use href="#player"></use> <text class="label" x="140" y="230" text-anchor="middle">Player 2</text> </g> <g transform="translate(400,0)"> <use href="#player"></use> <text class="label" x="140" y="230" text-anchor="middle">Player 3</text> </g> <g transform="translate(600,0)"> <use href="#player"></use> <text class="label" x="140" y="230" text-anchor="middle">Player 4</text> </g>
+</svg>
+</section>
+<section id="proving-your-intuition" class="slide level2 smaller">
+<h2>Proving Your Intuition</h2>
+<p>Suppose, for the sake of contradiction, that <strong>no player gets more than 7 balls.</strong></p>
+<p>Then the <strong>maximum</strong> total number of balls is:</p>
+<aside class="notes">
+<p>7 + 7 + 7 + 7 = 28 But we have <strong>29</strong> balls. &gt; Contradiction! So our assumption was impossible.<br>
+Therefore, <strong>some player must have at least 8 balls.</strong> ✅ You can phrase this as: - “If everyone had 7 or fewer, we’d only have 28 total.” - “Since we have 29, somebody has to overflow.”</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="the-pigeonhole-principle" class="slide level2">
+<h2>The Pigeonhole Principle</h2>
+<p>&nbsp;</p>
+<p><strong>Simple form:</strong></p>
+<blockquote>
+<p>If more than <span class="math inline">\(n\)</span> objects are placed into <span class="math inline">\(n\)</span> boxes,<br>
+then there is a box containing <strong>at least 2</strong> objects.</p>
+</blockquote>
+<p>&nbsp;</p>
+<p><strong>General form:</strong></p>
+<blockquote>
+<p>If <span class="math inline">\(N\)</span> objects are placed into <span class="math inline">\(k\)</span> boxes,<br>
+then there is a box containing at least</p>
+<p>________ objects.</p>
+</blockquote>
+</section>
+<section id="tennis-balls-as-an-example" class="slide level2">
+<h2>Tennis Balls as an Example</h2>
+<p>29 tennis balls, 4 players.</p>
+<ul>
+<li>Objects = <strong>29 balls</strong></li>
+<li>Boxes = <strong>4 players</strong></li>
+<li>So some player has at least <span class="math display">\[
+\left\lceil \frac{29}{4} \right\rceil = \left\lceil 7.25 \right\rceil = 8
+\]</span> balls.</li>
+</ul>
+</section>
+<section id="another-example" class="slide level2">
+<h2>Another Example</h2>
+<p>&nbsp;</p>
+<p><strong>Claim:</strong> Among any <strong>7 positive integers</strong>,there are 2 whose <strong>sum or difference</strong> is divisible by 10.</p>
+<p>&nbsp;</p>
+<p>What are the pigeons?</p>
+<p>What are the boxes?</p>
+</section>
+<section id="last-digits-and-remainders" class="slide level2 smaller">
+<h2>Last Digits and Remainders</h2>
+<p>Every positive integer has a <strong>last digit</strong> (i.e., a remainder when divided by 10):</p>
+<p><span class="math display">\[
+0, 1, 2, 3, 4, 5, 6, 7, 8, 9
+\]</span></p>
+<p>We want to detect when a <strong>sum or difference</strong> is divisible by 10.</p>
+<ul>
+<li>Difference divisible by 10: numbers have the <strong>same last digit</strong><br>
+</li>
+<li>Sum divisible by 10: last digits add to 10:
+<ul>
+<li>(1, 9), (2, 8), (3, 7), (4, 6), and also (0, 0), (5, 5)</li>
+</ul></li>
+</ul>
+</section>
+<section id="defining-the-boxes" class="slide level2 smaller">
+<h2>Defining the Boxes</h2>
+<p>Group integers by their last digit:</p>
+<svg width="800" height="220" viewbox="0 0 800 220" xmlns="http://www.w3.org/2000/svg">
+<defs> <style> .box { fill: #f9fafb; stroke: #333; stroke-width: 1.5; rx: 10; } .box-label { font-family: system-ui, sans-serif; font-size: 18px; font-weight: 600; fill: #111827; } .digits { font-family: system-ui, sans-serif; font-size: 14px; fill: #374151; } .title { font-family: system-ui, sans-serif; font-size: 16px; fill: #111827; } </style> </defs> <rect class="box" x="40" y="50" width="200" height="60"></rect> <text class="box-label" x="60" y="75">A</text> <text class="digits" x="60" y="100">last digit 0</text> <rect class="box" x="300" y="50" width="200" height="60"></rect> <text class="box-label" x="320" y="75">B</text> <text class="digits" x="320" y="100">last digit 5</text> <rect class="box" x="560" y="50" width="200" height="60"></rect> <text class="box-label" x="580" y="75">C</text> <text class="digits" x="580" y="100">last digit 1 or 9</text> <rect class="box" x="40" y="130" width="200" height="60"></rect> <text class="box-label" x="60" y="155">D</text> <text class="digits" x="60" y="180">last digit 2 or 8</text> <rect class="box" x="300" y="130" width="200" height="60"></rect> <text class="box-label" x="320" y="155">E</text> <text class="digits" x="320" y="180">last digit 3 or 7</text> <rect class="box" x="560" y="130" width="200" height="60"></rect> <text class="box-label" x="580" y="155">F</text> <text class="digits" x="580" y="180">last digit 4 or 6</text>
+</svg>
+<p>Place all the elements from either one of the following sets into the boxes.</p>
+<ul>
+<li><span class="math inline">\(\{13, 15, 28, 30, 1, 46, 58\}\)</span></li>
+<li><span class="math inline">\(\{27, 86, 50, 35, 11, 44, 108\}\)</span></li>
+</ul>
+<p>Does the conjecture appear to be true?</p>
+</section>
+<section id="php" class="slide level2 smaller">
+<h2>PHP</h2>
+<p>We have:</p>
+<ul>
+<li><strong>7</strong> integers (objects)<br>
+</li>
+<li><strong>6</strong> boxes (based on last-digit)</li>
+</ul>
+<p>By the Pigeonhole Principle, <strong>some box contains at least 2</strong> of our integers.</p>
+<p>Check each box:</p>
+<svg width="800" height="220" viewbox="0 0 800 220" xmlns="http://www.w3.org/2000/svg">
+<defs> <style> .box { fill: #f9fafb; stroke: #333; stroke-width: 1.5; rx: 10; } .box-label { font-family: system-ui, sans-serif; font-size: 18px; font-weight: 600; fill: #111827; } .digits { font-family: system-ui, sans-serif; font-size: 14px; fill: #374151; } .title { font-family: system-ui, sans-serif; font-size: 16px; fill: #111827; } </style> </defs> <rect class="box" x="40" y="50" width="200" height="60"></rect> <text class="box-label" x="60" y="75">A</text> <text class="digits" x="60" y="100">last digit 0</text> <rect class="box" x="300" y="50" width="200" height="60"></rect> <text class="box-label" x="320" y="75">B</text> <text class="digits" x="320" y="100">last digit 5</text> <rect class="box" x="560" y="50" width="200" height="60"></rect> <text class="box-label" x="580" y="75">C</text> <text class="digits" x="580" y="100">last digit 1 or 9</text> <rect class="box" x="40" y="130" width="200" height="60"></rect> <text class="box-label" x="60" y="155">D</text> <text class="digits" x="60" y="180">last digit 2 or 8</text> <rect class="box" x="300" y="130" width="200" height="60"></rect> <text class="box-label" x="320" y="155">E</text> <text class="digits" x="320" y="180">last digit 3 or 7</text> <rect class="box" x="560" y="130" width="200" height="60"></rect> <text class="box-label" x="580" y="155">F</text> <text class="digits" x="580" y="180">last digit 4 or 6</text>
+</svg>
+<p>In <strong>every case</strong>,<br>
+two numbers in the same box have sum or difference divisible by 10.</p>
+</section>
+<section id="why-regexdfas-cant-do-0n1n" class="slide level2">
+<h2>Why Regex/DFAs Can’t Do <span class="math inline">\(0^n1^n\)</span></h2>
+<p><strong>Language:</strong> <span class="math inline">\(\{\,0^n1^n : n\ge 0\,\}\)</span> (equal 0s followed by equal 1s)</p>
+<p><strong>Finite-state limitation:</strong></p>
+<p>Assume a DFA exists that accepts <span class="math inline">\(0^n1^n\)</span>, and let <span class="math inline">\(k\)</span> denote its number of states.</p>
+<p>Among the <span class="math inline">\(k+1\)</span> prefixes <span class="math inline">\(0^0, 0^1, \dots, 0^k\)</span> two must land in the <strong>same</strong> state.</p>
+<p>From those two prefixes, feed the <strong>same</strong> number of 1s. One string should accept, and the other should not.</p>
+<aside class="notes">
+<p>Not all languages are regular! No Pumping Lemma needed; it’s a pigeonhole/“can’t count unboundedly” story.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="summary" class="slide level2 smaller">
+<h2>Summary</h2>
+<ul>
+<li><p>Pigeonhole Principle:</p>
+<blockquote>
+<p>If you have too many objects for the number of boxes,<br>
+<strong>some box must be crowded.</strong></p>
+</blockquote></li>
+<li><p>Tennis balls:</p>
+<ul>
+<li>29 balls, 4 players → some player has at least 8 balls.</li>
+</ul></li>
+<li><p>“Sum or difference divisible by 10”:</p>
+<ul>
+<li>7 integers, 6 boxes →<br>
+some box has 2 numbers whose sum or difference is divisible by 10.</li>
+</ul></li>
+</ul>
+<p>The <em>art</em> is choosing <strong>what counts as a box</strong>.</p>
+<aside class="notes">
+<p>Emphasize: - The principle is simple. - The creativity is in modeling: deciding how to categorize.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="try-this" class="slide level2 smaller">
+<h2>Try This!</h2>
+<p>Among <strong>40 people</strong>, show that two of them must have birthdays that are <strong>within 9 days</strong> of each other.</p>
+<aside class="notes">
+<p>Let them wrestle.<br>
+Most will try: “365 days → 40 is tiny… maybe not?”<br>
+Guide them toward <em>chunking the year</em>.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="a-hint" class="slide level2 smaller">
+<h2>A Hint…</h2>
+<p>Think of the <strong>calendar</strong> as a long strip of 365 days:</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>What would happen if we divide the year into blocks _______________?</p>
+<p>How many blocks is that?</p>
+</section>
+<section id="the-hidden-boxes" class="slide level2 smaller">
+<h2>The Hidden Boxes</h2>
+<p>If the year is divided into <strong>10-day blocks</strong>, then:</p>
+<ul>
+<li><p>Number of <strong>boxes</strong> =<br>
+<span class="math display">\[
+\left\lceil \frac{365}{10} \right\rceil = 37
+\]</span></p></li>
+<li><p>Number of <strong>pigeons</strong> = <strong>40 birthdays</strong></p></li>
+</ul>
+<p>&nbsp;</p>
+<p>By the <strong>Pigeonhole Principle</strong>,<br>
+some block must contain <strong>at least 2 birthdays</strong>.</p>
+</section>
+<section id="why-does-this-work" class="slide level2 smaller">
+<h2>Why Does This Work?</h2>
+<p>If two birthdays lie in the <strong>same 10-day block</strong>,<br>
+their dates differ by at most <strong>9 days</strong>.</p>
+<p>&nbsp;</p>
+<p>Therefore:</p>
+<blockquote>
+<p><strong>Among any 40 people, two have birthdays<br>
+within 9 days of each other.</strong></p>
+</blockquote>
+<aside class="notes">
+<p>A perfect example of: - choosing your own “boxes” - converting a continuous quantity into categories<br>
+- using PHP in a <em>modeling</em> way</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
 <section>
 <section id="feature-spaces-and-the-curse-of-dimensionality" class="title-slide slide level1 center">
 <h1>Feature Spaces and the Curse of Dimensionality</h1>
