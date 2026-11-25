@@ -350,7 +350,7 @@ Given: **20 beads**, each a **different color**. Make a **circular bracelet** by
 
 
 **Question:**  
-How many *different* bracelets can be made?
+How many *different* bracelets can be made? How does this differ from table seating?
 
 ::: notes
 🧶 *Think first:*  
@@ -364,6 +364,7 @@ How many *different* bracelets can be made?
 :::
 ::: notes
 > **Notes:**  
+> Bracelets vs. tables: a bracelet can also be flipped over, so each bracelet and its mirror image are the same. That halves the table count: $19!/2$.  
 > This parallels circular permutations, but now students must reason about **rotations and reflections** together (dihedral symmetry).  
 > Encourage qualitative reasoning before formulas — the goal is generalization, not numeric computation.  
 >  
