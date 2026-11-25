@@ -371,7 +371,7 @@ How many *different* bracelets can be made? How does this differ from table seat
 > ⏱️ *Timing:* 5 minutes total (2 think, 2 pair, 1 share).
 :::
 
-## Choosing a Committee {.activity}
+## Choosing a Committee {.activity .smaller}
 
 **Goal:** From 8 people, form a **3-person committee**.
 
