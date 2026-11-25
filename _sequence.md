@@ -272,3 +272,5 @@ Revised the same day: Cinda records a ~10 min Friday video reviewing the Chomsky
 Then (same day): Cinda wants L30 to start with the whole Counting Rows section, so the melt warm-up and Visualizing Wide to Long are in both decks on purpose (she goes fast over them on Wednesday).
 
 **2026-11-24 (later).** Cinda: no pigeonhole this week; L30 goes up through balls and bins (Exploration 1, cookie partitions, stars and bars). EX5 covers counting up to there. Pigeonhole and functions practice moved from practice-ex5 to a hidden practice-final. L30 was revealed early (reveal-early.csv) so Cinda could review it.
+
+**2026-11-24 (evening).** Exploration 1: Partitions (cookie counters, Knights of the Round Table, constrained partitions) moved from L30 to the start of L31, the Friday video; L31 retitled "Partitions, Functions and Models". L30 also changed today: melt cut to two slides, Plate Tables activity (4, then 6, then k people), the committee is now 4 from 10 (210), and the two playlist-structure slides were merged.
