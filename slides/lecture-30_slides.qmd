@@ -241,7 +241,7 @@ $$
 Now we bend the rules for permutations and combinations: round tables, bracelets and committees.
 
 
-## Plate Tables {.activity}
+## Plate Tables {.activity .smaller}
 
 Each group gets one paper plate (the table) and 4 cards (the people). Spinning the plate doesn't change a seating: everyone has the same neighbours.
 
