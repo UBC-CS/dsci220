@@ -577,14 +577,14 @@ Encourage qualitative reasoning before formulas — the goal is generalization, 
 </section>
 <section id="choosing-a-committee" class="slide level2 activity smaller">
 <h2>Choosing a Committee</h2>
-<p><strong>Goal:</strong> From 8 people, form a <strong>3-person committee</strong>.</p>
+<p><strong>Goal:</strong> From 10 people, form a <strong>4-person committee</strong>.</p>
 <p>&nbsp;</p>
 <p><strong>Question:</strong><br>
 How many different committees could we form?</p>
 <p>&nbsp;</p>
 <p><strong>Discuss:</strong></p>
 <ol type="1">
-<li>Consider it a <strong>sequence of 3 choices</strong><br>
+<li>Consider it a <strong>sequence of 4 choices</strong><br>
 </li>
 <li>Which of those describe the <strong>same</strong> committee?<br>
 </li>
@@ -613,20 +613,20 @@ Students should reason qualitatively that each distinct committee corresponds to
 </section>
 <section id="from-choices-to-combinations" class="slide level2 smaller">
 <h2>From Choices to Combinations</h2>
-<p>Model our 3-person committee.</p>
+<p>Model our 4-person committee.</p>
 <p>If we make choices one at a time:</p>
 <p><span class="math display">\[
-8 \times 7 \times 6 = 336
+10 \times 9 \times 8 \times 7 = 5040
 \]</span></p>
-<p>That counts <strong>every possible order</strong> of picking 3 people.</p>
-<p>But a committee doesn’t have an order — each group of 3 appears <span class="math inline">\(3! = 6\)</span> times, once for every possible order.</p>
+<p>That counts <strong>every possible order</strong> of picking 4 people.</p>
+<p>But a committee doesn’t have an order — each group of 4 appears <span class="math inline">\(4! = 24\)</span> times, once for every possible order.</p>
 <p>So the number of <strong>distinct committees</strong> is:</p>
 <p><span class="math display">\[
-\frac{8 \times 7 \times 6}{3!} = 56
+\frac{10 \times 9 \times 8 \times 7}{4!} = 210
 \]</span></p>
 <aside class="notes">
 <p>💡 <em>Model:</em><br>
-Each unordered committee corresponds to 3! ordered sequences.</p>
+Each unordered committee corresponds to 4! ordered sequences. Compare the plate: 4 people at a table, where only the 4 rotations were the same, so we divided by 4. On a committee all 24 orders are the same, so we divide by 24.</p>
 <blockquote>
 <p><strong>Notes:</strong><br>
 - Connect explicitly to the “rotations” reasoning — we’re dividing out symmetry again, this time the <em>order symmetry</em> of identical choices.<br>
