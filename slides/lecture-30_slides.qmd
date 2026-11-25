@@ -264,22 +264,13 @@ Each group gets one paper plate (the table) and 4 cards (the people).
 
 ## Counting under rotation {.smaller}
 
-Seat 4 people around a **round** table, with seats numbered 1 to 4.
-
-A row of seats gives $4! = 24$ arrangements. But at a round table, what if everyone moves one seat to the left?
+Seat 4 people around a **round** table, with seats numbered 1 to 4. A row of seats gives $4! = 24$ arrangements. But at a round table, what if everyone moves one seat to the left?
 
 \ 
 
-For any rotation, the group of people is sitting in the *same relative order.*
+Every rotation keeps everyone in the *same relative order*, so each seating appears 4 times among the 24. Thus we $\boxed{\phantom{000000}}$ the total by $\boxed{\phantom{000}}$.
 
-*For each* arrangement there are 4 equivalent. Thus we \_\_\_\_\_\_\_\_\_\_\_\_\_\_ the total by \_\_\_\_\_\_\_\_\_\_\_\_\_\_. 
-
-\ 
-
-**Alternatively** we can **fix one person’s seat**.  
-Then the remaining 3 can be arranged freely around the table.
-
-\ 
+**Alternatively**, we can **fix one person's seat**. Then the remaining 3 can be arranged freely around the table.
 
 Total distinct circular seatings: $(4 − 1)! = 6$.
 
