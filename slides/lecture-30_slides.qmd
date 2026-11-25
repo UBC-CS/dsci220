@@ -247,8 +247,8 @@ Each group gets one paper plate (the table) and 4 cards (the people).
 
 1. Seat 4 people around the plate. How many *different* seatings are there?
 2. How is this different from the playlists?
-3. Now there are 6 people. How many different seatings are there?
-4. Now there are $k$ people. How many different seatings are there?
+3. How many different seatings are there for 6 people?
+4. For $k$ people?
 
 \
 
@@ -264,7 +264,7 @@ Each group gets one paper plate (the table) and 4 cards (the people).
 
 ## Counting under rotation {.smaller}
 
-Now seat 4 people around a **round** table, with seats numbered 1 to 4.
+Seat 4 people around a **round** table, with seats numbered 1 to 4.
 
 A row of seats gives $4! = 24$ arrangements. But at a round table, what if everyone moves one seat to the left?
 
