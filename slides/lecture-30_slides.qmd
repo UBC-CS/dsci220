@@ -243,9 +243,9 @@ Now we bend the rules for permutations and combinations: round tables, bracelets
 
 ## Plate Tables {.activity .smaller}
 
-Each group gets one paper plate (the table) and 4 cards (the people). Spinning the plate doesn't change a seating: everyone has the same neighbours.
+Each group gets one paper plate (the table) and 4 cards (the people).
 
-1. Seat 4 people around the plate. How many *different* seatings are there? Spin the plate to check whether two seatings are the same.
+1. Seat 4 people around the plate. How many *different* seatings are there? Decide as a group what makes two seatings different.
 2. How is this different from the playlists?
 3. Now there are 6 people. How many different seatings are there? You don't need cards for this one.
 4. Now there are $k$ people. How many different seatings are there?
@@ -254,7 +254,7 @@ Each group gets one paper plate (the table) and 4 cards (the people). Spinning t
 
 ::: notes
 > **Notes:**
-> Groups of about 3 students, one plate and 4 cards each. They should write the names on the cards (or on the plate) so a seating survives a spin.
+> Groups of about 3 students, one plate and 4 cards each. Let groups argue about whether rotations count before anyone says so; the debrief settles it. They should write the names on the cards (or on the plate) so a seating survives a spin.
 > Playlists vs. plates: a playlist has a first song, so every position is different and all $4! = 24$ orders count. A plate has no first seat; only who sits next to whom matters, so the 4 rotations of a seating are one seating.
 > Answers: 4 people give $4!/4 = 3! = 6$; 6 people give $6!/6 = 5! = 120$; $k$ people give $k!/k = (k-1)!$.
 > The next slide is the debrief.
