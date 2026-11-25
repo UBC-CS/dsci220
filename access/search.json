@@ -3364,41 +3364,6 @@
     "text": "Summary\n\n\n\nConcept\nOrder Matters?\nModel\nEx Count\n\n\n\n\nPermutation\nYes\nOrdered arrangement\n4! = 24\n\n\nCombination\nNo\nUnordered selection\n\\(\\binom{4}{2} = 6\\)\n\n\n\nPunchline:\nCounting always starts with modeling the outcomes.\nOnce we know what counts as “different,” the computation follows.\n\n\nNotes:\nEnd with reflection: “What do we gain by naming these ideas?”\nEncourage them to see permutation and combination as families of counting models, not just formulas.\nOptional: connect to data sampling — rows (ordered) vs. groups (unordered).\n⏱️ Timing: 3–4 minutes as a closing summary."
   },
   {
-    "objectID": "slides/lecture-30_slides.html#visualizing-wide-to-long",
-    "href": "slides/lecture-30_slides.html#visualizing-wide-to-long",
-    "title": "Permutations and Combinations",
-    "section": "Visualizing Wide to Long",
-    "text": "Visualizing Wide to Long\nBefore melting (wide format):\n \n \n \nAfter melting (long format):\n \n \n\n\n\nEach wide row expands into three long rows — one for each temperature.\n\nEach (Object, Temperature) pair is one row, just like each (shirt, bottom, shoes) triple was one outfit.\n\nThe total number of rows = 4 objects × 3 temperatures = 12 outcomes.\n\n\n\nNotes:\nUse this visual to anchor the idea that melting enumerates combinations explicitly.\nOptional ask: “Where do we see repetition here? What does that tell us about memory use?”\n⏱️ Timing: 3 minutes (interpretation and discussion)"
-  },
-  {
-    "objectID": "slides/lecture-30_slides.html#visualizing-the-mapping-change",
-    "href": "slides/lecture-30_slides.html#visualizing-the-mapping-change",
-    "title": "Permutations and Combinations",
-    "section": "Visualizing the Mapping Change",
-    "text": "Visualizing the Mapping Change\n\n\nBefore melting:\nA function maps each Object to a tuple of states across temperatures:\n\\[ f:\\ \\text{Object} \\to (\\text{Cold},\\ \\text{Warm},\\ \\text{Hot}) \\]\nExample: \\[ f( \\text{Wicked Witch}) = ( \\text{fine}, \\text{drippy}, \\text{gone?}) \\]\n\nAfter melting:\nThe pair (Object, Temperature) is the input:\n\\[ g: ( \\text{Object}, \\text{Temperature}) \\to \\text{State} \\]\nExample: \\[g( \\text{Wicked Witch}, \\text{Warm}) = \\text{drippy} \\]\n\nThe input domain has expanded from Objects to Objects × Temperatures. Each input now produces a single scalar output instead of a vector.\nThis is why the melted data get longer — we’ve made all combinations explicit.\n\n\nNotes: Emphasize the structural change: multivariate output → single-valued function on a larger domain. This perspective connects directly to Cartesian products and the multiplication rule.\n⏱️ Timing: 3 minutes for explanation + brief class recap."
-  },
-  {
-    "objectID": "slides/lecture-30_slides.html#how-melting-affects-data-size",
-    "href": "slides/lecture-30_slides.html#how-melting-affects-data-size",
-    "title": "Permutations and Combinations",
-    "section": "How Melting Affects Data Size",
-    "text": "How Melting Affects Data Size\nWhen we melt data, we don’t add new information — we just make existing information longer and more explicit.\n\n\n\n\n\n\n\n\nFormat\nShape\nDescription\n\n\n\n\nWide\n(4, 4)\nOne row per object; columns for Cold, Warm, Hot\n\n\nLong (Melted)\n(12, 3)\nOne row for each (Object, Temperature) pair\n\n\n\nEffect: The number of rows increases by a factor equal to the number of melted columns.\nEach object’s name and each temperature label are now repeated multiple times.\nMemory tradeoff: Long data are larger in memory but easier to work with for grouping and plotting.\n\n\nPrompt: Why would we use a representation that takes more space?\nWhat’s the parallel to our counting models — when do we expand possibilities to make reasoning easier?\n\n\nNotes:\nEmphasize the connection to the multiplication rule: 4 objects × 3 temperatures = 12 outcomes.\nUse this as a conceptual bridge — from data transformation to counting combinations in the upcoming seating activity.\n⏱️ Timing: 3 minutes for explanation + 1 minute discussion."
-  },
-  {
-    "objectID": "slides/lecture-30_slides.html#observing-the-structure",
-    "href": "slides/lecture-30_slides.html#observing-the-structure",
-    "title": "Permutations and Combinations",
-    "section": "Observing the Structure",
-    "text": "Observing the Structure\nLet’s agree on a model for a playlist:\n\n\n\n1st\n2nd\n3rd\n4th\n\n\n\n\n?\n?\n?\n?\n\n\n\nEach playlist can be described as a 4-tuple:\n\n\n(1st song, 2nd song, 3rd song, 4th song)\n\n \nOur model is the set of all possible 4-tuples with no repeats.\n\n\nNotes:\nLink this back to the closet model: both are built from describing all possible outcomes.\nHere, though, the choices are dependent: once a song is used, it can’t be chosen again.\nIntroduce the term permutation: each arrangement of distinct objects where order matters.\n⏱️ Timing: 3 minutes setup + 2 minutes partner explanation."
-  },
-  {
-    "objectID": "slides/lecture-30_slides.html#building-an-arrangement",
-    "href": "slides/lecture-30_slides.html#building-an-arrangement",
-    "title": "Permutations and Combinations",
-    "section": "Building an Arrangement",
-    "text": "Building an Arrangement\nHow many choices do we have for each slot?\n\n1st song: 4 choices\n\n2nd song: 3 remaining\n\n3rd song: 2 remaining\n\n4th song: 1 remaining\n\n\\(\\text{Total} = 4 \\times 3 \\times 2 \\times 1 = 24\\) playlists\nThat’s the multiplication rule, just like outfits, but now the choices depend on previous ones.\n\n\nNotes:\nSame reasoning pattern as before: define the structure → count each step → multiply.\nThe number of choices shrinks at each step, but it is always 4, then 3, … no matter which songs came first. That’s what makes the product rule still work.\nReinforce vocabulary: these 24 orderings are permutations of 4 distinct items.\n⏱️ Timing: 4 minutes walkthrough + 2 minutes reflection."
-  },
-  {
     "objectID": "slides/lecture-32_slides.html#announcements",
     "href": "slides/lecture-32_slides.html#announcements",
     "title": "The Pigeonhole Principle; Feature Spaces",
