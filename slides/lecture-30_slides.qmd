@@ -373,7 +373,7 @@ How many *different* bracelets can be made? How does this differ from table seat
 
 ## Choosing a Committee {.activity .smaller}
 
-**Goal:** From 8 people, form a **3-person committee**.
+**Goal:** From 10 people, form a **4-person committee**.
 
 \ 
 
@@ -384,7 +384,7 @@ How many different committees could we form?
 
 **Discuss:**  
 
-1. Consider it a **sequence of 3 choices**  
+1. Consider it a **sequence of 4 choices**  
 2. Which of those describe the **same** committee?  
 3. How can we apply what we learned about rotations?
 
@@ -401,27 +401,27 @@ it’s who’s *in* the committee, not who was *picked first.*
 
 ## From Choices to Combinations {.smaller}
 
-Model our 3-person committee.
+Model our 4-person committee.
 
 If we make choices one at a time:
 
 $$
-8 \times 7 \times 6 = 336
+10 \times 9 \times 8 \times 7 = 5040
 $$
 
-That counts **every possible order** of picking 3 people.
+That counts **every possible order** of picking 4 people.
 
-But a committee doesn’t have an order — each group of 3 appears $3! = 6$ times, once for every possible order.
+But a committee doesn’t have an order — each group of 4 appears $4! = 24$ times, once for every possible order.
 
 So the number of **distinct committees** is:
 
 $$
-\frac{8 \times 7 \times 6}{3!} = 56
+\frac{10 \times 9 \times 8 \times 7}{4!} = 210
 $$
 
 ::: notes
 💡 *Model:*  
-Each unordered committee corresponds to 3! ordered sequences.
+Each unordered committee corresponds to 4! ordered sequences. Compare the plate: 4 people at a table, where only the 4 rotations were the same, so we divided by 4. On a committee all 24 orders are the same, so we divide by 24.
 
 > **Notes:**  
 > - Connect explicitly to the “rotations” reasoning — we’re dividing out symmetry again, this time the *order symmetry* of identical choices.  
