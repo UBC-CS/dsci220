@@ -3322,18 +3322,11 @@
     "text": "A New Counting Challenge\n \nMake a playlist from 4 songs: “Espresso”, “vampire”, “Taste”, and “Style”. Every song plays exactly once.\nQuestion:\nHow many different playlists are there?\nDiscuss:\n\nWhat counts as a different playlist?\n\nWhat information defines one playlist?\n\n\n\nNotes:\nBegin open-ended: let students say what makes two playlists different (the order).\nThe goal is for them to build a model of the outcomes before applying counting rules.\nThis primes them for permutations (order matters) and later combinations (order doesn’t).\n⏱️ Timing: 3–4 minutes of pair discussion + 1 minute group debrief."
   },
   {
-    "objectID": "slides/lecture-30_slides.html#observing-the-structure",
-    "href": "slides/lecture-30_slides.html#observing-the-structure",
+    "objectID": "slides/lecture-30_slides.html#building-a-playlist",
+    "href": "slides/lecture-30_slides.html#building-a-playlist",
     "title": "Permutations, Combinations, Pigeonholes",
-    "section": "Observing the Structure",
-    "text": "Observing the Structure\nLet’s agree on a model for a playlist:\n\n\n\n1st\n2nd\n3rd\n4th\n\n\n\n\n?\n?\n?\n?\n\n\n\nEach playlist can be described as a 4-tuple:\n\n\n(1st song, 2nd song, 3rd song, 4th song)\n\n \nOur model is the set of all possible 4-tuples with no repeats.\n\n\nNotes:\nLink this back to the closet model: both are built from describing all possible outcomes.\nHere, though, the choices are dependent: once a song is used, it can’t be chosen again.\nIntroduce the term permutation: each arrangement of distinct objects where order matters.\n⏱️ Timing: 3 minutes setup + 2 minutes partner explanation."
-  },
-  {
-    "objectID": "slides/lecture-30_slides.html#building-an-arrangement",
-    "href": "slides/lecture-30_slides.html#building-an-arrangement",
-    "title": "Permutations, Combinations, Pigeonholes",
-    "section": "Building an Arrangement",
-    "text": "Building an Arrangement\nHow many choices do we have for each slot?\n\n1st song: 4 choices\n\n2nd song: 3 remaining\n\n3rd song: 2 remaining\n\n4th song: 1 remaining\n\n\\(\\text{Total} = 4 \\times 3 \\times 2 \\times 1 = 24\\) playlists\nThat’s the multiplication rule, just like outfits, but now the choices depend on previous ones.\n\n\nNotes:\nSame reasoning pattern as before: define the structure → count each step → multiply.\nThe number of choices shrinks at each step, but it is always 4, then 3, … no matter which songs came first. That’s what makes the product rule still work.\nReinforce vocabulary: these 24 orderings are permutations of 4 distinct items.\n⏱️ Timing: 4 minutes walkthrough + 2 minutes reflection."
+    "section": "Building a Playlist",
+    "text": "Building a Playlist\nA playlist is a 4-tuple (1st song, 2nd song, 3rd song, 4th song) with no repeats. How many choices do we have for each slot?\n\n\n\n\n1st\n2nd\n3rd\n4th\n\n\n\n\nChoices\n4\n3\n2\n1\n\n\n\n\\(\\text{Total} = 4 \\times 3 \\times 2 \\times 1 = 24\\) playlists\nThis is the multiplication rule, but now each choice depends on the earlier ones: once a song is used, it can’t be chosen again. The number of choices is still 4, then 3, then 2, then 1, no matter which songs came first, so we can still multiply.\n\n\nNotes:\nIntroduce the term permutation: an arrangement of distinct objects where order matters. These 24 playlists are the permutations of 4 songs.\nThis slide combines the 2025 slides “Observing the Structure” and “Building an Arrangement”, which are at the end of the deck."
   },
   {
     "objectID": "slides/lecture-30_slides.html#permutations-1",
@@ -3677,6 +3670,20 @@
     "title": "Permutations, Combinations, Pigeonholes",
     "section": "How Melting Affects Data Size",
     "text": "How Melting Affects Data Size\nWhen we melt data, we don’t add new information — we just make existing information longer and more explicit.\n\n\n\n\n\n\n\n\nFormat\nShape\nDescription\n\n\n\n\nWide\n(4, 4)\nOne row per object; columns for Cold, Warm, Hot\n\n\nLong (Melted)\n(12, 3)\nOne row for each (Object, Temperature) pair\n\n\n\nEffect: The number of rows increases by a factor equal to the number of melted columns.\nEach object’s name and each temperature label are now repeated multiple times.\nMemory tradeoff: Long data are larger in memory but easier to work with for grouping and plotting.\n\n\nPrompt: Why would we use a representation that takes more space?\nWhat’s the parallel to our counting models — when do we expand possibilities to make reasoning easier?\n\n\nNotes:\nEmphasize the connection to the multiplication rule: 4 objects × 3 temperatures = 12 outcomes.\nUse this as a conceptual bridge — from data transformation to counting combinations in the upcoming seating activity.\n⏱️ Timing: 3 minutes for explanation + 1 minute discussion."
+  },
+  {
+    "objectID": "slides/lecture-30_slides.html#observing-the-structure",
+    "href": "slides/lecture-30_slides.html#observing-the-structure",
+    "title": "Permutations, Combinations, Pigeonholes",
+    "section": "Observing the Structure",
+    "text": "Observing the Structure\nLet’s agree on a model for a playlist:\n\n\n\n1st\n2nd\n3rd\n4th\n\n\n\n\n?\n?\n?\n?\n\n\n\nEach playlist can be described as a 4-tuple:\n\n\n(1st song, 2nd song, 3rd song, 4th song)\n\n \nOur model is the set of all possible 4-tuples with no repeats.\n\n\nNotes:\nLink this back to the closet model: both are built from describing all possible outcomes.\nHere, though, the choices are dependent: once a song is used, it can’t be chosen again.\nIntroduce the term permutation: each arrangement of distinct objects where order matters.\n⏱️ Timing: 3 minutes setup + 2 minutes partner explanation."
+  },
+  {
+    "objectID": "slides/lecture-30_slides.html#building-an-arrangement",
+    "href": "slides/lecture-30_slides.html#building-an-arrangement",
+    "title": "Permutations, Combinations, Pigeonholes",
+    "section": "Building an Arrangement",
+    "text": "Building an Arrangement\nHow many choices do we have for each slot?\n\n1st song: 4 choices\n\n2nd song: 3 remaining\n\n3rd song: 2 remaining\n\n4th song: 1 remaining\n\n\\(\\text{Total} = 4 \\times 3 \\times 2 \\times 1 = 24\\) playlists\nThat’s the multiplication rule, just like outfits, but now the choices depend on previous ones.\n\n\nNotes:\nSame reasoning pattern as before: define the structure → count each step → multiply.\nThe number of choices shrinks at each step, but it is always 4, then 3, … no matter which songs came first. That’s what makes the product rule still work.\nReinforce vocabulary: these 24 orderings are permutations of 4 distinct items.\n⏱️ Timing: 4 minutes walkthrough + 2 minutes reflection."
   },
   {
     "objectID": "slides/lecture-32_slides.html#announcements",
