@@ -3630,13 +3630,6 @@
     "text": "PHP\nWe have:\n\n7 integers (objects)\n\n6 boxes (based on last-digit)\n\nBy the Pigeonhole Principle, some box contains at least 2 of our integers.\nCheck each box:\n\n    A last digit 0  B last digit 5  C last digit 1 or 9  D last digit 2 or 8  E last digit 3 or 7  F last digit 4 or 6\n\nIn every case,\ntwo numbers in the same box have sum or difference divisible by 10."
   },
   {
-    "objectID": "slides/lecture-32_slides.html#why-regexdfas-cant-do-0n1n",
-    "href": "slides/lecture-32_slides.html#why-regexdfas-cant-do-0n1n",
-    "title": "The Pigeonhole Principle",
-    "section": "Why Regex/DFAs Can’t Do \\(0^n1^n\\)",
-    "text": "Why Regex/DFAs Can’t Do \\(0^n1^n\\)\nLanguage: \\(\\{\\,0^n1^n : n\\ge 0\\,\\}\\) (equal 0s followed by equal 1s)\nFinite-state limitation:\nAssume a DFA exists that accepts \\(0^n1^n\\), and let \\(k\\) denote its number of states.\nAmong the \\(k+1\\) prefixes \\(0^0, 0^1, \\dots, 0^k\\) two must land in the same state.\nFrom those two prefixes, feed the same number of 1s. One string should accept, and the other should not.\n\nNot all languages are regular! No Pumping Lemma needed; it’s a pigeonhole/“can’t count unboundedly” story."
-  },
-  {
     "objectID": "slides/lecture-32_slides.html#summary",
     "href": "slides/lecture-32_slides.html#summary",
     "title": "The Pigeonhole Principle",
@@ -3670,6 +3663,34 @@
     "title": "The Pigeonhole Principle",
     "section": "Why Does This Work?",
     "text": "Why Does This Work?\nIf two birthdays lie in the same 10-day block,\ntheir dates differ by at most 9 days.\n \nTherefore:\n\nAmong any 40 people, two have birthdays\nwithin 9 days of each other.\n\n\nA perfect example of: - choosing your own “boxes” - converting a continuous quantity into categories\n- using PHP in a modeling way"
+  },
+  {
+    "objectID": "slides/lecture-32_slides.html#counting-with-a-dfa",
+    "href": "slides/lecture-32_slides.html#counting-with-a-dfa",
+    "title": "The Pigeonhole Principle",
+    "section": "Counting with a DFA",
+    "text": "Counting with a DFA\nLet \\(L = \\{\\,0^n1^n : n \\geq 0\\,\\} = \\{\\varepsilon,\\ 01,\\ 0011,\\ 000111,\\ \\ldots\\}\\).\nA friend says they have built a DFA for \\(L\\) with 5 states. Without looking at it, show that their DFA gets some string wrong.\n\nFeed the DFA each of \\(\\varepsilon,\\ 0,\\ 00,\\ 000,\\ 0000,\\ 00000\\). What must be true of two of them?\nUse those two prefixes to build a string the DFA gets wrong.\nWould 100 states help?\n\n\n\nNotes:\n1. Six prefixes, five states: by the pigeonhole principle, two prefixes \\(0^i\\) and \\(0^j\\) with \\(i &lt; j\\) leave the DFA in the same state.\n2. Append \\(1^i\\) to both. \\(0^i1^i\\) is in \\(L\\) and \\(0^j1^i\\) is not, but the DFA is in the same state after both prefixes and then reads the same 1s, so it ends in the same state: it accepts both or rejects both. Either way it is wrong about one of them.\n3. No: with \\(k\\) states, use the \\(k + 1\\) prefixes \\(0^0, \\ldots, 0^k\\)."
+  },
+  {
+    "objectID": "slides/lecture-32_slides.html#two-prefixes-one-state",
+    "href": "slides/lecture-32_slides.html#two-prefixes-one-state",
+    "title": "The Pigeonhole Principle",
+    "section": "Two Prefixes, One State",
+    "text": "Two Prefixes, One State\nA DFA with \\(k\\) states reads the \\(k + 1\\) prefixes \\(0^0, 0^1, \\ldots, 0^k\\). By the pigeonhole principle, two of them, \\(0^i\\) and \\(0^j\\) with \\(i &lt; j\\), leave it in the same state.\n \nNow feed both of them \\(1^i\\):\n\n\n\nString\nIn \\(L\\)?\nFinal state\n\n\n\n\n\\(0^i1^i\\)\nyes\nthe same state for both,\n\n\n\\(0^j1^i\\)\nno\nso the same answer\n\n\n\n \nThe DFA gives both strings the same answer, so it is wrong about one of them. Since \\(k\\) was any number, no DFA recognizes \\(L\\).\n\n\nNotes:\nThe key fact: once two strings leave a DFA in the same state, the DFA can never tell them apart again, whatever comes next.\nReading \\(0^k\\) visits \\(k + 1\\) states, so some state repeats: there is a loop of 0s. Going round it once more adds 0s without the DFA noticing. That is the “pumping” in the pumping lemma."
+  },
+  {
+    "objectID": "slides/lecture-32_slides.html#pumping-lemma-lite-1",
+    "href": "slides/lecture-32_slides.html#pumping-lemma-lite-1",
+    "title": "The Pigeonhole Principle",
+    "section": "Pumping Lemma Lite",
+    "text": "Pumping Lemma Lite\nA DFA with \\(k\\) states can only remember \\(k\\) different things about what it has read.\n \nTo show a language is not regular: find infinitely many prefixes, every pair of which needs a different future.\nFor any two of them, \\(x\\) and \\(y\\), there is a suffix \\(z\\) with exactly one of \\(xz\\), \\(yz\\) in the language.\n \nThen however many states a DFA has, two of these prefixes share a state, and the DFA is wrong about \\(xz\\) or \\(yz\\).\nFor \\(0^n1^n\\) the prefixes are \\(0^0, 0^1, 0^2, \\ldots\\), and for \\(0^i\\) and \\(0^j\\) the suffix is \\(1^i\\).\n\n\nNotes:\nThis is the idea behind the pumping lemma (and the Myhill–Nerode theorem) without the quantifiers.\nRegular languages need only finite memory; \\(0^n1^n\\) needs to count without bound. A grammar (\\(S \\to 0S1 \\mid \\varepsilon\\)) can do it, which is why context-free languages are a bigger class."
+  },
+  {
+    "objectID": "slides/lecture-32_slides.html#regular-or-not",
+    "href": "slides/lecture-32_slides.html#regular-or-not",
+    "title": "The Pigeonhole Principle",
+    "section": "Regular or Not?",
+    "text": "Regular or Not?\nWhich of these languages are regular? For the ones that aren’t, which prefixes need different futures?\n\nBinary strings with no \\(11\\).\nBalanced brackets using ( ), [ ] and { } (Tutorial 9).\n\\(\\{\\,a^n b^{2n} : n \\geq 0\\,\\}\\).\nBinary strings with an even number of 0s.\n\n\n\nNotes:\n1. Regular: the 3-state DFA from HW5.\n2. Not regular: the prefixes \\((, ((, (((, \\ldots\\); for \\((^i\\) and \\((^j\\) the suffix \\()^i\\) works.\n3. Not regular: prefixes \\(a^0, a^1, a^2, \\ldots\\); for \\(a^i\\) and \\(a^j\\) the suffix \\(b^{2i}\\) works.\n4. Regular: two states, even and odd."
   },
   {
     "objectID": "slides/lecture-34_slides.html#announcements",

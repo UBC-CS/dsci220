@@ -475,27 +475,6 @@ then there is a box containing at least</p>
 <p>In <strong>every case</strong>,<br>
 two numbers in the same box have sum or difference divisible by 10.</p>
 </section>
-<section id="why-regexdfas-cant-do-0n1n" class="slide level2">
-<h2>Why Regex/DFAs Can’t Do <span class="math inline">\(0^n1^n\)</span></h2>
-<p><strong>Language:</strong> <span class="math inline">\(\{\,0^n1^n : n\ge 0\,\}\)</span> (equal 0s followed by equal 1s)</p>
-<p><strong>Finite-state limitation:</strong></p>
-<p>Assume a DFA exists that accepts <span class="math inline">\(0^n1^n\)</span>, and let <span class="math inline">\(k\)</span> denote its number of states.</p>
-<p>Among the <span class="math inline">\(k+1\)</span> prefixes <span class="math inline">\(0^0, 0^1, \dots, 0^k\)</span> two must land in the <strong>same</strong> state.</p>
-<p>From those two prefixes, feed the <strong>same</strong> number of 1s. One string should accept, and the other should not.</p>
-<aside class="notes">
-<p>Not all languages are regular! No Pumping Lemma needed; it’s a pigeonhole/“can’t count unboundedly” story.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
 <section id="summary" class="slide level2 smaller">
 <h2>Summary</h2>
 <ul>
@@ -583,6 +562,141 @@ within 9 days of each other.</strong></p>
 <aside class="notes">
 <p>A perfect example of: - choosing your own “boxes” - converting a continuous quantity into categories<br>
 - using PHP in a <em>modeling</em> way</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
+<section id="pumping-lemma-lite" class="title-slide slide level1 center">
+<h1>Pumping Lemma Lite</h1>
+
+</section>
+<section id="counting-with-a-dfa" class="slide level2 activity smaller">
+<h2>Counting with a DFA</h2>
+<p>Let <span class="math inline">\(L = \{\,0^n1^n : n \geq 0\,\} = \{\varepsilon,\ 01,\ 0011,\ 000111,\ \ldots\}\)</span>.</p>
+<p>A friend says they have built a DFA for <span class="math inline">\(L\)</span> with <strong>5 states</strong>. Without looking at it, show that their DFA gets some string wrong.</p>
+<ol type="1">
+<li>Feed the DFA each of <span class="math inline">\(\varepsilon,\ 0,\ 00,\ 000,\ 0000,\ 00000\)</span>. What must be true of two of them?</li>
+<li>Use those two prefixes to build a string the DFA gets wrong.</li>
+<li>Would 100 states help?</li>
+</ol>
+<aside class="notes">
+<blockquote>
+<p><strong>Notes:</strong><br>
+1. Six prefixes, five states: by the pigeonhole principle, two prefixes <span class="math inline">\(0^i\)</span> and <span class="math inline">\(0^j\)</span> with <span class="math inline">\(i &lt; j\)</span> leave the DFA in the same state.<br>
+2. Append <span class="math inline">\(1^i\)</span> to both. <span class="math inline">\(0^i1^i\)</span> is in <span class="math inline">\(L\)</span> and <span class="math inline">\(0^j1^i\)</span> is not, but the DFA is in the same state after both prefixes and then reads the same 1s, so it ends in the same state: it accepts both or rejects both. Either way it is wrong about one of them.<br>
+3. No: with <span class="math inline">\(k\)</span> states, use the <span class="math inline">\(k + 1\)</span> prefixes <span class="math inline">\(0^0, \ldots, 0^k\)</span>.</p>
+</blockquote>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="two-prefixes-one-state" class="slide level2 smaller">
+<h2>Two Prefixes, One State</h2>
+<p>A DFA with <span class="math inline">\(k\)</span> states reads the <span class="math inline">\(k + 1\)</span> prefixes <span class="math inline">\(0^0, 0^1, \ldots, 0^k\)</span>. By the pigeonhole principle, two of them, <span class="math inline">\(0^i\)</span> and <span class="math inline">\(0^j\)</span> with <span class="math inline">\(i &lt; j\)</span>, leave it in the <strong>same state</strong>.</p>
+<p>&nbsp;</p>
+<p>Now feed both of them <span class="math inline">\(1^i\)</span>:</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>String</th>
+<th style="text-align: center;">In <span class="math inline">\(L\)</span>?</th>
+<th style="text-align: center;">Final state</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(0^i1^i\)</span></td>
+<td style="text-align: center;">yes</td>
+<td style="text-align: center;">the same state for both,</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(0^j1^i\)</span></td>
+<td style="text-align: center;">no</td>
+<td style="text-align: center;">so the same answer</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>The DFA gives both strings the same answer, so it is wrong about one of them. Since <span class="math inline">\(k\)</span> was any number, <strong>no DFA recognizes <span class="math inline">\(L\)</span></strong>.</p>
+<aside class="notes">
+<blockquote>
+<p><strong>Notes:</strong><br>
+The key fact: once two strings leave a DFA in the same state, the DFA can never tell them apart again, whatever comes next.<br>
+Reading <span class="math inline">\(0^k\)</span> visits <span class="math inline">\(k + 1\)</span> states, so some state repeats: there is a loop of 0s. Going round it once more adds 0s without the DFA noticing. That is the “pumping” in the pumping lemma.</p>
+</blockquote>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="pumping-lemma-lite-1" class="slide level2 smaller">
+<h2>Pumping Lemma Lite</h2>
+<p>A DFA with <span class="math inline">\(k\)</span> states can only remember <span class="math inline">\(k\)</span> different things about what it has read.</p>
+<p>&nbsp;</p>
+<p><strong>To show a language is not regular:</strong> find infinitely many prefixes, every pair of which needs a different future.</p>
+<p>For any two of them, <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>, there is a suffix <span class="math inline">\(z\)</span> with exactly one of <span class="math inline">\(xz\)</span>, <span class="math inline">\(yz\)</span> in the language.</p>
+<p>&nbsp;</p>
+<p>Then however many states a DFA has, two of these prefixes share a state, and the DFA is wrong about <span class="math inline">\(xz\)</span> or <span class="math inline">\(yz\)</span>.</p>
+<p>For <span class="math inline">\(0^n1^n\)</span> the prefixes are <span class="math inline">\(0^0, 0^1, 0^2, \ldots\)</span>, and for <span class="math inline">\(0^i\)</span> and <span class="math inline">\(0^j\)</span> the suffix is <span class="math inline">\(1^i\)</span>.</p>
+<aside class="notes">
+<blockquote>
+<p><strong>Notes:</strong><br>
+This is the idea behind the pumping lemma (and the Myhill–Nerode theorem) without the quantifiers.<br>
+Regular languages need only finite memory; <span class="math inline">\(0^n1^n\)</span> needs to count without bound. A grammar (<span class="math inline">\(S \to 0S1 \mid \varepsilon\)</span>) can do it, which is why context-free languages are a bigger class.</p>
+</blockquote>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="regular-or-not" class="slide level2 activity smaller">
+<h2>Regular or Not?</h2>
+<p>Which of these languages are regular? For the ones that aren’t, which prefixes need different futures?</p>
+<ol type="1">
+<li>Binary strings with no <span class="math inline">\(11\)</span>.</li>
+<li>Balanced brackets using ( ), [ ] and { } (Tutorial 9).</li>
+<li><span class="math inline">\(\{\,a^n b^{2n} : n \geq 0\,\}\)</span>.</li>
+<li>Binary strings with an even number of 0s.</li>
+</ol>
+<aside class="notes">
+<blockquote>
+<p><strong>Notes:</strong><br>
+1. Regular: the 3-state DFA from HW5.<br>
+2. Not regular: the prefixes <span class="math inline">\((, ((, (((, \ldots\)</span>; for <span class="math inline">\((^i\)</span> and <span class="math inline">\((^j\)</span> the suffix <span class="math inline">\()^i\)</span> works.<br>
+3. Not regular: prefixes <span class="math inline">\(a^0, a^1, a^2, \ldots\)</span>; for <span class="math inline">\(a^i\)</span> and <span class="math inline">\(a^j\)</span> the suffix <span class="math inline">\(b^{2i}\)</span> works.<br>
+4. Regular: two states, even and odd.</p>
+</blockquote>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
