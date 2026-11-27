@@ -486,24 +486,6 @@ Check each box:
 In **every case**,  
 two numbers in the same box have sum or difference divisible by 10.
 
-## Why Regex/DFAs Can’t Do $0^n1^n$
-
-**Language:** $\{\,0^n1^n : n\ge 0\,\}$ (equal 0s followed by equal 1s)
-
-**Finite-state limitation:**  
-
-Assume a DFA exists that accepts $0^n1^n$, and let $k$ denote its number of states.
-
-Among the $k+1$ prefixes $0^0, 0^1, \dots, 0^k$ two must land in the **same** state.  
-
-From those two prefixes, feed the **same** number of 1s. One string should accept, and the other should not.
-
-
-::: notes
-Not all languages are regular!
-No Pumping Lemma needed; it’s a pigeonhole/“can’t count unboundedly” story.
-:::
-
 ## Summary {.smaller}
 
 - Pigeonhole Principle:
@@ -582,4 +564,85 @@ A perfect example of:
 - choosing your own “boxes”
 - converting a continuous quantity into categories  
 - using PHP in a *modeling* way
+:::
+
+# Pumping Lemma Lite
+
+## Counting with a DFA {.activity .smaller}
+
+Let $L = \{\,0^n1^n : n \geq 0\,\} = \{\varepsilon,\ 01,\ 0011,\ 000111,\ \ldots\}$.
+
+A friend says they have built a DFA for $L$ with **5 states**. Without looking at it, show that their DFA gets some string wrong.
+
+1. Feed the DFA each of $\varepsilon,\ 0,\ 00,\ 000,\ 0000,\ 00000$. What must be true of two of them?
+2. Use those two prefixes to build a string the DFA gets wrong.
+3. Would 100 states help?
+
+::: notes
+> **Notes:**  
+> 1. Six prefixes, five states: by the pigeonhole principle, two prefixes $0^i$ and $0^j$ with $i < j$ leave the DFA in the same state.  
+> 2. Append $1^i$ to both. $0^i1^i$ is in $L$ and $0^j1^i$ is not, but the DFA is in the same state after both prefixes and then reads the same 1s, so it ends in the same state: it accepts both or rejects both. Either way it is wrong about one of them.  
+> 3. No: with $k$ states, use the $k + 1$ prefixes $0^0, \ldots, 0^k$.
+:::
+
+## Two Prefixes, One State {.smaller}
+
+A DFA with $k$ states reads the $k + 1$ prefixes $0^0, 0^1, \ldots, 0^k$. By the pigeonhole principle, two of them, $0^i$ and $0^j$ with $i < j$, leave it in the **same state**.
+
+\ 
+
+Now feed both of them $1^i$:
+
+| String | In $L$? | Final state |
+|---|:---:|:---:|
+| $0^i1^i$ | yes | the same state for both, |
+| $0^j1^i$ | no | so the same answer |
+
+\ 
+
+The DFA gives both strings the same answer, so it is wrong about one of them. Since $k$ was any number, **no DFA recognizes $L$**.
+
+::: notes
+> **Notes:**  
+> The key fact: once two strings leave a DFA in the same state, the DFA can never tell them apart again, whatever comes next.  
+> Reading $0^k$ visits $k + 1$ states, so some state repeats: there is a loop of 0s. Going round it once more adds 0s without the DFA noticing. That is the "pumping" in the pumping lemma.
+:::
+
+## Pumping Lemma Lite {.smaller}
+
+A DFA with $k$ states can only remember $k$ different things about what it has read.
+
+\ 
+
+**To show a language is not regular:** find infinitely many prefixes, every pair of which needs a different future.
+
+For any two of them, $x$ and $y$, there is a suffix $z$ with exactly one of $xz$, $yz$ in the language.
+
+\ 
+
+Then however many states a DFA has, two of these prefixes share a state, and the DFA is wrong about $xz$ or $yz$.
+
+For $0^n1^n$ the prefixes are $0^0, 0^1, 0^2, \ldots$, and for $0^i$ and $0^j$ the suffix is $1^i$.
+
+::: notes
+> **Notes:**  
+> This is the idea behind the pumping lemma (and the Myhill–Nerode theorem) without the quantifiers.  
+> Regular languages need only finite memory; $0^n1^n$ needs to count without bound. A grammar ($S \to 0S1 \mid \varepsilon$) can do it, which is why context-free languages are a bigger class.
+:::
+
+## Regular or Not? {.activity .smaller}
+
+Which of these languages are regular? For the ones that aren't, which prefixes need different futures?
+
+1. Binary strings with no $11$.
+2. Balanced brackets using ( ), [ ] and { } (Tutorial 9).
+3. $\{\,a^n b^{2n} : n \geq 0\,\}$.
+4. Binary strings with an even number of 0s.
+
+::: notes
+> **Notes:**  
+> 1. Regular: the 3-state DFA from HW5.  
+> 2. Not regular: the prefixes $(, ((, (((, \ldots$; for $(^i$ and $(^j$ the suffix $)^i$ works.  
+> 3. Not regular: prefixes $a^0, a^1, a^2, \ldots$; for $a^i$ and $a^j$ the suffix $b^{2i}$ works.  
+> 4. Regular: two states, even and odd.
 :::
