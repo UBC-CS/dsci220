@@ -14,6 +14,24 @@ subtitle: "Lecture 32, {{< var course.code >}}, {{< var course.term >}}"
 </style>
 
 
+# Multinomial Warm-Up
+
+## Splitting the Data {.activity .smaller}
+
+A dataset has 10 rows. Before training a model, we split the rows into a **training set** of 6 rows, a **validation set** of 2 rows and a **test set** of 2 rows.
+
+1. How many different splits are there?
+2. Suppose instead each row is sent to one of the three sets, and the sizes can be anything. How many different assignments are there?
+3. How are your two answers related?
+
+::: notes
+> **Notes:**  
+> 1. $\binom{10}{6,2,2} = \frac{10!}{6!\,2!\,2!} = 1260$. Equivalently, choose the training rows, then the validation rows from what's left: $\binom{10}{6}\binom{4}{2} = 210 \cdot 6 = 1260$.  
+> 2. Each row has 3 choices: $3^{10} = 59049$.  
+> 3. 1260 is one term of the sum: adding $\binom{10}{x_1,x_2,x_3}$ over every $x_1 + x_2 + x_3 = 10$ gives $3^{10}$, as in Friday's video.  
+> This is `train_test_split` done twice, or `df.sample(frac=1)` cut into three pieces.
+:::
+
 # Pigeonhole Warm-Ups
 
 ## Warm-Up 1 {.smaller}
