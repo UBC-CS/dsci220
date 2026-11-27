@@ -3371,6 +3371,13 @@
     "text": "Announcements"
   },
   {
+    "objectID": "slides/lecture-32_slides.html#splitting-the-data",
+    "href": "slides/lecture-32_slides.html#splitting-the-data",
+    "title": "The Pigeonhole Principle; Feature Spaces",
+    "section": "Splitting the Data",
+    "text": "Splitting the Data\nA dataset has 10 rows. Before training a model, we split the rows into a training set of 6 rows, a validation set of 2 rows and a test set of 2 rows.\n\nHow many different splits are there?\nSuppose instead each row is sent to one of the three sets, and the sizes can be anything. How many different assignments are there?\nHow are your two answers related?\n\n\n\nNotes:\n1. \\(\\binom{10}{6,2,2} = \\frac{10!}{6!\\,2!\\,2!} = 1260\\). Equivalently, choose the training rows, then the validation rows from what’s left: \\(\\binom{10}{6}\\binom{4}{2} = 210 \\cdot 6 = 1260\\).\n2. Each row has 3 choices: \\(3^{10} = 59049\\).\n3. 1260 is one term of the sum: adding \\(\\binom{10}{x_1,x_2,x_3}\\) over every \\(x_1 + x_2 + x_3 = 10\\) gives \\(3^{10}\\), as in Friday’s video.\nThis is train_test_split done twice, or df.sample(frac=1) cut into three pieces."
+  },
+  {
     "objectID": "slides/lecture-32_slides.html#warm-up-1",
     "href": "slides/lecture-32_slides.html#warm-up-1",
     "title": "The Pigeonhole Principle; Feature Spaces",

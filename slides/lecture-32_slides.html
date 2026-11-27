@@ -164,6 +164,39 @@
 </style>
 </section>
 <section>
+<section id="multinomial-warm-up" class="title-slide slide level1 center">
+<h1>Multinomial Warm-Up</h1>
+
+</section>
+<section id="splitting-the-data" class="slide level2 activity smaller">
+<h2>Splitting the Data</h2>
+<p>A dataset has 10 rows. Before training a model, we split the rows into a <strong>training set</strong> of 6 rows, a <strong>validation set</strong> of 2 rows and a <strong>test set</strong> of 2 rows.</p>
+<ol type="1">
+<li>How many different splits are there?</li>
+<li>Suppose instead each row is sent to one of the three sets, and the sizes can be anything. How many different assignments are there?</li>
+<li>How are your two answers related?</li>
+</ol>
+<aside class="notes">
+<blockquote>
+<p><strong>Notes:</strong><br>
+1. <span class="math inline">\(\binom{10}{6,2,2} = \frac{10!}{6!\,2!\,2!} = 1260\)</span>. Equivalently, choose the training rows, then the validation rows from what’s left: <span class="math inline">\(\binom{10}{6}\binom{4}{2} = 210 \cdot 6 = 1260\)</span>.<br>
+2. Each row has 3 choices: <span class="math inline">\(3^{10} = 59049\)</span>.<br>
+3. 1260 is one term of the sum: adding <span class="math inline">\(\binom{10}{x_1,x_2,x_3}\)</span> over every <span class="math inline">\(x_1 + x_2 + x_3 = 10\)</span> gives <span class="math inline">\(3^{10}\)</span>, as in Friday’s video.<br>
+This is <code>train_test_split</code> done twice, or <code>df.sample(frac=1)</code> cut into three pieces.</p>
+</blockquote>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
 <section id="pigeonhole-warm-ups" class="title-slide slide level1 center">
 <h1>Pigeonhole Warm-Ups</h1>
 
